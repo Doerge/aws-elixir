@@ -16,7 +16,7 @@ defmodule AWS.DocDBElastic do
   @typedoc """
 
   ## Example:
-
+      
       cluster_snapshot_in_list() :: %{
         "clusterArn" => [String.t()],
         "snapshotArn" => [String.t()],
@@ -24,14 +24,14 @@ defmodule AWS.DocDBElastic do
         "snapshotName" => [String.t()],
         "status" => String.t()
       }
-
+      
   """
   @type cluster_snapshot_in_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cluster_input() :: %{
         optional("adminUserPassword") => String.t(),
         optional("authType") => String.t(),
@@ -45,67 +45,67 @@ defmodule AWS.DocDBElastic do
         optional("subnetIds") => list([String.t()]()),
         optional("vpcSecurityGroupIds") => list([String.t()]())
       }
-
+      
   """
   @type update_cluster_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_snapshot_output() :: %{
         required("snapshot") => cluster_snapshot()
       }
-
+      
   """
   @type create_cluster_snapshot_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_cluster_from_snapshot_output() :: %{
         required("cluster") => cluster()
       }
-
+      
   """
   @type restore_cluster_from_snapshot_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_cluster_output() :: %{
         "cluster" => cluster()
       }
-
+      
   """
   @type start_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_input() :: %{
         optional("backupRetentionPeriod") => [integer()],
         optional("clientToken") => [String.t()],
@@ -123,131 +123,131 @@ defmodule AWS.DocDBElastic do
         required("shardCapacity") => [integer()],
         required("shardCount") => [integer()]
       }
-
+      
   """
   @type create_cluster_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       copy_cluster_snapshot_input() :: %{
         optional("copyTags") => [boolean()],
         optional("kmsKeyId") => [String.t()],
         optional("tags") => map(),
         required("targetSnapshotName") => [String.t()]
       }
-
+      
   """
   @type copy_cluster_snapshot_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cluster_input() :: %{}
-
+      
   """
   @type get_cluster_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cluster_snapshots_input() :: %{
         optional("clusterArn") => [String.t()],
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         optional("snapshotType") => [String.t()]
       }
-
+      
   """
   @type list_cluster_snapshots_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_cluster_input() :: %{}
-
+      
   """
   @type stop_cluster_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_output() :: %{
         optional("clusters") => list(cluster_in_list()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_clusters_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_cluster_output() :: %{
         "cluster" => cluster()
       }
-
+      
   """
   @type stop_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_output() :: %{
         required("cluster") => cluster()
       }
-
+      
   """
   @type delete_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster() :: %{
         "adminUserName" => [String.t()],
         "authType" => String.t(),
@@ -267,82 +267,82 @@ defmodule AWS.DocDBElastic do
         "subnetIds" => list([String.t()]()),
         "vpcSecurityGroupIds" => list([String.t()]())
       }
-
+      
   """
   @type cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cluster_output() :: %{
         required("cluster") => cluster()
       }
-
+      
   """
   @type get_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_clusters_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cluster_output() :: %{
         required("cluster") => cluster()
       }
-
+      
   """
   @type update_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_snapshot() :: %{
         "adminUserName" => [String.t()],
         "clusterArn" => [String.t()],
@@ -356,157 +356,157 @@ defmodule AWS.DocDBElastic do
         "subnetIds" => list([String.t()]()),
         "vpcSecurityGroupIds" => list([String.t()]())
       }
-
+      
   """
   @type cluster_snapshot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_input() :: %{}
-
+      
   """
   @type delete_cluster_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cluster_snapshots_output() :: %{
         optional("nextToken") => String.t(),
         optional("snapshots") => list(cluster_snapshot_in_list()())
       }
-
+      
   """
   @type list_cluster_snapshots_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_output() :: %{
         required("cluster") => cluster()
       }
-
+      
   """
   @type create_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       shard() :: %{
         "createTime" => [String.t()],
         "shardId" => [String.t()],
         "status" => String.t()
       }
-
+      
   """
   @type shard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_snapshot_output() :: %{
         required("snapshot") => cluster_snapshot()
       }
-
+      
   """
   @type delete_cluster_snapshot_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_snapshot_input() :: %{}
-
+      
   """
   @type delete_cluster_snapshot_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_snapshot_input() :: %{
         optional("tags") => map(),
         required("clusterArn") => [String.t()],
         required("snapshotName") => [String.t()]
       }
-
+      
   """
   @type create_cluster_snapshot_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_cluster_from_snapshot_input() :: %{
         optional("kmsKeyId") => [String.t()],
         optional("shardCapacity") => [integer()],
@@ -516,60 +516,60 @@ defmodule AWS.DocDBElastic do
         optional("vpcSecurityGroupIds") => list([String.t()]()),
         required("clusterName") => [String.t()]
       }
-
+      
   """
   @type restore_cluster_from_snapshot_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_cluster_input() :: %{}
-
+      
   """
   @type start_cluster_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_in_list() :: %{
         "clusterArn" => [String.t()],
         "clusterName" => [String.t()],
         "status" => String.t()
       }
-
+      
   """
   @type cluster_in_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cluster_snapshot_input() :: %{}
-
+      
   """
   @type get_cluster_snapshot_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cluster_snapshot_output() :: %{
         required("snapshot") => cluster_snapshot()
       }
-
+      
   """
   @type get_cluster_snapshot_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       copy_cluster_snapshot_output() :: %{
         "snapshot" => cluster_snapshot()
       }
-
+      
   """
   @type copy_cluster_snapshot_output() :: %{String.t() => any()}
 
@@ -712,39 +712,45 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CopyClusterSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:`) The Amazon Resource Name (ARN) identifier of the
-    elastic cluster snapshot.
+  * `:snapshot_arn` (`t:string`) The Amazon Resource Name (ARN) identifier of the
+  elastic cluster snapshot.
 
   ## Optional parameters:
   """
-  @spec copy_cluster_snapshot(
-          AWS.Client.t(),
-          String.t(),
-          copy_cluster_snapshot_input(),
-          Keyword.t()
-        ) ::
+
+  @spec copy_cluster_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, copy_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_cluster_snapshot_errors()}
-  def copy_cluster_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
+
+  def copy_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/copy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -757,29 +763,40 @@ defmodule AWS.DocDBElastic do
 
   ## Optional parameters:
   """
-  @spec create_cluster(AWS.Client.t(), create_cluster_input(), Keyword.t()) ::
+
+  @spec create_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-  def create_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cluster(%Client{} = client, options \\ []) do
     url_path = "/cluster"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -791,29 +808,40 @@ defmodule AWS.DocDBElastic do
 
   ## Optional parameters:
   """
-  @spec create_cluster_snapshot(AWS.Client.t(), create_cluster_snapshot_input(), Keyword.t()) ::
+
+  @spec create_cluster_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_snapshot_errors()}
-  def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_cluster_snapshot(%Client{} = client, options \\ []) do
     url_path = "/cluster-snapshot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -822,22 +850,43 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster that is to be
-    deleted.
+  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster that is
+  to be deleted.
 
   ## Optional parameters:
   """
-  @spec delete_cluster(AWS.Client.t(), String.t(), delete_cluster_input(), Keyword.t()) ::
+
+  @spec delete_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-  def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def delete_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -846,7 +895,7 @@ defmodule AWS.DocDBElastic do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -858,27 +907,43 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteClusterSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot that
-    is to be deleted.
+  * `:snapshot_arn` (`t:string`) The ARN identifier of the elastic cluster
+  snapshot that is to be deleted.
 
   ## Optional parameters:
   """
-  @spec delete_cluster_snapshot(
-          AWS.Client.t(),
-          String.t(),
-          delete_cluster_snapshot_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_cluster_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_snapshot_errors()}
-  def delete_cluster_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
+
+  def delete_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -887,7 +952,7 @@ defmodule AWS.DocDBElastic do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -899,14 +964,16 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """
+
   @spec get_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_errors()}
+
   def get_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -941,14 +1008,17 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetClusterSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
+  * `:snapshot_arn` (`t:string`) The ARN identifier of the elastic cluster
+  snapshot.
 
   ## Optional parameters:
   """
+
   @spec get_cluster_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_snapshot_errors()}
+
   def get_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
 
@@ -985,19 +1055,21 @@ defmodule AWS.DocDBElastic do
   ## Parameters:
 
   ## Optional parameters:
-  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
-  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results
-    to receive in the response.
+  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
+  * `:max_results` (`t:string`) The maximum number of elastic cluster snapshot
+  results to receive in the response.
   * `:next_token` (`t:string`) A pagination token provided by a previous request.
-    If this parameter is specified, the response includes only records beyond
-    this token, up to the value specified by max-results.
-  * `:snapshot_type` (`t:`) The type of cluster snapshots to be returned. You can
-    specify one of the following values:
+  If this parameter is specified, the response includes only records beyond
+  this token, up to the value specified by max-results.
+  * `:snapshot_type` (`t:string`) The type of cluster snapshots to be returned.
+  You can specify one of the following values:
   """
+
   @spec list_cluster_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cluster_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_snapshots_errors()}
+
   def list_cluster_snapshots(%Client{} = client, options \\ []) do
     url_path = "/cluster-snapshots"
 
@@ -1066,16 +1138,18 @@ defmodule AWS.DocDBElastic do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results
-    to receive in the response.
+  * `:max_results` (`t:string`) The maximum number of elastic cluster snapshot
+  results to receive in the response.
   * `:next_token` (`t:string`) A pagination token provided by a previous request.
-    If this parameter is specified, the response includes only records beyond
-    this token, up to the value specified by max-results.
+  If this parameter is specified, the response includes only records beyond
+  this token, up to the value specified by max-results.
   """
+
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
+
   def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/clusters"
 
@@ -1129,14 +1203,16 @@ defmodule AWS.DocDBElastic do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
-    resource.
+  resource.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1171,38 +1247,45 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20RestoreClusterFromSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
+  * `:snapshot_arn` (`t:string`) The ARN identifier of the elastic cluster
+  snapshot.
 
   ## Optional parameters:
   """
-  @spec restore_cluster_from_snapshot(
-          AWS.Client.t(),
-          String.t(),
-          restore_cluster_from_snapshot_input(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_cluster_from_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_cluster_from_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_cluster_from_snapshot_errors()}
-  def restore_cluster_from_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
+
+  def restore_cluster_from_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/restore"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1211,33 +1294,44 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StartCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """
-  @spec start_cluster(AWS.Client.t(), String.t(), start_cluster_input(), Keyword.t()) ::
+
+  @spec start_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cluster_errors()}
-  def start_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def start_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/start"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1247,33 +1341,44 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StopCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """
-  @spec stop_cluster(AWS.Client.t(), String.t(), stop_cluster_input(), Keyword.t()) ::
+
+  @spec stop_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_cluster_errors()}
-  def stop_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def stop_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1283,33 +1388,44 @@ defmodule AWS.DocDBElastic do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
-    resource.
+  resource.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1319,28 +1435,45 @@ defmodule AWS.DocDBElastic do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
-    resource.
+  resource.
   * `:tag_keys` (`t:list[com.amazonaws.docdbelastic#TagKey]`) The tag keys to be
-    removed from the elastic cluster resource.
+  removed from the elastic cluster resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1349,7 +1482,7 @@ defmodule AWS.DocDBElastic do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1363,22 +1496,43 @@ defmodule AWS.DocDBElastic do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20UpdateCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+  * `:cluster_arn` (`t:string`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """
-  @spec update_cluster(AWS.Client.t(), String.t(), update_cluster_input(), Keyword.t()) ::
+
+  @spec update_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
-  def update_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

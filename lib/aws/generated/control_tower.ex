@@ -14,201 +14,201 @@ defmodule AWS.ControlTower do
   @typedoc """
 
   ## Example:
-
+      
       list_enabled_controls_output() :: %{
         "enabledControls" => list(enabled_control_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_enabled_controls_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_control_input() :: %{
         required("controlIdentifier") => String.t(),
         required("targetIdentifier") => String.t()
       }
-
+      
   """
   @type disable_control_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_control_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type disable_control_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enablement_status_summary() :: %{
         "lastOperationIdentifier" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type enablement_status_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_control_parameter() :: %{
         "key" => [String.t()],
         "value" => [any()]
       }
-
+      
   """
   @type enabled_control_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_enabled_baselines_input() :: %{
         optional("filter") => enabled_baseline_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_enabled_baselines_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_control_filter() :: %{
         "controlIdentifiers" => list(String.t()()),
         "driftStatuses" => list(list(any())()),
         "statuses" => list(list(any())())
       }
-
+      
   """
   @type enabled_control_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       landing_zone_operation_summary() :: %{
         "operationIdentifier" => String.t(),
         "operationType" => list(any()),
         "status" => list(any())
       }
-
+      
   """
   @type landing_zone_operation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_control_input() :: %{
         optional("parameters") => list(enabled_control_parameter()()),
         optional("tags") => map(),
         required("controlIdentifier") => String.t(),
         required("targetIdentifier") => String.t()
       }
-
+      
   """
   @type enable_control_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_landing_zone_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type update_landing_zone_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_enabled_control_output() :: %{
         "enabledControlDetails" => enabled_control_details()
       }
-
+      
   """
   @type get_enabled_control_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_enabled_controls_input() :: %{
         optional("filter") => enabled_control_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()],
         optional("targetIdentifier") => String.t()
       }
-
+      
   """
   @type list_enabled_controls_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_landing_zones_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()]
       }
-
+      
   """
   @type list_landing_zones_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_control_operations_output() :: %{
         "controlOperations" => list(control_operation_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_control_operations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_enabled_baseline_input() :: %{
         required("enabledBaselineIdentifier") => String.t()
       }
-
+      
   """
   @type reset_enabled_baseline_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_baseline_summary() :: %{
         "arn" => String.t(),
         "baselineIdentifier" => [String.t()],
@@ -216,61 +216,61 @@ defmodule AWS.ControlTower do
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => [String.t()]
       }
-
+      
   """
   @type enabled_baseline_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_baseline_operation_input() :: %{
         required("operationIdentifier") => String.t()
       }
-
+      
   """
   @type get_baseline_operation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       landing_zone_operation_filter() :: %{
         "statuses" => list(list(any())()),
         "types" => list(list(any())())
       }
-
+      
   """
   @type landing_zone_operation_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_baselines_output() :: %{
         "baselines" => list(baseline_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_baselines_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_enabled_baselines_output() :: %{
         "enabledBaselines" => list(enabled_baseline_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_enabled_baselines_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_control_summary() :: %{
         "arn" => String.t(),
         "controlIdentifier" => String.t(),
@@ -278,105 +278,105 @@ defmodule AWS.ControlTower do
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => String.t()
       }
-
+      
   """
   @type enabled_control_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       region() :: %{
         "name" => String.t()
       }
-
+      
   """
   @type region() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_baseline_input() :: %{
         required("enabledBaselineIdentifier") => String.t()
       }
-
+      
   """
   @type disable_baseline_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_enabled_baseline_output() :: %{
         "enabledBaselineDetails" => enabled_baseline_details()
       }
-
+      
   """
   @type get_enabled_baseline_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_baseline_parameter() :: %{
         "key" => [String.t()],
         "value" => any()
       }
-
+      
   """
   @type enabled_baseline_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_landing_zone_input() :: %{
         optional("tags") => map(),
         required("manifest") => any(),
         required("version") => String.t()
       }
-
+      
   """
   @type create_landing_zone_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_enabled_control_input() :: %{
         required("enabledControlIdentifier") => String.t()
       }
-
+      
   """
   @type get_enabled_control_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       landing_zone_detail() :: %{
         "arn" => String.t(),
         "driftStatus" => landing_zone_drift_status_summary(),
@@ -385,218 +385,218 @@ defmodule AWS.ControlTower do
         "status" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type landing_zone_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_landing_zone_input() :: %{
         required("landingZoneIdentifier") => [String.t()],
         required("manifest") => any(),
         required("version") => String.t()
       }
-
+      
   """
   @type update_landing_zone_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_landing_zones_output() :: %{
         "landingZones" => list(landing_zone_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_landing_zones_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_landing_zone_output() :: %{
         "landingZone" => landing_zone_detail()
       }
-
+      
   """
   @type get_landing_zone_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_landing_zone_operation_input() :: %{
         required("operationIdentifier") => String.t()
       }
-
+      
   """
   @type get_landing_zone_operation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_control_parameter_summary() :: %{
         "key" => [String.t()],
         "value" => [any()]
       }
-
+      
   """
   @type enabled_control_parameter_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_baseline_output() :: %{
         "arn" => String.t(),
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type enable_baseline_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_control_operation_input() :: %{
         required("operationIdentifier") => String.t()
       }
-
+      
   """
   @type get_control_operation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_landing_zone_input() :: %{
         required("landingZoneIdentifier") => [String.t()]
       }
-
+      
   """
   @type delete_landing_zone_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_landing_zone_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type delete_landing_zone_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_landing_zone_operation_output() :: %{
         "operationDetails" => landing_zone_operation_detail()
       }
-
+      
   """
   @type get_landing_zone_operation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_control_output() :: %{
         "arn" => String.t(),
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type enable_control_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       landing_zone_summary() :: %{
         "arn" => String.t()
       }
-
+      
   """
   @type landing_zone_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_landing_zone_operations_input() :: %{
         optional("filter") => landing_zone_operation_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()]
       }
-
+      
   """
   @type list_landing_zone_operations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_baseline_operation_output() :: %{
         "baselineOperation" => baseline_operation()
       }
-
+      
   """
   @type get_baseline_operation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       baseline_operation() :: %{
         "endTime" => non_neg_integer(),
         "operationIdentifier" => String.t(),
@@ -605,48 +605,48 @@ defmodule AWS.ControlTower do
         "status" => list(any()),
         "statusMessage" => [String.t()]
       }
-
+      
   """
   @type baseline_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_baseline_filter() :: %{
         "baselineIdentifiers" => list(String.t()()),
         "targetIdentifiers" => list(String.t()())
       }
-
+      
   """
   @type enabled_baseline_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_baseline_input() :: %{
         optional("parameters") => list(enabled_baseline_parameter()()),
         optional("tags") => map(),
@@ -654,14 +654,14 @@ defmodule AWS.ControlTower do
         required("baselineVersion") => String.t(),
         required("targetIdentifier") => String.t()
       }
-
+      
   """
   @type enable_baseline_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       control_operation() :: %{
         "controlIdentifier" => String.t(),
         "enabledControlIdentifier" => String.t(),
@@ -673,83 +673,83 @@ defmodule AWS.ControlTower do
         "statusMessage" => [String.t()],
         "targetIdentifier" => String.t()
       }
-
+      
   """
   @type control_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_control_operations_input() :: %{
         optional("filter") => control_operation_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_control_operations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
         "retryAfterSeconds" => [integer()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_enabled_baseline_input() :: %{
         optional("parameters") => list(enabled_baseline_parameter()()),
         required("baselineVersion") => String.t(),
         required("enabledBaselineIdentifier") => String.t()
       }
-
+      
   """
   @type update_enabled_baseline_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       control_operation_filter() :: %{
         "controlIdentifiers" => list(String.t()()),
         "controlOperationTypes" => list(list(any())()),
@@ -757,25 +757,25 @@ defmodule AWS.ControlTower do
         "statuses" => list(list(any())()),
         "targetIdentifiers" => list(String.t()())
       }
-
+      
   """
   @type control_operation_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_enabled_baseline_input() :: %{
         required("enabledBaselineIdentifier") => String.t()
       }
-
+      
   """
   @type get_enabled_baseline_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_baseline_details() :: %{
         "arn" => String.t(),
         "baselineIdentifier" => [String.t()],
@@ -784,61 +784,61 @@ defmodule AWS.ControlTower do
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => [String.t()]
       }
-
+      
   """
   @type enabled_baseline_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       landing_zone_drift_status_summary() :: %{
         "status" => list(any())
       }
-
+      
   """
   @type landing_zone_drift_status_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_enabled_control_input() :: %{
         required("enabledControlIdentifier") => String.t(),
         required("parameters") => list(enabled_control_parameter()())
       }
-
+      
   """
   @type update_enabled_control_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       baseline_summary() :: %{
         "arn" => [String.t()],
         "description" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type baseline_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_landing_zone_input() :: %{
         required("landingZoneIdentifier") => [String.t()]
       }
-
+      
   """
   @type reset_landing_zone_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_control_details() :: %{
         "arn" => String.t(),
         "controlIdentifier" => String.t(),
@@ -848,141 +848,141 @@ defmodule AWS.ControlTower do
         "targetIdentifier" => String.t(),
         "targetRegions" => list(region()())
       }
-
+      
   """
   @type enabled_control_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_control_operation_output() :: %{
         "controlOperation" => control_operation()
       }
-
+      
   """
   @type get_control_operation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_enabled_baseline_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type update_enabled_baseline_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_landing_zone_output() :: %{
         "arn" => String.t(),
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type create_landing_zone_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_baseline_output() :: %{
         "arn" => String.t(),
         "description" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type get_baseline_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_landing_zone_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type reset_landing_zone_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_landing_zone_operations_output() :: %{
         "landingZoneOperations" => list(landing_zone_operation_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_landing_zone_operations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enabled_baseline_parameter_summary() :: %{
         "key" => [String.t()],
         "value" => any()
       }
-
+      
   """
   @type enabled_baseline_parameter_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_baselines_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()]
       }
-
+      
   """
   @type list_baselines_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_enabled_baseline_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type reset_enabled_baseline_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_landing_zone_input() :: %{
         required("landingZoneIdentifier") => [String.t()]
       }
-
+      
   """
   @type get_landing_zone_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       drift_status_summary() :: %{
         "driftStatus" => list(any())
       }
-
+      
   """
   @type drift_status_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       landing_zone_operation_detail() :: %{
         "endTime" => non_neg_integer(),
         "operationIdentifier" => String.t(),
@@ -991,36 +991,36 @@ defmodule AWS.ControlTower do
         "status" => list(any()),
         "statusMessage" => [String.t()]
       }
-
+      
   """
   @type landing_zone_operation_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_enabled_control_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type update_enabled_control_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_baseline_output() :: %{
         "operationIdentifier" => String.t()
       }
-
+      
   """
   @type disable_baseline_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       control_operation_summary() :: %{
         "controlIdentifier" => String.t(),
         "enabledControlIdentifier" => String.t(),
@@ -1032,18 +1032,18 @@ defmodule AWS.ControlTower do
         "statusMessage" => [String.t()],
         "targetIdentifier" => String.t()
       }
-
+      
   """
   @type control_operation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_baseline_input() :: %{
         required("baselineIdentifier") => String.t()
       }
-
+      
   """
   @type get_baseline_input() :: %{String.t() => any()}
 
@@ -1263,29 +1263,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec create_landing_zone(AWS.Client.t(), create_landing_zone_input(), Keyword.t()) ::
+
+  @spec create_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_landing_zone_errors()}
-  def create_landing_zone(%Client{} = client, input, options \\ []) do
+
+  def create_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/create-landingzone"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1299,29 +1310,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec delete_landing_zone(AWS.Client.t(), delete_landing_zone_input(), Keyword.t()) ::
+
+  @spec delete_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_landing_zone_errors()}
-  def delete_landing_zone(%Client{} = client, input, options \\ []) do
+
+  def delete_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/delete-landingzone"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1337,29 +1359,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec disable_baseline(AWS.Client.t(), disable_baseline_input(), Keyword.t()) ::
+
+  @spec disable_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_baseline_errors()}
-  def disable_baseline(%Client{} = client, input, options \\ []) do
+
+  def disable_baseline(%Client{} = client, options \\ []) do
     url_path = "/disable-baseline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1375,29 +1408,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec disable_control(AWS.Client.t(), disable_control_input(), Keyword.t()) ::
+
+  @spec disable_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_control_errors()}
-  def disable_control(%Client{} = client, input, options \\ []) do
+
+  def disable_control(%Client{} = client, options \\ []) do
     url_path = "/disable-control"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1413,29 +1457,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec enable_baseline(AWS.Client.t(), enable_baseline_input(), Keyword.t()) ::
+
+  @spec enable_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_baseline_errors()}
-  def enable_baseline(%Client{} = client, input, options \\ []) do
+
+  def enable_baseline(%Client{} = client, options \\ []) do
     url_path = "/enable-baseline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1452,29 +1507,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec enable_control(AWS.Client.t(), enable_control_input(), Keyword.t()) ::
+
+  @spec enable_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_control_errors()}
-  def enable_control(%Client{} = client, input, options \\ []) do
+
+  def enable_control(%Client{} = client, options \\ []) do
     url_path = "/enable-control"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1489,29 +1555,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec get_baseline(AWS.Client.t(), get_baseline_input(), Keyword.t()) ::
+
+  @spec get_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_baseline_errors()}
-  def get_baseline(%Client{} = client, input, options \\ []) do
+
+  def get_baseline(%Client{} = client, options \\ []) do
     url_path = "/get-baseline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1528,29 +1605,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec get_baseline_operation(AWS.Client.t(), get_baseline_operation_input(), Keyword.t()) ::
+
+  @spec get_baseline_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_baseline_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_baseline_operation_errors()}
-  def get_baseline_operation(%Client{} = client, input, options \\ []) do
+
+  def get_baseline_operation(%Client{} = client, options \\ []) do
     url_path = "/get-baseline-operation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1566,29 +1654,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec get_control_operation(AWS.Client.t(), get_control_operation_input(), Keyword.t()) ::
+
+  @spec get_control_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_control_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_control_operation_errors()}
-  def get_control_operation(%Client{} = client, input, options \\ []) do
+
+  def get_control_operation(%Client{} = client, options \\ []) do
     url_path = "/get-control-operation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1600,29 +1699,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec get_enabled_baseline(AWS.Client.t(), get_enabled_baseline_input(), Keyword.t()) ::
+
+  @spec get_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enabled_baseline_errors()}
-  def get_enabled_baseline(%Client{} = client, input, options \\ []) do
+
+  def get_enabled_baseline(%Client{} = client, options \\ []) do
     url_path = "/get-enabled-baseline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1636,29 +1746,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec get_enabled_control(AWS.Client.t(), get_enabled_control_input(), Keyword.t()) ::
+
+  @spec get_enabled_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enabled_control_errors()}
-  def get_enabled_control(%Client{} = client, input, options \\ []) do
+
+  def get_enabled_control(%Client{} = client, options \\ []) do
     url_path = "/get-enabled-control"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1670,29 +1791,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec get_landing_zone(AWS.Client.t(), get_landing_zone_input(), Keyword.t()) ::
+
+  @spec get_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_landing_zone_errors()}
-  def get_landing_zone(%Client{} = client, input, options \\ []) do
+
+  def get_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/get-landingzone"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1705,33 +1837,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec get_landing_zone_operation(
-          AWS.Client.t(),
-          get_landing_zone_operation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_landing_zone_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_landing_zone_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_landing_zone_operation_errors()}
-  def get_landing_zone_operation(%Client{} = client, input, options \\ []) do
+
+  def get_landing_zone_operation(%Client{} = client, options \\ []) do
     url_path = "/get-landingzone-operation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1745,29 +1884,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec list_baselines(AWS.Client.t(), list_baselines_input(), Keyword.t()) ::
+
+  @spec list_baselines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_baselines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_baselines_errors()}
-  def list_baselines(%Client{} = client, input, options \\ []) do
+
+  def list_baselines(%Client{} = client, options \\ []) do
     url_path = "/list-baselines"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1781,29 +1931,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec list_control_operations(AWS.Client.t(), list_control_operations_input(), Keyword.t()) ::
+
+  @spec list_control_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_operations_errors()}
-  def list_control_operations(%Client{} = client, input, options \\ []) do
+
+  def list_control_operations(%Client{} = client, options \\ []) do
     url_path = "/list-control-operations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1819,29 +1980,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec list_enabled_baselines(AWS.Client.t(), list_enabled_baselines_input(), Keyword.t()) ::
+
+  @spec list_enabled_baselines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_baselines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enabled_baselines_errors()}
-  def list_enabled_baselines(%Client{} = client, input, options \\ []) do
+
+  def list_enabled_baselines(%Client{} = client, options \\ []) do
     url_path = "/list-enabled-baselines"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1856,29 +2028,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec list_enabled_controls(AWS.Client.t(), list_enabled_controls_input(), Keyword.t()) ::
+
+  @spec list_enabled_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_controls_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enabled_controls_errors()}
-  def list_enabled_controls(%Client{} = client, input, options \\ []) do
+
+  def list_enabled_controls(%Client{} = client, options \\ []) do
     url_path = "/list-enabled-controls"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1891,33 +2074,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec list_landing_zone_operations(
-          AWS.Client.t(),
-          list_landing_zone_operations_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_landing_zone_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_landing_zone_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_landing_zone_operations_errors()}
-  def list_landing_zone_operations(%Client{} = client, input, options \\ []) do
+
+  def list_landing_zone_operations(%Client{} = client, options \\ []) do
     url_path = "/list-landingzone-operations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1931,29 +2121,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec list_landing_zones(AWS.Client.t(), list_landing_zones_input(), Keyword.t()) ::
+
+  @spec list_landing_zones(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_landing_zones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_landing_zones_errors()}
-  def list_landing_zones(%Client{} = client, input, options \\ []) do
+
+  def list_landing_zones(%Client{} = client, options \\ []) do
     url_path = "/list-landingzones"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1968,10 +2169,12 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2012,29 +2215,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec reset_enabled_baseline(AWS.Client.t(), reset_enabled_baseline_input(), Keyword.t()) ::
+
+  @spec reset_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_enabled_baseline_errors()}
-  def reset_enabled_baseline(%Client{} = client, input, options \\ []) do
+
+  def reset_enabled_baseline(%Client{} = client, options \\ []) do
     url_path = "/reset-enabled-baseline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2051,29 +2265,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec reset_landing_zone(AWS.Client.t(), reset_landing_zone_input(), Keyword.t()) ::
+
+  @spec reset_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_landing_zone_errors()}
-  def reset_landing_zone(%Client{} = client, input, options \\ []) do
+
+  def reset_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/reset-landingzone"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2088,29 +2313,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2123,26 +2359,43 @@ defmodule AWS.ControlTower do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.controltower#TagKey]`) Tag keys to be
-    removed from the resource.
+  removed from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2151,7 +2404,7 @@ defmodule AWS.ControlTower do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2168,29 +2421,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec update_enabled_baseline(AWS.Client.t(), update_enabled_baseline_input(), Keyword.t()) ::
+
+  @spec update_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_enabled_baseline_errors()}
-  def update_enabled_baseline(%Client{} = client, input, options \\ []) do
+
+  def update_enabled_baseline(%Client{} = client, options \\ []) do
     url_path = "/update-enabled-baseline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2205,29 +2469,40 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec update_enabled_control(AWS.Client.t(), update_enabled_control_input(), Keyword.t()) ::
+
+  @spec update_enabled_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_enabled_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_enabled_control_errors()}
-  def update_enabled_control(%Client{} = client, input, options \\ []) do
+
+  def update_enabled_control(%Client{} = client, options \\ []) do
     url_path = "/update-enabled-control"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2241,28 +2516,39 @@ defmodule AWS.ControlTower do
 
   ## Optional parameters:
   """
-  @spec update_landing_zone(AWS.Client.t(), update_landing_zone_input(), Keyword.t()) ::
+
+  @spec update_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_landing_zone_errors()}
-  def update_landing_zone(%Client{} = client, input, options \\ []) do
+
+  def update_landing_zone(%Client{} = client, options \\ []) do
     url_path = "/update-landingzone"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

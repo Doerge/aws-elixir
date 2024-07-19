@@ -13,18 +13,18 @@ defmodule AWS.XRay do
   @typedoc """
 
   ## Example:
-
+      
       put_encryption_config_result() :: %{
         "EncryptionConfig" => encryption_config()
       }
-
+      
   """
   @type put_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_graph_result() :: %{
         "ContainsOldGroupVersions" => boolean(),
         "EndTime" => non_neg_integer(),
@@ -32,25 +32,25 @@ defmodule AWS.XRay do
         "Services" => list(service()()),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type get_service_graph_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_impact_graph_edge() :: %{
         "ReferenceId" => integer()
       }
-
+      
   """
   @type insight_impact_graph_edge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       edge_statistics() :: %{
         "ErrorStatistics" => error_statistics(),
         "FaultStatistics" => fault_statistics(),
@@ -58,14 +58,14 @@ defmodule AWS.XRay do
         "TotalCount" => float(),
         "TotalResponseTime" => float()
       }
-
+      
   """
   @type edge_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_summary() :: %{
         "Categories" => list(list(any())()),
         "ClientRequestImpactStatistics" => request_impact_statistics(),
@@ -81,14 +81,14 @@ defmodule AWS.XRay do
         "Summary" => String.t(),
         "TopAnomalousServices" => list(anomalous_service()())
       }
-
+      
   """
   @type insight_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_time_root_cause_service() :: %{
         "AccountId" => String.t(),
         "EntityPath" => list(response_time_root_cause_entity()()),
@@ -97,118 +97,118 @@ defmodule AWS.XRay do
         "Names" => list(String.t()()),
         "Type" => String.t()
       }
-
+      
   """
   @type response_time_root_cause_service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insights_configuration() :: %{
         "InsightsEnabled" => boolean(),
         "NotificationsEnabled" => boolean()
       }
-
+      
   """
   @type insights_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_config() :: %{
         "KeyId" => String.t(),
         "Status" => list(any()),
         "Type" => list(any())
       }
-
+      
   """
   @type encryption_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_encryption_config_request() :: %{
         optional("KeyId") => String.t(),
         required("Type") => list(any())
       }
-
+      
   """
   @type put_encryption_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_result() :: %{
         "Group" => group()
       }
-
+      
   """
   @type create_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_id_detail() :: %{
         "Id" => String.t()
       }
-
+      
   """
   @type instance_id_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_result() :: %{
         "Group" => group()
       }
-
+      
   """
   @type get_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_trace_segments_request() :: %{
         required("TraceSegmentDocuments") => list(String.t()())
       }
-
+      
   """
   @type put_trace_segments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_groups_request() :: %{
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type get_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sampling_rule_update() :: %{
         "Attributes" => map(),
         "FixedRate" => float(),
@@ -223,45 +223,45 @@ defmodule AWS.XRay do
         "ServiceType" => String.t(),
         "URLPath" => String.t()
       }
-
+      
   """
   @type sampling_rule_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_request() :: %{
         required("InsightId") => String.t()
       }
-
+      
   """
   @type get_insight_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       anomalous_service() :: %{
         "ServiceId" => service_id()
       }
-
+      
   """
   @type anomalous_service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_trace_summaries_request() :: %{
         optional("FilterExpression") => String.t(),
         optional("NextToken") => String.t(),
@@ -271,14 +271,14 @@ defmodule AWS.XRay do
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_trace_summaries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_impact_graph_service() :: %{
         "AccountId" => String.t(),
         "Edges" => list(insight_impact_graph_edge()()),
@@ -287,87 +287,87 @@ defmodule AWS.XRay do
         "ReferenceId" => integer(),
         "Type" => String.t()
       }
-
+      
   """
   @type insight_impact_graph_service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_trace_summaries_result() :: %{
         "ApproximateTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "TraceSummaries" => list(trace_summary()()),
         "TracesProcessedCount" => float()
       }
-
+      
   """
   @type get_trace_summaries_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sampling_rule_result() :: %{
         "SamplingRuleRecord" => sampling_rule_record()
       }
-
+      
   """
   @type create_sampling_rule_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_result() :: %{
         "ResourcePolicy" => resource_policy()
       }
-
+      
   """
   @type put_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       availability_zone_detail() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type availability_zone_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sampling_rule_request() :: %{
         optional("RuleARN") => String.t(),
         optional("RuleName") => String.t()
       }
-
+      
   """
   @type delete_sampling_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_telemetry_records_request() :: %{
         optional("EC2InstanceId") => String.t(),
         optional("Hostname") => String.t(),
         optional("ResourceARN") => String.t(),
         required("TelemetryRecords") => list(telemetry_record()())
       }
-
+      
   """
   @type put_telemetry_records_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sampling_statistic_summary() :: %{
         "BorrowCount" => integer(),
         "RequestCount" => integer(),
@@ -375,49 +375,49 @@ defmodule AWS.XRay do
         "SampledCount" => integer(),
         "Timestamp" => non_neg_integer()
       }
-
+      
   """
   @type sampling_statistic_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_root_cause() :: %{
         "ClientImpacting" => boolean(),
         "Services" => list(error_root_cause_service()())
       }
-
+      
   """
   @type error_root_cause() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_trace_graph_result() :: %{
         "NextToken" => String.t(),
         "Services" => list(service()())
       }
-
+      
   """
   @type get_trace_graph_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sampling_rules_request() :: %{
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type get_sampling_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service() :: %{
         "AccountId" => String.t(),
         "DurationHistogram" => list(histogram_entry()()),
@@ -433,25 +433,25 @@ defmodule AWS.XRay do
         "SummaryStatistics" => service_statistics(),
         "Type" => String.t()
       }
-
+      
   """
   @type service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       policy_size_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type policy_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sampling_target_document() :: %{
         "FixedRate" => float(),
         "Interval" => integer(),
@@ -459,193 +459,193 @@ defmodule AWS.XRay do
         "ReservoirQuotaTTL" => non_neg_integer(),
         "RuleName" => String.t()
       }
-
+      
   """
   @type sampling_target_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_traces_result() :: %{
         "NextToken" => String.t(),
         "Traces" => list(trace()()),
         "UnprocessedTraceIds" => list(String.t()())
       }
-
+      
   """
   @type batch_get_traces_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_request() :: %{
         optional("FilterExpression") => String.t(),
         optional("GroupARN") => String.t(),
         optional("GroupName") => String.t(),
         optional("InsightsConfiguration") => insights_configuration()
       }
-
+      
   """
   @type update_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment() :: %{
         "Document" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_events_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("InsightId") => String.t()
       }
-
+      
   """
   @type get_insight_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_traces_request() :: %{
         optional("NextToken") => String.t(),
         required("TraceIds") => list(String.t()())
       }
-
+      
   """
   @type batch_get_traces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_statistics() :: %{
         "OtherCount" => float(),
         "ThrottleCount" => float(),
         "TotalCount" => float()
       }
-
+      
   """
   @type error_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       value_with_service_ids() :: %{
         "AnnotationValue" => list(),
         "ServiceIds" => list(service_id()())
       }
-
+      
   """
   @type value_with_service_ids() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_statistics() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t(),
         "RuleName" => String.t()
       }
-
+      
   """
   @type unprocessed_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_policy_revision_id_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_policy_revision_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttled_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type throttled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sampling_rule_result() :: %{
         "SamplingRuleRecord" => sampling_rule_record()
       }
-
+      
   """
   @type update_sampling_rule_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sampling_rule_request() :: %{
         required("SamplingRuleUpdate") => sampling_rule_update()
       }
-
+      
   """
   @type update_sampling_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceName" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_telemetry_records_result() :: %{}
-
+      
   """
   @type put_telemetry_records_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_event() :: %{
         "ClientRequestImpactStatistics" => request_impact_statistics(),
         "EventTime" => non_neg_integer(),
@@ -653,26 +653,26 @@ defmodule AWS.XRay do
         "Summary" => String.t(),
         "TopAnomalousServices" => list(anomalous_service()())
       }
-
+      
   """
   @type insight_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_time_root_cause() :: %{
         "ClientImpacting" => boolean(),
         "Services" => list(response_time_root_cause_service()())
       }
-
+      
   """
   @type response_time_root_cause() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sampling_rule() :: %{
         "Attributes" => map(),
         "FixedRate" => float(),
@@ -688,27 +688,27 @@ defmodule AWS.XRay do
         "URLPath" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type sampling_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_trace_segment() :: %{
         "ErrorCode" => String.t(),
         "Id" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type unprocessed_trace_segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_graph_request() :: %{
         optional("GroupARN") => String.t(),
         optional("GroupName") => String.t(),
@@ -716,72 +716,72 @@ defmodule AWS.XRay do
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_service_graph_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_events_result() :: %{
         "InsightEvents" => list(insight_event()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_insight_events_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sampling_targets_request() :: %{
         required("SamplingStatisticsDocuments") => list(sampling_statistics_document()())
       }
-
+      
   """
   @type get_sampling_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sampling_strategy() :: %{
         "Name" => list(any()),
         "Value" => float()
       }
-
+      
   """
   @type sampling_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_summaries_request() :: %{
         optional("GroupARN") => String.t(),
         optional("GroupName") => String.t(),
@@ -791,14 +791,14 @@ defmodule AWS.XRay do
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_insight_summaries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_series_service_statistics() :: %{
         "EdgeSummaryStatistics" => edge_statistics(),
         "ResponseTimeHistogram" => list(histogram_entry()()),
@@ -806,36 +806,36 @@ defmodule AWS.XRay do
         "ServiceSummaryStatistics" => service_statistics(),
         "Timestamp" => non_neg_integer()
       }
-
+      
   """
   @type time_series_service_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sampling_targets_result() :: %{
         "LastRuleModification" => non_neg_integer(),
         "SamplingTargetDocuments" => list(sampling_target_document()()),
         "UnprocessedStatistics" => list(unprocessed_statistics()())
       }
-
+      
   """
   @type get_sampling_targets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_result() :: %{}
-
+      
   """
   @type delete_group_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       fault_root_cause_service() :: %{
         "AccountId" => String.t(),
         "EntityPath" => list(fault_root_cause_entity()()),
@@ -844,63 +844,63 @@ defmodule AWS.XRay do
         "Names" => list(String.t()()),
         "Type" => String.t()
       }
-
+      
   """
   @type fault_root_cause_service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resource_policies_request() :: %{
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_resource_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fault_statistics() :: %{
         "OtherCount" => float(),
         "TotalCount" => float()
       }
-
+      
   """
   @type fault_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_request() :: %{
         optional("FilterExpression") => String.t(),
         optional("InsightsConfiguration") => insights_configuration(),
         optional("Tags") => list(tag()()),
         required("GroupName") => String.t()
       }
-
+      
   """
   @type create_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_time_series_service_statistics_request() :: %{
         optional("EntitySelectorExpression") => String.t(),
         optional("ForecastStatistics") => boolean(),
@@ -911,50 +911,50 @@ defmodule AWS.XRay do
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_time_series_service_statistics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sampling_statistic_summaries_result() :: %{
         "NextToken" => String.t(),
         "SamplingStatisticSummaries" => list(sampling_statistic_summary()())
       }
-
+      
   """
   @type get_sampling_statistic_summaries_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_groups_result() :: %{
         "Groups" => list(group_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_trace_graph_request() :: %{
         optional("NextToken") => String.t(),
         required("TraceIds") => list(String.t()())
       }
-
+      
   """
   @type get_trace_graph_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_root_cause_service() :: %{
         "AccountId" => String.t(),
         "EntityPath" => list(error_root_cause_entity()()),
@@ -963,205 +963,205 @@ defmodule AWS.XRay do
         "Names" => list(String.t()()),
         "Type" => String.t()
       }
-
+      
   """
   @type error_root_cause_service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trace() :: %{
         "Duration" => float(),
         "Id" => String.t(),
         "LimitExceeded" => boolean(),
         "Segments" => list(segment()())
       }
-
+      
   """
   @type trace() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_encryption_config_request() :: %{}
-
+      
   """
   @type get_encryption_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_policy() :: %{
         "LastUpdatedTime" => non_neg_integer(),
         "PolicyDocument" => String.t(),
         "PolicyName" => String.t(),
         "PolicyRevisionId" => String.t()
       }
-
+      
   """
   @type resource_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fault_root_cause_entity() :: %{
         "Exceptions" => list(root_cause_exception()()),
         "Name" => String.t(),
         "Remote" => boolean()
       }
-
+      
   """
   @type fault_root_cause_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_root_cause_entity() :: %{
         "Exceptions" => list(root_cause_exception()()),
         "Name" => String.t(),
         "Remote" => boolean()
       }
-
+      
   """
   @type error_root_cause_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sampling_rule_result() :: %{
         "SamplingRuleRecord" => sampling_rule_record()
       }
-
+      
   """
   @type delete_sampling_rule_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sampling_rule_request() :: %{
         optional("Tags") => list(tag()()),
         required("SamplingRule") => sampling_rule()
       }
-
+      
   """
   @type create_sampling_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_request() :: %{
         optional("BypassPolicyLockoutCheck") => boolean(),
         optional("PolicyRevisionId") => String.t(),
         required("PolicyDocument") => String.t(),
         required("PolicyName") => String.t()
       }
-
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lockout_prevention_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type lockout_prevention_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alias() :: %{
         "Name" => String.t(),
         "Names" => list(String.t()()),
         "Type" => String.t()
       }
-
+      
   """
   @type alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_trace_segments_result() :: %{
         "UnprocessedTraceSegments" => list(unprocessed_trace_segment()())
       }
-
+      
   """
   @type put_trace_segments_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecast_statistics() :: %{
         "FaultCountHigh" => float(),
         "FaultCountLow" => float()
       }
-
+      
   """
   @type forecast_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sampling_rule_record() :: %{
         "CreatedAt" => non_neg_integer(),
         "ModifiedAt" => non_neg_integer(),
         "SamplingRule" => sampling_rule()
       }
-
+      
   """
   @type sampling_rule_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type rule_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sampling_statistic_summaries_request() :: %{
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type get_sampling_statistic_summaries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       backend_connection_errors() :: %{
         "ConnectionRefusedCount" => integer(),
         "HTTPCode4XXCount" => integer(),
@@ -1170,14 +1170,14 @@ defmodule AWS.XRay do
         "TimeoutCount" => integer(),
         "UnknownHostCount" => integer()
       }
-
+      
   """
   @type backend_connection_errors() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       telemetry_record() :: %{
         "BackendConnectionErrors" => backend_connection_errors(),
         "SegmentsReceivedCount" => integer(),
@@ -1186,40 +1186,40 @@ defmodule AWS.XRay do
         "SegmentsSpilloverCount" => integer(),
         "Timestamp" => non_neg_integer()
       }
-
+      
   """
   @type telemetry_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         optional("NextToken") => String.t(),
         required("ResourceARN") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_id() :: %{
         "AccountId" => String.t(),
         "Name" => String.t(),
         "Names" => list(String.t()()),
         "Type" => String.t()
       }
-
+      
   """
   @type service_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trace_summary() :: %{
         "Annotations" => map(),
         "AvailabilityZones" => list(availability_zone_detail()()),
@@ -1243,87 +1243,87 @@ defmodule AWS.XRay do
         "StartTime" => non_neg_integer(),
         "Users" => list(trace_user()())
       }
-
+      
   """
   @type trace_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_result() :: %{
         "Group" => group()
       }
-
+      
   """
   @type update_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group() :: %{
         "FilterExpression" => String.t(),
         "GroupARN" => String.t(),
         "GroupName" => String.t(),
         "InsightsConfiguration" => insights_configuration()
       }
-
+      
   """
   @type group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       request_impact_statistics() :: %{
         "FaultCount" => float(),
         "OkCount" => float(),
         "TotalCount" => float()
       }
-
+      
   """
   @type request_impact_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fault_root_cause() :: %{
         "ClientImpacting" => boolean(),
         "Services" => list(fault_root_cause_service()())
       }
-
+      
   """
   @type fault_root_cause() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       malformed_policy_document_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type malformed_policy_document_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_request() :: %{
         optional("GroupARN") => String.t(),
         optional("GroupName") => String.t()
       }
-
+      
   """
   @type delete_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_statistics() :: %{
         "ErrorStatistics" => error_statistics(),
         "FaultStatistics" => fault_statistics(),
@@ -1331,114 +1331,114 @@ defmodule AWS.XRay do
         "TotalCount" => float(),
         "TotalResponseTime" => float()
       }
-
+      
   """
   @type service_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sampling_rules_result() :: %{
         "NextToken" => String.t(),
         "SamplingRuleRecords" => list(sampling_rule_record()())
       }
-
+      
   """
   @type get_sampling_rules_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trace_user() :: %{
         "ServiceIds" => list(service_id()()),
         "UserName" => String.t()
       }
-
+      
   """
   @type trace_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_time_root_cause_entity() :: %{
         "Coverage" => float(),
         "Name" => String.t(),
         "Remote" => boolean()
       }
-
+      
   """
   @type response_time_root_cause_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_request() :: %{
         optional("PolicyRevisionId") => String.t(),
         required("PolicyName") => String.t()
       }
-
+      
   """
   @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_summary() :: %{
         "FilterExpression" => String.t(),
         "GroupARN" => String.t(),
         "GroupName" => String.t(),
         "InsightsConfiguration" => insights_configuration()
       }
-
+      
   """
   @type group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_impact_graph_request() :: %{
         optional("NextToken") => String.t(),
         required("EndTime") => non_neg_integer(),
         required("InsightId") => String.t(),
         required("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_insight_impact_graph_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_arn_detail() :: %{
         "ARN" => String.t()
       }
-
+      
   """
   @type resource_arn_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       root_cause_exception() :: %{
         "Message" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type root_cause_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight() :: %{
         "Categories" => list(list(any())()),
         "ClientRequestImpactStatistics" => request_impact_statistics(),
@@ -1453,23 +1453,23 @@ defmodule AWS.XRay do
         "Summary" => String.t(),
         "TopAnomalousServices" => list(anomalous_service()())
       }
-
+      
   """
   @type insight() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_result() :: %{}
-
+      
   """
   @type delete_resource_policy_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       edge() :: %{
         "Aliases" => list(alias()()),
         "EdgeType" => String.t(),
@@ -1480,74 +1480,74 @@ defmodule AWS.XRay do
         "StartTime" => non_neg_integer(),
         "SummaryStatistics" => edge_statistics()
       }
-
+      
   """
   @type edge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_request() :: %{
         optional("GroupARN") => String.t(),
         optional("GroupName") => String.t()
       }
-
+      
   """
   @type get_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       histogram_entry() :: %{
         "Count" => integer(),
         "Value" => float()
       }
-
+      
   """
   @type histogram_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_time_series_service_statistics_result() :: %{
         "ContainsOldGroupVersions" => boolean(),
         "NextToken" => String.t(),
         "TimeSeriesServiceStatistics" => list(time_series_service_statistics()())
       }
-
+      
   """
   @type get_time_series_service_statistics_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_summaries_result() :: %{
         "InsightSummaries" => list(insight_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_insight_summaries_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_encryption_config_result() :: %{
         "EncryptionConfig" => encryption_config()
       }
-
+      
   """
   @type get_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sampling_statistics_document() :: %{
         "BorrowCount" => integer(),
         "ClientID" => String.t(),
@@ -1556,26 +1556,26 @@ defmodule AWS.XRay do
         "SampledCount" => integer(),
         "Timestamp" => non_neg_integer()
       }
-
+      
   """
   @type sampling_statistics_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "Message" => String.t(),
         "ResourceName" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_impact_graph_result() :: %{
         "EndTime" => non_neg_integer(),
         "InsightId" => String.t(),
@@ -1585,25 +1585,25 @@ defmodule AWS.XRay do
         "Services" => list(insight_impact_graph_service()()),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type get_insight_impact_graph_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_result() :: %{
         "Insight" => insight()
       }
-
+      
   """
   @type get_insight_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       http() :: %{
         "ClientIp" => String.t(),
         "HttpMethod" => String.t(),
@@ -1611,30 +1611,30 @@ defmodule AWS.XRay do
         "HttpURL" => String.t(),
         "UserAgent" => String.t()
       }
-
+      
   """
   @type http() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       policy_count_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type policy_count_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resource_policies_result() :: %{
         "NextToken" => String.t(),
         "ResourcePolicies" => list(resource_policy()())
       }
-
+      
   """
   @type list_resource_policies_result() :: %{String.t() => any()}
 
@@ -1743,29 +1743,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec batch_get_traces(AWS.Client.t(), batch_get_traces_request(), Keyword.t()) ::
+
+  @spec batch_get_traces(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_traces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_traces_errors()}
-  def batch_get_traces(%Client{} = client, input, options \\ []) do
+
+  def batch_get_traces(%Client{} = client, options \\ []) do
     url_path = "/Traces"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1777,29 +1788,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
+
+  @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-  def create_group(%Client{} = client, input, options \\ []) do
+
+  def create_group(%Client{} = client, options \\ []) do
     url_path = "/CreateGroup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1819,29 +1841,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec create_sampling_rule(AWS.Client.t(), create_sampling_rule_request(), Keyword.t()) ::
+
+  @spec create_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sampling_rule_errors()}
-  def create_sampling_rule(%Client{} = client, input, options \\ []) do
+
+  def create_sampling_rule(%Client{} = client, options \\ []) do
     url_path = "/CreateSamplingRule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1853,29 +1886,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec delete_group(AWS.Client.t(), delete_group_request(), Keyword.t()) ::
+
+  @spec delete_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-  def delete_group(%Client{} = client, input, options \\ []) do
+
+  def delete_group(%Client{} = client, options \\ []) do
     url_path = "/DeleteGroup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1887,29 +1931,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/DeleteResourcePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1921,29 +1976,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec delete_sampling_rule(AWS.Client.t(), delete_sampling_rule_request(), Keyword.t()) ::
+
+  @spec delete_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sampling_rule_errors()}
-  def delete_sampling_rule(%Client{} = client, input, options \\ []) do
+
+  def delete_sampling_rule(%Client{} = client, options \\ []) do
     url_path = "/DeleteSamplingRule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1955,29 +2021,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_encryption_config(AWS.Client.t(), get_encryption_config_request(), Keyword.t()) ::
+
+  @spec get_encryption_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_encryption_config_errors()}
-  def get_encryption_config(%Client{} = client, input, options \\ []) do
+
+  def get_encryption_config(%Client{} = client, options \\ []) do
     url_path = "/EncryptionConfig"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1989,29 +2066,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_group(AWS.Client.t(), get_group_request(), Keyword.t()) ::
+
+  @spec get_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-  def get_group(%Client{} = client, input, options \\ []) do
+
+  def get_group(%Client{} = client, options \\ []) do
     url_path = "/GetGroup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2023,29 +2111,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_groups(AWS.Client.t(), get_groups_request(), Keyword.t()) ::
+
+  @spec get_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_groups_errors()}
-  def get_groups(%Client{} = client, input, options \\ []) do
+
+  def get_groups(%Client{} = client, options \\ []) do
     url_path = "/Groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2059,29 +2158,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_insight(AWS.Client.t(), get_insight_request(), Keyword.t()) ::
+
+  @spec get_insight(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_errors()}
-  def get_insight(%Client{} = client, input, options \\ []) do
+
+  def get_insight(%Client{} = client, options \\ []) do
     url_path = "/Insight"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2095,29 +2205,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_insight_events(AWS.Client.t(), get_insight_events_request(), Keyword.t()) ::
+
+  @spec get_insight_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_events_errors()}
-  def get_insight_events(%Client{} = client, input, options \\ []) do
+
+  def get_insight_events(%Client{} = client, options \\ []) do
     url_path = "/InsightEvents"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2131,29 +2252,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_insight_impact_graph(AWS.Client.t(), get_insight_impact_graph_request(), Keyword.t()) ::
+
+  @spec get_insight_impact_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_impact_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_impact_graph_errors()}
-  def get_insight_impact_graph(%Client{} = client, input, options \\ []) do
+
+  def get_insight_impact_graph(%Client{} = client, options \\ []) do
     url_path = "/InsightImpactGraph"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2166,29 +2298,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_insight_summaries(AWS.Client.t(), get_insight_summaries_request(), Keyword.t()) ::
+
+  @spec get_insight_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_summaries_errors()}
-  def get_insight_summaries(%Client{} = client, input, options \\ []) do
+
+  def get_insight_summaries(%Client{} = client, options \\ []) do
     url_path = "/InsightSummaries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2200,29 +2343,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_sampling_rules(AWS.Client.t(), get_sampling_rules_request(), Keyword.t()) ::
+
+  @spec get_sampling_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_rules_errors()}
-  def get_sampling_rules(%Client{} = client, input, options \\ []) do
+
+  def get_sampling_rules(%Client{} = client, options \\ []) do
     url_path = "/GetSamplingRules"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2234,33 +2388,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_sampling_statistic_summaries(
-          AWS.Client.t(),
-          get_sampling_statistic_summaries_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_sampling_statistic_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_statistic_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_statistic_summaries_errors()}
-  def get_sampling_statistic_summaries(%Client{} = client, input, options \\ []) do
+
+  def get_sampling_statistic_summaries(%Client{} = client, options \\ []) do
     url_path = "/SamplingStatisticSummaries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2273,29 +2434,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_sampling_targets(AWS.Client.t(), get_sampling_targets_request(), Keyword.t()) ::
+
+  @spec get_sampling_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampling_targets_errors()}
-  def get_sampling_targets(%Client{} = client, input, options \\ []) do
+
+  def get_sampling_targets(%Client{} = client, options \\ []) do
     url_path = "/SamplingTargets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2313,29 +2485,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_service_graph(AWS.Client.t(), get_service_graph_request(), Keyword.t()) ::
+
+  @spec get_service_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_graph_errors()}
-  def get_service_graph(%Client{} = client, input, options \\ []) do
+
+  def get_service_graph(%Client{} = client, options \\ []) do
     url_path = "/ServiceGraph"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2347,33 +2530,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_time_series_service_statistics(
-          AWS.Client.t(),
-          get_time_series_service_statistics_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_time_series_service_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_time_series_service_statistics_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_time_series_service_statistics_errors()}
-  def get_time_series_service_statistics(%Client{} = client, input, options \\ []) do
+
+  def get_time_series_service_statistics(%Client{} = client, options \\ []) do
     url_path = "/TimeSeriesServiceStatistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2385,29 +2575,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_trace_graph(AWS.Client.t(), get_trace_graph_request(), Keyword.t()) ::
+
+  @spec get_trace_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_trace_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trace_graph_errors()}
-  def get_trace_graph(%Client{} = client, input, options \\ []) do
+
+  def get_trace_graph(%Client{} = client, options \\ []) do
     url_path = "/TraceGraph"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2424,29 +2625,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec get_trace_summaries(AWS.Client.t(), get_trace_summaries_request(), Keyword.t()) ::
+
+  @spec get_trace_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_trace_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trace_summaries_errors()}
-  def get_trace_summaries(%Client{} = client, input, options \\ []) do
+
+  def get_trace_summaries(%Client{} = client, options \\ []) do
     url_path = "/TraceSummaries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2458,29 +2670,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec list_resource_policies(AWS.Client.t(), list_resource_policies_request(), Keyword.t()) ::
+
+  @spec list_resource_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_policies_errors()}
-  def list_resource_policies(%Client{} = client, input, options \\ []) do
+
+  def list_resource_policies(%Client{} = client, options \\ []) do
     url_path = "/ListResourcePolicies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2493,29 +2716,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/ListTagsForResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2527,29 +2761,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec put_encryption_config(AWS.Client.t(), put_encryption_config_request(), Keyword.t()) ::
+
+  @spec put_encryption_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_encryption_config_errors()}
-  def put_encryption_config(%Client{} = client, input, options \\ []) do
+
+  def put_encryption_config(%Client{} = client, options \\ []) do
     url_path = "/PutEncryptionConfig"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2565,29 +2810,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/PutResourcePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2599,29 +2855,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec put_telemetry_records(AWS.Client.t(), put_telemetry_records_request(), Keyword.t()) ::
+
+  @spec put_telemetry_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_telemetry_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_telemetry_records_errors()}
-  def put_telemetry_records(%Client{} = client, input, options \\ []) do
+
+  def put_telemetry_records(%Client{} = client, options \\ []) do
     url_path = "/TelemetryRecords"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2641,29 +2908,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec put_trace_segments(AWS.Client.t(), put_trace_segments_request(), Keyword.t()) ::
+
+  @spec put_trace_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_trace_segments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_trace_segments_errors()}
-  def put_trace_segments(%Client{} = client, input, options \\ []) do
+
+  def put_trace_segments(%Client{} = client, options \\ []) do
     url_path = "/TraceSegments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2675,29 +2953,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/TagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2710,29 +2999,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/UntagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2744,29 +3044,40 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec update_group(AWS.Client.t(), update_group_request(), Keyword.t()) ::
+
+  @spec update_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-  def update_group(%Client{} = client, input, options \\ []) do
+
+  def update_group(%Client{} = client, options \\ []) do
     url_path = "/UpdateGroup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2778,28 +3089,39 @@ defmodule AWS.XRay do
 
   ## Optional parameters:
   """
-  @spec update_sampling_rule(AWS.Client.t(), update_sampling_rule_request(), Keyword.t()) ::
+
+  @spec update_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sampling_rule_errors()}
-  def update_sampling_rule(%Client{} = client, input, options \\ []) do
+
+  def update_sampling_rule(%Client{} = client, options \\ []) do
     url_path = "/UpdateSamplingRule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

@@ -12,262 +12,262 @@ defmodule AWS.CloudDirectory do
   @typedoc """
 
   ## Example:
-
+      
       incompatible_schema_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type incompatible_schema_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_facet_request() :: %{
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type get_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_attribute_range() :: %{
         "AttributeKey" => attribute_key(),
         "Range" => typed_attribute_value_range()
       }
-
+      
   """
   @type object_attribute_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_link_attributes() :: %{
         "AttributeNames" => list(String.t()()),
         "TypedLinkSpecifier" => typed_link_specifier()
       }
-
+      
   """
   @type batch_get_link_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_policy_attachments() :: %{
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "PolicyReference" => object_reference()
       }
-
+      
   """
   @type batch_list_policy_attachments() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_object_request() :: %{
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type delete_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       policy_to_path() :: %{
         "Path" => String.t(),
         "Policies" => list(policy_attachment()())
       }
-
+      
   """
   @type policy_to_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_incoming_typed_links_response() :: %{
         "LinkSpecifiers" => list(typed_link_specifier()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_incoming_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_object_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()())
       }
-
+      
   """
   @type get_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_object() :: %{
         "ChildReference" => object_reference(),
         "LinkName" => String.t(),
         "ParentReference" => object_reference()
       }
-
+      
   """
   @type batch_attach_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_index() :: %{
         "IndexReference" => object_reference(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "RangesOnIndexedValues" => list(object_attribute_range()())
       }
-
+      
   """
   @type batch_list_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_object_response() :: %{
         "detachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type batch_detach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_directory_request() :: %{
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type create_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_lookup_policy() :: %{
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_lookup_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_policies_response() :: %{
         "AttachedPolicyIds" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_object_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_published_schema_arns_response() :: %{
         "NextToken" => String.t(),
         "SchemaArns" => list(String.t()())
       }
-
+      
   """
   @type list_published_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_to_index_response() :: %{
         "AttachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type batch_attach_to_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_schema_request() :: %{
         required("Name") => String.t()
       }
-
+      
   """
   @type create_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_object_attributes() :: %{
         "AttributeNames" => list(String.t()()),
         "ObjectReference" => object_reference(),
         "SchemaFacet" => schema_facet()
       }
-
+      
   """
   @type batch_get_object_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typed_link_specifier() :: %{
         "IdentityAttributeValues" => list(attribute_name_and_value()()),
         "SourceObjectReference" => object_reference(),
         "TargetObjectReference" => object_reference(),
         "TypedLinkFacet" => typed_link_schema_and_facet_name()
       }
-
+      
   """
   @type typed_link_specifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_incoming_typed_links() :: %{
         "FilterAttributeRanges" => list(typed_link_attribute_range()()),
         "FilterTypedLink" => typed_link_schema_and_facet_name(),
@@ -275,195 +275,195 @@ defmodule AWS.CloudDirectory do
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_list_incoming_typed_links() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_remove_facet_from_object() :: %{
         "ObjectReference" => object_reference(),
         "SchemaFacet" => schema_facet()
       }
-
+      
   """
   @type batch_remove_facet_from_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_applied_schema_version_response() :: %{
         "AppliedSchemaArn" => String.t()
       }
-
+      
   """
   @type get_applied_schema_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_index_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_index_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_typed_link_facet_response() :: %{}
-
+      
   """
   @type create_typed_link_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_attached_indices() :: %{
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "TargetReference" => object_reference()
       }
-
+      
   """
   @type batch_list_attached_indices() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_directory_response() :: %{
         "DirectoryArn" => String.t()
       }
-
+      
   """
   @type disable_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_schema_as_json_response() :: %{
         "Document" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type get_schema_as_json_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retryable_conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type retryable_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_directory_response() :: %{
         "AppliedSchemaArn" => String.t(),
         "DirectoryArn" => String.t(),
         "Name" => String.t(),
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type create_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_applied_schema_version_request() :: %{
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type get_applied_schema_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_schema_request() :: %{
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type delete_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       schema_facet() :: %{
         "FacetName" => String.t(),
         "SchemaArn" => String.t()
       }
-
+      
   """
   @type schema_facet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_attributes() :: %{
         "FacetFilter" => schema_facet(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_list_object_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_object_response() :: %{}
-
+      
   """
   @type delete_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       object_reference() :: %{
         "Selector" => String.t()
       }
-
+      
   """
   @type object_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_write_operation_response() :: %{
         "AddFacetToObject" => batch_add_facet_to_object_response(),
         "AttachObject" => batch_attach_object_response(),
@@ -481,83 +481,83 @@ defmodule AWS.CloudDirectory do
         "UpdateLinkAttributes" => batch_update_link_attributes_response(),
         "UpdateObjectAttributes" => batch_update_object_attributes_response()
       }
-
+      
   """
   @type batch_write_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_write_request() :: %{
         required("DirectoryArn") => String.t(),
         required("Operations") => list(batch_write_operation()())
       }
-
+      
   """
   @type batch_write_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_directory_request() :: %{
         required("DirectoryArn") => String.t()
       }
-
+      
   """
   @type enable_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_policy_attachments_response() :: %{
         "NextToken" => String.t(),
         "ObjectIdentifiers" => list(String.t()())
       }
-
+      
   """
   @type batch_list_policy_attachments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_facet_update_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_facet_update_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_incoming_typed_links_response() :: %{
         "LinkSpecifiers" => list(typed_link_specifier()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type batch_list_incoming_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type facet_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attached_indices_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
@@ -565,85 +565,85 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("TargetReference") => object_reference()
       }
-
+      
   """
   @type list_attached_indices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_object_response() :: %{}
-
+      
   """
   @type batch_delete_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       directory_deleted_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type directory_deleted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lookup_policy_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type lookup_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_read_operation_response() :: %{
         "ExceptionResponse" => batch_read_exception(),
         "SuccessfulResponse" => batch_read_successful_response()
       }
-
+      
   """
   @type batch_read_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_typed_link_facet_names_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type list_typed_link_facet_names_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_children_response() :: %{
         "Children" => map(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_object_children_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_read_successful_response() :: %{
         "GetLinkAttributes" => batch_get_link_attributes_response(),
         "GetObjectAttributes" => batch_get_object_attributes_response(),
@@ -660,40 +660,40 @@ defmodule AWS.CloudDirectory do
         "ListPolicyAttachments" => batch_list_policy_attachments_response(),
         "LookupPolicy" => batch_lookup_policy_response()
       }
-
+      
   """
   @type batch_read_successful_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typed_link_schema_and_facet_name() :: %{
         "SchemaArn" => String.t(),
         "TypedLinkName" => String.t()
       }
-
+      
   """
   @type typed_link_schema_and_facet_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typed_attribute_value_range() :: %{
         "EndMode" => list(any()),
         "EndValue" => list(),
         "StartMode" => list(any()),
         "StartValue" => list()
       }
-
+      
   """
   @type typed_attribute_value_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_attributes_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("FacetFilter") => schema_facet(),
@@ -702,95 +702,95 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type list_object_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_link_attributes_response() :: %{}
-
+      
   """
   @type batch_update_link_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       detach_policy_request() :: %{
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference(),
         required("PolicyReference") => object_reference()
       }
-
+      
   """
   @type detach_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_schema_response() :: %{
         "PublishedSchemaArn" => String.t()
       }
-
+      
   """
   @type publish_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       directory() :: %{
         "CreationDateTime" => non_neg_integer(),
         "DirectoryArn" => String.t(),
         "Name" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type directory() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       link_attribute_action() :: %{
         "AttributeActionType" => list(any()),
         "AttributeUpdateValue" => list()
       }
-
+      
   """
   @type link_attribute_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_schema_response() :: %{
         "SchemaArn" => String.t()
       }
-
+      
   """
   @type update_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_directory_response() :: %{
         "DirectoryArn" => String.t()
       }
-
+      
   """
   @type enable_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_policies_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
@@ -798,460 +798,460 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type list_object_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_policy_response() :: %{}
-
+      
   """
   @type batch_detach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_attribute() :: %{
         "AttributeDefinition" => facet_attribute_definition(),
         "AttributeReference" => facet_attribute_reference(),
         "Name" => String.t(),
         "RequiredBehavior" => list(any())
       }
-
+      
   """
   @type facet_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_typed_link_facet_attributes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type list_typed_link_facet_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_link_attributes_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         required("AttributeNames") => list(String.t()()),
         required("DirectoryArn") => String.t(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
-
+      
   """
   @type get_link_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_development_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_development_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_schema_response() :: %{
         "SchemaArn" => String.t()
       }
-
+      
   """
   @type create_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_directory_request() :: %{
         required("DirectoryArn") => String.t()
       }
-
+      
   """
   @type disable_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       apply_schema_request() :: %{
         required("DirectoryArn") => String.t(),
         required("PublishedSchemaArn") => String.t()
       }
-
+      
   """
   @type apply_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_policy_response() :: %{}
-
+      
   """
   @type batch_attach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       schema_already_exists_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type schema_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       apply_schema_response() :: %{
         "AppliedSchemaArn" => String.t(),
         "DirectoryArn" => String.t()
       }
-
+      
   """
   @type apply_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       schema_already_published_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type schema_already_published_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_index_response() :: %{
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type batch_create_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_facet_attributes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type list_facet_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_add_facet_to_object_response() :: %{}
-
+      
   """
   @type batch_add_facet_to_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_remove_facet_from_object_response() :: %{}
-
+      
   """
   @type batch_remove_facet_from_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_object_information() :: %{
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_get_object_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_arn_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_policies_response() :: %{
         "AttachedPolicyIds" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type batch_list_object_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upgrade_published_schema_request() :: %{
         optional("DryRun") => boolean(),
         required("DevelopmentSchemaArn") => String.t(),
         required("MinorVersion") => String.t(),
         required("PublishedSchemaArn") => String.t()
       }
-
+      
   """
   @type upgrade_published_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_object_attributes_request() :: %{
         required("AttributeUpdates") => list(object_attribute_update()()),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type update_object_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_parent_paths_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type list_object_parent_paths_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_typed_link_facet_attributes_response() :: %{
         "Attributes" => list(typed_link_attribute_definition()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_typed_link_facet_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_node_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_node_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_parent_paths_response() :: %{
         "NextToken" => String.t(),
         "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
       }
-
+      
   """
   @type batch_list_object_parent_paths_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       index_attachment() :: %{
         "IndexedAttributes" => list(attribute_key_and_value()()),
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type index_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_parents_response() :: %{
         "NextToken" => String.t(),
         "ParentLinks" => list(object_identifier_and_link_name_tuple()())
       }
-
+      
   """
   @type batch_list_object_parents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_write_response() :: %{
         "Responses" => list(batch_write_operation_response()())
       }
-
+      
   """
   @type batch_write_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_parent_paths() :: %{
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_list_object_parent_paths() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_facet_response() :: %{}
-
+      
   """
   @type create_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_schema_from_json_response() :: %{
         "Arn" => String.t()
       }
-
+      
   """
   @type put_schema_from_json_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_parents_response() :: %{
         "NextToken" => String.t(),
         "ParentLinks" => list(object_identifier_and_link_name_tuple()()),
         "Parents" => map()
       }
-
+      
   """
   @type list_object_parents_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_directory_response() :: %{
         "Directory" => directory()
       }
-
+      
   """
   @type get_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_name_and_value() :: %{
         "AttributeName" => String.t(),
         "Value" => list()
       }
-
+      
   """
   @type attribute_name_and_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_object_request() :: %{
         required("ChildReference") => object_reference(),
         required("DirectoryArn") => String.t(),
         required("LinkName") => String.t(),
         required("ParentReference") => object_reference()
       }
-
+      
   """
   @type attach_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_read_exception() :: %{
         "Message" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type batch_read_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_children_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
@@ -1259,14 +1259,14 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type list_object_children_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typed_link_attribute_definition() :: %{
         "DefaultValue" => list(),
         "IsImmutable" => boolean(),
@@ -1275,362 +1275,362 @@ defmodule AWS.CloudDirectory do
         "Rules" => map(),
         "Type" => list(any())
       }
-
+      
   """
   @type typed_link_attribute_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_facet_names_response() :: %{
         "FacetNames" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_facet_names_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_attribute_update() :: %{
         "Action" => list(any()),
         "Attribute" => facet_attribute()
       }
-
+      
   """
   @type facet_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applied_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SchemaArn") => String.t(),
         required("DirectoryArn") => String.t()
       }
-
+      
   """
   @type list_applied_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detach_object_response() :: %{
         "DetachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type detach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_link_attributes_response() :: %{}
-
+      
   """
   @type update_link_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       add_facet_to_object_response() :: %{}
-
+      
   """
   @type add_facet_to_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_lookup_policy_response() :: %{
         "NextToken" => String.t(),
         "PolicyToPathList" => list(policy_to_path()())
       }
-
+      
   """
   @type batch_lookup_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_policy() :: %{
         "ObjectReference" => object_reference(),
         "PolicyReference" => object_reference()
       }
-
+      
   """
   @type batch_detach_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       directory_already_exists_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type directory_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_policy_response() :: %{}
-
+      
   """
   @type attach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_link_attributes() :: %{
         "AttributeUpdates" => list(link_attribute_update()()),
         "TypedLinkSpecifier" => typed_link_specifier()
       }
-
+      
   """
   @type batch_update_link_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_object_response() :: %{
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type batch_create_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_policy_request() :: %{
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference(),
         required("PolicyReference") => object_reference()
       }
-
+      
   """
   @type attach_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_attribute_reference() :: %{
         "TargetAttributeName" => String.t(),
         "TargetFacetName" => String.t()
       }
-
+      
   """
   @type facet_attribute_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_schema_doc_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_schema_doc_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_next_token_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_directory_response() :: %{
         "DirectoryArn" => String.t()
       }
-
+      
   """
   @type delete_directory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_typed_link_facet_information_request() :: %{
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type get_typed_link_facet_information_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_to_index_request() :: %{
         required("DirectoryArn") => String.t(),
         required("IndexReference") => object_reference(),
         required("TargetReference") => object_reference()
       }
-
+      
   """
   @type attach_to_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_object_information_response() :: %{
         "ObjectIdentifier" => String.t(),
         "SchemaFacets" => list(schema_facet()())
       }
-
+      
   """
   @type batch_get_object_information_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detach_from_index_response() :: %{
         "DetachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type detach_from_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detach_from_index_request() :: %{
         required("DirectoryArn") => String.t(),
         required("IndexReference") => object_reference(),
         required("TargetReference") => object_reference()
       }
-
+      
   """
   @type detach_from_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_in_use_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type facet_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_schema_response() :: %{
         "SchemaArn" => String.t()
       }
-
+      
   """
   @type delete_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_object() :: %{
         "BatchReferenceName" => String.t(),
         "LinkName" => String.t(),
         "ParentReference" => object_reference()
       }
-
+      
   """
   @type batch_detach_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_facet_names_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type list_facet_names_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_attached_indices_response() :: %{
         "IndexAttachments" => list(index_attachment()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type batch_list_attached_indices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_facet_request() :: %{
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type delete_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_policy_attachments_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
@@ -1638,14 +1638,14 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("PolicyReference") => object_reference()
       }
-
+      
   """
   @type list_policy_attachments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_object() :: %{
         "BatchReferenceName" => String.t(),
         "LinkName" => String.t(),
@@ -1653,14 +1653,14 @@ defmodule AWS.CloudDirectory do
         "ParentReference" => object_reference(),
         "SchemaFacet" => list(schema_facet()())
       }
-
+      
   """
   @type batch_create_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_read_operation() :: %{
         "GetLinkAttributes" => batch_get_link_attributes(),
         "GetObjectAttributes" => batch_get_object_attributes(),
@@ -1677,14 +1677,14 @@ defmodule AWS.CloudDirectory do
         "ListPolicyAttachments" => batch_list_policy_attachments(),
         "LookupPolicy" => batch_lookup_policy()
       }
-
+      
   """
   @type batch_read_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_incoming_typed_links_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
@@ -1694,70 +1694,70 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type list_incoming_typed_links_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_facet_attributes_response() :: %{
         "Attributes" => list(facet_attribute()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_facet_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_attribute_update() :: %{
         "ObjectAttributeAction" => object_attribute_action(),
         "ObjectAttributeKey" => attribute_key()
       }
-
+      
   """
   @type object_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upgrade_published_schema_response() :: %{
         "UpgradedSchemaArn" => String.t()
       }
-
+      
   """
   @type upgrade_published_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_facet_response() :: %{}
-
+      
   """
   @type update_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_outgoing_typed_links_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
@@ -1767,108 +1767,108 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type list_outgoing_typed_links_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_object_attributes_response() :: %{
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type batch_update_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_index_response() :: %{
         "IndexAttachments" => list(index_attachment()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type batch_list_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_outgoing_typed_links_response() :: %{
         "NextToken" => String.t(),
         "TypedLinkSpecifiers" => list(typed_link_specifier()())
       }
-
+      
   """
   @type list_outgoing_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_to_index_response() :: %{
         "AttachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type attach_to_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       indexed_attribute_missing_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type indexed_attribute_missing_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_link_attributes_request() :: %{
         required("AttributeUpdates") => list(link_attribute_update()()),
         required("DirectoryArn") => String.t(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
-
+      
   """
   @type update_link_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_attribute_action() :: %{
         "ObjectAttributeActionType" => list(any()),
         "ObjectAttributeUpdateValue" => list()
       }
-
+      
   """
   @type object_attribute_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule() :: %{
         "Parameters" => map(),
         "Type" => list(any())
       }
-
+      
   """
   @type rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_typed_link_request() :: %{
         required("Attributes") => list(attribute_name_and_value()()),
         required("DirectoryArn") => String.t(),
@@ -1876,26 +1876,26 @@ defmodule AWS.CloudDirectory do
         required("TargetObjectReference") => object_reference(),
         required("TypedLinkFacet") => typed_link_schema_and_facet_name()
       }
-
+      
   """
   @type attach_typed_link_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applied_schema_arns_response() :: %{
         "NextToken" => String.t(),
         "SchemaArns" => list(String.t()())
       }
-
+      
   """
   @type list_applied_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_write_operation() :: %{
         "AddFacetToObject" => batch_add_facet_to_object(),
         "AttachObject" => batch_attach_object(),
@@ -1913,39 +1913,39 @@ defmodule AWS.CloudDirectory do
         "UpdateLinkAttributes" => batch_update_link_attributes(),
         "UpdateObjectAttributes" => batch_update_object_attributes()
       }
-
+      
   """
   @type batch_write_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_typed_link() :: %{
         "Attributes" => list(attribute_name_and_value()()),
         "SourceObjectReference" => object_reference(),
         "TargetObjectReference" => object_reference(),
         "TypedLinkFacet" => typed_link_schema_and_facet_name()
       }
-
+      
   """
   @type batch_attach_typed_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_index_type_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type unsupported_index_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_index_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
@@ -1954,228 +1954,228 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("IndexReference") => object_reference()
       }
-
+      
   """
   @type list_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       link_attribute_update() :: %{
         "AttributeAction" => link_attribute_action(),
         "AttributeKey" => attribute_key()
       }
-
+      
   """
   @type link_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       link_name_already_in_use_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type link_name_already_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       policy_attachment() :: %{
         "ObjectIdentifier" => String.t(),
         "PolicyId" => String.t(),
         "PolicyType" => String.t()
       }
-
+      
   """
   @type policy_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_typed_link_response() :: %{
         "TypedLinkSpecifier" => typed_link_specifier()
       }
-
+      
   """
   @type attach_typed_link_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_object_attributes() :: %{
         "AttributeUpdates" => list(object_attribute_update()()),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_update_object_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_typed_link_facet_response() :: %{}
-
+      
   """
   @type update_typed_link_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type batch_list_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_schema_request() :: %{
         optional("MinorVersion") => String.t(),
         optional("Name") => String.t(),
         required("DevelopmentSchemaArn") => String.t(),
         required("Version") => String.t()
       }
-
+      
   """
   @type publish_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_object_information_response() :: %{
         "ObjectIdentifier" => String.t(),
         "SchemaFacets" => list(schema_facet()())
       }
-
+      
   """
   @type get_object_information_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_read_response() :: %{
         "Responses" => list(batch_read_operation_response()())
       }
-
+      
   """
   @type batch_read_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       path_to_object_identifiers() :: %{
         "ObjectIdentifiers" => list(String.t()()),
         "Path" => String.t()
       }
-
+      
   """
   @type path_to_object_identifiers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_policy() :: %{
         "ObjectReference" => object_reference(),
         "PolicyReference" => object_reference()
       }
-
+      
   """
   @type batch_attach_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_parent_paths_response() :: %{
         "NextToken" => String.t(),
         "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
       }
-
+      
   """
   @type list_object_parent_paths_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_parents() :: %{
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_list_object_parents() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_schema_from_json_request() :: %{
         required("Document") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type put_schema_from_json_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_to_index() :: %{
         "IndexReference" => object_reference(),
         "TargetReference" => object_reference()
       }
-
+      
   """
   @type batch_attach_to_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_typed_link_facet_request() :: %{
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type delete_typed_link_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_facet_request() :: %{
         optional("Attributes") => list(facet_attribute()()),
         optional("FacetStyle") => list(any()),
@@ -2183,51 +2183,51 @@ defmodule AWS.CloudDirectory do
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type create_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_directories_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("state") => list(any())
       }
-
+      
   """
   @type list_directories_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cannot_list_parent_of_root_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cannot_list_parent_of_root_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upgrade_applied_schema_request() :: %{
         optional("DryRun") => boolean(),
         required("DirectoryArn") => String.t(),
         required("PublishedSchemaArn") => String.t()
       }
-
+      
   """
   @type upgrade_applied_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_index_request() :: %{
         optional("LinkName") => String.t(),
         optional("ParentReference") => object_reference(),
@@ -2235,265 +2235,265 @@ defmodule AWS.CloudDirectory do
         required("IsUnique") => boolean(),
         required("OrderedIndexedAttributeList") => list(attribute_key()())
       }
-
+      
   """
   @type create_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_typed_link_facet_request() :: %{
         required("AttributeUpdates") => list(typed_link_facet_attribute_update()()),
         required("IdentityAttributeOrder") => list(String.t()()),
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type update_typed_link_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_typed_link_response() :: %{
         "TypedLinkSpecifier" => typed_link_specifier()
       }
-
+      
   """
   @type batch_attach_typed_link_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_object_information_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type get_object_information_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_identifier_and_link_name_tuple() :: %{
         "LinkName" => String.t(),
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type object_identifier_and_link_name_tuple() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detach_object_request() :: %{
         required("DirectoryArn") => String.t(),
         required("LinkName") => String.t(),
         required("ParentReference") => object_reference()
       }
-
+      
   """
   @type detach_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_object_attributes_response() :: %{
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type update_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_typed_link_facet_names_response() :: %{
         "FacetNames" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_typed_link_facet_names_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       still_contains_links_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type still_contains_links_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_directory_request() :: %{
         required("DirectoryArn") => String.t()
       }
-
+      
   """
   @type delete_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_already_exists_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type facet_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detach_policy_response() :: %{}
-
+      
   """
   @type detach_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_development_schema_arns_response() :: %{
         "NextToken" => String.t(),
         "SchemaArns" => list(String.t()())
       }
-
+      
   """
   @type list_development_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_managed_schema_arns_response() :: %{
         "NextToken" => String.t(),
         "SchemaArns" => list(String.t()())
       }
-
+      
   """
   @type list_managed_schema_arns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_facet_response() :: %{}
-
+      
   """
   @type delete_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_link_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()())
       }
-
+      
   """
   @type get_link_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_children() :: %{
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_list_object_children() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attached_indices_response() :: %{
         "IndexAttachments" => list(index_attachment()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_attached_indices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_key_and_value() :: %{
         "Key" => attribute_key(),
         "Value" => list()
       }
-
+      
   """
   @type attribute_key_and_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_typed_link() :: %{
         "TypedLinkSpecifier" => typed_link_specifier()
       }
-
+      
   """
   @type batch_detach_typed_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       directory_not_disabled_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type directory_not_disabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_index() :: %{
         "BatchReferenceName" => String.t(),
         "IsUnique" => boolean(),
@@ -2501,304 +2501,304 @@ defmodule AWS.CloudDirectory do
         "OrderedIndexedAttributeList" => list(attribute_key()()),
         "ParentReference" => object_reference()
       }
-
+      
   """
   @type batch_create_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_facet_request() :: %{
         optional("AttributeUpdates") => list(facet_attribute_update()()),
         optional("ObjectType") => list(any()),
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type update_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       facet() :: %{
         "FacetStyle" => list(any()),
         "Name" => String.t(),
         "ObjectType" => list(any())
       }
-
+      
   """
   @type facet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_typed_link_response() :: %{}
-
+      
   """
   @type batch_detach_typed_link_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_typed_link_facet_request() :: %{
         required("Facet") => typed_link_facet(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type create_typed_link_facet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type facet_validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_policies() :: %{
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_list_object_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typed_link_facet() :: %{
         "Attributes" => list(typed_link_attribute_definition()()),
         "IdentityAttributeOrder" => list(String.t()()),
         "Name" => String.t()
       }
-
+      
   """
   @type typed_link_facet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_rule_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_rule_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_attach_object_response() :: %{
         "attachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type batch_attach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_object_children_response() :: %{
         "Children" => map(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type batch_list_object_children_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_from_index_response() :: %{
         "DetachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type batch_detach_from_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_published_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SchemaArn") => String.t()
       }
-
+      
   """
   @type list_published_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_policy_attachments_response() :: %{
         "NextToken" => String.t(),
         "ObjectIdentifiers" => list(String.t()())
       }
-
+      
   """
   @type list_policy_attachments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_object_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()())
       }
-
+      
   """
   @type batch_get_object_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_not_detached_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type object_not_detached_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_outgoing_typed_links_response() :: %{
         "NextToken" => String.t(),
         "TypedLinkSpecifiers" => list(typed_link_specifier()())
       }
-
+      
   """
   @type batch_list_outgoing_typed_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attach_object_response() :: %{
         "AttachedObjectIdentifier" => String.t()
       }
-
+      
   """
   @type attach_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_policy_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_detach_from_index() :: %{
         "IndexReference" => object_reference(),
         "TargetReference" => object_reference()
       }
-
+      
   """
   @type batch_detach_from_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_facet_from_object_response() :: %{}
-
+      
   """
   @type remove_facet_from_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       directory_not_enabled_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type directory_not_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_index_response() :: %{
         "IndexAttachments" => list(index_attachment()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_object_parents_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("IncludeAllLinksToEachParent") => boolean(),
@@ -2807,61 +2807,61 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
-
+      
   """
   @type list_object_parents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detach_typed_link_request() :: %{
         required("DirectoryArn") => String.t(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
-
+      
   """
   @type detach_typed_link_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_directories_response() :: %{
         "Directories" => list(directory()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_directories_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_index_response() :: %{
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type create_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upgrade_applied_schema_response() :: %{
         "DirectoryArn" => String.t(),
         "UpgradedSchemaArn" => String.t()
       }
-
+      
   """
   @type upgrade_applied_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_object_request() :: %{
         optional("LinkName") => String.t(),
         optional("ObjectAttributeList") => list(attribute_key_and_value()()),
@@ -2869,39 +2869,39 @@ defmodule AWS.CloudDirectory do
         required("DirectoryArn") => String.t(),
         required("SchemaFacets") => list(schema_facet()())
       }
-
+      
   """
   @type create_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_object_response() :: %{
         "ObjectIdentifier" => String.t()
       }
-
+      
   """
   @type create_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_facet_to_object_request() :: %{
         optional("ObjectAttributeList") => list(attribute_key_and_value()()),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
       }
-
+      
   """
   @type add_facet_to_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_list_outgoing_typed_links() :: %{
         "FilterAttributeRanges" => list(typed_link_attribute_range()()),
         "FilterTypedLink" => typed_link_schema_and_facet_name(),
@@ -2909,204 +2909,204 @@ defmodule AWS.CloudDirectory do
         "NextToken" => String.t(),
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_list_outgoing_typed_links() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_object() :: %{
         "ObjectReference" => object_reference()
       }
-
+      
   """
   @type batch_delete_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_key() :: %{
         "FacetName" => String.t(),
         "Name" => String.t(),
         "SchemaArn" => String.t()
       }
-
+      
   """
   @type attribute_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typed_link_facet_attribute_update() :: %{
         "Action" => list(any()),
         "Attribute" => typed_link_attribute_definition()
       }
-
+      
   """
   @type typed_link_facet_attribute_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lookup_policy_response() :: %{
         "NextToken" => String.t(),
         "PolicyToPathList" => list(policy_to_path()())
       }
-
+      
   """
   @type lookup_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_attachment_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_attachment_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       facet_attribute_definition() :: %{
         "DefaultValue" => list(),
         "IsImmutable" => boolean(),
         "Rules" => map(),
         "Type" => list(any())
       }
-
+      
   """
   @type facet_attribute_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_facet_from_object_request() :: %{
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
       }
-
+      
   """
   @type remove_facet_from_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_read_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         required("DirectoryArn") => String.t(),
         required("Operations") => list(batch_read_operation()())
       }
-
+      
   """
   @type batch_read_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_typed_link_facet_response() :: %{}
-
+      
   """
   @type delete_typed_link_facet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       object_already_detached_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type object_already_detached_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_schema_as_json_request() :: %{
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type get_schema_as_json_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typed_link_attribute_range() :: %{
         "AttributeName" => String.t(),
         "Range" => typed_attribute_value_range()
       }
-
+      
   """
   @type typed_link_attribute_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_directory_request() :: %{
         required("DirectoryArn") => String.t()
       }
-
+      
   """
   @type get_directory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_facet_response() :: %{
         "Facet" => facet()
       }
-
+      
   """
   @type get_facet_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_managed_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SchemaArn") => String.t()
       }
-
+      
   """
   @type list_managed_schema_arns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_write_exception() :: %{
         "Index" => integer(),
         "Message" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type batch_write_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_object_attributes_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         required("AttributeNames") => list(String.t()()),
@@ -3114,65 +3114,65 @@ defmodule AWS.CloudDirectory do
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
       }
-
+      
   """
   @type get_object_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_link_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()())
       }
-
+      
   """
   @type batch_get_link_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_typed_link_facet_information_response() :: %{
         "IdentityAttributeOrder" => list(String.t()())
       }
-
+      
   """
   @type get_typed_link_facet_information_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_schema_request() :: %{
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
-
+      
   """
   @type update_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_tagging_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_tagging_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_add_facet_to_object() :: %{
         "ObjectAttributeList" => list(attribute_key_and_value()()),
         "ObjectReference" => object_reference(),
         "SchemaFacet" => schema_facet()
       }
-
+      
   """
   @type batch_add_facet_to_object() :: %{String.t() => any()}
 
@@ -3915,19 +3915,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the object resides. For more
-    information, see arns.
+  associated with the Directory where the object resides. For more
+  information, see arns.
 
   ## Optional parameters:
   """
-  @spec add_facet_to_object(AWS.Client.t(), add_facet_to_object_request(), Keyword.t()) ::
+
+  @spec add_facet_to_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_facet_to_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_facet_to_object_errors()}
-  def add_facet_to_object(%Client{} = client, input, options \\ []) do
+
+  def add_facet_to_object(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -3935,18 +3939,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3957,19 +3965,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory into which the schema is copied. For more
-    information, see arns.
+  associated with the Directory into which the schema is copied. For more
+  information, see arns.
 
   ## Optional parameters:
   """
-  @spec apply_schema(AWS.Client.t(), apply_schema_request(), Keyword.t()) ::
+
+  @spec apply_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, apply_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_schema_errors()}
-  def apply_schema(%Client{} = client, input, options \\ []) do
+
+  def apply_schema(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/apply"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -3977,18 +3989,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3999,19 +4015,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) Amazon Resource Name (ARN) that is associated
-    with the Directory where both objects reside. For more information, see
-    arns.
+  with the Directory where both objects reside. For more information, see
+  arns.
 
   ## Optional parameters:
   """
-  @spec attach_object(AWS.Client.t(), attach_object_request(), Keyword.t()) ::
+
+  @spec attach_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_object_errors()}
-  def attach_object(%Client{} = client, input, options \\ []) do
+
+  def attach_object(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4019,18 +4039,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4041,19 +4065,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where both objects reside. For more
-    information, see arns.
+  associated with the Directory where both objects reside. For more
+  information, see arns.
 
   ## Optional parameters:
   """
-  @spec attach_policy(AWS.Client.t(), attach_policy_request(), Keyword.t()) ::
+
+  @spec attach_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_policy_errors()}
-  def attach_policy(%Client{} = client, input, options \\ []) do
+
+  def attach_policy(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4061,18 +4089,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4082,18 +4114,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-    where the object and index exist.
+  where the object and index exist.
 
   ## Optional parameters:
   """
-  @spec attach_to_index(AWS.Client.t(), attach_to_index_request(), Keyword.t()) ::
+
+  @spec attach_to_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_to_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_to_index_errors()}
-  def attach_to_index(%Client{} = client, input, options \\ []) do
+
+  def attach_to_index(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index/attach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4101,18 +4137,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4124,18 +4164,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-    where you want to attach the typed link.
+  where you want to attach the typed link.
 
   ## Optional parameters:
   """
-  @spec attach_typed_link(AWS.Client.t(), attach_typed_link_request(), Keyword.t()) ::
+
+  @spec attach_typed_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_typed_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_typed_link_errors()}
-  def attach_typed_link(%Client{} = client, input, options \\ []) do
+
+  def attach_typed_link(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4143,18 +4187,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4164,21 +4212,25 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory. For more information, see arns.
+  associated with the Directory. For more information, see arns.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-    and timing in which the successful write or update of an object is reflected
-    in a subsequent read operation of that same object.
+  and timing in which the successful write or update of an object is reflected
+  in a subsequent read operation of that same object.
   """
-  @spec batch_read(AWS.Client.t(), batch_read_request(), Keyword.t()) ::
+
+  @spec batch_read(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_read_errors()}
-  def batch_read(%Client{} = client, input, options \\ []) do
+
+  def batch_read(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/batchread"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -4186,14 +4238,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -4203,17 +4262,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4224,18 +4275,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory. For more information, see arns.
+  associated with the Directory. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec batch_write(AWS.Client.t(), batch_write_request(), Keyword.t()) ::
+
+  @spec batch_write(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_write_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_write_errors()}
-  def batch_write(%Client{} = client, input, options \\ []) do
+
+  def batch_write(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/batchwrite"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4243,18 +4298,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4265,19 +4324,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the published
-    schema that will be copied into the data Directory. For more information,
-    see arns.
+  schema that will be copied into the data Directory. For more information,
+  see arns.
 
   ## Optional parameters:
   """
-  @spec create_directory(AWS.Client.t(), create_directory_request(), Keyword.t()) ::
+
+  @spec create_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_errors()}
-  def create_directory(%Client{} = client, input, options \\ []) do
+
+  def create_directory(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/create"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4285,18 +4348,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4307,18 +4374,21 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The schema ARN in which the new Facet will be
-    created. For more information, see arns.
+  created. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec create_facet(AWS.Client.t(), create_facet_request(), Keyword.t()) ::
+
+  @spec create_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_facet_errors()}
-  def create_facet(%Client{} = client, input, options \\ []) do
+
+  def create_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/create"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4326,18 +4396,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4349,18 +4423,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory where the index should
-    be created.
+  be created.
 
   ## Optional parameters:
   """
-  @spec create_index(AWS.Client.t(), create_index_request(), Keyword.t()) ::
+
+  @spec create_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
-  def create_index(%Client{} = client, input, options \\ []) do
+
+  def create_index(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4368,18 +4446,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4393,19 +4475,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory in which the object will be created. For more
-    information, see arns.
+  associated with the Directory in which the object will be created. For more
+  information, see arns.
 
   ## Optional parameters:
   """
-  @spec create_object(AWS.Client.t(), create_object_request(), Keyword.t()) ::
+
+  @spec create_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_object_errors()}
-  def create_object(%Client{} = client, input, options \\ []) do
+
+  def create_object(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4413,18 +4499,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4436,19 +4526,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec create_schema(AWS.Client.t(), create_schema_request(), Keyword.t()) ::
+
+  @spec create_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
-  def create_schema(%Client{} = client, input, options \\ []) do
+
+  def create_schema(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/create"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4459,18 +4570,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the schema. For more information, see arns.
+  with the schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec create_typed_link_facet(AWS.Client.t(), create_typed_link_facet_request(), Keyword.t()) ::
+
+  @spec create_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_typed_link_facet_errors()}
-  def create_typed_link_facet(%Client{} = client, input, options \\ []) do
+
+  def create_typed_link_facet(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4478,18 +4593,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4504,14 +4623,18 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec delete_directory(AWS.Client.t(), delete_directory_request(), Keyword.t()) ::
+
+  @spec delete_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_errors()}
-  def delete_directory(%Client{} = client, input, options \\ []) do
+
+  def delete_directory(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4519,18 +4642,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4541,18 +4668,21 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the Facet. For more information, see arns.
+  with the Facet. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec delete_facet(AWS.Client.t(), delete_facet_request(), Keyword.t()) ::
+
+  @spec delete_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_facet_errors()}
-  def delete_facet(%Client{} = client, input, options \\ []) do
+
+  def delete_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/delete"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4560,18 +4690,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4585,19 +4719,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the object resides. For more
-    information, see arns.
+  associated with the Directory where the object resides. For more
+  information, see arns.
 
   ## Optional parameters:
   """
-  @spec delete_object(AWS.Client.t(), delete_object_request(), Keyword.t()) ::
+
+  @spec delete_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_object_errors()}
-  def delete_object(%Client{} = client, input, options \\ []) do
+
+  def delete_object(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/delete"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4605,18 +4743,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4627,18 +4769,21 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development
-    schema. For more information, see arns.
+  schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec delete_schema(AWS.Client.t(), delete_schema_request(), Keyword.t()) ::
+
+  @spec delete_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
-  def delete_schema(%Client{} = client, input, options \\ []) do
+
+  def delete_schema(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4646,18 +4791,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4668,18 +4817,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the schema. For more information, see arns.
+  with the schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec delete_typed_link_facet(AWS.Client.t(), delete_typed_link_facet_request(), Keyword.t()) ::
+
+  @spec delete_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_typed_link_facet_errors()}
-  def delete_typed_link_facet(%Client{} = client, input, options \\ []) do
+
+  def delete_typed_link_facet(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4687,18 +4840,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4708,18 +4865,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-    the index and object exist in.
+  the index and object exist in.
 
   ## Optional parameters:
   """
-  @spec detach_from_index(AWS.Client.t(), detach_from_index_request(), Keyword.t()) ::
+
+  @spec detach_from_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_from_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_from_index_errors()}
-  def detach_from_index(%Client{} = client, input, options \\ []) do
+
+  def detach_from_index(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index/detach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4727,18 +4888,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4749,19 +4914,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where objects reside. For more information,
-    see arns.
+  associated with the Directory where objects reside. For more information,
+  see arns.
 
   ## Optional parameters:
   """
-  @spec detach_object(AWS.Client.t(), detach_object_request(), Keyword.t()) ::
+
+  @spec detach_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_object_errors()}
-  def detach_object(%Client{} = client, input, options \\ []) do
+
+  def detach_object(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/detach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4769,18 +4938,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4790,19 +4963,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where both objects reside. For more
-    information, see arns.
+  associated with the Directory where both objects reside. For more
+  information, see arns.
 
   ## Optional parameters:
   """
-  @spec detach_policy(AWS.Client.t(), detach_policy_request(), Keyword.t()) ::
+
+  @spec detach_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_policy_errors()}
-  def detach_policy(%Client{} = client, input, options \\ []) do
+
+  def detach_policy(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/detach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4810,18 +4987,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4833,18 +5014,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-    where you want to detach the typed link.
+  where you want to detach the typed link.
 
   ## Optional parameters:
   """
-  @spec detach_typed_link(AWS.Client.t(), detach_typed_link_request(), Keyword.t()) ::
+
+  @spec detach_typed_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_typed_link_errors()}
-  def detach_typed_link(%Client{} = client, input, options \\ []) do
+
+  def detach_typed_link(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/detach"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4852,18 +5037,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4878,14 +5067,18 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec disable_directory(AWS.Client.t(), disable_directory_request(), Keyword.t()) ::
+
+  @spec disable_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_directory_errors()}
-  def disable_directory(%Client{} = client, input, options \\ []) do
+
+  def disable_directory(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/disable"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4893,18 +5086,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4918,14 +5115,18 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec enable_directory(AWS.Client.t(), enable_directory_request(), Keyword.t()) ::
+
+  @spec enable_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, enable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_directory_errors()}
-  def enable_directory(%Client{} = client, input, options \\ []) do
+
+  def enable_directory(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/enable"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4933,18 +5134,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4956,33 +5161,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec get_applied_schema_version(
-          AWS.Client.t(),
-          get_applied_schema_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_applied_schema_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_applied_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_applied_schema_version_errors()}
-  def get_applied_schema_version(%Client{} = client, input, options \\ []) do
+
+  def get_applied_schema_version(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4995,14 +5207,18 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec get_directory(AWS.Client.t(), get_directory_request(), Keyword.t()) ::
+
+  @spec get_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_directory_errors()}
-  def get_directory(%Client{} = client, input, options \\ []) do
+
+  def get_directory(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/get"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5010,28 +5226,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5043,18 +5253,21 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the Facet. For more information, see arns.
+  with the Facet. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec get_facet(AWS.Client.t(), get_facet_request(), Keyword.t()) ::
+
+  @spec get_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_facet_errors()}
-  def get_facet(%Client{} = client, input, options \\ []) do
+
+  def get_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5062,28 +5275,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5093,19 +5300,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the typed link resides. For more
-    information, see arns or Typed Links.
+  associated with the Directory where the typed link resides. For more
+  information, see arns or Typed Links.
 
   ## Optional parameters:
   """
-  @spec get_link_attributes(AWS.Client.t(), get_link_attributes_request(), Keyword.t()) ::
+
+  @spec get_link_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_link_attributes_errors()}
-  def get_link_attributes(%Client{} = client, input, options \\ []) do
+
+  def get_link_attributes(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5113,28 +5324,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5144,20 +5349,24 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the object resides.
+  associated with the Directory where the object resides.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-    at which to retrieve the attributes on an object.
+  at which to retrieve the attributes on an object.
   """
-  @spec get_object_attributes(AWS.Client.t(), get_object_attributes_request(), Keyword.t()) ::
+
+  @spec get_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_attributes_errors()}
-  def get_object_attributes(%Client{} = client, input, options \\ []) do
+
+  def get_object_attributes(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes/get"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -5165,14 +5374,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5182,17 +5398,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5205,16 +5413,20 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-    at which to retrieve the object information.
+  at which to retrieve the object information.
   """
-  @spec get_object_information(AWS.Client.t(), get_object_information_request(), Keyword.t()) ::
+
+  @spec get_object_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_information_errors()}
-  def get_object_information(%Client{} = client, input, options \\ []) do
+
+  def get_object_information(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/information"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -5222,14 +5434,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5239,17 +5458,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5264,14 +5475,18 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec get_schema_as_json(AWS.Client.t(), get_schema_as_json_request(), Keyword.t()) ::
+
+  @spec get_schema_as_json(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_as_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_as_json_errors()}
-  def get_schema_as_json(%Client{} = client, input, options \\ []) do
+
+  def get_schema_as_json(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5279,28 +5494,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5312,22 +5521,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the schema. For more information, see arns.
+  with the schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec get_typed_link_facet_information(
-          AWS.Client.t(),
-          get_typed_link_facet_information_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_typed_link_facet_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_typed_link_facet_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_typed_link_facet_information_errors()}
-  def get_typed_link_facet_information(%Client{} = client, input, options \\ []) do
+
+  def get_typed_link_facet_information(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5335,28 +5544,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5369,29 +5572,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec list_applied_schema_arns(AWS.Client.t(), list_applied_schema_arns_request(), Keyword.t()) ::
+
+  @spec list_applied_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applied_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applied_schema_arns_errors()}
-  def list_applied_schema_arns(%Client{} = client, input, options \\ []) do
+
+  def list_applied_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/applied"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5404,16 +5618,20 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-    to use for this operation.
+  to use for this operation.
   """
-  @spec list_attached_indices(AWS.Client.t(), list_attached_indices_request(), Keyword.t()) ::
+
+  @spec list_attached_indices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attached_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_indices_errors()}
-  def list_attached_indices(%Client{} = client, input, options \\ []) do
+
+  def list_attached_indices(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/indices"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -5421,14 +5639,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5438,17 +5663,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5460,33 +5677,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec list_development_schema_arns(
-          AWS.Client.t(),
-          list_development_schema_arns_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_development_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_development_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_development_schema_arns_errors()}
-  def list_development_schema_arns(%Client{} = client, input, options \\ []) do
+
+  def list_development_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/development"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5498,29 +5722,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec list_directories(AWS.Client.t(), list_directories_request(), Keyword.t()) ::
+
+  @spec list_directories(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_directories_errors()}
-  def list_directories(%Client{} = client, input, options \\ []) do
+
+  def list_directories(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5533,14 +5768,18 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec list_facet_attributes(AWS.Client.t(), list_facet_attributes_request(), Keyword.t()) ::
+
+  @spec list_facet_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_facet_attributes_errors()}
-  def list_facet_attributes(%Client{} = client, input, options \\ []) do
+
+  def list_facet_attributes(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/attributes"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5548,28 +5787,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5579,18 +5812,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) to retrieve facet
-    names from.
+  names from.
 
   ## Optional parameters:
   """
-  @spec list_facet_names(AWS.Client.t(), list_facet_names_request(), Keyword.t()) ::
+
+  @spec list_facet_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_facet_names_errors()}
-  def list_facet_names(%Client{} = client, input, options \\ []) do
+
+  def list_facet_names(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/list"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5598,28 +5835,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5632,22 +5863,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-    where you want to list the typed links.
+  where you want to list the typed links.
 
   ## Optional parameters:
   """
-  @spec list_incoming_typed_links(
-          AWS.Client.t(),
-          list_incoming_typed_links_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_incoming_typed_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_incoming_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incoming_typed_links_errors()}
-  def list_incoming_typed_links(%Client{} = client, input, options \\ []) do
+
+  def list_incoming_typed_links(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/incoming"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5655,28 +5886,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5686,20 +5911,24 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory that the index exists
-    in.
+  in.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-    to execute the request at.
+  to execute the request at.
   """
-  @spec list_index(AWS.Client.t(), list_index_request(), Keyword.t()) ::
+
+  @spec list_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_index_errors()}
-  def list_index(%Client{} = client, input, options \\ []) do
+
+  def list_index(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/index/targets"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -5707,14 +5936,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5724,17 +5960,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5748,29 +5976,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec list_managed_schema_arns(AWS.Client.t(), list_managed_schema_arns_request(), Keyword.t()) ::
+
+  @spec list_managed_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_schema_arns_errors()}
-  def list_managed_schema_arns(%Client{} = client, input, options \\ []) do
+
+  def list_managed_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/managed"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5780,22 +6019,26 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the object resides. For more
-    information, see arns.
+  associated with the Directory where the object resides. For more
+  information, see arns.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-    and timing in which the successful write or update of an object is reflected
-    in a subsequent read operation of that same object.
+  and timing in which the successful write or update of an object is reflected
+  in a subsequent read operation of that same object.
   """
-  @spec list_object_attributes(AWS.Client.t(), list_object_attributes_request(), Keyword.t()) ::
+
+  @spec list_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_attributes_errors()}
-  def list_object_attributes(%Client{} = client, input, options \\ []) do
+
+  def list_object_attributes(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -5803,14 +6046,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5820,17 +6070,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5841,22 +6083,26 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the object resides. For more
-    information, see arns.
+  associated with the Directory where the object resides. For more
+  information, see arns.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-    and timing in which the successful write or update of an object is reflected
-    in a subsequent read operation of that same object.
+  and timing in which the successful write or update of an object is reflected
+  in a subsequent read operation of that same object.
   """
-  @spec list_object_children(AWS.Client.t(), list_object_children_request(), Keyword.t()) ::
+
+  @spec list_object_children(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_children_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_children_errors()}
-  def list_object_children(%Client{} = client, input, options \\ []) do
+
+  def list_object_children(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/children"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -5864,14 +6110,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5881,17 +6134,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5904,18 +6149,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory to which the parent
-    path applies.
+  path applies.
 
   ## Optional parameters:
   """
-  @spec list_object_parent_paths(AWS.Client.t(), list_object_parent_paths_request(), Keyword.t()) ::
+
+  @spec list_object_parent_paths(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_parent_paths_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_parent_paths_errors()}
-  def list_object_parent_paths(%Client{} = client, input, options \\ []) do
+
+  def list_object_parent_paths(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parentpaths"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5923,28 +6172,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5955,22 +6198,26 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the object resides. For more
-    information, see arns.
+  associated with the Directory where the object resides. For more
+  information, see arns.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-    and timing in which the successful write or update of an object is reflected
-    in a subsequent read operation of that same object.
+  and timing in which the successful write or update of an object is reflected
+  in a subsequent read operation of that same object.
   """
-  @spec list_object_parents(AWS.Client.t(), list_object_parents_request(), Keyword.t()) ::
+
+  @spec list_object_parents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_parents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_parents_errors()}
-  def list_object_parents(%Client{} = client, input, options \\ []) do
+
+  def list_object_parents(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parent"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -5978,14 +6225,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5995,17 +6249,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6015,22 +6261,26 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where objects reside. For more information,
-    see arns.
+  associated with the Directory where objects reside. For more information,
+  see arns.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-    and timing in which the successful write or update of an object is reflected
-    in a subsequent read operation of that same object.
+  and timing in which the successful write or update of an object is reflected
+  in a subsequent read operation of that same object.
   """
-  @spec list_object_policies(AWS.Client.t(), list_object_policies_request(), Keyword.t()) ::
+
+  @spec list_object_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_object_policies_errors()}
-  def list_object_policies(%Client{} = client, input, options \\ []) do
+
+  def list_object_policies(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/policy"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -6038,14 +6288,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -6055,17 +6312,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6078,22 +6327,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
-    where you want to list the typed links.
+  where you want to list the typed links.
 
   ## Optional parameters:
   """
-  @spec list_outgoing_typed_links(
-          AWS.Client.t(),
-          list_outgoing_typed_links_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_outgoing_typed_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_outgoing_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outgoing_typed_links_errors()}
-  def list_outgoing_typed_links(%Client{} = client, input, options \\ []) do
+
+  def list_outgoing_typed_links(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6101,28 +6350,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6132,22 +6375,26 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where objects reside. For more information,
-    see arns.
+  associated with the Directory where objects reside. For more information,
+  see arns.
 
   ## Optional parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-    and timing in which the successful write or update of an object is reflected
-    in a subsequent read operation of that same object.
+  and timing in which the successful write or update of an object is reflected
+  in a subsequent read operation of that same object.
   """
-  @spec list_policy_attachments(AWS.Client.t(), list_policy_attachments_request(), Keyword.t()) ::
+
+  @spec list_policy_attachments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_policy_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_attachments_errors()}
-  def list_policy_attachments(%Client{} = client, input, options \\ []) do
+
+  def list_policy_attachments(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attachment"
 
-    optional_params = [consistency_level: nil, directory_arn: nil]
+    # Validate optional parameters
+    optional_params = [consistency_level: nil]
 
     options =
       Keyword.validate!(
@@ -6155,14 +6402,21 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ConsistencyLevel", "x-amz-consistency-level"},
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :consistency_level) do
+        [{"x-amz-consistency-level", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -6172,17 +6426,9 @@ defmodule AWS.CloudDirectory do
       options
       |> Keyword.drop([:consistency_level])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6196,33 +6442,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec list_published_schema_arns(
-          AWS.Client.t(),
-          list_published_schema_arns_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_published_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_published_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_published_schema_arns_errors()}
-  def list_published_schema_arns(%Client{} = client, input, options \\ []) do
+
+  def list_published_schema_arns(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/published"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6236,29 +6489,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6270,22 +6534,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the schema. For more information, see arns.
+  with the schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec list_typed_link_facet_attributes(
-          AWS.Client.t(),
-          list_typed_link_facet_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_typed_link_facet_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_typed_link_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_typed_link_facet_attributes_errors()}
-  def list_typed_link_facet_attributes(%Client{} = client, input, options \\ []) do
+
+  def list_typed_link_facet_attributes(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6293,28 +6557,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6326,22 +6584,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the schema. For more information, see arns.
+  with the schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec list_typed_link_facet_names(
-          AWS.Client.t(),
-          list_typed_link_facet_names_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_typed_link_facet_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_typed_link_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_typed_link_facet_names_errors()}
-  def list_typed_link_facet_names(%Client{} = client, input, options \\ []) do
+
+  def list_typed_link_facet_names(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6349,28 +6607,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6386,18 +6638,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory. For more information, see arns.
+  associated with the Directory. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec lookup_policy(AWS.Client.t(), lookup_policy_request(), Keyword.t()) ::
+
+  @spec lookup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lookup_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, lookup_policy_errors()}
-  def lookup_policy(%Client{} = client, input, options \\ []) do
+
+  def lookup_policy(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/lookup"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6405,28 +6661,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6437,18 +6687,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:development_schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the development schema. For more information, see arns.
+  associated with the development schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec publish_schema(AWS.Client.t(), publish_schema_request(), Keyword.t()) ::
+
+  @spec publish_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_schema_errors()}
-  def publish_schema(%Client{} = client, input, options \\ []) do
+
+  def publish_schema(%Client{} = client, development_schema_arn, options \\ [])
+      when is_binary(development_schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/publish"
 
-    optional_params = [development_schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6456,18 +6710,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DevelopmentSchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", development_schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6483,14 +6741,18 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec put_schema_from_json(AWS.Client.t(), put_schema_from_json_request(), Keyword.t()) ::
+
+  @spec put_schema_from_json(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_schema_from_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_schema_from_json_errors()}
-  def put_schema_from_json(%Client{} = client, input, options \\ []) do
+
+  def put_schema_from_json(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6498,18 +6760,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6519,18 +6785,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory in which the object
-    resides.
+  resides.
 
   ## Optional parameters:
   """
-  @spec remove_facet_from_object(AWS.Client.t(), remove_facet_from_object_request(), Keyword.t()) ::
+
+  @spec remove_facet_from_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_facet_from_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_facet_from_object_errors()}
-  def remove_facet_from_object(%Client{} = client, input, options \\ []) do
+
+  def remove_facet_from_object(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets/delete"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6538,18 +6808,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6561,19 +6835,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/add"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6585,19 +6880,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/remove"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6607,18 +6923,21 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the Facet. For more information, see arns.
+  with the Facet. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec update_facet(AWS.Client.t(), update_facet_request(), Keyword.t()) ::
+
+  @spec update_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_facet_errors()}
-  def update_facet(%Client{} = client, input, options \\ []) do
+
+  def update_facet(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6626,18 +6945,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6649,19 +6972,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the updated typed link resides. For more
-    information, see arns or Typed Links.
+  associated with the Directory where the updated typed link resides. For more
+  information, see arns or Typed Links.
 
   ## Optional parameters:
   """
-  @spec update_link_attributes(AWS.Client.t(), update_link_attributes_request(), Keyword.t()) ::
+
+  @spec update_link_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_link_attributes_errors()}
-  def update_link_attributes(%Client{} = client, input, options \\ []) do
+
+  def update_link_attributes(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6669,28 +6996,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6700,19 +7021,23 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
-    associated with the Directory where the object resides. For more
-    information, see arns.
+  associated with the Directory where the object resides. For more
+  information, see arns.
 
   ## Optional parameters:
   """
-  @spec update_object_attributes(AWS.Client.t(), update_object_attributes_request(), Keyword.t()) ::
+
+  @spec update_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_object_attributes_errors()}
-  def update_object_attributes(%Client{} = client, input, options \\ []) do
+
+  def update_object_attributes(%Client{} = client, directory_arn, options \\ [])
+      when is_binary(directory_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/object/update"
 
-    optional_params = [directory_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6720,18 +7045,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"DirectoryArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", directory_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6742,18 +7071,21 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development
-    schema. For more information, see arns.
+  schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec update_schema(AWS.Client.t(), update_schema_request(), Keyword.t()) ::
+
+  @spec update_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_errors()}
-  def update_schema(%Client{} = client, input, options \\ []) do
+
+  def update_schema(%Client{} = client, schema_arn, options \\ []) when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/update"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6761,18 +7093,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6783,18 +7119,22 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
-    with the schema. For more information, see arns.
+  with the schema. For more information, see arns.
 
   ## Optional parameters:
   """
-  @spec update_typed_link_facet(AWS.Client.t(), update_typed_link_facet_request(), Keyword.t()) ::
+
+  @spec update_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_typed_link_facet_errors()}
-  def update_typed_link_facet(%Client{} = client, input, options \\ []) do
+
+  def update_typed_link_facet(%Client{} = client, schema_arn, options \\ [])
+      when is_binary(schema_arn) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet"
 
-    optional_params = [schema_arn: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -6802,18 +7142,22 @@ defmodule AWS.CloudDirectory do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"SchemaArn", "x-amz-data-partition"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-data-partition", schema_arn}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6830,19 +7174,40 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec upgrade_applied_schema(AWS.Client.t(), upgrade_applied_schema_request(), Keyword.t()) ::
+
+  @spec upgrade_applied_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_applied_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_applied_schema_errors()}
-  def upgrade_applied_schema(%Client{} = client, input, options \\ []) do
+
+  def upgrade_applied_schema(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6855,18 +7220,39 @@ defmodule AWS.CloudDirectory do
 
   ## Optional parameters:
   """
-  @spec upgrade_published_schema(AWS.Client.t(), upgrade_published_schema_request(), Keyword.t()) ::
+
+  @spec upgrade_published_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_published_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_published_schema_errors()}
-  def upgrade_published_schema(%Client{} = client, input, options \\ []) do
+
+  def upgrade_published_schema(%Client{} = client, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

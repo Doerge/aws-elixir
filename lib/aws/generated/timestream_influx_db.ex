@@ -572,12 +572,36 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Creates a new Timestream for InfluxDB DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20CreateDbInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_instance_input`)
+    %{
+      optional("bucket") => String.t(),
+      optional("dbParameterGroupIdentifier") => String.t(),
+      optional("dbStorageType") => list(any()),
+      optional("deploymentType") => list(any()),
+      optional("logDeliveryConfiguration") => log_delivery_configuration(),
+      optional("organization") => String.t(),
+      optional("publiclyAccessible") => [boolean()],
+      optional("tags") => map(),
+      optional("username") => String.t(),
+      required("allocatedStorage") => integer(),
+      required("dbInstanceType") => list(any()),
+      required("name") => String.t(),
+      required("password") => String.t(),
+      required("vpcSecurityGroupIds") => list(String.t()()),
+      required("vpcSubnetIds") => list(String.t()())
+    }
   """
-  @spec create_db_instance(AWS.Client.t(), create_db_instance_input(), Keyword.t()) ::
+
+  @spec create_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_instance_errors()}
-  def create_db_instance(%Client{} = client, input, options \\ []) do
+
+  def create_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -587,12 +611,25 @@ defmodule AWS.TimestreamInfluxDB do
   @doc """
   Creates a new Timestream for InfluxDB DB parameter group to associate with DB
   instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20CreateDbParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_parameter_group_input`)
+    %{
+      optional("description") => [String.t()],
+      optional("parameters") => list(),
+      optional("tags") => map(),
+      required("name") => String.t()
+    }
   """
-  @spec create_db_parameter_group(AWS.Client.t(), create_db_parameter_group_input(), Keyword.t()) ::
+
+  @spec create_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_parameter_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_parameter_group_errors()}
-  def create_db_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def create_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -601,12 +638,22 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Deletes a Timestream for InfluxDB DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20DeleteDbInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_instance_input`)
+    %{
+      required("identifier") => String.t()
+    }
   """
-  @spec delete_db_instance(AWS.Client.t(), delete_db_instance_input(), Keyword.t()) ::
+
+  @spec delete_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_instance_errors()}
-  def delete_db_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -615,12 +662,22 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Returns a Timestream for InfluxDB DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20GetDbInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_db_instance_input`)
+    %{
+      required("identifier") => String.t()
+    }
   """
-  @spec get_db_instance(AWS.Client.t(), get_db_instance_input(), Keyword.t()) ::
+
+  @spec get_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_db_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_db_instance_errors()}
-  def get_db_instance(%Client{} = client, input, options \\ []) do
+
+  def get_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -629,12 +686,22 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Returns a Timestream for InfluxDB DB parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20GetDbParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_db_parameter_group_input`)
+    %{
+      required("identifier") => String.t()
+    }
   """
-  @spec get_db_parameter_group(AWS.Client.t(), get_db_parameter_group_input(), Keyword.t()) ::
+
+  @spec get_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_db_parameter_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_db_parameter_group_errors()}
-  def get_db_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def get_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -643,12 +710,23 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Returns a list of Timestream for InfluxDB DB instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20ListDbInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_db_instances_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_db_instances(AWS.Client.t(), list_db_instances_input(), Keyword.t()) ::
+
+  @spec list_db_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_db_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_db_instances_errors()}
-  def list_db_instances(%Client{} = client, input, options \\ []) do
+
+  def list_db_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -657,12 +735,23 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Returns a list of Timestream for InfluxDB DB parameter groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20ListDbParameterGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_db_parameter_groups_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_db_parameter_groups(AWS.Client.t(), list_db_parameter_groups_input(), Keyword.t()) ::
+
+  @spec list_db_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_db_parameter_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_db_parameter_groups_errors()}
-  def list_db_parameter_groups(%Client{} = client, input, options \\ []) do
+
+  def list_db_parameter_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -671,12 +760,22 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   A list of tags applied to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -686,12 +785,23 @@ defmodule AWS.TimestreamInfluxDB do
   @doc """
   Tags are composed of a Key/Value pairs. You can use tags to categorize and track
   your Timestream for InfluxDB resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tags") => map()
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -700,12 +810,22 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Removes the tag from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -714,12 +834,24 @@ defmodule AWS.TimestreamInfluxDB do
 
   @doc """
   Updates a Timestream for InfluxDB DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreaminfluxdb%20UpdateDbInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_db_instance_input`)
+    %{
+      optional("dbParameterGroupIdentifier") => String.t(),
+      optional("logDeliveryConfiguration") => log_delivery_configuration(),
+      required("identifier") => String.t()
+    }
   """
-  @spec update_db_instance(AWS.Client.t(), update_db_instance_input(), Keyword.t()) ::
+
+  @spec update_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_db_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_db_instance_errors()}
-  def update_db_instance(%Client{} = client, input, options \\ []) do
+
+  def update_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

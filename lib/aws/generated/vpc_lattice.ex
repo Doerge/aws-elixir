@@ -18,34 +18,34 @@ defmodule AWS.VPCLattice do
   @typedoc """
 
   ## Example:
-
+      
       http_match() :: %{
         "headerMatches" => list(header_match()()),
         "method" => String.t(),
         "pathMatch" => path_match()
       }
-
+      
   """
   @type http_match() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_log_subscription_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
         required("destinationArn") => String.t(),
         required("resourceIdentifier") => String.t()
       }
-
+      
   """
   @type create_access_log_subscription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_service_network_vpc_association_response() :: %{
         optional("arn") => String.t(),
         optional("createdBy") => String.t(),
@@ -53,23 +53,23 @@ defmodule AWS.VPCLattice do
         optional("securityGroupIds") => list(String.t()()),
         optional("status") => String.t()
       }
-
+      
   """
   @type update_service_network_vpc_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_log_subscription_response() :: %{}
-
+      
   """
   @type delete_access_log_subscription_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_update_success() :: %{
         "action" => list(),
         "arn" => String.t(),
@@ -79,14 +79,14 @@ defmodule AWS.VPCLattice do
         "name" => String.t(),
         "priority" => integer()
       }
-
+      
   """
   @type rule_update_success() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_network_vpc_association_response() :: %{
         optional("arn") => String.t(),
         optional("createdBy") => String.t(),
@@ -94,14 +94,14 @@ defmodule AWS.VPCLattice do
         optional("securityGroupIds") => list(String.t()()),
         optional("status") => String.t()
       }
-
+      
   """
   @type create_service_network_vpc_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_rule_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
@@ -110,14 +110,14 @@ defmodule AWS.VPCLattice do
         required("name") => String.t(),
         required("priority") => integer()
       }
-
+      
   """
   @type create_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_target_group_request() :: %{
         optional("clientToken") => String.t(),
         optional("config") => target_group_config(),
@@ -125,25 +125,25 @@ defmodule AWS.VPCLattice do
         required("name") => String.t(),
         required("type") => String.t()
       }
-
+      
   """
   @type create_target_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_rule_request() :: %{
         required("rules") => list(rule_update()())
       }
-
+      
   """
   @type batch_update_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_target_group_response() :: %{
         optional("arn") => String.t(),
         optional("config") => target_group_config(),
@@ -157,45 +157,45 @@ defmodule AWS.VPCLattice do
         optional("status") => String.t(),
         optional("type") => String.t()
       }
-
+      
   """
   @type get_target_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_response() :: %{}
-
+      
   """
   @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_targets_request() :: %{
         required("targets") => list(target()())
       }
-
+      
   """
   @type deregister_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_listener_response() :: %{
         optional("arn") => String.t(),
         optional("defaultAction") => list(),
@@ -206,23 +206,23 @@ defmodule AWS.VPCLattice do
         optional("serviceArn") => String.t(),
         optional("serviceId") => String.t()
       }
-
+      
   """
   @type create_listener_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_network_request() :: %{}
-
+      
   """
   @type delete_service_network_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_response() :: %{
         optional("arn") => String.t(),
         optional("authType") => String.t(),
@@ -237,39 +237,39 @@ defmodule AWS.VPCLattice do
         optional("name") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type get_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forward_action() :: %{
         "targetGroups" => list(weighted_target_group()())
       }
-
+      
   """
   @type forward_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_network_request() :: %{
         optional("authType") => String.t(),
         optional("clientToken") => String.t(),
         optional("tags") => map(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_service_network_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_network_service_association_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -285,23 +285,23 @@ defmodule AWS.VPCLattice do
         "serviceNetworkName" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type service_network_service_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_network_response() :: %{
         optional("arn") => String.t(),
         optional("authType") => String.t(),
@@ -312,28 +312,28 @@ defmodule AWS.VPCLattice do
         optional("numberOfAssociatedServices") => [float()],
         optional("numberOfAssociatedVPCs") => [float()]
       }
-
+      
   """
   @type get_service_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_service_network_response() :: %{
         optional("arn") => String.t(),
         optional("authType") => String.t(),
         optional("id") => String.t(),
         optional("name") => String.t()
       }
-
+      
   """
   @type update_service_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_network_service_association_response() :: %{
         optional("arn") => String.t(),
         optional("createdBy") => String.t(),
@@ -342,58 +342,58 @@ defmodule AWS.VPCLattice do
         optional("id") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type create_service_network_service_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_network_response() :: %{
         optional("arn") => String.t(),
         optional("authType") => String.t(),
         optional("id") => String.t(),
         optional("name") => String.t()
       }
-
+      
   """
   @type create_service_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_network_vpc_associations_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(service_network_vpc_association_summary()())
       }
-
+      
   """
   @type list_service_network_vpc_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_log_subscription_request() :: %{}
-
+      
   """
   @type get_access_log_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_network_request() :: %{}
-
+      
   """
   @type get_service_network_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_network_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -403,47 +403,47 @@ defmodule AWS.VPCLattice do
         "numberOfAssociatedServices" => [float()],
         "numberOfAssociatedVPCs" => [float()]
       }
-
+      
   """
   @type service_network_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_rule_request() :: %{
         optional("action") => list(),
         optional("match") => list(),
         optional("priority") => integer()
       }
-
+      
   """
   @type update_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_response() :: %{
         optional("policy") => String.t()
       }
-
+      
   """
   @type get_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_auth_policy_response() :: %{}
-
+      
   """
   @type delete_auth_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_network_vpc_association_response() :: %{
         optional("arn") => String.t(),
         optional("createdAt") => non_neg_integer(),
@@ -459,46 +459,46 @@ defmodule AWS.VPCLattice do
         optional("status") => String.t(),
         optional("vpcId") => String.t()
       }
-
+      
   """
   @type get_service_network_vpc_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_rule_request() :: %{}
-
+      
   """
   @type get_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_log_subscriptions_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(access_log_subscription_summary()())
       }
-
+      
   """
   @type list_access_log_subscriptions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_log_subscription_response() :: %{
         required("arn") => String.t(),
         required("destinationArn") => String.t(),
@@ -506,26 +506,26 @@ defmodule AWS.VPCLattice do
         required("resourceArn") => String.t(),
         required("resourceId") => String.t()
       }
-
+      
   """
   @type create_access_log_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rules_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       target_group_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -541,37 +541,37 @@ defmodule AWS.VPCLattice do
         "type" => String.t(),
         "vpcIdentifier" => String.t()
       }
-
+      
   """
   @type target_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_network_service_associations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("serviceIdentifier") => String.t(),
         optional("serviceNetworkIdentifier") => String.t()
       }
-
+      
   """
   @type list_service_network_service_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_request() :: %{}
-
+      
   """
   @type get_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_listener_response() :: %{
         optional("arn") => String.t(),
         optional("createdAt") => non_neg_integer(),
@@ -584,60 +584,60 @@ defmodule AWS.VPCLattice do
         optional("serviceArn") => String.t(),
         optional("serviceId") => String.t()
       }
-
+      
   """
   @type get_listener_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_auth_policy_response() :: %{
         optional("createdAt") => non_neg_integer(),
         optional("lastUpdatedAt") => non_neg_integer(),
         optional("policy") => String.t(),
         optional("state") => String.t()
       }
-
+      
   """
   @type get_auth_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_target_group_request() :: %{
         required("healthCheck") => health_check_config()
       }
-
+      
   """
   @type update_target_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_services_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_services_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_rule_request() :: %{}
-
+      
   """
   @type delete_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_target_group_response() :: %{
         optional("arn") => String.t(),
         optional("config") => target_group_config(),
@@ -646,23 +646,23 @@ defmodule AWS.VPCLattice do
         optional("status") => String.t(),
         optional("type") => String.t()
       }
-
+      
   """
   @type update_target_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_rule_response() :: %{}
-
+      
   """
   @type delete_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_network_vpc_association_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -675,38 +675,38 @@ defmodule AWS.VPCLattice do
         "status" => String.t(),
         "vpcId" => String.t()
       }
-
+      
   """
   @type service_network_vpc_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       target() :: %{
         "id" => [String.t()],
         "port" => integer()
       }
-
+      
   """
   @type target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_networks_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_service_networks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_rule_response() :: %{
         optional("action") => list(),
         optional("arn") => String.t(),
@@ -716,64 +716,64 @@ defmodule AWS.VPCLattice do
         optional("name") => String.t(),
         optional("priority") => integer()
       }
-
+      
   """
   @type update_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_listeners_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_listeners_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_services_response() :: %{
         optional("items") => list(service_summary()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_services_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_target_group_response() :: %{
         optional("arn") => String.t(),
         optional("config") => target_group_config(),
@@ -782,14 +782,14 @@ defmodule AWS.VPCLattice do
         optional("status") => String.t(),
         optional("type") => String.t()
       }
-
+      
   """
   @type create_target_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -797,40 +797,40 @@ defmodule AWS.VPCLattice do
         "resourceType" => [String.t()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       target_summary() :: %{
         "id" => [String.t()],
         "port" => integer(),
         "reasonCode" => [String.t()],
         "status" => String.t()
       }
-
+      
   """
   @type target_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       weighted_target_group() :: %{
         "targetGroupIdentifier" => String.t(),
         "weight" => integer()
       }
-
+      
   """
   @type weighted_target_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -841,23 +841,23 @@ defmodule AWS.VPCLattice do
         "name" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type service_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_network_vpc_association_request() :: %{}
-
+      
   """
   @type delete_service_network_vpc_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_request() :: %{
         optional("authType") => String.t(),
         optional("certificateArn") => String.t(),
@@ -866,72 +866,72 @@ defmodule AWS.VPCLattice do
         optional("tags") => map(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_service_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       path_match() :: %{
         "caseSensitive" => boolean(),
         "match" => list()
       }
-
+      
   """
   @type path_match() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_target_group_response() :: %{
         optional("arn") => String.t(),
         optional("id") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type delete_target_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       header_match() :: %{
         "caseSensitive" => boolean(),
         "match" => list(),
         "name" => String.t()
       }
-
+      
   """
   @type header_match() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_auth_policy_request() :: %{}
-
+      
   """
   @type delete_auth_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_rule_response() :: %{
         optional("action") => list(),
         optional("arn") => String.t(),
@@ -943,39 +943,39 @@ defmodule AWS.VPCLattice do
         optional("name") => String.t(),
         optional("priority") => integer()
       }
-
+      
   """
   @type get_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_network_service_association_response() :: %{
         optional("arn") => String.t(),
         optional("id") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type delete_service_network_service_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_rule_response() :: %{
         optional("action") => list(),
         optional("arn") => String.t(),
@@ -984,80 +984,80 @@ defmodule AWS.VPCLattice do
         optional("name") => String.t(),
         optional("priority") => integer()
       }
-
+      
   """
   @type create_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_network_response() :: %{}
-
+      
   """
   @type delete_service_network_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_auth_policy_request() :: %{
         required("policy") => String.t()
       }
-
+      
   """
   @type put_auth_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_request() :: %{}
-
+      
   """
   @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_network_vpc_association_response() :: %{
         optional("arn") => String.t(),
         optional("id") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type delete_service_network_vpc_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_listeners_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(listener_summary()())
       }
-
+      
   """
   @type list_listeners_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_target_groups_response() :: %{
         optional("items") => list(target_group_summary()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_target_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_access_log_subscription_response() :: %{
         required("arn") => String.t(),
         required("destinationArn") => String.t(),
@@ -1065,44 +1065,44 @@ defmodule AWS.VPCLattice do
         required("resourceArn") => String.t(),
         required("resourceId") => String.t()
       }
-
+      
   """
   @type update_access_log_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_log_subscription_request() :: %{}
-
+      
   """
   @type delete_access_log_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_service_request() :: %{
         optional("authType") => String.t(),
         optional("certificateArn") => String.t()
       }
-
+      
   """
   @type update_service_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_target_group_request() :: %{}
-
+      
   """
   @type delete_target_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -1112,61 +1112,61 @@ defmodule AWS.VPCLattice do
         "name" => String.t(),
         "priority" => integer()
       }
-
+      
   """
   @type rule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_targets_request() :: %{
         required("targets") => list(target()())
       }
-
+      
   """
   @type register_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_targets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("targets") => list(target()())
       }
-
+      
   """
   @type list_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_access_log_subscription_request() :: %{
         required("destinationArn") => String.t()
       }
-
+      
   """
   @type update_access_log_subscription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_log_subscription_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -1176,14 +1176,14 @@ defmodule AWS.VPCLattice do
         "resourceArn" => String.t(),
         "resourceId" => String.t()
       }
-
+      
   """
   @type access_log_subscription_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_network_service_association_response() :: %{
         optional("arn") => String.t(),
         optional("createdAt") => non_neg_integer(),
@@ -1201,47 +1201,47 @@ defmodule AWS.VPCLattice do
         optional("serviceNetworkName") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type get_service_network_service_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_request() :: %{
         required("policy") => String.t()
       }
-
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_listener_request() :: %{
         required("defaultAction") => list()
       }
-
+      
   """
   @type update_listener_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_listener_response() :: %{
         optional("arn") => String.t(),
         optional("defaultAction") => list(),
@@ -1252,40 +1252,40 @@ defmodule AWS.VPCLattice do
         optional("serviceArn") => String.t(),
         optional("serviceId") => String.t()
       }
-
+      
   """
   @type update_listener_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rules_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(rule_summary()())
       }
-
+      
   """
   @type list_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_target_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("targetGroupType") => String.t(),
         optional("vpcIdentifier") => String.t()
       }
-
+      
   """
   @type list_target_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       listener_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -1295,54 +1295,54 @@ defmodule AWS.VPCLattice do
         "port" => integer(),
         "protocol" => String.t()
       }
-
+      
   """
   @type listener_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_request() :: %{}
-
+      
   """
   @type delete_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       health_check_config() :: %{
         "enabled" => boolean(),
         "healthCheckIntervalSeconds" => integer(),
@@ -1355,153 +1355,153 @@ defmodule AWS.VPCLattice do
         "protocolVersion" => String.t(),
         "unhealthyThresholdCount" => integer()
       }
-
+      
   """
   @type health_check_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
         "retryAfterSeconds" => [integer()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_network_service_association_request() :: %{}
-
+      
   """
   @type delete_service_network_service_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       fixed_response_action() :: %{
         "statusCode" => integer()
       }
-
+      
   """
   @type fixed_response_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_network_vpc_associations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("serviceNetworkIdentifier") => String.t(),
         optional("vpcIdentifier") => String.t()
       }
-
+      
   """
   @type list_service_network_vpc_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_auth_policy_response() :: %{
         optional("policy") => String.t(),
         optional("state") => String.t()
       }
-
+      
   """
   @type put_auth_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_response() :: %{}
-
+      
   """
   @type put_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       target_failure() :: %{
         "failureCode" => [String.t()],
         "failureMessage" => [String.t()],
         "id" => [String.t()],
         "port" => integer()
       }
-
+      
   """
   @type target_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_auth_policy_request() :: %{}
-
+      
   """
   @type get_auth_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_request() :: %{}
-
+      
   """
   @type delete_resource_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       register_targets_response() :: %{
         optional("successful") => list(target()()),
         optional("unsuccessful") => list(target_failure()())
       }
-
+      
   """
   @type register_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_update() :: %{
         "action" => list(),
         "match" => list(),
         "priority" => integer(),
         "ruleIdentifier" => String.t()
       }
-
+      
   """
   @type rule_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dns_entry() :: %{
         "domainName" => [String.t()],
         "hostedZoneId" => [String.t()]
       }
-
+      
   """
   @type dns_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_service_response() :: %{
         optional("arn") => String.t(),
         optional("authType") => String.t(),
@@ -1510,71 +1510,71 @@ defmodule AWS.VPCLattice do
         optional("id") => String.t(),
         optional("name") => String.t()
       }
-
+      
   """
   @type update_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_response() :: %{
         optional("arn") => String.t(),
         optional("id") => String.t(),
         optional("name") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type delete_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_service_network_vpc_association_request() :: %{
         required("securityGroupIds") => list(String.t()())
       }
-
+      
   """
   @type update_service_network_vpc_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_targets_response() :: %{
         optional("successful") => list(target()()),
         optional("unsuccessful") => list(target_failure()())
       }
-
+      
   """
   @type deregister_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_service_network_request() :: %{
         required("authType") => String.t()
       }
-
+      
   """
   @type update_service_network_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_listener_request() :: %{}
-
+      
   """
   @type get_listener_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_response() :: %{
         optional("arn") => String.t(),
         optional("authType") => String.t(),
@@ -1585,56 +1585,56 @@ defmodule AWS.VPCLattice do
         optional("name") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type create_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_rule_response() :: %{
         optional("successful") => list(rule_update_success()()),
         optional("unsuccessful") => list(rule_update_failure()())
       }
-
+      
   """
   @type batch_update_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_target_group_request() :: %{}
-
+      
   """
   @type get_target_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_listener_request() :: %{}
-
+      
   """
   @type delete_listener_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_targets_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(target_summary()())
       }
-
+      
   """
   @type list_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_log_subscription_response() :: %{
         required("arn") => String.t(),
         required("createdAt") => non_neg_integer(),
@@ -1644,14 +1644,14 @@ defmodule AWS.VPCLattice do
         required("resourceArn") => String.t(),
         required("resourceId") => String.t()
       }
-
+      
   """
   @type get_access_log_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       target_group_config() :: %{
         "healthCheck" => health_check_config(),
         "ipAddressType" => String.t(),
@@ -1661,14 +1661,14 @@ defmodule AWS.VPCLattice do
         "protocolVersion" => String.t(),
         "vpcIdentifier" => String.t()
       }
-
+      
   """
   @type target_group_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_network_vpc_association_request() :: %{
         optional("clientToken") => String.t(),
         optional("securityGroupIds") => list(String.t()()),
@@ -1676,82 +1676,82 @@ defmodule AWS.VPCLattice do
         required("serviceNetworkIdentifier") => String.t(),
         required("vpcIdentifier") => String.t()
       }
-
+      
   """
   @type create_service_network_vpc_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_log_subscriptions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("resourceIdentifier") => String.t()
       }
-
+      
   """
   @type list_access_log_subscriptions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_listener_response() :: %{}
-
+      
   """
   @type delete_listener_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_update_failure() :: %{
         "failureCode" => String.t(),
         "failureMessage" => String.t(),
         "ruleIdentifier" => String.t()
       }
-
+      
   """
   @type rule_update_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_networks_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(service_network_summary()())
       }
-
+      
   """
   @type list_service_networks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_network_service_associations_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(service_network_service_association_summary()())
       }
-
+      
   """
   @type list_service_network_service_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_network_service_association_request() :: %{}
-
+      
   """
   @type get_service_network_service_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_listener_request() :: %{
         optional("clientToken") => String.t(),
         optional("port") => integer(),
@@ -1760,30 +1760,30 @@ defmodule AWS.VPCLattice do
         required("name") => String.t(),
         required("protocol") => String.t()
       }
-
+      
   """
   @type create_listener_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_network_service_association_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
         required("serviceIdentifier") => String.t(),
         required("serviceNetworkIdentifier") => String.t()
       }
-
+      
   """
   @type create_service_network_service_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_network_vpc_association_request() :: %{}
-
+      
   """
   @type get_service_network_vpc_association_request() :: %{}
 
@@ -2200,37 +2200,50 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec batch_update_rule(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          batch_update_rule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_rule_errors()}
+
   def batch_update_rule(
         %Client{} = client,
         listener_identifier,
         service_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2239,7 +2252,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2261,33 +2274,40 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec create_access_log_subscription(
-          AWS.Client.t(),
-          create_access_log_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_access_log_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_log_subscription_errors()}
-  def create_access_log_subscription(%Client{} = client, input, options \\ []) do
+
+  def create_access_log_subscription(%Client{} = client, options \\ []) do
     url_path = "/accesslogsubscriptions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2301,33 +2321,44 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec create_listener(AWS.Client.t(), String.t(), create_listener_request(), Keyword.t()) ::
+
+  @spec create_listener(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_listener_errors()}
-  def create_listener(%Client{} = client, service_identifier, input, options \\ []) do
+
+  def create_listener(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2342,43 +2373,47 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec create_rule(AWS.Client.t(), String.t(), String.t(), create_rule_request(), Keyword.t()) ::
+
+  @spec create_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-  def create_rule(
-        %Client{} = client,
-        listener_identifier,
-        service_identifier,
-        input,
-        options \\ []
-      ) do
+
+  def create_rule(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2392,29 +2427,40 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec create_service(AWS.Client.t(), create_service_request(), Keyword.t()) ::
+
+  @spec create_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
-  def create_service(%Client{} = client, input, options \\ []) do
+
+  def create_service(%Client{} = client, options \\ []) do
     url_path = "/services"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2428,29 +2474,40 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec create_service_network(AWS.Client.t(), create_service_network_request(), Keyword.t()) ::
+
+  @spec create_service_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_network_errors()}
-  def create_service_network(%Client{} = client, input, options \\ []) do
+
+  def create_service_network(%Client{} = client, options \\ []) do
     url_path = "/servicenetworks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2468,33 +2525,40 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec create_service_network_service_association(
-          AWS.Client.t(),
-          create_service_network_service_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_service_network_service_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_network_service_association_errors()}
-  def create_service_network_service_association(%Client{} = client, input, options \\ []) do
+
+  def create_service_network_service_association(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkserviceassociations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2513,33 +2577,40 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec create_service_network_vpc_association(
-          AWS.Client.t(),
-          create_service_network_vpc_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_service_network_vpc_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_network_vpc_association_errors()}
-  def create_service_network_vpc_association(%Client{} = client, input, options \\ []) do
+
+  def create_service_network_vpc_association(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2553,29 +2624,40 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec create_target_group(AWS.Client.t(), create_target_group_request(), Keyword.t()) ::
+
+  @spec create_target_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_target_group_errors()}
-  def create_target_group(%Client{} = client, input, options \\ []) do
+
+  def create_target_group(%Client{} = client, options \\ []) do
     url_path = "/targetgroups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2585,33 +2667,47 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
-    Name (ARN) of the access log subscription.
+  Name (ARN) of the access log subscription.
 
   ## Optional parameters:
   """
-  @spec delete_access_log_subscription(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_log_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_log_subscription_errors()}
+
   def delete_access_log_subscription(
         %Client{} = client,
         access_log_subscription_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/accesslogsubscriptions/#{AWS.Util.encode_uri(access_log_subscription_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2620,7 +2716,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2636,21 +2732,42 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the resource.
+  the resource.
 
   ## Optional parameters:
   """
-  @spec delete_auth_policy(AWS.Client.t(), String.t(), delete_auth_policy_request(), Keyword.t()) ::
+
+  @spec delete_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_auth_policy_errors()}
-  def delete_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
+
+  def delete_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2659,7 +2776,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2672,37 +2789,45 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec delete_listener(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_listener_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_listener_errors()}
-  def delete_listener(
-        %Client{} = client,
-        listener_identifier,
-        service_identifier,
-        input,
-        options \\ []
-      ) do
+
+  def delete_listener(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2711,7 +2836,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2727,22 +2852,38 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec delete_resource_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_resource_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2751,7 +2892,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2767,41 +2908,53 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    rule.
+  rule.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec delete_rule(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_rule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
+
   def delete_rule(
         %Client{} = client,
         listener_identifier,
         rule_identifier,
         service_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules/#{AWS.Util.encode_uri(rule_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2810,7 +2963,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2828,21 +2981,42 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec delete_service(AWS.Client.t(), String.t(), delete_service_request(), Keyword.t()) ::
+
+  @spec delete_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
-  def delete_service(%Client{} = client, service_identifier, input, options \\ []) do
+
+  def delete_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2851,7 +3025,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2870,26 +3044,42 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_identifier` (`t:string`) The Amazon Resource Name (ARN) or
-    ID of the service network.
+  ID of the service network.
 
   ## Optional parameters:
   """
-  @spec delete_service_network(
-          AWS.Client.t(),
-          String.t(),
-          delete_service_network_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_network_errors()}
-  def delete_service_network(%Client{} = client, service_network_identifier, input, options \\ []) do
+
+  def delete_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2898,7 +3088,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2912,33 +3102,47 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_service_association_identifier` (`t:string`) The ID or
-    Amazon Resource Name (ARN) of the association.
+  Amazon Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
-  @spec delete_service_network_service_association(
-          AWS.Client.t(),
-          String.t(),
-          delete_service_network_service_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_service_network_service_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_network_service_association_errors()}
+
   def delete_service_network_service_association(
         %Client{} = client,
         service_network_service_association_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/servicenetworkserviceassociations/#{AWS.Util.encode_uri(service_network_service_association_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2947,7 +3151,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2961,33 +3165,47 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
-    Resource Name (ARN) of the association.
+  Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
-  @spec delete_service_network_vpc_association(
-          AWS.Client.t(),
-          String.t(),
-          delete_service_network_vpc_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_network_vpc_association_errors()}
+
   def delete_service_network_vpc_association(
         %Client{} = client,
         service_network_vpc_association_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/servicenetworkvpcassociations/#{AWS.Util.encode_uri(service_network_vpc_association_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2996,7 +3214,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3010,26 +3228,42 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-    of the target group.
+  of the target group.
 
   ## Optional parameters:
   """
-  @spec delete_target_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_target_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_target_group_errors()}
-  def delete_target_group(%Client{} = client, target_group_identifier, input, options \\ []) do
+
+  def delete_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3038,7 +3272,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3051,33 +3285,44 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-    of the target group.
+  of the target group.
 
   ## Optional parameters:
   """
-  @spec deregister_targets(AWS.Client.t(), String.t(), deregister_targets_request(), Keyword.t()) ::
+
+  @spec deregister_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_targets_errors()}
-  def deregister_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
+
+  def deregister_targets(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/deregistertargets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3087,14 +3332,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
-    Name (ARN) of the access log subscription.
+  Name (ARN) of the access log subscription.
 
   ## Optional parameters:
   """
+
   @spec get_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_log_subscription_errors()}
+
   def get_access_log_subscription(
         %Client{} = client,
         access_log_subscription_identifier,
@@ -3136,14 +3383,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the service network or service.
+  the service network or service.
 
   ## Optional parameters:
   """
+
   @spec get_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_auth_policy_errors()}
+
   def get_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -3179,16 +3428,18 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
+
   @spec get_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_listener_errors()}
+
   def get_listener(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
@@ -3226,14 +3477,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the service
-    network or service.
+  network or service.
 
   ## Optional parameters:
   """
+
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
+
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3272,18 +3525,20 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    listener rule.
+  listener rule.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
+
   @spec get_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_errors()}
+
   def get_rule(
         %Client{} = client,
         listener_identifier,
@@ -3326,14 +3581,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
+
   @spec get_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
+
   def get_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
 
@@ -3369,14 +3626,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-    (ARN) of the service network.
+  (ARN) of the service network.
 
   ## Optional parameters:
   """
+
   @spec get_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_errors()}
+
   def get_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
 
@@ -3413,14 +3672,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_service_association_identifier` (`t:string`) The ID or
-    Amazon Resource Name (ARN) of the association.
+  Amazon Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
+
   @spec get_service_network_service_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_service_association_errors()}
+
   def get_service_network_service_association(
         %Client{} = client,
         service_network_service_association_identifier,
@@ -3461,14 +3722,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
-    Resource Name (ARN) of the association.
+  Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
+
   @spec get_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_network_vpc_association_errors()}
+
   def get_service_network_vpc_association(
         %Client{} = client,
         service_network_vpc_association_identifier,
@@ -3509,14 +3772,16 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-    of the target group.
+  of the target group.
 
   ## Optional parameters:
   """
+
   @spec get_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_target_group_errors()}
+
   def get_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
 
@@ -3552,17 +3817,20 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the service network or service.
+  the service network or service.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
+
   @spec list_access_log_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_log_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_log_subscriptions_errors()}
-  def list_access_log_subscriptions(%Client{} = client, resource_identifier, options \\ []) do
+
+  def list_access_log_subscriptions(%Client{} = client, resource_identifier, options \\ [])
+      when is_binary(resource_identifier) do
     url_path = "/accesslogsubscriptions"
 
     # Validate optional parameters
@@ -3615,16 +3883,18 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
+
   @spec list_listeners(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_listeners_errors()}
+
   def list_listeners(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners"
 
@@ -3678,18 +3948,20 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
+
   @spec list_rules(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
+
   def list_rules(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
@@ -3750,14 +4022,16 @@ defmodule AWS.VPCLattice do
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-    (ARN) of the service network.
+  (ARN) of the service network.
   """
+
   @spec list_service_network_service_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_service_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_network_service_associations_errors()}
+
   def list_service_network_service_associations(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkserviceassociations"
 
@@ -3841,14 +4115,16 @@ defmodule AWS.VPCLattice do
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-    (ARN) of the service network.
+  (ARN) of the service network.
   * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    VPC.
+  VPC.
   """
+
   @spec list_service_network_vpc_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_vpc_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_network_vpc_associations_errors()}
+
   def list_service_network_vpc_associations(%Client{} = client, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
 
@@ -3927,10 +4203,12 @@ defmodule AWS.VPCLattice do
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
+
   @spec list_service_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_networks_errors()}
+
   def list_service_networks(%Client{} = client, options \\ []) do
     url_path = "/servicenetworks"
 
@@ -3989,10 +4267,12 @@ defmodule AWS.VPCLattice do
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
+
   @spec list_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
+
   def list_services(%Client{} = client, options \\ []) do
     url_path = "/services"
 
@@ -4049,10 +4329,12 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4094,12 +4376,14 @@ defmodule AWS.VPCLattice do
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:target_group_type` (`t:string`) The target group type.
   * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    VPC.
+  VPC.
   """
+
   @spec list_target_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_target_groups_errors()}
+
   def list_target_groups(%Client{} = client, options \\ []) do
     url_path = "/targetgroups"
 
@@ -4174,26 +4458,52 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-    of the target group.
+  of the target group.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   """
-  @spec list_targets(AWS.Client.t(), String.t(), list_targets_request(), Keyword.t()) ::
+
+  @spec list_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_errors()}
-  def list_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
+
+  def list_targets(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/listtargets"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4203,17 +4513,9 @@ defmodule AWS.VPCLattice do
       options
       |> Keyword.drop([:max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4224,23 +4526,44 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the service network or service for which the policy is created.
+  the service network or service for which the policy is created.
 
   ## Optional parameters:
   """
-  @spec put_auth_policy(AWS.Client.t(), String.t(), put_auth_policy_request(), Keyword.t()) ::
+
+  @spec put_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_auth_policy_errors()}
-  def put_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
+
+  def put_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4253,28 +4576,44 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service network or service for which the policy is created.
+  service network or service for which the policy is created.
 
   ## Optional parameters:
   """
-  @spec put_resource_policy(
-          AWS.Client.t(),
-          String.t(),
-          put_resource_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4285,33 +4624,44 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-    of the target group.
+  of the target group.
 
   ## Optional parameters:
   """
-  @spec register_targets(AWS.Client.t(), String.t(), register_targets_request(), Keyword.t()) ::
+
+  @spec register_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, register_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_targets_errors()}
-  def register_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
+
+  def register_targets(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/registertargets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4324,29 +4674,40 @@ defmodule AWS.VPCLattice do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4357,26 +4718,43 @@ defmodule AWS.VPCLattice do
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.vpclattice#TagKey]`) The tag keys of the
-    tags to remove.
+  tags to remove.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4385,7 +4763,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4398,33 +4776,47 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
-    Name (ARN) of the access log subscription.
+  Name (ARN) of the access log subscription.
 
   ## Optional parameters:
   """
-  @spec update_access_log_subscription(
-          AWS.Client.t(),
-          String.t(),
-          update_access_log_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_log_subscription_errors()}
+
   def update_access_log_subscription(
         %Client{} = client,
         access_log_subscription_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/accesslogsubscriptions/#{AWS.Util.encode_uri(access_log_subscription_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4433,7 +4825,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4446,37 +4838,45 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec update_listener(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_listener_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_listener_errors()}
-  def update_listener(
-        %Client{} = client,
-        listener_identifier,
-        service_identifier,
-        input,
-        options \\ []
-      ) do
+
+  def update_listener(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4485,7 +4885,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4499,41 +4899,53 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
-    the listener.
+  the listener.
   * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    rule.
+  rule.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec update_rule(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_rule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
+
   def update_rule(
         %Client{} = client,
         listener_identifier,
         rule_identifier,
         service_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules/#{AWS.Util.encode_uri(rule_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4542,7 +4954,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4555,21 +4967,42 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-    service.
+  service.
 
   ## Optional parameters:
   """
-  @spec update_service(AWS.Client.t(), String.t(), update_service_request(), Keyword.t()) ::
+
+  @spec update_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
-  def update_service(%Client{} = client, service_identifier, input, options \\ []) do
+
+  def update_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4578,7 +5011,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4591,26 +5024,42 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-    (ARN) of the service network.
+  (ARN) of the service network.
 
   ## Optional parameters:
   """
-  @spec update_service_network(
-          AWS.Client.t(),
-          String.t(),
-          update_service_network_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_network_errors()}
-  def update_service_network(%Client{} = client, service_network_identifier, input, options \\ []) do
+
+  def update_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4619,7 +5068,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4636,33 +5085,47 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
-    Resource Name (ARN) of the association.
+  Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
-  @spec update_service_network_vpc_association(
-          AWS.Client.t(),
-          String.t(),
-          update_service_network_vpc_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_network_vpc_association_errors()}
+
   def update_service_network_vpc_association(
         %Client{} = client,
         service_network_vpc_association_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/servicenetworkvpcassociations/#{AWS.Util.encode_uri(service_network_vpc_association_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4671,7 +5134,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4684,26 +5147,42 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
-    of the target group.
+  of the target group.
 
   ## Optional parameters:
   """
-  @spec update_target_group(
-          AWS.Client.t(),
-          String.t(),
-          update_target_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_target_group_errors()}
-  def update_target_group(%Client{} = client, target_group_identifier, input, options \\ []) do
+
+  def update_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4712,7 +5191,7 @@ defmodule AWS.VPCLattice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

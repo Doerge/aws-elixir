@@ -3074,12 +3074,22 @@ defmodule AWS.Directory do
   @doc """
   Accepts a directory sharing request that was sent from the directory owner
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20AcceptSharedDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:accept_shared_directory_request`)
+    %{
+      required("SharedDirectoryId") => String.t()
+    }
   """
-  @spec accept_shared_directory(AWS.Client.t(), accept_shared_directory_request(), Keyword.t()) ::
+
+  @spec accept_shared_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_shared_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_shared_directory_errors()}
-  def accept_shared_directory(%Client{} = client, input, options \\ []) do
+
+  def accept_shared_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3092,12 +3102,24 @@ defmodule AWS.Directory do
   from your Microsoft AD on Amazon Web Services. *AddIpRoutes* adds this address
   block. You can also use *AddIpRoutes* to facilitate routing traffic that uses
   public IP ranges from your Microsoft AD on Amazon Web Services to a peer VPC.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20AddIpRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_ip_routes_request`)
+    %{
+      optional("UpdateSecurityGroupForDirectoryControllers") => boolean(),
+      required("DirectoryId") => String.t(),
+      required("IpRoutes") => list(ip_route()())
+    }
   """
-  @spec add_ip_routes(AWS.Client.t(), add_ip_routes_request(), Keyword.t()) ::
+
+  @spec add_ip_routes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_ip_routes_errors()}
-  def add_ip_routes(%Client{} = client, input, options \\ []) do
+
+  def add_ip_routes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3106,12 +3128,24 @@ defmodule AWS.Directory do
 
   @doc """
   Adds two domain controllers in the specified Region for the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20AddRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_region_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("RegionName") => String.t(),
+      required("VPCSettings") => directory_vpc_settings()
+    }
   """
-  @spec add_region(AWS.Client.t(), add_region_request(), Keyword.t()) ::
+
+  @spec add_region(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_region_errors()}
-  def add_region(%Client{} = client, input, options \\ []) do
+
+  def add_region(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3122,12 +3156,23 @@ defmodule AWS.Directory do
   Adds or overwrites one or more tags for the specified directory. Each directory
   can have a maximum of 50 tags. Each tag consists of a key and optional value.
   Tag keys must be unique to each resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20AddTagsToResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_resource_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_request(), Keyword.t()) ::
+
+  @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_to_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-  def add_tags_to_resource(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3140,12 +3185,23 @@ defmodule AWS.Directory do
   can no longer be canceled. A schema extension can be canceled during any of
   the following states; `Initializing`, `CreatingSnapshot`, and
   `UpdatingSchema`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CancelSchemaExtension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_schema_extension_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("SchemaExtensionId") => String.t()
+    }
   """
-  @spec cancel_schema_extension(AWS.Client.t(), cancel_schema_extension_request(), Keyword.t()) ::
+
+  @spec cancel_schema_extension(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_schema_extension_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_schema_extension_errors()}
-  def cancel_schema_extension(%Client{} = client, input, options \\ []) do
+
+  def cancel_schema_extension(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3154,12 +3210,28 @@ defmodule AWS.Directory do
 
   @doc """
   Creates an AD Connector to connect to a self-managed directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ConnectDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:connect_directory_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("ShortName") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ConnectSettings") => directory_connect_settings(),
+      required("Name") => String.t(),
+      required("Password") => String.t(),
+      required("Size") => list(any())
+    }
   """
-  @spec connect_directory(AWS.Client.t(), connect_directory_request(), Keyword.t()) ::
+
+  @spec connect_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connect_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, connect_directory_errors()}
-  def connect_directory(%Client{} = client, input, options \\ []) do
+
+  def connect_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3170,12 +3242,23 @@ defmodule AWS.Directory do
   Creates an alias for a directory and assigns the alias to the directory. The
   alias is used to construct the access URL for the directory, such as
   `http://.awsapps.com`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_alias_request`)
+    %{
+      required("Alias") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec create_alias(AWS.Client.t(), create_alias_request(), Keyword.t()) ::
+
+  @spec create_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
-  def create_alias(%Client{} = client, input, options \\ []) do
+
+  def create_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3184,12 +3267,26 @@ defmodule AWS.Directory do
 
   @doc """
   Creates an Active Directory computer object in the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateComputer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_computer_request`)
+    %{
+      optional("ComputerAttributes") => list(attribute()()),
+      optional("OrganizationalUnitDistinguishedName") => String.t(),
+      required("ComputerName") => String.t(),
+      required("DirectoryId") => String.t(),
+      required("Password") => String.t()
+    }
   """
-  @spec create_computer(AWS.Client.t(), create_computer_request(), Keyword.t()) ::
+
+  @spec create_computer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_computer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_computer_errors()}
-  def create_computer(%Client{} = client, input, options \\ []) do
+
+  def create_computer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3201,16 +3298,24 @@ defmodule AWS.Directory do
   directory. Conditional forwarders are required in order to set up a trust
   relationship with another domain. The conditional forwarder points to the
   trusted domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateConditionalForwarder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_conditional_forwarder_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("DnsIpAddrs") => list(String.t()()),
+      required("RemoteDomainName") => String.t()
+    }
   """
-  @spec create_conditional_forwarder(
-          AWS.Client.t(),
-          create_conditional_forwarder_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_conditional_forwarder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_conditional_forwarder_errors()}
-  def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
+
+  def create_conditional_forwarder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3226,12 +3331,28 @@ defmodule AWS.Directory do
   `CreateDirectory` operation, see [Directory Service API Permissions: Actions,
   Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_directory_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("ShortName") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VpcSettings") => directory_vpc_settings(),
+      required("Name") => String.t(),
+      required("Password") => String.t(),
+      required("Size") => list(any())
+    }
   """
-  @spec create_directory(AWS.Client.t(), create_directory_request(), Keyword.t()) ::
+
+  @spec create_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_errors()}
-  def create_directory(%Client{} = client, input, options \\ []) do
+
+  def create_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3242,12 +3363,23 @@ defmodule AWS.Directory do
   Creates a subscription to forward real-time Directory Service domain controller
   security logs to the specified Amazon CloudWatch log group in your Amazon Web
   Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_log_subscription_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("LogGroupName") => String.t()
+    }
   """
-  @spec create_log_subscription(AWS.Client.t(), create_log_subscription_request(), Keyword.t()) ::
+
+  @spec create_log_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_log_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_log_subscription_errors()}
-  def create_log_subscription(%Client{} = client, input, options \\ []) do
+
+  def create_log_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3264,12 +3396,28 @@ defmodule AWS.Directory do
   *CreateMicrosoftAD* operation, see [Directory Service API Permissions:
   Actions, Resources, and Conditions
   Reference](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateMicrosoftAD&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_microsoft_ad_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Edition") => list(any()),
+      optional("ShortName") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("Password") => String.t(),
+      required("VpcSettings") => directory_vpc_settings()
+    }
   """
-  @spec create_microsoft_ad(AWS.Client.t(), create_microsoft_ad_request(), Keyword.t()) ::
+
+  @spec create_microsoft_ad(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_microsoft_ad_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_microsoft_ad_errors()}
-  def create_microsoft_ad(%Client{} = client, input, options \\ []) do
+
+  def create_microsoft_ad(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3279,12 +3427,23 @@ defmodule AWS.Directory do
   @doc """
   Creates a snapshot of a Simple AD or Microsoft AD directory in the Amazon Web
   Services cloud.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_snapshot_request`)
+    %{
+      optional("Name") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec create_snapshot(AWS.Client.t(), create_snapshot_request(), Keyword.t()) ::
+
+  @spec create_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-  def create_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3297,12 +3456,28 @@ defmodule AWS.Directory do
   Microsoft AD directory, and your existing self-managed Microsoft Active
   Directory. This would allow you to provide users and groups access to
   resources in either domain, with a single set of credentials.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20CreateTrust&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_trust_request`)
+    %{
+      optional("ConditionalForwarderIpAddrs") => list(String.t()()),
+      optional("SelectiveAuth") => list(any()),
+      optional("TrustType") => list(any()),
+      required("DirectoryId") => String.t(),
+      required("RemoteDomainName") => String.t(),
+      required("TrustDirection") => list(any()),
+      required("TrustPassword") => String.t()
+    }
   """
-  @spec create_trust(AWS.Client.t(), create_trust_request(), Keyword.t()) ::
+
+  @spec create_trust(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trust_errors()}
-  def create_trust(%Client{} = client, input, options \\ []) do
+
+  def create_trust(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3312,16 +3487,23 @@ defmodule AWS.Directory do
   @doc """
   Deletes a conditional forwarder that has been set up for your Amazon Web
   Services directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DeleteConditionalForwarder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_conditional_forwarder_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("RemoteDomainName") => String.t()
+    }
   """
-  @spec delete_conditional_forwarder(
-          AWS.Client.t(),
-          delete_conditional_forwarder_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_conditional_forwarder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_conditional_forwarder_errors()}
-  def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
+
+  def delete_conditional_forwarder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3330,12 +3512,22 @@ defmodule AWS.Directory do
 
   @doc """
   Deletes an Directory Service directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DeleteDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_directory_request`)
+    %{
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec delete_directory(AWS.Client.t(), delete_directory_request(), Keyword.t()) ::
+
+  @spec delete_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_errors()}
-  def delete_directory(%Client{} = client, input, options \\ []) do
+
+  def delete_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3344,12 +3536,22 @@ defmodule AWS.Directory do
 
   @doc """
   Deletes the specified log subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DeleteLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_log_subscription_request`)
+    %{
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec delete_log_subscription(AWS.Client.t(), delete_log_subscription_request(), Keyword.t()) ::
+
+  @spec delete_log_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_log_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_log_subscription_errors()}
-  def delete_log_subscription(%Client{} = client, input, options \\ []) do
+
+  def delete_log_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3358,12 +3560,22 @@ defmodule AWS.Directory do
 
   @doc """
   Deletes a directory snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DeleteSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_snapshot_request`)
+    %{
+      required("SnapshotId") => String.t()
+    }
   """
-  @spec delete_snapshot(AWS.Client.t(), delete_snapshot_request(), Keyword.t()) ::
+
+  @spec delete_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_errors()}
-  def delete_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3373,12 +3585,23 @@ defmodule AWS.Directory do
   @doc """
   Deletes an existing trust relationship between your Managed Microsoft AD
   directory and an external domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DeleteTrust&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_trust_request`)
+    %{
+      optional("DeleteAssociatedConditionalForwarder") => boolean(),
+      required("TrustId") => String.t()
+    }
   """
-  @spec delete_trust(AWS.Client.t(), delete_trust_request(), Keyword.t()) ::
+
+  @spec delete_trust(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trust_errors()}
-  def delete_trust(%Client{} = client, input, options \\ []) do
+
+  def delete_trust(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3388,12 +3611,23 @@ defmodule AWS.Directory do
   @doc """
   Deletes from the system the certificate that was registered for secure LDAP or
   client certificate authentication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DeregisterCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_certificate_request`)
+    %{
+      required("CertificateId") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec deregister_certificate(AWS.Client.t(), deregister_certificate_request(), Keyword.t()) ::
+
+  @spec deregister_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_certificate_errors()}
-  def deregister_certificate(%Client{} = client, input, options \\ []) do
+
+  def deregister_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3403,12 +3637,23 @@ defmodule AWS.Directory do
   @doc """
   Removes the specified directory as a publisher to the specified Amazon SNS
   topic.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DeregisterEventTopic&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_event_topic_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("TopicName") => String.t()
+    }
   """
-  @spec deregister_event_topic(AWS.Client.t(), deregister_event_topic_request(), Keyword.t()) ::
+
+  @spec deregister_event_topic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_event_topic_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_event_topic_errors()}
-  def deregister_event_topic(%Client{} = client, input, options \\ []) do
+
+  def deregister_event_topic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3418,12 +3663,23 @@ defmodule AWS.Directory do
   @doc """
   Displays information about the certificate registered for secure LDAP or client
   certificate authentication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_certificate_request`)
+    %{
+      required("CertificateId") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec describe_certificate(AWS.Client.t(), describe_certificate_request(), Keyword.t()) ::
+
+  @spec describe_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_errors()}
-  def describe_certificate(%Client{} = client, input, options \\ []) do
+
+  def describe_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3435,16 +3691,26 @@ defmodule AWS.Directory do
   directory, if the type is specified. If no type is specified, information
   about all client authentication types that are supported for the specified
   directory is retrieved. Currently, only `SmartCard` is supported.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeClientAuthenticationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_client_authentication_settings_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Type") => list(any()),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec describe_client_authentication_settings(
-          AWS.Client.t(),
-          describe_client_authentication_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_client_authentication_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_authentication_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_client_authentication_settings_errors()}
-  def describe_client_authentication_settings(%Client{} = client, input, options \\ []) do
+
+  def describe_client_authentication_settings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3453,16 +3719,24 @@ defmodule AWS.Directory do
 
   @doc """
   Obtains information about the conditional forwarders for this account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeConditionalForwarders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_conditional_forwarders_request`)
+    %{
+      optional("RemoteDomainNames") => list(String.t()()),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec describe_conditional_forwarders(
-          AWS.Client.t(),
-          describe_conditional_forwarders_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_conditional_forwarders(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_conditional_forwarders_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_conditional_forwarders_errors()}
-  def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
+
+  def describe_conditional_forwarders(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3474,12 +3748,24 @@ defmodule AWS.Directory do
   retrieve information about specific directories by passing the directory
   identifiers in the `DirectoryIds` parameter. Otherwise, all directories that
   belong to the current account are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeDirectories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_directories_request`)
+    %{
+      optional("DirectoryIds") => list(String.t()()),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_directories(AWS.Client.t(), describe_directories_request(), Keyword.t()) ::
+
+  @spec describe_directories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_directories_errors()}
-  def describe_directories(%Client{} = client, input, options \\ []) do
+
+  def describe_directories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3488,16 +3774,25 @@ defmodule AWS.Directory do
 
   @doc """
   Provides information about any domain controllers in your directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeDomainControllers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_domain_controllers_request`)
+    %{
+      optional("DomainControllerIds") => list(String.t()()),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec describe_domain_controllers(
-          AWS.Client.t(),
-          describe_domain_controllers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_domain_controllers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_domain_controllers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_controllers_errors()}
-  def describe_domain_controllers(%Client{} = client, input, options \\ []) do
+
+  def describe_domain_controllers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3507,12 +3802,23 @@ defmodule AWS.Directory do
   @doc """
   Obtains information about which Amazon SNS topics receive status messages from
   the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeEventTopics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_topics_request`)
+    %{
+      optional("DirectoryId") => String.t(),
+      optional("TopicNames") => list(String.t()())
+    }
   """
-  @spec describe_event_topics(AWS.Client.t(), describe_event_topics_request(), Keyword.t()) ::
+
+  @spec describe_event_topics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_topics_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_topics_errors()}
-  def describe_event_topics(%Client{} = client, input, options \\ []) do
+
+  def describe_event_topics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3521,12 +3827,25 @@ defmodule AWS.Directory do
 
   @doc """
   Describes the status of LDAP security for the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeLDAPSSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_ldaps_settings_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Type") => list(any()),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec describe_ldaps_settings(AWS.Client.t(), describe_ldaps_settings_request(), Keyword.t()) ::
+
+  @spec describe_ldaps_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ldaps_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ldaps_settings_errors()}
-  def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
+
+  def describe_ldaps_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3536,12 +3855,24 @@ defmodule AWS.Directory do
   @doc """
   Provides information about the Regions that are configured for multi-Region
   replication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeRegions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_regions_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("RegionName") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec describe_regions(AWS.Client.t(), describe_regions_request(), Keyword.t()) ::
+
+  @spec describe_regions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_regions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_regions_errors()}
-  def describe_regions(%Client{} = client, input, options \\ []) do
+
+  def describe_regions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3551,12 +3882,24 @@ defmodule AWS.Directory do
   @doc """
   Retrieves information about the configurable settings for the specified
   directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_settings_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any()),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec describe_settings(AWS.Client.t(), describe_settings_request(), Keyword.t()) ::
+
+  @spec describe_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_settings_errors()}
-  def describe_settings(%Client{} = client, input, options \\ []) do
+
+  def describe_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3565,16 +3908,25 @@ defmodule AWS.Directory do
 
   @doc """
   Returns the shared directories in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeSharedDirectories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_shared_directories_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SharedDirectoryIds") => list(String.t()()),
+      required("OwnerDirectoryId") => String.t()
+    }
   """
-  @spec describe_shared_directories(
-          AWS.Client.t(),
-          describe_shared_directories_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_shared_directories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_shared_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_shared_directories_errors()}
-  def describe_shared_directories(%Client{} = client, input, options \\ []) do
+
+  def describe_shared_directories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3587,12 +3939,25 @@ defmodule AWS.Directory do
   response parameters. If more results are available, the
   *DescribeSnapshots.NextToken* member contains a token that you pass in the
   next call to `DescribeSnapshots` to retrieve the next set of items.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_snapshots_request`)
+    %{
+      optional("DirectoryId") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SnapshotIds") => list(String.t()())
+    }
   """
-  @spec describe_snapshots(AWS.Client.t(), describe_snapshots_request(), Keyword.t()) ::
+
+  @spec describe_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshots_errors()}
-  def describe_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3601,12 +3966,25 @@ defmodule AWS.Directory do
 
   @doc """
   Obtains information about the trust relationships for this account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeTrusts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trusts_request`)
+    %{
+      optional("DirectoryId") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("TrustIds") => list(String.t()())
+    }
   """
-  @spec describe_trusts(AWS.Client.t(), describe_trusts_request(), Keyword.t()) ::
+
+  @spec describe_trusts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trusts_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusts_errors()}
-  def describe_trusts(%Client{} = client, input, options \\ []) do
+
+  def describe_trusts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3615,16 +3993,25 @@ defmodule AWS.Directory do
 
   @doc """
   Describes the updates of a directory for a particular update type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DescribeUpdateDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_update_directory_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("RegionName") => String.t(),
+      required("DirectoryId") => String.t(),
+      required("UpdateType") => list(any())
+    }
   """
-  @spec describe_update_directory(
-          AWS.Client.t(),
-          describe_update_directory_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_update_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_update_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_update_directory_errors()}
-  def describe_update_directory(%Client{} = client, input, options \\ []) do
+
+  def describe_update_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3633,16 +4020,24 @@ defmodule AWS.Directory do
 
   @doc """
   Disables alternative client authentication methods for the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DisableClientAuthentication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_client_authentication_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec disable_client_authentication(
-          AWS.Client.t(),
-          disable_client_authentication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disable_client_authentication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_client_authentication_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_client_authentication_errors()}
-  def disable_client_authentication(%Client{} = client, input, options \\ []) do
+
+  def disable_client_authentication(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3651,12 +4046,23 @@ defmodule AWS.Directory do
 
   @doc """
   Deactivates LDAP secure calls for the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DisableLDAPS&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_ldaps_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec disable_ldaps(AWS.Client.t(), disable_ldaps_request(), Keyword.t()) ::
+
+  @spec disable_ldaps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_ldaps_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_ldaps_errors()}
-  def disable_ldaps(%Client{} = client, input, options \\ []) do
+
+  def disable_ldaps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3666,12 +4072,22 @@ defmodule AWS.Directory do
   @doc """
   Disables multi-factor authentication (MFA) with the Remote Authentication Dial
   In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DisableRadius&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_radius_request`)
+    %{
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec disable_radius(AWS.Client.t(), disable_radius_request(), Keyword.t()) ::
+
+  @spec disable_radius(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_radius_errors()}
-  def disable_radius(%Client{} = client, input, options \\ []) do
+
+  def disable_radius(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3680,12 +4096,24 @@ defmodule AWS.Directory do
 
   @doc """
   Disables single-sign on for a directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20DisableSso&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_sso_request`)
+    %{
+      optional("Password") => String.t(),
+      optional("UserName") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec disable_sso(AWS.Client.t(), disable_sso_request(), Keyword.t()) ::
+
+  @spec disable_sso(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_sso_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_sso_errors()}
-  def disable_sso(%Client{} = client, input, options \\ []) do
+
+  def disable_sso(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3694,16 +4122,23 @@ defmodule AWS.Directory do
 
   @doc """
   Enables alternative client authentication methods for the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20EnableClientAuthentication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_client_authentication_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec enable_client_authentication(
-          AWS.Client.t(),
-          enable_client_authentication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_client_authentication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_client_authentication_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_client_authentication_errors()}
-  def enable_client_authentication(%Client{} = client, input, options \\ []) do
+
+  def enable_client_authentication(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3712,12 +4147,23 @@ defmodule AWS.Directory do
 
   @doc """
   Activates the switch for the specific directory to always use LDAP secure calls.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20EnableLDAPS&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_ldaps_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec enable_ldaps(AWS.Client.t(), enable_ldaps_request(), Keyword.t()) ::
+
+  @spec enable_ldaps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_ldaps_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_ldaps_errors()}
-  def enable_ldaps(%Client{} = client, input, options \\ []) do
+
+  def enable_ldaps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3727,12 +4173,23 @@ defmodule AWS.Directory do
   @doc """
   Enables multi-factor authentication (MFA) with the Remote Authentication Dial In
   User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20EnableRadius&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_radius_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("RadiusSettings") => radius_settings()
+    }
   """
-  @spec enable_radius(AWS.Client.t(), enable_radius_request(), Keyword.t()) ::
+
+  @spec enable_radius(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_radius_errors()}
-  def enable_radius(%Client{} = client, input, options \\ []) do
+
+  def enable_radius(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3743,12 +4200,24 @@ defmodule AWS.Directory do
   Enables single sign-on for a directory. Single sign-on allows users in your
   directory to access certain Amazon Web Services services from a computer
   joined to the directory without having to enter their credentials separately.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20EnableSso&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_sso_request`)
+    %{
+      optional("Password") => String.t(),
+      optional("UserName") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec enable_sso(AWS.Client.t(), enable_sso_request(), Keyword.t()) ::
+
+  @spec enable_sso(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_sso_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_sso_errors()}
-  def enable_sso(%Client{} = client, input, options \\ []) do
+
+  def enable_sso(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3757,12 +4226,22 @@ defmodule AWS.Directory do
 
   @doc """
   Obtains directory limit information for the current Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20GetDirectoryLimits&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_directory_limits_request`)
+    %{
+      
+    }
   """
-  @spec get_directory_limits(AWS.Client.t(), get_directory_limits_request(), Keyword.t()) ::
+
+  @spec get_directory_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_directory_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_directory_limits_errors()}
-  def get_directory_limits(%Client{} = client, input, options \\ []) do
+
+  def get_directory_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3771,12 +4250,22 @@ defmodule AWS.Directory do
 
   @doc """
   Obtains the manual snapshot limits for a directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20GetSnapshotLimits&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_snapshot_limits_request`)
+    %{
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec get_snapshot_limits(AWS.Client.t(), get_snapshot_limits_request(), Keyword.t()) ::
+
+  @spec get_snapshot_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_snapshot_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshot_limits_errors()}
-  def get_snapshot_limits(%Client{} = client, input, options \\ []) do
+
+  def get_snapshot_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3786,12 +4275,24 @@ defmodule AWS.Directory do
   @doc """
   For the specified directory, lists all the certificates registered for a secure
   LDAP or client certificate authentication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ListCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_certificates_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec list_certificates(AWS.Client.t(), list_certificates_request(), Keyword.t()) ::
+
+  @spec list_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificates_errors()}
-  def list_certificates(%Client{} = client, input, options \\ []) do
+
+  def list_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3800,12 +4301,24 @@ defmodule AWS.Directory do
 
   @doc """
   Lists the address blocks that you have added to a directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ListIpRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ip_routes_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec list_ip_routes(AWS.Client.t(), list_ip_routes_request(), Keyword.t()) ::
+
+  @spec list_ip_routes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ip_routes_errors()}
-  def list_ip_routes(%Client{} = client, input, options \\ []) do
+
+  def list_ip_routes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3814,12 +4327,24 @@ defmodule AWS.Directory do
 
   @doc """
   Lists the active log subscriptions for the Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ListLogSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_log_subscriptions_request`)
+    %{
+      optional("DirectoryId") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_log_subscriptions(AWS.Client.t(), list_log_subscriptions_request(), Keyword.t()) ::
+
+  @spec list_log_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_log_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_log_subscriptions_errors()}
-  def list_log_subscriptions(%Client{} = client, input, options \\ []) do
+
+  def list_log_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3828,12 +4353,24 @@ defmodule AWS.Directory do
 
   @doc """
   Lists all schema extensions applied to a Microsoft AD Directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ListSchemaExtensions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_schema_extensions_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec list_schema_extensions(AWS.Client.t(), list_schema_extensions_request(), Keyword.t()) ::
+
+  @spec list_schema_extensions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_schema_extensions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_extensions_errors()}
-  def list_schema_extensions(%Client{} = client, input, options \\ []) do
+
+  def list_schema_extensions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3842,12 +4379,24 @@ defmodule AWS.Directory do
 
   @doc """
   Lists all tags on a directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3856,12 +4405,25 @@ defmodule AWS.Directory do
 
   @doc """
   Registers a certificate for a secure LDAP or client certificate authentication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20RegisterCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_certificate_request`)
+    %{
+      optional("ClientCertAuthSettings") => client_cert_auth_settings(),
+      optional("Type") => list(any()),
+      required("CertificateData") => String.t(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec register_certificate(AWS.Client.t(), register_certificate_request(), Keyword.t()) ::
+
+  @spec register_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_certificate_errors()}
-  def register_certificate(%Client{} = client, input, options \\ []) do
+
+  def register_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3875,12 +4437,23 @@ defmodule AWS.Directory do
   notified if your directory goes from an Active status to an Impaired or
   Inoperable status. You also receive a notification when the directory returns
   to an Active status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20RegisterEventTopic&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_event_topic_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("TopicName") => String.t()
+    }
   """
-  @spec register_event_topic(AWS.Client.t(), register_event_topic_request(), Keyword.t()) ::
+
+  @spec register_event_topic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_event_topic_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_event_topic_errors()}
-  def register_event_topic(%Client{} = client, input, options \\ []) do
+
+  def register_event_topic(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3890,12 +4463,22 @@ defmodule AWS.Directory do
   @doc """
   Rejects a directory sharing request that was sent from the directory owner
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20RejectSharedDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reject_shared_directory_request`)
+    %{
+      required("SharedDirectoryId") => String.t()
+    }
   """
-  @spec reject_shared_directory(AWS.Client.t(), reject_shared_directory_request(), Keyword.t()) ::
+
+  @spec reject_shared_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_shared_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_shared_directory_errors()}
-  def reject_shared_directory(%Client{} = client, input, options \\ []) do
+
+  def reject_shared_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3904,12 +4487,23 @@ defmodule AWS.Directory do
 
   @doc """
   Removes IP address blocks from a directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20RemoveIpRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_ip_routes_request`)
+    %{
+      required("CidrIps") => list(String.t()()),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec remove_ip_routes(AWS.Client.t(), remove_ip_routes_request(), Keyword.t()) ::
+
+  @spec remove_ip_routes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_ip_routes_errors()}
-  def remove_ip_routes(%Client{} = client, input, options \\ []) do
+
+  def remove_ip_routes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3920,12 +4514,22 @@ defmodule AWS.Directory do
   Stops all replication and removes the domain controllers from the specified
   Region. You cannot remove the primary Region with this operation. Instead, use
   the `DeleteDirectory` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20RemoveRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_region_request`)
+    %{
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec remove_region(AWS.Client.t(), remove_region_request(), Keyword.t()) ::
+
+  @spec remove_region(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_region_errors()}
-  def remove_region(%Client{} = client, input, options \\ []) do
+
+  def remove_region(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3934,16 +4538,23 @@ defmodule AWS.Directory do
 
   @doc """
   Removes tags from a directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20RemoveTagsFromResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_resource_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec remove_tags_from_resource(
-          AWS.Client.t(),
-          remove_tags_from_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_from_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-  def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3954,12 +4565,24 @@ defmodule AWS.Directory do
   Resets the password for any user in your Managed Microsoft AD or Simple AD
   directory. You can reset the password for any user in your directory with the
   following exceptions:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ResetUserPassword&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_user_password_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("NewPassword") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec reset_user_password(AWS.Client.t(), reset_user_password_request(), Keyword.t()) ::
+
+  @spec reset_user_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_user_password_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_user_password_errors()}
-  def reset_user_password(%Client{} = client, input, options \\ []) do
+
+  def reset_user_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3970,12 +4593,22 @@ defmodule AWS.Directory do
   Restores a directory using an existing directory snapshot. When you restore a
   directory from a snapshot, any changes made to the directory after the
   snapshot date are overwritten.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20RestoreFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_from_snapshot_request`)
+    %{
+      required("SnapshotId") => String.t()
+    }
   """
-  @spec restore_from_snapshot(AWS.Client.t(), restore_from_snapshot_request(), Keyword.t()) ::
+
+  @spec restore_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_from_snapshot_errors()}
-  def restore_from_snapshot(%Client{} = client, input, options \\ []) do
+
+  def restore_from_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3992,12 +4625,25 @@ defmodule AWS.Directory do
   contains the metadata to provide access to the directory within the directory
   owner account. The shared directory is visible in all VPCs in the directory
   consumer account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20ShareDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:share_directory_request`)
+    %{
+      optional("ShareNotes") => String.t(),
+      required("DirectoryId") => String.t(),
+      required("ShareMethod") => list(any()),
+      required("ShareTarget") => share_target()
+    }
   """
-  @spec share_directory(AWS.Client.t(), share_directory_request(), Keyword.t()) ::
+
+  @spec share_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, share_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, share_directory_errors()}
-  def share_directory(%Client{} = client, input, options \\ []) do
+
+  def share_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4006,12 +4652,25 @@ defmodule AWS.Directory do
 
   @doc """
   Applies a schema extension to a Microsoft AD directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20StartSchemaExtension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_schema_extension_request`)
+    %{
+      required("CreateSnapshotBeforeSchemaExtension") => boolean(),
+      required("Description") => String.t(),
+      required("DirectoryId") => String.t(),
+      required("LdifContent") => String.t()
+    }
   """
-  @spec start_schema_extension(AWS.Client.t(), start_schema_extension_request(), Keyword.t()) ::
+
+  @spec start_schema_extension(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_schema_extension_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_schema_extension_errors()}
-  def start_schema_extension(%Client{} = client, input, options \\ []) do
+
+  def start_schema_extension(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4020,12 +4679,23 @@ defmodule AWS.Directory do
 
   @doc """
   Stops the directory sharing between the directory owner and consumer accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20UnshareDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:unshare_directory_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("UnshareTarget") => unshare_target()
+    }
   """
-  @spec unshare_directory(AWS.Client.t(), unshare_directory_request(), Keyword.t()) ::
+
+  @spec unshare_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, unshare_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unshare_directory_errors()}
-  def unshare_directory(%Client{} = client, input, options \\ []) do
+
+  def unshare_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4035,16 +4705,24 @@ defmodule AWS.Directory do
   @doc """
   Updates a conditional forwarder that has been set up for your Amazon Web
   Services directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20UpdateConditionalForwarder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_conditional_forwarder_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("DnsIpAddrs") => list(String.t()()),
+      required("RemoteDomainName") => String.t()
+    }
   """
-  @spec update_conditional_forwarder(
-          AWS.Client.t(),
-          update_conditional_forwarder_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_conditional_forwarder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_conditional_forwarder_errors()}
-  def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
+
+  def update_conditional_forwarder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4053,12 +4731,25 @@ defmodule AWS.Directory do
 
   @doc """
   Updates the directory for a particular update type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20UpdateDirectorySetup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_directory_setup_request`)
+    %{
+      optional("CreateSnapshotBeforeUpdate") => boolean(),
+      optional("OSUpdateSettings") => o_s_update_settings(),
+      required("DirectoryId") => String.t(),
+      required("UpdateType") => list(any())
+    }
   """
-  @spec update_directory_setup(AWS.Client.t(), update_directory_setup_request(), Keyword.t()) ::
+
+  @spec update_directory_setup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_directory_setup_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_directory_setup_errors()}
-  def update_directory_setup(%Client{} = client, input, options \\ []) do
+
+  def update_directory_setup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4072,16 +4763,24 @@ defmodule AWS.Directory do
   minutes for any new domain controllers to become fully active once the
   requested number of domain controllers is updated. During this time, you
   cannot make another update request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20UpdateNumberOfDomainControllers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_number_of_domain_controllers_request`)
+    %{
+      required("DesiredNumber") => integer(),
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec update_number_of_domain_controllers(
-          AWS.Client.t(),
-          update_number_of_domain_controllers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_number_of_domain_controllers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_number_of_domain_controllers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_number_of_domain_controllers_errors()}
-  def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
+
+  def update_number_of_domain_controllers(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4091,12 +4790,23 @@ defmodule AWS.Directory do
   @doc """
   Updates the Remote Authentication Dial In User Service (RADIUS) server
   information for an AD Connector or Microsoft AD directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20UpdateRadius&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_radius_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("RadiusSettings") => radius_settings()
+    }
   """
-  @spec update_radius(AWS.Client.t(), update_radius_request(), Keyword.t()) ::
+
+  @spec update_radius(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_radius_errors()}
-  def update_radius(%Client{} = client, input, options \\ []) do
+
+  def update_radius(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4105,12 +4815,23 @@ defmodule AWS.Directory do
 
   @doc """
   Updates the configurable settings for the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20UpdateSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_settings_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("Settings") => list(setting()())
+    }
   """
-  @spec update_settings(AWS.Client.t(), update_settings_request(), Keyword.t()) ::
+
+  @spec update_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_settings_errors()}
-  def update_settings(%Client{} = client, input, options \\ []) do
+
+  def update_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4120,12 +4841,23 @@ defmodule AWS.Directory do
   @doc """
   Updates the trust that has been set up between your Managed Microsoft AD
   directory and an self-managed Active Directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20UpdateTrust&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_trust_request`)
+    %{
+      optional("SelectiveAuth") => list(any()),
+      required("TrustId") => String.t()
+    }
   """
-  @spec update_trust(AWS.Client.t(), update_trust_request(), Keyword.t()) ::
+
+  @spec update_trust(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trust_errors()}
-  def update_trust(%Client{} = client, input, options \\ []) do
+
+  def update_trust(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4135,12 +4867,22 @@ defmodule AWS.Directory do
   @doc """
   Directory Service for Microsoft Active Directory allows you to configure and
   verify trust relationships.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=directoryservice%20VerifyTrust&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:verify_trust_request`)
+    %{
+      required("TrustId") => String.t()
+    }
   """
-  @spec verify_trust(AWS.Client.t(), verify_trust_request(), Keyword.t()) ::
+
+  @spec verify_trust(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_trust_errors()}
-  def verify_trust(%Client{} = client, input, options \\ []) do
+
+  def verify_trust(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

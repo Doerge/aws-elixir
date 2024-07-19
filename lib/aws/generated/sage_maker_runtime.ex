@@ -12,40 +12,40 @@ defmodule AWS.SageMakerRuntime do
   @typedoc """
 
   ## Example:
-
+      
       internal_dependency_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_dependency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_failure() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_stream_failure() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_stream_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_endpoint_async_input() :: %{
         optional("Accept") => String.t(),
         optional("ContentType") => String.t(),
@@ -55,27 +55,27 @@ defmodule AWS.SageMakerRuntime do
         optional("RequestTTLSeconds") => integer(),
         required("InputLocation") => String.t()
       }
-
+      
   """
   @type invoke_endpoint_async_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_endpoint_async_output() :: %{
         "FailureLocation" => String.t(),
         "InferenceId" => String.t(),
         "OutputLocation" => String.t()
       }
-
+      
   """
   @type invoke_endpoint_async_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_endpoint_input() :: %{
         optional("Accept") => String.t(),
         optional("ContentType") => String.t(),
@@ -88,28 +88,28 @@ defmodule AWS.SageMakerRuntime do
         optional("TargetVariant") => String.t(),
         required("Body") => binary()
       }
-
+      
   """
   @type invoke_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_endpoint_output() :: %{
         "Body" => binary(),
         "ContentType" => String.t(),
         "CustomAttributes" => String.t(),
         "InvokedProductionVariant" => String.t()
       }
-
+      
   """
   @type invoke_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_endpoint_with_response_stream_input() :: %{
         optional("Accept") => String.t(),
         optional("ContentType") => String.t(),
@@ -120,91 +120,91 @@ defmodule AWS.SageMakerRuntime do
         optional("TargetVariant") => String.t(),
         required("Body") => binary()
       }
-
+      
   """
   @type invoke_endpoint_with_response_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_endpoint_with_response_stream_output() :: %{
         "Body" => list(),
         "ContentType" => String.t(),
         "CustomAttributes" => String.t(),
         "InvokedProductionVariant" => String.t()
       }
-
+      
   """
   @type invoke_endpoint_with_response_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_error() :: %{
         "LogStreamArn" => String.t(),
         "Message" => String.t(),
         "OriginalMessage" => String.t(),
         "OriginalStatusCode" => integer()
       }
-
+      
   """
   @type model_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_not_ready_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type model_not_ready_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_stream_error() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type model_stream_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       payload_part() :: %{
         "Bytes" => binary()
       }
-
+      
   """
   @type payload_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_unavailable() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_error() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_error() :: %{String.t() => any()}
 
@@ -257,49 +257,55 @@ defmodule AWS.SageMakerRuntime do
 
   ## Parameters:
   * `:endpoint_name` (`t:string`) The name of the endpoint that you specified when
-    you created the endpoint using the CreateEndpoint API.
+  you created the endpoint using the CreateEndpoint API.
+  * `:input` (`t:binary`)
+
 
   ## Optional parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
-    the model container.
+  the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
-    body.
+  body.
   * `:custom_attributes` (`t:string`) Provides additional information about a
-    request for an inference submitted to a model hosted at an Amazon SageMaker
-    endpoint. The information is an opaque value that is forwarded verbatim. You
-    could use this value, for example, to provide an ID that you can use to
-    track a request or to provide other metadata that a service endpoint was
-    programmed to process. The value must consist of no more than 1024 visible
-    US-ASCII characters as specified in Section 3.3.6. Field Value Components of
-    the Hypertext Transfer Protocol (HTTP/1.1).
+  request for an inference submitted to a model hosted at an Amazon SageMaker
+  endpoint. The information is an opaque value that is forwarded verbatim. You
+  could use this value, for example, to provide an ID that you can use to
+  track a request or to provide other metadata that a service endpoint was
+  programmed to process. The value must consist of no more than 1024 visible
+  US-ASCII characters as specified in Section 3.3.6. Field Value Components of
+  the Hypertext Transfer Protocol (HTTP/1.1).
   * `:enable_explanations` (`t:string`) An optional JMESPath expression used to
-    override the EnableExplanations parameter of the ClarifyExplainerConfig API.
-    See the EnableExplanations section in the developer guide for more
-    information.
+  override the EnableExplanations parameter of the ClarifyExplainerConfig API.
+  See the EnableExplanations section in the developer guide for more
+  information.
   * `:inference_component_name` (`t:string`) If the endpoint hosts one or more
-    inference components, this parameter specifies the name of inference
-    component to invoke.
+  inference components, this parameter specifies the name of inference
+  component to invoke.
   * `:inference_id` (`t:string`) If you provide a value, it is added to the
-    captured data when you enable data capture on the endpoint. For information
-    about data capture, see Capture Data.
+  captured data when you enable data capture on the endpoint. For information
+  about data capture, see Capture Data.
   * `:target_container_hostname` (`t:string`) If the endpoint hosts multiple
-    containers and is configured to use direct invocation, this parameter
-    specifies the host name of the container to invoke.
+  containers and is configured to use direct invocation, this parameter
+  specifies the host name of the container to invoke.
   * `:target_model` (`t:string`) The model to request for inference when invoking
-    a multi-model endpoint.
+  a multi-model endpoint.
   * `:target_variant` (`t:string`) Specify the production variant to send the
-    inference request to when invoking an endpoint that is running two or more
-    variants. Note that this parameter overrides the default behavior for the
-    endpoint, which is to distribute the invocation traffic based on the variant
-    weights.
+  inference request to when invoking an endpoint that is running two or more
+  variants. Note that this parameter overrides the default behavior for the
+  endpoint, which is to distribute the invocation traffic based on the variant
+  weights.
   """
-  @spec invoke_endpoint(AWS.Client.t(), String.t(), invoke_endpoint_input(), Keyword.t()) ::
+
+  @spec invoke_endpoint(AWS.Client.t(), String.t(), input :: binary(), Keyword.t()) ::
           {:ok, invoke_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_endpoint_errors()}
-  def invoke_endpoint(%Client{} = client, endpoint_name, input, options \\ []) do
+
+  def invoke_endpoint(%Client{} = client, endpoint_name, input, options \\ [])
+      when is_binary(input) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/invocations"
 
+    # Validate optional parameters
     optional_params = [
       accept: nil,
       content_type: nil,
@@ -318,21 +324,87 @@ defmodule AWS.SageMakerRuntime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"Accept", "Accept"},
-        {"ContentType", "Content-Type"},
-        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
-        {"EnableExplanations", "X-Amzn-SageMaker-Enable-Explanations"},
-        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
-        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
-        {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
-        {"TargetModel", "X-Amzn-SageMaker-Target-Model"},
-        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :target_variant) do
+        [{"X-Amzn-SageMaker-Target-Variant", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :target_model) do
+        [{"X-Amzn-SageMaker-Target-Model", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :target_container_hostname) do
+        [{"X-Amzn-SageMaker-Target-Container-Hostname", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :inference_id) do
+        [{"X-Amzn-SageMaker-Inference-Id", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :inference_component_name) do
+        [{"X-Amzn-SageMaker-Inference-Component", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :enable_explanations) do
+        [{"X-Amzn-SageMaker-Enable-Explanations", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :custom_attributes) do
+        [{"X-Amzn-SageMaker-Custom-Attributes", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :accept) do
+        [{"Accept", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Content-Type", "ContentType"},
+          {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
+          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -377,17 +449,9 @@ defmodule AWS.SageMakerRuntime do
         :target_variant
       ])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -404,50 +468,48 @@ defmodule AWS.SageMakerRuntime do
 
   ## Parameters:
   * `:endpoint_name` (`t:string`) The name of the endpoint that you specified when
-    you created the endpoint using the CreateEndpoint API.
+  you created the endpoint using the CreateEndpoint API.
   * `:input_location` (`t:string`) The Amazon S3 URI where the inference request
-    payload is stored.
+  payload is stored.
 
   ## Optional parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
-    the model container.
+  the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
-    body.
+  body.
   * `:custom_attributes` (`t:string`) Provides additional information about a
-    request for an inference submitted to a model hosted at an Amazon SageMaker
-    endpoint. The information is an opaque value that is forwarded verbatim. You
-    could use this value, for example, to provide an ID that you can use to
-    track a request or to provide other metadata that a service endpoint was
-    programmed to process. The value must consist of no more than 1024 visible
-    US-ASCII characters as specified in Section 3.3.6. Field Value Components of
-    the Hypertext Transfer Protocol (HTTP/1.1).
+  request for an inference submitted to a model hosted at an Amazon SageMaker
+  endpoint. The information is an opaque value that is forwarded verbatim. You
+  could use this value, for example, to provide an ID that you can use to
+  track a request or to provide other metadata that a service endpoint was
+  programmed to process. The value must consist of no more than 1024 visible
+  US-ASCII characters as specified in Section 3.3.6. Field Value Components of
+  the Hypertext Transfer Protocol (HTTP/1.1).
   * `:inference_id` (`t:string`) The identifier for the inference request. Amazon
-    SageMaker will generate an identifier for you if none is specified.
+  SageMaker will generate an identifier for you if none is specified.
   * `:invocation_timeout_seconds` (`t:integer`) Maximum amount of time in seconds
-    a request can be processed before it is marked as expired. The default is 15
-    minutes, or 900 seconds.
+  a request can be processed before it is marked as expired. The default is 15
+  minutes, or 900 seconds.
   * `:request_t_t_l_seconds` (`t:integer`) Maximum age in seconds a request can be
-    in the queue before it is marked as expired. The default is 6 hours, or
-    21,600 seconds.
+  in the queue before it is marked as expired. The default is 6 hours, or
+  21,600 seconds.
   """
-  @spec invoke_endpoint_async(
-          AWS.Client.t(),
-          String.t(),
-          invoke_endpoint_async_input(),
-          Keyword.t()
-        ) ::
+
+  @spec invoke_endpoint_async(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_endpoint_async_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_endpoint_async_errors()}
-  def invoke_endpoint_async(%Client{} = client, endpoint_name, input, options \\ []) do
+
+  def invoke_endpoint_async(%Client{} = client, endpoint_name, input_location, options \\ [])
+      when is_binary(input_location) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/async-invocations"
 
+    # Validate optional parameters
     optional_params = [
       accept: nil,
       content_type: nil,
       custom_attributes: nil,
       inference_id: nil,
-      input_location: nil,
       invocation_timeout_seconds: nil,
       request_t_t_l_seconds: nil
     ]
@@ -458,19 +520,65 @@ defmodule AWS.SageMakerRuntime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"Accept", "X-Amzn-SageMaker-Accept"},
-        {"ContentType", "X-Amzn-SageMaker-Content-Type"},
-        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
-        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
-        {"InputLocation", "X-Amzn-SageMaker-InputLocation"},
-        {"InvocationTimeoutSeconds", "X-Amzn-SageMaker-InvocationTimeoutSeconds"},
-        {"RequestTTLSeconds", "X-Amzn-SageMaker-RequestTTLSeconds"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"X-Amzn-SageMaker-InputLocation", input_location}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :request_t_t_l_seconds) do
+        [{"X-Amzn-SageMaker-RequestTTLSeconds", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :invocation_timeout_seconds) do
+        [{"X-Amzn-SageMaker-InvocationTimeoutSeconds", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :inference_id) do
+        [{"X-Amzn-SageMaker-Inference-Id", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :custom_attributes) do
+        [{"X-Amzn-SageMaker-Custom-Attributes", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"X-Amzn-SageMaker-Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :accept) do
+        [{"X-Amzn-SageMaker-Accept", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"X-Amzn-SageMaker-FailureLocation", "FailureLocation"},
+          {"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -497,17 +605,9 @@ defmodule AWS.SageMakerRuntime do
         :request_t_t_l_seconds
       ])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -523,51 +623,57 @@ defmodule AWS.SageMakerRuntime do
 
   ## Parameters:
   * `:endpoint_name` (`t:string`) The name of the endpoint that you specified when
-    you created the endpoint using the CreateEndpoint API.
+  you created the endpoint using the CreateEndpoint API.
+  * `:input` (`t:binary`)
+
 
   ## Optional parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
-    the model container.
+  the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
-    body.
+  body.
   * `:custom_attributes` (`t:string`) Provides additional information about a
-    request for an inference submitted to a model hosted at an Amazon SageMaker
-    endpoint. The information is an opaque value that is forwarded verbatim. You
-    could use this value, for example, to provide an ID that you can use to
-    track a request or to provide other metadata that a service endpoint was
-    programmed to process. The value must consist of no more than 1024 visible
-    US-ASCII characters as specified in Section 3.3.6. Field Value Components of
-    the Hypertext Transfer Protocol (HTTP/1.1).
+  request for an inference submitted to a model hosted at an Amazon SageMaker
+  endpoint. The information is an opaque value that is forwarded verbatim. You
+  could use this value, for example, to provide an ID that you can use to
+  track a request or to provide other metadata that a service endpoint was
+  programmed to process. The value must consist of no more than 1024 visible
+  US-ASCII characters as specified in Section 3.3.6. Field Value Components of
+  the Hypertext Transfer Protocol (HTTP/1.1).
   * `:inference_component_name` (`t:string`) If the endpoint hosts one or more
-    inference components, this parameter specifies the name of inference
-    component to invoke for a streaming response.
+  inference components, this parameter specifies the name of inference
+  component to invoke for a streaming response.
   * `:inference_id` (`t:string`) An identifier that you assign to your request.
   * `:target_container_hostname` (`t:string`) If the endpoint hosts multiple
-    containers and is configured to use direct invocation, this parameter
-    specifies the host name of the container to invoke.
+  containers and is configured to use direct invocation, this parameter
+  specifies the host name of the container to invoke.
   * `:target_variant` (`t:string`) Specify the production variant to send the
-    inference request to when invoking an endpoint that is running two or more
-    variants. Note that this parameter overrides the default behavior for the
-    endpoint, which is to distribute the invocation traffic based on the variant
-    weights.
+  inference request to when invoking an endpoint that is running two or more
+  variants. Note that this parameter overrides the default behavior for the
+  endpoint, which is to distribute the invocation traffic based on the variant
+  weights.
   """
+
   @spec invoke_endpoint_with_response_stream(
           AWS.Client.t(),
           String.t(),
-          invoke_endpoint_with_response_stream_input(),
+          input :: binary(),
           Keyword.t()
         ) ::
           {:ok, invoke_endpoint_with_response_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_endpoint_with_response_stream_errors()}
+
   def invoke_endpoint_with_response_stream(
         %Client{} = client,
         endpoint_name,
         input,
         options \\ []
-      ) do
+      )
+      when is_binary(input) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/invocations-response-stream"
 
+    # Validate optional parameters
     optional_params = [
       accept: nil,
       content_type: nil,
@@ -584,19 +690,73 @@ defmodule AWS.SageMakerRuntime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"Accept", "X-Amzn-SageMaker-Accept"},
-        {"ContentType", "Content-Type"},
-        {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
-        {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
-        {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
-        {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
-        {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :target_variant) do
+        [{"X-Amzn-SageMaker-Target-Variant", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :target_container_hostname) do
+        [{"X-Amzn-SageMaker-Target-Container-Hostname", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :inference_id) do
+        [{"X-Amzn-SageMaker-Inference-Id", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :inference_component_name) do
+        [{"X-Amzn-SageMaker-Inference-Component", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :custom_attributes) do
+        [{"X-Amzn-SageMaker-Custom-Attributes", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :accept) do
+        [{"X-Amzn-SageMaker-Accept", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"X-Amzn-SageMaker-Content-Type", "ContentType"},
+          {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
+          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -632,16 +792,8 @@ defmodule AWS.SageMakerRuntime do
         :target_variant
       ])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

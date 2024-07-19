@@ -2394,12 +2394,23 @@ defmodule AWS.MemoryDB do
   Apply the service update to a list of clusters supplied. For more information on
   service updates and applying them, see [Applying the service
   updates](https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20BatchUpdateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_update_cluster_request`)
+    %{
+      optional("ServiceUpdate") => service_update_request(),
+      required("ClusterNames") => list(String.t()())
+    }
   """
-  @spec batch_update_cluster(AWS.Client.t(), batch_update_cluster_request(), Keyword.t()) ::
+
+  @spec batch_update_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_cluster_errors()}
-  def batch_update_cluster(%Client{} = client, input, options \\ []) do
+
+  def batch_update_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2408,12 +2419,26 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Makes a copy of an existing snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20CopySnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_snapshot_request`)
+    %{
+      optional("KmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TargetBucket") => String.t(),
+      required("SourceSnapshotName") => String.t(),
+      required("TargetSnapshotName") => String.t()
+    }
   """
-  @spec copy_snapshot(AWS.Client.t(), copy_snapshot_request(), Keyword.t()) ::
+
+  @spec copy_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_snapshot_errors()}
-  def copy_snapshot(%Client{} = client, input, options \\ []) do
+
+  def copy_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2424,12 +2449,24 @@ defmodule AWS.MemoryDB do
   Creates an Access Control List. For more information, see [Authenticating users
   with Access Contol Lists
   (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20CreateACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_acl_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      optional("UserNames") => list(String.t()()),
+      required("ACLName") => String.t()
+    }
   """
-  @spec create_acl(AWS.Client.t(), create_acl_request(), Keyword.t()) ::
+
+  @spec create_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_acl_errors()}
-  def create_acl(%Client{} = client, input, options \\ []) do
+
+  def create_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2439,12 +2476,43 @@ defmodule AWS.MemoryDB do
   @doc """
   Creates a cluster. All nodes in the cluster run the same protocol-compliant
   engine software.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cluster_request`)
+    %{
+      optional("AutoMinorVersionUpgrade") => boolean(),
+      optional("DataTiering") => boolean(),
+      optional("Description") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("MaintenanceWindow") => String.t(),
+      optional("NumReplicasPerShard") => integer(),
+      optional("NumShards") => integer(),
+      optional("ParameterGroupName") => String.t(),
+      optional("Port") => integer(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SnapshotArns") => list(String.t()()),
+      optional("SnapshotName") => String.t(),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("SnapshotWindow") => String.t(),
+      optional("SnsTopicArn") => String.t(),
+      optional("SubnetGroupName") => String.t(),
+      optional("TLSEnabled") => boolean(),
+      optional("Tags") => list(tag()()),
+      required("ACLName") => String.t(),
+      required("ClusterName") => String.t(),
+      required("NodeType") => String.t()
+    }
   """
-  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
+
+  @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-  def create_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2457,12 +2525,25 @@ defmodule AWS.MemoryDB do
   cluster. For more information, see [Configuring engine parameters using
   parameter
   groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20CreateParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_parameter_group_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Family") => String.t(),
+      required("ParameterGroupName") => String.t()
+    }
   """
-  @spec create_parameter_group(AWS.Client.t(), create_parameter_group_request(), Keyword.t()) ::
+
+  @spec create_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_parameter_group_errors()}
-  def create_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def create_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2471,12 +2552,25 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Creates a copy of an entire cluster at a specific moment in time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20CreateSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_snapshot_request`)
+    %{
+      optional("KmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ClusterName") => String.t(),
+      required("SnapshotName") => String.t()
+    }
   """
-  @spec create_snapshot(AWS.Client.t(), create_snapshot_request(), Keyword.t()) ::
+
+  @spec create_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-  def create_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2491,12 +2585,25 @@ defmodule AWS.MemoryDB do
   subnet and IP addresses within that subnet to associate with your nodes. For
   more information, see [Subnets and subnet
   groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20CreateSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_subnet_group_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("SubnetGroupName") => String.t(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec create_subnet_group(AWS.Client.t(), create_subnet_group_request(), Keyword.t()) ::
+
+  @spec create_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subnet_group_errors()}
-  def create_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def create_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2507,12 +2614,25 @@ defmodule AWS.MemoryDB do
   Creates a MemoryDB user. For more information, see [Authenticating users with
   Access Contol Lists
   (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("AccessString") => String.t(),
+      required("AuthenticationMode") => authentication_mode(),
+      required("UserName") => String.t()
+    }
   """
-  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, input, options \\ []) do
+
+  def create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2524,12 +2644,22 @@ defmodule AWS.MemoryDB do
   cluster before it can be deleted. For more information, see [Authenticating
   users with Access Contol Lists
   (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DeleteACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_acl_request`)
+    %{
+      required("ACLName") => String.t()
+    }
   """
-  @spec delete_acl(AWS.Client.t(), delete_acl_request(), Keyword.t()) ::
+
+  @spec delete_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_acl_errors()}
-  def delete_acl(%Client{} = client, input, options \\ []) do
+
+  def delete_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2538,12 +2668,23 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Deletes a cluster. It also deletes all associated nodes and node endpoints
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cluster_request`)
+    %{
+      optional("FinalSnapshotName") => String.t(),
+      required("ClusterName") => String.t()
+    }
   """
-  @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
+
+  @spec delete_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-  def delete_cluster(%Client{} = client, input, options \\ []) do
+
+  def delete_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2554,12 +2695,22 @@ defmodule AWS.MemoryDB do
   Deletes the specified parameter group. You cannot delete a parameter group if it
   is associated with any clusters. You cannot delete the default parameter
   groups in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DeleteParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_parameter_group_request`)
+    %{
+      required("ParameterGroupName") => String.t()
+    }
   """
-  @spec delete_parameter_group(AWS.Client.t(), delete_parameter_group_request(), Keyword.t()) ::
+
+  @spec delete_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_parameter_group_errors()}
-  def delete_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def delete_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2570,12 +2721,22 @@ defmodule AWS.MemoryDB do
   Deletes an existing snapshot. When you receive a successful response from this
   operation, MemoryDB immediately begins deleting the snapshot; you cannot
   cancel or revert this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DeleteSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_snapshot_request`)
+    %{
+      required("SnapshotName") => String.t()
+    }
   """
-  @spec delete_snapshot(AWS.Client.t(), delete_snapshot_request(), Keyword.t()) ::
+
+  @spec delete_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_errors()}
-  def delete_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2585,12 +2746,22 @@ defmodule AWS.MemoryDB do
   @doc """
   Deletes a subnet group. You cannot delete a default subnet group or one that is
   associated with any clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DeleteSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_subnet_group_request`)
+    %{
+      required("SubnetGroupName") => String.t()
+    }
   """
-  @spec delete_subnet_group(AWS.Client.t(), delete_subnet_group_request(), Keyword.t()) ::
+
+  @spec delete_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subnet_group_errors()}
-  def delete_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def delete_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2600,12 +2771,22 @@ defmodule AWS.MemoryDB do
   @doc """
   Deletes a user. The user will be removed from all ACLs and in turn removed from
   all clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_request`)
+    %{
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, input, options \\ []) do
+
+  def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2614,12 +2795,24 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Returns a list of ACLs
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeACLs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_acls_request`)
+    %{
+      optional("ACLName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_acls(AWS.Client.t(), describe_acls_request(), Keyword.t()) ::
+
+  @spec describe_acls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_acls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_acls_errors()}
-  def describe_acls(%Client{} = client, input, options \\ []) do
+
+  def describe_acls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2629,12 +2822,25 @@ defmodule AWS.MemoryDB do
   @doc """
   Returns information about all provisioned clusters if no cluster identifier is
   specified, or about a specific cluster if a cluster name is supplied.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_clusters_request`)
+    %{
+      optional("ClusterName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ShowShardDetails") => boolean()
+    }
   """
-  @spec describe_clusters(AWS.Client.t(), describe_clusters_request(), Keyword.t()) ::
+
+  @spec describe_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_clusters_errors()}
-  def describe_clusters(%Client{} = client, input, options \\ []) do
+
+  def describe_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2643,12 +2849,26 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Returns a list of the available Redis engine versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeEngineVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_engine_versions_request`)
+    %{
+      optional("DefaultOnly") => boolean(),
+      optional("EngineVersion") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ParameterGroupFamily") => String.t()
+    }
   """
-  @spec describe_engine_versions(AWS.Client.t(), describe_engine_versions_request(), Keyword.t()) ::
+
+  @spec describe_engine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_engine_versions_errors()}
-  def describe_engine_versions(%Client{} = client, input, options \\ []) do
+
+  def describe_engine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2661,12 +2881,28 @@ defmodule AWS.MemoryDB do
   parameter group by providing the name as a parameter. By default, only the
   events occurring within the last hour are returned; however, you can retrieve
   up to 14 days' worth of events if necessary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_events_request`)
+    %{
+      optional("Duration") => integer(),
+      optional("EndTime") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SourceName") => String.t(),
+      optional("SourceType") => list(any()),
+      optional("StartTime") => non_neg_integer()
+    }
   """
-  @spec describe_events(AWS.Client.t(), describe_events_request(), Keyword.t()) ::
+
+  @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_errors()}
-  def describe_events(%Client{} = client, input, options \\ []) do
+
+  def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2676,16 +2912,24 @@ defmodule AWS.MemoryDB do
   @doc """
   Returns a list of parameter group descriptions. If a parameter group name is
   specified, the list contains only the descriptions for that group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeParameterGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_parameter_groups_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ParameterGroupName") => String.t()
+    }
   """
-  @spec describe_parameter_groups(
-          AWS.Client.t(),
-          describe_parameter_groups_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_parameter_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_parameter_groups_errors()}
-  def describe_parameter_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_parameter_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2694,12 +2938,24 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Returns the detailed parameter list for a particular parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_parameters_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ParameterGroupName") => String.t()
+    }
   """
-  @spec describe_parameters(AWS.Client.t(), describe_parameters_request(), Keyword.t()) ::
+
+  @spec describe_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_parameters_errors()}
-  def describe_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2709,12 +2965,28 @@ defmodule AWS.MemoryDB do
   @doc """
   Returns information about reserved nodes for this account, or about a specified
   reserved node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeReservedNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_reserved_nodes_request`)
+    %{
+      optional("Duration") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("NodeType") => String.t(),
+      optional("OfferingType") => String.t(),
+      optional("ReservationId") => String.t(),
+      optional("ReservedNodesOfferingId") => String.t()
+    }
   """
-  @spec describe_reserved_nodes(AWS.Client.t(), describe_reserved_nodes_request(), Keyword.t()) ::
+
+  @spec describe_reserved_nodes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_reserved_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_nodes_errors()}
-  def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
+
+  def describe_reserved_nodes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2723,16 +2995,28 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Lists available reserved node offerings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeReservedNodesOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_reserved_nodes_offerings_request`)
+    %{
+      optional("Duration") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("NodeType") => String.t(),
+      optional("OfferingType") => String.t(),
+      optional("ReservedNodesOfferingId") => String.t()
+    }
   """
-  @spec describe_reserved_nodes_offerings(
-          AWS.Client.t(),
-          describe_reserved_nodes_offerings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_reserved_nodes_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_reserved_nodes_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_nodes_offerings_errors()}
-  def describe_reserved_nodes_offerings(%Client{} = client, input, options \\ []) do
+
+  def describe_reserved_nodes_offerings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2741,12 +3025,26 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Returns details of the service updates
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeServiceUpdates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_service_updates_request`)
+    %{
+      optional("ClusterNames") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ServiceUpdateName") => String.t(),
+      optional("Status") => list(list(any())())
+    }
   """
-  @spec describe_service_updates(AWS.Client.t(), describe_service_updates_request(), Keyword.t()) ::
+
+  @spec describe_service_updates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_service_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_updates_errors()}
-  def describe_service_updates(%Client{} = client, input, options \\ []) do
+
+  def describe_service_updates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2757,12 +3055,27 @@ defmodule AWS.MemoryDB do
   Returns information about cluster snapshots. By default, DescribeSnapshots lists
   all of your snapshots; it can optionally describe a single snapshot, or just
   the snapshots associated with a particular cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_snapshots_request`)
+    %{
+      optional("ClusterName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ShowDetail") => boolean(),
+      optional("SnapshotName") => String.t(),
+      optional("Source") => String.t()
+    }
   """
-  @spec describe_snapshots(AWS.Client.t(), describe_snapshots_request(), Keyword.t()) ::
+
+  @spec describe_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshots_errors()}
-  def describe_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2772,12 +3085,24 @@ defmodule AWS.MemoryDB do
   @doc """
   Returns a list of subnet group descriptions. If a subnet group name is
   specified, the list contains only the description of that group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeSubnetGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_subnet_groups_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SubnetGroupName") => String.t()
+    }
   """
-  @spec describe_subnet_groups(AWS.Client.t(), describe_subnet_groups_request(), Keyword.t()) ::
+
+  @spec describe_subnet_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_subnet_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_subnet_groups_errors()}
-  def describe_subnet_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_subnet_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2786,12 +3111,25 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Returns a list of users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20DescribeUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_users_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("UserName") => String.t()
+    }
   """
-  @spec describe_users(AWS.Client.t(), describe_users_request(), Keyword.t()) ::
+
+  @spec describe_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_users_errors()}
-  def describe_users(%Client{} = client, input, options \\ []) do
+
+  def describe_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2804,12 +3142,23 @@ defmodule AWS.MemoryDB do
   production-level tool for initiating a failover to overcome a problem you may
   have with the cluster. Moreover, in certain conditions such as large scale
   operational events, Amazon may block this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20FailoverShard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:failover_shard_request`)
+    %{
+      required("ClusterName") => String.t(),
+      required("ShardName") => String.t()
+    }
   """
-  @spec failover_shard(AWS.Client.t(), failover_shard_request(), Keyword.t()) ::
+
+  @spec failover_shard(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_shard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_shard_errors()}
-  def failover_shard(%Client{} = client, input, options \\ []) do
+
+  def failover_shard(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2821,16 +3170,23 @@ defmodule AWS.MemoryDB do
   node type. When you use the UpdateCluster operation to scale your cluster, the
   value of the NodeType parameter must be one of the node types returned by this
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20ListAllowedNodeTypeUpdates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_allowed_node_type_updates_request`)
+    %{
+      required("ClusterName") => String.t()
+    }
   """
-  @spec list_allowed_node_type_updates(
-          AWS.Client.t(),
-          list_allowed_node_type_updates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_allowed_node_type_updates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_allowed_node_type_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_allowed_node_type_updates_errors()}
-  def list_allowed_node_type_updates(%Client{} = client, input, options \\ []) do
+
+  def list_allowed_node_type_updates(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2842,12 +3198,22 @@ defmodule AWS.MemoryDB do
   the key and value are case-sensitive. You can use tags to categorize and track
   your MemoryDB resources. For more information, see [Tagging your MemoryDB
   resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
+
+  @spec list_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-  def list_tags(%Client{} = client, input, options \\ []) do
+
+  def list_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2857,16 +3223,26 @@ defmodule AWS.MemoryDB do
   @doc """
   Allows you to purchase a reserved node offering. Reserved nodes are not eligible
   for cancellation and are non-refundable.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20PurchaseReservedNodesOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:purchase_reserved_nodes_offering_request`)
+    %{
+      optional("NodeCount") => integer(),
+      optional("ReservationId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ReservedNodesOfferingId") => String.t()
+    }
   """
-  @spec purchase_reserved_nodes_offering(
-          AWS.Client.t(),
-          purchase_reserved_nodes_offering_request(),
-          Keyword.t()
-        ) ::
+
+  @spec purchase_reserved_nodes_offering(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_reserved_nodes_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_reserved_nodes_offering_errors()}
-  def purchase_reserved_nodes_offering(%Client{} = client, input, options \\ []) do
+
+  def purchase_reserved_nodes_offering(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2878,12 +3254,24 @@ defmodule AWS.MemoryDB do
   value. You can reset specific parameters by submitting a list of parameter
   names. To reset the entire parameter group, specify the AllParameters and
   ParameterGroupName parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20ResetParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_parameter_group_request`)
+    %{
+      optional("AllParameters") => boolean(),
+      optional("ParameterNames") => list(String.t()()),
+      required("ParameterGroupName") => String.t()
+    }
   """
-  @spec reset_parameter_group(AWS.Client.t(), reset_parameter_group_request(), Keyword.t()) ::
+
+  @spec reset_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_parameter_group_errors()}
-  def reset_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def reset_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2903,12 +3291,23 @@ defmodule AWS.MemoryDB do
   or owners) to organize your costs across multiple services. For more
   information, see [Using Cost Allocation
   Tags](https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2917,12 +3316,23 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Use this operation to remove tags on a resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2931,12 +3341,24 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Changes the list of users that belong to the Access Control List.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20UpdateACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_acl_request`)
+    %{
+      optional("UserNamesToAdd") => list(String.t()()),
+      optional("UserNamesToRemove") => list(String.t()()),
+      required("ACLName") => String.t()
+    }
   """
-  @spec update_acl(AWS.Client.t(), update_acl_request(), Keyword.t()) ::
+
+  @spec update_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_acl_errors()}
-  def update_acl(%Client{} = client, input, options \\ []) do
+
+  def update_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2947,12 +3369,35 @@ defmodule AWS.MemoryDB do
   Modifies the settings for a cluster. You can use this operation to change one or
   more cluster configuration settings by specifying the settings and the new
   values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20UpdateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_cluster_request`)
+    %{
+      optional("ACLName") => String.t(),
+      optional("Description") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("MaintenanceWindow") => String.t(),
+      optional("NodeType") => String.t(),
+      optional("ParameterGroupName") => String.t(),
+      optional("ReplicaConfiguration") => replica_configuration_request(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("ShardConfiguration") => shard_configuration_request(),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("SnapshotWindow") => String.t(),
+      optional("SnsTopicArn") => String.t(),
+      optional("SnsTopicStatus") => String.t(),
+      required("ClusterName") => String.t()
+    }
   """
-  @spec update_cluster(AWS.Client.t(), update_cluster_request(), Keyword.t()) ::
+
+  @spec update_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
-  def update_cluster(%Client{} = client, input, options \\ []) do
+
+  def update_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2962,12 +3407,23 @@ defmodule AWS.MemoryDB do
   @doc """
   Updates the parameters of a parameter group. You can modify up to 20 parameters
   in a single request by submitting a list parameter name and value pairs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20UpdateParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_parameter_group_request`)
+    %{
+      required("ParameterGroupName") => String.t(),
+      required("ParameterNameValues") => list(parameter_name_value()())
+    }
   """
-  @spec update_parameter_group(AWS.Client.t(), update_parameter_group_request(), Keyword.t()) ::
+
+  @spec update_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_parameter_group_errors()}
-  def update_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def update_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2977,12 +3433,24 @@ defmodule AWS.MemoryDB do
   @doc """
   Updates a subnet group. For more information, see [Updating a subnet
   group](https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20UpdateSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_subnet_group_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("SubnetIds") => list(String.t()()),
+      required("SubnetGroupName") => String.t()
+    }
   """
-  @spec update_subnet_group(AWS.Client.t(), update_subnet_group_request(), Keyword.t()) ::
+
+  @spec update_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subnet_group_errors()}
-  def update_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def update_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2991,12 +3459,24 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Changes user password(s) and/or access string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=memorydb%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_user_request`)
+    %{
+      optional("AccessString") => String.t(),
+      optional("AuthenticationMode") => authentication_mode(),
+      required("UserName") => String.t()
+    }
   """
-  @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::
+
+  @spec update_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-  def update_user(%Client{} = client, input, options \\ []) do
+
+  def update_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

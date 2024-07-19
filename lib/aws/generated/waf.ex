@@ -3261,12 +3261,23 @@ defmodule AWS.WAF do
   can create a `ByteMatchSet` that matches any requests with `User-Agent`
   headers that contain the string `BadBot`. You can then configure AWS WAF to
   reject those requests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateByteMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_byte_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_byte_match_set(AWS.Client.t(), create_byte_match_set_request(), Keyword.t()) ::
+
+  @spec create_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_byte_match_set_errors()}
-  def create_byte_match_set(%Client{} = client, input, options \\ []) do
+
+  def create_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3286,12 +3297,23 @@ defmodule AWS.WAF do
   more countries and you want to block the requests, you can create an
   `GeoMatchSet` that contains those countries and then configure AWS WAF to
   block the requests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateGeoMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_geo_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_geo_match_set(AWS.Client.t(), create_geo_match_set_request(), Keyword.t()) ::
+
+  @spec create_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_geo_match_set_errors()}
-  def create_geo_match_set(%Client{} = client, input, options \\ []) do
+
+  def create_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3311,12 +3333,23 @@ defmodule AWS.WAF do
   from one or more individual IP addresses or one or more ranges of IP addresses
   and you want to block the requests, you can create an `IPSet` that contains
   those IP addresses and then configure AWS WAF to block the requests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_ip_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_ip_set(AWS.Client.t(), create_ip_set_request(), Keyword.t()) ::
+
+  @spec create_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ip_set_errors()}
-  def create_ip_set(%Client{} = client, input, options \\ []) do
+
+  def create_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3336,12 +3369,27 @@ defmodule AWS.WAF do
   `RateBasedRule` also contains the `IPSet` objects, `ByteMatchSet` objects, and
   other predicates that identify the requests that you want to count or block if
   these requests exceed the `RateLimit`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateRateBasedRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_rate_based_rule_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("ChangeToken") => String.t(),
+      required("MetricName") => String.t(),
+      required("Name") => String.t(),
+      required("RateKey") => list(any()),
+      required("RateLimit") => float()
+    }
   """
-  @spec create_rate_based_rule(AWS.Client.t(), create_rate_based_rule_request(), Keyword.t()) ::
+
+  @spec create_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rate_based_rule_errors()}
-  def create_rate_based_rule(%Client{} = client, input, options \\ []) do
+
+  def create_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3363,12 +3411,23 @@ defmodule AWS.WAF do
   pattern `B[a@]dB[o0]t`. You can then configure AWS WAF to reject those
   requests. To create and configure a `RegexMatchSet`, perform the following
   steps:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateRegexMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_regex_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_regex_match_set(AWS.Client.t(), create_regex_match_set_request(), Keyword.t()) ::
+
+  @spec create_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_regex_match_set_errors()}
-  def create_regex_match_set(%Client{} = client, input, options \\ []) do
+
+  def create_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3387,12 +3446,23 @@ defmodule AWS.WAF do
   you want AWS WAF to search for, such as `B[a@]dB[o0]t`. You can then configure
   AWS WAF to reject those requests. To create and configure a `RegexPatternSet`,
   perform the following steps:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_regex_pattern_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_regex_pattern_set(AWS.Client.t(), create_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec create_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_regex_pattern_set_errors()}
-  def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def create_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3411,12 +3481,25 @@ defmodule AWS.WAF do
   you want to block. If you add more than one predicate to a `Rule`, a request
   must match all of the specifications to be allowed or blocked. For example,
   suppose that you add the following to a `Rule`:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_rule_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("ChangeToken") => String.t(),
+      required("MetricName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_rule(AWS.Client.t(), create_rule_request(), Keyword.t()) ::
+
+  @spec create_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-  def create_rule(%Client{} = client, input, options \\ []) do
+
+  def create_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3433,12 +3516,25 @@ defmodule AWS.WAF do
   and global use. Creates a `RuleGroup`. A rule group is a collection of
   predefined rules that you add to a web ACL. You use `UpdateRuleGroup` to add
   rules to the rule group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_rule_group_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("ChangeToken") => String.t(),
+      required("MetricName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_rule_group(AWS.Client.t(), create_rule_group_request(), Keyword.t()) ::
+
+  @spec create_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_group_errors()}
-  def create_rule_group(%Client{} = client, input, options \\ []) do
+
+  def create_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3459,16 +3555,23 @@ defmodule AWS.WAF do
   `SizeConstraintSet` that matches any requests that have a query string that is
   longer than 100 bytes. You can then configure AWS WAF to reject those
   requests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateSizeConstraintSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_size_constraint_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_size_constraint_set(
-          AWS.Client.t(),
-          create_size_constraint_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_size_constraint_set_errors()}
-  def create_size_constraint_set(%Client{} = client, input, options \\ []) do
+
+  def create_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3486,16 +3589,24 @@ defmodule AWS.WAF do
   block, or count requests that contain snippets of SQL code in a specified part
   of web requests. AWS WAF searches for character sequences that are likely to
   be malicious strings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateSqlInjectionMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_sql_injection_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_sql_injection_match_set(
-          AWS.Client.t(),
-          create_sql_injection_match_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sql_injection_match_set_errors()}
-  def create_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+
+  def create_sql_injection_match_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3512,12 +3623,26 @@ defmodule AWS.WAF do
   and global use. Creates a `WebACL`, which contains the `Rules` that identify
   the CloudFront web requests that you want to allow, block, or count. AWS WAF
   evaluates `Rules` in order based on the value of `Priority` for each `Rule`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_web_acl_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("ChangeToken") => String.t(),
+      required("DefaultAction") => waf_action(),
+      required("MetricName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_web_acl(AWS.Client.t(), create_web_acl_request(), Keyword.t()) ::
+
+  @spec create_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_acl_errors()}
-  def create_web_acl(%Client{} = client, input, options \\ []) do
+
+  def create_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3529,16 +3654,25 @@ defmodule AWS.WAF do
   specified Amazon S3 bucket. Then, in CloudFormation, you create a stack from
   the template, to create the web ACL and its resources in AWS WAFV2. Use this
   to migrate your AWS WAF Classic web ACL to the latest version of AWS WAF.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateWebACLMigrationStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_web_acl_migration_stack_request`)
+    %{
+      required("IgnoreUnsupportedType") => boolean(),
+      required("S3BucketName") => String.t(),
+      required("WebACLId") => String.t()
+    }
   """
-  @spec create_web_acl_migration_stack(
-          AWS.Client.t(),
-          create_web_acl_migration_stack_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_web_acl_migration_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_web_acl_migration_stack_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_acl_migration_stack_errors()}
-  def create_web_acl_migration_stack(%Client{} = client, input, options \\ []) do
+
+  def create_web_acl_migration_stack(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3556,12 +3690,23 @@ defmodule AWS.WAF do
   count requests that contain cross-site scripting attacks in the specified part
   of web requests. AWS WAF searches for character sequences that are likely to
   be malicious strings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20CreateXssMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_xss_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_xss_match_set(AWS.Client.t(), create_xss_match_set_request(), Keyword.t()) ::
+
+  @spec create_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_xss_match_set_errors()}
-  def create_xss_match_set(%Client{} = client, input, options \\ []) do
+
+  def create_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3576,12 +3721,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteByteMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_byte_match_set_request`)
+    %{
+      required("ByteMatchSetId") => String.t(),
+      required("ChangeToken") => String.t()
+    }
   """
-  @spec delete_byte_match_set(AWS.Client.t(), delete_byte_match_set_request(), Keyword.t()) ::
+
+  @spec delete_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_byte_match_set_errors()}
-  def delete_byte_match_set(%Client{} = client, input, options \\ []) do
+
+  def delete_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3596,12 +3752,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteGeoMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_geo_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("GeoMatchSetId") => String.t()
+    }
   """
-  @spec delete_geo_match_set(AWS.Client.t(), delete_geo_match_set_request(), Keyword.t()) ::
+
+  @spec delete_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_geo_match_set_errors()}
-  def delete_geo_match_set(%Client{} = client, input, options \\ []) do
+
+  def delete_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3616,12 +3783,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ip_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("IPSetId") => String.t()
+    }
   """
-  @spec delete_ip_set(AWS.Client.t(), delete_ip_set_request(), Keyword.t()) ::
+
+  @spec delete_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ip_set_errors()}
-  def delete_ip_set(%Client{} = client, input, options \\ []) do
+
+  def delete_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3636,16 +3814,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_logging_configuration_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_logging_configuration(
-          AWS.Client.t(),
-          delete_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logging_configuration_errors()}
-  def delete_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3660,12 +3844,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeletePermissionPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_permission_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_permission_policy(AWS.Client.t(), delete_permission_policy_request(), Keyword.t()) ::
+
+  @spec delete_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_policy_errors()}
-  def delete_permission_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3680,12 +3874,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteRateBasedRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_rate_based_rule_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RuleId") => String.t()
+    }
   """
-  @spec delete_rate_based_rule(AWS.Client.t(), delete_rate_based_rule_request(), Keyword.t()) ::
+
+  @spec delete_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rate_based_rule_errors()}
-  def delete_rate_based_rule(%Client{} = client, input, options \\ []) do
+
+  def delete_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3700,12 +3905,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteRegexMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_regex_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RegexMatchSetId") => String.t()
+    }
   """
-  @spec delete_regex_match_set(AWS.Client.t(), delete_regex_match_set_request(), Keyword.t()) ::
+
+  @spec delete_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_regex_match_set_errors()}
-  def delete_regex_match_set(%Client{} = client, input, options \\ []) do
+
+  def delete_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3720,12 +3936,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_regex_pattern_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RegexPatternSetId") => String.t()
+    }
   """
-  @spec delete_regex_pattern_set(AWS.Client.t(), delete_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec delete_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_regex_pattern_set_errors()}
-  def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def delete_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3740,12 +3967,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_rule_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RuleId") => String.t()
+    }
   """
-  @spec delete_rule(AWS.Client.t(), delete_rule_request(), Keyword.t()) ::
+
+  @spec delete_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-  def delete_rule(%Client{} = client, input, options \\ []) do
+
+  def delete_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3760,12 +3998,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_rule_group_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RuleGroupId") => String.t()
+    }
   """
-  @spec delete_rule_group(AWS.Client.t(), delete_rule_group_request(), Keyword.t()) ::
+
+  @spec delete_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_group_errors()}
-  def delete_rule_group(%Client{} = client, input, options \\ []) do
+
+  def delete_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3780,16 +4029,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteSizeConstraintSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_size_constraint_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("SizeConstraintSetId") => String.t()
+    }
   """
-  @spec delete_size_constraint_set(
-          AWS.Client.t(),
-          delete_size_constraint_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_size_constraint_set_errors()}
-  def delete_size_constraint_set(%Client{} = client, input, options \\ []) do
+
+  def delete_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3804,16 +4060,24 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteSqlInjectionMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_sql_injection_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("SqlInjectionMatchSetId") => String.t()
+    }
   """
-  @spec delete_sql_injection_match_set(
-          AWS.Client.t(),
-          delete_sql_injection_match_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sql_injection_match_set_errors()}
-  def delete_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+
+  def delete_sql_injection_match_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3828,12 +4092,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_web_acl_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("WebACLId") => String.t()
+    }
   """
-  @spec delete_web_acl(AWS.Client.t(), delete_web_acl_request(), Keyword.t()) ::
+
+  @spec delete_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_web_acl_errors()}
-  def delete_web_acl(%Client{} = client, input, options \\ []) do
+
+  def delete_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3848,12 +4123,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20DeleteXssMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_xss_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("XssMatchSetId") => String.t()
+    }
   """
-  @spec delete_xss_match_set(AWS.Client.t(), delete_xss_match_set_request(), Keyword.t()) ::
+
+  @spec delete_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_xss_match_set_errors()}
-  def delete_xss_match_set(%Client{} = client, input, options \\ []) do
+
+  def delete_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3868,12 +4154,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetByteMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_byte_match_set_request`)
+    %{
+      required("ByteMatchSetId") => String.t()
+    }
   """
-  @spec get_byte_match_set(AWS.Client.t(), get_byte_match_set_request(), Keyword.t()) ::
+
+  @spec get_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_byte_match_set_errors()}
-  def get_byte_match_set(%Client{} = client, input, options \\ []) do
+
+  def get_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3888,12 +4184,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetChangeToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_change_token_request`)
+    %{
+      
+    }
   """
-  @spec get_change_token(AWS.Client.t(), get_change_token_request(), Keyword.t()) ::
+
+  @spec get_change_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_change_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_change_token_errors()}
-  def get_change_token(%Client{} = client, input, options \\ []) do
+
+  def get_change_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3908,12 +4214,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetChangeTokenStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_change_token_status_request`)
+    %{
+      required("ChangeToken") => String.t()
+    }
   """
-  @spec get_change_token_status(AWS.Client.t(), get_change_token_status_request(), Keyword.t()) ::
+
+  @spec get_change_token_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_change_token_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_change_token_status_errors()}
-  def get_change_token_status(%Client{} = client, input, options \\ []) do
+
+  def get_change_token_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3928,12 +4244,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetGeoMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_geo_match_set_request`)
+    %{
+      required("GeoMatchSetId") => String.t()
+    }
   """
-  @spec get_geo_match_set(AWS.Client.t(), get_geo_match_set_request(), Keyword.t()) ::
+
+  @spec get_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_geo_match_set_errors()}
-  def get_geo_match_set(%Client{} = client, input, options \\ []) do
+
+  def get_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3948,12 +4274,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ip_set_request`)
+    %{
+      required("IPSetId") => String.t()
+    }
   """
-  @spec get_ip_set(AWS.Client.t(), get_ip_set_request(), Keyword.t()) ::
+
+  @spec get_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ip_set_errors()}
-  def get_ip_set(%Client{} = client, input, options \\ []) do
+
+  def get_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3968,16 +4304,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_logging_configuration_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_logging_configuration(
-          AWS.Client.t(),
-          get_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logging_configuration_errors()}
-  def get_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3992,12 +4334,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetPermissionPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_permission_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_permission_policy(AWS.Client.t(), get_permission_policy_request(), Keyword.t()) ::
+
+  @spec get_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permission_policy_errors()}
-  def get_permission_policy(%Client{} = client, input, options \\ []) do
+
+  def get_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4012,12 +4364,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetRateBasedRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rate_based_rule_request`)
+    %{
+      required("RuleId") => String.t()
+    }
   """
-  @spec get_rate_based_rule(AWS.Client.t(), get_rate_based_rule_request(), Keyword.t()) ::
+
+  @spec get_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rate_based_rule_errors()}
-  def get_rate_based_rule(%Client{} = client, input, options \\ []) do
+
+  def get_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4032,16 +4394,24 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetRateBasedRuleManagedKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rate_based_rule_managed_keys_request`)
+    %{
+      optional("NextMarker") => String.t(),
+      required("RuleId") => String.t()
+    }
   """
-  @spec get_rate_based_rule_managed_keys(
-          AWS.Client.t(),
-          get_rate_based_rule_managed_keys_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_rate_based_rule_managed_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rate_based_rule_managed_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rate_based_rule_managed_keys_errors()}
-  def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ []) do
+
+  def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4056,12 +4426,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetRegexMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_regex_match_set_request`)
+    %{
+      required("RegexMatchSetId") => String.t()
+    }
   """
-  @spec get_regex_match_set(AWS.Client.t(), get_regex_match_set_request(), Keyword.t()) ::
+
+  @spec get_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_regex_match_set_errors()}
-  def get_regex_match_set(%Client{} = client, input, options \\ []) do
+
+  def get_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4076,12 +4456,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_regex_pattern_set_request`)
+    %{
+      required("RegexPatternSetId") => String.t()
+    }
   """
-  @spec get_regex_pattern_set(AWS.Client.t(), get_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec get_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_regex_pattern_set_errors()}
-  def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def get_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4096,12 +4486,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rule_request`)
+    %{
+      required("RuleId") => String.t()
+    }
   """
-  @spec get_rule(AWS.Client.t(), get_rule_request(), Keyword.t()) ::
+
+  @spec get_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_errors()}
-  def get_rule(%Client{} = client, input, options \\ []) do
+
+  def get_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4116,12 +4516,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rule_group_request`)
+    %{
+      required("RuleGroupId") => String.t()
+    }
   """
-  @spec get_rule_group(AWS.Client.t(), get_rule_group_request(), Keyword.t()) ::
+
+  @spec get_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_group_errors()}
-  def get_rule_group(%Client{} = client, input, options \\ []) do
+
+  def get_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4136,12 +4546,25 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetSampledRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_sampled_requests_request`)
+    %{
+      required("MaxItems") => float(),
+      required("RuleId") => String.t(),
+      required("TimeWindow") => time_window(),
+      required("WebAclId") => String.t()
+    }
   """
-  @spec get_sampled_requests(AWS.Client.t(), get_sampled_requests_request(), Keyword.t()) ::
+
+  @spec get_sampled_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sampled_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampled_requests_errors()}
-  def get_sampled_requests(%Client{} = client, input, options \\ []) do
+
+  def get_sampled_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4156,12 +4579,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetSizeConstraintSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_size_constraint_set_request`)
+    %{
+      required("SizeConstraintSetId") => String.t()
+    }
   """
-  @spec get_size_constraint_set(AWS.Client.t(), get_size_constraint_set_request(), Keyword.t()) ::
+
+  @spec get_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_size_constraint_set_errors()}
-  def get_size_constraint_set(%Client{} = client, input, options \\ []) do
+
+  def get_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4176,16 +4609,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetSqlInjectionMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_sql_injection_match_set_request`)
+    %{
+      required("SqlInjectionMatchSetId") => String.t()
+    }
   """
-  @spec get_sql_injection_match_set(
-          AWS.Client.t(),
-          get_sql_injection_match_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sql_injection_match_set_errors()}
-  def get_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+
+  def get_sql_injection_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4200,12 +4639,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_web_acl_request`)
+    %{
+      required("WebACLId") => String.t()
+    }
   """
-  @spec get_web_acl(AWS.Client.t(), get_web_acl_request(), Keyword.t()) ::
+
+  @spec get_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_web_acl_errors()}
-  def get_web_acl(%Client{} = client, input, options \\ []) do
+
+  def get_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4220,12 +4669,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20GetXssMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_xss_match_set_request`)
+    %{
+      required("XssMatchSetId") => String.t()
+    }
   """
-  @spec get_xss_match_set(AWS.Client.t(), get_xss_match_set_request(), Keyword.t()) ::
+
+  @spec get_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_xss_match_set_errors()}
-  def get_xss_match_set(%Client{} = client, input, options \\ []) do
+
+  def get_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4240,16 +4699,25 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListActivatedRulesInRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_activated_rules_in_rule_group_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      optional("RuleGroupId") => String.t()
+    }
   """
-  @spec list_activated_rules_in_rule_group(
-          AWS.Client.t(),
-          list_activated_rules_in_rule_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_activated_rules_in_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_activated_rules_in_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_activated_rules_in_rule_group_errors()}
-  def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ []) do
+
+  def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4264,12 +4732,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListByteMatchSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_byte_match_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_byte_match_sets(AWS.Client.t(), list_byte_match_sets_request(), Keyword.t()) ::
+
+  @spec list_byte_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_byte_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_byte_match_sets_errors()}
-  def list_byte_match_sets(%Client{} = client, input, options \\ []) do
+
+  def list_byte_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4284,12 +4763,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListGeoMatchSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_geo_match_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_geo_match_sets(AWS.Client.t(), list_geo_match_sets_request(), Keyword.t()) ::
+
+  @spec list_geo_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_geo_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_geo_match_sets_errors()}
-  def list_geo_match_sets(%Client{} = client, input, options \\ []) do
+
+  def list_geo_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4304,12 +4794,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListIPSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ip_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_ip_sets(AWS.Client.t(), list_ip_sets_request(), Keyword.t()) ::
+
+  @spec list_ip_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ip_sets_errors()}
-  def list_ip_sets(%Client{} = client, input, options \\ []) do
+
+  def list_ip_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4324,16 +4825,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListLoggingConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_logging_configurations_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_logging_configurations(
-          AWS.Client.t(),
-          list_logging_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_logging_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_logging_configurations_errors()}
-  def list_logging_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_logging_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4348,12 +4856,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListRateBasedRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rate_based_rules_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_rate_based_rules(AWS.Client.t(), list_rate_based_rules_request(), Keyword.t()) ::
+
+  @spec list_rate_based_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rate_based_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rate_based_rules_errors()}
-  def list_rate_based_rules(%Client{} = client, input, options \\ []) do
+
+  def list_rate_based_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4368,12 +4887,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListRegexMatchSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_regex_match_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_regex_match_sets(AWS.Client.t(), list_regex_match_sets_request(), Keyword.t()) ::
+
+  @spec list_regex_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_regex_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_regex_match_sets_errors()}
-  def list_regex_match_sets(%Client{} = client, input, options \\ []) do
+
+  def list_regex_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4388,12 +4918,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListRegexPatternSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_regex_pattern_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_regex_pattern_sets(AWS.Client.t(), list_regex_pattern_sets_request(), Keyword.t()) ::
+
+  @spec list_regex_pattern_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_regex_pattern_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_regex_pattern_sets_errors()}
-  def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
+
+  def list_regex_pattern_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4408,12 +4949,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListRuleGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rule_groups_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_rule_groups(AWS.Client.t(), list_rule_groups_request(), Keyword.t()) ::
+
+  @spec list_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_groups_errors()}
-  def list_rule_groups(%Client{} = client, input, options \\ []) do
+
+  def list_rule_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4428,12 +4980,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rules_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_rules(AWS.Client.t(), list_rules_request(), Keyword.t()) ::
+
+  @spec list_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-  def list_rules(%Client{} = client, input, options \\ []) do
+
+  def list_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4448,16 +5011,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListSizeConstraintSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_size_constraint_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_size_constraint_sets(
-          AWS.Client.t(),
-          list_size_constraint_sets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_size_constraint_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_size_constraint_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_size_constraint_sets_errors()}
-  def list_size_constraint_sets(%Client{} = client, input, options \\ []) do
+
+  def list_size_constraint_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4472,16 +5042,24 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListSqlInjectionMatchSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_sql_injection_match_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_sql_injection_match_sets(
-          AWS.Client.t(),
-          list_sql_injection_match_sets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_sql_injection_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sql_injection_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sql_injection_match_sets_errors()}
-  def list_sql_injection_match_sets(%Client{} = client, input, options \\ []) do
+
+  def list_sql_injection_match_sets(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4496,16 +5074,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListSubscribedRuleGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_subscribed_rule_groups_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_subscribed_rule_groups(
-          AWS.Client.t(),
-          list_subscribed_rule_groups_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_subscribed_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_subscribed_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subscribed_rule_groups_errors()}
-  def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) do
+
+  def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4520,12 +5105,24 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4540,12 +5137,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListWebACLs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_web_acls_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_web_acls(AWS.Client.t(), list_web_acls_request(), Keyword.t()) ::
+
+  @spec list_web_acls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_web_acls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_web_acls_errors()}
-  def list_web_acls(%Client{} = client, input, options \\ []) do
+
+  def list_web_acls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4560,12 +5168,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20ListXssMatchSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_xss_match_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t()
+    }
   """
-  @spec list_xss_match_sets(AWS.Client.t(), list_xss_match_sets_request(), Keyword.t()) ::
+
+  @spec list_xss_match_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_xss_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_xss_match_sets_errors()}
-  def list_xss_match_sets(%Client{} = client, input, options \\ []) do
+
+  def list_xss_match_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4580,16 +5199,22 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use. Associates a `LoggingConfiguration` with a specified web ACL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20PutLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_logging_configuration_request`)
+    %{
+      required("LoggingConfiguration") => logging_configuration()
+    }
   """
-  @spec put_logging_configuration(
-          AWS.Client.t(),
-          put_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_configuration_errors()}
-  def put_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4605,12 +5230,23 @@ defmodule AWS.WAF do
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use. Attaches an IAM policy to the specified resource. The only
   supported use for this action is to share a RuleGroup across accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20PutPermissionPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_permission_policy_request`)
+    %{
+      required("Policy") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec put_permission_policy(AWS.Client.t(), put_permission_policy_request(), Keyword.t()) ::
+
+  @spec put_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_permission_policy_errors()}
-  def put_permission_policy(%Client{} = client, input, options \\ []) do
+
+  def put_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4625,12 +5261,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4645,12 +5292,23 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4667,12 +5325,24 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `ByteMatchTuple` objects (filters) in a
   `ByteMatchSet`. For each `ByteMatchTuple` object, you specify the following
   values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateByteMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_byte_match_set_request`)
+    %{
+      required("ByteMatchSetId") => String.t(),
+      required("ChangeToken") => String.t(),
+      required("Updates") => list(byte_match_set_update()())
+    }
   """
-  @spec update_byte_match_set(AWS.Client.t(), update_byte_match_set_request(), Keyword.t()) ::
+
+  @spec update_byte_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_byte_match_set_errors()}
-  def update_byte_match_set(%Client{} = client, input, options \\ []) do
+
+  def update_byte_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4689,12 +5359,24 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `GeoMatchConstraint` objects in an
   `GeoMatchSet`. For each `GeoMatchConstraint` object, you specify the following
   values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateGeoMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_geo_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("GeoMatchSetId") => String.t(),
+      required("Updates") => list(geo_match_set_update()())
+    }
   """
-  @spec update_geo_match_set(AWS.Client.t(), update_geo_match_set_request(), Keyword.t()) ::
+
+  @spec update_geo_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_geo_match_set_errors()}
-  def update_geo_match_set(%Client{} = client, input, options \\ []) do
+
+  def update_geo_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4710,12 +5392,24 @@ defmodule AWS.WAF do
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use. Inserts or deletes `IPSetDescriptor` objects in an `IPSet`.
   For each `IPSetDescriptor` object, you specify the following values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_ip_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("IPSetId") => String.t(),
+      required("Updates") => list(ip_set_update()())
+    }
   """
-  @spec update_ip_set(AWS.Client.t(), update_ip_set_request(), Keyword.t()) ::
+
+  @spec update_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ip_set_errors()}
-  def update_ip_set(%Client{} = client, input, options \\ []) do
+
+  def update_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4730,12 +5424,25 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateRateBasedRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_rate_based_rule_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RateLimit") => float(),
+      required("RuleId") => String.t(),
+      required("Updates") => list(rule_update()())
+    }
   """
-  @spec update_rate_based_rule(AWS.Client.t(), update_rate_based_rule_request(), Keyword.t()) ::
+
+  @spec update_rate_based_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rate_based_rule_errors()}
-  def update_rate_based_rule(%Client{} = client, input, options \\ []) do
+
+  def update_rate_based_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4752,12 +5459,24 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `RegexMatchTuple` objects (filters) in a
   `RegexMatchSet`. For each `RegexMatchSetUpdate` object, you specify the
   following values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateRegexMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_regex_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RegexMatchSetId") => String.t(),
+      required("Updates") => list(regex_match_set_update()())
+    }
   """
-  @spec update_regex_match_set(AWS.Client.t(), update_regex_match_set_request(), Keyword.t()) ::
+
+  @spec update_regex_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_regex_match_set_errors()}
-  def update_regex_match_set(%Client{} = client, input, options \\ []) do
+
+  def update_regex_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4774,12 +5493,24 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `RegexPatternString` objects in a
   `RegexPatternSet`. For each `RegexPatternString` object, you specify the
   following values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_regex_pattern_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RegexPatternSetId") => String.t(),
+      required("Updates") => list(regex_pattern_set_update()())
+    }
   """
-  @spec update_regex_pattern_set(AWS.Client.t(), update_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec update_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_regex_pattern_set_errors()}
-  def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def update_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4799,12 +5530,24 @@ defmodule AWS.WAF do
   count. If you add more than one predicate to a `Rule`, a request must match
   all of the specifications to be allowed, blocked, or counted. For example,
   suppose that you add the following to a `Rule`:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_rule_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RuleId") => String.t(),
+      required("Updates") => list(rule_update()())
+    }
   """
-  @spec update_rule(AWS.Client.t(), update_rule_request(), Keyword.t()) ::
+
+  @spec update_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
-  def update_rule(%Client{} = client, input, options \\ []) do
+
+  def update_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4819,12 +5562,24 @@ defmodule AWS.WAF do
   Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
   With the latest version, AWS WAF has a single set of endpoints for regional
   and global use. Inserts or deletes `ActivatedRule` objects in a `RuleGroup`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_rule_group_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("RuleGroupId") => String.t(),
+      required("Updates") => list(rule_group_update()())
+    }
   """
-  @spec update_rule_group(AWS.Client.t(), update_rule_group_request(), Keyword.t()) ::
+
+  @spec update_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_group_errors()}
-  def update_rule_group(%Client{} = client, input, options \\ []) do
+
+  def update_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4841,16 +5596,24 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `SizeConstraint` objects (filters) in a
   `SizeConstraintSet`. For each `SizeConstraint` object, you specify the
   following values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateSizeConstraintSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_size_constraint_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("SizeConstraintSetId") => String.t(),
+      required("Updates") => list(size_constraint_set_update()())
+    }
   """
-  @spec update_size_constraint_set(
-          AWS.Client.t(),
-          update_size_constraint_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_size_constraint_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_size_constraint_set_errors()}
-  def update_size_constraint_set(%Client{} = client, input, options \\ []) do
+
+  def update_size_constraint_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4867,16 +5630,25 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `SqlInjectionMatchTuple` objects (filters)
   in a `SqlInjectionMatchSet`. For each `SqlInjectionMatchTuple` object, you
   specify the following values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateSqlInjectionMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_sql_injection_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("SqlInjectionMatchSetId") => String.t(),
+      required("Updates") => list(sql_injection_match_set_update()())
+    }
   """
-  @spec update_sql_injection_match_set(
-          AWS.Client.t(),
-          update_sql_injection_match_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sql_injection_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sql_injection_match_set_errors()}
-  def update_sql_injection_match_set(%Client{} = client, input, options \\ []) do
+
+  def update_sql_injection_match_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4893,12 +5665,25 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `ActivatedRule` objects in a `WebACL`. Each
   `Rule` identifies web requests that you want to allow, block, or count. When
   you update a `WebACL`, you specify the following values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_web_acl_request`)
+    %{
+      optional("DefaultAction") => waf_action(),
+      optional("Updates") => list(web_acl_update()()),
+      required("ChangeToken") => String.t(),
+      required("WebACLId") => String.t()
+    }
   """
-  @spec update_web_acl(AWS.Client.t(), update_web_acl_request(), Keyword.t()) ::
+
+  @spec update_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_web_acl_errors()}
-  def update_web_acl(%Client{} = client, input, options \\ []) do
+
+  def update_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4915,12 +5700,24 @@ defmodule AWS.WAF do
   and global use. Inserts or deletes `XssMatchTuple` objects (filters) in an
   `XssMatchSet`. For each `XssMatchTuple` object, you specify the following
   values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=waf%20UpdateXssMatchSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_xss_match_set_request`)
+    %{
+      required("ChangeToken") => String.t(),
+      required("Updates") => list(xss_match_set_update()()),
+      required("XssMatchSetId") => String.t()
+    }
   """
-  @spec update_xss_match_set(AWS.Client.t(), update_xss_match_set_request(), Keyword.t()) ::
+
+  @spec update_xss_match_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_xss_match_set_errors()}
-  def update_xss_match_set(%Client{} = client, input, options \\ []) do
+
+  def update_xss_match_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

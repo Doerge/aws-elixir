@@ -16,45 +16,45 @@ defmodule AWS.Mq do
   @typedoc """
 
   ## Example:
-
+      
       user_pending_changes() :: %{
         "ConsoleAccess" => boolean(),
         "Groups" => list(String.t()()),
         "PendingChange" => list(any())
       }
-
+      
   """
   @type user_pending_changes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sanitization_warning() :: %{
         "AttributeName" => String.t(),
         "ElementName" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type sanitization_warning() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_summary() :: %{
         "PendingChange" => list(any()),
         "Username" => String.t()
       }
-
+      
   """
   @type user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_broker_response() :: %{
         "PendingSecurityGroups" => list(String.t()()),
         "Tags" => map(),
@@ -90,59 +90,59 @@ defmodule AWS.Mq do
         "DataReplicationMetadata" => data_replication_metadata_output(),
         "SecurityGroups" => list(String.t()())
       }
-
+      
   """
   @type describe_broker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       promote_response() :: %{
         "BrokerId" => String.t()
       }
-
+      
   """
   @type promote_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_tags_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type delete_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       availability_zone() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type availability_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "ErrorAttribute" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_broker_request() :: %{
         optional("AuthenticationStrategy") => list(any()),
         optional("AutoMinorVersionUpgrade") => boolean(),
@@ -166,139 +166,139 @@ defmodule AWS.Mq do
         required("PubliclyAccessible") => boolean(),
         required("Users") => list(user()())
       }
-
+      
   """
   @type create_broker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_request() :: %{
         optional("Description") => String.t(),
         required("Data") => String.t()
       }
-
+      
   """
   @type update_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_broker_engine_types_response() :: %{
         "BrokerEngineTypes" => list(broker_engine_type()()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type describe_broker_engine_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_broker_response() :: %{
         "BrokerArn" => String.t(),
         "BrokerId" => String.t()
       }
-
+      
   """
   @type create_broker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_response() :: %{}
-
+      
   """
   @type update_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       engine_version() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type engine_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "ErrorAttribute" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configurations_response() :: %{
         "Configurations" => list(configuration()()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reboot_broker_response() :: %{}
-
+      
   """
   @type reboot_broker_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_metadata_output() :: %{
         "DataReplicationCounterpart" => data_replication_counterpart(),
         "DataReplicationRole" => String.t()
       }
-
+      
   """
   @type data_replication_metadata_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_broker_response() :: %{
         "BrokerId" => String.t()
       }
-
+      
   """
   @type delete_broker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration() :: %{
         "Arn" => String.t(),
         "AuthenticationStrategy" => list(any()),
@@ -311,165 +311,165 @@ defmodule AWS.Mq do
         "Name" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logs() :: %{
         "Audit" => boolean(),
         "General" => boolean()
       }
-
+      
   """
   @type logs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_options() :: %{
         "KmsKeyId" => String.t(),
         "UseAwsOwnedKey" => boolean()
       }
-
+      
   """
   @type encryption_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configurations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_tags_request() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type create_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pending_logs() :: %{
         "Audit" => boolean(),
         "General" => boolean()
       }
-
+      
   """
   @type pending_logs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_brokers_response() :: %{
         "BrokerSummaries" => list(broker_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_brokers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "ErrorAttribute" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_broker_engine_types_request() :: %{
         optional("EngineType") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_broker_engine_types_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       promote_request() :: %{
         required("Mode") => list(any())
       }
-
+      
   """
   @type promote_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reboot_broker_request() :: %{}
-
+      
   """
   @type reboot_broker_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_revision_request() :: %{}
-
+      
   """
   @type describe_configuration_revision_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_response() :: %{
         "BrokerId" => String.t(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "Users" => list(user_summary()())
       }
-
+      
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "ErrorAttribute" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_summary() :: %{
         "BrokerArn" => String.t(),
         "BrokerId" => String.t(),
@@ -480,14 +480,14 @@ defmodule AWS.Mq do
         "EngineType" => list(any()),
         "HostInstanceType" => String.t()
       }
-
+      
   """
   @type broker_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_request() :: %{
         optional("AuthenticationStrategy") => list(any()),
         optional("EngineVersion") => String.t(),
@@ -495,37 +495,37 @@ defmodule AWS.Mq do
         required("EngineType") => list(any()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_revisions_response() :: %{
         "ConfigurationId" => String.t(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
         "Revisions" => list(configuration_revision()())
       }
-
+      
   """
   @type list_configuration_revisions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_request() :: %{}
-
+      
   """
   @type delete_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_response() :: %{
         "Arn" => String.t(),
         "AuthenticationStrategy" => list(any()),
@@ -534,14 +534,14 @@ defmodule AWS.Mq do
         "LatestRevision" => configuration_revision(),
         "Name" => String.t()
       }
-
+      
   """
   @type create_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ldap_server_metadata_input() :: %{
         "Hosts" => list(String.t()()),
         "RoleBase" => String.t(),
@@ -555,32 +555,32 @@ defmodule AWS.Mq do
         "UserSearchMatching" => String.t(),
         "UserSearchSubtree" => boolean()
       }
-
+      
   """
   @type ldap_server_metadata_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_broker_request() :: %{}
-
+      
   """
   @type delete_broker_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_response() :: %{}
-
+      
   """
   @type delete_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_broker_instance_options_request() :: %{
         optional("EngineType") => String.t(),
         optional("HostInstanceType") => String.t(),
@@ -588,14 +588,14 @@ defmodule AWS.Mq do
         optional("NextToken") => String.t(),
         optional("StorageType") => String.t()
       }
-
+      
   """
   @type describe_broker_instance_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_response() :: %{
         "Arn" => String.t(),
         "Created" => non_neg_integer(),
@@ -604,40 +604,40 @@ defmodule AWS.Mq do
         "Name" => String.t(),
         "Warnings" => list(sanitization_warning()())
       }
-
+      
   """
   @type update_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_engine_type() :: %{
         "EngineType" => list(any()),
         "EngineVersions" => list(engine_version()())
       }
-
+      
   """
   @type broker_engine_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_revision_response() :: %{
         "ConfigurationId" => String.t(),
         "Created" => non_neg_integer(),
         "Data" => String.t(),
         "Description" => String.t()
       }
-
+      
   """
   @type describe_configuration_revision_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_response() :: %{
         "BrokerId" => String.t(),
         "ConsoleAccess" => boolean(),
@@ -646,14 +646,14 @@ defmodule AWS.Mq do
         "ReplicationUser" => boolean(),
         "Username" => String.t()
       }
-
+      
   """
   @type describe_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ldap_server_metadata_output() :: %{
         "Hosts" => list(String.t()()),
         "RoleBase" => String.t(),
@@ -666,27 +666,27 @@ defmodule AWS.Mq do
         "UserSearchMatching" => String.t(),
         "UserSearchSubtree" => boolean()
       }
-
+      
   """
   @type ldap_server_metadata_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_instance() :: %{
         "ConsoleURL" => String.t(),
         "Endpoints" => list(String.t()()),
         "IpAddress" => String.t()
       }
-
+      
   """
   @type broker_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_response() :: %{
         "Arn" => String.t(),
         "AuthenticationStrategy" => list(any()),
@@ -699,62 +699,62 @@ defmodule AWS.Mq do
         "Name" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type describe_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       weekly_start_time() :: %{
         "DayOfWeek" => list(any()),
         "TimeOfDay" => String.t(),
         "TimeZone" => String.t()
       }
-
+      
   """
   @type weekly_start_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_request() :: %{}
-
+      
   """
   @type describe_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_request() :: %{
         optional("ConsoleAccess") => boolean(),
         optional("Groups") => list(String.t()()),
         optional("Password") => String.t(),
         optional("ReplicationUser") => boolean()
       }
-
+      
   """
   @type update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "ErrorAttribute" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user() :: %{
         "ConsoleAccess" => boolean(),
         "Groups" => list(String.t()()),
@@ -762,14 +762,14 @@ defmodule AWS.Mq do
         "ReplicationUser" => boolean(),
         "Username" => String.t()
       }
-
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logs_summary() :: %{
         "Audit" => boolean(),
         "AuditLogGroup" => String.t(),
@@ -777,35 +777,35 @@ defmodule AWS.Mq do
         "GeneralLogGroup" => String.t(),
         "Pending" => pending_logs()
       }
-
+      
   """
   @type logs_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_broker_request() :: %{}
-
+      
   """
   @type describe_broker_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_instance_option() :: %{
         "AvailabilityZones" => list(availability_zone()()),
         "EngineType" => list(any()),
@@ -814,47 +814,47 @@ defmodule AWS.Mq do
         "SupportedDeploymentModes" => list(list(any())()),
         "SupportedEngineVersions" => list(String.t()())
       }
-
+      
   """
   @type broker_instance_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_request() :: %{}
-
+      
   """
   @type describe_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_id() :: %{
         "Id" => String.t(),
         "Revision" => integer()
       }
-
+      
   """
   @type configuration_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "ErrorAttribute" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_response() :: %{
         "AuthenticationStrategy" => list(any()),
         "AutoMinorVersionUpgrade" => boolean(),
@@ -871,74 +871,74 @@ defmodule AWS.Mq do
         "PendingDataReplicationMode" => list(any()),
         "SecurityGroups" => list(String.t()())
       }
-
+      
   """
   @type update_broker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_counterpart() :: %{
         "BrokerId" => String.t(),
         "Region" => String.t()
       }
-
+      
   """
   @type data_replication_counterpart() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configurations() :: %{
         "Current" => configuration_id(),
         "History" => list(configuration_id()()),
         "Pending" => configuration_id()
       }
-
+      
   """
   @type configurations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_revision() :: %{
         "Created" => non_neg_integer(),
         "Description" => String.t(),
         "Revision" => integer()
       }
-
+      
   """
   @type configuration_revision() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_request() :: %{}
-
+      
   """
   @type list_tags_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_broker_instance_options_response() :: %{
         "BrokerInstanceOptions" => list(broker_instance_option()()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type describe_broker_instance_options_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_request() :: %{
         optional("AuthenticationStrategy") => list(any()),
         optional("AutoMinorVersionUpgrade") => boolean(),
@@ -951,66 +951,66 @@ defmodule AWS.Mq do
         optional("MaintenanceWindowStartTime") => weekly_start_time(),
         optional("SecurityGroups") => list(String.t()())
       }
-
+      
   """
   @type update_broker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_response() :: %{}
-
+      
   """
   @type create_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       action_required() :: %{
         "ActionRequiredCode" => String.t(),
         "ActionRequiredInfo" => String.t()
       }
-
+      
   """
   @type action_required() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_revisions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_configuration_revisions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_brokers_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_brokers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_request() :: %{
         optional("ConsoleAccess") => boolean(),
         optional("Groups") => list(String.t()()),
         optional("ReplicationUser") => boolean(),
         required("Password") => String.t()
       }
-
+      
   """
   @type create_user_request() :: %{String.t() => any()}
 
@@ -1169,32 +1169,106 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateBroker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:broker_name` (`t:string`) Required. The broker's name. This value must be
+  unique in your Amazon Web Services account, 1-50 characters long, must
+  contain only letters, numbers, dashes, and underscores, and must not contain
+  white spaces, brackets, wildcard characters, or special characters.
+    * `:deployment_mode`
+  (`t:enum["ACTIVE_STANDBY_MULTI_AZ|CLUSTER_MULTI_AZ|SINGLE_INSTANCE"]`)
+  Required. The broker's deployment mode.
+    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]`) Required. The type of broker
+  engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+    * `:host_instance_type` (`t:string`) Required. The broker's instance type.
+    * `:publicly_accessible` (`t:boolean`) Enables connections from applications
+  outside of the VPC that hosts the broker's subnets. Set to false by default,
+  if no value is provided.
+    * `:users` (`t:list[com.amazonaws.mq#User]`) The list of broker users (persons
+  or applications) who can access queues and topics. For Amazon MQ for
+  RabbitMQ brokers, one and only one administrative user is accepted and
+  created when a broker is first provisioned. All subsequent broker users are
+  created by making RabbitMQ API calls directly to brokers or via the RabbitMQ
+  web console.
+    * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
+  authentication strategy used to secure the broker. The default is SIMPLE.
+    * `:auto_minor_version_upgrade` (`t:boolean`) Enables automatic upgrades to new
+  patch versions for brokers as new versions are released and supported by
+  Amazon MQ. Automatic upgrades occur during the scheduled maintenance window
+  or after a manual broker reboot. Set to true by default, if no value is
+  specified.
+    * `:configuration` (`t:structure`) A list of information about the
+  configuration.
+    * `:creator_request_id` (`t:string`) The unique ID that the requester receives
+  for the created broker. Amazon MQ passes your ID with the API action.
+    * `:data_replication_mode` (`t:enum["CRDR|NONE"]`) Defines whether this broker
+  is a part of a data replication pair.
+    * `:data_replication_primary_broker_arn` (`t:string`) The Amazon Resource Name
+  (ARN) of the primary broker that is used to replicate data from in a data
+  replication pair, and is applied to the replica broker. Must be set when
+  dataReplicationMode is set to CRDR.
+    * `:encryption_options` (`t:structure`) Encryption options for the broker.
+    * `:engine_version` (`t:string`) The broker engine version. Defaults to the
+  latest available version for the specified broker engine type. For more
+  information, see the ActiveMQ version management and the RabbitMQ version
+  management sections in the Amazon MQ Developer Guide.
+    * `:ldap_server_metadata` (`t:structure`) Optional. The metadata of the LDAP
+  server used to authenticate and authorize connections to the broker. Does
+  not apply to RabbitMQ brokers.
+    * `:logs` (`t:structure`) Enables Amazon CloudWatch logging for brokers.
+    * `:maintenance_window_start_time` (`t:structure`) The parameters that determine
+  the WeeklyStartTime.
+    * `:security_groups` (`t:list[com.amazonaws.mq#__string]`) The list of rules (1
+  minimum, 125 maximum) that authorize connections to brokers.
+    * `:storage_type` (`t:enum["EBS|EFS"]`) The broker's storage type.
+    * `:subnet_ids` (`t:list[com.amazonaws.mq#__string]`) The list of groups that
+  define which subnets and IP ranges the broker can use from different
+  Availability Zones. If you specify more than one subnet, the subnets must be
+  in different Availability Zones. Amazon MQ will not be able to create VPC
+  endpoints for your broker with multiple subnets in the same Availability
+  Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the
+  default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ
+  deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ
+  deployment has no subnet requirements when deployed with public
+  accessibility. Deployment without public accessibility requires at least one
+  subnet.
+    * `:tags` (`t:map`) Create tags when creating the broker.
 
   ## Optional parameters:
   """
-  @spec create_broker(AWS.Client.t(), create_broker_request(), Keyword.t()) ::
+
+  @spec create_broker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_broker_errors()}
-  def create_broker(%Client{} = client, input, options \\ []) do
+
+  def create_broker(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/brokers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1204,32 +1278,57 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20CreateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]`) Required. The type of broker
+  engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+    * `:name` (`t:string`) Required. The name of the configuration. This value can
+  contain only alphanumeric characters, dashes, periods, underscores, and
+  tildes (- . _ ~). This value must be 1-150 characters long.
+    * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
+  authentication strategy associated with the configuration. The default is
+  SIMPLE.
+    * `:engine_version` (`t:string`) The broker engine version. Defaults to the
+  latest available version for the specified broker engine type. For more
+  information, see the ActiveMQ version management and the RabbitMQ version
+  management sections in the Amazon MQ Developer Guide.
+    * `:tags` (`t:map`) Create tags when creating the configuration.
 
   ## Optional parameters:
   """
-  @spec create_configuration(AWS.Client.t(), create_configuration_request(), Keyword.t()) ::
+
+  @spec create_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_errors()}
-  def create_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1239,33 +1338,47 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    tag.
+  tag.
+  * `:input` (`t:map | nil`):
+    * `:tags` (`t:map`) The key-value pair for the resource tag.
 
   ## Optional parameters:
   """
-  @spec create_tags(AWS.Client.t(), String.t(), create_tags_request(), Keyword.t()) ::
+
+  @spec create_tags(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-  def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def create_tags(%Client{} = client, resource_arn, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1275,38 +1388,61 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
   * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-    contain only alphanumeric characters, dashes, periods, underscores, and
-    tildes (- . _ ~). This value must be 2-100 characters long.
+  contain only alphanumeric characters, dashes, periods, underscores, and
+  tildes (- . _ ~). This value must be 2-100 characters long.
+  * `:input` (`t:map`):
+    * `:password` (`t:string`) Required. The password of the user. This value must
+  be at least 12 characters long, must contain at least 4 unique characters,
+  and must not contain commas, colons, or equal signs (,:=).
+    * `:console_access` (`t:boolean`) Enables access to the ActiveMQ Web Console for
+  the ActiveMQ user.
+    * `:groups` (`t:list[com.amazonaws.mq#__string]`) The list of groups (20
+  maximum) to which the ActiveMQ user belongs. This value can contain only
+  alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~).
+  This value must be 2-100 characters long.
+    * `:replication_user` (`t:boolean`) Defines if this user is intended for CRDR
+  replication purposes.
 
   ## Optional parameters:
   """
-  @spec create_user(AWS.Client.t(), String.t(), String.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, broker_id, username, input, options \\ []) do
+
+  def create_user(%Client{} = client, broker_id, username, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1316,21 +1452,42 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
 
   ## Optional parameters:
   """
-  @spec delete_broker(AWS.Client.t(), String.t(), delete_broker_request(), Keyword.t()) ::
+
+  @spec delete_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_broker_errors()}
-  def delete_broker(%Client{} = client, broker_id, input, options \\ []) do
+
+  def delete_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1339,7 +1496,7 @@ defmodule AWS.Mq do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1352,28 +1509,45 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    tag.
+  tag.
   * `:tag_keys` (`t:list[com.amazonaws.mq#__string]`) An array of tag keys to
-    delete
+  delete
 
   ## Optional parameters:
   """
-  @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
+
+  @spec delete_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-  def delete_tags(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def delete_tags(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1382,7 +1556,7 @@ defmodule AWS.Mq do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1395,26 +1569,46 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
   * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-    contain only alphanumeric characters, dashes, periods, underscores, and
-    tildes (- . _ ~). This value must be 2-100 characters long.
+  contain only alphanumeric characters, dashes, periods, underscores, and
+  tildes (- . _ ~). This value must be 2-100 characters long.
 
   ## Optional parameters:
   """
-  @spec delete_user(AWS.Client.t(), String.t(), String.t(), delete_user_request(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, broker_id, username, input, options \\ []) do
+
+  def delete_user(%Client{} = client, broker_id, username, options \\ []) do
     url_path =
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1423,7 +1617,7 @@ defmodule AWS.Mq do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1436,14 +1630,16 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
 
   ## Optional parameters:
   """
+
   @spec describe_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_errors()}
+
   def describe_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
 
@@ -1482,15 +1678,17 @@ defmodule AWS.Mq do
   ## Optional parameters:
   * `:engine_type` (`t:string`) Filter response by engine type.
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-    return per page (20 by default). This value must be an integer from 5 to
-    100.
+  return per page (20 by default). This value must be an integer from 5 to
+  100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    Amazon MQ should return. To request the first page, leave nextToken empty.
+  Amazon MQ should return. To request the first page, leave nextToken empty.
   """
+
   @spec describe_broker_engine_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_engine_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_engine_types_errors()}
+
   def describe_broker_engine_types(%Client{} = client, options \\ []) do
     url_path = "/v1/broker-engine-types"
 
@@ -1555,16 +1753,18 @@ defmodule AWS.Mq do
   * `:engine_type` (`t:string`) Filter response by engine type.
   * `:host_instance_type` (`t:string`) Filter response by host instance type.
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-    return per page (20 by default). This value must be an integer from 5 to
-    100.
+  return per page (20 by default). This value must be an integer from 5 to
+  100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    Amazon MQ should return. To request the first page, leave nextToken empty.
+  Amazon MQ should return. To request the first page, leave nextToken empty.
   * `:storage_type` (`t:string`) Filter response by storage type.
   """
+
   @spec describe_broker_instance_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_instance_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_broker_instance_options_errors()}
+
   def describe_broker_instance_options(%Client{} = client, options \\ []) do
     url_path = "/v1/broker-instance-options"
 
@@ -1651,14 +1851,16 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-    the configuration.
+  the configuration.
 
   ## Optional parameters:
   """
+
   @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_errors()}
+
   def describe_configuration(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
 
@@ -1694,15 +1896,17 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-    the configuration.
+  the configuration.
   * `:configuration_revision` (`t:string`) The revision of the configuration.
 
   ## Optional parameters:
   """
+
   @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_revision_errors()}
+
   def describe_configuration_revision(
         %Client{} = client,
         configuration_id,
@@ -1744,17 +1948,19 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
   * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-    contain only alphanumeric characters, dashes, periods, underscores, and
-    tildes (- . _ ~). This value must be 2-100 characters long.
+  contain only alphanumeric characters, dashes, periods, underscores, and
+  tildes (- . _ ~). This value must be 2-100 characters long.
 
   ## Optional parameters:
   """
+
   @spec describe_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
+
   def describe_user(%Client{} = client, broker_id, username, options \\ []) do
     url_path =
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
@@ -1793,15 +1999,17 @@ defmodule AWS.Mq do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-    return per page (20 by default). This value must be an integer from 5 to
-    100.
+  return per page (20 by default). This value must be an integer from 5 to
+  100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    Amazon MQ should return. To request the first page, leave nextToken empty.
+  Amazon MQ should return. To request the first page, leave nextToken empty.
   """
+
   @spec list_brokers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_brokers_errors()}
+
   def list_brokers(%Client{} = client, options \\ []) do
     url_path = "/v1/brokers"
 
@@ -1855,19 +2063,21 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-    the configuration.
+  the configuration.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-    return per page (20 by default). This value must be an integer from 5 to
-    100.
+  return per page (20 by default). This value must be an integer from 5 to
+  100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    Amazon MQ should return. To request the first page, leave nextToken empty.
+  Amazon MQ should return. To request the first page, leave nextToken empty.
   """
+
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_revisions_errors()}
+
   def list_configuration_revisions(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}/revisions"
 
@@ -1923,15 +2133,17 @@ defmodule AWS.Mq do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-    return per page (20 by default). This value must be an integer from 5 to
-    100.
+  return per page (20 by default). This value must be an integer from 5 to
+  100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    Amazon MQ should return. To request the first page, leave nextToken empty.
+  Amazon MQ should return. To request the first page, leave nextToken empty.
   """
+
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configurations_errors()}
+
   def list_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/configurations"
 
@@ -1985,14 +2197,16 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    tag.
+  tag.
 
   ## Optional parameters:
   """
+
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
+
   def list_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2028,19 +2242,21 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-    return per page (20 by default). This value must be an integer from 5 to
-    100.
+  return per page (20 by default). This value must be an integer from 5 to
+  100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    Amazon MQ should return. To request the first page, leave nextToken empty.
+  Amazon MQ should return. To request the first page, leave nextToken empty.
   """
+
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
+
   def list_users(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users"
 
@@ -2094,33 +2310,47 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
+  * `:input` (`t:map`):
+    * `:mode` (`t:enum["FAILOVER|SWITCHOVER"]`) The Promote mode requested. Note:
+  Valid values for the parameter are SWITCHOVER, FAILOVER.
 
   ## Optional parameters:
   """
-  @spec promote(AWS.Client.t(), String.t(), promote_request(), Keyword.t()) ::
+
+  @spec promote(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, promote_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_errors()}
-  def promote(%Client{} = client, broker_id, input, options \\ []) do
+
+  def promote(%Client{} = client, broker_id, input, options \\ []) when is_map(input) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/promote"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2130,33 +2360,44 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
 
   ## Optional parameters:
   """
-  @spec reboot_broker(AWS.Client.t(), String.t(), reboot_broker_request(), Keyword.t()) ::
+
+  @spec reboot_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_broker_errors()}
-  def reboot_broker(%Client{} = client, broker_id, input, options \\ []) do
+
+  def reboot_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/reboot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2166,23 +2407,69 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
+  * `:input` (`t:map | nil`):
+    * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
+  authentication strategy used to secure the broker. The default is SIMPLE.
+    * `:auto_minor_version_upgrade` (`t:boolean`) Enables automatic upgrades to new
+  patch versions for brokers as new versions are released and supported by
+  Amazon MQ. Automatic upgrades occur during the scheduled maintenance window
+  or after a manual broker reboot.
+    * `:configuration` (`t:structure`) A list of information about the
+  configuration.
+    * `:data_replication_mode` (`t:enum["CRDR|NONE"]`) Defines whether this broker
+  is a part of a data replication pair.
+    * `:engine_version` (`t:string`) The broker engine version. For more
+  information, see the ActiveMQ version management and the RabbitMQ version
+  management sections in the Amazon MQ Developer Guide.
+    * `:host_instance_type` (`t:string`) The broker's host instance type to upgrade
+  to. For a list of supported instance types, see Broker instance types.
+    * `:ldap_server_metadata` (`t:structure`) Optional. The metadata of the LDAP
+  server used to authenticate and authorize connections to the broker. Does
+  not apply to RabbitMQ brokers.
+    * `:logs` (`t:structure`) Enables Amazon CloudWatch logging for brokers.
+    * `:maintenance_window_start_time` (`t:structure`) The parameters that determine
+  the WeeklyStartTime.
+    * `:security_groups` (`t:list[com.amazonaws.mq#__string]`) The list of security
+  groups (1 minimum, 5 maximum) that authorizes connections to brokers.
 
   ## Optional parameters:
   """
-  @spec update_broker(AWS.Client.t(), String.t(), update_broker_request(), Keyword.t()) ::
+
+  @spec update_broker(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_errors()}
-  def update_broker(%Client{} = client, broker_id, input, options \\ []) do
+
+  def update_broker(%Client{} = client, broker_id, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2192,28 +2479,50 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for
-    the configuration.
+  the configuration.
+  * `:input` (`t:map`):
+    * `:data` (`t:string`) Amazon MQ for Active MQ: The base64-encoded XML
+  configuration. Amazon MQ for RabbitMQ: the base64-encoded Cuttlefish
+  configuration.
+    * `:description` (`t:string`) The description of the configuration.
 
   ## Optional parameters:
   """
-  @spec update_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
-  def update_configuration(%Client{} = client, configuration_id, input, options \\ []) do
+
+  def update_configuration(%Client{} = client, configuration_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2223,27 +2532,60 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the
-    broker.
+  broker.
   * `:username` (`t:string`) The username of the ActiveMQ user. This value can
-    contain only alphanumeric characters, dashes, periods, underscores, and
-    tildes (- . _ ~). This value must be 2-100 characters long.
+  contain only alphanumeric characters, dashes, periods, underscores, and
+  tildes (- . _ ~). This value must be 2-100 characters long.
+  * `:input` (`t:map | nil`):
+    * `:console_access` (`t:boolean`) Enables access to the the ActiveMQ Web Console
+  for the ActiveMQ user.
+    * `:groups` (`t:list[com.amazonaws.mq#__string]`) The list of groups (20
+  maximum) to which the ActiveMQ user belongs. This value can contain only
+  alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~).
+  This value must be 2-100 characters long.
+    * `:password` (`t:string`) The password of the user. This value must be at least
+  12 characters long, must contain at least 4 unique characters, and must not
+  contain commas, colons, or equal signs (,:=).
+    * `:replication_user` (`t:boolean`) Defines whether the user is intended for
+  data replication.
 
   ## Optional parameters:
   """
-  @spec update_user(AWS.Client.t(), String.t(), String.t(), update_user_request(), Keyword.t()) ::
+
+  @spec update_user(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-  def update_user(%Client{} = client, broker_id, username, input, options \\ []) do
+
+  def update_user(%Client{} = client, broker_id, username, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

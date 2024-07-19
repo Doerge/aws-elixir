@@ -1747,12 +1747,22 @@ defmodule AWS.CloudWatch do
   are deleted. To confirm that alarms were deleted successfully, you can use the
   [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
   operation after using `DeleteAlarms`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DeleteAlarms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_alarms_input`)
+    %{
+      required("AlarmNames") => list(String.t()())
+    }
   """
-  @spec delete_alarms(AWS.Client.t(), delete_alarms_input(), Keyword.t()) ::
+
+  @spec delete_alarms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alarms_errors()}
-  def delete_alarms(%Client{} = client, input, options \\ []) do
+
+  def delete_alarms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1765,12 +1775,27 @@ defmodule AWS.CloudWatch do
   anomaly detection
   model](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model)
   in the *CloudWatch User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DeleteAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_anomaly_detector_input`)
+    %{
+      optional("Dimensions") => list(dimension()()),
+      optional("MetricMathAnomalyDetector") => metric_math_anomaly_detector(),
+      optional("MetricName") => String.t(),
+      optional("Namespace") => String.t(),
+      optional("SingleMetricAnomalyDetector") => single_metric_anomaly_detector(),
+      optional("Stat") => String.t()
+    }
   """
-  @spec delete_anomaly_detector(AWS.Client.t(), delete_anomaly_detector_input(), Keyword.t()) ::
+
+  @spec delete_anomaly_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_anomaly_detector_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_anomaly_detector_errors()}
-  def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def delete_anomaly_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1780,12 +1805,22 @@ defmodule AWS.CloudWatch do
   @doc """
   Deletes all dashboards that you specify. You can specify up to 100 dashboards to
   delete. If there is an error during this call, no dashboards are deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DeleteDashboards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dashboards_input`)
+    %{
+      required("DashboardNames") => list(String.t()())
+    }
   """
-  @spec delete_dashboards(AWS.Client.t(), delete_dashboards_input(), Keyword.t()) ::
+
+  @spec delete_dashboards(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_dashboards_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dashboards_errors()}
-  def delete_dashboards(%Client{} = client, input, options \\ []) do
+
+  def delete_dashboards(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1794,12 +1829,22 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Permanently deletes the specified Contributor Insights rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DeleteInsightRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_insight_rules_input`)
+    %{
+      required("RuleNames") => list(String.t()())
+    }
   """
-  @spec delete_insight_rules(AWS.Client.t(), delete_insight_rules_input(), Keyword.t()) ::
+
+  @spec delete_insight_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_insight_rules_errors()}
-  def delete_insight_rules(%Client{} = client, input, options \\ []) do
+
+  def delete_insight_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1808,12 +1853,22 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Permanently deletes the metric stream that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DeleteMetricStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_metric_stream_input`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_metric_stream(AWS.Client.t(), delete_metric_stream_input(), Keyword.t()) ::
+
+  @spec delete_metric_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_metric_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_metric_stream_errors()}
-  def delete_metric_stream(%Client{} = client, input, options \\ []) do
+
+  def delete_metric_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1825,12 +1880,29 @@ defmodule AWS.CloudWatch do
   date range or item type. If an alarm name is not specified, the histories for
   either all metric alarms or all composite alarms are returned. CloudWatch
   retains the history of an alarm even if you delete the alarm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DescribeAlarmHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_alarm_history_input`)
+    %{
+      optional("AlarmName") => String.t(),
+      optional("AlarmTypes") => list(list(any())()),
+      optional("EndDate") => non_neg_integer(),
+      optional("HistoryItemType") => list(any()),
+      optional("MaxRecords") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ScanBy") => list(any()),
+      optional("StartDate") => non_neg_integer()
+    }
   """
-  @spec describe_alarm_history(AWS.Client.t(), describe_alarm_history_input(), Keyword.t()) ::
+
+  @spec describe_alarm_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_alarm_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alarm_history_errors()}
-  def describe_alarm_history(%Client{} = client, input, options \\ []) do
+
+  def describe_alarm_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1840,12 +1912,30 @@ defmodule AWS.CloudWatch do
   @doc """
   Retrieves the specified alarms. You can filter the results by specifying a
   prefix for the alarm name, the alarm state, or a prefix for any action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DescribeAlarms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_alarms_input`)
+    %{
+      optional("ActionPrefix") => String.t(),
+      optional("AlarmNamePrefix") => String.t(),
+      optional("AlarmNames") => list(String.t()()),
+      optional("AlarmTypes") => list(list(any())()),
+      optional("ChildrenOfAlarmName") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ParentsOfAlarmName") => String.t(),
+      optional("StateValue") => list(any())
+    }
   """
-  @spec describe_alarms(AWS.Client.t(), describe_alarms_input(), Keyword.t()) ::
+
+  @spec describe_alarms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_alarms_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alarms_errors()}
-  def describe_alarms(%Client{} = client, input, options \\ []) do
+
+  def describe_alarms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1855,15 +1945,27 @@ defmodule AWS.CloudWatch do
   @doc """
   Retrieves the alarms for the specified metric. To filter the results, specify a
   statistic, period, or unit.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DescribeAlarmsForMetric&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_alarms_for_metric_input`)
+    %{
+      optional("Dimensions") => list(dimension()()),
+      optional("ExtendedStatistic") => String.t(),
+      optional("Period") => integer(),
+      optional("Statistic") => list(any()),
+      optional("Unit") => list(any()),
+      required("MetricName") => String.t(),
+      required("Namespace") => String.t()
+    }
   """
-  @spec describe_alarms_for_metric(
-          AWS.Client.t(),
-          describe_alarms_for_metric_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_alarms_for_metric(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_alarms_for_metric_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_alarms_for_metric(%Client{} = client, input, options \\ []) do
+
+  def describe_alarms_for_metric(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1878,16 +1980,27 @@ defmodule AWS.CloudWatch do
   detectors, you can list them by adding `METRIC_MATH` to the
   `AnomalyDetectorTypes` array. This will return all metric math anomaly
   detectors in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DescribeAnomalyDetectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_anomaly_detectors_input`)
+    %{
+      optional("AnomalyDetectorTypes") => list(list(any())()),
+      optional("Dimensions") => list(dimension()()),
+      optional("MaxResults") => integer(),
+      optional("MetricName") => String.t(),
+      optional("Namespace") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_anomaly_detectors(
-          AWS.Client.t(),
-          describe_anomaly_detectors_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_anomaly_detectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_anomaly_detectors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_anomaly_detectors_errors()}
-  def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
+
+  def describe_anomaly_detectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1896,12 +2009,23 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Returns a list of all the Contributor Insights rules in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DescribeInsightRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_insight_rules_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_insight_rules(AWS.Client.t(), describe_insight_rules_input(), Keyword.t()) ::
+
+  @spec describe_insight_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_insight_rules_errors()}
-  def describe_insight_rules(%Client{} = client, input, options \\ []) do
+
+  def describe_insight_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1911,11 +2035,21 @@ defmodule AWS.CloudWatch do
   @doc """
   Disables the actions for the specified alarms. When an alarm's actions are
   disabled, the alarm actions do not execute when the alarm state changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DisableAlarmActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_alarm_actions_input`)
+    %{
+      required("AlarmNames") => list(String.t()())
+    }
   """
-  @spec disable_alarm_actions(AWS.Client.t(), disable_alarm_actions_input(), Keyword.t()) ::
+
+  @spec disable_alarm_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def disable_alarm_actions(%Client{} = client, input, options \\ []) do
+
+  def disable_alarm_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1925,12 +2059,22 @@ defmodule AWS.CloudWatch do
   @doc """
   Disables the specified Contributor Insights rules. When rules are disabled, they
   do not analyze log groups and do not incur costs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20DisableInsightRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_insight_rules_input`)
+    %{
+      required("RuleNames") => list(String.t()())
+    }
   """
-  @spec disable_insight_rules(AWS.Client.t(), disable_insight_rules_input(), Keyword.t()) ::
+
+  @spec disable_insight_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_insight_rules_errors()}
-  def disable_insight_rules(%Client{} = client, input, options \\ []) do
+
+  def disable_insight_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1939,11 +2083,21 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Enables the actions for the specified alarms.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20EnableAlarmActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_alarm_actions_input`)
+    %{
+      required("AlarmNames") => list(String.t()())
+    }
   """
-  @spec enable_alarm_actions(AWS.Client.t(), enable_alarm_actions_input(), Keyword.t()) ::
+
+  @spec enable_alarm_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def enable_alarm_actions(%Client{} = client, input, options \\ []) do
+
+  def enable_alarm_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1953,12 +2107,22 @@ defmodule AWS.CloudWatch do
   @doc """
   Enables the specified Contributor Insights rules. When rules are enabled, they
   immediately begin analyzing log data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20EnableInsightRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_insight_rules_input`)
+    %{
+      required("RuleNames") => list(String.t()())
+    }
   """
-  @spec enable_insight_rules(AWS.Client.t(), enable_insight_rules_input(), Keyword.t()) ::
+
+  @spec enable_insight_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_insight_rules_errors()}
-  def enable_insight_rules(%Client{} = client, input, options \\ []) do
+
+  def enable_insight_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1967,12 +2131,22 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Displays the details of the dashboard that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20GetDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_dashboard_input`)
+    %{
+      required("DashboardName") => String.t()
+    }
   """
-  @spec get_dashboard(AWS.Client.t(), get_dashboard_input(), Keyword.t()) ::
+
+  @spec get_dashboard(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_dashboard_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_errors()}
-  def get_dashboard(%Client{} = client, input, options \\ []) do
+
+  def get_dashboard(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1984,12 +2158,28 @@ defmodule AWS.CloudWatch do
   rule. The data includes the identity and number of contributors to the log
   group. You can also optionally return one or more statistics about each data
   point in the time series. These statistics can include the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20GetInsightRuleReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_insight_rule_report_input`)
+    %{
+      optional("MaxContributorCount") => integer(),
+      optional("Metrics") => list(String.t()()),
+      optional("OrderBy") => String.t(),
+      required("EndTime") => non_neg_integer(),
+      required("Period") => integer(),
+      required("RuleName") => String.t(),
+      required("StartTime") => non_neg_integer()
+    }
   """
-  @spec get_insight_rule_report(AWS.Client.t(), get_insight_rule_report_input(), Keyword.t()) ::
+
+  @spec get_insight_rule_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_insight_rule_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_rule_report_errors()}
-  def get_insight_rule_report(%Client{} = client, input, options \\ []) do
+
+  def get_insight_rule_report(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2015,12 +2205,28 @@ defmodule AWS.CloudWatch do
   information about Metrics Insights, see [Query your metrics with CloudWatch
   Metrics
   Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20GetMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_metric_data_input`)
+    %{
+      optional("LabelOptions") => label_options(),
+      optional("MaxDatapoints") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ScanBy") => list(any()),
+      required("EndTime") => non_neg_integer(),
+      required("MetricDataQueries") => list(metric_data_query()()),
+      required("StartTime") => non_neg_integer()
+    }
   """
-  @spec get_metric_data(AWS.Client.t(), get_metric_data_input(), Keyword.t()) ::
+
+  @spec get_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_metric_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_data_errors()}
-  def get_metric_data(%Client{} = client, input, options \\ []) do
+
+  def get_metric_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2034,12 +2240,30 @@ defmodule AWS.CloudWatch do
   can narrow the specified time range and make multiple requests across adjacent
   time ranges, or you can increase the specified period. Data points are not
   returned in chronological order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20GetMetricStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_metric_statistics_input`)
+    %{
+      optional("Dimensions") => list(dimension()()),
+      optional("ExtendedStatistics") => list(String.t()()),
+      optional("Statistics") => list(list(any())()),
+      optional("Unit") => list(any()),
+      required("EndTime") => non_neg_integer(),
+      required("MetricName") => String.t(),
+      required("Namespace") => String.t(),
+      required("Period") => integer(),
+      required("StartTime") => non_neg_integer()
+    }
   """
-  @spec get_metric_statistics(AWS.Client.t(), get_metric_statistics_input(), Keyword.t()) ::
+
+  @spec get_metric_statistics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_metric_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_statistics_errors()}
-  def get_metric_statistics(%Client{} = client, input, options \\ []) do
+
+  def get_metric_statistics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2048,12 +2272,22 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Returns information about the metric stream that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20GetMetricStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_metric_stream_input`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_metric_stream(AWS.Client.t(), get_metric_stream_input(), Keyword.t()) ::
+
+  @spec get_metric_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_metric_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_stream_errors()}
-  def get_metric_stream(%Client{} = client, input, options \\ []) do
+
+  def get_metric_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2068,11 +2302,22 @@ defmodule AWS.CloudWatch do
   create your own custom live dashboard. The graph you retrieve can include all
   CloudWatch metric graph features, including metric math and horizontal and
   vertical annotations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20GetMetricWidgetImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_metric_widget_image_input`)
+    %{
+      optional("OutputFormat") => String.t(),
+      required("MetricWidget") => String.t()
+    }
   """
-  @spec get_metric_widget_image(AWS.Client.t(), get_metric_widget_image_input(), Keyword.t()) ::
+
+  @spec get_metric_widget_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_metric_widget_image_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_metric_widget_image(%Client{} = client, input, options \\ []) do
+
+  def get_metric_widget_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2083,12 +2328,23 @@ defmodule AWS.CloudWatch do
   Returns a list of the dashboards for your account. If you include
   `DashboardNamePrefix`, only those dashboards with names starting with the
   prefix are listed. Otherwise, all dashboards in your account are listed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20ListDashboards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dashboards_input`)
+    %{
+      optional("DashboardNamePrefix") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_dashboards(AWS.Client.t(), list_dashboards_input(), Keyword.t()) ::
+
+  @spec list_dashboards(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dashboards_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboards_errors()}
-  def list_dashboards(%Client{} = client, input, options \\ []) do
+
+  def list_dashboards(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2098,16 +2354,24 @@ defmodule AWS.CloudWatch do
   @doc """
   Returns a list that contains the number of managed Contributor Insights rules in
   your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20ListManagedInsightRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_managed_insight_rules_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_managed_insight_rules(
-          AWS.Client.t(),
-          list_managed_insight_rules_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_managed_insight_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_managed_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_insight_rules_errors()}
-  def list_managed_insight_rules(%Client{} = client, input, options \\ []) do
+
+  def list_managed_insight_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2116,12 +2380,23 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Returns a list of metric streams in this account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20ListMetricStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_metric_streams_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_metric_streams(AWS.Client.t(), list_metric_streams_input(), Keyword.t()) ::
+
+  @spec list_metric_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_metric_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_streams_errors()}
-  def list_metric_streams(%Client{} = client, input, options \\ []) do
+
+  def list_metric_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2144,12 +2419,28 @@ defmodule AWS.CloudWatch do
   operation in a monitoring account and view metrics from the linked source
   accounts. For more information, see [CloudWatch cross-account
   observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20ListMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_metrics_input`)
+    %{
+      optional("Dimensions") => list(dimension_filter()()),
+      optional("IncludeLinkedAccounts") => boolean(),
+      optional("MetricName") => String.t(),
+      optional("Namespace") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("OwningAccount") => String.t(),
+      optional("RecentlyActive") => list(any())
+    }
   """
-  @spec list_metrics(AWS.Client.t(), list_metrics_input(), Keyword.t()) ::
+
+  @spec list_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metrics_errors()}
-  def list_metrics(%Client{} = client, input, options \\ []) do
+
+  def list_metrics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2159,12 +2450,22 @@ defmodule AWS.CloudWatch do
   @doc """
   Displays the tags associated with a CloudWatch resource. Currently, alarms and
   Contributor Insights rules support tagging.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2178,12 +2479,29 @@ defmodule AWS.CloudWatch do
   monitoring account, the metric can be in the same account or a source account.
   You can specify the account ID in the object you specify in the
   `SingleMetricAnomalyDetector` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_anomaly_detector_input`)
+    %{
+      optional("Configuration") => anomaly_detector_configuration(),
+      optional("Dimensions") => list(dimension()()),
+      optional("MetricCharacteristics") => metric_characteristics(),
+      optional("MetricMathAnomalyDetector") => metric_math_anomaly_detector(),
+      optional("MetricName") => String.t(),
+      optional("Namespace") => String.t(),
+      optional("SingleMetricAnomalyDetector") => single_metric_anomaly_detector(),
+      optional("Stat") => String.t()
+    }
   """
-  @spec put_anomaly_detector(AWS.Client.t(), put_anomaly_detector_input(), Keyword.t()) ::
+
+  @spec put_anomaly_detector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_anomaly_detector_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_anomaly_detector_errors()}
-  def put_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def put_anomaly_detector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2199,12 +2517,32 @@ defmodule AWS.CloudWatch do
   composite alarms. The rule expression of a composite alarm can include as many
   as 100 underlying alarms. Any single alarm can be included in the rule
   expressions of as many as 150 composite alarms.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutCompositeAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_composite_alarm_input`)
+    %{
+      optional("ActionsEnabled") => boolean(),
+      optional("ActionsSuppressor") => String.t(),
+      optional("ActionsSuppressorExtensionPeriod") => integer(),
+      optional("ActionsSuppressorWaitPeriod") => integer(),
+      optional("AlarmActions") => list(String.t()()),
+      optional("AlarmDescription") => String.t(),
+      optional("InsufficientDataActions") => list(String.t()()),
+      optional("OKActions") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      required("AlarmName") => String.t(),
+      required("AlarmRule") => String.t()
+    }
   """
-  @spec put_composite_alarm(AWS.Client.t(), put_composite_alarm_input(), Keyword.t()) ::
+
+  @spec put_composite_alarm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_composite_alarm_errors()}
-  def put_composite_alarm(%Client{} = client, input, options \\ []) do
+
+  def put_composite_alarm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2216,12 +2554,23 @@ defmodule AWS.CloudWatch do
   dashboard. If you update a dashboard, the entire contents are replaced with
   what you specify here. All dashboards in your account are global, not
   region-specific.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_dashboard_input`)
+    %{
+      required("DashboardBody") => String.t(),
+      required("DashboardName") => String.t()
+    }
   """
-  @spec put_dashboard(AWS.Client.t(), put_dashboard_input(), Keyword.t()) ::
+
+  @spec put_dashboard(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_dashboard_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dashboard_errors()}
-  def put_dashboard(%Client{} = client, input, options \\ []) do
+
+  def put_dashboard(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2234,12 +2583,25 @@ defmodule AWS.CloudWatch do
   that log group. For more information, see [Using Contributor Insights to
   Analyze High-Cardinality
   Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutInsightRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_insight_rule_input`)
+    %{
+      optional("RuleState") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("RuleDefinition") => String.t(),
+      required("RuleName") => String.t()
+    }
   """
-  @spec put_insight_rule(AWS.Client.t(), put_insight_rule_input(), Keyword.t()) ::
+
+  @spec put_insight_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_insight_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_insight_rule_errors()}
-  def put_insight_rule(%Client{} = client, input, options \\ []) do
+
+  def put_insight_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2255,12 +2617,22 @@ defmodule AWS.CloudWatch do
   `DeleteInsightRules`. If a previously created managed rule is currently
   disabled, a subsequent call to this API will re-enable it. Use
   `ListManagedInsightRules` to describe all available rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutManagedInsightRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_managed_insight_rules_input`)
+    %{
+      required("ManagedRules") => list(managed_rule()())
+    }
   """
-  @spec put_managed_insight_rules(AWS.Client.t(), put_managed_insight_rules_input(), Keyword.t()) ::
+
+  @spec put_managed_insight_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_managed_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_managed_insight_rules_errors()}
-  def put_managed_insight_rules(%Client{} = client, input, options \\ []) do
+
+  def put_managed_insight_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2277,12 +2649,43 @@ defmodule AWS.CloudWatch do
   When this operation creates an alarm, the alarm state is immediately set to
   `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
   appropriately. Any actions associated with the new state are then executed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutMetricAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_metric_alarm_input`)
+    %{
+      optional("ActionsEnabled") => boolean(),
+      optional("AlarmActions") => list(String.t()()),
+      optional("AlarmDescription") => String.t(),
+      optional("DatapointsToAlarm") => integer(),
+      optional("Dimensions") => list(dimension()()),
+      optional("EvaluateLowSampleCountPercentile") => String.t(),
+      optional("ExtendedStatistic") => String.t(),
+      optional("InsufficientDataActions") => list(String.t()()),
+      optional("MetricName") => String.t(),
+      optional("Metrics") => list(metric_data_query()()),
+      optional("Namespace") => String.t(),
+      optional("OKActions") => list(String.t()()),
+      optional("Period") => integer(),
+      optional("Statistic") => list(any()),
+      optional("Tags") => list(tag()()),
+      optional("Threshold") => float(),
+      optional("ThresholdMetricId") => String.t(),
+      optional("TreatMissingData") => String.t(),
+      optional("Unit") => list(any()),
+      required("AlarmName") => String.t(),
+      required("ComparisonOperator") => list(any()),
+      required("EvaluationPeriods") => integer()
+    }
   """
-  @spec put_metric_alarm(AWS.Client.t(), put_metric_alarm_input(), Keyword.t()) ::
+
+  @spec put_metric_alarm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metric_alarm_errors()}
-  def put_metric_alarm(%Client{} = client, input, options \\ []) do
+
+  def put_metric_alarm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2303,12 +2706,23 @@ defmodule AWS.CloudWatch do
   statistics on this data. Each `PutMetricData` request is limited to 1 MB in
   size for HTTP POST requests. You can send a payload compressed by gzip. Each
   request is also limited to no more than 1000 different metrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_metric_data_input`)
+    %{
+      required("MetricData") => list(metric_datum()()),
+      required("Namespace") => String.t()
+    }
   """
-  @spec put_metric_data(AWS.Client.t(), put_metric_data_input(), Keyword.t()) ::
+
+  @spec put_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metric_data_errors()}
-  def put_metric_data(%Client{} = client, input, options \\ []) do
+
+  def put_metric_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2323,12 +2737,30 @@ defmodule AWS.CloudWatch do
   To create a metric stream, you must be signed in to an account that has the
   `iam:PassRole` permission and either the `CloudWatchFullAccess` policy or the
   `cloudwatch:PutMetricStream` permission.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20PutMetricStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_metric_stream_input`)
+    %{
+      optional("ExcludeFilters") => list(metric_stream_filter()()),
+      optional("IncludeFilters") => list(metric_stream_filter()()),
+      optional("IncludeLinkedAccountsMetrics") => boolean(),
+      optional("StatisticsConfigurations") => list(metric_stream_statistics_configuration()()),
+      optional("Tags") => list(tag()()),
+      required("FirehoseArn") => String.t(),
+      required("Name") => String.t(),
+      required("OutputFormat") => list(any()),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec put_metric_stream(AWS.Client.t(), put_metric_stream_input(), Keyword.t()) ::
+
+  @spec put_metric_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_metric_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metric_stream_errors()}
-  def put_metric_stream(%Client{} = client, input, options \\ []) do
+
+  def put_metric_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2345,12 +2777,25 @@ defmodule AWS.CloudWatch do
   change happens quickly, it is typically only visible in the alarm's
   **History** tab in the Amazon CloudWatch console or through
   [DescribeAlarmHistory](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20SetAlarmState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_alarm_state_input`)
+    %{
+      optional("StateReasonData") => String.t(),
+      required("AlarmName") => String.t(),
+      required("StateReason") => String.t(),
+      required("StateValue") => list(any())
+    }
   """
-  @spec set_alarm_state(AWS.Client.t(), set_alarm_state_input(), Keyword.t()) ::
+
+  @spec set_alarm_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_alarm_state_errors()}
-  def set_alarm_state(%Client{} = client, input, options \\ []) do
+
+  def set_alarm_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2359,12 +2804,22 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Starts the streaming of metrics for one or more of your metric streams.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20StartMetricStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_metric_streams_input`)
+    %{
+      required("Names") => list(String.t()())
+    }
   """
-  @spec start_metric_streams(AWS.Client.t(), start_metric_streams_input(), Keyword.t()) ::
+
+  @spec start_metric_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_metric_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_metric_streams_errors()}
-  def start_metric_streams(%Client{} = client, input, options \\ []) do
+
+  def start_metric_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2373,12 +2828,22 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Stops the streaming of metrics for one or more of your metric streams.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20StopMetricStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_metric_streams_input`)
+    %{
+      required("Names") => list(String.t()())
+    }
   """
-  @spec stop_metric_streams(AWS.Client.t(), stop_metric_streams_input(), Keyword.t()) ::
+
+  @spec stop_metric_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_metric_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_metric_streams_errors()}
-  def stop_metric_streams(%Client{} = client, input, options \\ []) do
+
+  def stop_metric_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2391,12 +2856,23 @@ defmodule AWS.CloudWatch do
   Contributor Insights rules. Tags can help you organize and categorize your
   resources. You can also use them to scope user permissions by granting a user
   permission to access or change only resources with certain tag values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2405,12 +2881,23 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudwatch%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

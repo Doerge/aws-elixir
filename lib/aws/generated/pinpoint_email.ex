@@ -15,27 +15,27 @@ defmodule AWS.PinpointEmail do
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_tracking_options_response() :: %{}
-
+      
   """
   @type put_configuration_set_tracking_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tracking_options() :: %{
         "CustomRedirectDomain" => String.t()
       }
-
+      
   """
   @type tracking_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_email_identity_response() :: %{
         "DkimAttributes" => dkim_attributes(),
         "FeedbackForwardingStatus" => boolean(),
@@ -44,67 +44,67 @@ defmodule AWS.PinpointEmail do
         "Tags" => list(tag()()),
         "VerifiedForSendingStatus" => boolean()
       }
-
+      
   """
   @type get_email_identity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_email_identity_dkim_attributes_response() :: %{}
-
+      
   """
   @type put_email_identity_dkim_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_response() :: %{}
-
+      
   """
   @type delete_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_deliverability_test_reports_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer()
       }
-
+      
   """
   @type list_deliverability_test_reports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_sending_attributes_request() :: %{
         optional("SendingEnabled") => boolean()
       }
-
+      
   """
   @type put_account_sending_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_response() :: %{
         "DedicatedIpAutoWarmupEnabled" => boolean(),
         "EnforcementStatus" => String.t(),
@@ -112,238 +112,238 @@ defmodule AWS.PinpointEmail do
         "SendQuota" => send_quota(),
         "SendingEnabled" => boolean()
       }
-
+      
   """
   @type get_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deliverability_test_report_request() :: %{}
-
+      
   """
   @type get_deliverability_test_report_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       volume_statistics() :: %{
         "InboxRawCount" => float(),
         "ProjectedInbox" => float(),
         "ProjectedSpam" => float(),
         "SpamRawCount" => float()
       }
-
+      
   """
   @type volume_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_email_identities_response() :: %{
         "EmailIdentities" => list(identity_info()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_email_identities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dedicated_ip_pool_response() :: %{}
-
+      
   """
   @type create_dedicated_ip_pool_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_reputation_options_response() :: %{}
-
+      
   """
   @type put_configuration_set_reputation_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_email_identity_feedback_attributes_request() :: %{
         optional("EmailForwardingEnabled") => boolean()
       }
-
+      
   """
   @type put_email_identity_feedback_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       isp_placement() :: %{
         "IspName" => String.t(),
         "PlacementStatistics" => placement_statistics()
       }
-
+      
   """
   @type isp_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_deliverability_test_reports_response() :: %{
         "DeliverabilityTestReports" => list(deliverability_test_report()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_deliverability_test_reports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kinesis_firehose_destination() :: %{
         "DeliveryStreamArn" => String.t(),
         "IamRoleArn" => String.t()
       }
-
+      
   """
   @type kinesis_firehose_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       already_exists_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_dedicated_ip_warmup_attributes_response() :: %{}
-
+      
   """
   @type put_account_dedicated_ip_warmup_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       send_quota() :: %{
         "Max24HourSend" => float(),
         "MaxSendRate" => float(),
         "SentLast24Hours" => float()
       }
-
+      
   """
   @type send_quota() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dkim_attributes() :: %{
         "SigningEnabled" => boolean(),
         "Status" => list(any()),
         "Tokens" => list(String.t()())
       }
-
+      
   """
   @type dkim_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_email_identity_response() :: %{
         "DkimAttributes" => dkim_attributes(),
         "IdentityType" => list(any()),
         "VerifiedForSendingStatus" => boolean()
       }
-
+      
   """
   @type create_email_identity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sending_paused_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type sending_paused_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_deliverability_dashboard_option_request() :: %{
         optional("SubscribedDomains") => list(domain_deliverability_tracking_option()()),
         required("DashboardEnabled") => boolean()
       }
-
+      
   """
   @type put_deliverability_dashboard_option_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_delivery_options_response() :: %{}
-
+      
   """
   @type put_configuration_set_delivery_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       account_suspended_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type account_suspended_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_content() :: %{
         "Raw" => raw_message(),
         "Simple" => message(),
         "Template" => template()
       }
-
+      
   """
   @type email_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deliverability_dashboard_options_response() :: %{
         "AccountStatus" => list(any()),
         "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()()),
@@ -351,89 +351,89 @@ defmodule AWS.PinpointEmail do
         "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()()),
         "SubscriptionExpiryDate" => non_neg_integer()
       }
-
+      
   """
   @type get_deliverability_dashboard_options_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_deliverability_campaign_request() :: %{}
-
+      
   """
   @type get_domain_deliverability_campaign_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_event_destination_response() :: %{}
-
+      
   """
   @type delete_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_email_identity_request() :: %{}
-
+      
   """
   @type delete_email_identity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_dimension_configuration() :: %{
         "DefaultDimensionValue" => String.t(),
         "DimensionName" => String.t(),
         "DimensionValueSource" => list(any())
       }
-
+      
   """
   @type cloud_watch_dimension_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_deliverability_test_report_response() :: %{
         "DeliverabilityTestStatus" => list(any()),
         "ReportId" => String.t()
       }
-
+      
   """
   @type create_deliverability_test_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_destination_definition() :: %{
         "CloudWatchDestination" => cloud_watch_destination(),
         "Enabled" => boolean(),
@@ -442,103 +442,103 @@ defmodule AWS.PinpointEmail do
         "PinpointDestination" => pinpoint_destination(),
         "SnsDestination" => sns_destination()
       }
-
+      
   """
   @type event_destination_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domain_deliverability_campaigns_response() :: %{
         "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_domain_deliverability_campaigns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_request() :: %{}
-
+      
   """
   @type delete_configuration_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       send_email_response() :: %{
         "MessageId" => String.t()
       }
-
+      
   """
   @type send_email_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dedicated_ip_pool_request() :: %{}
-
+      
   """
   @type delete_dedicated_ip_pool_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_destination() :: %{
         "DimensionConfigurations" => list(cloud_watch_dimension_configuration()())
       }
-
+      
   """
   @type cloud_watch_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       blacklist_entry() :: %{
         "Description" => String.t(),
         "ListingTime" => non_neg_integer(),
         "RblName" => String.t()
       }
-
+      
   """
   @type blacklist_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mail_from_domain_not_verified_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type mail_from_domain_not_verified_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       overall_volume() :: %{
         "DomainIspPlacements" => list(domain_isp_placement()()),
         "ReadRatePercent" => float(),
         "VolumeStatistics" => volume_statistics()
       }
-
+      
   """
   @type overall_volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_isp_placement() :: %{
         "InboxPercentage" => float(),
         "InboxRawCount" => float(),
@@ -546,118 +546,118 @@ defmodule AWS.PinpointEmail do
         "SpamPercentage" => float(),
         "SpamRawCount" => float()
       }
-
+      
   """
   @type domain_isp_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dedicated_ip() :: %{
         "Ip" => String.t(),
         "PoolName" => String.t(),
         "WarmupPercentage" => integer(),
         "WarmupStatus" => list(any())
       }
-
+      
   """
   @type dedicated_ip() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_blacklist_reports_request() :: %{
         required("BlacklistItemNames") => list(String.t()())
       }
-
+      
   """
   @type get_blacklist_reports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mail_from_attributes() :: %{
         "BehaviorOnMxFailure" => list(any()),
         "MailFromDomain" => String.t(),
         "MailFromDomainStatus" => list(any())
       }
-
+      
   """
   @type mail_from_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_response() :: %{}
-
+      
   """
   @type create_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       reputation_options() :: %{
         "LastFreshStart" => non_neg_integer(),
         "ReputationMetricsEnabled" => boolean()
       }
-
+      
   """
   @type reputation_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_deliverability_dashboard_option_response() :: %{}
-
+      
   """
   @type put_deliverability_dashboard_option_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_email_identity_request() :: %{
         optional("Tags") => list(tag()()),
         required("EmailIdentity") => String.t()
       }
-
+      
   """
   @type create_email_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inbox_placement_tracking_option() :: %{
         "Global" => boolean(),
         "TrackedIsps" => list(String.t()())
       }
-
+      
   """
   @type inbox_placement_tracking_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_destination() :: %{
         "CloudWatchDestination" => cloud_watch_destination(),
         "Enabled" => boolean(),
@@ -667,103 +667,103 @@ defmodule AWS.PinpointEmail do
         "PinpointDestination" => pinpoint_destination(),
         "SnsDestination" => sns_destination()
       }
-
+      
   """
   @type event_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_set_event_destination_request() :: %{
         required("EventDestination") => event_destination_definition()
       }
-
+      
   """
   @type update_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_tag() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type message_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domain_deliverability_campaigns_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer(),
         required("EndDate") => non_neg_integer(),
         required("StartDate") => non_neg_integer()
       }
-
+      
   """
   @type list_domain_deliverability_campaigns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_set_event_destinations_request() :: %{}
-
+      
   """
   @type get_configuration_set_event_destinations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_statistics_report_request() :: %{
         required("EndDate") => non_neg_integer(),
         required("StartDate") => non_neg_integer()
       }
-
+      
   """
   @type get_domain_statistics_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_dedicated_ip_warmup_attributes_request() :: %{
         optional("AutoWarmupEnabled") => boolean()
       }
-
+      
   """
   @type put_account_dedicated_ip_warmup_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_dedicated_ip_in_pool_response() :: %{}
-
+      
   """
   @type put_dedicated_ip_in_pool_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       placement_statistics() :: %{
         "DkimPercentage" => float(),
         "InboxPercentage" => float(),
@@ -771,512 +771,512 @@ defmodule AWS.PinpointEmail do
         "SpamPercentage" => float(),
         "SpfPercentage" => float()
       }
-
+      
   """
   @type placement_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       identity_info() :: %{
         "IdentityName" => String.t(),
         "IdentityType" => list(any()),
         "SendingEnabled" => boolean()
       }
-
+      
   """
   @type identity_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_sets_response() :: %{
         "ConfigurationSets" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_configuration_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dedicated_ip_pools_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer()
       }
-
+      
   """
   @type list_dedicated_ip_pools_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_set_event_destinations_response() :: %{
         "EventDestinations" => list(event_destination()())
       }
-
+      
   """
   @type get_configuration_set_event_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_deliverability_campaign_response() :: %{
         "DomainDeliverabilityCampaign" => domain_deliverability_campaign()
       }
-
+      
   """
   @type get_domain_deliverability_campaign_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_sets_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer()
       }
-
+      
   """
   @type list_configuration_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dedicated_ips_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer(),
         optional("PoolName") => String.t()
       }
-
+      
   """
   @type get_dedicated_ips_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       raw_message() :: %{
         "Data" => binary()
       }
-
+      
   """
   @type raw_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_dedicated_ip_in_pool_request() :: %{
         required("DestinationPoolName") => String.t()
       }
-
+      
   """
   @type put_dedicated_ip_in_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_email_identity_dkim_attributes_request() :: %{
         optional("SigningEnabled") => boolean()
       }
-
+      
   """
   @type put_email_identity_dkim_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_sending_options_response() :: %{}
-
+      
   """
   @type put_configuration_set_sending_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dedicated_ip_pool_response() :: %{}
-
+      
   """
   @type delete_dedicated_ip_pool_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_tracking_options_request() :: %{
         optional("CustomRedirectDomain") => String.t()
       }
-
+      
   """
   @type put_configuration_set_tracking_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dedicated_ip_pool_request() :: %{
         optional("Tags") => list(tag()()),
         required("PoolName") => String.t()
       }
-
+      
   """
   @type create_dedicated_ip_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dedicated_ip_response() :: %{
         "DedicatedIp" => dedicated_ip()
       }
-
+      
   """
   @type get_dedicated_ip_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_event_destination_request() :: %{}
-
+      
   """
   @type delete_configuration_set_event_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_event_destination_response() :: %{}
-
+      
   """
   @type create_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_delivery_options_request() :: %{
         optional("SendingPoolName") => String.t(),
         optional("TlsPolicy") => list(any())
       }
-
+      
   """
   @type put_configuration_set_delivery_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_email_identity_mail_from_attributes_request() :: %{
         optional("BehaviorOnMxFailure") => list(any()),
         optional("MailFromDomain") => String.t()
       }
-
+      
   """
   @type put_email_identity_mail_from_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_email_identity_response() :: %{}
-
+      
   """
   @type delete_email_identity_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_deliverability_test_report_request() :: %{
         optional("ReportName") => String.t(),
         optional("Tags") => list(tag()()),
         required("Content") => email_content(),
         required("FromEmailAddress") => String.t()
       }
-
+      
   """
   @type create_deliverability_test_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       daily_volume() :: %{
         "DomainIspPlacements" => list(domain_isp_placement()()),
         "StartDate" => non_neg_integer(),
         "VolumeStatistics" => volume_statistics()
       }
-
+      
   """
   @type daily_volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sending_options() :: %{
         "SendingEnabled" => boolean()
       }
-
+      
   """
   @type sending_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       concurrent_modification_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_blacklist_reports_response() :: %{
         "BlacklistReport" => map()
       }
-
+      
   """
   @type get_blacklist_reports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination() :: %{
         "BccAddresses" => list(String.t()()),
         "CcAddresses" => list(String.t()()),
         "ToAddresses" => list(String.t()())
       }
-
+      
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       body() :: %{
         "Html" => content(),
         "Text" => content()
       }
-
+      
   """
   @type body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deliverability_dashboard_options_request() :: %{}
-
+      
   """
   @type get_deliverability_dashboard_options_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_statistics_report_response() :: %{
         "DailyVolumes" => list(daily_volume()()),
         "OverallVolume" => overall_volume()
       }
-
+      
   """
   @type get_domain_statistics_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_sending_attributes_response() :: %{}
-
+      
   """
   @type put_account_sending_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       message_rejected() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type message_rejected() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dedicated_ip_pools_response() :: %{
         "DedicatedIpPools" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_dedicated_ip_pools_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_set_request() :: %{}
-
+      
   """
   @type get_configuration_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_email_identity_mail_from_attributes_response() :: %{}
-
+      
   """
   @type put_email_identity_mail_from_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_event_destination_request() :: %{
         required("EventDestination") => event_destination_definition(),
         required("EventDestinationName") => String.t()
       }
-
+      
   """
   @type create_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_deliverability_tracking_option() :: %{
         "Domain" => String.t(),
         "InboxPlacementTrackingOption" => inbox_placement_tracking_option(),
         "SubscriptionStartDate" => non_neg_integer()
       }
-
+      
   """
   @type domain_deliverability_tracking_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_sending_options_request() :: %{
         optional("SendingEnabled") => boolean()
       }
-
+      
   """
   @type put_configuration_set_sending_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delivery_options() :: %{
         "SendingPoolName" => String.t(),
         "TlsPolicy" => list(any())
       }
-
+      
   """
   @type delivery_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_set_event_destination_response() :: %{}
-
+      
   """
   @type update_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       content() :: %{
         "Charset" => String.t(),
         "Data" => String.t()
       }
-
+      
   """
   @type content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_set_response() :: %{
         "ConfigurationSetName" => String.t(),
         "DeliveryOptions" => delivery_options(),
@@ -1285,26 +1285,26 @@ defmodule AWS.PinpointEmail do
         "Tags" => list(tag()()),
         "TrackingOptions" => tracking_options()
       }
-
+      
   """
   @type get_configuration_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template() :: %{
         optional("TemplateArn") => String.t(),
         optional("TemplateData") => String.t()
       }
-
+      
   """
   @type template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
         optional("EmailTags") => list(message_tag()()),
@@ -1314,34 +1314,34 @@ defmodule AWS.PinpointEmail do
         required("Content") => email_content(),
         required("Destination") => destination()
       }
-
+      
   """
   @type send_email_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_dedicated_ip_warmup_attributes_response() :: %{}
-
+      
   """
   @type put_dedicated_ip_warmup_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_dedicated_ip_warmup_attributes_request() :: %{
         required("WarmupPercentage") => integer()
       }
-
+      
   """
   @type put_dedicated_ip_warmup_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_deliverability_campaign() :: %{
         "CampaignId" => String.t(),
         "DeleteRate" => float(),
@@ -1358,55 +1358,55 @@ defmodule AWS.PinpointEmail do
         "SpamCount" => float(),
         "Subject" => String.t()
       }
-
+      
   """
   @type domain_deliverability_campaign() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_request() :: %{}
-
+      
   """
   @type get_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dedicated_ip_request() :: %{}
-
+      
   """
   @type get_dedicated_ip_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_email_identities_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer()
       }
-
+      
   """
   @type list_email_identities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_set_reputation_options_request() :: %{
         optional("ReputationMetricsEnabled") => boolean()
       }
-
+      
   """
   @type put_configuration_set_reputation_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_request() :: %{
         optional("DeliveryOptions") => delivery_options(),
         optional("ReputationOptions") => reputation_options(),
@@ -1415,45 +1415,45 @@ defmodule AWS.PinpointEmail do
         optional("TrackingOptions") => tracking_options(),
         required("ConfigurationSetName") => String.t()
       }
-
+      
   """
   @type create_configuration_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sns_destination() :: %{
         "TopicArn" => String.t()
       }
-
+      
   """
   @type sns_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pinpoint_destination() :: %{
         "ApplicationArn" => String.t()
       }
-
+      
   """
   @type pinpoint_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_email_identity_feedback_attributes_response() :: %{}
-
+      
   """
   @type put_email_identity_feedback_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       deliverability_test_report() :: %{
         "CreateDate" => non_neg_integer(),
         "DeliverabilityTestStatus" => list(any()),
@@ -1462,14 +1462,14 @@ defmodule AWS.PinpointEmail do
         "ReportName" => String.t(),
         "Subject" => String.t()
       }
-
+      
   """
   @type deliverability_test_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deliverability_test_report_response() :: %{
         "DeliverabilityTestReport" => deliverability_test_report(),
         "IspPlacements" => list(isp_placement()()),
@@ -1477,40 +1477,40 @@ defmodule AWS.PinpointEmail do
         "OverallPlacement" => placement_statistics(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type get_deliverability_test_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_email_identity_request() :: %{}
-
+      
   """
   @type get_email_identity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dedicated_ips_response() :: %{
         "DedicatedIps" => list(dedicated_ip()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_dedicated_ips_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message() :: %{
         "Body" => body(),
         "Subject" => content()
       }
-
+      
   """
   @type message() :: %{String.t() => any()}
 
@@ -1717,29 +1717,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec create_configuration_set(AWS.Client.t(), create_configuration_set_request(), Keyword.t()) ::
+
+  @spec create_configuration_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
-  def create_configuration_set(%Client{} = client, input, options \\ []) do
+
+  def create_configuration_set(%Client{} = client, options \\ []) do
     url_path = "/v1/email/configuration-sets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1754,45 +1765,49 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    you want to add an event destination to.
+  you want to add an event destination to.
 
   ## Optional parameters:
   """
-  @spec create_configuration_set_event_destination(
-          AWS.Client.t(),
-          String.t(),
-          create_configuration_set_event_destination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_configuration_set_event_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_event_destination_errors()}
+
   def create_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1808,29 +1823,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec create_dedicated_ip_pool(AWS.Client.t(), create_dedicated_ip_pool_request(), Keyword.t()) ::
+
+  @spec create_dedicated_ip_pool(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dedicated_ip_pool_errors()}
-  def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
+
+  def create_dedicated_ip_pool(%Client{} = client, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1849,33 +1875,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec create_deliverability_test_report(
-          AWS.Client.t(),
-          create_deliverability_test_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_deliverability_test_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deliverability_test_report_errors()}
-  def create_deliverability_test_report(%Client{} = client, input, options \\ []) do
+
+  def create_deliverability_test_report(%Client{} = client, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1894,29 +1927,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec create_email_identity(AWS.Client.t(), create_email_identity_request(), Keyword.t()) ::
+
+  @spec create_email_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_identity_errors()}
-  def create_email_identity(%Client{} = client, input, options \\ []) do
+
+  def create_email_identity(%Client{} = client, options \\ []) do
     url_path = "/v1/email/identities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1926,26 +1970,42 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    you want to delete.
+  you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_configuration_set(
-          AWS.Client.t(),
-          String.t(),
-          delete_configuration_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
-  def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
+
+  def delete_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1954,7 +2014,7 @@ defmodule AWS.PinpointEmail do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1967,37 +2027,55 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    contains the event destination that you want to delete.
+  contains the event destination that you want to delete.
   * `:event_destination_name` (`t:string`) The name of the event destination that
-    you want to delete.
+  you want to delete.
 
   ## Optional parameters:
   """
+
   @spec delete_configuration_set_event_destination(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          delete_configuration_set_event_destination_request(),
           Keyword.t()
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_event_destination_errors()}
+
   def delete_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
         event_destination_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2006,7 +2084,7 @@ defmodule AWS.PinpointEmail do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2019,26 +2097,42 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to
-    delete.
+  delete.
 
   ## Optional parameters:
   """
-  @spec delete_dedicated_ip_pool(
-          AWS.Client.t(),
-          String.t(),
-          delete_dedicated_ip_pool_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_dedicated_ip_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dedicated_ip_pool_errors()}
-  def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
+
+  def delete_dedicated_ip_pool(%Client{} = client, pool_name, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2047,7 +2141,7 @@ defmodule AWS.PinpointEmail do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2061,26 +2155,42 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string`) The identity (that is, the email address or
-    domain) that you want to delete from your Amazon Pinpoint account.
+  domain) that you want to delete from your Amazon Pinpoint account.
 
   ## Optional parameters:
   """
-  @spec delete_email_identity(
-          AWS.Client.t(),
-          String.t(),
-          delete_email_identity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_identity_errors()}
-  def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
+
+  def delete_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2089,7 +2199,7 @@ defmodule AWS.PinpointEmail do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2105,10 +2215,12 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
+
   @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
+
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v1/email/account"
 
@@ -2144,18 +2256,21 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:blacklist_item_names`
-    (`t:list[com.amazonaws.pinpointemail#BlacklistItemName]`) A list of IP
-    addresses that you want to retrieve blacklist information about. You can
-    only specify the dedicated IP addresses that you use to send email using
-    Amazon Pinpoint or Amazon SES.
+  (`t:list[com.amazonaws.pinpointemail#BlacklistItemName]`) A list of IP
+  addresses that you want to retrieve blacklist information about. You can
+  only specify the dedicated IP addresses that you use to send email using
+  Amazon Pinpoint or Amazon SES.
 
   ## Optional parameters:
   """
+
   @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blacklist_reports_errors()}
-  def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ []) do
+
+  def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ [])
+      when is_binary(blacklist_item_names) do
     url_path = "/v1/email/deliverability-dashboard/blacklist-report"
 
     # Validate optional parameters
@@ -2192,14 +2307,16 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    you want to obtain more information about.
+  you want to obtain more information about.
 
   ## Optional parameters:
   """
+
   @spec get_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_errors()}
+
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
 
@@ -2236,14 +2353,16 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    contains the event destination.
+  contains the event destination.
 
   ## Optional parameters:
   """
+
   @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_event_destinations_errors()}
+
   def get_configuration_set_event_destinations(
         %Client{} = client,
         configuration_set_name,
@@ -2286,15 +2405,17 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:ip` (`t:string`) The IP address that you want to obtain more information
-    about. The value you specify has to be a dedicated IP address that's
-    assocaited with your Amazon Pinpoint account.
+  about. The value you specify has to be a dedicated IP address that's
+  assocaited with your Amazon Pinpoint account.
 
   ## Optional parameters:
   """
+
   @spec get_dedicated_ip(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ip_errors()}
+
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
 
@@ -2333,19 +2454,21 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-    GetDedicatedIps to indicate the position of the dedicated IP pool in the
-    list of IP pools.
+  GetDedicatedIps to indicate the position of the dedicated IP pool in the
+  list of IP pools.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-    GetDedicatedIpsRequest. If the number of results is larger than the number
-    you specified in this parameter, then the response includes a NextToken
-    element, which you can use to obtain additional results.
+  GetDedicatedIpsRequest. If the number of results is larger than the number
+  you specified in this parameter, then the response includes a NextToken
+  element, which you can use to obtain additional results.
   * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP
-    address is associated with.
+  address is associated with.
   """
+
   @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dedicated_ips_errors()}
+
   def get_dedicated_ips(%Client{} = client, options \\ []) do
     url_path = "/v1/email/dedicated-ips"
 
@@ -2412,10 +2535,12 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
+
   @spec get_deliverability_dashboard_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_dashboard_options_errors()}
+
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard"
 
@@ -2451,14 +2576,16 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:report_id` (`t:string`) A unique string that identifies the predictive inbox
-    placement test.
+  placement test.
 
   ## Optional parameters:
   """
+
   @spec get_deliverability_test_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deliverability_test_report_errors()}
+
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
 
@@ -2497,17 +2624,19 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:campaign_id` (`t:string`) The unique identifier for the campaign. Amazon
-    Pinpoint automatically generates and assigns this identifier to a campaign.
-    This value is not the same as the campaign identifier that Amazon Pinpoint
-    assigns to campaigns that you create and manage by using the Amazon Pinpoint
-    API or the Amazon Pinpoint console.
+  Pinpoint automatically generates and assigns this identifier to a campaign.
+  This value is not the same as the campaign identifier that Amazon Pinpoint
+  assigns to campaigns that you create and manage by using the Amazon Pinpoint
+  API or the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_domain_deliverability_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_deliverability_campaign_errors()}
+
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
 
@@ -2544,15 +2673,16 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:domain` (`t:string`) The domain that you want to obtain deliverability
-    metrics for.
+  metrics for.
   * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to
-    obtain domain deliverability metrics for. The EndDate that you specify has
-    to be less than or equal to 30 days after the StartDate.
+  obtain domain deliverability metrics for. The EndDate that you specify has
+  to be less than or equal to 30 days after the StartDate.
   * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to
-    obtain domain deliverability metrics for.
+  obtain domain deliverability metrics for.
 
   ## Optional parameters:
   """
+
   @spec get_domain_statistics_report(
           AWS.Client.t(),
           String.t(),
@@ -2563,13 +2693,15 @@ defmodule AWS.PinpointEmail do
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_statistics_report_errors()}
+
   def get_domain_statistics_report(
         %Client{} = client,
         domain,
         end_date,
         start_date,
         options \\ []
-      ) do
+      )
+      when is_binary(end_date) and is_binary(start_date) do
     url_path =
       "/v1/email/deliverability-dashboard/statistics-report/#{AWS.Util.encode_uri(domain)}"
 
@@ -2607,14 +2739,16 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string`) The email identity that you want to retrieve
-    details for.
+  details for.
 
   ## Optional parameters:
   """
+
   @spec get_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_identity_errors()}
+
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
 
@@ -2653,17 +2787,19 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-    ListConfigurationSets to indicate the position in the list of configuration
-    sets.
+  ListConfigurationSets to indicate the position in the list of configuration
+  sets.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-    ListConfigurationSets. If the number of results is larger than the number
-    you specified in this parameter, then the response includes a NextToken
-    element, which you can use to obtain additional results.
+  ListConfigurationSets. If the number of results is larger than the number
+  you specified in this parameter, then the response includes a NextToken
+  element, which you can use to obtain additional results.
   """
+
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_sets_errors()}
+
   def list_configuration_sets(%Client{} = client, options \\ []) do
     url_path = "/v1/email/configuration-sets"
 
@@ -2720,17 +2856,19 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-    ListDedicatedIpPools to indicate the position in the list of dedicated IP
-    pools.
+  ListDedicatedIpPools to indicate the position in the list of dedicated IP
+  pools.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-    ListDedicatedIpPools. If the number of results is larger than the number you
-    specified in this parameter, then the response includes a NextToken element,
-    which you can use to obtain additional results.
+  ListDedicatedIpPools. If the number of results is larger than the number you
+  specified in this parameter, then the response includes a NextToken element,
+  which you can use to obtain additional results.
   """
+
   @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dedicated_ip_pools_errors()}
+
   def list_dedicated_ip_pools(%Client{} = client, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools"
 
@@ -2789,17 +2927,19 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-    ListDeliverabilityTestReports to indicate the position in the list of
-    predictive inbox placement tests.
+  ListDeliverabilityTestReports to indicate the position in the list of
+  predictive inbox placement tests.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-    ListDeliverabilityTestReports. If the number of results is larger than the
-    number you specified in this parameter, then the response includes a
-    NextToken element, which you can use to obtain additional results.
+  ListDeliverabilityTestReports. If the number of results is larger than the
+  number you specified in this parameter, then the response includes a
+  NextToken element, which you can use to obtain additional results.
   """
+
   @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deliverability_test_reports_errors()}
+
   def list_deliverability_test_reports(%Client{} = client, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test-reports"
 
@@ -2856,23 +2996,24 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data
-    for.
+  for.
   * `:end_date` (`t:timestamp`) The last day, in Unix time format, that you want
-    to obtain deliverability data for. This value has to be less than or equal
-    to 30 days after the value of the StartDate parameter.
+  to obtain deliverability data for. This value has to be less than or equal
+  to 30 days after the value of the StartDate parameter.
   * `:start_date` (`t:timestamp`) The first day, in Unix time format, that you
-    want to obtain deliverability data for.
+  want to obtain deliverability data for.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token that’s returned from a previous call to the
-    ListDomainDeliverabilityCampaigns operation. This token indicates the
-    position of a campaign in the list of campaigns.
+  ListDomainDeliverabilityCampaigns operation. This token indicates the
+  position of a campaign in the list of campaigns.
   * `:page_size` (`t:integer`) The maximum number of results to include in
-    response to a single call to the ListDomainDeliverabilityCampaigns
-    operation. If the number of results is larger than the number that you
-    specify in this parameter, the response includes a NextToken element, which
-    you can use to obtain additional results.
+  response to a single call to the ListDomainDeliverabilityCampaigns
+  operation. If the number of results is larger than the number that you
+  specify in this parameter, the response includes a NextToken element, which
+  you can use to obtain additional results.
   """
+
   @spec list_domain_deliverability_campaigns(
           AWS.Client.t(),
           String.t(),
@@ -2883,13 +3024,15 @@ defmodule AWS.PinpointEmail do
           {:ok, list_domain_deliverability_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_deliverability_campaigns_errors()}
+
   def list_domain_deliverability_campaigns(
         %Client{} = client,
         subscribed_domain,
         end_date,
         start_date,
         options \\ []
-      ) do
+      )
+      when is_binary(end_date) and is_binary(start_date) do
     url_path =
       "/v1/email/deliverability-dashboard/domains/#{AWS.Util.encode_uri(subscribed_domain)}/campaigns"
 
@@ -2948,16 +3091,18 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-    ListEmailIdentities to indicate the position in the list of identities.
+  ListEmailIdentities to indicate the position in the list of identities.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-    ListEmailIdentities. If the number of results is larger than the number you
-    specified in this parameter, then the response includes a NextToken element,
-    which you can use to obtain additional results.
+  ListEmailIdentities. If the number of results is larger than the number you
+  specified in this parameter, then the response includes a NextToken element,
+  which you can use to obtain additional results.
   """
+
   @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_email_identities_errors()}
+
   def list_email_identities(%Client{} = client, options \\ []) do
     url_path = "/v1/email/identities"
 
@@ -3016,15 +3161,18 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to retrieve tag information for.
+  that you want to retrieve tag information for.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/v1/email/tags"
 
     # Validate optional parameters
@@ -3061,23 +3209,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec put_account_dedicated_ip_warmup_attributes(
-          AWS.Client.t(),
-          put_account_dedicated_ip_warmup_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_account_dedicated_ip_warmup_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_dedicated_ip_warmup_attributes_errors()}
-  def put_account_dedicated_ip_warmup_attributes(%Client{} = client, input, options \\ []) do
+
+  def put_account_dedicated_ip_warmup_attributes(%Client{} = client, options \\ []) do
     url_path = "/v1/email/account/dedicated-ips/warmup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3089,23 +3254,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec put_account_sending_attributes(
-          AWS.Client.t(),
-          put_account_sending_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_account_sending_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_sending_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_sending_attributes_errors()}
-  def put_account_sending_attributes(%Client{} = client, input, options \\ []) do
+
+  def put_account_sending_attributes(%Client{} = client, options \\ []) do
     url_path = "/v1/email/account/sending"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3117,35 +3299,49 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    you want to associate with a dedicated IP pool.
+  you want to associate with a dedicated IP pool.
 
   ## Optional parameters:
   """
-  @spec put_configuration_set_delivery_options(
-          AWS.Client.t(),
-          String.t(),
-          put_configuration_set_delivery_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_configuration_set_delivery_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_delivery_options_errors()}
+
   def put_configuration_set_delivery_options(
         %Client{} = client,
         configuration_set_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/delivery-options"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3156,35 +3352,49 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    you want to enable or disable reputation metric tracking for.
+  you want to enable or disable reputation metric tracking for.
 
   ## Optional parameters:
   """
-  @spec put_configuration_set_reputation_options(
-          AWS.Client.t(),
-          String.t(),
-          put_configuration_set_reputation_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_configuration_set_reputation_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_reputation_options_errors()}
+
   def put_configuration_set_reputation_options(
         %Client{} = client,
         configuration_set_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/reputation-options"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3195,35 +3405,49 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    you want to enable or disable email sending for.
+  you want to enable or disable email sending for.
 
   ## Optional parameters:
   """
-  @spec put_configuration_set_sending_options(
-          AWS.Client.t(),
-          String.t(),
-          put_configuration_set_sending_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_configuration_set_sending_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_sending_options_errors()}
+
   def put_configuration_set_sending_options(
         %Client{} = client,
         configuration_set_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/sending"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3234,35 +3458,49 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    you want to add a custom tracking domain to.
+  you want to add a custom tracking domain to.
 
   ## Optional parameters:
   """
-  @spec put_configuration_set_tracking_options(
-          AWS.Client.t(),
-          String.t(),
-          put_configuration_set_tracking_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_configuration_set_tracking_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_tracking_options_errors()}
+
   def put_configuration_set_tracking_options(
         %Client{} = client,
         configuration_set_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/tracking-options"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3272,49 +3510,80 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP
-    pool. The value you specify has to be a dedicated IP address that's
-    associated with your Amazon Pinpoint account.
+  pool. The value you specify has to be a dedicated IP address that's
+  associated with your Amazon Pinpoint account.
 
   ## Optional parameters:
   """
-  @spec put_dedicated_ip_in_pool(
-          AWS.Client.t(),
-          String.t(),
-          put_dedicated_ip_in_pool_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_dedicated_ip_in_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dedicated_ip_in_pool_errors()}
-  def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
+
+  def put_dedicated_ip_in_pool(%Client{} = client, ip, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
-  @spec put_dedicated_ip_warmup_attributes(
-          AWS.Client.t(),
-          String.t(),
-          put_dedicated_ip_warmup_attributes_request(),
-          Keyword.t()
-        ) ::
+  @spec put_dedicated_ip_warmup_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_dedicated_ip_warmup_attributes_errors()}
-  def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
+
+  def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3330,23 +3599,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec put_deliverability_dashboard_option(
-          AWS.Client.t(),
-          put_deliverability_dashboard_option_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_deliverability_dashboard_option(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_deliverability_dashboard_option_errors()}
-  def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
+
+  def put_deliverability_dashboard_option(%Client{} = client, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3356,28 +3642,44 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string`) The email identity that you want to change the
-    DKIM settings for.
+  DKIM settings for.
 
   ## Optional parameters:
   """
-  @spec put_email_identity_dkim_attributes(
-          AWS.Client.t(),
-          String.t(),
-          put_email_identity_dkim_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_email_identity_dkim_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_dkim_attributes_errors()}
-  def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
+
+  def put_email_identity_dkim_attributes(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3392,33 +3694,44 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string`) The email identity that you want to configure
-    bounce and complaint feedback forwarding for.
+  bounce and complaint feedback forwarding for.
 
   ## Optional parameters:
   """
-  @spec put_email_identity_feedback_attributes(
-          AWS.Client.t(),
-          String.t(),
-          put_email_identity_feedback_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_email_identity_feedback_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_feedback_attributes_errors()}
-  def put_email_identity_feedback_attributes(
-        %Client{} = client,
-        email_identity,
-        input,
-        options \\ []
-      ) do
+
+  def put_email_identity_feedback_attributes(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/feedback"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3429,33 +3742,44 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string`) The verified email identity that you want to
-    set up the custom MAIL FROM domain for.
+  set up the custom MAIL FROM domain for.
 
   ## Optional parameters:
   """
-  @spec put_email_identity_mail_from_attributes(
-          AWS.Client.t(),
-          String.t(),
-          put_email_identity_mail_from_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_email_identity_mail_from_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_email_identity_mail_from_attributes_errors()}
-  def put_email_identity_mail_from_attributes(
-        %Client{} = client,
-        email_identity,
-        input,
-        options \\ []
-      ) do
+
+  def put_email_identity_mail_from_attributes(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/mail-from"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3468,29 +3792,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec send_email(AWS.Client.t(), send_email_request(), Keyword.t()) ::
+
+  @spec send_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_email_errors()}
-  def send_email(%Client{} = client, input, options \\ []) do
+
+  def send_email(%Client{} = client, options \\ []) do
     url_path = "/v1/email/outbound-emails"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3506,29 +3841,40 @@ defmodule AWS.PinpointEmail do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/v1/email/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3538,30 +3884,46 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to remove one or more tags from.
+  that you want to remove one or more tags from.
   * `:tag_keys` (`t:list[com.amazonaws.pinpointemail#TagKey]`) The tags (tag keys)
-    that you want to remove from the resource. When you specify a tag key, the
-    action removes both that key and its associated tag value.
+  that you want to remove from the resource. When you specify a tag key, the
+  action removes both that key and its associated tag value.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/v1/email/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ResourceArn", "ResourceArn"},
-        {"TagKeys", "TagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ResourceArn", resource_arn}, {"TagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3570,7 +3932,7 @@ defmodule AWS.PinpointEmail do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3583,38 +3945,56 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set that
-    contains the event destination that you want to modify.
+  contains the event destination that you want to modify.
   * `:event_destination_name` (`t:string`) The name of the event destination that
-    you want to modify.
+  you want to modify.
 
   ## Optional parameters:
   """
+
   @spec update_configuration_set_event_destination(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_configuration_set_event_destination_request(),
           Keyword.t()
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_set_event_destination_errors()}
+
   def update_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
         event_destination_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

@@ -18,19 +18,19 @@ defmodule AWS.ARCZonalShift do
   @typedoc """
 
   ## Example:
-
+      
       list_managed_resources_response() :: %{
         "items" => list(managed_resource_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_managed_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_managed_resource_response() :: %{
         "appliedWeights" => map(),
         "arn" => String.t(),
@@ -40,65 +40,65 @@ defmodule AWS.ARCZonalShift do
         "zonalAutoshiftStatus" => list(any()),
         "zonalShifts" => list(zonal_shift_in_resource()())
       }
-
+      
   """
   @type get_managed_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_zonal_shifts_response() :: %{
         "items" => list(zonal_shift_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_zonal_shifts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_zonal_shift_request() :: %{
         optional("comment") => String.t(),
         optional("expiresIn") => String.t()
       }
-
+      
   """
   @type update_zonal_shift_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       autoshift_summary() :: %{
         "awayFrom" => String.t(),
         "endTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
         "status" => list(any())
       }
-
+      
   """
   @type autoshift_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_autoshifts_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()],
         optional("status") => list(any())
       }
-
+      
   """
   @type list_autoshifts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       zonal_shift() :: %{
         required("awayFrom") => String.t(),
         required("comment") => String.t(),
@@ -108,27 +108,27 @@ defmodule AWS.ARCZonalShift do
         required("status") => list(any()),
         required("zonalShiftId") => String.t()
       }
-
+      
   """
   @type zonal_shift() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       autoshift_in_resource() :: %{
         "appliedStatus" => list(any()),
         "awayFrom" => String.t(),
         "startTime" => non_neg_integer()
       }
-
+      
   """
   @type autoshift_in_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       managed_resource_summary() :: %{
         "appliedWeights" => map(),
         "arn" => String.t(),
@@ -139,25 +139,25 @@ defmodule AWS.ARCZonalShift do
         "zonalAutoshiftStatus" => list(any()),
         "zonalShifts" => list(zonal_shift_in_resource()())
       }
-
+      
   """
   @type managed_resource_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_zonal_autoshift_configuration_request() :: %{
         required("zonalAutoshiftStatus") => list(any())
       }
-
+      
   """
   @type update_zonal_autoshift_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       zonal_shift_summary() :: %{
         "awayFrom" => String.t(),
         "comment" => String.t(),
@@ -168,61 +168,61 @@ defmodule AWS.ARCZonalShift do
         "status" => list(any()),
         "zonalShiftId" => String.t()
       }
-
+      
   """
   @type zonal_shift_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_zonal_shift_request() :: %{}
-
+      
   """
   @type cancel_zonal_shift_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_practice_run_configuration_request() :: %{
         optional("blockedDates") => list(String.t()()),
         optional("blockedWindows") => list(String.t()()),
         optional("blockingAlarms") => list(control_condition()()),
         optional("outcomeAlarms") => list(control_condition()())
       }
-
+      
   """
   @type update_practice_run_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "reason" => list(any()),
         "zonalShiftId" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       zonal_shift_in_resource() :: %{
         "appliedStatus" => list(any()),
         "awayFrom" => String.t(),
@@ -233,214 +233,214 @@ defmodule AWS.ARCZonalShift do
         "startTime" => non_neg_integer(),
         "zonalShiftId" => String.t()
       }
-
+      
   """
   @type zonal_shift_in_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_zonal_shifts_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()],
         optional("resourceIdentifier") => String.t(),
         optional("status") => list(any())
       }
-
+      
   """
   @type list_zonal_shifts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_managed_resources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()]
       }
-
+      
   """
   @type list_managed_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_zonal_autoshift_configuration_response() :: %{
         "resourceIdentifier" => String.t(),
         "zonalAutoshiftStatus" => list(any())
       }
-
+      
   """
   @type update_zonal_autoshift_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       control_condition() :: %{
         "alarmIdentifier" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type control_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_autoshift_observer_notification_status_response() :: %{
         "status" => list(any())
       }
-
+      
   """
   @type update_autoshift_observer_notification_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_practice_run_configuration_response() :: %{
         "arn" => String.t(),
         "name" => String.t(),
         "practiceRunConfiguration" => practice_run_configuration(),
         "zonalAutoshiftStatus" => list(any())
       }
-
+      
   """
   @type create_practice_run_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_autoshift_observer_notification_status_request() :: %{
         required("status") => list(any())
       }
-
+      
   """
   @type update_autoshift_observer_notification_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_autoshift_observer_notification_status_response() :: %{
         "status" => list(any())
       }
-
+      
   """
   @type get_autoshift_observer_notification_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_managed_resource_request() :: %{}
-
+      
   """
   @type get_managed_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_zonal_shift_request() :: %{
         required("awayFrom") => String.t(),
         required("comment") => String.t(),
         required("expiresIn") => String.t(),
         required("resourceIdentifier") => String.t()
       }
-
+      
   """
   @type start_zonal_shift_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_practice_run_configuration_request() :: %{}
-
+      
   """
   @type delete_practice_run_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_autoshifts_response() :: %{
         "items" => list(autoshift_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_autoshifts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_practice_run_configuration_response() :: %{
         "arn" => String.t(),
         "name" => String.t(),
         "practiceRunConfiguration" => practice_run_configuration(),
         "zonalAutoshiftStatus" => list(any())
       }
-
+      
   """
   @type update_practice_run_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_practice_run_configuration_request() :: %{
         optional("blockedDates") => list(String.t()()),
         optional("blockedWindows") => list(String.t()()),
@@ -448,43 +448,43 @@ defmodule AWS.ARCZonalShift do
         required("outcomeAlarms") => list(control_condition()()),
         required("resourceIdentifier") => String.t()
       }
-
+      
   """
   @type create_practice_run_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_autoshift_observer_notification_status_request() :: %{}
-
+      
   """
   @type get_autoshift_observer_notification_status_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       practice_run_configuration() :: %{
         "blockedDates" => list(String.t()()),
         "blockedWindows" => list(String.t()()),
         "blockingAlarms" => list(control_condition()()),
         "outcomeAlarms" => list(control_condition()())
       }
-
+      
   """
   @type practice_run_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_practice_run_configuration_response() :: %{
         "arn" => String.t(),
         "name" => String.t(),
         "zonalAutoshiftStatus" => list(any())
       }
-
+      
   """
   @type delete_practice_run_configuration_response() :: %{String.t() => any()}
 
@@ -602,21 +602,42 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:zonal_shift_id` (`t:string`) The internally-generated identifier of a zonal
-    shift.
+  shift.
 
   ## Optional parameters:
   """
-  @spec cancel_zonal_shift(AWS.Client.t(), String.t(), cancel_zonal_shift_request(), Keyword.t()) ::
+
+  @spec cancel_zonal_shift(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_zonal_shift_errors()}
-  def cancel_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
+
+  def cancel_zonal_shift(%Client{} = client, zonal_shift_id, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -625,7 +646,7 @@ defmodule AWS.ARCZonalShift do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -649,33 +670,40 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   """
-  @spec create_practice_run_configuration(
-          AWS.Client.t(),
-          create_practice_run_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_practice_run_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_practice_run_configuration_errors()}
-  def create_practice_run_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_practice_run_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -688,32 +716,43 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The identifier for the resource that you
-    want to delete the practice run configuration for. The identifier is the
-    Amazon Resource Name (ARN) for the resource.
+  want to delete the practice run configuration for. The identifier is the
+  Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
-  @spec delete_practice_run_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_practice_run_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_practice_run_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_practice_run_configuration_errors()}
-  def delete_practice_run_configuration(
-        %Client{} = client,
-        resource_identifier,
-        input,
-        options \\ []
-      ) do
+
+  def delete_practice_run_configuration(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/configuration/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -722,7 +761,7 @@ defmodule AWS.ARCZonalShift do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -743,10 +782,12 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   """
+
   @spec get_autoshift_observer_notification_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_autoshift_observer_notification_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_autoshift_observer_notification_status_errors()}
+
   def get_autoshift_observer_notification_status(%Client{} = client, options \\ []) do
     url_path = "/autoshift-observer-notification"
 
@@ -786,15 +827,17 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The identifier for the resource that
-    Amazon Web Services shifts traffic for. The identifier is the Amazon
-    Resource Name (ARN) for the resource.
+  Amazon Web Services shifts traffic for. The identifier is the Amazon
+  Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
+
   @spec get_managed_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_managed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_managed_resource_errors()}
+
   def get_managed_resource(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
 
@@ -834,18 +877,20 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
-  * `:next_token` (`t:`) Specifies that you want to receive the next page of
-    results. Valid only if you received a NextToken response in the previous
-    request. If you did, it indicates that more output is available. Set this
-    parameter to the value provided by the previous call's NextToken response to
-    request the next page of results.
+  with this call.
+  * `:next_token` (`t:string`) Specifies that you want to receive the next page of
+  results. Valid only if you received a NextToken response in the previous
+  request. If you did, it indicates that more output is available. Set this
+  parameter to the value provided by the previous call's NextToken response to
+  request the next page of results.
   * `:status` (`t:enum["ACTIVE|COMPLETED"]`) The status of the autoshift.
   """
+
   @spec list_autoshifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_autoshifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_autoshifts_errors()}
+
   def list_autoshifts(%Client{} = client, options \\ []) do
     url_path = "/autoshifts"
 
@@ -913,17 +958,19 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
-  * `:next_token` (`t:`) Specifies that you want to receive the next page of
-    results. Valid only if you received a NextToken response in the previous
-    request. If you did, it indicates that more output is available. Set this
-    parameter to the value provided by the previous call's NextToken response to
-    request the next page of results.
+  with this call.
+  * `:next_token` (`t:string`) Specifies that you want to receive the next page of
+  results. Valid only if you received a NextToken response in the previous
+  request. If you did, it indicates that more output is available. Set this
+  parameter to the value provided by the previous call's NextToken response to
+  request the next page of results.
   """
+
   @spec list_managed_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_resources_errors()}
+
   def list_managed_resources(%Client{} = client, options \\ []) do
     url_path = "/managedresources"
 
@@ -983,21 +1030,23 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
-  * `:next_token` (`t:`) Specifies that you want to receive the next page of
-    results. Valid only if you received a NextToken response in the previous
-    request. If you did, it indicates that more output is available. Set this
-    parameter to the value provided by the previous call's NextToken response to
-    request the next page of results.
+  with this call.
+  * `:next_token` (`t:string`) Specifies that you want to receive the next page of
+  results. Valid only if you received a NextToken response in the previous
+  request. If you did, it indicates that more output is available. Set this
+  parameter to the value provided by the previous call's NextToken response to
+  request the next page of results.
   * `:resource_identifier` (`t:string`) The identifier for the resource that you
-    want to list zonal shifts for. The identifier is the Amazon Resource Name
-    (ARN) for the resource.
+  want to list zonal shifts for. The identifier is the Amazon Resource Name
+  (ARN) for the resource.
   * `:status` (`t:enum["ACTIVE|CANCELED|EXPIRED"]`) A status for a zonal shift.
   """
+
   @spec list_zonal_shifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_zonal_shifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_zonal_shifts_errors()}
+
   def list_zonal_shifts(%Client{} = client, options \\ []) do
     url_path = "/zonalshifts"
 
@@ -1076,29 +1125,40 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   """
-  @spec start_zonal_shift(AWS.Client.t(), start_zonal_shift_request(), Keyword.t()) ::
+
+  @spec start_zonal_shift(AWS.Client.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_zonal_shift_errors()}
-  def start_zonal_shift(%Client{} = client, input, options \\ []) do
+
+  def start_zonal_shift(%Client{} = client, options \\ []) do
     url_path = "/zonalshifts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1116,23 +1176,40 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   """
-  @spec update_autoshift_observer_notification_status(
-          AWS.Client.t(),
-          update_autoshift_observer_notification_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_autoshift_observer_notification_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_autoshift_observer_notification_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_autoshift_observer_notification_status_errors()}
-  def update_autoshift_observer_notification_status(%Client{} = client, input, options \\ []) do
+
+  def update_autoshift_observer_notification_status(%Client{} = client, options \\ []) do
     url_path = "/autoshift-observer-notification"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1144,32 +1221,43 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The identifier for the resource that you
-    want to update the practice run configuration for. The identifier is the
-    Amazon Resource Name (ARN) for the resource.
+  want to update the practice run configuration for. The identifier is the
+  Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
-  @spec update_practice_run_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_practice_run_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_practice_run_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_practice_run_configuration_errors()}
-  def update_practice_run_configuration(
-        %Client{} = client,
-        resource_identifier,
-        input,
-        options \\ []
-      ) do
+
+  def update_practice_run_configuration(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/configuration/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1178,7 +1266,7 @@ defmodule AWS.ARCZonalShift do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1196,34 +1284,45 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string`) The identifier for the resource that you
-    want to update the zonal autoshift configuration for. The identifier is the
-    Amazon Resource Name (ARN) for the resource.
+  want to update the zonal autoshift configuration for. The identifier is the
+  Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
-  @spec update_zonal_autoshift_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_zonal_autoshift_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_zonal_autoshift_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_zonal_autoshift_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_zonal_autoshift_configuration_errors()}
-  def update_zonal_autoshift_configuration(
-        %Client{} = client,
-        resource_identifier,
-        input,
-        options \\ []
-      ) do
+
+  def update_zonal_autoshift_configuration(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1238,17 +1337,38 @@ defmodule AWS.ARCZonalShift do
 
   ## Optional parameters:
   """
-  @spec update_zonal_shift(AWS.Client.t(), String.t(), update_zonal_shift_request(), Keyword.t()) ::
+
+  @spec update_zonal_shift(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_zonal_shift_errors()}
-  def update_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
+
+  def update_zonal_shift(%Client{} = client, zonal_shift_id, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1257,7 +1377,7 @@ defmodule AWS.ARCZonalShift do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

@@ -12,94 +12,94 @@ defmodule AWS.Drs do
   @typedoc """
 
   ## Example:
-
+      
       describe_job_log_items_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("jobID") => String.t()
       }
-
+      
   """
   @type describe_job_log_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_failback_replication_configuration_request() :: %{
         optional("bandwidthThrottling") => float(),
         optional("name") => String.t(),
         optional("usePrivateIP") => [boolean()],
         required("recoveryInstanceID") => String.t()
       }
-
+      
   """
   @type update_failback_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_recovery_instances_request_filters() :: %{
         "recoveryInstanceIDs" => list(String.t()()),
         "sourceServerIDs" => list(String.t()())
       }
-
+      
   """
   @type describe_recovery_instances_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_servers_request() :: %{
         optional("filters") => describe_source_servers_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_staging_accounts_response() :: %{
         optional("accounts") => list(account()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_staging_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_recovery_request_source_server() :: %{
         "recoverySnapshotID" => String.t(),
         "sourceServerID" => String.t()
       }
-
+      
   """
   @type start_recovery_request_source_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle() :: %{
         "addedToServiceDateTime" => String.t(),
         "elapsedReplicationDuration" => String.t(),
@@ -107,110 +107,110 @@ defmodule AWS.Drs do
         "lastLaunch" => life_cycle_last_launch(),
         "lastSeenByServiceDateTime" => String.t()
       }
-
+      
   """
   @type life_cycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_life_cycle() :: %{
         "apiCallDateTime" => [non_neg_integer()],
         "jobID" => String.t(),
         "lastRecoveryResult" => String.t()
       }
-
+      
   """
   @type recovery_life_cycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_source_network_cfn_template_request() :: %{
         required("sourceNetworkID") => String.t()
       }
-
+      
   """
   @type export_source_network_cfn_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_cloud_properties() :: %{
         "originAccountID" => String.t(),
         "originAvailabilityZone" => String.t(),
         "originRegion" => String.t(),
         "sourceOutpostArn" => String.t()
       }
-
+      
   """
   @type source_cloud_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_extensible_source_servers_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("stagingAccountID") => String.t()
       }
-
+      
   """
   @type list_extensible_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_launch_configuration_templates_request() :: %{
         optional("launchConfigurationTemplateIDs") => list(String.t()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_launch_configuration_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_source_server_response() :: %{}
-
+      
   """
   @type delete_source_server_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_source_server_request() :: %{
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type delete_source_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_recovery_instances_response() :: %{
         optional("items") => list(recovery_instance()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_recovery_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration_template() :: %{
         optional("arn") => String.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
@@ -230,14 +230,14 @@ defmodule AWS.Drs do
         optional("useDedicatedReplicationServer") => [boolean()],
         required("replicationConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type replication_configuration_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_properties() :: %{
         "cpus" => list(c_p_u()()),
         "disks" => list(recovery_instance_disk()()),
@@ -247,27 +247,27 @@ defmodule AWS.Drs do
         "os" => o_s(),
         "ramBytes" => float()
       }
-
+      
   """
   @type recovery_instance_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_disk() :: %{
         "bytes" => float(),
         "ebsVolumeID" => String.t(),
         "internalDeviceName" => String.t()
       }
-
+      
   """
   @type recovery_instance_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_configuration_template_request() :: %{
         optional("arn") => String.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
@@ -286,14 +286,14 @@ defmodule AWS.Drs do
         optional("useDedicatedReplicationServer") => [boolean()],
         required("replicationConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type update_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration_replicated_disk() :: %{
         "deviceName" => String.t(),
         "iops" => float(),
@@ -302,37 +302,37 @@ defmodule AWS.Drs do
         "stagingDiskType" => String.t(),
         "throughput" => float()
       }
-
+      
   """
   @type replication_configuration_replicated_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_recovery_instances_response() :: %{
         optional("job") => job()
       }
-
+      
   """
   @type terminate_recovery_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participating_resource() :: %{
         "launchStatus" => String.t(),
         "participatingResourceID" => list()
       }
-
+      
   """
   @type participating_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_launch_action_request() :: %{
         optional("parameters") => map(),
         required("actionCode") => String.t(),
@@ -346,61 +346,61 @@ defmodule AWS.Drs do
         required("order") => integer(),
         required("resourceId") => String.t()
       }
-
+      
   """
   @type put_launch_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_failback_request() :: %{
         required("recoveryInstanceID") => String.t()
       }
-
+      
   """
   @type stop_failback_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_source_network_request() :: %{
         required("sourceNetworkID") => String.t()
       }
-
+      
   """
   @type delete_source_network_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_interface() :: %{
         "ips" => list(String.t()()),
         "isPrimary" => [boolean()],
         "macAddress" => String.t()
       }
-
+      
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_networks_response() :: %{
         "items" => list(source_network()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type describe_source_networks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_replication_configuration_template_request() :: %{
         optional("autoReplicateNewDisks") => [boolean()],
         optional("ebsEncryptionKeyArn") => String.t(),
@@ -418,14 +418,14 @@ defmodule AWS.Drs do
         required("stagingAreaTags") => map(),
         required("useDedicatedReplicationServer") => [boolean()]
       }
-
+      
   """
   @type create_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_launch_action_response() :: %{
         "actionCode" => String.t(),
         "actionId" => String.t(),
@@ -440,125 +440,125 @@ defmodule AWS.Drs do
         "resourceId" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type put_launch_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       staging_source_server() :: %{
         "arn" => String.t(),
         "hostname" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type staging_source_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_action_parameter() :: %{
         "type" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type launch_action_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_data_replication_request() :: %{
         "sourceServerID" => String.t()
       }
-
+      
   """
   @type retry_data_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_replication_configuration_request() :: %{
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type get_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_replication_request() :: %{
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type start_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_action_response() :: %{}
-
+      
   """
   @type delete_launch_action_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_source_network_replication_request() :: %{
         required("sourceNetworkID") => String.t()
       }
-
+      
   """
   @type start_source_network_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_replication_request() :: %{
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type stop_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_failback_launch_response() :: %{
         optional("job") => job()
       }
-
+      
   """
   @type start_failback_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_configuration_template() :: %{
         "arn" => String.t(),
         "copyPrivateIp" => [boolean()],
@@ -572,14 +572,14 @@ defmodule AWS.Drs do
         "tags" => map(),
         "targetInstanceTypeRightSizingMethod" => String.t()
       }
-
+      
   """
   @type launch_configuration_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_recovery_snapshots_request() :: %{
         optional("filters") => describe_recovery_snapshots_request_filters(),
         optional("maxResults") => integer(),
@@ -587,36 +587,36 @@ defmodule AWS.Drs do
         optional("order") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type describe_recovery_snapshots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_actions_request_filters() :: %{
         "actionIds" => list(String.t()())
       }
-
+      
   """
   @type launch_actions_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       licensing() :: %{
         "osByol" => [boolean()]
       }
-
+      
   """
   @type licensing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       p_i_t_policy_rule() :: %{
         "enabled" => [boolean()],
         "interval" => integer(),
@@ -624,14 +624,14 @@ defmodule AWS.Drs do
         "ruleID" => float(),
         "units" => String.t()
       }
-
+      
   """
   @type p_i_t_policy_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_failback() :: %{
         "agentLastSeenByServiceDateTime" => String.t(),
         "elapsedReplicationDuration" => String.t(),
@@ -644,41 +644,41 @@ defmodule AWS.Drs do
         "firstByteDateTime" => String.t(),
         "state" => String.t()
       }
-
+      
   """
   @type recovery_instance_failback() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_recovery_request() :: %{
         optional("isDrill") => [boolean()],
         optional("tags") => map(),
         required("sourceServers") => list(start_recovery_request_source_server()())
       }
-
+      
   """
   @type start_recovery_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       identification_hints() :: %{
         "awsInstanceID" => String.t(),
         "fqdn" => String.t(),
         "hostname" => String.t(),
         "vmWareUuid" => String.t()
       }
-
+      
   """
   @type identification_hints() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_action() :: %{
         "actionCode" => String.t(),
         "actionId" => String.t(),
@@ -692,14 +692,14 @@ defmodule AWS.Drs do
         "parameters" => map(),
         "type" => String.t()
       }
-
+      
   """
   @type launch_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_properties() :: %{
         "cpus" => list(c_p_u()()),
         "disks" => list(disk()()),
@@ -711,49 +711,49 @@ defmodule AWS.Drs do
         "recommendedInstanceType" => String.t(),
         "supportsNitroInstances" => [boolean()]
       }
-
+      
   """
   @type source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_servers_response() :: %{
         optional("items") => list(source_server()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_source_servers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reverse_replication_request() :: %{
         required("recoveryInstanceID") => String.t()
       }
-
+      
   """
   @type reverse_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replication_configuration_templates_response() :: %{
         optional("items") => list(replication_configuration_template()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_replication_configuration_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_data_replication_info_replicated_disk() :: %{
         "backloggedStorageBytes" => float(),
         "deviceName" => String.t(),
@@ -761,23 +761,23 @@ defmodule AWS.Drs do
         "rescannedStorageBytes" => float(),
         "totalStorageBytes" => float()
       }
-
+      
   """
   @type recovery_instance_data_replication_info_replicated_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replication_configuration_template_response() :: %{}
-
+      
   """
   @type delete_replication_configuration_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration() :: %{
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("autoReplicateNewDisks") => [boolean()],
@@ -797,92 +797,92 @@ defmodule AWS.Drs do
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()]
       }
-
+      
   """
   @type replication_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "code" => String.t(),
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "code" => String.t(),
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_networks_request() :: %{
         optional("filters") => describe_source_networks_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_source_networks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_error() :: %{
         "error" => String.t(),
         "rawError" => String.t()
       }
-
+      
   """
   @type data_replication_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disconnect_recovery_instance_request() :: %{
         required("recoveryInstanceID") => String.t()
       }
-
+      
   """
   @type disconnect_recovery_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launch_actions_request() :: %{
         optional("filters") => launch_actions_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("resourceId") => String.t()
       }
-
+      
   """
   @type list_launch_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "code" => String.t(),
         "message" => String.t(),
@@ -891,107 +891,107 @@ defmodule AWS.Drs do
         "resourceType" => String.t(),
         "serviceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_source_network_recovery_request_network_entry() :: %{
         "cfnStackName" => String.t(),
         "sourceNetworkID" => String.t()
       }
-
+      
   """
   @type start_source_network_recovery_request_network_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       c_p_u() :: %{
         "cores" => float(),
         "modelName" => String.t()
       }
-
+      
   """
   @type c_p_u() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       uninitialized_account_exception() :: %{
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type uninitialized_account_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_action_run() :: %{
         "action" => launch_action(),
         "failureReason" => String.t(),
         "runId" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type launch_action_run() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_recovery_instance_request() :: %{
         required("recoveryInstanceID") => String.t()
       }
-
+      
   """
   @type delete_recovery_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account() :: %{
         "accountID" => String.t()
       }
-
+      
   """
   @type account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_data_replication_initiation() :: %{
         "startDateTime" => String.t(),
         "steps" => list(recovery_instance_data_replication_initiation_step()())
       }
-
+      
   """
   @type recovery_instance_data_replication_initiation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       initialize_service_request() :: %{}
-
+      
   """
   @type initialize_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_launch_configuration_template_request() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
@@ -1003,14 +1003,14 @@ defmodule AWS.Drs do
         optional("tags") => map(),
         optional("targetInstanceTypeRightSizingMethod") => String.t()
       }
-
+      
   """
   @type create_launch_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_data_replication_info() :: %{
         "dataReplicationError" => recovery_instance_data_replication_error(),
         "dataReplicationInitiation" => recovery_instance_data_replication_initiation(),
@@ -1021,50 +1021,50 @@ defmodule AWS.Drs do
         "stagingAvailabilityZone" => String.t(),
         "stagingOutpostArn" => String.t()
       }
-
+      
   """
   @type recovery_instance_data_replication_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_source_network_request() :: %{
         optional("tags") => map(),
         required("originAccountID") => String.t(),
         required("originRegion") => String.t(),
         required("vpcID") => String.t()
       }
-
+      
   """
   @type create_source_network_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_configuration_template_response() :: %{
         optional("launchConfigurationTemplate") => launch_configuration_template()
       }
-
+      
   """
   @type update_launch_configuration_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_network() :: %{
         "arn" => String.t(),
         "cfnStackName" => String.t(),
@@ -1078,14 +1078,14 @@ defmodule AWS.Drs do
         "sourceVpcID" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type source_network() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_info() :: %{
         "dataReplicationError" => data_replication_error(),
         "dataReplicationInitiation" => data_replication_initiation(),
@@ -1096,61 +1096,61 @@ defmodule AWS.Drs do
         "stagingAvailabilityZone" => String.t(),
         "stagingOutpostArn" => String.t()
       }
-
+      
   """
   @type data_replication_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_servers_request_filters() :: %{
         "hardwareId" => String.t(),
         "sourceServerIDs" => list(String.t()()),
         "stagingAccountIDs" => list(String.t()())
       }
-
+      
   """
   @type describe_source_servers_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reverse_replication_response() :: %{
         optional("reversedDirectionSourceServerArn") => String.t()
       }
-
+      
   """
   @type reverse_replication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_recovery_instances_request() :: %{
         required("recoveryInstanceIDs") => list(String.t()())
       }
-
+      
   """
   @type terminate_recovery_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_info_replicated_disk() :: %{
         "backloggedStorageBytes" => float(),
         "deviceName" => String.t(),
@@ -1159,46 +1159,46 @@ defmodule AWS.Drs do
         "totalStorageBytes" => float(),
         "volumeStatus" => String.t()
       }
-
+      
   """
   @type data_replication_info_replicated_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disconnect_source_server_request() :: %{
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type disconnect_source_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       initialize_service_response() :: %{}
-
+      
   """
   @type initialize_service_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_actions_status() :: %{
         "runs" => list(launch_action_run()()),
         "ssmAgentDiscoveryDatetime" => String.t()
       }
-
+      
   """
   @type launch_actions_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conversion_properties() :: %{
         "dataTimestamp" => String.t(),
         "forceUefi" => [boolean()],
@@ -1207,330 +1207,330 @@ defmodule AWS.Drs do
         "volumeToProductCodes" => map(),
         "volumeToVolumeSize" => map()
       }
-
+      
   """
   @type conversion_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       product_code() :: %{
         "productCodeId" => String.t(),
         "productCodeMode" => String.t()
       }
-
+      
   """
   @type product_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_source_network_cfn_template_response() :: %{
         "s3DestinationUrl" => String.t()
       }
-
+      
   """
   @type export_source_network_cfn_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_request_filters() :: %{
         "fromDate" => String.t(),
         "jobIDs" => list(String.t()()),
         "toDate" => String.t()
       }
-
+      
   """
   @type describe_jobs_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_initiation() :: %{
         "nextAttemptDateTime" => String.t(),
         "startDateTime" => String.t(),
         "steps" => list(data_replication_initiation_step()())
       }
-
+      
   """
   @type data_replication_initiation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_launch_configuration_templates_response() :: %{
         optional("items") => list(launch_configuration_template()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_launch_configuration_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_action_request() :: %{
         required("actionId") => String.t(),
         required("resourceId") => String.t()
       }
-
+      
   """
   @type delete_launch_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_configuration_request() :: %{
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type get_launch_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => float()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_networks_request_filters() :: %{
         "originAccountID" => String.t(),
         "originRegion" => String.t(),
         "sourceNetworkIDs" => list(String.t()())
       }
-
+      
   """
   @type describe_source_networks_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_source_network_stack_request() :: %{
         required("cfnStackName") => String.t(),
         required("sourceNetworkID") => String.t()
       }
-
+      
   """
   @type associate_source_network_stack_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participating_server() :: %{
         "launchActionsStatus" => launch_actions_status(),
         "launchStatus" => String.t(),
         "recoveryInstanceID" => String.t(),
         "sourceServerID" => String.t()
       }
-
+      
   """
   @type participating_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_initiation_step() :: %{
         "name" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type data_replication_initiation_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_source_network_recovery_request() :: %{
         optional("deployAsNew") => [boolean()],
         optional("tags") => map(),
         required("sourceNetworks") => list(start_source_network_recovery_request_network_entry()())
       }
-
+      
   """
   @type start_source_network_recovery_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_source_network_replication_response() :: %{
         "sourceNetwork" => source_network()
       }
-
+      
   """
   @type stop_source_network_replication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       staging_area() :: %{
         "errorMessage" => String.t(),
         "stagingAccountID" => String.t(),
         "stagingSourceServerArn" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type staging_area() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_data_replication_initiation_step() :: %{
         "name" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type recovery_instance_data_replication_initiation_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_launch_initiated() :: %{
         "apiCallDateTime" => String.t(),
         "jobID" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type life_cycle_last_launch_initiated() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launch_actions_response() :: %{
         "items" => list(launch_action()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_launch_actions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_replication_response() :: %{
         optional("sourceServer") => source_server()
       }
-
+      
   """
   @type stop_replication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_replication_response() :: %{
         optional("sourceServer") => source_server()
       }
-
+      
   """
   @type start_replication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_request() :: %{
         required("jobID") => String.t()
       }
-
+      
   """
   @type delete_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_source_network_replication_response() :: %{
         "sourceNetwork" => source_network()
       }
-
+      
   """
   @type start_source_network_replication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_failback_replication_configuration_response() :: %{
         optional("bandwidthThrottling") => float(),
         optional("name") => String.t(),
         optional("usePrivateIP") => [boolean()],
         required("recoveryInstanceID") => String.t()
       }
-
+      
   """
   @type get_failback_replication_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_response() :: %{
         optional("items") => list(job()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disk() :: %{
         "bytes" => float(),
         "deviceName" => String.t()
       }
-
+      
   """
   @type disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_configuration_request() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
@@ -1542,48 +1542,48 @@ defmodule AWS.Drs do
         optional("targetInstanceTypeRightSizingMethod") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type update_launch_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "code" => String.t(),
         "fieldList" => list(validation_exception_field()()),
         "message" => String.t(),
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replication_configuration_template_request() :: %{
         required("replicationConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type delete_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job() :: %{
         "arn" => String.t(),
         "creationDateTime" => String.t(),
@@ -1596,25 +1596,25 @@ defmodule AWS.Drs do
         "tags" => map(),
         "type" => String.t()
       }
-
+      
   """
   @type job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_failback_replication_configuration_request() :: %{
         required("recoveryInstanceID") => String.t()
       }
-
+      
   """
   @type get_failback_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance() :: %{
         "agentVersion" => String.t(),
         "arn" => String.t(),
@@ -1633,74 +1633,74 @@ defmodule AWS.Drs do
         "sourceServerID" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type recovery_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "quotaCode" => String.t(),
         "retryAfterSeconds" => String.t(),
         "serviceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_into_instance_properties() :: %{
         "launchIntoEC2InstanceID" => String.t()
       }
-
+      
   """
   @type launch_into_instance_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_failback_launch_request() :: %{
         optional("tags") => map(),
         required("recoveryInstanceIDs") => list(String.t()())
       }
-
+      
   """
   @type start_failback_launch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_recovery_response() :: %{
         optional("job") => job()
       }
-
+      
   """
   @type start_recovery_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_staging_accounts_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_staging_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_log_event_data() :: %{
         "conversionProperties" => conversion_properties(),
         "conversionServerID" => String.t(),
@@ -1709,27 +1709,27 @@ defmodule AWS.Drs do
         "sourceServerID" => String.t(),
         "targetInstanceID" => String.t()
       }
-
+      
   """
   @type job_log_event_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_request() :: %{
         optional("filters") => describe_jobs_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_configuration() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
@@ -1742,26 +1742,26 @@ defmodule AWS.Drs do
         optional("sourceServerID") => String.t(),
         optional("targetInstanceTypeRightSizingMethod") => String.t()
       }
-
+      
   """
   @type launch_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_extensible_source_servers_response() :: %{
         optional("items") => list(staging_source_server()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_extensible_source_servers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_snapshot() :: %{
         "ebsSnapshots" => list(String.t()()),
         "expectedTimestamp" => String.t(),
@@ -1769,14 +1769,14 @@ defmodule AWS.Drs do
         "sourceServerID" => String.t(),
         "timestamp" => String.t()
       }
-
+      
   """
   @type recovery_snapshot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_configuration_request() :: %{
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("autoReplicateNewDisks") => [boolean()],
@@ -1796,28 +1796,28 @@ defmodule AWS.Drs do
         optional("useDedicatedReplicationServer") => [boolean()],
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type update_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_network_data() :: %{
         "sourceNetworkID" => String.t(),
         "sourceVpc" => String.t(),
         "stackName" => String.t(),
         "targetVpc" => String.t()
       }
-
+      
   """
   @type source_network_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_server() :: %{
         "agentVersion" => String.t(),
         "arn" => String.t(),
@@ -1834,158 +1834,158 @@ defmodule AWS.Drs do
         "stagingArea" => staging_area(),
         "tags" => map()
       }
-
+      
   """
   @type source_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_source_network_response() :: %{}
-
+      
   """
   @type delete_source_network_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_source_network_replication_request() :: %{
         required("sourceNetworkID") => String.t()
       }
-
+      
   """
   @type stop_source_network_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_source_network_recovery_response() :: %{
         "job" => job()
       }
-
+      
   """
   @type start_source_network_recovery_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_launch() :: %{
         "initiated" => life_cycle_last_launch_initiated(),
         "status" => String.t()
       }
-
+      
   """
   @type life_cycle_last_launch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_recovery_instances_request() :: %{
         optional("filters") => describe_recovery_instances_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_recovery_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_source_network_stack_response() :: %{
         "job" => job()
       }
-
+      
   """
   @type associate_source_network_stack_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_configuration_template_response() :: %{}
-
+      
   """
   @type delete_launch_configuration_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_response() :: %{}
-
+      
   """
   @type delete_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replication_configuration_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("replicationConfigurationTemplateIDs") => list(String.t()())
       }
-
+      
   """
   @type describe_replication_configuration_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_s() :: %{
         "fullString" => String.t()
       }
-
+      
   """
   @type o_s() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_extended_source_server_response() :: %{
         optional("sourceServer") => source_server()
       }
-
+      
   """
   @type create_extended_source_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_log_items_response() :: %{
         optional("items") => list(job_log()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_job_log_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recovery_instance_data_replication_error() :: %{
         "error" => String.t(),
         "rawError" => String.t()
       }
-
+      
   """
   @type recovery_instance_data_replication_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_configuration_template_request() :: %{
         optional("copyPrivateIp") => [boolean()],
         optional("copyTags") => [boolean()],
@@ -1997,89 +1997,89 @@ defmodule AWS.Drs do
         optional("targetInstanceTypeRightSizingMethod") => String.t(),
         required("launchConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type update_launch_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_launch_configuration_template_response() :: %{
         optional("launchConfigurationTemplate") => launch_configuration_template()
       }
-
+      
   """
   @type create_launch_configuration_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_extended_source_server_request() :: %{
         optional("tags") => map(),
         required("sourceServerArn") => String.t()
       }
-
+      
   """
   @type create_extended_source_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_recovery_snapshots_response() :: %{
         optional("items") => list(recovery_snapshot()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_recovery_snapshots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_log() :: %{
         "event" => String.t(),
         "eventData" => job_log_event_data(),
         "logDateTime" => String.t()
       }
-
+      
   """
   @type job_log() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_recovery_snapshots_request_filters() :: %{
         "fromDateTime" => String.t(),
         "toDateTime" => String.t()
       }
-
+      
   """
   @type describe_recovery_snapshots_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_source_network_response() :: %{
         "sourceNetworkID" => String.t()
       }
-
+      
   """
   @type create_source_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_configuration_template_request() :: %{
         required("launchConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type delete_launch_configuration_template_request() :: %{String.t() => any()}
 
@@ -2472,33 +2472,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec associate_source_network_stack(
-          AWS.Client.t(),
-          associate_source_network_stack_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_source_network_stack(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_source_network_stack_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_source_network_stack_errors()}
-  def associate_source_network_stack(%Client{} = client, input, options \\ []) do
+
+  def associate_source_network_stack(%Client{} = client, options \\ []) do
     url_path = "/AssociateSourceNetworkStack"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2511,33 +2518,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec create_extended_source_server(
-          AWS.Client.t(),
-          create_extended_source_server_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_extended_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_extended_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extended_source_server_errors()}
-  def create_extended_source_server(%Client{} = client, input, options \\ []) do
+
+  def create_extended_source_server(%Client{} = client, options \\ []) do
     url_path = "/CreateExtendedSourceServer"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2549,33 +2563,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec create_launch_configuration_template(
-          AWS.Client.t(),
-          create_launch_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_configuration_template_errors()}
-  def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def create_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2587,33 +2608,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec create_replication_configuration_template(
-          AWS.Client.t(),
-          create_replication_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_configuration_template_errors()}
-  def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def create_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2625,29 +2653,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec create_source_network(AWS.Client.t(), create_source_network_request(), Keyword.t()) ::
+
+  @spec create_source_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_source_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_source_network_errors()}
-  def create_source_network(%Client{} = client, input, options \\ []) do
+
+  def create_source_network(%Client{} = client, options \\ []) do
     url_path = "/CreateSourceNetwork"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2659,29 +2698,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
+
+  @spec delete_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
-  def delete_job(%Client{} = client, input, options \\ []) do
+
+  def delete_job(%Client{} = client, options \\ []) do
     url_path = "/DeleteJob"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2693,29 +2743,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec delete_launch_action(AWS.Client.t(), delete_launch_action_request(), Keyword.t()) ::
+
+  @spec delete_launch_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_launch_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_action_errors()}
-  def delete_launch_action(%Client{} = client, input, options \\ []) do
+
+  def delete_launch_action(%Client{} = client, options \\ []) do
     url_path = "/DeleteLaunchAction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2727,33 +2788,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec delete_launch_configuration_template(
-          AWS.Client.t(),
-          delete_launch_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_configuration_template_errors()}
-  def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def delete_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2767,29 +2835,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec delete_recovery_instance(AWS.Client.t(), delete_recovery_instance_request(), Keyword.t()) ::
+
+  @spec delete_recovery_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recovery_instance_errors()}
-  def delete_recovery_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_recovery_instance(%Client{} = client, options \\ []) do
     url_path = "/DeleteRecoveryInstance"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2801,33 +2880,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec delete_replication_configuration_template(
-          AWS.Client.t(),
-          delete_replication_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_configuration_template_errors()}
-  def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def delete_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2839,29 +2925,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec delete_source_network(AWS.Client.t(), delete_source_network_request(), Keyword.t()) ::
+
+  @spec delete_source_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_source_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_network_errors()}
-  def delete_source_network(%Client{} = client, input, options \\ []) do
+
+  def delete_source_network(%Client{} = client, options \\ []) do
     url_path = "/DeleteSourceNetwork"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2874,29 +2971,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec delete_source_server(AWS.Client.t(), delete_source_server_request(), Keyword.t()) ::
+
+  @spec delete_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_server_errors()}
-  def delete_source_server(%Client{} = client, input, options \\ []) do
+
+  def delete_source_server(%Client{} = client, options \\ []) do
     url_path = "/DeleteSourceServer"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2908,29 +3016,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_job_log_items(AWS.Client.t(), describe_job_log_items_request(), Keyword.t()) ::
+
+  @spec describe_job_log_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_log_items_errors()}
-  def describe_job_log_items(%Client{} = client, input, options \\ []) do
+
+  def describe_job_log_items(%Client{} = client, options \\ []) do
     url_path = "/DescribeJobLogItems"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2947,29 +3066,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_jobs(AWS.Client.t(), describe_jobs_request(), Keyword.t()) ::
+
+  @spec describe_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
-  def describe_jobs(%Client{} = client, input, options \\ []) do
+
+  def describe_jobs(%Client{} = client, options \\ []) do
     url_path = "/DescribeJobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2982,33 +3112,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_launch_configuration_templates(
-          AWS.Client.t(),
-          describe_launch_configuration_templates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_launch_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_launch_configuration_templates_errors()}
-  def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
+
+  def describe_launch_configuration_templates(%Client{} = client, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3020,33 +3157,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_recovery_instances(
-          AWS.Client.t(),
-          describe_recovery_instances_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_recovery_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_recovery_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recovery_instances_errors()}
-  def describe_recovery_instances(%Client{} = client, input, options \\ []) do
+
+  def describe_recovery_instances(%Client{} = client, options \\ []) do
     url_path = "/DescribeRecoveryInstances"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3058,33 +3202,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_recovery_snapshots(
-          AWS.Client.t(),
-          describe_recovery_snapshots_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_recovery_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_recovery_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recovery_snapshots_errors()}
-  def describe_recovery_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_recovery_snapshots(%Client{} = client, options \\ []) do
     url_path = "/DescribeRecoverySnapshots"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3096,33 +3247,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_replication_configuration_templates(
-          AWS.Client.t(),
-          describe_replication_configuration_templates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_replication_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_configuration_templates_errors()}
-  def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
+
+  def describe_replication_configuration_templates(%Client{} = client, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3134,29 +3292,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_source_networks(AWS.Client.t(), describe_source_networks_request(), Keyword.t()) ::
+
+  @spec describe_source_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_source_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_source_networks_errors()}
-  def describe_source_networks(%Client{} = client, input, options \\ []) do
+
+  def describe_source_networks(%Client{} = client, options \\ []) do
     url_path = "/DescribeSourceNetworks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3168,29 +3337,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec describe_source_servers(AWS.Client.t(), describe_source_servers_request(), Keyword.t()) ::
+
+  @spec describe_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_source_servers_errors()}
-  def describe_source_servers(%Client{} = client, input, options \\ []) do
+
+  def describe_source_servers(%Client{} = client, options \\ []) do
     url_path = "/DescribeSourceServers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3213,33 +3393,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec disconnect_recovery_instance(
-          AWS.Client.t(),
-          disconnect_recovery_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disconnect_recovery_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_recovery_instance_errors()}
-  def disconnect_recovery_instance(%Client{} = client, input, options \\ []) do
+
+  def disconnect_recovery_instance(%Client{} = client, options \\ []) do
     url_path = "/DisconnectRecoveryInstance"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3263,29 +3450,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec disconnect_source_server(AWS.Client.t(), disconnect_source_server_request(), Keyword.t()) ::
+
+  @spec disconnect_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_source_server_errors()}
-  def disconnect_source_server(%Client{} = client, input, options \\ []) do
+
+  def disconnect_source_server(%Client{} = client, options \\ []) do
     url_path = "/DisconnectSourceServer"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3297,33 +3495,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec export_source_network_cfn_template(
-          AWS.Client.t(),
-          export_source_network_cfn_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_source_network_cfn_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, export_source_network_cfn_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_source_network_cfn_template_errors()}
-  def export_source_network_cfn_template(%Client{} = client, input, options \\ []) do
+
+  def export_source_network_cfn_template(%Client{} = client, options \\ []) do
     url_path = "/ExportSourceNetworkCfnTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3335,33 +3540,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec get_failback_replication_configuration(
-          AWS.Client.t(),
-          get_failback_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_failback_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_failback_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_failback_replication_configuration_errors()}
-  def get_failback_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_failback_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetFailbackReplicationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3373,29 +3585,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec get_launch_configuration(AWS.Client.t(), get_launch_configuration_request(), Keyword.t()) ::
+
+  @spec get_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_configuration_errors()}
-  def get_launch_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_launch_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetLaunchConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3407,33 +3630,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec get_replication_configuration(
-          AWS.Client.t(),
-          get_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_configuration_errors()}
-  def get_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetReplicationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3445,29 +3675,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec initialize_service(AWS.Client.t(), initialize_service_request(), Keyword.t()) ::
+
+  @spec initialize_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initialize_service_errors()}
-  def initialize_service(%Client{} = client, input, options \\ []) do
+
+  def initialize_service(%Client{} = client, options \\ []) do
     url_path = "/InitializeService"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3482,33 +3723,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec list_extensible_source_servers(
-          AWS.Client.t(),
-          list_extensible_source_servers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_extensible_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_extensible_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extensible_source_servers_errors()}
-  def list_extensible_source_servers(%Client{} = client, input, options \\ []) do
+
+  def list_extensible_source_servers(%Client{} = client, options \\ []) do
     url_path = "/ListExtensibleSourceServers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3520,29 +3768,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec list_launch_actions(AWS.Client.t(), list_launch_actions_request(), Keyword.t()) ::
+
+  @spec list_launch_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_launch_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launch_actions_errors()}
-  def list_launch_actions(%Client{} = client, input, options \\ []) do
+
+  def list_launch_actions(%Client{} = client, options \\ []) do
     url_path = "/ListLaunchActions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3553,13 +3812,16 @@ defmodule AWS.Drs do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of staging Accounts to retrieve.
+  * `:max_results` (`t:string`) The maximum number of staging Accounts to
+  retrieve.
   * `:next_token` (`t:string`) The token of the next staging Account to retrieve.
   """
+
   @spec list_staging_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_staging_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_staging_accounts_errors()}
+
   def list_staging_accounts(%Client{} = client, options \\ []) do
     url_path = "/ListStagingAccounts"
 
@@ -3613,14 +3875,16 @@ defmodule AWS.Drs do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource whose tags should be
-    returned.
+  returned.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3658,29 +3922,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec put_launch_action(AWS.Client.t(), put_launch_action_request(), Keyword.t()) ::
+
+  @spec put_launch_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_launch_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_launch_action_errors()}
-  def put_launch_action(%Client{} = client, input, options \\ []) do
+
+  def put_launch_action(%Client{} = client, options \\ []) do
     url_path = "/PutLaunchAction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3696,29 +3971,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec retry_data_replication(AWS.Client.t(), retry_data_replication_request(), Keyword.t()) ::
+
+  @spec retry_data_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_data_replication_errors()}
-  def retry_data_replication(%Client{} = client, input, options \\ []) do
+
+  def retry_data_replication(%Client{} = client, options \\ []) do
     url_path = "/RetryDataReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3733,29 +4019,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec reverse_replication(AWS.Client.t(), reverse_replication_request(), Keyword.t()) ::
+
+  @spec reverse_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, reverse_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reverse_replication_errors()}
-  def reverse_replication(%Client{} = client, input, options \\ []) do
+
+  def reverse_replication(%Client{} = client, options \\ []) do
     url_path = "/ReverseReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3769,29 +4066,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec start_failback_launch(AWS.Client.t(), start_failback_launch_request(), Keyword.t()) ::
+
+  @spec start_failback_launch(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_failback_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_failback_launch_errors()}
-  def start_failback_launch(%Client{} = client, input, options \\ []) do
+
+  def start_failback_launch(%Client{} = client, options \\ []) do
     url_path = "/StartFailbackLaunch"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3805,29 +4113,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec start_recovery(AWS.Client.t(), start_recovery_request(), Keyword.t()) ::
+
+  @spec start_recovery(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recovery_errors()}
-  def start_recovery(%Client{} = client, input, options \\ []) do
+
+  def start_recovery(%Client{} = client, options \\ []) do
     url_path = "/StartRecovery"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -3840,29 +4159,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec start_replication(AWS.Client.t(), start_replication_request(), Keyword.t()) ::
+
+  @spec start_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_errors()}
-  def start_replication(%Client{} = client, input, options \\ []) do
+
+  def start_replication(%Client{} = client, options \\ []) do
     url_path = "/StartReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3875,33 +4205,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec start_source_network_recovery(
-          AWS.Client.t(),
-          start_source_network_recovery_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_source_network_recovery(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_source_network_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_source_network_recovery_errors()}
-  def start_source_network_recovery(%Client{} = client, input, options \\ []) do
+
+  def start_source_network_recovery(%Client{} = client, options \\ []) do
     url_path = "/StartSourceNetworkRecovery"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -3914,33 +4251,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec start_source_network_replication(
-          AWS.Client.t(),
-          start_source_network_replication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_source_network_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_source_network_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_source_network_replication_errors()}
-  def start_source_network_replication(%Client{} = client, input, options \\ []) do
+
+  def start_source_network_replication(%Client{} = client, options \\ []) do
     url_path = "/StartSourceNetworkReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3953,29 +4297,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec stop_failback(AWS.Client.t(), stop_failback_request(), Keyword.t()) ::
+
+  @spec stop_failback(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_failback_errors()}
-  def stop_failback(%Client{} = client, input, options \\ []) do
+
+  def stop_failback(%Client{} = client, options \\ []) do
     url_path = "/StopFailback"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3988,29 +4343,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec stop_replication(AWS.Client.t(), stop_replication_request(), Keyword.t()) ::
+
+  @spec stop_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_errors()}
-  def stop_replication(%Client{} = client, input, options \\ []) do
+
+  def stop_replication(%Client{} = client, options \\ []) do
     url_path = "/StopReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4023,33 +4389,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec stop_source_network_replication(
-          AWS.Client.t(),
-          stop_source_network_replication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_source_network_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_source_network_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_source_network_replication_errors()}
-  def stop_source_network_replication(%Client{} = client, input, options \\ []) do
+
+  def stop_source_network_replication(%Client{} = client, options \\ []) do
     url_path = "/StopSourceNetworkReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4062,33 +4435,44 @@ defmodule AWS.Drs do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
-    added or updated.
+  added or updated.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4102,33 +4486,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec terminate_recovery_instances(
-          AWS.Client.t(),
-          terminate_recovery_instances_request(),
-          Keyword.t()
-        ) ::
+
+  @spec terminate_recovery_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, terminate_recovery_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_recovery_instances_errors()}
-  def terminate_recovery_instances(%Client{} = client, input, options \\ []) do
+
+  def terminate_recovery_instances(%Client{} = client, options \\ []) do
     url_path = "/TerminateRecoveryInstances"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4139,27 +4530,44 @@ defmodule AWS.Drs do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
-    removed.
+  removed.
   * `:tag_keys` (`t:list[com.amazonaws.drs#TagKey]`) Array of tags to be removed.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4168,7 +4576,7 @@ defmodule AWS.Drs do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4184,33 +4592,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec update_failback_replication_configuration(
-          AWS.Client.t(),
-          update_failback_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_failback_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_failback_replication_configuration_errors()}
-  def update_failback_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_failback_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateFailbackReplicationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4222,33 +4637,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec update_launch_configuration(
-          AWS.Client.t(),
-          update_launch_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_errors()}
-  def update_launch_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_launch_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4260,33 +4682,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec update_launch_configuration_template(
-          AWS.Client.t(),
-          update_launch_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_template_errors()}
-  def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def update_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4298,33 +4727,40 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec update_replication_configuration(
-          AWS.Client.t(),
-          update_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_configuration_errors()}
-  def update_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4336,32 +4772,39 @@ defmodule AWS.Drs do
 
   ## Optional parameters:
   """
-  @spec update_replication_configuration_template(
-          AWS.Client.t(),
-          update_replication_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_configuration_template_errors()}
-  def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def update_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

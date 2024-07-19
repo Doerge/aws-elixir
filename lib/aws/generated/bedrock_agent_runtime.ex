@@ -12,118 +12,118 @@ defmodule AWS.BedrockAgentRuntime do
   @typedoc """
 
   ## Example:
-
+      
       function_invocation_input() :: %{
         "actionGroup" => [String.t()],
         "function" => [String.t()],
         "parameters" => list(function_parameter()())
       }
-
+      
   """
   @type function_invocation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_part() :: %{
         "files" => list(output_file()())
       }
-
+      
   """
   @type file_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_configuration() :: %{
         "knowledgeBaseId" => String.t(),
         "retrievalConfiguration" => knowledge_base_retrieval_configuration()
       }
-
+      
   """
   @type knowledge_base_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rationale() :: %{
         "text" => String.t(),
         "traceId" => String.t()
       }
-
+      
   """
   @type rationale() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_request_body() :: %{
         "content" => map()
       }
-
+      
   """
   @type api_request_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_content_policy_assessment() :: %{
         "filters" => list(guardrail_content_filter()())
       }
-
+      
   """
   @type guardrail_content_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       text_inference_config() :: %{
         "maxTokens" => integer(),
         "stopSequences" => list([String.t()]()),
         "temperature" => float(),
         "topP" => float()
       }
-
+      
   """
   @type text_inference_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       code_interpreter_invocation_output() :: %{
         "executionError" => [String.t()],
         "executionOutput" => [String.t()],
         "executionTimeout" => [boolean()],
         "files" => list([String.t()]())
       }
-
+      
   """
   @type code_interpreter_invocation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       external_source() :: %{
         "byteContent" => byte_content_doc(),
         "s3Location" => s3_object_doc(),
         "sourceType" => list(any())
       }
-
+      
   """
   @type external_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inference_configuration() :: %{
         "maximumLength" => integer(),
         "stopSequences" => list([String.t()]()),
@@ -131,158 +131,158 @@ defmodule AWS.BedrockAgentRuntime do
         "topK" => integer(),
         "topP" => float()
       }
-
+      
   """
   @type inference_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_gateway_exception() :: %{
         "message" => String.t(),
         "resourceName" => String.t()
       }
-
+      
   """
   @type bad_gateway_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       input_file() :: %{
         "name" => [String.t()],
         "source" => file_source(),
         "useCase" => list(any())
       }
-
+      
   """
   @type input_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_object_doc() :: %{
         "uri" => String.t()
       }
-
+      
   """
   @type s3_object_doc() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_parameter() :: %{
         "name" => [String.t()],
         "type" => [String.t()],
         "value" => [String.t()]
       }
-
+      
   """
   @type function_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dependency_failed_exception() :: %{
         "message" => String.t(),
         "resourceName" => String.t()
       }
-
+      
   """
   @type dependency_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       citation() :: %{
         "generatedResponsePart" => generated_response_part(),
         "retrievedReferences" => list(retrieved_reference()())
       }
-
+      
   """
   @type citation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_and_generate_response() :: %{
         "citations" => list(citation()()),
         "guardrailAction" => list(any()),
         "output" => retrieve_and_generate_output(),
         "sessionId" => String.t()
       }
-
+      
   """
   @type retrieve_and_generate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_agent_memory_response() :: %{}
-
+      
   """
   @type delete_agent_memory_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_query() :: %{
         "text" => [String.t()]
       }
-
+      
   """
   @type knowledge_base_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       payload_part() :: %{
         "attribution" => attribution(),
         "bytes" => binary()
       }
-
+      
   """
   @type payload_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       failure_trace() :: %{
         "failureReason" => String.t(),
         "traceId" => String.t()
       }
-
+      
   """
   @type failure_trace() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_managed_word() :: %{
         "action" => list(any()),
         "match" => [String.t()],
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_managed_word() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_group_invocation_input() :: %{
         "actionGroupName" => String.t(),
         "apiPath" => String.t(),
@@ -293,27 +293,27 @@ defmodule AWS.BedrockAgentRuntime do
         "requestBody" => request_body(),
         "verb" => String.t()
       }
-
+      
   """
   @type action_group_invocation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieved_reference() :: %{
         "content" => retrieval_result_content(),
         "location" => retrieval_result_location(),
         "metadata" => map()
       }
-
+      
   """
   @type retrieved_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieval_result_location() :: %{
         "confluenceLocation" => retrieval_result_confluence_location(),
         "s3Location" => retrieval_result_s3_location(),
@@ -322,121 +322,121 @@ defmodule AWS.BedrockAgentRuntime do
         "type" => list(any()),
         "webLocation" => retrieval_result_web_location()
       }
-
+      
   """
   @type retrieval_result_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_parameter() :: %{
         "name" => [String.t()],
         "type" => [String.t()],
         "value" => [String.t()]
       }
-
+      
   """
   @type api_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_and_generate_session_configuration() :: %{
         "kmsKeyArn" => String.t()
       }
-
+      
   """
   @type retrieve_and_generate_session_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_and_generate_request() :: %{
         optional("retrieveAndGenerateConfiguration") => retrieve_and_generate_configuration(),
         optional("sessionConfiguration") => retrieve_and_generate_session_configuration(),
         optional("sessionId") => String.t(),
         required("input") => retrieve_and_generate_input()
       }
-
+      
   """
   @type retrieve_and_generate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_and_generate_configuration() :: %{
         "externalSourcesConfiguration" => external_sources_retrieve_and_generate_configuration(),
         "knowledgeBaseConfiguration" => knowledge_base_retrieve_and_generate_configuration(),
         "type" => list(any())
       }
-
+      
   """
   @type retrieve_and_generate_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieval_result_s3_location() :: %{
         "uri" => [String.t()]
       }
-
+      
   """
   @type retrieval_result_s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_flow_response() :: %{
         "responseStream" => list()
       }
-
+      
   """
   @type invoke_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieval_result_content() :: %{
         "text" => [String.t()]
       }
-
+      
   """
   @type retrieval_result_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_custom_word() :: %{
         "action" => list(any()),
         "match" => [String.t()]
       }
-
+      
   """
   @type guardrail_custom_word() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       content_body() :: %{
         "body" => [String.t()]
       }
-
+      
   """
   @type content_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_retrieve_and_generate_configuration() :: %{
         "generationConfiguration" => generation_configuration(),
         "knowledgeBaseId" => String.t(),
@@ -444,14 +444,14 @@ defmodule AWS.BedrockAgentRuntime do
         "orchestrationConfiguration" => orchestration_configuration(),
         "retrievalConfiguration" => knowledge_base_retrieval_configuration()
       }
-
+      
   """
   @type knowledge_base_retrieve_and_generate_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       observation() :: %{
         "actionGroupInvocationOutput" => action_group_invocation_output(),
         "codeInterpreterInvocationOutput" => code_interpreter_invocation_output(),
@@ -461,204 +461,204 @@ defmodule AWS.BedrockAgentRuntime do
         "traceId" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type observation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_word_policy_assessment() :: %{
         "customWords" => list(guardrail_custom_word()()),
         "managedWordLists" => list(guardrail_managed_word()())
       }
-
+      
   """
   @type guardrail_word_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       span() :: %{
         "end" => [integer()],
         "start" => [integer()]
       }
-
+      
   """
   @type span() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pre_processing_parsed_response() :: %{
         "isValid" => [boolean()],
         "rationale" => String.t()
       }
-
+      
   """
   @type pre_processing_parsed_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_result() :: %{
         "actionGroup" => [String.t()],
         "function" => [String.t()],
         "responseBody" => map(),
         "responseState" => list(any())
       }
-
+      
   """
   @type function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_transformation_configuration() :: %{
         "type" => list(any())
       }
-
+      
   """
   @type query_transformation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_processing_parsed_response() :: %{
         "text" => String.t()
       }
-
+      
   """
   @type post_processing_parsed_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_sensitive_information_policy_assessment() :: %{
         "piiEntities" => list(guardrail_pii_entity_filter()()),
         "regexes" => list(guardrail_regex_filter()())
       }
-
+      
   """
   @type guardrail_sensitive_information_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_retrieval_configuration() :: %{
         "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
       }
-
+      
   """
   @type knowledge_base_retrieval_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_content_filter() :: %{
         "action" => list(any()),
         "confidence" => list(any()),
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_content_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flow_completion_event() :: %{
         "completionReason" => list(any())
       }
-
+      
   """
   @type flow_completion_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       return_control_payload() :: %{
         "invocationId" => [String.t()],
         "invocationInputs" => list(list()())
       }
-
+      
   """
   @type return_control_payload() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       text_response_part() :: %{
         "span" => span(),
         "text" => [String.t()]
       }
-
+      
   """
   @type text_response_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_agent_response() :: %{
         "completion" => list(),
         "contentType" => String.t(),
         "memoryId" => String.t(),
         "sessionId" => String.t()
       }
-
+      
   """
   @type invoke_agent_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_state() :: %{
         "files" => list(input_file()()),
         "invocationId" => [String.t()],
@@ -667,52 +667,52 @@ defmodule AWS.BedrockAgentRuntime do
         "returnControlInvocationResults" => list(list()()),
         "sessionAttributes" => map()
       }
-
+      
   """
   @type session_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pre_processing_model_invocation_output() :: %{
         "parsedResponse" => pre_processing_parsed_response(),
         "traceId" => String.t()
       }
-
+      
   """
   @type pre_processing_model_invocation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter() :: %{
         "name" => [String.t()],
         "type" => [String.t()],
         "value" => [String.t()]
       }
-
+      
   """
   @type parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       external_sources_retrieve_and_generate_configuration() :: %{
         "generationConfiguration" => external_sources_generation_configuration(),
         "modelArn" => String.t(),
         "sources" => list(external_source()())
       }
-
+      
   """
   @type external_sources_retrieve_and_generate_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_invocation_input() :: %{
         "actionGroup" => [String.t()],
         "apiPath" => String.t(),
@@ -720,59 +720,59 @@ defmodule AWS.BedrockAgentRuntime do
         "parameters" => list(api_parameter()()),
         "requestBody" => api_request_body()
       }
-
+      
   """
   @type api_invocation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_and_generate_input() :: %{
         "text" => [String.t()]
       }
-
+      
   """
   @type retrieve_and_generate_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieval_result_confluence_location() :: %{
         "url" => [String.t()]
       }
-
+      
   """
   @type retrieval_result_confluence_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reprompt_response() :: %{
         "source" => list(any()),
         "text" => [String.t()]
       }
-
+      
   """
   @type reprompt_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       final_response() :: %{
         "text" => String.t()
       }
-
+      
   """
   @type final_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_result() :: %{
         "actionGroup" => [String.t()],
         "apiPath" => String.t(),
@@ -781,129 +781,129 @@ defmodule AWS.BedrockAgentRuntime do
         "responseBody" => map(),
         "responseState" => list(any())
       }
-
+      
   """
   @type api_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       byte_content_doc() :: %{
         "contentType" => String.t(),
         "data" => binary(),
         "identifier" => String.t()
       }
-
+      
   """
   @type byte_content_doc() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       external_sources_generation_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
         "inferenceConfig" => inference_config(),
         "promptTemplate" => prompt_template()
       }
-
+      
   """
   @type external_sources_generation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_trace() :: %{
         "action" => list(any()),
         "inputAssessments" => list(guardrail_assessment()()),
         "outputAssessments" => list(guardrail_assessment()()),
         "traceId" => String.t()
       }
-
+      
   """
   @type guardrail_trace() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_vector_search_configuration() :: %{
         "filter" => list(),
         "numberOfResults" => [integer()],
         "overrideSearchType" => list(any())
       }
-
+      
   """
   @type knowledge_base_vector_search_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_attribute() :: %{
         "key" => String.t(),
         "value" => any()
       }
-
+      
   """
   @type filter_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieval_result_salesforce_location() :: %{
         "url" => [String.t()]
       }
-
+      
   """
   @type retrieval_result_salesforce_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       output_file() :: %{
         "bytes" => binary(),
         "name" => [String.t()],
         "type" => String.t()
       }
-
+      
   """
   @type output_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_assessment() :: %{
         "contentPolicy" => guardrail_content_policy_assessment(),
         "sensitiveInformationPolicy" => guardrail_sensitive_information_policy_assessment(),
         "topicPolicy" => guardrail_topic_policy_assessment(),
         "wordPolicy" => guardrail_word_policy_assessment()
       }
-
+      
   """
   @type guardrail_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_invocation_input() :: %{
         "inferenceConfiguration" => inference_configuration(),
         "overrideLambda" => String.t(),
@@ -913,25 +913,25 @@ defmodule AWS.BedrockAgentRuntime do
         "traceId" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type model_invocation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribution() :: %{
         "citations" => list(citation()())
       }
-
+      
   """
   @type attribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trace_part() :: %{
         "agentAliasId" => String.t(),
         "agentId" => String.t(),
@@ -939,129 +939,129 @@ defmodule AWS.BedrockAgentRuntime do
         "sessionId" => String.t(),
         "trace" => list()
       }
-
+      
   """
   @type trace_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieval_result_share_point_location() :: %{
         "url" => [String.t()]
       }
-
+      
   """
   @type retrieval_result_share_point_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       orchestration_configuration() :: %{
         "queryTransformationConfiguration" => query_transformation_configuration()
       }
-
+      
   """
   @type orchestration_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prompt_template() :: %{
         "textPromptTemplate" => String.t()
       }
-
+      
   """
   @type prompt_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inference_config() :: %{
         "textInferenceConfig" => text_inference_config()
       }
-
+      
   """
   @type inference_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_topic_policy_assessment() :: %{
         "topics" => list(guardrail_topic()())
       }
-
+      
   """
   @type guardrail_topic_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generation_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
         "inferenceConfig" => inference_config(),
         "promptTemplate" => prompt_template()
       }
-
+      
   """
   @type generation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_parameters() :: %{
         "properties" => list(parameter()())
       }
-
+      
   """
   @type property_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flow_input() :: %{
         "content" => list(),
         "nodeName" => String.t(),
         "nodeOutputName" => String.t()
       }
-
+      
   """
   @type flow_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generated_response_part() :: %{
         "textResponsePart" => text_response_part()
       }
-
+      
   """
   @type generated_response_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       memory_session_summary() :: %{
         "memoryId" => String.t(),
         "sessionExpiryTime" => non_neg_integer(),
@@ -1069,167 +1069,167 @@ defmodule AWS.BedrockAgentRuntime do
         "sessionStartTime" => non_neg_integer(),
         "summaryText" => String.t()
       }
-
+      
   """
   @type memory_session_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_agent_memory_response() :: %{
         "memoryContents" => list(list()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type get_agent_memory_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_and_generate_output() :: %{
         "text" => [String.t()]
       }
-
+      
   """
   @type retrieve_and_generate_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flow_output_event() :: %{
         "content" => list(),
         "nodeName" => String.t(),
         "nodeType" => list(any())
       }
-
+      
   """
   @type flow_output_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_group_invocation_output() :: %{
         "text" => String.t()
       }
-
+      
   """
   @type action_group_invocation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_configuration() :: %{
         "guardrailId" => [String.t()],
         "guardrailVersion" => [String.t()]
       }
-
+      
   """
   @type guardrail_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_regex_filter() :: %{
         "action" => list(any()),
         "match" => [String.t()],
         "name" => [String.t()],
         "regex" => [String.t()]
       }
-
+      
   """
   @type guardrail_regex_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieval_result_web_location() :: %{
         "url" => [String.t()]
       }
-
+      
   """
   @type retrieval_result_web_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_agent_memory_request() :: %{
         optional("memoryId") => String.t()
       }
-
+      
   """
   @type delete_agent_memory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_lookup_output() :: %{
         "retrievedReferences" => list(retrieved_reference()())
       }
-
+      
   """
   @type knowledge_base_lookup_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       byte_content_file() :: %{
         "data" => binary(),
         "mediaType" => String.t()
       }
-
+      
   """
   @type byte_content_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_request() :: %{
         optional("nextToken") => String.t(),
         optional("retrievalConfiguration") => knowledge_base_retrieval_configuration(),
         required("retrievalQuery") => knowledge_base_query()
       }
-
+      
   """
   @type retrieve_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_agent_request() :: %{
         optional("enableTrace") => [boolean()],
         optional("endSession") => [boolean()],
@@ -1237,14 +1237,14 @@ defmodule AWS.BedrockAgentRuntime do
         optional("memoryId") => String.t(),
         optional("sessionState") => session_state()
       }
-
+      
   """
   @type invoke_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invocation_input() :: %{
         "actionGroupInvocationInput" => action_group_invocation_input(),
         "codeInterpreterInvocationInput" => code_interpreter_invocation_input(),
@@ -1252,155 +1252,155 @@ defmodule AWS.BedrockAgentRuntime do
         "knowledgeBaseLookupInput" => knowledge_base_lookup_input(),
         "traceId" => String.t()
       }
-
+      
   """
   @type invocation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       request_body() :: %{
         "content" => map()
       }
-
+      
   """
   @type request_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_agent_memory_request() :: %{
         optional("maxItems") => integer(),
         optional("nextToken") => String.t(),
         required("memoryId") => String.t(),
         required("memoryType") => list(any())
       }
-
+      
   """
   @type get_agent_memory_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_object_file() :: %{
         "uri" => String.t()
       }
-
+      
   """
   @type s3_object_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_processing_model_invocation_output() :: %{
         "parsedResponse" => post_processing_parsed_response(),
         "traceId" => String.t()
       }
-
+      
   """
   @type post_processing_model_invocation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_pii_entity_filter() :: %{
         "action" => list(any()),
         "match" => [String.t()],
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_pii_entity_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invoke_flow_request() :: %{
         required("inputs") => list(flow_input()())
       }
-
+      
   """
   @type invoke_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_source() :: %{
         "byteContent" => byte_content_file(),
         "s3Location" => s3_object_file(),
         "sourceType" => list(any())
       }
-
+      
   """
   @type file_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retrieve_response() :: %{
         "nextToken" => String.t(),
         "retrievalResults" => list(knowledge_base_retrieval_result()())
       }
-
+      
   """
   @type retrieve_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_lookup_input() :: %{
         "knowledgeBaseId" => String.t(),
         "text" => String.t()
       }
-
+      
   """
   @type knowledge_base_lookup_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       code_interpreter_invocation_input() :: %{
         "code" => [String.t()],
         "files" => list([String.t()]())
       }
-
+      
   """
   @type code_interpreter_invocation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       knowledge_base_retrieval_result() :: %{
         "content" => retrieval_result_content(),
         "location" => retrieval_result_location(),
         "metadata" => map(),
         "score" => [float()]
       }
-
+      
   """
   @type knowledge_base_retrieval_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_topic() :: %{
         "action" => list(any()),
         "name" => [String.t()],
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_topic() :: %{String.t() => any()}
 
@@ -1494,32 +1494,45 @@ defmodule AWS.BedrockAgentRuntime do
   ## Parameters:
   * `:agent_alias_id` (`t:string`) The unique identifier of an alias of an agent.
   * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
-    belongs.
+  belongs.
 
   ## Optional parameters:
   * `:memory_id` (`t:string`) The unique identifier of the memory.
   """
-  @spec delete_agent_memory(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_agent_memory_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_agent_memory(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agent_memory_errors()}
-  def delete_agent_memory(%Client{} = client, agent_alias_id, agent_id, input, options \\ []) do
+
+  def delete_agent_memory(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/memories"
 
+    # Validate optional parameters
+    optional_params = [memory_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"memoryId", "memoryId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :memory_id) do
+        [{"memoryId", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1529,6 +1542,8 @@ defmodule AWS.BedrockAgentRuntime do
       options
       |> Keyword.drop([:memory_id])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1536,7 +1551,7 @@ defmodule AWS.BedrockAgentRuntime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1550,20 +1565,21 @@ defmodule AWS.BedrockAgentRuntime do
   ## Parameters:
   * `:agent_alias_id` (`t:string`) The unique identifier of an alias of an agent.
   * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
-    belongs.
+  belongs.
   * `:memory_id` (`t:string`) The unique identifier of the memory.
   * `:memory_type` (`t:enum["SESSION_SUMMARY"]`) The type of memory.
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return in the
-    response. If the total number of results is greater than this value, use the
-    token returned in the response in the nextToken field when making another
-    request to return the next batch of results.
+  response. If the total number of results is greater than this value, use the
+  token returned in the response in the nextToken field when making another
+  request to return the next batch of results.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-    maxItems value provided in the request, enter the token returned in the
-    nextToken field in the response in this field to return the next batch of
-    results.
+  maxItems value provided in the request, enter the token returned in the
+  nextToken field in the response in this field to return the next batch of
+  results.
   """
+
   @spec get_agent_memory(
           AWS.Client.t(),
           String.t(),
@@ -1575,6 +1591,7 @@ defmodule AWS.BedrockAgentRuntime do
           {:ok, get_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_memory_errors()}
+
   def get_agent_memory(
         %Client{} = client,
         agent_alias_id,
@@ -1582,7 +1599,8 @@ defmodule AWS.BedrockAgentRuntime do
         memory_id,
         memory_type,
         options \\ []
-      ) do
+      )
+      when is_binary(memory_id) and is_binary(memory_type) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/memories"
 
@@ -1640,27 +1658,48 @@ defmodule AWS.BedrockAgentRuntime do
   * `:agent_alias_id` (`t:string`) The alias of the agent to use.
   * `:agent_id` (`t:string`) The unique identifier of the agent to use.
   * `:session_id` (`t:string`) The unique identifier of the session. Use the same
-    value across requests to continue the same conversation.
+  value across requests to continue the same conversation.
 
   ## Optional parameters:
   """
-  @spec invoke_agent(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          invoke_agent_request(),
-          Keyword.t()
-        ) ::
+
+  @spec invoke_agent(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_agent_errors()}
-  def invoke_agent(%Client{} = client, agent_alias_id, agent_id, session_id, input, options \\ []) do
+
+  def invoke_agent(%Client{} = client, agent_alias_id, agent_id, session_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/text"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amzn-bedrock-agent-content-type", "contentType"},
+          {"x-amz-bedrock-agent-memory-id", "memoryId"},
+          {"x-amz-bedrock-agent-session-id", "sessionId"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -1676,17 +1715,9 @@ defmodule AWS.BedrockAgentRuntime do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1704,37 +1735,41 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Optional parameters:
   """
-  @spec invoke_flow(AWS.Client.t(), String.t(), String.t(), invoke_flow_request(), Keyword.t()) ::
+
+  @spec invoke_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invoke_flow_errors()}
-  def invoke_flow(
-        %Client{} = client,
-        flow_alias_identifier,
-        flow_identifier,
-        input,
-        options \\ []
-      ) do
+
+  def invoke_flow(%Client{} = client, flow_alias_identifier, flow_identifier, options \\ []) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1744,33 +1779,44 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Parameters:
   * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
-    to query.
+  to query.
 
   ## Optional parameters:
   """
-  @spec retrieve(AWS.Client.t(), String.t(), retrieve_request(), Keyword.t()) ::
+
+  @spec retrieve(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, retrieve_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_errors()}
-  def retrieve(%Client{} = client, knowledge_base_id, input, options \\ []) do
+
+  def retrieve(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/retrieve"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1783,28 +1829,39 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Optional parameters:
   """
-  @spec retrieve_and_generate(AWS.Client.t(), retrieve_and_generate_request(), Keyword.t()) ::
+
+  @spec retrieve_and_generate(AWS.Client.t(), Keyword.t()) ::
           {:ok, retrieve_and_generate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_and_generate_errors()}
-  def retrieve_and_generate(%Client{} = client, input, options \\ []) do
+
+  def retrieve_and_generate(%Client{} = client, options \\ []) do
     url_path = "/retrieveAndGenerate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

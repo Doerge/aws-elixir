@@ -12,21 +12,21 @@ defmodule AWS.WellArchitected do
   @typedoc """
 
   ## Example:
-
+      
       import_lens_input() :: %{
         optional("LensAlias") => String.t(),
         optional("Tags") => map(),
         required("ClientRequestToken") => String.t(),
         required("JSONString") => String.t()
       }
-
+      
   """
   @type import_lens_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile() :: %{
         "CreatedAt" => non_neg_integer(),
         "Owner" => String.t(),
@@ -39,14 +39,14 @@ defmodule AWS.WellArchitected do
         "Tags" => map(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_answer_input() :: %{
         optional("ChoiceUpdates") => map(),
         optional("IsApplicable") => boolean(),
@@ -54,14 +54,14 @@ defmodule AWS.WellArchitected do
         optional("Reason") => list(any()),
         optional("SelectedChoices") => list(String.t()())
       }
-
+      
   """
   @type update_answer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_question() :: %{
         "MaxSelectedChoices" => integer(),
         "MinSelectedChoices" => integer(),
@@ -71,75 +71,75 @@ defmodule AWS.WellArchitected do
         "QuestionTitle" => String.t(),
         "SelectedChoiceIds" => list(String.t()())
       }
-
+      
   """
   @type profile_question() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       choice_answer_summary() :: %{
         "ChoiceId" => String.t(),
         "Reason" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type choice_answer_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lenses_output() :: %{
         "LensSummaries" => list(lens_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_lenses_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_profile_output() :: %{
         "Profile" => profile()
       }
-
+      
   """
   @type get_profile_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       question_metric() :: %{
         "BestPractices" => list(best_practice()()),
         "QuestionId" => String.t(),
         "Risk" => list(any())
       }
-
+      
   """
   @type question_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workload_share_output() :: %{
         "WorkloadId" => String.t(),
         "WorkloadShare" => workload_share()
       }
-
+      
   """
   @type update_workload_share_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lens_review() :: %{
         "JiraConfiguration" => jira_selected_question_configuration(),
         "LensAlias" => String.t(),
@@ -155,34 +155,34 @@ defmodule AWS.WellArchitected do
         "RiskCounts" => map(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type lens_review() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workload_output() :: %{
         "Workload" => workload()
       }
-
+      
   """
   @type get_workload_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_review_template_input() :: %{}
-
+      
   """
   @type get_review_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       workload_share_summary() :: %{
         "PermissionType" => list(any()),
         "ShareId" => String.t(),
@@ -190,14 +190,14 @@ defmodule AWS.WellArchitected do
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type workload_share_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workload_summary() :: %{
         "ImprovementStatus" => list(any()),
         "Lenses" => list(String.t()()),
@@ -210,14 +210,14 @@ defmodule AWS.WellArchitected do
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t()
       }
-
+      
   """
   @type workload_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lens_review_improvements_output() :: %{
         "ImprovementSummaries" => list(improvement_summary()()),
         "LensAlias" => String.t(),
@@ -226,40 +226,40 @@ defmodule AWS.WellArchitected do
         "NextToken" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type list_lens_review_improvements_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       best_practice() :: %{
         "ChoiceId" => String.t(),
         "ChoiceTitle" => String.t()
       }
-
+      
   """
   @type best_practice() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workload_jira_configuration_output() :: %{
         "IssueManagementStatus" => list(any()),
         "IssueManagementType" => list(any()),
         "JiraProjectKey" => String.t(),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type workload_jira_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_jira_configuration_output() :: %{
         "IntegrationStatus" => list(any()),
         "IssueManagementStatus" => list(any()),
@@ -268,74 +268,74 @@ defmodule AWS.WellArchitected do
         "StatusMessage" => String.t(),
         "Subdomain" => String.t()
       }
-
+      
   """
   @type account_jira_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_review_output() :: %{
         "LensReview" => lens_review(),
         "MilestoneNumber" => integer(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type get_lens_review_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workloads_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("WorkloadNamePrefix") => String.t()
       }
-
+      
   """
   @type list_workloads_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       jira_selected_question_configuration() :: %{
         "SelectedPillars" => list(selected_pillar()())
       }
-
+      
   """
   @type jira_selected_question_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_check_details_output() :: %{
         "CheckDetails" => list(check_detail()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_check_details_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_profiles_input() :: %{
         required("ProfileArns") => list(String.t()())
       }
-
+      
   """
   @type associate_profiles_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       check_detail() :: %{
         "AccountId" => String.t(),
         "ChoiceId" => String.t(),
@@ -351,80 +351,80 @@ defmodule AWS.WellArchitected do
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type check_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_consolidated_report_input() :: %{
         optional("IncludeSharedResources") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Format") => list(any())
       }
-
+      
   """
   @type get_consolidated_report_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_profile_output() :: %{
         "ProfileArn" => String.t(),
         "ProfileVersion" => String.t()
       }
-
+      
   """
   @type create_profile_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       review_template_pillar_review_summary() :: %{
         "Notes" => String.t(),
         "PillarId" => String.t(),
         "PillarName" => String.t(),
         "QuestionCounts" => map()
       }
-
+      
   """
   @type review_template_pillar_review_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_share_summary() :: %{
         "ShareId" => String.t(),
         "SharedWith" => String.t(),
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type template_share_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_lens_version_output() :: %{
         "LensArn" => String.t(),
         "LensVersion" => String.t()
       }
-
+      
   """
   @type create_lens_version_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       share_invitation_summary() :: %{
         "LensArn" => String.t(),
         "LensName" => String.t(),
@@ -440,74 +440,74 @@ defmodule AWS.WellArchitected do
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t()
       }
-
+      
   """
   @type share_invitation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_share_invitation_output() :: %{
         "ShareInvitation" => share_invitation()
       }
-
+      
   """
   @type update_share_invitation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_share_summary() :: %{
         "ShareId" => String.t(),
         "SharedWith" => String.t(),
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type profile_share_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_review_template_output() :: %{
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type create_review_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lens_shares_output() :: %{
         "LensShareSummaries" => list(lens_share_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_lens_shares_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_integration_input() :: %{
         required("ClientRequestToken") => String.t(),
         required("IntegratingService") => list(any())
       }
-
+      
   """
   @type update_integration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_check_details_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -516,150 +516,150 @@ defmodule AWS.WellArchitected do
         required("PillarId") => String.t(),
         required("QuestionId") => String.t()
       }
-
+      
   """
   @type list_check_details_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lens_shares_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SharedWithPrefix") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_lens_shares_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_lens_review_output() :: %{
         "LensReview" => lens_review(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type update_lens_review_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_milestones_output() :: %{
         "MilestoneSummaries" => list(milestone_summary()()),
         "NextToken" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type list_milestones_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_answer_input() :: %{
         optional("MilestoneNumber") => integer()
       }
-
+      
   """
   @type get_answer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_lens_version_input() :: %{
         optional("IsMajorVersion") => boolean(),
         required("ClientRequestToken") => String.t(),
         required("LensVersion") => String.t()
       }
-
+      
   """
   @type create_lens_version_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_notifications_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ResourceArn") => String.t(),
         optional("WorkloadId") => String.t()
       }
-
+      
   """
   @type list_notifications_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_milestone_output() :: %{
         "MilestoneNumber" => integer(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type create_milestone_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_lens_input() :: %{
         required("ClientRequestToken") => String.t(),
         required("LensStatus") => list(any())
       }
-
+      
   """
   @type delete_lens_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_question_update() :: %{
         "QuestionId" => String.t(),
         "SelectedChoiceIds" => list(String.t()())
       }
-
+      
   """
   @type profile_question_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_lens_share_input() :: %{
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type delete_lens_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profile_shares_output() :: %{
         "NextToken" => String.t(),
         "ProfileShareSummaries" => list(profile_share_summary()())
       }
-
+      
   """
   @type list_profile_shares_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       share_invitation() :: %{
         "LensAlias" => String.t(),
         "LensArn" => String.t(),
@@ -669,14 +669,14 @@ defmodule AWS.WellArchitected do
         "TemplateArn" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type share_invitation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_profile_input() :: %{
         optional("Tags") => map(),
         required("ClientRequestToken") => String.t(),
@@ -684,93 +684,93 @@ defmodule AWS.WellArchitected do
         required("ProfileName") => String.t(),
         required("ProfileQuestions") => list(profile_question_update()())
       }
-
+      
   """
   @type create_profile_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profiles_output() :: %{
         "NextToken" => String.t(),
         "ProfileSummaries" => list(profile_summary()())
       }
-
+      
   """
   @type list_profiles_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_milestones_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_milestones_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_lens_review_input() :: %{
         optional("JiraConfiguration") => jira_selected_question_configuration(),
         optional("LensNotes") => String.t(),
         optional("PillarNotes") => map()
       }
-
+      
   """
   @type update_lens_review_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_lenses_input() :: %{
         required("LensAliases") => list(String.t()())
       }
-
+      
   """
   @type associate_lenses_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_review_template_output() :: %{
         "ReviewTemplate" => review_template()
       }
-
+      
   """
   @type update_review_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workload_input() :: %{}
-
+      
   """
   @type get_workload_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lens_review_summary() :: %{
         "LensAlias" => String.t(),
         "LensArn" => String.t(),
@@ -782,38 +782,38 @@ defmodule AWS.WellArchitected do
         "RiskCounts" => map(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type lens_review_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_shares_output() :: %{
         "NextToken" => String.t(),
         "TemplateArn" => String.t(),
         "TemplateShareSummaries" => list(template_share_summary()())
       }
-
+      
   """
   @type list_template_shares_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_profile_input() :: %{
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type delete_profile_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_review_template_input() :: %{
         optional("Description") => String.t(),
         optional("LensesToAssociate") => list(String.t()()),
@@ -821,66 +821,66 @@ defmodule AWS.WellArchitected do
         optional("Notes") => String.t(),
         optional("TemplateName") => String.t()
       }
-
+      
   """
   @type update_review_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workload_shares_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SharedWithPrefix") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_workload_shares_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_lens_output() :: %{
         "LensArn" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type import_lens_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_milestone_output() :: %{
         "Milestone" => milestone(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type get_milestone_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lens_share_summary() :: %{
         "ShareId" => String.t(),
         "SharedWith" => String.t(),
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type lens_share_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       consolidated_report_metric() :: %{
         "Lenses" => list(lens_metric()()),
         "LensesAppliedCount" => integer(),
@@ -891,51 +891,51 @@ defmodule AWS.WellArchitected do
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t()
       }
-
+      
   """
   @type consolidated_report_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_choice() :: %{
         "ChoiceDescription" => String.t(),
         "ChoiceId" => String.t(),
         "ChoiceTitle" => String.t()
       }
-
+      
   """
   @type profile_choice() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workload_discovery_config() :: %{
         "TrustedAdvisorIntegrationStatus" => list(any()),
         "WorkloadResourceDefinition" => list(list(any())())
       }
-
+      
   """
   @type workload_discovery_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upgrade_lens_review_input() :: %{
         optional("ClientRequestToken") => String.t(),
         required("MilestoneName") => String.t()
       }
-
+      
   """
   @type upgrade_lens_review_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_review_template_input() :: %{
         optional("Notes") => String.t(),
         optional("Tags") => map(),
@@ -944,76 +944,76 @@ defmodule AWS.WellArchitected do
         required("Lenses") => list(String.t()()),
         required("TemplateName") => String.t()
       }
-
+      
   """
   @type create_review_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workload_jira_configuration_input() :: %{
         "IssueManagementStatus" => list(any()),
         "IssueManagementType" => list(any()),
         "JiraProjectKey" => String.t()
       }
-
+      
   """
   @type workload_jira_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workload_share_input() :: %{
         required("PermissionType") => list(any())
       }
-
+      
   """
   @type update_workload_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_profiles_input() :: %{
         required("ProfileArns") => list(String.t()())
       }
-
+      
   """
   @type disassociate_profiles_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_template_choice() :: %{
         "ChoiceDescription" => String.t(),
         "ChoiceId" => String.t(),
         "ChoiceTitle" => String.t()
       }
-
+      
   """
   @type profile_template_choice() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_review_template_answers_output() :: %{
         "AnswerSummaries" => list(review_template_answer_summary()()),
         "LensAlias" => String.t(),
         "NextToken" => String.t(),
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type list_review_template_answers_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workload() :: %{
         "AccountIds" => list(String.t()()),
         "Applications" => list(String.t()()),
@@ -1044,27 +1044,27 @@ defmodule AWS.WellArchitected do
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t()
       }
-
+      
   """
   @type workload() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_answer_output() :: %{
         "Answer" => answer(),
         "LensAlias" => String.t(),
@@ -1072,27 +1072,27 @@ defmodule AWS.WellArchitected do
         "MilestoneNumber" => integer(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type get_answer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       review_template_summary() :: %{
         "Description" => String.t(),
         "Lenses" => list(String.t()()),
@@ -1102,14 +1102,14 @@ defmodule AWS.WellArchitected do
         "UpdateStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type review_template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       answer() :: %{
         "ChoiceAnswers" => list(choice_answer()()),
         "Choices" => list(choice()()),
@@ -1127,14 +1127,14 @@ defmodule AWS.WellArchitected do
         "Risk" => list(any()),
         "SelectedChoices" => list(String.t()())
       }
-
+      
   """
   @type answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       review_template_answer_summary() :: %{
         "AnswerStatus" => list(any()),
         "ChoiceAnswerSummaries" => list(choice_answer_summary()()),
@@ -1147,49 +1147,49 @@ defmodule AWS.WellArchitected do
         "Reason" => list(any()),
         "SelectedChoices" => list(String.t()())
       }
-
+      
   """
   @type review_template_answer_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workload_share_output() :: %{
         "ShareId" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type create_workload_share_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_review_template_lens_review_input() :: %{
         optional("LensNotes") => String.t(),
         optional("PillarNotes") => map()
       }
-
+      
   """
   @type update_review_template_lens_review_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workload_share_input() :: %{
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type delete_workload_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t(),
         "QuotaCode" => String.t(),
@@ -1197,62 +1197,62 @@ defmodule AWS.WellArchitected do
         "ResourceType" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_review_template_lens_review_output() :: %{
         "LensReview" => review_template_lens_review(),
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type get_review_template_lens_review_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lens_review_report() :: %{
         "Base64String" => String.t(),
         "LensAlias" => String.t(),
         "LensArn" => String.t()
       }
-
+      
   """
   @type lens_review_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_profile_template_output() :: %{
         "ProfileTemplate" => profile_template()
       }
-
+      
   """
   @type get_profile_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_review_templates_output() :: %{
         "NextToken" => String.t(),
         "ReviewTemplates" => list(review_template_summary()())
       }
-
+      
   """
   @type list_review_templates_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lens_upgrade_summary() :: %{
         "CurrentLensVersion" => String.t(),
         "LatestLensVersion" => String.t(),
@@ -1263,59 +1263,59 @@ defmodule AWS.WellArchitected do
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t()
       }
-
+      
   """
   @type lens_upgrade_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       milestone() :: %{
         "MilestoneName" => String.t(),
         "MilestoneNumber" => integer(),
         "RecordedAt" => non_neg_integer(),
         "Workload" => workload()
       }
-
+      
   """
   @type milestone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_review_report_input() :: %{
         optional("MilestoneNumber") => integer()
       }
-
+      
   """
   @type get_lens_review_report_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_lens_input() :: %{
         optional("LensVersion") => String.t()
       }
-
+      
   """
   @type export_lens_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_profile_template_input() :: %{}
-
+      
   """
   @type get_profile_template_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       review_template_lens_review() :: %{
         "LensAlias" => String.t(),
         "LensArn" => String.t(),
@@ -1328,73 +1328,73 @@ defmodule AWS.WellArchitected do
         "QuestionCounts" => map(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type review_template_lens_review() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_milestone_input() :: %{
         required("ClientRequestToken") => String.t(),
         required("MilestoneName") => String.t()
       }
-
+      
   """
   @type create_milestone_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_review_template_input() :: %{
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type delete_review_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "Message" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_share_input() :: %{
         required("ClientRequestToken") => String.t(),
         required("SharedWith") => String.t()
       }
-
+      
   """
   @type create_template_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_share_output() :: %{
         "ShareId" => String.t(),
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type create_template_share_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       review_template() :: %{
         "Description" => String.t(),
         "Lenses" => list(String.t()()),
@@ -1408,40 +1408,40 @@ defmodule AWS.WellArchitected do
         "UpdateStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type review_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workload_shares_output() :: %{
         "NextToken" => String.t(),
         "WorkloadId" => String.t(),
         "WorkloadShareSummaries" => list(workload_share_summary()())
       }
-
+      
   """
   @type list_workload_shares_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_review_report_output() :: %{
         "LensReviewReport" => lens_review_report(),
         "MilestoneNumber" => integer(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type get_lens_review_report_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       choice() :: %{
         "AdditionalResources" => list(additional_resources()()),
         "ChoiceId" => String.t(),
@@ -1450,39 +1450,39 @@ defmodule AWS.WellArchitected do
         "ImprovementPlan" => choice_content(),
         "Title" => String.t()
       }
-
+      
   """
   @type choice() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profile_shares_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SharedWithPrefix") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_profile_shares_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_review_template_answer_input() :: %{
         optional("ChoiceUpdates") => map(),
         optional("IsApplicable") => boolean(),
@@ -1490,110 +1490,110 @@ defmodule AWS.WellArchitected do
         optional("Reason") => list(any()),
         optional("SelectedChoices") => list(String.t()())
       }
-
+      
   """
   @type update_review_template_answer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pillar_metric() :: %{
         "PillarId" => String.t(),
         "Questions" => list(question_metric()()),
         "RiskCounts" => map()
       }
-
+      
   """
   @type pillar_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profiles_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ProfileNamePrefix") => String.t(),
         optional("ProfileOwnerType") => list(any())
       }
-
+      
   """
   @type list_profiles_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       milestone_summary() :: %{
         "MilestoneName" => String.t(),
         "MilestoneNumber" => integer(),
         "RecordedAt" => non_neg_integer(),
         "WorkloadSummary" => workload_summary()
       }
-
+      
   """
   @type milestone_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_milestone_input() :: %{}
-
+      
   """
   @type get_milestone_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       question_difference() :: %{
         "DifferenceStatus" => list(any()),
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t()
       }
-
+      
   """
   @type question_difference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_profile_share_input() :: %{
         required("ClientRequestToken") => String.t(),
         required("SharedWith") => String.t()
       }
-
+      
   """
   @type create_profile_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_review_templates_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_review_templates_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       pillar_review_summary() :: %{
         "Notes" => String.t(),
         "PillarId" => String.t(),
@@ -1601,267 +1601,267 @@ defmodule AWS.WellArchitected do
         "PrioritizedRiskCounts" => map(),
         "RiskCounts" => map()
       }
-
+      
   """
   @type pillar_review_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_share_invitation_input() :: %{
         required("ShareInvitationAction") => list(any())
       }
-
+      
   """
   @type update_share_invitation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pillar_difference() :: %{
         "DifferenceStatus" => list(any()),
         "PillarId" => String.t(),
         "PillarName" => String.t(),
         "QuestionDifferences" => list(question_difference()())
       }
-
+      
   """
   @type pillar_difference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lens_metric() :: %{
         "LensArn" => String.t(),
         "Pillars" => list(pillar_metric()()),
         "RiskCounts" => map()
       }
-
+      
   """
   @type lens_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       choice_content() :: %{
         "DisplayText" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type choice_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_review_template_answers_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("PillarId") => String.t()
       }
-
+      
   """
   @type list_review_template_answers_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_share_invitations_output() :: %{
         "NextToken" => String.t(),
         "ShareInvitationSummaries" => list(share_invitation_summary()())
       }
-
+      
   """
   @type list_share_invitations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       selected_pillar() :: %{
         "PillarId" => String.t(),
         "SelectedQuestionIds" => list(String.t()())
       }
-
+      
   """
   @type selected_pillar() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_profile_input() :: %{
         optional("ProfileVersion") => String.t()
       }
-
+      
   """
   @type get_profile_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_input() :: %{
         optional("LensVersion") => String.t()
       }
-
+      
   """
   @type get_lens_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upgrade_profile_version_input() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("MilestoneName") => String.t()
       }
-
+      
   """
   @type upgrade_profile_version_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       additional_resources() :: %{
         "Content" => list(choice_content()()),
         "Type" => list(any())
       }
-
+      
   """
   @type additional_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_notifications_output() :: %{
         "NextToken" => String.t(),
         "NotificationSummaries" => list(notification_summary()())
       }
-
+      
   """
   @type list_notifications_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_answer_output() :: %{
         "Answer" => answer(),
         "LensAlias" => String.t(),
         "LensArn" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type update_answer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_template() :: %{
         "CreatedAt" => non_neg_integer(),
         "TemplateName" => String.t(),
         "TemplateQuestions" => list(profile_template_question()()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type profile_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       choice_answer() :: %{
         "ChoiceId" => String.t(),
         "Notes" => String.t(),
         "Reason" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type choice_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_share_input() :: %{
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type delete_template_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workload_output() :: %{
         "Workload" => workload()
       }
-
+      
   """
   @type update_workload_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_profile_share_input() :: %{
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type delete_profile_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_version_difference_output() :: %{
         "BaseLensVersion" => String.t(),
         "LatestLensVersion" => String.t(),
@@ -1870,64 +1870,64 @@ defmodule AWS.WellArchitected do
         "TargetLensVersion" => String.t(),
         "VersionDifferences" => version_differences()
       }
-
+      
   """
   @type get_lens_version_difference_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workloads_output() :: %{
         "NextToken" => String.t(),
         "WorkloadSummaries" => list(workload_summary()())
       }
-
+      
   """
   @type list_workloads_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_review_template_answer_output() :: %{
         "Answer" => review_template_answer(),
         "LensAlias" => String.t(),
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type update_review_template_answer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_global_settings_input() :: %{
         optional("DiscoveryIntegrationStatus") => list(any()),
         optional("JiraConfiguration") => account_jira_configuration_input(),
         optional("OrganizationSharingStatus") => list(any())
       }
-
+      
   """
   @type update_global_settings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profile_notifications_output() :: %{
         "NextToken" => String.t(),
         "NotificationSummaries" => list(profile_notification_summary()())
       }
-
+      
   """
   @type list_profile_notifications_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       improvement_summary() :: %{
         "ImprovementPlanUrl" => String.t(),
         "ImprovementPlans" => list(choice_improvement_plan()()),
@@ -1937,39 +1937,39 @@ defmodule AWS.WellArchitected do
         "QuestionTitle" => String.t(),
         "Risk" => list(any())
       }
-
+      
   """
   @type improvement_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lens_reviews_output() :: %{
         "LensReviewSummaries" => list(lens_review_summary()()),
         "MilestoneNumber" => integer(),
         "NextToken" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type list_lens_reviews_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_lenses_input() :: %{
         required("LensAliases") => list(String.t()())
       }
-
+      
   """
   @type disassociate_lenses_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lens_review_improvements_input() :: %{
         optional("MaxResults") => integer(),
         optional("MilestoneNumber") => integer(),
@@ -1977,81 +1977,81 @@ defmodule AWS.WellArchitected do
         optional("PillarId") => String.t(),
         optional("QuestionPriority") => list(any())
       }
-
+      
   """
   @type list_lens_review_improvements_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_profile_output() :: %{
         "Profile" => profile()
       }
-
+      
   """
   @type update_profile_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upgrade_review_template_lens_review_input() :: %{
         optional("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type upgrade_review_template_lens_review_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_jira_configuration_input() :: %{
         "IntegrationStatus" => list(any()),
         "IssueManagementStatus" => list(any()),
         "IssueManagementType" => list(any()),
         "JiraProjectKey" => String.t()
       }
-
+      
   """
   @type account_jira_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()()),
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_check_summaries_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -2060,14 +2060,14 @@ defmodule AWS.WellArchitected do
         required("PillarId") => String.t(),
         required("QuestionId") => String.t()
       }
-
+      
   """
   @type list_check_summaries_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workload_input() :: %{
         optional("AccountIds") => list(String.t()()),
         optional("Applications") => list(String.t()()),
@@ -2090,215 +2090,215 @@ defmodule AWS.WellArchitected do
         required("Lenses") => list(String.t()()),
         required("WorkloadName") => String.t()
       }
-
+      
   """
   @type create_workload_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lens_reviews_input() :: %{
         optional("MaxResults") => integer(),
         optional("MilestoneNumber") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_lens_reviews_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t(),
         "QuotaCode" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profile_notifications_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("WorkloadId") => String.t()
       }
-
+      
   """
   @type list_profile_notifications_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_lens_share_input() :: %{
         required("ClientRequestToken") => String.t(),
         required("SharedWith") => String.t()
       }
-
+      
   """
   @type create_lens_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_output() :: %{
         "Lens" => lens()
       }
-
+      
   """
   @type get_lens_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_profile_share_output() :: %{
         "ProfileArn" => String.t(),
         "ShareId" => String.t()
       }
-
+      
   """
   @type create_profile_share_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       jira_configuration() :: %{
         "JiraIssueUrl" => String.t(),
         "LastSyncedTime" => non_neg_integer()
       }
-
+      
   """
   @type jira_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_review_input() :: %{
         optional("MilestoneNumber") => integer()
       }
-
+      
   """
   @type get_lens_review_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       choice_update() :: %{
         "Notes" => String.t(),
         "Reason" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type choice_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_consolidated_report_output() :: %{
         "Base64String" => String.t(),
         "Metrics" => list(consolidated_report_metric()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_consolidated_report_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_lens_share_output() :: %{
         "ShareId" => String.t()
       }
-
+      
   """
   @type create_lens_share_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workload_share_input() :: %{
         required("ClientRequestToken") => String.t(),
         required("PermissionType") => list(any()),
         required("SharedWith") => String.t()
       }
-
+      
   """
   @type create_workload_share_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lens_version_difference_input() :: %{
         optional("BaseLensVersion") => String.t(),
         optional("TargetLensVersion") => String.t()
       }
-
+      
   """
   @type get_lens_version_difference_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_review_template_lens_review_output() :: %{
         "LensReview" => review_template_lens_review(),
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type update_review_template_lens_review_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_review_template_answer_input() :: %{}
-
+      
   """
   @type get_review_template_answer_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_review_template_lens_review_input() :: %{}
-
+      
   """
   @type get_review_template_lens_review_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workload_output() :: %{
         "WorkloadArn" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type create_workload_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       check_summary() :: %{
         "AccountSummary" => map(),
         "ChoiceId" => String.t(),
@@ -2312,38 +2312,38 @@ defmodule AWS.WellArchitected do
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type check_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_global_settings_output() :: %{
         "DiscoveryIntegrationStatus" => list(any()),
         "JiraConfiguration" => account_jira_configuration_output(),
         "OrganizationSharingStatus" => list(any())
       }
-
+      
   """
   @type get_global_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       version_differences() :: %{
         "PillarDifferences" => list(pillar_difference()())
       }
-
+      
   """
   @type version_differences() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_answers_input() :: %{
         optional("MaxResults") => integer(),
         optional("MilestoneNumber") => integer(),
@@ -2351,26 +2351,26 @@ defmodule AWS.WellArchitected do
         optional("PillarId") => String.t(),
         optional("QuestionPriority") => list(any())
       }
-
+      
   """
   @type list_answers_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_check_summaries_output() :: %{
         "CheckSummaries" => list(check_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_check_summaries_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lens_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
@@ -2383,14 +2383,14 @@ defmodule AWS.WellArchitected do
         "Owner" => String.t(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type lens_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_answers_output() :: %{
         "AnswerSummaries" => list(answer_summary()()),
         "LensAlias" => String.t(),
@@ -2399,39 +2399,39 @@ defmodule AWS.WellArchitected do
         "NextToken" => String.t(),
         "WorkloadId" => String.t()
       }
-
+      
   """
   @type list_answers_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       notification_summary() :: %{
         "LensUpgradeSummary" => lens_upgrade_summary(),
         "Type" => list(any())
       }
-
+      
   """
   @type notification_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       choice_improvement_plan() :: %{
         "ChoiceId" => String.t(),
         "DisplayText" => String.t(),
         "ImprovementPlanUrl" => String.t()
       }
-
+      
   """
   @type choice_improvement_plan() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workload_share() :: %{
         "PermissionType" => list(any()),
         "ShareId" => String.t(),
@@ -2441,14 +2441,14 @@ defmodule AWS.WellArchitected do
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t()
       }
-
+      
   """
   @type workload_share() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_notification_summary() :: %{
         "CurrentProfileVersion" => String.t(),
         "LatestProfileVersion" => String.t(),
@@ -2458,14 +2458,14 @@ defmodule AWS.WellArchitected do
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t()
       }
-
+      
   """
   @type profile_notification_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lens() :: %{
         "Description" => String.t(),
         "LensArn" => String.t(),
@@ -2475,14 +2475,14 @@ defmodule AWS.WellArchitected do
         "ShareInvitationId" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type lens() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workload_input() :: %{
         optional("AccountIds") => list(String.t()()),
         optional("Applications") => list(String.t()()),
@@ -2502,36 +2502,36 @@ defmodule AWS.WellArchitected do
         optional("ReviewOwner") => String.t(),
         optional("WorkloadName") => String.t()
       }
-
+      
   """
   @type update_workload_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workload_input() :: %{
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type delete_workload_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_lens_output() :: %{
         "LensJSON" => String.t()
       }
-
+      
   """
   @type export_lens_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_template_question() :: %{
         "MaxSelectedChoices" => integer(),
         "MinSelectedChoices" => integer(),
@@ -2540,14 +2540,14 @@ defmodule AWS.WellArchitected do
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t()
       }
-
+      
   """
   @type profile_template_question() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       review_template_answer() :: %{
         "AnswerStatus" => list(any()),
         "ChoiceAnswers" => list(choice_answer()()),
@@ -2564,37 +2564,37 @@ defmodule AWS.WellArchitected do
         "Reason" => list(any()),
         "SelectedChoices" => list(String.t()())
       }
-
+      
   """
   @type review_template_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_profile_input() :: %{
         optional("ProfileDescription") => String.t(),
         optional("ProfileQuestions") => list(profile_question_update()())
       }
-
+      
   """
   @type update_profile_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_review_template_output() :: %{
         "ReviewTemplate" => review_template()
       }
-
+      
   """
   @type get_review_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_share_invitations_input() :: %{
         optional("LensNamePrefix") => String.t(),
         optional("MaxResults") => integer(),
@@ -2604,14 +2604,14 @@ defmodule AWS.WellArchitected do
         optional("TemplateNamePrefix") => String.t(),
         optional("WorkloadNamePrefix") => String.t()
       }
-
+      
   """
   @type list_share_invitations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       answer_summary() :: %{
         "ChoiceAnswerSummaries" => list(choice_answer_summary()()),
         "Choices" => list(choice()()),
@@ -2625,14 +2625,14 @@ defmodule AWS.WellArchitected do
         "Risk" => list(any()),
         "SelectedChoices" => list(String.t()())
       }
-
+      
   """
   @type answer_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lenses_input() :: %{
         optional("LensName") => String.t(),
         optional("LensStatus") => list(any()),
@@ -2640,14 +2640,14 @@ defmodule AWS.WellArchitected do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_lenses_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "Owner" => String.t(),
@@ -2657,46 +2657,46 @@ defmodule AWS.WellArchitected do
         "ProfileVersion" => String.t(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_review_template_answer_output() :: %{
         "Answer" => review_template_answer(),
         "LensAlias" => String.t(),
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type get_review_template_answer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workload_profile() :: %{
         "ProfileArn" => String.t(),
         "ProfileVersion" => String.t()
       }
-
+      
   """
   @type workload_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_shares_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SharedWithPrefix") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_template_shares_input() :: %{String.t() => any()}
 
@@ -3256,17 +3256,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec associate_lenses(AWS.Client.t(), String.t(), associate_lenses_input(), Keyword.t()) ::
+
+  @spec associate_lenses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lenses_errors()}
-  def associate_lenses(%Client{} = client, workload_id, input, options \\ []) do
+
+  def associate_lenses(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateLenses"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3275,7 +3296,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3291,17 +3312,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec associate_profiles(AWS.Client.t(), String.t(), associate_profiles_input(), Keyword.t()) ::
+
+  @spec associate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_profiles_errors()}
-  def associate_profiles(%Client{} = client, workload_id, input, options \\ []) do
+
+  def associate_profiles(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateProfiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3310,7 +3352,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3329,29 +3371,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_lens_share(AWS.Client.t(), String.t(), create_lens_share_input(), Keyword.t()) ::
+
+  @spec create_lens_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_lens_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lens_share_errors()}
-  def create_lens_share(%Client{} = client, lens_alias, input, options \\ []) do
+
+  def create_lens_share(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3364,29 +3417,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_lens_version(AWS.Client.t(), String.t(), create_lens_version_input(), Keyword.t()) ::
+
+  @spec create_lens_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_lens_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lens_version_errors()}
-  def create_lens_version(%Client{} = client, lens_alias, input, options \\ []) do
+
+  def create_lens_version(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3399,29 +3463,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_milestone(AWS.Client.t(), String.t(), create_milestone_input(), Keyword.t()) ::
+
+  @spec create_milestone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_milestone_errors()}
-  def create_milestone(%Client{} = client, workload_id, input, options \\ []) do
+
+  def create_milestone(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3433,29 +3508,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_profile(AWS.Client.t(), create_profile_input(), Keyword.t()) ::
+
+  @spec create_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
-  def create_profile(%Client{} = client, input, options \\ []) do
+
+  def create_profile(%Client{} = client, options \\ []) do
     url_path = "/profiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3468,34 +3554,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_profile_share(
-          AWS.Client.t(),
-          String.t(),
-          create_profile_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_profile_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_profile_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_share_errors()}
-  def create_profile_share(%Client{} = client, profile_arn, input, options \\ []) do
+
+  def create_profile_share(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3507,29 +3599,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_review_template(AWS.Client.t(), create_review_template_input(), Keyword.t()) ::
+
+  @spec create_review_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_review_template_errors()}
-  def create_review_template(%Client{} = client, input, options \\ []) do
+
+  def create_review_template(%Client{} = client, options \\ []) do
     url_path = "/reviewTemplates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3544,34 +3647,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_template_share(
-          AWS.Client.t(),
-          String.t(),
-          create_template_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_template_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_share_errors()}
-  def create_template_share(%Client{} = client, template_arn, input, options \\ []) do
+
+  def create_template_share(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3586,29 +3695,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_workload(AWS.Client.t(), create_workload_input(), Keyword.t()) ::
+
+  @spec create_workload(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workload_errors()}
-  def create_workload(%Client{} = client, input, options \\ []) do
+
+  def create_workload(%Client{} = client, options \\ []) do
     url_path = "/workloads"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3623,34 +3743,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec create_workload_share(
-          AWS.Client.t(),
-          String.t(),
-          create_workload_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_workload_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workload_share_errors()}
-  def create_workload_share(%Client{} = client, workload_id, input, options \\ []) do
+
+  def create_workload_share(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3665,27 +3791,49 @@ defmodule AWS.WellArchitected do
   * `:lens_alias` (`t:string`)
   * `:client_request_token` (`t:string`)
   * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]`) The status of the lens to be
-    deleted.
+  deleted.
 
   ## Optional parameters:
   """
-  @spec delete_lens(AWS.Client.t(), String.t(), delete_lens_input(), Keyword.t()) ::
+
+  @spec delete_lens(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lens_errors()}
-  def delete_lens(%Client{} = client, lens_alias, input, options \\ []) do
+
+  def delete_lens(
+        %Client{} = client,
+        lens_alias,
+        client_request_token,
+        lens_status,
+        options \\ []
+      )
+      when is_binary(client_request_token) and is_binary(lens_status) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"},
-        {"LensStatus", "LensStatus"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}, {"LensStatus", lens_status}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3694,7 +3842,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3715,30 +3863,46 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec delete_lens_share(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_lens_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_lens_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lens_share_errors()}
-  def delete_lens_share(%Client{} = client, lens_alias, share_id, input, options \\ []) do
+
+  def delete_lens_share(
+        %Client{} = client,
+        lens_alias,
+        share_id,
+        client_request_token,
+        options \\ []
+      )
+      when is_binary(client_request_token) do
     url_path =
       "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3747,7 +3911,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3764,22 +3928,39 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec delete_profile(AWS.Client.t(), String.t(), delete_profile_input(), Keyword.t()) ::
+
+  @spec delete_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
-  def delete_profile(%Client{} = client, profile_arn, input, options \\ []) do
+
+  def delete_profile(%Client{} = client, profile_arn, client_request_token, options \\ [])
+      when is_binary(client_request_token) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3788,7 +3969,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3806,30 +3987,46 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec delete_profile_share(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_profile_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_profile_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_share_errors()}
-  def delete_profile_share(%Client{} = client, profile_arn, share_id, input, options \\ []) do
+
+  def delete_profile_share(
+        %Client{} = client,
+        profile_arn,
+        share_id,
+        client_request_token,
+        options \\ []
+      )
+      when is_binary(client_request_token) do
     url_path =
       "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3838,7 +4035,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3855,27 +4052,44 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec delete_review_template(
-          AWS.Client.t(),
-          String.t(),
-          delete_review_template_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_review_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_review_template_errors()}
-  def delete_review_template(%Client{} = client, template_arn, input, options \\ []) do
+
+  def delete_review_template(
+        %Client{} = client,
+        template_arn,
+        client_request_token,
+        options \\ []
+      )
+      when is_binary(client_request_token) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3884,7 +4098,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3902,30 +4116,46 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec delete_template_share(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_template_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_template_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_share_errors()}
-  def delete_template_share(%Client{} = client, share_id, template_arn, input, options \\ []) do
+
+  def delete_template_share(
+        %Client{} = client,
+        share_id,
+        template_arn,
+        client_request_token,
+        options \\ []
+      )
+      when is_binary(client_request_token) do
     url_path =
       "/templates/shares/#{AWS.Util.encode_uri(template_arn)}/#{AWS.Util.encode_uri(share_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3934,7 +4164,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3951,22 +4181,39 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec delete_workload(AWS.Client.t(), String.t(), delete_workload_input(), Keyword.t()) ::
+
+  @spec delete_workload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workload_errors()}
-  def delete_workload(%Client{} = client, workload_id, input, options \\ []) do
+
+  def delete_workload(%Client{} = client, workload_id, client_request_token, options \\ [])
+      when is_binary(client_request_token) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3975,7 +4222,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3993,30 +4240,46 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec delete_workload_share(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_workload_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_workload_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workload_share_errors()}
-  def delete_workload_share(%Client{} = client, share_id, workload_id, input, options \\ []) do
+
+  def delete_workload_share(
+        %Client{} = client,
+        share_id,
+        workload_id,
+        client_request_token,
+        options \\ []
+      )
+      when is_binary(client_request_token) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientRequestToken", "ClientRequestToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"ClientRequestToken", client_request_token}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4025,7 +4288,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4042,17 +4305,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec disassociate_lenses(AWS.Client.t(), String.t(), disassociate_lenses_input(), Keyword.t()) ::
+
+  @spec disassociate_lenses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lenses_errors()}
-  def disassociate_lenses(%Client{} = client, workload_id, input, options \\ []) do
+
+  def disassociate_lenses(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4061,7 +4345,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4077,22 +4361,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec disassociate_profiles(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_profiles_input(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_profiles_errors()}
-  def disassociate_profiles(%Client{} = client, workload_id, input, options \\ []) do
+
+  def disassociate_profiles(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateProfiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4101,7 +4401,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4120,10 +4420,12 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:lens_version` (`t:string`) The lens version to be exported.
   """
+
   @spec export_lens(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_lens_errors()}
+
   def export_lens(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/export"
 
@@ -4176,10 +4478,12 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:milestone_number` (`t:integer`)
   """
+
   @spec get_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_answer_errors()}
+
   def get_answer(%Client{} = client, lens_alias, question_id, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
@@ -4230,16 +4534,18 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:include_shared_resources` (`t:boolean`) Set to true to have shared resources
-    included in the report.
+  included in the report.
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:next_token` (`t:string`)
   """
+
   @spec get_consolidated_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_consolidated_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_consolidated_report_errors()}
-  def get_consolidated_report(%Client{} = client, format, options \\ []) do
+
+  def get_consolidated_report(%Client{} = client, format, options \\ []) when is_binary(format) do
     url_path = "/consolidatedReport"
 
     # Validate optional parameters
@@ -4301,10 +4607,12 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
+
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
 
@@ -4344,10 +4652,12 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:lens_version` (`t:string`) The lens version to be retrieved.
   """
+
   @spec get_lens(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_errors()}
+
   def get_lens(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
 
@@ -4399,10 +4709,12 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:milestone_number` (`t:integer`)
   """
+
   @spec get_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_review_errors()}
+
   def get_lens_review(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
@@ -4455,10 +4767,12 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:milestone_number` (`t:integer`)
   """
+
   @spec get_lens_review_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_review_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_review_report_errors()}
+
   def get_lens_review_report(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/report"
@@ -4510,12 +4824,14 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:base_lens_version` (`t:string`) The base version of the lens.
   * `:target_lens_version` (`t:string`) The lens version to target a difference
-    for.
+  for.
   """
+
   @spec get_lens_version_difference(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_version_difference_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lens_version_difference_errors()}
+
   def get_lens_version_difference(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versionDifference"
 
@@ -4573,10 +4889,12 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec get_milestone(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_milestone_errors()}
+
   def get_milestone(%Client{} = client, milestone_number, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones/#{AWS.Util.encode_uri(milestone_number)}"
@@ -4617,10 +4935,12 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:profile_version` (`t:string`) The profile version.
   """
+
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
+
   def get_profile(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
 
@@ -4669,10 +4989,12 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec get_profile_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_profile_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_template_errors()}
+
   def get_profile_template(%Client{} = client, options \\ []) do
     url_path = "/profileTemplate"
 
@@ -4711,10 +5033,12 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec get_review_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_errors()}
+
   def get_review_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -4755,6 +5079,7 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec get_review_template_answer(
           AWS.Client.t(),
           String.t(),
@@ -4765,6 +5090,7 @@ defmodule AWS.WellArchitected do
           {:ok, get_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_answer_errors()}
+
   def get_review_template_answer(
         %Client{} = client,
         lens_alias,
@@ -4811,10 +5137,12 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec get_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_review_template_lens_review_errors()}
+
   def get_review_template_lens_review(%Client{} = client, lens_alias, template_arn, options \\ []) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
@@ -4854,10 +5182,12 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec get_workload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workload_errors()}
+
   def get_workload(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
 
@@ -4897,19 +5227,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec import_lens(AWS.Client.t(), import_lens_input(), Keyword.t()) ::
+
+  @spec import_lens(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_lens_errors()}
-  def import_lens(%Client{} = client, input, options \\ []) do
+
+  def import_lens(%Client{} = client, options \\ []) do
     url_path = "/importLens"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4923,17 +5274,19 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:milestone_number` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:pillar_id` (`t:string`)
   * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
-    question.
+  question.
   """
+
   @spec list_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_answers_errors()}
+
   def list_answers(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
@@ -5024,29 +5377,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec list_check_details(AWS.Client.t(), String.t(), list_check_details_input(), Keyword.t()) ::
+
+  @spec list_check_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_check_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_check_details_errors()}
-  def list_check_details(%Client{} = client, workload_id, input, options \\ []) do
+
+  def list_check_details(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5060,34 +5424,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec list_check_summaries(
-          AWS.Client.t(),
-          String.t(),
-          list_check_summaries_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_check_summaries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_check_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_check_summaries_errors()}
-  def list_check_summaries(%Client{} = client, workload_id, input, options \\ []) do
+
+  def list_check_summaries(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checkSummaries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5101,17 +5471,19 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:milestone_number` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:pillar_id` (`t:string`)
   * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
-    question.
+  question.
   """
+
   @spec list_lens_review_improvements(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_review_improvements_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_review_improvements_errors()}
+
   def list_lens_review_improvements(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/improvements"
@@ -5205,10 +5577,12 @@ defmodule AWS.WellArchitected do
   * `:milestone_number` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_lens_reviews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_reviews_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_reviews_errors()}
+
   def list_lens_reviews(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews"
 
@@ -5272,18 +5646,20 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-    organization ID, or organizational unit (OU) ID with which the lens is
-    shared.
+  organization ID, or organizational unit (OU) ID with which the lens is
+  shared.
   * `:status`
-    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
+
   @spec list_lens_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lens_shares_errors()}
+
   def list_lens_shares(%Client{} = client, lens_alias, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
 
@@ -5354,16 +5730,18 @@ defmodule AWS.WellArchitected do
   ## Optional parameters:
   * `:lens_name` (`t:string`)
   * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]`) The status of lenses to be
-    returned.
+  returned.
   * `:lens_type` (`t:enum["AWS_OFFICIAL|CUSTOM_SELF|CUSTOM_SHARED"]`) The type of
-    lenses to be returned.
+  lenses to be returned.
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_lenses(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lenses_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lenses_errors()}
+
   def list_lenses(%Client{} = client, options \\ []) do
     url_path = "/lenses"
 
@@ -5447,29 +5825,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec list_milestones(AWS.Client.t(), String.t(), list_milestones_input(), Keyword.t()) ::
+
+  @spec list_milestones(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_milestones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_milestones_errors()}
-  def list_milestones(%Client{} = client, workload_id, input, options \\ []) do
+
+  def list_milestones(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestonesSummaries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5481,29 +5870,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec list_notifications(AWS.Client.t(), list_notifications_input(), Keyword.t()) ::
+
+  @spec list_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notifications_errors()}
-  def list_notifications(%Client{} = client, input, options \\ []) do
+
+  def list_notifications(%Client{} = client, options \\ []) do
     url_path = "/notifications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5518,10 +5918,12 @@ defmodule AWS.WellArchitected do
   * `:next_token` (`t:string`)
   * `:workload_id` (`t:string`)
   """
+
   @spec list_profile_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_notifications_errors()}
+
   def list_profile_notifications(%Client{} = client, options \\ []) do
     url_path = "/profileNotifications"
 
@@ -5585,18 +5987,20 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-    organization ID, or organizational unit (OU) ID with which the profile is
-    shared.
+  organization ID, or organizational unit (OU) ID with which the profile is
+  shared.
   * `:status`
-    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
+
   @spec list_profile_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_shares_errors()}
+
   def list_profile_shares(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
 
@@ -5668,13 +6072,15 @@ defmodule AWS.WellArchitected do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:profile_name_prefix` (`t:string`) An optional string added to the beginning
-    of each profile name returned in the results.
+  of each profile name returned in the results.
   * `:profile_owner_type` (`t:enum["SELF|SHARED"]`) Profile owner type.
   """
+
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
+
   def list_profiles(%Client{} = client, options \\ []) do
     url_path = "/profileSummaries"
 
@@ -5751,14 +6157,16 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:next_token` (`t:string`)
   * `:pillar_id` (`t:string`)
   """
+
   @spec list_review_template_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_review_template_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_review_template_answers_errors()}
+
   def list_review_template_answers(%Client{} = client, lens_alias, template_arn, options \\ []) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers"
@@ -5824,10 +6232,12 @@ defmodule AWS.WellArchitected do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_review_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_review_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_review_templates_errors()}
+
   def list_review_templates(%Client{} = client, options \\ []) do
     url_path = "/reviewTemplates"
 
@@ -5883,22 +6293,24 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:lens_name_prefix` (`t:string`) An optional string added to the beginning of
-    each lens name returned in the results.
+  each lens name returned in the results.
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:next_token` (`t:string`)
   * `:profile_name_prefix` (`t:string`) An optional string added to the beginning
-    of each profile name returned in the results.
+  of each profile name returned in the results.
   * `:share_resource_type` (`t:enum["LENS|PROFILE|TEMPLATE|WORKLOAD"]`) The type
-    of share invitations to be returned.
+  of share invitations to be returned.
   * `:template_name_prefix` (`t:string`) An optional string added to the beginning
-    of each review template name returned in the results.
+  of each review template name returned in the results.
   * `:workload_name_prefix` (`t:string`)
   """
+
   @spec list_share_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_share_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_share_invitations_errors()}
+
   def list_share_invitations(%Client{} = client, options \\ []) do
     url_path = "/shareInvitations"
 
@@ -6006,10 +6418,12 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
 
@@ -6048,18 +6462,20 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-    organization ID, or organizational unit (OU) ID with which the profile is
-    shared.
+  organization ID, or organizational unit (OU) ID with which the profile is
+  shared.
   * `:status`
-    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
+
   @spec list_template_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_shares_errors()}
+
   def list_template_shares(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -6130,18 +6546,20 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-    request.
+  request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-    organization ID, or organizational unit (OU) ID with which the workload is
-    shared.
+  organization ID, or organizational unit (OU) ID with which the workload is
+  shared.
   * `:status`
-    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
+
   @spec list_workload_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workload_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workload_shares_errors()}
+
   def list_workload_shares(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
 
@@ -6211,29 +6629,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec list_workloads(AWS.Client.t(), list_workloads_input(), Keyword.t()) ::
+
+  @spec list_workloads(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workloads_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workloads_errors()}
-  def list_workloads(%Client{} = client, input, options \\ []) do
+
+  def list_workloads(%Client{} = client, options \\ []) do
     url_path = "/workloadsSummaries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6246,29 +6675,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6280,27 +6720,44 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:workload_arn` (`t:string`)
   * `:tag_keys` (`t:list[com.amazonaws.wellarchitected#TagKey]`) A list of tag
-    keys. Existing tags of the resource whose keys are members of this list are
-    removed from the resource.
+  keys. Existing tags of the resource whose keys are members of this list are
+  removed from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, workload_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, workload_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6309,7 +6766,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6327,33 +6784,39 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_answer(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_answer_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_answer_errors()}
-  def update_answer(
-        %Client{} = client,
-        lens_alias,
-        question_id,
-        workload_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_answer(%Client{} = client, lens_alias, question_id, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6362,7 +6825,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6378,17 +6841,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_global_settings(AWS.Client.t(), update_global_settings_input(), Keyword.t()) ::
+
+  @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
-  def update_global_settings(%Client{} = client, input, options \\ []) do
+
+  def update_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6397,7 +6881,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6413,29 +6897,40 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_integration(AWS.Client.t(), String.t(), update_integration_input(), Keyword.t()) ::
+
+  @spec update_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_errors()}
-  def update_integration(%Client{} = client, workload_id, input, options \\ []) do
+
+  def update_integration(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/updateIntegration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6449,25 +6944,39 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_lens_review(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_lens_review_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lens_review_errors()}
-  def update_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
+
+  def update_lens_review(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6476,7 +6985,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6492,17 +7001,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_profile(AWS.Client.t(), String.t(), update_profile_input(), Keyword.t()) ::
+
+  @spec update_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
-  def update_profile(%Client{} = client, profile_arn, input, options \\ []) do
+
+  def update_profile(%Client{} = client, profile_arn, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6511,7 +7041,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6527,22 +7057,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_review_template(
-          AWS.Client.t(),
-          String.t(),
-          update_review_template_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_review_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_review_template_errors()}
-  def update_review_template(%Client{} = client, template_arn, input, options \\ []) do
+
+  def update_review_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6551,7 +7097,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6569,33 +7115,51 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
+
   @spec update_review_template_answer(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_review_template_answer_input(),
           Keyword.t()
         ) ::
           {:ok, update_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_review_template_answer_errors()}
+
   def update_review_template_answer(
         %Client{} = client,
         lens_alias,
         question_id,
         template_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6604,7 +7168,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6621,31 +7185,44 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_review_template_lens_review(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_review_template_lens_review_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_review_template_lens_review_errors()}
+
   def update_review_template_lens_review(
         %Client{} = client,
         lens_alias,
         template_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6654,7 +7231,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6670,22 +7247,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_share_invitation(
-          AWS.Client.t(),
-          String.t(),
-          update_share_invitation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_share_invitation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_share_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_share_invitation_errors()}
-  def update_share_invitation(%Client{} = client, share_invitation_id, input, options \\ []) do
+
+  def update_share_invitation(%Client{} = client, share_invitation_id, options \\ []) do
     url_path = "/shareInvitations/#{AWS.Util.encode_uri(share_invitation_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6694,7 +7287,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6710,17 +7303,38 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_workload(AWS.Client.t(), String.t(), update_workload_input(), Keyword.t()) ::
+
+  @spec update_workload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workload_errors()}
-  def update_workload(%Client{} = client, workload_id, input, options \\ []) do
+
+  def update_workload(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6729,7 +7343,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6746,25 +7360,39 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec update_workload_share(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_workload_share_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workload_share(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workload_share_errors()}
-  def update_workload_share(%Client{} = client, share_id, workload_id, input, options \\ []) do
+
+  def update_workload_share(%Client{} = client, share_id, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6773,7 +7401,7 @@ defmodule AWS.WellArchitected do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6790,27 +7418,41 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec upgrade_lens_review(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          upgrade_lens_review_input(),
-          Keyword.t()
-        ) ::
+
+  @spec upgrade_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_lens_review_errors()}
-  def upgrade_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
+
+  def upgrade_lens_review(%Client{} = client, lens_alias, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6824,27 +7466,41 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec upgrade_profile_version(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          upgrade_profile_version_input(),
-          Keyword.t()
-        ) ::
+
+  @spec upgrade_profile_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_profile_version_errors()}
-  def upgrade_profile_version(%Client{} = client, profile_arn, workload_id, input, options \\ []) do
+
+  def upgrade_profile_version(%Client{} = client, profile_arn, workload_id, options \\ []) do
     url_path =
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/profiles/#{AWS.Util.encode_uri(profile_arn)}/upgrade"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6858,32 +7514,45 @@ defmodule AWS.WellArchitected do
 
   ## Optional parameters:
   """
-  @spec upgrade_review_template_lens_review(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          upgrade_review_template_lens_review_input(),
-          Keyword.t()
-        ) ::
+
+  @spec upgrade_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upgrade_review_template_lens_review_errors()}
+
   def upgrade_review_template_lens_review(
         %Client{} = client,
         lens_alias,
         template_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

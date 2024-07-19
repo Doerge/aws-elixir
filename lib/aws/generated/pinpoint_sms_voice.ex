@@ -12,129 +12,129 @@ defmodule AWS.PinpointSMSVoice do
   @typedoc """
 
   ## Example:
-
+      
       already_exists_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       call_instructions_message_type() :: %{
         "Text" => String.t()
       }
-
+      
   """
   @type call_instructions_message_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logs_destination() :: %{
         "IamRoleArn" => String.t(),
         "LogGroupArn" => String.t()
       }
-
+      
   """
   @type cloud_watch_logs_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_event_destination_request() :: %{
         optional("EventDestination") => event_destination_definition(),
         optional("EventDestinationName") => String.t()
       }
-
+      
   """
   @type create_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_event_destination_response() :: %{}
-
+      
   """
   @type create_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_request() :: %{
         optional("ConfigurationSetName") => String.t()
       }
-
+      
   """
   @type create_configuration_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_set_response() :: %{}
-
+      
   """
   @type create_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_event_destination_request() :: %{}
-
+      
   """
   @type delete_configuration_set_event_destination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_event_destination_response() :: %{}
-
+      
   """
   @type delete_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_request() :: %{}
-
+      
   """
   @type delete_configuration_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_set_response() :: %{}
-
+      
   """
   @type delete_configuration_set_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       event_destination() :: %{
         "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
         "Enabled" => boolean(),
@@ -143,14 +143,14 @@ defmodule AWS.PinpointSMSVoice do
         "Name" => String.t(),
         "SnsDestination" => sns_destination()
       }
-
+      
   """
   @type event_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_destination_definition() :: %{
         "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
         "Enabled" => boolean(),
@@ -158,129 +158,129 @@ defmodule AWS.PinpointSMSVoice do
         "MatchingEventTypes" => list(list(any())()),
         "SnsDestination" => sns_destination()
       }
-
+      
   """
   @type event_destination_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_set_event_destinations_request() :: %{}
-
+      
   """
   @type get_configuration_set_event_destinations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_set_event_destinations_response() :: %{
         "EventDestinations" => list(event_destination()())
       }
-
+      
   """
   @type get_configuration_set_event_destinations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_error_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_service_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kinesis_firehose_destination() :: %{
         "DeliveryStreamArn" => String.t(),
         "IamRoleArn" => String.t()
       }
-
+      
   """
   @type kinesis_firehose_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_sets_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t()
       }
-
+      
   """
   @type list_configuration_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_sets_response() :: %{
         "ConfigurationSets" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_configuration_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       plain_text_message_type() :: %{
         "LanguageCode" => String.t(),
         "Text" => String.t(),
         "VoiceId" => String.t()
       }
-
+      
   """
   @type plain_text_message_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_s_ml_message_type() :: %{
         "LanguageCode" => String.t(),
         "Text" => String.t(),
         "VoiceId" => String.t()
       }
-
+      
   """
   @type s_s_ml_message_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_voice_message_request() :: %{
         optional("CallerId") => String.t(),
         optional("ConfigurationSetName") => String.t(),
@@ -288,73 +288,73 @@ defmodule AWS.PinpointSMSVoice do
         optional("DestinationPhoneNumber") => String.t(),
         optional("OriginationPhoneNumber") => String.t()
       }
-
+      
   """
   @type send_voice_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_voice_message_response() :: %{
         "MessageId" => String.t()
       }
-
+      
   """
   @type send_voice_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sns_destination() :: %{
         "TopicArn" => String.t()
       }
-
+      
   """
   @type sns_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_set_event_destination_request() :: %{
         optional("EventDestination") => event_destination_definition()
       }
-
+      
   """
   @type update_configuration_set_event_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_set_event_destination_response() :: %{}
-
+      
   """
   @type update_configuration_set_event_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_message_content() :: %{
         "CallInstructionsMessage" => call_instructions_message_type(),
         "PlainTextMessage" => plain_text_message_type(),
         "SSMLMessage" => s_s_ml_message_type()
       }
-
+      
   """
   @type voice_message_content() :: %{String.t() => any()}
 
@@ -433,29 +433,40 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Optional parameters:
   """
-  @spec create_configuration_set(AWS.Client.t(), create_configuration_set_request(), Keyword.t()) ::
+
+  @spec create_configuration_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
-  def create_configuration_set(%Client{} = client, input, options \\ []) do
+
+  def create_configuration_set(%Client{} = client, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -468,41 +479,45 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Optional parameters:
   """
-  @spec create_configuration_set_event_destination(
-          AWS.Client.t(),
-          String.t(),
-          create_configuration_set_event_destination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_configuration_set_event_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_event_destination_errors()}
+
   def create_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -515,22 +530,38 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Optional parameters:
   """
-  @spec delete_configuration_set(
-          AWS.Client.t(),
-          String.t(),
-          delete_configuration_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
-  def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
+
+  def delete_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -539,7 +570,7 @@ defmodule AWS.PinpointSMSVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -556,31 +587,49 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Optional parameters:
   """
+
   @spec delete_configuration_set_event_destination(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          delete_configuration_set_event_destination_request(),
           Keyword.t()
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_event_destination_errors()}
+
   def delete_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
         event_destination_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -589,7 +638,7 @@ defmodule AWS.PinpointSMSVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -607,10 +656,12 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Optional parameters:
   """
+
   @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_set_event_destinations_errors()}
+
   def get_configuration_set_event_destinations(
         %Client{} = client,
         configuration_set_name,
@@ -656,10 +707,12 @@ defmodule AWS.PinpointSMSVoice do
   * `:next_token` (`t:string`)
   * `:page_size` (`t:string`)
   """
+
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_sets_errors()}
+
   def list_configuration_sets(%Client{} = client, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets"
 
@@ -715,29 +768,40 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Optional parameters:
   """
-  @spec send_voice_message(AWS.Client.t(), send_voice_message_request(), Keyword.t()) ::
+
+  @spec send_voice_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_voice_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_voice_message_errors()}
-  def send_voice_message(%Client{} = client, input, options \\ []) do
+
+  def send_voice_message(%Client{} = client, options \\ []) do
     url_path = "/v1/sms-voice/voice/message"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -753,32 +817,50 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Optional parameters:
   """
+
   @spec update_configuration_set_event_destination(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_configuration_set_event_destination_request(),
           Keyword.t()
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_set_event_destination_errors()}
+
   def update_configuration_set_event_destination(
         %Client{} = client,
         configuration_set_name,
         event_destination_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

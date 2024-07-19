@@ -26,30 +26,30 @@ defmodule AWS.ResourceGroups do
   @typedoc """
 
   ## Example:
-
+      
       resource_filter() :: %{
         "Name" => list(any()),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type resource_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_input() :: %{
         optional("Configuration") => list(group_configuration_item()()),
         optional("Description") => String.t(),
@@ -57,453 +57,453 @@ defmodule AWS.ResourceGroups do
         optional("Tags") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_query_output() :: %{
         "GroupQuery" => group_query()
       }
-
+      
   """
   @type update_group_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_group_resources_item() :: %{
         "Identifier" => resource_identifier(),
         "Status" => resource_status()
       }
-
+      
   """
   @type list_group_resources_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_output() :: %{
         "Arn" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type tag_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       method_not_allowed_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type method_not_allowed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_query_input() :: %{
         optional("Group") => String.t(),
         optional("GroupName") => String.t(),
         required("ResourceQuery") => resource_query()
       }
-
+      
   """
   @type update_group_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_configuration_input() :: %{
         optional("Group") => String.t()
       }
-
+      
   """
   @type get_group_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_status() :: %{
         "Name" => list(any())
       }
-
+      
   """
   @type resource_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_query() :: %{
         "Query" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type resource_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_identifier() :: %{
         "GroupArn" => String.t(),
         "GroupName" => String.t()
       }
-
+      
   """
   @type group_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_tags_output() :: %{
         "Arn" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type get_tags_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_input() :: %{
         required("Keys") => list(String.t()())
       }
-
+      
   """
   @type untag_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_output() :: %{
         "Group" => group()
       }
-
+      
   """
   @type update_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_group_configuration_input() :: %{
         optional("Configuration") => list(group_configuration_item()()),
         optional("Group") => String.t()
       }
-
+      
   """
   @type put_group_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_groups_output() :: %{
         "GroupIdentifiers" => list(group_identifier()()),
         "Groups" => list(group()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_groups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_query_input() :: %{
         optional("Group") => String.t(),
         optional("GroupName") => String.t()
       }
-
+      
   """
   @type get_group_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_configuration_output() :: %{
         "GroupConfiguration" => group_configuration()
       }
-
+      
   """
   @type get_group_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pending_resource() :: %{
         "ResourceArn" => String.t()
       }
-
+      
   """
   @type pending_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_query_output() :: %{
         "GroupQuery" => group_query()
       }
-
+      
   """
   @type get_group_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_resources_output() :: %{
         "Failed" => list(failed_resource()()),
         "Pending" => list(pending_resource()()),
         "Succeeded" => list(String.t()())
       }
-
+      
   """
   @type group_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_identifier() :: %{
         "ResourceArn" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type resource_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_configuration_parameter() :: %{
         "Name" => String.t(),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type group_configuration_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_output() :: %{
         "Group" => group(),
         "GroupConfiguration" => group_configuration(),
         "ResourceQuery" => resource_query(),
         "Tags" => map()
       }
-
+      
   """
   @type create_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ungroup_resources_output() :: %{
         "Failed" => list(failed_resource()()),
         "Pending" => list(pending_resource()()),
         "Succeeded" => list(String.t()())
       }
-
+      
   """
   @type ungroup_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_resources_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ResourceQuery") => resource_query()
       }
-
+      
   """
   @type search_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_filter() :: %{
         "Name" => list(any()),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type group_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_resources_input() :: %{
         required("Group") => String.t(),
         required("ResourceArns") => list(String.t()())
       }
-
+      
   """
   @type group_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_resources_output() :: %{
         "NextToken" => String.t(),
         "QueryErrors" => list(query_error()()),
         "ResourceIdentifiers" => list(resource_identifier()())
       }
-
+      
   """
   @type search_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_group_resources_output() :: %{
         "NextToken" => String.t(),
         "QueryErrors" => list(query_error()()),
         "ResourceIdentifiers" => list(resource_identifier()()),
         "Resources" => list(list_group_resources_item()())
       }
-
+      
   """
   @type list_group_resources_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_input() :: %{
         optional("Group") => String.t(),
         optional("GroupName") => String.t()
       }
-
+      
   """
   @type delete_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_query() :: %{
         "GroupName" => String.t(),
         "ResourceQuery" => resource_query()
       }
-
+      
   """
   @type group_query() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_settings_input() :: %{
         optional("GroupLifecycleEventsDesiredStatus") => list(any())
       }
-
+      
   """
   @type update_account_settings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_output() :: %{
         "Group" => group()
       }
-
+      
   """
   @type get_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_settings_output() :: %{
         "AccountSettings" => account_settings()
       }
-
+      
   """
   @type update_account_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_group_input() :: %{
         optional("Group") => String.t(),
         optional("GroupName") => String.t()
       }
-
+      
   """
   @type get_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_group_resources_input() :: %{
         optional("Filters") => list(resource_filter()()),
         optional("Group") => String.t(),
@@ -511,207 +511,207 @@ defmodule AWS.ResourceGroups do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_group_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_settings() :: %{
         "GroupLifecycleEventsDesiredStatus" => list(any()),
         "GroupLifecycleEventsStatus" => list(any()),
         "GroupLifecycleEventsStatusMessage" => String.t()
       }
-
+      
   """
   @type account_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_input() :: %{
         optional("Description") => String.t(),
         optional("Group") => String.t(),
         optional("GroupName") => String.t()
       }
-
+      
   """
   @type update_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_tags_input() :: %{}
-
+      
   """
   @type get_tags_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       group() :: %{
         "Description" => String.t(),
         "GroupArn" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_settings_output() :: %{
         "AccountSettings" => account_settings()
       }
-
+      
   """
   @type get_account_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ungroup_resources_input() :: %{
         required("Group") => String.t(),
         required("ResourceArns") => list(String.t()())
       }
-
+      
   """
   @type ungroup_resources_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_groups_input() :: %{
         optional("Filters") => list(group_filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_output() :: %{
         "Arn" => String.t(),
         "Keys" => list(String.t()())
       }
-
+      
   """
   @type untag_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       failed_resource() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "ResourceArn" => String.t()
       }
-
+      
   """
   @type failed_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_output() :: %{
         "Group" => group()
       }
-
+      
   """
   @type delete_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_configuration() :: %{
         "Configuration" => list(group_configuration_item()()),
         "FailureReason" => String.t(),
         "ProposedConfiguration" => list(group_configuration_item()()),
         "Status" => list(any())
       }
-
+      
   """
   @type group_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_error() :: %{
         "ErrorCode" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type query_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_group_configuration_output() :: %{}
-
+      
   """
   @type put_group_configuration_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       group_configuration_item() :: %{
         "Parameters" => list(group_configuration_parameter()()),
         "Type" => String.t()
       }
-
+      
   """
   @type group_configuration_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_input() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_input() :: %{String.t() => any()}
 
@@ -889,29 +889,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec create_group(AWS.Client.t(), create_group_input(), Keyword.t()) ::
+
+  @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-  def create_group(%Client{} = client, input, options \\ []) do
+
+  def create_group(%Client{} = client, options \\ []) do
     url_path = "/groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -925,29 +936,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec delete_group(AWS.Client.t(), delete_group_input(), Keyword.t()) ::
+
+  @spec delete_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-  def delete_group(%Client{} = client, input, options \\ []) do
+
+  def delete_group(%Client{} = client, options \\ []) do
     url_path = "/delete-group"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -959,29 +981,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec get_account_settings(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-  def get_account_settings(%Client{} = client, input, options \\ []) do
+
+  def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/get-account-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -993,29 +1026,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec get_group(AWS.Client.t(), get_group_input(), Keyword.t()) ::
+
+  @spec get_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-  def get_group(%Client{} = client, input, options \\ []) do
+
+  def get_group(%Client{} = client, options \\ []) do
     url_path = "/get-group"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1031,29 +1075,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec get_group_configuration(AWS.Client.t(), get_group_configuration_input(), Keyword.t()) ::
+
+  @spec get_group_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_configuration_errors()}
-  def get_group_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_group_configuration(%Client{} = client, options \\ []) do
     url_path = "/get-group-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1069,29 +1124,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec get_group_query(AWS.Client.t(), get_group_query_input(), Keyword.t()) ::
+
+  @spec get_group_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_query_errors()}
-  def get_group_query(%Client{} = client, input, options \\ []) do
+
+  def get_group_query(%Client{} = client, options \\ []) do
     url_path = "/get-group-query"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1102,14 +1168,16 @@ defmodule AWS.ResourceGroups do
 
   ## Parameters:
   * `:arn` (`t:string`) The ARN of the resource group whose tags you want to
-    retrieve.
+  retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
+
   def get_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
 
@@ -1150,29 +1218,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec group_resources(AWS.Client.t(), group_resources_input(), Keyword.t()) ::
+
+  @spec group_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, group_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, group_resources_errors()}
-  def group_resources(%Client{} = client, input, options \\ []) do
+
+  def group_resources(%Client{} = client, options \\ []) do
     url_path = "/group-resources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1185,29 +1264,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec list_group_resources(AWS.Client.t(), list_group_resources_input(), Keyword.t()) ::
+
+  @spec list_group_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_group_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_resources_errors()}
-  def list_group_resources(%Client{} = client, input, options \\ []) do
+
+  def list_group_resources(%Client{} = client, options \\ []) do
     url_path = "/list-group-resources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1220,35 +1310,61 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The total number of results that you want
-    included on each page of the response. If you do not include this parameter,
-    it defaults to a value that is specific to the operation. If additional
-    items exist beyond the maximum you specify, the NextToken response element
-    is present and has a value (is not null). Include that value as the
-    NextToken request parameter in the next call to the operation to get the
-    next part of the results. Note that the service might return fewer results
-    than the maximum even when there are more results available. You should
-    check NextToken after every operation to ensure that you receive all of the
-    results.
+  included on each page of the response. If you do not include this parameter,
+  it defaults to a value that is specific to the operation. If additional
+  items exist beyond the maximum you specify, the NextToken response element
+  is present and has a value (is not null). Include that value as the
+  NextToken request parameter in the next call to the operation to get the
+  next part of the results. Note that the service might return fewer results
+  than the maximum even when there are more results available. You should
+  check NextToken after every operation to ensure that you receive all of the
+  results.
   * `:next_token` (`t:string`) The parameter for receiving additional results if
-    you receive a NextToken response in a previous request. A NextToken response
-    indicates that more output is available. Set this parameter to the value
-    provided by a previous call's NextToken response to indicate where the
-    output should continue from.
+  you receive a NextToken response in a previous request. A NextToken response
+  indicates that more output is available. Set this parameter to the value
+  provided by a previous call's NextToken response to indicate where the
+  output should continue from.
   """
-  @spec list_groups(AWS.Client.t(), list_groups_input(), Keyword.t()) ::
+
+  @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-  def list_groups(%Client{} = client, input, options \\ []) do
+
+  def list_groups(%Client{} = client, options \\ []) do
     url_path = "/groups-list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"MaxResults", "maxResults"},
-        {"NextToken", "nextToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1258,17 +1374,9 @@ defmodule AWS.ResourceGroups do
       options
       |> Keyword.drop([:max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1283,29 +1391,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec put_group_configuration(AWS.Client.t(), put_group_configuration_input(), Keyword.t()) ::
+
+  @spec put_group_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_group_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_group_configuration_errors()}
-  def put_group_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_group_configuration(%Client{} = client, options \\ []) do
     url_path = "/put-group-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1319,29 +1438,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec search_resources(AWS.Client.t(), search_resources_input(), Keyword.t()) ::
+
+  @spec search_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resources_errors()}
-  def search_resources(%Client{} = client, input, options \\ []) do
+
+  def search_resources(%Client{} = client, options \\ []) do
     url_path = "/resources/search"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1359,19 +1489,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec tag(AWS.Client.t(), String.t(), tag_input(), Keyword.t()) ::
+
+  @spec tag(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_errors()}
-  def tag(%Client{} = client, arn, input, options \\ []) do
+
+  def tag(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1387,29 +1538,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec ungroup_resources(AWS.Client.t(), ungroup_resources_input(), Keyword.t()) ::
+
+  @spec ungroup_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, ungroup_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, ungroup_resources_errors()}
-  def ungroup_resources(%Client{} = client, input, options \\ []) do
+
+  def ungroup_resources(%Client{} = client, options \\ []) do
     url_path = "/ungroup-resources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1419,22 +1581,43 @@ defmodule AWS.ResourceGroups do
 
   ## Parameters:
   * `:arn` (`t:string`) The ARN of the resource group from which to remove tags.
-    The command removed both the specified keys and any values associated with
-    those keys.
+  The command removed both the specified keys and any values associated with
+  those keys.
 
   ## Optional parameters:
   """
-  @spec untag(AWS.Client.t(), String.t(), untag_input(), Keyword.t()) ::
+
+  @spec untag(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_errors()}
-  def untag(%Client{} = client, arn, input, options \\ []) do
+
+  def untag(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1443,7 +1626,7 @@ defmodule AWS.ResourceGroups do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1458,29 +1641,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec update_account_settings(AWS.Client.t(), update_account_settings_input(), Keyword.t()) ::
+
+  @spec update_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-  def update_account_settings(%Client{} = client, input, options \\ []) do
+
+  def update_account_settings(%Client{} = client, options \\ []) do
     url_path = "/update-account-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1493,29 +1687,40 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec update_group(AWS.Client.t(), update_group_input(), Keyword.t()) ::
+
+  @spec update_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-  def update_group(%Client{} = client, input, options \\ []) do
+
+  def update_group(%Client{} = client, options \\ []) do
     url_path = "/update-group"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1530,28 +1735,39 @@ defmodule AWS.ResourceGroups do
 
   ## Optional parameters:
   """
-  @spec update_group_query(AWS.Client.t(), update_group_query_input(), Keyword.t()) ::
+
+  @spec update_group_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_query_errors()}
-  def update_group_query(%Client{} = client, input, options \\ []) do
+
+  def update_group_query(%Client{} = client, options \\ []) do
     url_path = "/update-group-query"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

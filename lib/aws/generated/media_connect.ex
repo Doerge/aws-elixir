@@ -12,94 +12,94 @@ defmodule AWS.MediaConnect do
   @typedoc """
 
   ## Example:
-
+      
       deregister_gateway_instance_response() :: %{
         "GatewayInstanceArn" => String.t(),
         "InstanceState" => list(any())
       }
-
+      
   """
   @type deregister_gateway_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_request() :: %{
         optional("Maintenance") => update_maintenance(),
         optional("SourceFailoverConfig") => update_failover_config()
       }
-
+      
   """
   @type update_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_vpc_interface_response() :: %{
         "FlowArn" => String.t(),
         "NonDeletedNetworkInterfaceIds" => list(String.t()()),
         "VpcInterfaceName" => String.t()
       }
-
+      
   """
   @type remove_flow_vpc_interface_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_stream_output_configuration_request() :: %{
         "DestinationConfigurations" => list(destination_configuration_request()()),
         "EncodingName" => list(any()),
         "EncodingParameters" => encoding_parameters_request(),
         "MediaStreamName" => String.t()
       }
-
+      
   """
   @type media_stream_output_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_sources_response() :: %{
         "FlowArn" => String.t(),
         "Sources" => list(source()())
       }
-
+      
   """
   @type add_flow_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       listed_entitlement() :: %{
         "DataTransferSubscriberFeePercent" => integer(),
         "EntitlementArn" => String.t(),
         "EntitlementName" => String.t()
       }
-
+      
   """
   @type listed_entitlement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transport_stream_program() :: %{
         "PcrPid" => integer(),
         "ProgramName" => String.t(),
@@ -107,57 +107,57 @@ defmodule AWS.MediaConnect do
         "ProgramPid" => integer(),
         "Streams" => list(transport_stream()())
       }
-
+      
   """
   @type transport_stream_program() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_source_metadata_response() :: %{
         "FlowArn" => String.t(),
         "Messages" => list(message_detail()()),
         "Timestamp" => non_neg_integer(),
         "TransportMediaInfo" => transport_media_info()
       }
-
+      
   """
   @type describe_flow_source_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grant_flow_entitlements_request() :: %{
         required("Entitlements") => list(grant_entitlement_request()())
       }
-
+      
   """
   @type grant_flow_entitlements_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_instance_request() :: %{}
-
+      
   """
   @type describe_gateway_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_source_metadata_request() :: %{}
-
+      
   """
   @type describe_flow_source_metadata_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       fmtp_request() :: %{
         "ChannelOrder" => String.t(),
         "Colorimetry" => list(any()),
@@ -167,14 +167,14 @@ defmodule AWS.MediaConnect do
         "ScanMode" => list(any()),
         "Tcs" => list(any())
       }
-
+      
   """
   @type fmtp_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_flow_request() :: %{
         optional("AvailabilityZone") => String.t(),
         optional("Entitlements") => list(grant_entitlement_request()()),
@@ -187,316 +187,316 @@ defmodule AWS.MediaConnect do
         optional("VpcInterfaces") => list(vpc_interface_request()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_state_request() :: %{
         required("DesiredState") => list(any())
       }
-
+      
   """
   @type update_bridge_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gateway_instances_response() :: %{
         "Instances" => list(listed_gateway_instance()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_gateway_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_stream_source_configuration_request() :: %{
         "EncodingName" => list(any()),
         "InputConfigurations" => list(input_configuration_request()()),
         "MediaStreamName" => String.t()
       }
-
+      
   """
   @type media_stream_source_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_egress_gateway_bridge_request() :: %{
         optional("MaxBitrate") => integer()
       }
-
+      
   """
   @type update_egress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_sources_response() :: %{
         "BridgeArn" => String.t(),
         "Sources" => list(bridge_source()())
       }
-
+      
   """
   @type add_bridge_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_gateway_response() :: %{
         "Gateway" => gateway()
       }
-
+      
   """
   @type create_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gateways_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_gateways_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_media_streams_response() :: %{
         "FlowArn" => String.t(),
         "MediaStreams" => list(media_stream()())
       }
-
+      
   """
   @type add_flow_media_streams_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_outputs_response() :: %{
         "FlowArn" => String.t(),
         "Outputs" => list(output()())
       }
-
+      
   """
   @type add_flow_outputs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_source_response() :: %{
         "FlowArn" => String.t(),
         "Source" => source()
       }
-
+      
   """
   @type update_flow_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_reservations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_reservations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_output_request() :: %{
         optional("NetworkOutput") => update_bridge_network_output_request()
       }
-
+      
   """
   @type update_bridge_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_offerings_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_offerings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bridges_request() :: %{
         optional("FilterArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_bridges_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       interface_request() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type interface_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bridge_flow_source() :: %{
         "FlowArn" => String.t(),
         "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
         "Name" => String.t(),
         "OutputArn" => String.t()
       }
-
+      
   """
   @type bridge_flow_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_offerings_response() :: %{
         "NextToken" => String.t(),
         "Offerings" => list(offering()())
       }
-
+      
   """
   @type list_offerings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_bridge_source_request() :: %{}
-
+      
   """
   @type remove_bridge_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_instance_response() :: %{
         "GatewayInstance" => gateway_instance()
       }
-
+      
   """
   @type describe_gateway_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_maintenance() :: %{
         "MaintenanceDay" => list(any()),
         "MaintenanceScheduledDate" => String.t(),
         "MaintenanceStartHour" => String.t()
       }
-
+      
   """
   @type update_maintenance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_source_request() :: %{
         "FlowSource" => add_bridge_flow_source_request(),
         "NetworkSource" => add_bridge_network_source_request()
       }
-
+      
   """
   @type add_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_ingress_gateway_bridge_request() :: %{
         optional("MaxBitrate") => integer(),
         optional("MaxOutputs") => integer()
       }
-
+      
   """
   @type update_ingress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_gateway_response() :: %{
         "GatewayArn" => String.t()
       }
-
+      
   """
   @type delete_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_flow_request() :: %{}
-
+      
   """
   @type delete_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_flow420_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type create_flow420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       listed_flow() :: %{
         "AvailabilityZone" => String.t(),
         "Description" => String.t(),
@@ -506,25 +506,25 @@ defmodule AWS.MediaConnect do
         "SourceType" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type listed_flow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gateway_instance_request() :: %{
         optional("BridgePlacement") => list(any())
       }
-
+      
   """
   @type update_gateway_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_stream() :: %{
         "Attributes" => media_stream_attributes(),
         "ClockRate" => integer(),
@@ -535,118 +535,118 @@ defmodule AWS.MediaConnect do
         "MediaStreamType" => list(any()),
         "VideoFormat" => String.t()
       }
-
+      
   """
   @type media_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_flow_response() :: %{
         "Flow" => flow()
       }
-
+      
   """
   @type create_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_flow_response() :: %{
         "FlowArn" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type delete_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_media_stream_response() :: %{
         "FlowArn" => String.t(),
         "MediaStreamName" => String.t()
       }
-
+      
   """
   @type remove_flow_media_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_bridge_source_response() :: %{
         "BridgeArn" => String.t(),
         "SourceName" => String.t()
       }
-
+      
   """
   @type remove_bridge_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_flow_source_request() :: %{
         "FlowArn" => String.t(),
         "FlowVpcInterfaceAttachment" => vpc_interface_attachment()
       }
-
+      
   """
   @type update_bridge_flow_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encoding_parameters_request() :: %{
         "CompressionFactor" => float(),
         "EncoderProfile" => list(any())
       }
-
+      
   """
   @type encoding_parameters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bridge_response() :: %{
         "Bridge" => bridge()
       }
-
+      
   """
   @type create_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway() :: %{
         "EgressCidrBlocks" => list(String.t()()),
         "GatewayArn" => String.t(),
@@ -655,14 +655,14 @@ defmodule AWS.MediaConnect do
         "Name" => String.t(),
         "Networks" => list(gateway_network()())
       }
-
+      
   """
   @type gateway() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_media_stream_request() :: %{
         optional("Attributes") => media_stream_attributes_request(),
         optional("ClockRate") => integer(),
@@ -670,14 +670,14 @@ defmodule AWS.MediaConnect do
         optional("MediaStreamType") => list(any()),
         optional("VideoFormat") => String.t()
       }
-
+      
   """
   @type update_flow_media_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_media_stream_request() :: %{
         "Attributes" => media_stream_attributes_request(),
         "ClockRate" => integer(),
@@ -687,27 +687,27 @@ defmodule AWS.MediaConnect do
         "MediaStreamType" => list(any()),
         "VideoFormat" => String.t()
       }
-
+      
   """
   @type add_media_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ingress_gateway_bridge() :: %{
         optional("InstanceId") => String.t(),
         required("MaxBitrate") => integer(),
         required("MaxOutputs") => integer()
       }
-
+      
   """
   @type ingress_gateway_bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bridge_network_output() :: %{
         "IpAddress" => String.t(),
         "Name" => String.t(),
@@ -716,87 +716,87 @@ defmodule AWS.MediaConnect do
         "Protocol" => list(any()),
         "Ttl" => integer()
       }
-
+      
   """
   @type bridge_network_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_detail() :: %{
         optional("ResourceName") => String.t(),
         required("Code") => String.t(),
         required("Message") => String.t()
       }
-
+      
   """
   @type message_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_stream_attributes_request() :: %{
         "Fmtp" => fmtp_request(),
         "Lang" => String.t()
       }
-
+      
   """
   @type media_stream_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bridge420_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type create_bridge420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_network() :: %{
         "CidrBlock" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type gateway_network() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_request() :: %{
         optional("EgressGatewayBridge") => update_egress_gateway_bridge_request(),
         optional("IngressGatewayBridge") => update_ingress_gateway_bridge_request(),
         optional("SourceFailoverConfig") => update_failover_config()
       }
-
+      
   """
   @type update_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       egress_gateway_bridge() :: %{
         optional("InstanceId") => String.t(),
         required("MaxBitrate") => integer()
       }
-
+      
   """
   @type egress_gateway_bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_source_request() :: %{
         optional("Decryption") => update_encryption(),
         optional("Description") => String.t(),
@@ -817,104 +817,104 @@ defmodule AWS.MediaConnect do
         optional("VpcInterfaceName") => String.t(),
         optional("WhitelistCidr") => String.t()
       }
-
+      
   """
   @type update_flow_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_flows_response() :: %{
         "Flows" => list(listed_flow()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_flows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_egress_gateway_bridge_request() :: %{
         required("MaxBitrate") => integer()
       }
-
+      
   """
   @type add_egress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       listed_gateway() :: %{
         "GatewayArn" => String.t(),
         "GatewayState" => list(any()),
         "Name" => String.t()
       }
-
+      
   """
   @type listed_gateway() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_outputs420_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type add_flow_outputs420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_bridge_request() :: %{}
-
+      
   """
   @type delete_bridge_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       bridge_output() :: %{
         "FlowOutput" => bridge_flow_output(),
         "NetworkOutput" => bridge_network_output()
       }
-
+      
   """
   @type bridge_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_bridge_response() :: %{
         "BridgeArn" => String.t()
       }
-
+      
   """
   @type delete_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transport() :: %{
         "CidrAllowList" => list(String.t()()),
         "MaxBitrate" => integer(),
@@ -930,23 +930,23 @@ defmodule AWS.MediaConnect do
         "SourceListenerPort" => integer(),
         "StreamId" => String.t()
       }
-
+      
   """
   @type transport() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_flow_request() :: %{}
-
+      
   """
   @type start_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bridge_request() :: %{
         optional("EgressGatewayBridge") => add_egress_gateway_bridge_request(),
         optional("IngressGatewayBridge") => add_ingress_gateway_bridge_request(),
@@ -956,39 +956,39 @@ defmodule AWS.MediaConnect do
         required("PlacementArn") => String.t(),
         required("Sources") => list(add_bridge_source_request()())
       }
-
+      
   """
   @type create_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_vpc_interfaces_request() :: %{
         required("VpcInterfaces") => list(vpc_interface_request()())
       }
-
+      
   """
   @type add_flow_vpc_interfaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       maintenance() :: %{
         "MaintenanceDay" => list(any()),
         "MaintenanceDeadline" => String.t(),
         "MaintenanceScheduledDate" => String.t(),
         "MaintenanceStartHour" => String.t()
       }
-
+      
   """
   @type maintenance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_interface() :: %{
         "Name" => String.t(),
         "NetworkInterfaceIds" => list(String.t()()),
@@ -997,26 +997,26 @@ defmodule AWS.MediaConnect do
         "SecurityGroupIds" => list(String.t()()),
         "SubnetId" => String.t()
       }
-
+      
   """
   @type vpc_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_bridge_output_response() :: %{
         "BridgeArn" => String.t(),
         "OutputName" => String.t()
       }
-
+      
   """
   @type remove_bridge_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fmtp() :: %{
         "ChannelOrder" => String.t(),
         "Colorimetry" => list(any()),
@@ -1026,59 +1026,59 @@ defmodule AWS.MediaConnect do
         "ScanMode" => list(any()),
         "Tcs" => list(any())
       }
-
+      
   """
   @type fmtp() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_gateway420_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type create_gateway420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_priority() :: %{
         "PrimarySource" => String.t()
       }
-
+      
   """
   @type source_priority() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       set_gateway_bridge_source_request() :: %{
         "BridgeArn" => String.t(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
-
+      
   """
   @type set_gateway_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_network_source_request() :: %{
         "MulticastIp" => String.t(),
         "Name" => String.t(),
@@ -1086,47 +1086,47 @@ defmodule AWS.MediaConnect do
         "Port" => integer(),
         "Protocol" => list(any())
       }
-
+      
   """
   @type add_bridge_network_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_request() :: %{}
-
+      
   """
   @type describe_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_flow_response() :: %{
         "FlowArn" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type start_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_flow_response() :: %{
         "FlowArn" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type stop_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption() :: %{
         "Algorithm" => list(any()),
         "ConstantInitializationVector" => String.t(),
@@ -1138,14 +1138,14 @@ defmodule AWS.MediaConnect do
         "SecretArn" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bridge() :: %{
         "BridgeArn" => String.t(),
         "BridgeMessages" => list(message_detail()()),
@@ -1158,14 +1158,14 @@ defmodule AWS.MediaConnect do
         "SourceFailoverConfig" => failover_config(),
         "Sources" => list(bridge_source()())
       }
-
+      
   """
   @type bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_network_output_request() :: %{
         "IpAddress" => String.t(),
         "NetworkName" => String.t(),
@@ -1173,81 +1173,81 @@ defmodule AWS.MediaConnect do
         "Protocol" => list(any()),
         "Ttl" => integer()
       }
-
+      
   """
   @type update_bridge_network_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grant_flow_entitlements420_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type grant_flow_entitlements420_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encoding_parameters() :: %{
         "CompressionFactor" => float(),
         "EncoderProfile" => list(any())
       }
-
+      
   """
   @type encoding_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_specification() :: %{
         "ReservedBitrate" => integer(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type resource_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_bridge_output_request() :: %{}
-
+      
   """
   @type remove_bridge_output_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_state_response() :: %{
         "BridgeArn" => String.t(),
         "DesiredState" => list(any())
       }
-
+      
   """
   @type update_bridge_state_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reservation() :: %{
         "CurrencyCode" => String.t(),
         "Duration" => integer(),
@@ -1263,139 +1263,139 @@ defmodule AWS.MediaConnect do
         "ResourceSpecification" => resource_specification(),
         "Start" => String.t()
       }
-
+      
   """
   @type reservation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       input_configuration() :: %{
         "InputIp" => String.t(),
         "InputPort" => integer(),
         "Interface" => interface()
       }
-
+      
   """
   @type input_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_entitlements_response() :: %{
         "Entitlements" => list(listed_entitlement()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_entitlements_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_sources_request() :: %{
         required("Sources") => list(set_source_request()())
       }
-
+      
   """
   @type add_flow_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_stream_attributes() :: %{
         "Fmtp" => fmtp(),
         "Lang" => String.t()
       }
-
+      
   """
   @type media_stream_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_flows_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_flows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_source_response() :: %{
         "BridgeArn" => String.t(),
         "Source" => bridge_source()
       }
-
+      
   """
   @type update_bridge_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_outputs_response() :: %{
         "BridgeArn" => String.t(),
         "Outputs" => list(bridge_output()())
       }
-
+      
   """
   @type add_bridge_outputs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_source_request() :: %{}
-
+      
   """
   @type remove_flow_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_bridge_request() :: %{}
-
+      
   """
   @type describe_bridge_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_source_response() :: %{
         "FlowArn" => String.t(),
         "SourceArn" => String.t()
       }
-
+      
   """
   @type remove_flow_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bridge_network_source() :: %{
         "MulticastIp" => String.t(),
         "Name" => String.t(),
@@ -1403,40 +1403,40 @@ defmodule AWS.MediaConnect do
         "Port" => integer(),
         "Protocol" => list(any())
       }
-
+      
   """
   @type bridge_network_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_stream_output_configuration() :: %{
         "DestinationConfigurations" => list(destination_configuration()()),
         "EncodingName" => list(any()),
         "EncodingParameters" => encoding_parameters(),
         "MediaStreamName" => String.t()
       }
-
+      
   """
   @type media_stream_output_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_ingress_gateway_bridge_request() :: %{
         required("MaxBitrate") => integer(),
         required("MaxOutputs") => integer()
       }
-
+      
   """
   @type add_ingress_gateway_bridge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source() :: %{
         "DataTransferSubscriberFeePercent" => integer(),
         "Decryption" => encryption(),
@@ -1454,124 +1454,124 @@ defmodule AWS.MediaConnect do
         "VpcInterfaceName" => String.t(),
         "WhitelistCidr" => String.t()
       }
-
+      
   """
   @type source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_flow_source_request() :: %{
         "FlowArn" => String.t(),
         "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
         "Name" => String.t()
       }
-
+      
   """
   @type add_bridge_flow_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gateway_instance_response() :: %{
         "BridgePlacement" => list(any()),
         "GatewayInstanceArn" => String.t()
       }
-
+      
   """
   @type update_gateway_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_failover_config() :: %{
         "FailoverMode" => list(any()),
         "RecoveryWindow" => integer(),
         "SourcePriority" => source_priority(),
         "State" => list(any())
       }
-
+      
   """
   @type update_failover_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_output_response() :: %{
         "FlowArn" => String.t(),
         "OutputArn" => String.t()
       }
-
+      
   """
   @type remove_flow_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_response() :: %{
         "Bridge" => bridge()
       }
-
+      
   """
   @type update_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_gateway_request() :: %{
         required("EgressCidrBlocks") => list(String.t()()),
         required("Name") => String.t(),
         required("Networks") => list(gateway_network()())
       }
-
+      
   """
   @type create_gateway_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grant_flow_entitlements_response() :: %{
         "Entitlements" => list(entitlement()()),
         "FlowArn" => String.t()
       }
-
+      
   """
   @type grant_flow_entitlements_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_outputs_request() :: %{
         required("Outputs") => list(add_bridge_output_request()())
       }
-
+      
   """
   @type add_bridge_outputs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_maintenance() :: %{
         "MaintenanceDay" => list(any()),
         "MaintenanceStartHour" => String.t()
       }
-
+      
   """
   @type add_maintenance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entitlement() :: %{
         "DataTransferSubscriberFeePercent" => integer(),
         "Description" => String.t(),
@@ -1581,14 +1581,14 @@ defmodule AWS.MediaConnect do
         "Name" => String.t(),
         "Subscribers" => list(String.t()())
       }
-
+      
   """
   @type entitlement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_encryption() :: %{
         "Algorithm" => list(any()),
         "ConstantInitializationVector" => String.t(),
@@ -1600,109 +1600,109 @@ defmodule AWS.MediaConnect do
         "SecretArn" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type update_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_network_source_request() :: %{
         "MulticastIp" => String.t(),
         "NetworkName" => String.t(),
         "Port" => integer(),
         "Protocol" => list(any())
       }
-
+      
   """
   @type update_bridge_network_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_reservations_response() :: %{
         "NextToken" => String.t(),
         "Reservations" => list(reservation()())
       }
-
+      
   """
   @type list_reservations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       input_configuration_request() :: %{
         "InputPort" => integer(),
         "Interface" => interface_request()
       }
-
+      
   """
   @type input_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       messages() :: %{
         "Errors" => list(String.t()())
       }
-
+      
   """
   @type messages() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_reservation_response() :: %{
         "Reservation" => reservation()
       }
-
+      
   """
   @type describe_reservation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_configuration_request() :: %{
         "DestinationIp" => String.t(),
         "DestinationPort" => integer(),
         "Interface" => interface_request()
       }
-
+      
   """
   @type destination_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       interface() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transport_media_info() :: %{
         "Programs" => list(transport_stream_program()())
       }
-
+      
   """
   @type transport_media_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_interface_request() :: %{
         "Name" => String.t(),
         "NetworkInterfaceType" => list(any()),
@@ -1710,162 +1710,162 @@ defmodule AWS.MediaConnect do
         "SecurityGroupIds" => list(String.t()()),
         "SubnetId" => String.t()
       }
-
+      
   """
   @type vpc_interface_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_gateway_request() :: %{}
-
+      
   """
   @type delete_gateway_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_request() :: %{}
-
+      
   """
   @type describe_gateway_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_entitlements_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_entitlements_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_reservation_request() :: %{}
-
+      
   """
   @type describe_reservation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_vpc_interface_request() :: %{}
-
+      
   """
   @type remove_flow_vpc_interface_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       frame_resolution() :: %{
         "FrameHeight" => integer(),
         "FrameWidth" => integer()
       }
-
+      
   """
   @type frame_resolution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_bridge_source() :: %{
         "BridgeArn" => String.t(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
-
+      
   """
   @type gateway_bridge_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       revoke_flow_entitlement_request() :: %{}
-
+      
   """
   @type revoke_flow_entitlement_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_response() :: %{
         "Gateway" => gateway()
       }
-
+      
   """
   @type describe_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_output_request() :: %{
         "NetworkOutput" => add_bridge_network_output_request()
       }
-
+      
   """
   @type add_bridge_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gateway_instances_request() :: %{
         optional("FilterArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_gateway_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_source_request() :: %{
         optional("FlowSource") => update_bridge_flow_source_request(),
         optional("NetworkSource") => update_bridge_network_source_request()
       }
-
+      
   """
   @type update_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offering() :: %{
         "CurrencyCode" => String.t(),
         "Duration" => integer(),
@@ -1876,23 +1876,23 @@ defmodule AWS.MediaConnect do
         "PriceUnits" => list(any()),
         "ResourceSpecification" => resource_specification()
       }
-
+      
   """
   @type offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_media_stream_request() :: %{}
-
+      
   """
   @type remove_flow_media_stream_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       grant_entitlement_request() :: %{
         "DataTransferSubscriberFeePercent" => integer(),
         "Description" => String.t(),
@@ -1901,25 +1901,25 @@ defmodule AWS.MediaConnect do
         "Name" => String.t(),
         "Subscribers" => list(String.t()())
       }
-
+      
   """
   @type grant_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_bridge_response() :: %{
         "Bridge" => bridge()
       }
-
+      
   """
   @type describe_bridge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_output_request() :: %{
         optional("CidrAllowList") => list(String.t()()),
         optional("Description") => String.t(),
@@ -1938,14 +1938,14 @@ defmodule AWS.MediaConnect do
         optional("StreamId") => String.t(),
         optional("VpcInterfaceAttachment") => vpc_interface_attachment()
       }
-
+      
   """
   @type update_flow_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_instance() :: %{
         "BridgePlacement" => list(any()),
         "ConnectionStatus" => list(any()),
@@ -1956,72 +1956,72 @@ defmodule AWS.MediaConnect do
         "InstanceState" => list(any()),
         "RunningBridgeCount" => integer()
       }
-
+      
   """
   @type gateway_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_output_response() :: %{
         "FlowArn" => String.t(),
         "Output" => output()
       }
-
+      
   """
   @type update_flow_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_sources_request() :: %{
         required("Sources") => list(add_bridge_source_request()())
       }
-
+      
   """
   @type add_bridge_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gateway_bridge_source_request() :: %{
         "BridgeArn" => String.t(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
-
+      
   """
   @type update_gateway_bridge_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_entitlement_response() :: %{
         "Entitlement" => entitlement(),
         "FlowArn" => String.t()
       }
-
+      
   """
   @type update_flow_entitlement_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       listed_bridge() :: %{
         "BridgeArn" => String.t(),
         "BridgeState" => list(any()),
@@ -2029,25 +2029,25 @@ defmodule AWS.MediaConnect do
         "Name" => String.t(),
         "PlacementArn" => String.t()
       }
-
+      
   """
   @type listed_bridge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_response() :: %{
         "Flow" => flow()
       }
-
+      
   """
   @type update_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transport_stream() :: %{
         "Channels" => integer(),
         "Codec" => String.t(),
@@ -2058,74 +2058,74 @@ defmodule AWS.MediaConnect do
         "SampleSize" => integer(),
         "StreamType" => String.t()
       }
-
+      
   """
   @type transport_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       revoke_flow_entitlement_response() :: %{
         "EntitlementArn" => String.t(),
         "FlowArn" => String.t()
       }
-
+      
   """
   @type revoke_flow_entitlement_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bridge_flow_output() :: %{
         "FlowArn" => String.t(),
         "FlowSourceArn" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type bridge_flow_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_media_stream_response() :: %{
         "FlowArn" => String.t(),
         "MediaStream" => media_stream()
       }
-
+      
   """
   @type update_flow_media_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_outputs_request() :: %{
         required("Outputs") => list(add_output_request()())
       }
-
+      
   """
   @type add_flow_outputs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_response() :: %{
         "Flow" => flow(),
         "Messages" => messages()
       }
-
+      
   """
   @type describe_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flow() :: %{
         "AvailabilityZone" => String.t(),
         "Description" => String.t(),
@@ -2142,14 +2142,14 @@ defmodule AWS.MediaConnect do
         "Status" => list(any()),
         "VpcInterfaces" => list(vpc_interface()())
       }
-
+      
   """
   @type flow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       set_source_request() :: %{
         "Decryption" => encryption(),
         "Description" => String.t(),
@@ -2171,65 +2171,65 @@ defmodule AWS.MediaConnect do
         "VpcInterfaceName" => String.t(),
         "WhitelistCidr" => String.t()
       }
-
+      
   """
   @type set_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       listed_gateway_instance() :: %{
         "GatewayArn" => String.t(),
         "GatewayInstanceArn" => String.t(),
         "InstanceId" => String.t(),
         "InstanceState" => list(any())
       }
-
+      
   """
   @type listed_gateway_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gateways_response() :: %{
         "Gateways" => list(listed_gateway()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_gateways_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_gateway_instance_request() :: %{
         optional("Force") => boolean()
       }
-
+      
   """
   @type deregister_gateway_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       failover_config() :: %{
         "FailoverMode" => list(any()),
         "RecoveryWindow" => integer(),
         "SourcePriority" => source_priority(),
         "State" => list(any())
       }
-
+      
   """
   @type failover_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_bridge_network_output_request() :: %{
         "IpAddress" => String.t(),
         "Name" => String.t(),
@@ -2238,112 +2238,112 @@ defmodule AWS.MediaConnect do
         "Protocol" => list(any()),
         "Ttl" => integer()
       }
-
+      
   """
   @type add_bridge_network_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_offering_response() :: %{
         "Offering" => offering()
       }
-
+      
   """
   @type describe_offering_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_vpc_interfaces_response() :: %{
         "FlowArn" => String.t(),
         "VpcInterfaces" => list(vpc_interface()())
       }
-
+      
   """
   @type add_flow_vpc_interfaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bridges_response() :: %{
         "Bridges" => list(listed_bridge()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_bridges_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_flow_request() :: %{}
-
+      
   """
   @type stop_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_flow_output_request() :: %{}
-
+      
   """
   @type remove_flow_output_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_entitlement_request() :: %{
         optional("Description") => String.t(),
         optional("Encryption") => update_encryption(),
         optional("EntitlementStatus") => list(any()),
         optional("Subscribers") => list(String.t()())
       }
-
+      
   """
   @type update_flow_entitlement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_flow_media_streams_request() :: %{
         required("MediaStreams") => list(add_media_stream_request()())
       }
-
+      
   """
   @type add_flow_media_streams_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_offering_request() :: %{}
-
+      
   """
   @type describe_offering_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_interface_attachment() :: %{
         "VpcInterfaceName" => String.t()
       }
-
+      
   """
   @type vpc_interface_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       output() :: %{
         "BridgeArn" => String.t(),
         "BridgePorts" => list(integer()()),
@@ -2362,88 +2362,88 @@ defmodule AWS.MediaConnect do
         "Transport" => transport(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
-
+      
   """
   @type output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       purchase_offering_response() :: %{
         "Reservation" => reservation()
       }
-
+      
   """
   @type purchase_offering_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_configuration() :: %{
         "DestinationIp" => String.t(),
         "DestinationPort" => integer(),
         "Interface" => interface(),
         "OutboundIp" => String.t()
       }
-
+      
   """
   @type destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       purchase_offering_request() :: %{
         required("ReservationName") => String.t(),
         required("Start") => String.t()
       }
-
+      
   """
   @type purchase_offering_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bridge_output_response() :: %{
         "BridgeArn" => String.t(),
         "Output" => bridge_output()
       }
-
+      
   """
   @type update_bridge_output_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_stream_source_configuration() :: %{
         "EncodingName" => list(any()),
         "InputConfigurations" => list(input_configuration()()),
         "MediaStreamName" => String.t()
       }
-
+      
   """
   @type media_stream_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bridge_source() :: %{
         "FlowSource" => bridge_flow_source(),
         "NetworkSource" => bridge_network_source()
       }
-
+      
   """
   @type bridge_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_output_request() :: %{
         "CidrAllowList" => list(String.t()()),
         "Description" => String.t(),
@@ -2462,7 +2462,7 @@ defmodule AWS.MediaConnect do
         "StreamId" => String.t(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
-
+      
   """
   @type add_output_request() :: %{String.t() => any()}
 
@@ -2888,32 +2888,46 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:bridge_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`)
 
   ## Optional parameters:
   """
-  @spec add_bridge_outputs(AWS.Client.t(), String.t(), add_bridge_outputs_request(), Keyword.t()) ::
+
+  @spec add_bridge_outputs(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_bridge_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_bridge_outputs_errors()}
-  def add_bridge_outputs(%Client{} = client, bridge_arn, input, options \\ []) do
+
+  def add_bridge_outputs(%Client{} = client, bridge_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2923,32 +2937,46 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:bridge_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`)
 
   ## Optional parameters:
   """
-  @spec add_bridge_sources(AWS.Client.t(), String.t(), add_bridge_sources_request(), Keyword.t()) ::
+
+  @spec add_bridge_sources(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_bridge_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_bridge_sources_errors()}
-  def add_bridge_sources(%Client{} = client, bridge_arn, input, options \\ []) do
+
+  def add_bridge_sources(%Client{} = client, bridge_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2960,37 +2988,46 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:media_streams` (`t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`)
 
   ## Optional parameters:
   """
-  @spec add_flow_media_streams(
-          AWS.Client.t(),
-          String.t(),
-          add_flow_media_streams_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_flow_media_streams(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_media_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_media_streams_errors()}
-  def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3000,32 +3037,45 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddOutputRequest]`)
 
   ## Optional parameters:
   """
-  @spec add_flow_outputs(AWS.Client.t(), String.t(), add_flow_outputs_request(), Keyword.t()) ::
+
+  @spec add_flow_outputs(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_outputs_errors()}
-  def add_flow_outputs(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def add_flow_outputs(%Client{} = client, flow_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3035,32 +3085,45 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:sources` (`t:list[com.amazonaws.mediaconnect#SetSourceRequest]`)
 
   ## Optional parameters:
   """
-  @spec add_flow_sources(AWS.Client.t(), String.t(), add_flow_sources_request(), Keyword.t()) ::
+
+  @spec add_flow_sources(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_sources_errors()}
-  def add_flow_sources(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def add_flow_sources(%Client{} = client, flow_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3070,37 +3133,46 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:vpc_interfaces` (`t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`)
 
   ## Optional parameters:
   """
-  @spec add_flow_vpc_interfaces(
-          AWS.Client.t(),
-          String.t(),
-          add_flow_vpc_interfaces_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_flow_vpc_interfaces(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_vpc_interfaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_flow_vpc_interfaces_errors()}
-  def add_flow_vpc_interfaces(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def add_flow_vpc_interfaces(%Client{} = client, flow_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3109,32 +3181,51 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateBridge&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:name` (`t:string`)
+    * `:placement_arn` (`t:string`)
+    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`)
+    * `:egress_gateway_bridge` (`t:structure`)
+    * `:ingress_gateway_bridge` (`t:structure`)
+    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`)
+    * `:source_failover_config` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_bridge(AWS.Client.t(), create_bridge_request(), Keyword.t()) ::
+
+  @spec create_bridge(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bridge_errors()}
-  def create_bridge(%Client{} = client, input, options \\ []) do
+
+  def create_bridge(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/bridges"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3144,32 +3235,54 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:name` (`t:string`)
+    * `:availability_zone` (`t:string`)
+    * `:entitlements` (`t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`)
+    * `:maintenance` (`t:structure`)
+    * `:media_streams` (`t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`)
+    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddOutputRequest]`)
+    * `:source` (`t:structure`)
+    * `:source_failover_config` (`t:structure`)
+    * `:sources` (`t:list[com.amazonaws.mediaconnect#SetSourceRequest]`)
+    * `:vpc_interfaces` (`t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`)
 
   ## Optional parameters:
   """
-  @spec create_flow(AWS.Client.t(), create_flow_request(), Keyword.t()) ::
+
+  @spec create_flow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_errors()}
-  def create_flow(%Client{} = client, input, options \\ []) do
+
+  def create_flow(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/flows"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3178,32 +3291,47 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:egress_cidr_blocks` (`t:list[com.amazonaws.mediaconnect#__string]`)
+    * `:name` (`t:string`)
+    * `:networks` (`t:list[com.amazonaws.mediaconnect#GatewayNetwork]`)
 
   ## Optional parameters:
   """
-  @spec create_gateway(AWS.Client.t(), create_gateway_request(), Keyword.t()) ::
+
+  @spec create_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gateway_errors()}
-  def create_gateway(%Client{} = client, input, options \\ []) do
+
+  def create_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/gateways"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3216,17 +3344,38 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec delete_bridge(AWS.Client.t(), String.t(), delete_bridge_request(), Keyword.t()) ::
+
+  @spec delete_bridge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bridge_errors()}
-  def delete_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
+
+  def delete_bridge(%Client{} = client, bridge_arn, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3235,7 +3384,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3251,17 +3400,38 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec delete_flow(AWS.Client.t(), String.t(), delete_flow_request(), Keyword.t()) ::
+
+  @spec delete_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_errors()}
-  def delete_flow(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def delete_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3270,7 +3440,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -3287,17 +3457,38 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec delete_gateway(AWS.Client.t(), String.t(), delete_gateway_request(), Keyword.t()) ::
+
+  @spec delete_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
-  def delete_gateway(%Client{} = client, gateway_arn, input, options \\ []) do
+
+  def delete_gateway(%Client{} = client, gateway_arn, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3306,7 +3497,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3325,24 +3516,39 @@ defmodule AWS.MediaConnect do
   ## Optional parameters:
   * `:force` (`t:boolean`)
   """
-  @spec deregister_gateway_instance(
-          AWS.Client.t(),
-          String.t(),
-          deregister_gateway_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_gateway_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_gateway_instance_errors()}
-  def deregister_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
+
+  def deregister_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
+
+    # Validate optional parameters
+    optional_params = [force: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Force", "force"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :force) do
+        [{"force", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -3352,6 +3558,8 @@ defmodule AWS.MediaConnect do
       options
       |> Keyword.drop([:force])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3359,7 +3567,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -3375,10 +3583,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec describe_bridge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bridge_errors()}
+
   def describe_bridge(%Client{} = client, bridge_arn, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
 
@@ -3419,10 +3629,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec describe_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_errors()}
+
   def describe_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
 
@@ -3462,10 +3674,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec describe_flow_source_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_source_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_source_metadata_errors()}
+
   def describe_flow_source_metadata(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-metadata"
 
@@ -3505,10 +3719,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec describe_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_errors()}
+
   def describe_gateway(%Client{} = client, gateway_arn, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
 
@@ -3547,10 +3763,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec describe_gateway_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_instance_errors()}
+
   def describe_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
 
@@ -3591,10 +3809,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec describe_offering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_offering_errors()}
+
   def describe_offering(%Client{} = client, offering_arn, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
 
@@ -3635,10 +3855,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec describe_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reservation_errors()}
+
   def describe_reservation(%Client{} = client, reservation_arn, options \\ []) do
     url_path = "/v1/reservations/#{AWS.Util.encode_uri(reservation_arn)}"
 
@@ -3674,37 +3896,46 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:entitlements` (`t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`)
 
   ## Optional parameters:
   """
-  @spec grant_flow_entitlements(
-          AWS.Client.t(),
-          String.t(),
-          grant_flow_entitlements_request(),
-          Keyword.t()
-        ) ::
+
+  @spec grant_flow_entitlements(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, grant_flow_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, grant_flow_entitlements_errors()}
-  def grant_flow_entitlements(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def grant_flow_entitlements(%Client{} = client, flow_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3720,10 +3951,12 @@ defmodule AWS.MediaConnect do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_bridges(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bridges_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bridges_errors()}
+
   def list_bridges(%Client{} = client, options \\ []) do
     url_path = "/v1/bridges"
 
@@ -3789,10 +4022,12 @@ defmodule AWS.MediaConnect do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_entitlements(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entitlements_errors()}
+
   def list_entitlements(%Client{} = client, options \\ []) do
     url_path = "/v1/entitlements"
 
@@ -3851,10 +4086,12 @@ defmodule AWS.MediaConnect do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flows_errors()}
+
   def list_flows(%Client{} = client, options \\ []) do
     url_path = "/v1/flows"
 
@@ -3915,10 +4152,12 @@ defmodule AWS.MediaConnect do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_gateway_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateway_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateway_instances_errors()}
+
   def list_gateway_instances(%Client{} = client, options \\ []) do
     url_path = "/v1/gateway-instances"
 
@@ -3984,10 +4223,12 @@ defmodule AWS.MediaConnect do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateways_errors()}
+
   def list_gateways(%Client{} = client, options \\ []) do
     url_path = "/v1/gateways"
 
@@ -4048,10 +4289,12 @@ defmodule AWS.MediaConnect do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_offerings_errors()}
+
   def list_offerings(%Client{} = client, options \\ []) do
     url_path = "/v1/offerings"
 
@@ -4111,10 +4354,12 @@ defmodule AWS.MediaConnect do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reservations_errors()}
+
   def list_reservations(%Client{} = client, options \\ []) do
     url_path = "/v1/reservations"
 
@@ -4171,10 +4416,12 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4211,32 +4458,47 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:offering_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:reservation_name` (`t:string`)
+    * `:start` (`t:string`)
 
   ## Optional parameters:
   """
-  @spec purchase_offering(AWS.Client.t(), String.t(), purchase_offering_request(), Keyword.t()) ::
+
+  @spec purchase_offering(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_offering_errors()}
-  def purchase_offering(%Client{} = client, offering_arn, input, options \\ []) do
+
+  def purchase_offering(%Client{} = client, offering_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -4250,25 +4512,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec remove_bridge_output(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_bridge_output_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_bridge_output(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_bridge_output_errors()}
-  def remove_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
+
+  def remove_bridge_output(%Client{} = client, bridge_arn, output_name, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4277,7 +4553,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4294,25 +4570,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec remove_bridge_source(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_bridge_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_bridge_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_bridge_source_errors()}
-  def remove_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
+
+  def remove_bridge_source(%Client{} = client, bridge_arn, source_name, options \\ []) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4321,7 +4611,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4339,31 +4629,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec remove_flow_media_stream(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_flow_media_stream_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_flow_media_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_media_stream_errors()}
-  def remove_flow_media_stream(
-        %Client{} = client,
-        flow_arn,
-        media_stream_name,
-        input,
-        options \\ []
-      ) do
+
+  def remove_flow_media_stream(%Client{} = client, flow_arn, media_stream_name, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams/#{AWS.Util.encode_uri(media_stream_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4372,7 +4670,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4393,25 +4691,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec remove_flow_output(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_flow_output_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_flow_output(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_output_errors()}
-  def remove_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
+
+  def remove_flow_output(%Client{} = client, flow_arn, output_arn, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4420,7 +4732,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4438,25 +4750,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec remove_flow_source(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_flow_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_flow_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_source_errors()}
-  def remove_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
+
+  def remove_flow_source(%Client{} = client, flow_arn, source_arn, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4465,7 +4791,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4485,31 +4811,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec remove_flow_vpc_interface(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_flow_vpc_interface_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_flow_vpc_interface(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_vpc_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_flow_vpc_interface_errors()}
-  def remove_flow_vpc_interface(
-        %Client{} = client,
-        flow_arn,
-        vpc_interface_name,
-        input,
-        options \\ []
-      ) do
+
+  def remove_flow_vpc_interface(%Client{} = client, flow_arn, vpc_interface_name, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces/#{AWS.Util.encode_uri(vpc_interface_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4518,7 +4852,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4536,25 +4870,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec revoke_flow_entitlement(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          revoke_flow_entitlement_request(),
-          Keyword.t()
-        ) ::
+
+  @spec revoke_flow_entitlement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_flow_entitlement_errors()}
-  def revoke_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
+
+  def revoke_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, options \\ []) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4563,7 +4911,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4579,29 +4927,40 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec start_flow(AWS.Client.t(), String.t(), start_flow_request(), Keyword.t()) ::
+
+  @spec start_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_flow_errors()}
-  def start_flow(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def start_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/start/#{AWS.Util.encode_uri(flow_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4614,29 +4973,40 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec stop_flow(AWS.Client.t(), String.t(), stop_flow_request(), Keyword.t()) ::
+
+  @spec stop_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_flow_errors()}
-  def stop_flow(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def stop_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/stop/#{AWS.Util.encode_uri(flow_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4649,32 +5019,45 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:resource_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:tags` (`t:map`)
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4688,22 +5071,39 @@ defmodule AWS.MediaConnect do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4712,7 +5112,7 @@ defmodule AWS.MediaConnect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4725,22 +5125,48 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:bridge_arn` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:egress_gateway_bridge` (`t:structure`)
+    * `:ingress_gateway_bridge` (`t:structure`)
+    * `:source_failover_config` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_bridge(AWS.Client.t(), String.t(), update_bridge_request(), Keyword.t()) ::
+
+  @spec update_bridge(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_errors()}
-  def update_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
+
+  def update_bridge(%Client{} = client, bridge_arn, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4751,30 +5177,53 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string`)
   * `:output_name` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:network_output` (`t:structure`)
 
   ## Optional parameters:
   """
+
   @spec update_bridge_output(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_bridge_output_request(),
+          input :: map() | nil,
           Keyword.t()
         ) ::
           {:ok, update_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_output_errors()}
-  def update_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
+
+  def update_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4785,30 +5234,54 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string`)
   * `:source_name` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:flow_source` (`t:structure`)
+    * `:network_source` (`t:structure`)
 
   ## Optional parameters:
   """
+
   @spec update_bridge_source(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_bridge_source_request(),
+          input :: map() | nil,
           Keyword.t()
         ) ::
           {:ok, update_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_source_errors()}
-  def update_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
+
+  def update_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4818,27 +5291,46 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:bridge_arn` (`t:string`)
+  * `:input` (`t:map`):
+    * `:desired_state` (`t:enum["ACTIVE|DELETED|STANDBY"]`)
 
   ## Optional parameters:
   """
-  @spec update_bridge_state(
-          AWS.Client.t(),
-          String.t(),
-          update_bridge_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_bridge_state(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_bridge_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bridge_state_errors()}
-  def update_bridge_state(%Client{} = client, bridge_arn, input, options \\ []) do
+
+  def update_bridge_state(%Client{} = client, bridge_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/state"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4848,22 +5340,47 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:maintenance` (`t:structure`)
+    * `:source_failover_config` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_flow(AWS.Client.t(), String.t(), update_flow_request(), Keyword.t()) ::
+
+  @spec update_flow(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_errors()}
-  def update_flow(%Client{} = client, flow_arn, input, options \\ []) do
+
+  def update_flow(%Client{} = client, flow_arn, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4876,30 +5393,56 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:entitlement_arn` (`t:string`)
   * `:flow_arn` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:description` (`t:string`)
+    * `:encryption` (`t:structure`)
+    * `:entitlement_status` (`t:enum["DISABLED|ENABLED"]`)
+    * `:subscribers` (`t:list[com.amazonaws.mediaconnect#__string]`)
 
   ## Optional parameters:
   """
+
   @spec update_flow_entitlement(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_flow_entitlement_request(),
+          input :: map() | nil,
           Keyword.t()
         ) ::
           {:ok, update_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_entitlement_errors()}
-  def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
+
+  def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4910,36 +5453,63 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string`)
   * `:media_stream_name` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:attributes` (`t:structure`)
+    * `:clock_rate` (`t:integer`)
+    * `:description` (`t:string`)
+    * `:media_stream_type` (`t:enum["ancillary_data|audio|video"]`)
+    * `:video_format` (`t:string`)
 
   ## Optional parameters:
   """
+
   @spec update_flow_media_stream(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_flow_media_stream_request(),
+          input :: map() | nil,
           Keyword.t()
         ) ::
           {:ok, update_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_media_stream_errors()}
+
   def update_flow_media_stream(
         %Client{} = client,
         flow_arn,
         media_stream_name,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams/#{AWS.Util.encode_uri(media_stream_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4950,30 +5520,70 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string`)
   * `:output_arn` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:cidr_allow_list` (`t:list[com.amazonaws.mediaconnect#__string]`)
+    * `:description` (`t:string`)
+    * `:destination` (`t:string`)
+    * `:encryption` (`t:structure`)
+    * `:max_latency` (`t:integer`)
+    * `:media_stream_output_configurations`
+  (`t:list[com.amazonaws.mediaconnect#MediaStreamOutputConfigurationRequest]`)
+    * `:min_latency` (`t:integer`)
+    * `:output_status` (`t:enum["DISABLED|ENABLED"]`)
+    * `:port` (`t:integer`)
+    * `:protocol`
+  (`t:enum["cdi|fujitsu_qos|rist|rtp|rtp_fec|srt_caller|srt_listener|st2110_jpegxs|udp|zixi_pull|zixi_push"]`)
+    * `:remote_id` (`t:string`)
+    * `:sender_control_port` (`t:integer`)
+    * `:sender_ip_address` (`t:string`)
+    * `:smoothing_latency` (`t:integer`)
+    * `:stream_id` (`t:string`)
+    * `:vpc_interface_attachment` (`t:structure`)
 
   ## Optional parameters:
   """
+
   @spec update_flow_output(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_flow_output_request(),
+          input :: map() | nil,
           Keyword.t()
         ) ::
           {:ok, update_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_output_errors()}
-  def update_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
+
+  def update_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4984,30 +5594,72 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string`)
   * `:source_arn` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:decryption` (`t:structure`)
+    * `:description` (`t:string`)
+    * `:entitlement_arn` (`t:string`)
+    * `:gateway_bridge_source` (`t:structure`)
+    * `:ingest_port` (`t:integer`)
+    * `:max_bitrate` (`t:integer`)
+    * `:max_latency` (`t:integer`)
+    * `:max_sync_buffer` (`t:integer`)
+    * `:media_stream_source_configurations`
+  (`t:list[com.amazonaws.mediaconnect#MediaStreamSourceConfigurationRequest]`)
+    * `:min_latency` (`t:integer`)
+    * `:protocol`
+  (`t:enum["cdi|fujitsu_qos|rist|rtp|rtp_fec|srt_caller|srt_listener|st2110_jpegxs|udp|zixi_pull|zixi_push"]`)
+    * `:sender_control_port` (`t:integer`)
+    * `:sender_ip_address` (`t:string`)
+    * `:source_listener_address` (`t:string`)
+    * `:source_listener_port` (`t:integer`)
+    * `:stream_id` (`t:string`)
+    * `:vpc_interface_name` (`t:string`)
+    * `:whitelist_cidr` (`t:string`)
 
   ## Optional parameters:
   """
+
   @spec update_flow_source(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_flow_source_request(),
+          input :: map() | nil,
           Keyword.t()
         ) ::
           {:ok, update_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_source_errors()}
-  def update_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
+
+  def update_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -5017,26 +5669,45 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:gateway_instance_arn` (`t:string`)
+  * `:input` (`t:map | nil`):
+    * `:bridge_placement` (`t:enum["AVAILABLE|LOCKED"]`)
 
   ## Optional parameters:
   """
-  @spec update_gateway_instance(
-          AWS.Client.t(),
-          String.t(),
-          update_gateway_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_gateway_instance(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_instance_errors()}
-  def update_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
+
+  def update_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

@@ -13,84 +13,84 @@ defmodule AWS.InspectorScan do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "reason" => list(any()),
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scan_sbom_request() :: %{
         optional("outputFormat") => list(any()),
         required("sbom") => any()
       }
-
+      
   """
   @type scan_sbom_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scan_sbom_response() :: %{
         "sbom" => any()
       }
-
+      
   """
   @type scan_sbom_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fields" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
@@ -127,28 +127,39 @@ defmodule AWS.InspectorScan do
 
   ## Optional parameters:
   """
-  @spec scan_sbom(AWS.Client.t(), scan_sbom_request(), Keyword.t()) ::
+
+  @spec scan_sbom(AWS.Client.t(), Keyword.t()) ::
           {:ok, scan_sbom_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, scan_sbom_errors()}
-  def scan_sbom(%Client{} = client, input, options \\ []) do
+
+  def scan_sbom(%Client{} = client, options \\ []) do
     url_path = "/scan/sbom"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

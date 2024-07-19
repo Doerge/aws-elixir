@@ -2827,12 +2827,22 @@ defmodule AWS.Athena do
   from executed queries. Use `BatchGetQueryExecutionInput` to get details about
   each unique query execution, and `ListQueryExecutionsInput` to get a list of
   query execution IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20BatchGetNamedQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_named_query_input`)
+    %{
+      required("NamedQueryIds") => list(String.t()())
+    }
   """
-  @spec batch_get_named_query(AWS.Client.t(), batch_get_named_query_input(), Keyword.t()) ::
+
+  @spec batch_get_named_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_named_query_errors()}
-  def batch_get_named_query(%Client{} = client, input, options \\ []) do
+
+  def batch_get_named_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2845,16 +2855,23 @@ defmodule AWS.Athena do
   provide. Requires you to have access to the workgroup to which the prepared
   statements belong. If a prepared statement cannot be retrieved for the name
   specified, the statement is listed in `UnprocessedPreparedStatementNames`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20BatchGetPreparedStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_prepared_statement_input`)
+    %{
+      required("PreparedStatementNames") => list(String.t()()),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec batch_get_prepared_statement(
-          AWS.Client.t(),
-          batch_get_prepared_statement_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_prepared_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_prepared_statement_errors()}
-  def batch_get_prepared_statement(%Client{} = client, input, options \\ []) do
+
+  def batch_get_prepared_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2868,12 +2885,22 @@ defmodule AWS.Athena do
   a list of query execution IDs, use `ListQueryExecutionsInput$WorkGroup`. Query
   executions differ from named (saved) queries. Use `BatchGetNamedQueryInput` to
   get details about named queries.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20BatchGetQueryExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_query_execution_input`)
+    %{
+      required("QueryExecutionIds") => list(String.t()())
+    }
   """
-  @spec batch_get_query_execution(AWS.Client.t(), batch_get_query_execution_input(), Keyword.t()) ::
+
+  @spec batch_get_query_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_query_execution_errors()}
-  def batch_get_query_execution(%Client{} = client, input, options \\ []) do
+
+  def batch_get_query_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2885,16 +2912,22 @@ defmodule AWS.Athena do
   remain in your account and will be deleted 45 days after cancellation. During
   the 45 days, you cannot re-purpose or reuse a reservation that has been
   cancelled, but you can refer to its tags and view it for historical reference.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CancelCapacityReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_capacity_reservation_input`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec cancel_capacity_reservation(
-          AWS.Client.t(),
-          cancel_capacity_reservation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_capacity_reservation_errors()}
-  def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
+
+  def cancel_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2904,16 +2937,24 @@ defmodule AWS.Athena do
   @doc """
   Creates a capacity reservation with the specified name and number of requested
   data processing units.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CreateCapacityReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_capacity_reservation_input`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("TargetDpus") => integer()
+    }
   """
-  @spec create_capacity_reservation(
-          AWS.Client.t(),
-          create_capacity_reservation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_capacity_reservation_errors()}
-  def create_capacity_reservation(%Client{} = client, input, options \\ []) do
+
+  def create_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2924,12 +2965,26 @@ defmodule AWS.Athena do
   Creates (registers) a data catalog with the specified name and properties.
   Catalogs created are visible to all users of the same Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CreateDataCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_data_catalog_input`)
+    %{
+      optional("Description") => String.t(),
+      optional("Parameters") => map(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec create_data_catalog(AWS.Client.t(), create_data_catalog_input(), Keyword.t()) ::
+
+  @spec create_data_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_catalog_errors()}
-  def create_data_catalog(%Client{} = client, input, options \\ []) do
+
+  def create_data_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2939,12 +2994,27 @@ defmodule AWS.Athena do
   @doc """
   Creates a named query in the specified workgroup. Requires that you have access
   to the workgroup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CreateNamedQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_named_query_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("WorkGroup") => String.t(),
+      required("Database") => String.t(),
+      required("Name") => String.t(),
+      required("QueryString") => String.t()
+    }
   """
-  @spec create_named_query(AWS.Client.t(), create_named_query_input(), Keyword.t()) ::
+
+  @spec create_named_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_named_query_errors()}
-  def create_named_query(%Client{} = client, input, options \\ []) do
+
+  def create_named_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2954,12 +3024,24 @@ defmodule AWS.Athena do
   @doc """
   Creates an empty `ipynb` file in the specified Apache Spark enabled workgroup.
   Throws an error if a file in the workgroup with the same name already exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CreateNotebook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_notebook_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("Name") => String.t(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec create_notebook(AWS.Client.t(), create_notebook_input(), Keyword.t()) ::
+
+  @spec create_notebook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notebook_errors()}
-  def create_notebook(%Client{} = client, input, options \\ []) do
+
+  def create_notebook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2968,12 +3050,25 @@ defmodule AWS.Athena do
 
   @doc """
   Creates a prepared statement for use with SQL queries in Athena.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CreatePreparedStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_prepared_statement_input`)
+    %{
+      optional("Description") => String.t(),
+      required("QueryStatement") => String.t(),
+      required("StatementName") => String.t(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec create_prepared_statement(AWS.Client.t(), create_prepared_statement_input(), Keyword.t()) ::
+
+  @spec create_prepared_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prepared_statement_errors()}
-  def create_prepared_statement(%Client{} = client, input, options \\ []) do
+
+  def create_prepared_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2986,16 +3081,23 @@ defmodule AWS.Athena do
   10 minutes to refresh the authentication token. For information about granting
   programmatic access, see [Grant programmatic
   access](https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CreatePresignedNotebookUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_presigned_notebook_url_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec create_presigned_notebook_url(
-          AWS.Client.t(),
-          create_presigned_notebook_url_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_presigned_notebook_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_presigned_notebook_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_presigned_notebook_url_errors()}
-  def create_presigned_notebook_url(%Client{} = client, input, options \\ []) do
+
+  def create_presigned_notebook_url(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3005,12 +3107,25 @@ defmodule AWS.Athena do
   @doc """
   Creates a workgroup with the specified name. A workgroup can be an Apache Spark
   enabled workgroup or an Athena SQL workgroup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20CreateWorkGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_work_group_input`)
+    %{
+      optional("Configuration") => work_group_configuration(),
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_work_group(AWS.Client.t(), create_work_group_input(), Keyword.t()) ::
+
+  @spec create_work_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_work_group_errors()}
-  def create_work_group(%Client{} = client, input, options \\ []) do
+
+  def create_work_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3023,16 +3138,22 @@ defmodule AWS.Athena do
   account and can no longer be referenced, including by its ARN. A deleted
   reservation cannot be called by `GetCapacityReservation`, and deleted
   reservations do not appear in the output of `ListCapacityReservations`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20DeleteCapacityReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_capacity_reservation_input`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_capacity_reservation(
-          AWS.Client.t(),
-          delete_capacity_reservation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_capacity_reservation_errors()}
-  def delete_capacity_reservation(%Client{} = client, input, options \\ []) do
+
+  def delete_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3041,12 +3162,22 @@ defmodule AWS.Athena do
 
   @doc """
   Deletes a data catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20DeleteDataCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_data_catalog_input`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_data_catalog(AWS.Client.t(), delete_data_catalog_input(), Keyword.t()) ::
+
+  @spec delete_data_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_catalog_errors()}
-  def delete_data_catalog(%Client{} = client, input, options \\ []) do
+
+  def delete_data_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3056,12 +3187,22 @@ defmodule AWS.Athena do
   @doc """
   Deletes the named query if you have access to the workgroup in which the query
   was saved.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20DeleteNamedQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_named_query_input`)
+    %{
+      required("NamedQueryId") => String.t()
+    }
   """
-  @spec delete_named_query(AWS.Client.t(), delete_named_query_input(), Keyword.t()) ::
+
+  @spec delete_named_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_named_query_errors()}
-  def delete_named_query(%Client{} = client, input, options \\ []) do
+
+  def delete_named_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3070,12 +3211,22 @@ defmodule AWS.Athena do
 
   @doc """
   Deletes the specified notebook.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20DeleteNotebook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_notebook_input`)
+    %{
+      required("NotebookId") => String.t()
+    }
   """
-  @spec delete_notebook(AWS.Client.t(), delete_notebook_input(), Keyword.t()) ::
+
+  @spec delete_notebook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notebook_errors()}
-  def delete_notebook(%Client{} = client, input, options \\ []) do
+
+  def delete_notebook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3085,12 +3236,23 @@ defmodule AWS.Athena do
   @doc """
   Deletes the prepared statement with the specified name from the specified
   workgroup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20DeletePreparedStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_prepared_statement_input`)
+    %{
+      required("StatementName") => String.t(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec delete_prepared_statement(AWS.Client.t(), delete_prepared_statement_input(), Keyword.t()) ::
+
+  @spec delete_prepared_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_prepared_statement_errors()}
-  def delete_prepared_statement(%Client{} = client, input, options \\ []) do
+
+  def delete_prepared_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3100,12 +3262,23 @@ defmodule AWS.Athena do
   @doc """
   Deletes the workgroup with the specified name. The primary workgroup cannot be
   deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20DeleteWorkGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_work_group_input`)
+    %{
+      optional("RecursiveDeleteOption") => boolean(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec delete_work_group(AWS.Client.t(), delete_work_group_input(), Keyword.t()) ::
+
+  @spec delete_work_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_work_group_errors()}
-  def delete_work_group(%Client{} = client, input, options \\ []) do
+
+  def delete_work_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3114,12 +3287,22 @@ defmodule AWS.Athena do
 
   @doc """
   Exports the specified notebook and its metadata.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ExportNotebook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_notebook_input`)
+    %{
+      required("NotebookId") => String.t()
+    }
   """
-  @spec export_notebook(AWS.Client.t(), export_notebook_input(), Keyword.t()) ::
+
+  @spec export_notebook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_notebook_errors()}
-  def export_notebook(%Client{} = client, input, options \\ []) do
+
+  def export_notebook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3128,16 +3311,22 @@ defmodule AWS.Athena do
 
   @doc """
   Describes a previously submitted calculation execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetCalculationExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_calculation_execution_request`)
+    %{
+      required("CalculationExecutionId") => String.t()
+    }
   """
-  @spec get_calculation_execution(
-          AWS.Client.t(),
-          get_calculation_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_calculation_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_calculation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_calculation_execution_errors()}
-  def get_calculation_execution(%Client{} = client, input, options \\ []) do
+
+  def get_calculation_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3146,16 +3335,23 @@ defmodule AWS.Athena do
 
   @doc """
   Retrieves the unencrypted code that was executed for the calculation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetCalculationExecutionCode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_calculation_execution_code_request`)
+    %{
+      required("CalculationExecutionId") => String.t()
+    }
   """
-  @spec get_calculation_execution_code(
-          AWS.Client.t(),
-          get_calculation_execution_code_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_calculation_execution_code(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_calculation_execution_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_calculation_execution_code_errors()}
-  def get_calculation_execution_code(%Client{} = client, input, options \\ []) do
+
+  def get_calculation_execution_code(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3164,16 +3360,23 @@ defmodule AWS.Athena do
 
   @doc """
   Gets the status of a current calculation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetCalculationExecutionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_calculation_execution_status_request`)
+    %{
+      required("CalculationExecutionId") => String.t()
+    }
   """
-  @spec get_calculation_execution_status(
-          AWS.Client.t(),
-          get_calculation_execution_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_calculation_execution_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_calculation_execution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_calculation_execution_status_errors()}
-  def get_calculation_execution_status(%Client{} = client, input, options \\ []) do
+
+  def get_calculation_execution_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3183,16 +3386,23 @@ defmodule AWS.Athena do
   @doc """
   Gets the capacity assignment configuration for a capacity reservation, if one
   exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetCapacityAssignmentConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_capacity_assignment_configuration_input`)
+    %{
+      required("CapacityReservationName") => String.t()
+    }
   """
-  @spec get_capacity_assignment_configuration(
-          AWS.Client.t(),
-          get_capacity_assignment_configuration_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_capacity_assignment_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_capacity_assignment_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_capacity_assignment_configuration_errors()}
-  def get_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_capacity_assignment_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3201,12 +3411,22 @@ defmodule AWS.Athena do
 
   @doc """
   Returns information about the capacity reservation with the specified name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetCapacityReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_capacity_reservation_input`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_capacity_reservation(AWS.Client.t(), get_capacity_reservation_input(), Keyword.t()) ::
+
+  @spec get_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_capacity_reservation_errors()}
-  def get_capacity_reservation(%Client{} = client, input, options \\ []) do
+
+  def get_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3215,12 +3435,23 @@ defmodule AWS.Athena do
 
   @doc """
   Returns the specified data catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetDataCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_data_catalog_input`)
+    %{
+      optional("WorkGroup") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_data_catalog(AWS.Client.t(), get_data_catalog_input(), Keyword.t()) ::
+
+  @spec get_data_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_catalog_errors()}
-  def get_data_catalog(%Client{} = client, input, options \\ []) do
+
+  def get_data_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3229,12 +3460,24 @@ defmodule AWS.Athena do
 
   @doc """
   Returns a database object for the specified database and data catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_database_input`)
+    %{
+      optional("WorkGroup") => String.t(),
+      required("CatalogName") => String.t(),
+      required("DatabaseName") => String.t()
+    }
   """
-  @spec get_database(AWS.Client.t(), get_database_input(), Keyword.t()) ::
+
+  @spec get_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_database_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_database_errors()}
-  def get_database(%Client{} = client, input, options \\ []) do
+
+  def get_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3244,12 +3487,22 @@ defmodule AWS.Athena do
   @doc """
   Returns information about a single query. Requires that you have access to the
   workgroup in which the query was saved.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetNamedQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_named_query_input`)
+    %{
+      required("NamedQueryId") => String.t()
+    }
   """
-  @spec get_named_query(AWS.Client.t(), get_named_query_input(), Keyword.t()) ::
+
+  @spec get_named_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_named_query_errors()}
-  def get_named_query(%Client{} = client, input, options \\ []) do
+
+  def get_named_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3258,12 +3511,22 @@ defmodule AWS.Athena do
 
   @doc """
   Retrieves notebook metadata for the specified notebook ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetNotebookMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_notebook_metadata_input`)
+    %{
+      required("NotebookId") => String.t()
+    }
   """
-  @spec get_notebook_metadata(AWS.Client.t(), get_notebook_metadata_input(), Keyword.t()) ::
+
+  @spec get_notebook_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_notebook_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_notebook_metadata_errors()}
-  def get_notebook_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_notebook_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3273,12 +3536,23 @@ defmodule AWS.Athena do
   @doc """
   Retrieves the prepared statement with the specified name from the specified
   workgroup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetPreparedStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_prepared_statement_input`)
+    %{
+      required("StatementName") => String.t(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec get_prepared_statement(AWS.Client.t(), get_prepared_statement_input(), Keyword.t()) ::
+
+  @spec get_prepared_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_prepared_statement_errors()}
-  def get_prepared_statement(%Client{} = client, input, options \\ []) do
+
+  def get_prepared_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3289,12 +3563,22 @@ defmodule AWS.Athena do
   Returns information about a single execution of a query if you have access to
   the workgroup in which the query ran. Each time a query executes, information
   about the query execution is saved with a unique ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetQueryExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_query_execution_input`)
+    %{
+      required("QueryExecutionId") => String.t()
+    }
   """
-  @spec get_query_execution(AWS.Client.t(), get_query_execution_input(), Keyword.t()) ::
+
+  @spec get_query_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_execution_errors()}
-  def get_query_execution(%Client{} = client, input, options \\ []) do
+
+  def get_query_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3311,12 +3595,24 @@ defmodule AWS.Athena do
   results successfully, the IAM principal with permission to call
   `GetQueryResults` also must have permissions to the Amazon S3 `GetObject`
   action for the Athena query results location.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetQueryResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_query_results_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("QueryExecutionId") => String.t()
+    }
   """
-  @spec get_query_results(AWS.Client.t(), get_query_results_input(), Keyword.t()) ::
+
+  @spec get_query_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_query_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_results_errors()}
-  def get_query_results(%Client{} = client, input, options \\ []) do
+
+  def get_query_results(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3332,16 +3628,22 @@ defmodule AWS.Athena do
   count and data size) are updated asynchronously and may not be available
   immediately after a query completes. The non-timeline statistics are also not
   included when a query has row-level filters defined in Lake Formation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetQueryRuntimeStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_query_runtime_statistics_input`)
+    %{
+      required("QueryExecutionId") => String.t()
+    }
   """
-  @spec get_query_runtime_statistics(
-          AWS.Client.t(),
-          get_query_runtime_statistics_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_query_runtime_statistics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_query_runtime_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_runtime_statistics_errors()}
-  def get_query_runtime_statistics(%Client{} = client, input, options \\ []) do
+
+  def get_query_runtime_statistics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3351,12 +3653,22 @@ defmodule AWS.Athena do
   @doc """
   Gets the full details of a previously created session, including the session
   status and configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_session_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec get_session(AWS.Client.t(), get_session_request(), Keyword.t()) ::
+
+  @spec get_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
-  def get_session(%Client{} = client, input, options \\ []) do
+
+  def get_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3365,12 +3677,22 @@ defmodule AWS.Athena do
 
   @doc """
   Gets the current status of a session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetSessionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_session_status_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec get_session_status(AWS.Client.t(), get_session_status_request(), Keyword.t()) ::
+
+  @spec get_session_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_session_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_status_errors()}
-  def get_session_status(%Client{} = client, input, options \\ []) do
+
+  def get_session_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3379,12 +3701,25 @@ defmodule AWS.Athena do
 
   @doc """
   Returns table metadata for the specified catalog, database, and table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetTableMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_table_metadata_input`)
+    %{
+      optional("WorkGroup") => String.t(),
+      required("CatalogName") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_table_metadata(AWS.Client.t(), get_table_metadata_input(), Keyword.t()) ::
+
+  @spec get_table_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_metadata_errors()}
-  def get_table_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_table_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3393,12 +3728,22 @@ defmodule AWS.Athena do
 
   @doc """
   Returns information about the workgroup with the specified name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20GetWorkGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_work_group_input`)
+    %{
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec get_work_group(AWS.Client.t(), get_work_group_input(), Keyword.t()) ::
+
+  @spec get_work_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_work_group_errors()}
-  def get_work_group(%Client{} = client, input, options \\ []) do
+
+  def get_work_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3412,12 +3757,27 @@ defmodule AWS.Athena do
   `InvalidRequestException` occurs. The maximum file size that can be imported
   is 10 megabytes. If an `ipynb` file with the same name already exists in the
   workgroup, throws an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ImportNotebook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_notebook_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("NotebookS3LocationUri") => String.t(),
+      optional("Payload") => String.t(),
+      required("Name") => String.t(),
+      required("Type") => list(any()),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec import_notebook(AWS.Client.t(), import_notebook_input(), Keyword.t()) ::
+
+  @spec import_notebook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_notebook_errors()}
-  def import_notebook(%Client{} = client, input, options \\ []) do
+
+  def import_notebook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3427,16 +3787,23 @@ defmodule AWS.Athena do
   @doc """
   Returns the supported DPU sizes for the supported application runtimes (for
   example, `Athena notebook version 1`).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListApplicationDPUSizes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_d_p_u_sizes_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_application_d_p_u_sizes(
-          AWS.Client.t(),
-          list_application_d_p_u_sizes_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_d_p_u_sizes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_d_p_u_sizes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_d_p_u_sizes_errors()}
-  def list_application_d_p_u_sizes(%Client{} = client, input, options \\ []) do
+
+  def list_application_d_p_u_sizes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3447,16 +3814,25 @@ defmodule AWS.Athena do
   Lists the calculations that have been submitted to a session in descending
   order. Newer calculations are listed first; older calculations are listed
   later.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListCalculationExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_calculation_executions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StateFilter") => list(any()),
+      required("SessionId") => String.t()
+    }
   """
-  @spec list_calculation_executions(
-          AWS.Client.t(),
-          list_calculation_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_calculation_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_calculation_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_calculation_executions_errors()}
-  def list_calculation_executions(%Client{} = client, input, options \\ []) do
+
+  def list_calculation_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3465,16 +3841,23 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the capacity reservations for the current account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListCapacityReservations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_capacity_reservations_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_capacity_reservations(
-          AWS.Client.t(),
-          list_capacity_reservations_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_capacity_reservations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_capacity_reservations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_capacity_reservations_errors()}
-  def list_capacity_reservations(%Client{} = client, input, options \\ []) do
+
+  def list_capacity_reservations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3483,12 +3866,24 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the data catalogs in the current Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListDataCatalogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_catalogs_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("WorkGroup") => String.t()
+    }
   """
-  @spec list_data_catalogs(AWS.Client.t(), list_data_catalogs_input(), Keyword.t()) ::
+
+  @spec list_data_catalogs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_catalogs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_catalogs_errors()}
-  def list_data_catalogs(%Client{} = client, input, options \\ []) do
+
+  def list_data_catalogs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3497,12 +3892,25 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the databases in the specified data catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListDatabases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_databases_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("WorkGroup") => String.t(),
+      required("CatalogName") => String.t()
+    }
   """
-  @spec list_databases(AWS.Client.t(), list_databases_input(), Keyword.t()) ::
+
+  @spec list_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_databases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_databases_errors()}
-  def list_databases(%Client{} = client, input, options \\ []) do
+
+  def list_databases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3512,12 +3920,23 @@ defmodule AWS.Athena do
   @doc """
   Returns a list of engine versions that are available to choose from, including
   the Auto option.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListEngineVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_engine_versions_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_engine_versions(AWS.Client.t(), list_engine_versions_input(), Keyword.t()) ::
+
+  @spec list_engine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_engine_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_engine_versions_errors()}
-  def list_engine_versions(%Client{} = client, input, options \\ []) do
+
+  def list_engine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3528,12 +3947,25 @@ defmodule AWS.Athena do
   Lists, in descending order, the executors that joined a session. Newer executors
   are listed first; older executors are listed later. The result can be
   optionally filtered by state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListExecutors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_executors_request`)
+    %{
+      optional("ExecutorStateFilter") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("SessionId") => String.t()
+    }
   """
-  @spec list_executors(AWS.Client.t(), list_executors_request(), Keyword.t()) ::
+
+  @spec list_executors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_executors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_executors_errors()}
-  def list_executors(%Client{} = client, input, options \\ []) do
+
+  def list_executors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3544,12 +3976,24 @@ defmodule AWS.Athena do
   Provides a list of available query IDs only for queries saved in the specified
   workgroup. Requires that you have access to the specified workgroup. If a
   workgroup is not specified, lists the saved queries for the primary workgroup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListNamedQueries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_named_queries_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("WorkGroup") => String.t()
+    }
   """
-  @spec list_named_queries(AWS.Client.t(), list_named_queries_input(), Keyword.t()) ::
+
+  @spec list_named_queries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_named_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_named_queries_errors()}
-  def list_named_queries(%Client{} = client, input, options \\ []) do
+
+  def list_named_queries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3558,12 +4002,25 @@ defmodule AWS.Athena do
 
   @doc """
   Displays the notebook files for the specified workgroup in paginated format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListNotebookMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_notebook_metadata_input`)
+    %{
+      optional("Filters") => filter_definition(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec list_notebook_metadata(AWS.Client.t(), list_notebook_metadata_input(), Keyword.t()) ::
+
+  @spec list_notebook_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_notebook_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notebook_metadata_errors()}
-  def list_notebook_metadata(%Client{} = client, input, options \\ []) do
+
+  def list_notebook_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3574,12 +4031,24 @@ defmodule AWS.Athena do
   Lists, in descending order, the sessions that have been created in a notebook
   that are in an active state like `CREATING`, `CREATED`, `IDLE` or `BUSY`.
   Newer sessions are listed first; older sessions are listed later.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListNotebookSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_notebook_sessions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("NotebookId") => String.t()
+    }
   """
-  @spec list_notebook_sessions(AWS.Client.t(), list_notebook_sessions_request(), Keyword.t()) ::
+
+  @spec list_notebook_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_notebook_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_notebook_sessions_errors()}
-  def list_notebook_sessions(%Client{} = client, input, options \\ []) do
+
+  def list_notebook_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3588,12 +4057,24 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the prepared statements in the specified workgroup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListPreparedStatements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_prepared_statements_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec list_prepared_statements(AWS.Client.t(), list_prepared_statements_input(), Keyword.t()) ::
+
+  @spec list_prepared_statements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_prepared_statements_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prepared_statements_errors()}
-  def list_prepared_statements(%Client{} = client, input, options \\ []) do
+
+  def list_prepared_statements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3606,12 +4087,24 @@ defmodule AWS.Athena do
   is not specified, returns a list of query execution IDs for the primary
   workgroup. Requires you to have access to the workgroup in which the queries
   ran.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListQueryExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_query_executions_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("WorkGroup") => String.t()
+    }
   """
-  @spec list_query_executions(AWS.Client.t(), list_query_executions_input(), Keyword.t()) ::
+
+  @spec list_query_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_query_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_query_executions_errors()}
-  def list_query_executions(%Client{} = client, input, options \\ []) do
+
+  def list_query_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3622,12 +4115,25 @@ defmodule AWS.Athena do
   Lists the sessions in a workgroup that are in an active state like `CREATING`,
   `CREATED`, `IDLE`, or `BUSY`. Newer sessions are listed first; older sessions
   are listed later.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_sessions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StateFilter") => list(any()),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec list_sessions(AWS.Client.t(), list_sessions_request(), Keyword.t()) ::
+
+  @spec list_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sessions_errors()}
-  def list_sessions(%Client{} = client, input, options \\ []) do
+
+  def list_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3636,12 +4142,27 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the metadata for the tables in the specified data catalog database.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListTableMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_table_metadata_input`)
+    %{
+      optional("Expression") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("WorkGroup") => String.t(),
+      required("CatalogName") => String.t(),
+      required("DatabaseName") => String.t()
+    }
   """
-  @spec list_table_metadata(AWS.Client.t(), list_table_metadata_input(), Keyword.t()) ::
+
+  @spec list_table_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_table_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_table_metadata_errors()}
-  def list_table_metadata(%Client{} = client, input, options \\ []) do
+
+  def list_table_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3650,12 +4171,24 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the tags associated with an Athena resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3664,12 +4197,23 @@ defmodule AWS.Athena do
 
   @doc """
   Lists available workgroups for the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20ListWorkGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_work_groups_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_work_groups(AWS.Client.t(), list_work_groups_input(), Keyword.t()) ::
+
+  @spec list_work_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_work_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_work_groups_errors()}
-  def list_work_groups(%Client{} = client, input, options \\ []) do
+
+  def list_work_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3680,16 +4224,24 @@ defmodule AWS.Athena do
   Puts a new capacity assignment configuration for a specified capacity
   reservation. If a capacity assignment configuration already exists for the
   capacity reservation, replaces the existing capacity assignment configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20PutCapacityAssignmentConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_capacity_assignment_configuration_input`)
+    %{
+      required("CapacityAssignments") => list(capacity_assignment()()),
+      required("CapacityReservationName") => String.t()
+    }
   """
-  @spec put_capacity_assignment_configuration(
-          AWS.Client.t(),
-          put_capacity_assignment_configuration_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_capacity_assignment_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_capacity_assignment_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_capacity_assignment_configuration_errors()}
-  def put_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_capacity_assignment_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3699,16 +4251,26 @@ defmodule AWS.Athena do
   @doc """
   Submits calculations for execution within a session. You can supply the code to
   run as an inline code block within the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20StartCalculationExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_calculation_execution_request`)
+    %{
+      optional("CalculationConfiguration") => calculation_configuration(),
+      optional("ClientRequestToken") => String.t(),
+      optional("CodeBlock") => String.t(),
+      optional("Description") => String.t(),
+      required("SessionId") => String.t()
+    }
   """
-  @spec start_calculation_execution(
-          AWS.Client.t(),
-          start_calculation_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_calculation_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_calculation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_calculation_execution_errors()}
-  def start_calculation_execution(%Client{} = client, input, options \\ []) do
+
+  def start_calculation_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3722,12 +4284,28 @@ defmodule AWS.Athena do
   samples using the Amazon Web Services SDK for Java, see [Examples and Code
   Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
   *Amazon Athena User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20StartQueryExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_query_execution_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("ExecutionParameters") => list(String.t()()),
+      optional("QueryExecutionContext") => query_execution_context(),
+      optional("ResultConfiguration") => result_configuration(),
+      optional("ResultReuseConfiguration") => result_reuse_configuration(),
+      optional("WorkGroup") => String.t(),
+      required("QueryString") => String.t()
+    }
   """
-  @spec start_query_execution(AWS.Client.t(), start_query_execution_input(), Keyword.t()) ::
+
+  @spec start_query_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_query_execution_errors()}
-  def start_query_execution(%Client{} = client, input, options \\ []) do
+
+  def start_query_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3737,12 +4315,27 @@ defmodule AWS.Athena do
   @doc """
   Creates a session for running calculations within a workgroup. The session is
   ready when it reaches an `IDLE` state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20StartSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_session_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("NotebookVersion") => String.t(),
+      optional("SessionIdleTimeoutInMinutes") => integer(),
+      required("EngineConfiguration") => engine_configuration(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec start_session(AWS.Client.t(), start_session_request(), Keyword.t()) ::
+
+  @spec start_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_session_errors()}
-  def start_session(%Client{} = client, input, options \\ []) do
+
+  def start_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3753,16 +4346,22 @@ defmodule AWS.Athena do
   Requests the cancellation of a calculation. A `StopCalculationExecution` call on
   a calculation that is already in a terminal state (for example, `STOPPED`,
   `FAILED`, or `COMPLETED`) succeeds but has no effect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20StopCalculationExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_calculation_execution_request`)
+    %{
+      required("CalculationExecutionId") => String.t()
+    }
   """
-  @spec stop_calculation_execution(
-          AWS.Client.t(),
-          stop_calculation_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_calculation_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_calculation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_calculation_execution_errors()}
-  def stop_calculation_execution(%Client{} = client, input, options \\ []) do
+
+  def stop_calculation_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3772,12 +4371,22 @@ defmodule AWS.Athena do
   @doc """
   Stops a query execution. Requires you to have access to the workgroup in which
   the query ran.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20StopQueryExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_query_execution_input`)
+    %{
+      required("QueryExecutionId") => String.t()
+    }
   """
-  @spec stop_query_execution(AWS.Client.t(), stop_query_execution_input(), Keyword.t()) ::
+
+  @spec stop_query_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_query_execution_errors()}
-  def stop_query_execution(%Client{} = client, input, options \\ []) do
+
+  def stop_query_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3797,12 +4406,23 @@ defmodule AWS.Athena do
   representable in UTF-8, and the following characters: + - = . _ : / @. Tag
   keys and values are case-sensitive. Tag keys must be unique per resource. If
   you specify more than one tag, separate them by commas.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3815,12 +4435,22 @@ defmodule AWS.Athena do
   state) succeeds but has no effect. Calculations running in the session when
   `TerminateSession` is called are forcefully stopped, but may display as
   `FAILED` instead of `STOPPED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20TerminateSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:terminate_session_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec terminate_session(AWS.Client.t(), terminate_session_request(), Keyword.t()) ::
+
+  @spec terminate_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_session_errors()}
-  def terminate_session(%Client{} = client, input, options \\ []) do
+
+  def terminate_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3829,12 +4459,23 @@ defmodule AWS.Athena do
 
   @doc """
   Removes one or more tags from an Athena resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3844,16 +4485,23 @@ defmodule AWS.Athena do
   @doc """
   Updates the number of requested data processing units for the capacity
   reservation with the specified name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UpdateCapacityReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_capacity_reservation_input`)
+    %{
+      required("Name") => String.t(),
+      required("TargetDpus") => integer()
+    }
   """
-  @spec update_capacity_reservation(
-          AWS.Client.t(),
-          update_capacity_reservation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_capacity_reservation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_capacity_reservation_errors()}
-  def update_capacity_reservation(%Client{} = client, input, options \\ []) do
+
+  def update_capacity_reservation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3862,12 +4510,25 @@ defmodule AWS.Athena do
 
   @doc """
   Updates the data catalog that has the specified name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UpdateDataCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_data_catalog_input`)
+    %{
+      optional("Description") => String.t(),
+      optional("Parameters") => map(),
+      required("Name") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec update_data_catalog(AWS.Client.t(), update_data_catalog_input(), Keyword.t()) ::
+
+  @spec update_data_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_catalog_errors()}
-  def update_data_catalog(%Client{} = client, input, options \\ []) do
+
+  def update_data_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3876,12 +4537,25 @@ defmodule AWS.Athena do
 
   @doc """
   Updates a `NamedQuery` object. The database or workgroup cannot be updated.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UpdateNamedQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_named_query_input`)
+    %{
+      optional("Description") => String.t(),
+      required("Name") => String.t(),
+      required("NamedQueryId") => String.t(),
+      required("QueryString") => String.t()
+    }
   """
-  @spec update_named_query(AWS.Client.t(), update_named_query_input(), Keyword.t()) ::
+
+  @spec update_named_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_named_query_errors()}
-  def update_named_query(%Client{} = client, input, options \\ []) do
+
+  def update_named_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3890,12 +4564,26 @@ defmodule AWS.Athena do
 
   @doc """
   Updates the contents of a Spark notebook.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UpdateNotebook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_notebook_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("SessionId") => String.t(),
+      required("NotebookId") => String.t(),
+      required("Payload") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec update_notebook(AWS.Client.t(), update_notebook_input(), Keyword.t()) ::
+
+  @spec update_notebook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notebook_errors()}
-  def update_notebook(%Client{} = client, input, options \\ []) do
+
+  def update_notebook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3904,12 +4592,24 @@ defmodule AWS.Athena do
 
   @doc """
   Updates the metadata for a notebook.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UpdateNotebookMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_notebook_metadata_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("Name") => String.t(),
+      required("NotebookId") => String.t()
+    }
   """
-  @spec update_notebook_metadata(AWS.Client.t(), update_notebook_metadata_input(), Keyword.t()) ::
+
+  @spec update_notebook_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_notebook_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notebook_metadata_errors()}
-  def update_notebook_metadata(%Client{} = client, input, options \\ []) do
+
+  def update_notebook_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3918,12 +4618,25 @@ defmodule AWS.Athena do
 
   @doc """
   Updates a prepared statement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UpdatePreparedStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_prepared_statement_input`)
+    %{
+      optional("Description") => String.t(),
+      required("QueryStatement") => String.t(),
+      required("StatementName") => String.t(),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec update_prepared_statement(AWS.Client.t(), update_prepared_statement_input(), Keyword.t()) ::
+
+  @spec update_prepared_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_prepared_statement_errors()}
-  def update_prepared_statement(%Client{} = client, input, options \\ []) do
+
+  def update_prepared_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3933,12 +4646,25 @@ defmodule AWS.Athena do
   @doc """
   Updates the workgroup with the specified name. The workgroup's name cannot be
   changed. Only `ConfigurationUpdates` can be specified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=athena%20UpdateWorkGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_work_group_input`)
+    %{
+      optional("ConfigurationUpdates") => work_group_configuration_updates(),
+      optional("Description") => String.t(),
+      optional("State") => list(any()),
+      required("WorkGroup") => String.t()
+    }
   """
-  @spec update_work_group(AWS.Client.t(), update_work_group_input(), Keyword.t()) ::
+
+  @spec update_work_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_work_group_errors()}
-  def update_work_group(%Client{} = client, input, options \\ []) do
+
+  def update_work_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -349,12 +349,25 @@ defmodule AWS.Pricing do
   that service, such as the attribute names available for that service. For
   example, some of the attribute names available for EC2 are `volumeType`,
   `maxIopsVolume`, `operation`, `locationType`, and `instanceCapacity10xlarge`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pricing%20DescribeServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_services_request`)
+    %{
+      optional("FormatVersion") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ServiceCode") => String.t()
+    }
   """
-  @spec describe_services(AWS.Client.t(), describe_services_request(), Keyword.t()) ::
+
+  @spec describe_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_services_errors()}
-  def describe_services(%Client{} = client, input, options \\ []) do
+
+  def describe_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -367,12 +380,25 @@ defmodule AWS.Pricing do
   Definitions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs)
   in the [Billing and Cost Management User
   Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pricing%20GetAttributeValues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_attribute_values_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AttributeName") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec get_attribute_values(AWS.Client.t(), get_attribute_values_request(), Keyword.t()) ::
+
+  @spec get_attribute_values(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_attribute_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attribute_values_errors()}
-  def get_attribute_values(%Client{} = client, input, options \\ []) do
+
+  def get_attribute_values(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -388,12 +414,23 @@ defmodule AWS.Pricing do
   the `PriceListArn` and `FileFormat` that you retrieve from the
   [ListPriceLists](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html)
   response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pricing%20GetPriceListFileUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_price_list_file_url_request`)
+    %{
+      required("FileFormat") => String.t(),
+      required("PriceListArn") => String.t()
+    }
   """
-  @spec get_price_list_file_url(AWS.Client.t(), get_price_list_file_url_request(), Keyword.t()) ::
+
+  @spec get_price_list_file_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_price_list_file_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_price_list_file_url_errors()}
-  def get_price_list_file_url(%Client{} = client, input, options \\ []) do
+
+  def get_price_list_file_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -402,12 +439,26 @@ defmodule AWS.Pricing do
 
   @doc """
   Returns a list of all products that match the filter criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pricing%20GetProducts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_products_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("FormatVersion") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec get_products(AWS.Client.t(), get_products_request(), Keyword.t()) ::
+
+  @spec get_products(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_products_errors()}
-  def get_products(%Client{} = client, input, options \\ []) do
+
+  def get_products(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -428,12 +479,27 @@ defmodule AWS.Pricing do
   files through the
   [GetPriceListFileUrl](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pricing%20ListPriceLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_price_lists_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("RegionCode") => String.t(),
+      required("CurrencyCode") => String.t(),
+      required("EffectiveDate") => non_neg_integer(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec list_price_lists(AWS.Client.t(), list_price_lists_request(), Keyword.t()) ::
+
+  @spec list_price_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_price_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_price_lists_errors()}
-  def list_price_lists(%Client{} = client, input, options \\ []) do
+
+  def list_price_lists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

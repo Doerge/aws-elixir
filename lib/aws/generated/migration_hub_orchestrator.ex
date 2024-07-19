@@ -16,42 +16,42 @@ defmodule AWS.MigrationHubOrchestrator do
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_steps_response() :: %{
         optional("nextToken") => String.t(),
         required("workflowStepsSummary") => list(workflow_step_summary()())
       }
-
+      
   """
   @type list_workflow_steps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_steps_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_workflow_steps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workflow_step_request() :: %{
         optional("description") => String.t(),
         optional("next") => list(String.t()()),
@@ -64,14 +64,14 @@ defmodule AWS.MigrationHubOrchestrator do
         required("stepGroupId") => String.t(),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type create_workflow_step_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_migration_workflow_response() :: %{
         optional("arn") => [String.t()],
         optional("id") => String.t(),
@@ -79,14 +79,14 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("status") => String.t(),
         optional("statusMessage") => [String.t()]
       }
-
+      
   """
   @type stop_migration_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_migration_workflow_request() :: %{
         optional("applicationConfigurationId") => [String.t()],
         optional("description") => [String.t()],
@@ -96,32 +96,32 @@ defmodule AWS.MigrationHubOrchestrator do
         required("name") => [String.t()],
         required("templateId") => [String.t()]
       }
-
+      
   """
   @type create_migration_workflow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_migration_workflow_request() :: %{}
-
+      
   """
   @type start_migration_workflow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workflow_step_group_request() :: %{
         optional("description") => String.t(),
         optional("name") => String.t(),
@@ -129,14 +129,14 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("previous") => list(String.t()()),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type update_workflow_step_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
@@ -144,27 +144,27 @@ defmodule AWS.MigrationHubOrchestrator do
         required("templateName") => [String.t()],
         required("templateSource") => list()
       }
-
+      
   """
   @type create_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       step_output() :: %{
         "dataType" => String.t(),
         "name" => [String.t()],
         "required" => [boolean()]
       }
-
+      
   """
   @type step_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       migration_workflow_summary() :: %{
         "adsApplicationConfigurationName" => [String.t()],
         "completedSteps" => [integer()],
@@ -177,14 +177,14 @@ defmodule AWS.MigrationHubOrchestrator do
         "templateId" => [String.t()],
         "totalSteps" => [integer()]
       }
-
+      
   """
   @type migration_workflow_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workflow_step_request() :: %{
         optional("description") => String.t(),
         optional("name") => String.t(),
@@ -198,64 +198,64 @@ defmodule AWS.MigrationHubOrchestrator do
         required("stepGroupId") => String.t(),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type update_workflow_step_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_migration_workflow_request() :: %{
         optional("description") => [String.t()],
         optional("inputParameters") => map(),
         optional("name") => [String.t()],
         optional("stepTargets") => list(String.t()())
       }
-
+      
   """
   @type update_migration_workflow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_migration_workflows_response() :: %{
         optional("nextToken") => String.t(),
         required("migrationWorkflowSummary") => list(migration_workflow_summary()())
       }
-
+      
   """
   @type list_migration_workflows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_request() :: %{
         optional("clientToken") => String.t(),
         optional("templateDescription") => [String.t()],
         optional("templateName") => [String.t()]
       }
-
+      
   """
   @type update_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_step_group_request() :: %{
         required("workflowId") => String.t()
       }
-
+      
   """
   @type get_workflow_step_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       plugin_summary() :: %{
         "hostname" => [String.t()],
         "ipAddress" => String.t(),
@@ -264,37 +264,37 @@ defmodule AWS.MigrationHubOrchestrator do
         "status" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type plugin_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       platform_command() :: %{
         "linux" => [String.t()],
         "windows" => [String.t()]
       }
-
+      
   """
   @type platform_command() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_step_response() :: %{
         optional("creationTime") => [non_neg_integer()],
         optional("description") => [String.t()],
@@ -318,38 +318,38 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("workflowId") => [String.t()],
         optional("workflowStepAutomationConfiguration") => workflow_step_automation_configuration()
       }
-
+      
   """
   @type get_workflow_step_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_step_request() :: %{
         required("stepGroupId") => String.t(),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type get_workflow_step_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_step_request() :: %{
         required("stepGroupId") => String.t(),
         required("templateId") => String.t()
       }
-
+      
   """
   @type get_template_step_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_migration_workflow_template_response() :: %{
         optional("creationTime") => [non_neg_integer()],
         optional("description") => [String.t()],
@@ -364,58 +364,58 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("templateClass") => [String.t()],
         optional("tools") => list(tool()())
       }
-
+      
   """
   @type get_migration_workflow_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_migration_workflow_response() :: %{
         optional("arn") => [String.t()],
         optional("id") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type delete_migration_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_request() :: %{}
-
+      
   """
   @type delete_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_migration_workflow_response() :: %{
         optional("arn") => [String.t()],
         optional("id") => String.t(),
@@ -423,14 +423,14 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("status") => String.t(),
         optional("statusMessage") => [String.t()]
       }
-
+      
   """
   @type start_migration_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_migration_workflow_response() :: %{
         optional("adsApplicationConfigurationId") => [String.t()],
         optional("arn") => [String.t()],
@@ -444,42 +444,42 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("templateId") => [String.t()],
         optional("workflowInputs") => map()
       }
-
+      
   """
   @type create_migration_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_step_group_summary() :: %{
         "id" => [String.t()],
         "name" => [String.t()],
         "next" => list(String.t()()),
         "previous" => list(String.t()())
       }
-
+      
   """
   @type template_step_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_summary() :: %{
         "arn" => [String.t()],
         "description" => [String.t()],
         "id" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workflow_step_group_request() :: %{
         optional("description") => String.t(),
         optional("next") => list(String.t()()),
@@ -487,14 +487,14 @@ defmodule AWS.MigrationHubOrchestrator do
         required("name") => String.t(),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type create_workflow_step_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       step_automation_configuration() :: %{
         "command" => platform_command(),
         "runEnvironment" => String.t(),
@@ -502,14 +502,14 @@ defmodule AWS.MigrationHubOrchestrator do
         "scriptLocationS3Key" => platform_script_key(),
         "targetType" => String.t()
       }
-
+      
   """
   @type step_automation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_step_group_response() :: %{
         optional("creationTime") => [non_neg_integer()],
         optional("description") => [String.t()],
@@ -522,14 +522,14 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("templateId") => [String.t()],
         optional("tools") => list(tool()())
       }
-
+      
   """
   @type get_template_step_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_migration_workflow_response() :: %{
         optional("adsApplicationConfigurationId") => [String.t()],
         optional("adsApplicationName") => [String.t()],
@@ -552,58 +552,58 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("workflowBucket") => [String.t()],
         optional("workflowInputs") => map()
       }
-
+      
   """
   @type get_migration_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_migration_workflow_request() :: %{}
-
+      
   """
   @type stop_migration_workflow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       platform_script_key() :: %{
         "linux" => String.t(),
         "windows" => String.t()
       }
-
+      
   """
   @type platform_script_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_plugins_response() :: %{
         optional("nextToken") => String.t(),
         optional("plugins") => list(plugin_summary()())
       }
-
+      
   """
   @type list_plugins_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_step_summary() :: %{
         "description" => [String.t()],
         "name" => [String.t()],
@@ -619,14 +619,14 @@ defmodule AWS.MigrationHubOrchestrator do
         "stepId" => [String.t()],
         "totalNoOfSrv" => [integer()]
       }
-
+      
   """
   @type workflow_step_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_step_group_summary() :: %{
         "id" => [String.t()],
         "name" => [String.t()],
@@ -635,98 +635,98 @@ defmodule AWS.MigrationHubOrchestrator do
         "previous" => list(String.t()()),
         "status" => String.t()
       }
-
+      
   """
   @type workflow_step_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_migration_workflow_request() :: %{}
-
+      
   """
   @type delete_migration_workflow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_plugins_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_plugins_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_workflow_step_response() :: %{
         optional("id") => [String.t()],
         optional("status") => String.t(),
         optional("stepGroupId") => [String.t()],
         optional("workflowId") => [String.t()]
       }
-
+      
   """
   @type retry_workflow_step_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_response() :: %{
         "tags" => map(),
         "templateArn" => [String.t()],
         "templateId" => [String.t()]
       }
-
+      
   """
   @type update_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_input() :: %{
         "dataType" => String.t(),
         "inputName" => String.t(),
         "required" => [boolean()]
       }
-
+      
   """
   @type template_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workflow_step_request() :: %{
         required("stepGroupId") => String.t(),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type delete_workflow_step_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workflow_step_group_response() :: %{
         optional("creationTime") => [non_neg_integer()],
         optional("description") => [String.t()],
@@ -737,14 +737,14 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("tools") => list(tool()()),
         optional("workflowId") => [String.t()]
       }
-
+      
   """
   @type create_workflow_step_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_migration_workflow_response() :: %{
         optional("adsApplicationConfigurationId") => [String.t()],
         optional("arn") => [String.t()],
@@ -759,104 +759,104 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("templateId") => [String.t()],
         optional("workflowInputs") => map()
       }
-
+      
   """
   @type update_migration_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_step_output() :: %{
         "dataType" => String.t(),
         "name" => String.t(),
         "required" => [boolean()],
         "value" => list()
       }
-
+      
   """
   @type workflow_step_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_workflow_step_request() :: %{
         required("stepGroupId") => String.t(),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type retry_workflow_step_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_migration_workflow_template_request() :: %{}
-
+      
   """
   @type get_migration_workflow_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workflow_step_response() :: %{}
-
+      
   """
   @type delete_workflow_step_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_step_groups_response() :: %{
         optional("nextToken") => String.t(),
         required("workflowStepGroupsSummary") => list(workflow_step_group_summary()())
       }
-
+      
   """
   @type list_workflow_step_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workflow_step_response() :: %{
         optional("id") => [String.t()],
         optional("name") => [String.t()],
         optional("stepGroupId") => [String.t()],
         optional("workflowId") => [String.t()]
       }
-
+      
   """
   @type create_workflow_step_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workflow_step_group_response() :: %{
         optional("description") => [String.t()],
         optional("id") => [String.t()],
@@ -867,66 +867,66 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("tools") => list(tool()()),
         optional("workflowId") => [String.t()]
       }
-
+      
   """
   @type update_workflow_step_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_step_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_template_step_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_migration_workflow_request() :: %{}
-
+      
   """
   @type get_migration_workflow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       template_step_summary() :: %{
         "id" => [String.t()],
         "name" => [String.t()],
@@ -938,68 +938,68 @@ defmodule AWS.MigrationHubOrchestrator do
         "targetType" => String.t(),
         "templateId" => [String.t()]
       }
-
+      
   """
   @type template_step_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_step_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("workflowId") => String.t()
       }
-
+      
   """
   @type list_workflow_step_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_steps_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("stepGroupId") => String.t(),
         required("templateId") => String.t()
       }
-
+      
   """
   @type list_template_steps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workflow_step_response() :: %{
         optional("id") => String.t(),
         optional("name") => [String.t()],
         optional("stepGroupId") => [String.t()],
         optional("workflowId") => [String.t()]
       }
-
+      
   """
   @type update_workflow_step_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_response() :: %{
         "tags" => map(),
         "templateArn" => [String.t()],
         "templateId" => [String.t()]
       }
-
+      
   """
   @type create_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_step_group_response() :: %{
         optional("creationTime") => [non_neg_integer()],
         optional("description") => [String.t()],
@@ -1014,23 +1014,23 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("tools") => list(tool()()),
         optional("workflowId") => [String.t()]
       }
-
+      
   """
   @type get_workflow_step_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_response() :: %{}
-
+      
   """
   @type delete_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_step_response() :: %{
         optional("creationTime") => [String.t()],
         optional("description") => [String.t()],
@@ -1044,36 +1044,36 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("stepGroupId") => String.t(),
         optional("templateId") => String.t()
       }
-
+      
   """
   @type get_template_step_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_migration_workflow_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("name") => String.t(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_migration_workflow_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_step_group_request() :: %{}
-
+      
   """
   @type get_template_step_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_step_automation_configuration() :: %{
         "command" => platform_command(),
         "runEnvironment" => String.t(),
@@ -1081,82 +1081,82 @@ defmodule AWS.MigrationHubOrchestrator do
         "scriptLocationS3Key" => platform_script_key(),
         "targetType" => String.t()
       }
-
+      
   """
   @type workflow_step_automation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_migration_workflow_templates_response() :: %{
         optional("nextToken") => String.t(),
         required("templateSummary") => list(template_summary()())
       }
-
+      
   """
   @type list_migration_workflow_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_steps_response() :: %{
         optional("nextToken") => String.t(),
         optional("templateStepSummaryList") => list(template_step_summary()())
       }
-
+      
   """
   @type list_template_steps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tool() :: %{
         "name" => [String.t()],
         "url" => [String.t()]
       }
-
+      
   """
   @type tool() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_step_groups_response() :: %{
         optional("nextToken") => String.t(),
         required("templateStepGroupSummary") => list(template_step_group_summary()())
       }
-
+      
   """
   @type list_template_step_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workflow_step_group_response() :: %{}
-
+      
   """
   @type delete_workflow_step_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workflow_step_group_request() :: %{
         required("workflowId") => String.t()
       }
-
+      
   """
   @type delete_workflow_step_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_migration_workflows_request() :: %{
         optional("adsApplicationConfigurationName") => String.t(),
         optional("maxResults") => integer(),
@@ -1165,7 +1165,7 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("status") => String.t(),
         optional("templateId") => String.t()
       }
-
+      
   """
   @type list_migration_workflows_request() :: %{String.t() => any()}
 
@@ -1379,29 +1379,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec create_template(AWS.Client.t(), create_template_request(), Keyword.t()) ::
+
+  @spec create_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-  def create_template(%Client{} = client, input, options \\ []) do
+
+  def create_template(%Client{} = client, options \\ []) do
     url_path = "/template"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1413,29 +1424,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec create_workflow(AWS.Client.t(), create_migration_workflow_request(), Keyword.t()) ::
+
+  @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
-  def create_workflow(%Client{} = client, input, options \\ []) do
+
+  def create_workflow(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflow/"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1447,29 +1469,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec create_workflow_step(AWS.Client.t(), create_workflow_step_request(), Keyword.t()) ::
+
+  @spec create_workflow_step(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_step_errors()}
-  def create_workflow_step(%Client{} = client, input, options \\ []) do
+
+  def create_workflow_step(%Client{} = client, options \\ []) do
     url_path = "/workflowstep"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1481,33 +1514,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec create_workflow_step_group(
-          AWS.Client.t(),
-          create_workflow_step_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_workflow_step_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_step_group_errors()}
-  def create_workflow_step_group(%Client{} = client, input, options \\ []) do
+
+  def create_workflow_step_group(%Client{} = client, options \\ []) do
     url_path = "/workflowstepgroups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1517,21 +1557,42 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string`) The ID of the request to delete a migration workflow
-    template.
+  template.
 
   ## Optional parameters:
   """
-  @spec delete_template(AWS.Client.t(), String.t(), delete_template_request(), Keyword.t()) ::
+
+  @spec delete_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-  def delete_template(%Client{} = client, id, input, options \\ []) do
+
+  def delete_template(%Client{} = client, id, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1540,7 +1601,7 @@ defmodule AWS.MigrationHubOrchestrator do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1557,22 +1618,38 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec delete_workflow(
-          AWS.Client.t(),
-          String.t(),
-          delete_migration_workflow_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-  def delete_workflow(%Client{} = client, id, input, options \\ []) do
+
+  def delete_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1581,7 +1658,7 @@ defmodule AWS.MigrationHubOrchestrator do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1596,33 +1673,44 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:id` (`t:string`) The ID of the step you want to delete.
   * `:step_group_id` (`t:string`) The ID of the step group that contains the step
-    you want to delete.
+  you want to delete.
   * `:workflow_id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
   """
-  @spec delete_workflow_step(
-          AWS.Client.t(),
-          String.t(),
-          delete_workflow_step_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_step_errors()}
-  def delete_workflow_step(%Client{} = client, id, input, options \\ []) do
+
+  def delete_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ [])
+      when is_binary(step_group_id) and is_binary(workflow_id) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"stepGroupId", "stepGroupId"},
-        {"workflowId", "workflowId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"stepGroupId", step_group_id}, {"workflowId", workflow_id}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1631,7 +1719,7 @@ defmodule AWS.MigrationHubOrchestrator do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1648,27 +1736,39 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec delete_workflow_step_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_workflow_step_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_step_group_errors()}
-  def delete_workflow_step_group(%Client{} = client, id, input, options \\ []) do
+
+  def delete_workflow_step_group(%Client{} = client, id, workflow_id, options \\ [])
+      when is_binary(workflow_id) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"workflowId", "workflowId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"workflowId", workflow_id}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1677,7 +1777,7 @@ defmodule AWS.MigrationHubOrchestrator do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1693,10 +1793,12 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
+
   @spec get_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
+
   def get_template(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflowtemplate/#{AWS.Util.encode_uri(id)}"
 
@@ -1737,11 +1839,14 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
+
   @spec get_template_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_step_errors()}
-  def get_template_step(%Client{} = client, id, step_group_id, template_id, options \\ []) do
+
+  def get_template_step(%Client{} = client, id, step_group_id, template_id, options \\ [])
+      when is_binary(step_group_id) and is_binary(template_id) do
     url_path = "/templatestep/#{AWS.Util.encode_uri(id)}"
 
     # Validate optional parameters
@@ -1780,10 +1885,12 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
+
   @spec get_template_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_step_group_errors()}
+
   def get_template_step_group(%Client{} = client, id, template_id, options \\ []) do
     url_path =
       "/templates/#{AWS.Util.encode_uri(template_id)}/stepgroups/#{AWS.Util.encode_uri(id)}"
@@ -1823,10 +1930,12 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
+
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
+
   def get_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
 
@@ -1867,11 +1976,14 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
+
   @spec get_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_errors()}
-  def get_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ []) do
+
+  def get_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ [])
+      when is_binary(step_group_id) and is_binary(workflow_id) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
 
     # Validate optional parameters
@@ -1910,11 +2022,14 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
+
   @spec get_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_group_errors()}
-  def get_workflow_step_group(%Client{} = client, id, workflow_id, options \\ []) do
+
+  def get_workflow_step_group(%Client{} = client, id, workflow_id, options \\ [])
+      when is_binary(workflow_id) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
 
     # Validate optional parameters
@@ -1951,13 +2066,15 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of plugins that can be
-    returned.
+  returned.
   * `:next_token` (`t:string`) The pagination token.
   """
+
   @spec list_plugins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_plugins_errors()}
+
   def list_plugins(%Client{} = client, options \\ []) do
     url_path = "/plugins"
 
@@ -2014,10 +2131,12 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2056,13 +2175,15 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-    returned.
+  returned.
   * `:next_token` (`t:string`) The pagination token.
   """
+
   @spec list_template_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_step_groups_errors()}
+
   def list_template_step_groups(%Client{} = client, template_id, options \\ []) do
     url_path = "/templatestepgroups/#{AWS.Util.encode_uri(template_id)}"
 
@@ -2120,14 +2241,17 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-    returned.
+  returned.
   * `:next_token` (`t:string`) The pagination token.
   """
+
   @spec list_template_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_steps_errors()}
-  def list_template_steps(%Client{} = client, step_group_id, template_id, options \\ []) do
+
+  def list_template_steps(%Client{} = client, step_group_id, template_id, options \\ [])
+      when is_binary(step_group_id) and is_binary(template_id) do
     url_path = "/templatesteps"
 
     # Validate optional parameters
@@ -2183,14 +2307,16 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-    returned.
+  returned.
   * `:name` (`t:string`) The name of the template.
   * `:next_token` (`t:string`) The pagination token.
   """
+
   @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflow_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
+
   def list_templates(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflowtemplates"
 
@@ -2254,14 +2380,17 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-    returned.
+  returned.
   * `:next_token` (`t:string`) The pagination token.
   """
+
   @spec list_workflow_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_step_groups_errors()}
-  def list_workflow_step_groups(%Client{} = client, workflow_id, options \\ []) do
+
+  def list_workflow_step_groups(%Client{} = client, workflow_id, options \\ [])
+      when is_binary(workflow_id) do
     url_path = "/workflowstepgroups"
 
     # Validate optional parameters
@@ -2318,13 +2447,15 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-    returned.
+  returned.
   * `:next_token` (`t:string`) The pagination token.
   """
+
   @spec list_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_steps_errors()}
+
   def list_workflow_steps(%Client{} = client, step_group_id, workflow_id, options \\ []) do
     url_path =
       "/workflow/#{AWS.Util.encode_uri(workflow_id)}/workflowstepgroups/#{AWS.Util.encode_uri(step_group_id)}/workflowsteps"
@@ -2381,18 +2512,20 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   * `:ads_application_configuration_name` (`t:string`) The name of the application
-    configured in Application Discovery Service.
+  configured in Application Discovery Service.
   * `:max_results` (`t:integer`) The maximum number of results that can be
-    returned.
-  * `:name` (`t:`) The name of the migration workflow.
+  returned.
+  * `:name` (`t:string`) The name of the migration workflow.
   * `:next_token` (`t:string`) The pagination token.
   * `:status` (`t:string`) The status of the migration workflow.
   * `:template_id` (`t:string`) The ID of the template.
   """
+
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
+
   def list_workflows(%Client{} = client, options \\ []) do
     url_path = "/migrationworkflows"
 
@@ -2493,40 +2626,41 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec retry_workflow_step(
-          AWS.Client.t(),
-          String.t(),
-          retry_workflow_step_request(),
-          Keyword.t()
-        ) ::
+
+  @spec retry_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, retry_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_workflow_step_errors()}
-  def retry_workflow_step(%Client{} = client, id, input, options \\ []) do
+
+  def retry_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ [])
+      when is_binary(step_group_id) and is_binary(workflow_id) do
     url_path = "/retryworkflowstep/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"stepGroupId", "stepGroupId"},
-        {"workflowId", "workflowId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"stepGroupId", step_group_id}, {"workflowId", workflow_id}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2539,34 +2673,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec start_workflow(
-          AWS.Client.t(),
-          String.t(),
-          start_migration_workflow_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workflow_errors()}
-  def start_workflow(%Client{} = client, id, input, options \\ []) do
+
+  def start_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/start"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2579,29 +2719,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec stop_workflow(AWS.Client.t(), String.t(), stop_migration_workflow_request(), Keyword.t()) ::
+
+  @spec stop_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_workflow_errors()}
-  def stop_workflow(%Client{} = client, id, input, options \\ []) do
+
+  def stop_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2611,33 +2762,44 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-    which you want to add tags.
+  which you want to add tags.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2647,28 +2809,45 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    from which you want to remove tags.
+  from which you want to remove tags.
   * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]`) One or
-    more tag keys. Specify only the tag keys, not the tag values.
+  more tag keys. Specify only the tag keys, not the tag values.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2677,7 +2856,7 @@ defmodule AWS.MigrationHubOrchestrator do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2690,33 +2869,44 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string`) The ID of the request to update a migration workflow
-    template.
+  template.
 
   ## Optional parameters:
   """
-  @spec update_template(AWS.Client.t(), String.t(), update_template_request(), Keyword.t()) ::
+
+  @spec update_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-  def update_template(%Client{} = client, id, input, options \\ []) do
+
+  def update_template(%Client{} = client, id, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2729,34 +2919,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec update_workflow(
-          AWS.Client.t(),
-          String.t(),
-          update_migration_workflow_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_errors()}
-  def update_workflow(%Client{} = client, id, input, options \\ []) do
+
+  def update_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2769,34 +2965,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec update_workflow_step(
-          AWS.Client.t(),
-          String.t(),
-          update_workflow_step_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workflow_step(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_step_errors()}
-  def update_workflow_step(%Client{} = client, id, input, options \\ []) do
+
+  def update_workflow_step(%Client{} = client, id, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2810,38 +3012,40 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Optional parameters:
   """
-  @spec update_workflow_step_group(
-          AWS.Client.t(),
-          String.t(),
-          update_workflow_step_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_step_group_errors()}
-  def update_workflow_step_group(%Client{} = client, id, input, options \\ []) do
+
+  def update_workflow_step_group(%Client{} = client, id, workflow_id, options \\ [])
+      when is_binary(workflow_id) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"workflowId", "workflowId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"workflowId", workflow_id}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 end

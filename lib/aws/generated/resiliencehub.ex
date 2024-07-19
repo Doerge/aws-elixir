@@ -18,7 +18,7 @@ defmodule AWS.Resiliencehub do
   @typedoc """
 
   ## Example:
-
+      
       app() :: %{
         "appArn" => String.t(),
         "assessmentSchedule" => String.t(),
@@ -39,86 +39,86 @@ defmodule AWS.Resiliencehub do
         "status" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type app() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_recommendation_status_request() :: %{
         required("appArn") => String.t(),
         required("requestEntries") => list(update_recommendation_status_request_entry()())
       }
-
+      
   """
   @type batch_update_recommendation_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_component_compliances_response() :: %{
         optional("nextToken") => String.t(),
         required("componentCompliances") => list(app_component_compliance()())
       }
-
+      
   """
   @type list_app_component_compliances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_resources_resolution_status_request() :: %{
         optional("resolutionId") => String.t(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_resources_resolution_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_apps_response() :: %{
         optional("nextToken") => String.t(),
         required("appSummaries") => list(app_summary()())
       }
-
+      
   """
   @type list_apps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_component_recommendations_response() :: %{
         optional("nextToken") => String.t(),
         required("componentRecommendations") => list(component_recommendation()())
       }
-
+      
   """
   @type list_app_component_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_resource_request() :: %{
         optional("awsAccountId") => String.t(),
         optional("awsRegion") => String.t(),
@@ -128,40 +128,40 @@ defmodule AWS.Resiliencehub do
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_component_recommendations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type list_app_component_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_draft_app_version_resource_mappings_response() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t(),
         required("resourceMappings") => list(resource_mapping()())
       }
-
+      
   """
   @type add_draft_app_version_resource_mappings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_request() :: %{
         optional("assessmentSchedule") => String.t(),
         optional("clientToken") => String.t(),
@@ -172,51 +172,51 @@ defmodule AWS.Resiliencehub do
         optional("tags") => map(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_version_resources_response() :: %{
         optional("nextToken") => String.t(),
         required("physicalResources") => list(physical_resource()()),
         required("resolutionId") => String.t()
       }
-
+      
   """
   @type list_app_version_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_response() :: %{
         required("appArn") => String.t()
       }
-
+      
   """
   @type delete_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type create_app_version_app_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_assessments_request() :: %{
         optional("appArn") => String.t(),
         optional("assessmentName") => String.t(),
@@ -227,59 +227,59 @@ defmodule AWS.Resiliencehub do
         optional("nextToken") => String.t(),
         optional("reverseOrder") => boolean()
       }
-
+      
   """
   @type list_app_assessments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_versions_response() :: %{
         optional("nextToken") => String.t(),
         required("appVersions") => list(app_version_summary()())
       }
-
+      
   """
   @type list_app_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_draft_app_version_resource_mappings_response() :: %{
         optional("appArn") => String.t(),
         optional("appVersion") => String.t()
       }
-
+      
   """
   @type remove_draft_app_version_resource_mappings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resolve_app_version_resources_request() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type resolve_app_version_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_version_app_component_request() :: %{
         optional("additionalInfo") => map(),
         optional("name") => String.t(),
@@ -287,26 +287,26 @@ defmodule AWS.Resiliencehub do
         required("appArn") => String.t(),
         required("id") => String.t()
       }
-
+      
   """
   @type update_app_version_app_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_draft_app_version_template_request() :: %{
         required("appArn") => String.t(),
         required("appTemplateBody") => String.t()
       }
-
+      
   """
   @type put_draft_app_version_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_mapping() :: %{
         "appRegistryAppName" => String.t(),
         "eksSourceName" => String.t(),
@@ -317,54 +317,54 @@ defmodule AWS.Resiliencehub do
         "resourceName" => String.t(),
         "terraformSourceName" => String.t()
       }
-
+      
   """
   @type resource_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_unsupported_app_version_resources_response() :: %{
         optional("nextToken") => String.t(),
         required("resolutionId") => String.t(),
         required("unsupportedResources") => list(unsupported_resource()())
       }
-
+      
   """
   @type list_unsupported_app_version_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resiliency_score() :: %{
         "componentScore" => map(),
         "disruptionScore" => map(),
         "score" => float()
       }
-
+      
   """
   @type resiliency_score() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_resource() :: %{
         "logicalResourceId" => logical_resource_id(),
         "physicalResourceId" => physical_resource_id(),
         "resourceType" => String.t(),
         "unsupportedResourceStatus" => String.t()
       }
-
+      
   """
   @type unsupported_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_version_resource_request() :: %{
         optional("additionalInfo") => map(),
         optional("awsAccountId") => String.t(),
@@ -377,14 +377,14 @@ defmodule AWS.Resiliencehub do
         required("physicalResourceId") => String.t(),
         required("resourceType") => String.t()
       }
-
+      
   """
   @type create_app_version_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       config_recommendation() :: %{
         "appComponentName" => String.t(),
         "compliance" => map(),
@@ -397,39 +397,39 @@ defmodule AWS.Resiliencehub do
         "referenceId" => String.t(),
         "suggestedChanges" => list(String.t()())
       }
-
+      
   """
   @type config_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_subscription() :: %{
         "eventType" => String.t(),
         "name" => String.t(),
         "snsTopicArn" => String.t()
       }
-
+      
   """
   @type event_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_template_request() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_resources_to_draft_app_version_request() :: %{
         optional("eksSources") => list(eks_source()()),
         optional("importStrategy") => String.t(),
@@ -437,26 +437,26 @@ defmodule AWS.Resiliencehub do
         optional("terraformSources") => list(terraform_source()()),
         required("appArn") => String.t()
       }
-
+      
   """
   @type import_resources_to_draft_app_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_input_source_response() :: %{
         optional("appArn") => String.t(),
         optional("appInputSource") => app_input_source()
       }
-
+      
   """
   @type delete_app_input_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_app_assessment_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
@@ -464,41 +464,41 @@ defmodule AWS.Resiliencehub do
         required("appVersion") => String.t(),
         required("assessmentName") => String.t()
       }
-
+      
   """
   @type start_app_assessment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_version_app_components_response() :: %{
         optional("appComponents") => list(app_component()()),
         optional("nextToken") => String.t(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type list_app_version_app_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_recommendation_status_response() :: %{
         "appArn" => String.t(),
         "failedEntries" => list(batch_update_recommendation_status_failed_entry()()),
         "successfulEntries" => list(batch_update_recommendation_status_successful_entry()())
       }
-
+      
   """
   @type batch_update_recommendation_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_unsupported_app_version_resources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -506,75 +506,75 @@ defmodule AWS.Resiliencehub do
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type list_unsupported_app_version_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_input_sources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type list_app_input_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_test_recommendations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type list_test_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       failure_policy() :: %{
         "rpoInSecs" => integer(),
         "rtoInSecs" => integer()
       }
-
+      
   """
   @type failure_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_recommendation_template_response() :: %{
         optional("recommendationTemplate") => recommendation_template()
       }
-
+      
   """
   @type create_recommendation_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_response() :: %{
         required("app") => app()
       }
-
+      
   """
   @type describe_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disruption_compliance() :: %{
         "achievableRpoInSecs" => integer(),
         "achievableRtoInSecs" => integer(),
@@ -587,38 +587,38 @@ defmodule AWS.Resiliencehub do
         "rtoDescription" => String.t(),
         "rtoReferenceId" => String.t()
       }
-
+      
   """
   @type disruption_compliance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resiliency_policies_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("policyName") => String.t()
       }
-
+      
   """
   @type list_resiliency_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_recommendation_status_request_entry() :: %{
         "entryId" => String.t(),
         "excludeReason" => String.t(),
@@ -626,25 +626,25 @@ defmodule AWS.Resiliencehub do
         "item" => update_recommendation_status_item(),
         "referenceId" => String.t()
       }
-
+      
   """
   @type update_recommendation_status_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terraform_source() :: %{
         "s3StateFileUrl" => String.t()
       }
-
+      
   """
   @type terraform_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_version_resources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -652,52 +652,52 @@ defmodule AWS.Resiliencehub do
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type list_app_version_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_errors_details() :: %{
         "hasMoreErrors" => boolean(),
         "resourceErrors" => list(resource_error()())
       }
-
+      
   """
   @type resource_errors_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_recommendation() :: %{
         "appComponentName" => String.t(),
         "configRecommendations" => list(config_recommendation()()),
         "recommendationStatus" => String.t()
       }
-
+      
   """
   @type component_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type create_app_version_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logical_resource_id() :: %{
         "eksSourceName" => String.t(),
         "identifier" => String.t(),
@@ -705,38 +705,38 @@ defmodule AWS.Resiliencehub do
         "resourceGroupName" => String.t(),
         "terraformSourceName" => String.t()
       }
-
+      
   """
   @type logical_resource_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type delete_app_version_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_assessment_request() :: %{
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type describe_app_assessment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommendation_item() :: %{
         "alreadyImplemented" => boolean(),
         "excludeReason" => String.t(),
@@ -745,90 +745,90 @@ defmodule AWS.Resiliencehub do
         "targetAccountId" => String.t(),
         "targetRegion" => String.t()
       }
-
+      
   """
   @type recommendation_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_version_resource_mappings_response() :: %{
         optional("nextToken") => String.t(),
         required("resourceMappings") => list(resource_mapping()())
       }
-
+      
   """
   @type list_app_version_resource_mappings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_draft_app_version_template_response() :: %{
         optional("appArn") => String.t(),
         optional("appVersion") => String.t()
       }
-
+      
   """
   @type put_draft_app_version_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_assessment_compliance_drifts_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type list_app_assessment_compliance_drifts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_input_source_request() :: %{
         optional("clientToken") => String.t(),
         optional("eksSourceClusterNamespace") => eks_source_cluster_namespace(),
@@ -836,38 +836,38 @@ defmodule AWS.Resiliencehub do
         optional("terraformSource") => terraform_source(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type delete_app_input_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_suggested_resiliency_policies_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_suggested_resiliency_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_recommendation_status_failed_entry() :: %{
         "entryId" => String.t(),
         "errorMessage" => String.t()
       }
-
+      
   """
   @type batch_update_recommendation_status_failed_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alarm_recommendation() :: %{
         "appComponentName" => String.t(),
         "appComponentNames" => list(String.t()()),
@@ -880,52 +880,52 @@ defmodule AWS.Resiliencehub do
         "referenceId" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type alarm_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_recommendation_templates_response() :: %{
         optional("nextToken") => String.t(),
         optional("recommendationTemplates") => list(recommendation_template()())
       }
-
+      
   """
   @type list_recommendation_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scoring_component_resiliency_score() :: %{
         "excludedCount" => float(),
         "outstandingCount" => float(),
         "possibleScore" => float(),
         "score" => float()
       }
-
+      
   """
   @type scoring_component_resiliency_score() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_identifier() :: %{
         "logicalResourceId" => logical_resource_id(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type resource_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_resiliency_policy_request() :: %{
         optional("clientToken") => String.t(),
         optional("dataLocationConstraint") => String.t(),
@@ -935,127 +935,127 @@ defmodule AWS.Resiliencehub do
         required("policyName") => String.t(),
         required("tier") => String.t()
       }
-
+      
   """
   @type create_resiliency_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_assessments_response() :: %{
         optional("nextToken") => String.t(),
         required("assessmentSummaries") => list(app_assessment_summary()())
       }
-
+      
   """
   @type list_app_assessments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sop_recommendations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type list_sop_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_version_resource_mappings_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type list_app_version_resource_mappings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_draft_app_version_resource_mappings_request() :: %{
         required("appArn") => String.t(),
         required("resourceMappings") => list(resource_mapping()())
       }
-
+      
   """
   @type add_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_app_component_request() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t(),
         required("id") => String.t()
       }
-
+      
   """
   @type describe_app_version_app_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_resiliency_policy_response() :: %{
         required("policy") => resiliency_policy()
       }
-
+      
   """
   @type update_resiliency_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_app_version_response() :: %{
         optional("appVersion") => String.t(),
         optional("identifier") => float(),
         optional("versionName") => String.t(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type publish_app_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type update_app_version_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_recommendation_status_successful_entry() :: %{
         "entryId" => String.t(),
         "excludeReason" => String.t(),
@@ -1063,122 +1063,122 @@ defmodule AWS.Resiliencehub do
         "item" => update_recommendation_status_item(),
         "referenceId" => String.t()
       }
-
+      
   """
   @type batch_update_recommendation_status_successful_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_resiliency_policy_response() :: %{
         required("policy") => resiliency_policy()
       }
-
+      
   """
   @type create_resiliency_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_version_response() :: %{
         optional("additionalInfo") => map(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type update_app_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_alarm_recommendations_response() :: %{
         optional("nextToken") => String.t(),
         required("alarmRecommendations") => list(alarm_recommendation()())
       }
-
+      
   """
   @type list_alarm_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_source_cluster_namespace() :: %{
         "eksClusterArn" => String.t(),
         "namespace" => String.t()
       }
-
+      
   """
   @type eks_source_cluster_namespace() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_draft_app_version_resources_import_status_request() :: %{
         required("appArn") => String.t()
       }
-
+      
   """
   @type describe_draft_app_version_resources_import_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_template_response() :: %{
         required("appArn") => String.t(),
         required("appTemplateBody") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_resiliency_policy_response() :: %{
         required("policy") => resiliency_policy()
       }
-
+      
   """
   @type describe_resiliency_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_component() :: %{
         "additionalInfo" => map(),
         "id" => String.t(),
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type app_component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommendation_disruption_compliance() :: %{
         "expectedComplianceStatus" => String.t(),
         "expectedRpoDescription" => String.t(),
@@ -1186,65 +1186,65 @@ defmodule AWS.Resiliencehub do
         "expectedRtoDescription" => String.t(),
         "expectedRtoInSecs" => integer()
       }
-
+      
   """
   @type recommendation_disruption_compliance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_suggested_resiliency_policies_response() :: %{
         optional("nextToken") => String.t(),
         required("resiliencyPolicies") => list(resiliency_policy()())
       }
-
+      
   """
   @type list_suggested_resiliency_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_error() :: %{
         "logicalResourceId" => String.t(),
         "physicalResourceId" => String.t(),
         "reason" => String.t()
       }
-
+      
   """
   @type resource_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_location() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
       }
-
+      
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resolve_app_version_resources_response() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t(),
         required("resolutionId") => String.t(),
         required("status") => String.t()
       }
-
+      
   """
   @type resolve_app_version_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_input_source() :: %{
         "eksSourceClusterNamespace" => eks_source_cluster_namespace(),
         "importType" => String.t(),
@@ -1253,26 +1253,26 @@ defmodule AWS.Resiliencehub do
         "sourceName" => String.t(),
         "terraformSource" => terraform_source()
       }
-
+      
   """
   @type app_input_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_recommendation_template_response() :: %{
         required("recommendationTemplateArn") => String.t(),
         required("status") => String.t()
       }
-
+      
   """
   @type delete_recommendation_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       physical_resource() :: %{
         "additionalInfo" => map(),
         "appComponents" => list(app_component()()),
@@ -1284,14 +1284,14 @@ defmodule AWS.Resiliencehub do
         "resourceType" => String.t(),
         "sourceType" => String.t()
       }
-
+      
   """
   @type physical_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_summary() :: %{
         "appArn" => String.t(),
         "assessmentSchedule" => String.t(),
@@ -1306,48 +1306,48 @@ defmodule AWS.Resiliencehub do
         "rtoInSecs" => integer(),
         "status" => String.t()
       }
-
+      
   """
   @type app_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_test_recommendations_response() :: %{
         optional("nextToken") => String.t(),
         required("testRecommendations") => list(test_recommendation()())
       }
-
+      
   """
   @type list_test_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_response() :: %{
         required("app") => app()
       }
-
+      
   """
   @type update_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_drift() :: %{
         "appArn" => String.t(),
         "appVersion" => String.t(),
@@ -1355,14 +1355,14 @@ defmodule AWS.Resiliencehub do
         "referenceId" => String.t(),
         "resourceIdentifier" => resource_identifier()
       }
-
+      
   """
   @type resource_drift() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_assessment_summary() :: %{
         "appArn" => String.t(),
         "appVersion" => String.t(),
@@ -1379,51 +1379,51 @@ defmodule AWS.Resiliencehub do
         "startTime" => non_neg_integer(),
         "versionName" => String.t()
       }
-
+      
   """
   @type app_assessment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_source() :: %{
         "eksClusterArn" => String.t(),
         "namespaces" => list(String.t()())
       }
-
+      
   """
   @type eks_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_request() :: %{
         optional("clientToken") => String.t(),
         optional("forceDelete") => boolean(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type delete_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_assessment_resource_drifts_response() :: %{
         "nextToken" => String.t(),
         "resourceDrifts" => list(resource_drift()())
       }
-
+      
   """
   @type list_app_assessment_resource_drifts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_version_resource_request() :: %{
         optional("additionalInfo") => map(),
         optional("appComponents") => list(String.t()()),
@@ -1436,107 +1436,107 @@ defmodule AWS.Resiliencehub do
         optional("resourceType") => String.t(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type update_app_version_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_app_version_request() :: %{
         optional("versionName") => String.t(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type publish_app_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_request() :: %{
         required("appArn") => String.t()
       }
-
+      
   """
   @type describe_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resiliency_policy_request() :: %{
         optional("clientToken") => String.t(),
         required("policyArn") => String.t()
       }
-
+      
   """
   @type delete_resiliency_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_assessment_compliance_drifts_response() :: %{
         "complianceDrifts" => list(compliance_drift()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_app_assessment_compliance_drifts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type delete_app_version_app_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_version_app_component_request() :: %{
         optional("clientToken") => String.t(),
         required("appArn") => String.t(),
         required("id") => String.t()
       }
-
+      
   """
   @type delete_app_version_app_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_resources_to_draft_app_version_response() :: %{
         optional("eksSources") => list(eks_source()()),
         optional("sourceArns") => list(String.t()()),
@@ -1545,55 +1545,55 @@ defmodule AWS.Resiliencehub do
         required("appVersion") => String.t(),
         required("status") => String.t()
       }
-
+      
   """
   @type import_resources_to_draft_app_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_version_summary() :: %{
         "appVersion" => String.t(),
         "creationTime" => non_neg_integer(),
         "identifier" => float(),
         "versionName" => String.t()
       }
-
+      
   """
   @type app_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_version_app_components_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type list_app_version_app_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       permission_model() :: %{
         "crossAccountRoleArns" => list(String.t()()),
         "invokerRoleName" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type permission_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_resiliency_policy_request() :: %{
         optional("dataLocationConstraint") => String.t(),
         optional("policy") => map(),
@@ -1602,46 +1602,46 @@ defmodule AWS.Resiliencehub do
         optional("tier") => String.t(),
         required("policyArn") => String.t()
       }
-
+      
   """
   @type update_resiliency_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_input_sources_response() :: %{
         optional("nextToken") => String.t(),
         required("appInputSources") => list(app_input_source()())
       }
-
+      
   """
   @type list_app_input_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resiliency_policy() :: %{
         "creationTime" => non_neg_integer(),
         "dataLocationConstraint" => String.t(),
@@ -1653,14 +1653,14 @@ defmodule AWS.Resiliencehub do
         "tags" => map(),
         "tier" => String.t()
       }
-
+      
   """
   @type resiliency_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_request() :: %{
         optional("assessmentSchedule") => String.t(),
         optional("clearResiliencyPolicyArn") => boolean(),
@@ -1670,14 +1670,14 @@ defmodule AWS.Resiliencehub do
         optional("policyArn") => String.t(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type update_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_assessment() :: %{
         "appArn" => String.t(),
         "appVersion" => String.t(),
@@ -1698,14 +1698,14 @@ defmodule AWS.Resiliencehub do
         "tags" => map(),
         "versionName" => String.t()
       }
-
+      
   """
   @type app_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_recommendation() :: %{
         "appComponentName" => String.t(),
         "dependsOnAlarms" => list(String.t()()),
@@ -1720,14 +1720,14 @@ defmodule AWS.Resiliencehub do
         "risk" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type test_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_recommendation_templates_request() :: %{
         optional("assessmentArn") => String.t(),
         optional("maxResults") => integer(),
@@ -1737,110 +1737,110 @@ defmodule AWS.Resiliencehub do
         optional("reverseOrder") => boolean(),
         optional("status") => list(String.t()())
       }
-
+      
   """
   @type list_recommendation_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => integer()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_app_assessment_response() :: %{
         required("assessment") => app_assessment()
       }
-
+      
   """
   @type start_app_assessment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_recommendation_status_item() :: %{
         "resourceId" => String.t(),
         "targetAccountId" => String.t(),
         "targetRegion" => String.t()
       }
-
+      
   """
   @type update_recommendation_status_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_alarm_recommendations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type list_alarm_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_version_request() :: %{
         optional("additionalInfo") => map(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type update_app_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_resiliency_policy_request() :: %{
         required("policyArn") => String.t()
       }
-
+      
   """
   @type describe_resiliency_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_assessment_response() :: %{
         required("assessment") => app_assessment()
       }
-
+      
   """
   @type describe_app_assessment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_app_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_apps_request() :: %{
         optional("appArn") => String.t(),
         optional("fromLastAssessmentTime") => non_neg_integer(),
@@ -1850,27 +1850,27 @@ defmodule AWS.Resiliencehub do
         optional("reverseOrder") => boolean(),
         optional("toLastAssessmentTime") => non_neg_integer()
       }
-
+      
   """
   @type list_apps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_version_app_component_response() :: %{
         optional("appComponent") => app_component(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type update_app_version_app_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommendation_template() :: %{
         "appArn" => String.t(),
         "assessmentArn" => String.t(),
@@ -1887,25 +1887,25 @@ defmodule AWS.Resiliencehub do
         "tags" => map(),
         "templatesLocation" => s3_location()
       }
-
+      
   """
   @type recommendation_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resiliency_policy_response() :: %{
         required("policyArn") => String.t()
       }
-
+      
   """
   @type delete_resiliency_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_version_resource_request() :: %{
         optional("awsAccountId") => String.t(),
         optional("awsRegion") => String.t(),
@@ -1915,76 +1915,76 @@ defmodule AWS.Resiliencehub do
         optional("resourceName") => String.t(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type delete_app_version_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sop_recommendations_response() :: %{
         optional("nextToken") => String.t(),
         required("sopRecommendations") => list(sop_recommendation()())
       }
-
+      
   """
   @type list_sop_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_assessment_response() :: %{
         required("assessmentArn") => String.t(),
         required("assessmentStatus") => String.t()
       }
-
+      
   """
   @type delete_app_assessment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       physical_resource_id() :: %{
         "awsAccountId" => String.t(),
         "awsRegion" => String.t(),
         "identifier" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type physical_resource_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_response() :: %{
         required("app") => app()
       }
-
+      
   """
   @type create_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_component_compliances_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type list_app_component_compliances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_versions_request() :: %{
         optional("endTime") => non_neg_integer(),
         optional("maxResults") => integer(),
@@ -1992,14 +1992,14 @@ defmodule AWS.Resiliencehub do
         optional("startTime") => non_neg_integer(),
         required("appArn") => String.t()
       }
-
+      
   """
   @type list_app_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compliance_drift() :: %{
         "actualReferenceId" => String.t(),
         "actualValue" => map(),
@@ -2012,14 +2012,14 @@ defmodule AWS.Resiliencehub do
         "expectedReferenceId" => String.t(),
         "expectedValue" => map()
       }
-
+      
   """
   @type compliance_drift() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_version_app_component_request() :: %{
         optional("additionalInfo") => map(),
         optional("clientToken") => String.t(),
@@ -2028,52 +2028,52 @@ defmodule AWS.Resiliencehub do
         required("name") => String.t(),
         required("type") => String.t()
       }
-
+      
   """
   @type create_app_version_app_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_recommendation_template_request() :: %{
         optional("clientToken") => String.t(),
         required("recommendationTemplateArn") => String.t()
       }
-
+      
   """
   @type delete_recommendation_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_assessment_resource_drifts_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type list_app_assessment_resource_drifts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cost() :: %{
         "amount" => float(),
         "currency" => String.t(),
         "frequency" => String.t()
       }
-
+      
   """
   @type cost() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_resources_resolution_status_response() :: %{
         optional("errorMessage") => String.t(),
         required("appArn") => String.t(),
@@ -2081,26 +2081,26 @@ defmodule AWS.Resiliencehub do
         required("resolutionId") => String.t(),
         required("status") => String.t()
       }
-
+      
   """
   @type describe_app_version_resources_resolution_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resiliency_policies_response() :: %{
         optional("nextToken") => String.t(),
         required("resiliencyPolicies") => list(resiliency_policy()())
       }
-
+      
   """
   @type list_resiliency_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_draft_app_version_resource_mappings_request() :: %{
         optional("appRegistryAppNames") => list(String.t()()),
         optional("eksSourceNames") => list(String.t()()),
@@ -2110,14 +2110,14 @@ defmodule AWS.Resiliencehub do
         optional("terraformSourceNames") => list(String.t()()),
         required("appArn") => String.t()
       }
-
+      
   """
   @type remove_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sop_recommendation() :: %{
         "appComponentName" => String.t(),
         "description" => String.t(),
@@ -2129,14 +2129,14 @@ defmodule AWS.Resiliencehub do
         "referenceId" => String.t(),
         "serviceType" => String.t()
       }
-
+      
   """
   @type sop_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_component_compliance() :: %{
         "appComponentName" => String.t(),
         "compliance" => map(),
@@ -2145,26 +2145,26 @@ defmodule AWS.Resiliencehub do
         "resiliencyScore" => resiliency_score(),
         "status" => String.t()
       }
-
+      
   """
   @type app_component_compliance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_assessment_request() :: %{
         optional("clientToken") => String.t(),
         required("assessmentArn") => String.t()
       }
-
+      
   """
   @type delete_app_assessment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_recommendation_template_request() :: %{
         optional("bucketName") => String.t(),
         optional("clientToken") => String.t(),
@@ -2175,26 +2175,26 @@ defmodule AWS.Resiliencehub do
         required("assessmentArn") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_recommendation_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_request() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_draft_app_version_resources_import_status_response() :: %{
         optional("errorMessage") => String.t(),
         required("appArn") => String.t(),
@@ -2202,20 +2202,20 @@ defmodule AWS.Resiliencehub do
         required("status") => String.t(),
         required("statusChangeTime") => non_neg_integer()
       }
-
+      
   """
   @type describe_draft_app_version_resources_import_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_version_response() :: %{
         optional("additionalInfo") => map(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
       }
-
+      
   """
   @type describe_app_version_response() :: %{String.t() => any()}
 
@@ -2666,33 +2666,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec add_draft_app_version_resource_mappings(
-          AWS.Client.t(),
-          add_draft_app_version_resource_mappings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_draft_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, add_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_draft_app_version_resource_mappings_errors()}
-  def add_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
+
+  def add_draft_app_version_resource_mappings(%Client{} = client, options \\ []) do
     url_path = "/add-draft-app-version-resource-mappings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2704,33 +2711,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec batch_update_recommendation_status(
-          AWS.Client.t(),
-          batch_update_recommendation_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_recommendation_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_recommendation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_recommendation_status_errors()}
-  def batch_update_recommendation_status(%Client{} = client, input, options \\ []) do
+
+  def batch_update_recommendation_status(%Client{} = client, options \\ []) do
     url_path = "/batch-update-recommendation-status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2751,29 +2765,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
+
+  @spec create_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
-  def create_app(%Client{} = client, input, options \\ []) do
+
+  def create_app(%Client{} = client, options \\ []) do
     url_path = "/create-app"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2785,33 +2810,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec create_app_version_app_component(
-          AWS.Client.t(),
-          create_app_version_app_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_version_app_component_errors()}
-  def create_app_version_app_component(%Client{} = client, input, options \\ []) do
+
+  def create_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/create-app-version-app-component"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2825,33 +2857,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec create_app_version_resource(
-          AWS.Client.t(),
-          create_app_version_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_version_resource_errors()}
-  def create_app_version_resource(%Client{} = client, input, options \\ []) do
+
+  def create_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/create-app-version-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2863,33 +2902,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec create_recommendation_template(
-          AWS.Client.t(),
-          create_recommendation_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_recommendation_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recommendation_template_errors()}
-  def create_recommendation_template(%Client{} = client, input, options \\ []) do
+
+  def create_recommendation_template(%Client{} = client, options \\ []) do
     url_path = "/create-recommendation-template"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2901,29 +2947,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec create_resiliency_policy(AWS.Client.t(), create_resiliency_policy_request(), Keyword.t()) ::
+
+  @spec create_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resiliency_policy_errors()}
-  def create_resiliency_policy(%Client{} = client, input, options \\ []) do
+
+  def create_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/create-resiliency-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2936,29 +2993,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
+
+  @spec delete_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-  def delete_app(%Client{} = client, input, options \\ []) do
+
+  def delete_app(%Client{} = client, options \\ []) do
     url_path = "/delete-app"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2971,29 +3039,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec delete_app_assessment(AWS.Client.t(), delete_app_assessment_request(), Keyword.t()) ::
+
+  @spec delete_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_assessment_errors()}
-  def delete_app_assessment(%Client{} = client, input, options \\ []) do
+
+  def delete_app_assessment(%Client{} = client, options \\ []) do
     url_path = "/delete-app-assessment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3006,29 +3085,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec delete_app_input_source(AWS.Client.t(), delete_app_input_source_request(), Keyword.t()) ::
+
+  @spec delete_app_input_source(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_input_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_input_source_errors()}
-  def delete_app_input_source(%Client{} = client, input, options \\ []) do
+
+  def delete_app_input_source(%Client{} = client, options \\ []) do
     url_path = "/delete-app-input-source"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3040,33 +3130,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec delete_app_version_app_component(
-          AWS.Client.t(),
-          delete_app_version_app_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_version_app_component_errors()}
-  def delete_app_version_app_component(%Client{} = client, input, options \\ []) do
+
+  def delete_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/delete-app-version-app-component"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3078,33 +3175,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec delete_app_version_resource(
-          AWS.Client.t(),
-          delete_app_version_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_version_resource_errors()}
-  def delete_app_version_resource(%Client{} = client, input, options \\ []) do
+
+  def delete_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/delete-app-version-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3117,33 +3221,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec delete_recommendation_template(
-          AWS.Client.t(),
-          delete_recommendation_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_recommendation_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommendation_template_errors()}
-  def delete_recommendation_template(%Client{} = client, input, options \\ []) do
+
+  def delete_recommendation_template(%Client{} = client, options \\ []) do
     url_path = "/delete-recommendation-template"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3155,29 +3266,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec delete_resiliency_policy(AWS.Client.t(), delete_resiliency_policy_request(), Keyword.t()) ::
+
+  @spec delete_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resiliency_policy_errors()}
-  def delete_resiliency_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/delete-resiliency-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3189,29 +3311,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_app(AWS.Client.t(), describe_app_request(), Keyword.t()) ::
+
+  @spec describe_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_errors()}
-  def describe_app(%Client{} = client, input, options \\ []) do
+
+  def describe_app(%Client{} = client, options \\ []) do
     url_path = "/describe-app"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3223,29 +3356,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_app_assessment(AWS.Client.t(), describe_app_assessment_request(), Keyword.t()) ::
+
+  @spec describe_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_assessment_errors()}
-  def describe_app_assessment(%Client{} = client, input, options \\ []) do
+
+  def describe_app_assessment(%Client{} = client, options \\ []) do
     url_path = "/describe-app-assessment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3257,29 +3401,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_app_version(AWS.Client.t(), describe_app_version_request(), Keyword.t()) ::
+
+  @spec describe_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_errors()}
-  def describe_app_version(%Client{} = client, input, options \\ []) do
+
+  def describe_app_version(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3291,33 +3446,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_app_version_app_component(
-          AWS.Client.t(),
-          describe_app_version_app_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_app_component_errors()}
-  def describe_app_version_app_component(%Client{} = client, input, options \\ []) do
+
+  def describe_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-app-component"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3329,33 +3491,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_app_version_resource(
-          AWS.Client.t(),
-          describe_app_version_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_resource_errors()}
-  def describe_app_version_resource(%Client{} = client, input, options \\ []) do
+
+  def describe_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3369,33 +3538,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_app_version_resources_resolution_status(
-          AWS.Client.t(),
-          describe_app_version_resources_resolution_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_app_version_resources_resolution_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_resources_resolution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_resources_resolution_status_errors()}
-  def describe_app_version_resources_resolution_status(%Client{} = client, input, options \\ []) do
+
+  def describe_app_version_resources_resolution_status(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-resources-resolution-status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3407,33 +3583,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_app_version_template(
-          AWS.Client.t(),
-          describe_app_version_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_app_version_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_version_template_errors()}
-  def describe_app_version_template(%Client{} = client, input, options \\ []) do
+
+  def describe_app_version_template(%Client{} = client, options \\ []) do
     url_path = "/describe-app-version-template"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3445,33 +3628,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_draft_app_version_resources_import_status(
-          AWS.Client.t(),
-          describe_draft_app_version_resources_import_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_draft_app_version_resources_import_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_draft_app_version_resources_import_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_draft_app_version_resources_import_status_errors()}
-  def describe_draft_app_version_resources_import_status(%Client{} = client, input, options \\ []) do
+
+  def describe_draft_app_version_resources_import_status(%Client{} = client, options \\ []) do
     url_path = "/describe-draft-app-version-resources-import-status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3485,33 +3675,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec describe_resiliency_policy(
-          AWS.Client.t(),
-          describe_resiliency_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resiliency_policy_errors()}
-  def describe_resiliency_policy(%Client{} = client, input, options \\ []) do
+
+  def describe_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/describe-resiliency-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3526,33 +3723,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec import_resources_to_draft_app_version(
-          AWS.Client.t(),
-          import_resources_to_draft_app_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec import_resources_to_draft_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_resources_to_draft_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_resources_to_draft_app_version_errors()}
-  def import_resources_to_draft_app_version(%Client{} = client, input, options \\ []) do
+
+  def import_resources_to_draft_app_version(%Client{} = client, options \\ []) do
     url_path = "/import-resources-to-draft-app-version"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3564,33 +3768,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_alarm_recommendations(
-          AWS.Client.t(),
-          list_alarm_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_alarm_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alarm_recommendations_errors()}
-  def list_alarm_recommendations(%Client{} = client, input, options \\ []) do
+
+  def list_alarm_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-alarm-recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3602,33 +3813,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_assessment_compliance_drifts(
-          AWS.Client.t(),
-          list_app_assessment_compliance_drifts_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_app_assessment_compliance_drifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessment_compliance_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_assessment_compliance_drifts_errors()}
-  def list_app_assessment_compliance_drifts(%Client{} = client, input, options \\ []) do
+
+  def list_app_assessment_compliance_drifts(%Client{} = client, options \\ []) do
     url_path = "/list-app-assessment-compliance-drifts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3641,33 +3859,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_assessment_resource_drifts(
-          AWS.Client.t(),
-          list_app_assessment_resource_drifts_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_app_assessment_resource_drifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessment_resource_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_assessment_resource_drifts_errors()}
-  def list_app_assessment_resource_drifts(%Client{} = client, input, options \\ []) do
+
+  def list_app_assessment_resource_drifts(%Client{} = client, options \\ []) do
     url_path = "/list-app-assessment-resource-drifts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3680,29 +3905,31 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
-    application. The format for this ARN is:
-    arn:partition:resiliencehub:region:account:app/app-id. For more information
-    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
-    General Reference guide.
+  application. The format for this ARN is:
+  arn:partition:resiliencehub:region:account:app/app-id. For more information
+  about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+  General Reference guide.
   * `:assessment_name` (`t:string`) The name for the assessment.
   * `:assessment_status` (`t:list[com.amazonaws.resiliencehub#AssessmentStatus]`)
-    The current status of the assessment for the resiliency policy.
+  The current status of the assessment for the resiliency policy.
   * `:compliance_status` (`t:string`) The current status of compliance for the
-    resiliency policy.
+  resiliency policy.
   * `:invoker` (`t:string`) Specifies the entity that invoked a specific
-    assessment, either a User or the System.
+  assessment, either a User or the System.
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-    response. If more results exist than the specified MaxResults value, a token
-    is included in the response so that the remaining results can be retrieved.
+  response. If more results exist than the specified MaxResults value, a token
+  is included in the response so that the remaining results can be retrieved.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-    next set of results.
+  next set of results.
   * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
-    To sort by descending startTime, set reverseOrder to true.
+  To sort by descending startTime, set reverseOrder to true.
   """
+
   @spec list_app_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_assessments_errors()}
+
   def list_app_assessments(%Client{} = client, options \\ []) do
     url_path = "/list-app-assessments"
 
@@ -3818,33 +4045,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_component_compliances(
-          AWS.Client.t(),
-          list_app_component_compliances_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_app_component_compliances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_component_compliances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_component_compliances_errors()}
-  def list_app_component_compliances(%Client{} = client, input, options \\ []) do
+
+  def list_app_component_compliances(%Client{} = client, options \\ []) do
     url_path = "/list-app-component-compliances"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3856,33 +4090,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_component_recommendations(
-          AWS.Client.t(),
-          list_app_component_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_app_component_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_component_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_component_recommendations_errors()}
-  def list_app_component_recommendations(%Client{} = client, input, options \\ []) do
+
+  def list_app_component_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-app-component-recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3897,29 +4138,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_input_sources(AWS.Client.t(), list_app_input_sources_request(), Keyword.t()) ::
+
+  @spec list_app_input_sources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_input_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_input_sources_errors()}
-  def list_app_input_sources(%Client{} = client, input, options \\ []) do
+
+  def list_app_input_sources(%Client{} = client, options \\ []) do
     url_path = "/list-app-input-sources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3931,33 +4183,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_version_app_components(
-          AWS.Client.t(),
-          list_app_version_app_components_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_app_version_app_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_app_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_app_components_errors()}
-  def list_app_version_app_components(%Client{} = client, input, options \\ []) do
+
+  def list_app_version_app_components(%Client{} = client, options \\ []) do
     url_path = "/list-app-version-app-components"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3971,33 +4230,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_version_resource_mappings(
-          AWS.Client.t(),
-          list_app_version_resource_mappings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_resource_mappings_errors()}
-  def list_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
+
+  def list_app_version_resource_mappings(%Client{} = client, options \\ []) do
     url_path = "/list-app-version-resource-mappings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4009,33 +4275,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_version_resources(
-          AWS.Client.t(),
-          list_app_version_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_version_resources_errors()}
-  def list_app_version_resources(%Client{} = client, input, options \\ []) do
+
+  def list_app_version_resources(%Client{} = client, options \\ []) do
     url_path = "/list-app-version-resources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4047,29 +4320,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_app_versions(AWS.Client.t(), list_app_versions_request(), Keyword.t()) ::
+
+  @spec list_app_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_versions_errors()}
-  def list_app_versions(%Client{} = client, input, options \\ []) do
+
+  def list_app_versions(%Client{} = client, options \\ []) do
     url_path = "/list-app-versions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4081,31 +4365,33 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
-    application. The format for this ARN is:
-    arn:partition:resiliencehub:region:account:app/app-id. For more information
-    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
-    General Reference guide.
+  application. The format for this ARN is:
+  arn:partition:resiliencehub:region:account:app/app-id. For more information
+  about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+  General Reference guide.
   * `:from_last_assessment_time` (`t:timestamp`) Indicates the lower limit of the
-    range that is used to filter applications based on their last assessment
-    times.
+  range that is used to filter applications based on their last assessment
+  times.
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-    response. If more results exist than the specified MaxResults value, a token
-    is included in the response so that the remaining results can be retrieved.
+  response. If more results exist than the specified MaxResults value, a token
+  is included in the response so that the remaining results can be retrieved.
   * `:name` (`t:string`) The name for the one of the listed applications.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-    next set of results.
+  next set of results.
   * `:reverse_order` (`t:boolean`) The application list is sorted based on the
-    values of lastAppComplianceEvaluationTime field. By default, application
-    list is sorted in ascending order. To sort the appliation list in descending
-    order, set this field to True.
+  values of lastAppComplianceEvaluationTime field. By default, application
+  list is sorted in ascending order. To sort the appliation list in descending
+  order, set this field to True.
   * `:to_last_assessment_time` (`t:timestamp`) Indicates the upper limit of the
-    range that is used to filter the applications based on their last assessment
-    times.
+  range that is used to filter the applications based on their last assessment
+  times.
   """
+
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
+
   def list_apps(%Client{} = client, options \\ []) do
     url_path = "/list-apps"
 
@@ -4212,27 +4498,29 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   * `:assessment_arn` (`t:string`) Amazon Resource Name (ARN) of the assessment.
-    The format for this ARN is:
-    arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
-    information about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web
-    Services General Reference guide.
+  The format for this ARN is:
+  arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
+  information about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web
+  Services General Reference guide.
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-    response. If more results exist than the specified MaxResults value, a token
-    is included in the response so that the remaining results can be retrieved.
+  response. If more results exist than the specified MaxResults value, a token
+  is included in the response so that the remaining results can be retrieved.
   * `:name` (`t:string`) The name for one of the listed recommendation templates.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-    next set of results.
+  next set of results.
   * `:recommendation_template_arn` (`t:string`) The Amazon Resource Name (ARN) for
-    a recommendation template.
+  a recommendation template.
   * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
-    To sort by descending startTime, set reverseOrder to true.
+  To sort by descending startTime, set reverseOrder to true.
   * `:status` (`t:list[com.amazonaws.resiliencehub#RecommendationTemplateStatus]`)
-    Status of the action.
+  Status of the action.
   """
+
   @spec list_recommendation_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendation_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommendation_templates_errors()}
+
   def list_recommendation_templates(%Client{} = client, options \\ []) do
     url_path = "/list-recommendation-templates"
 
@@ -4339,16 +4627,18 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-    response. If more results exist than the specified MaxResults value, a token
-    is included in the response so that the remaining results can be retrieved.
+  response. If more results exist than the specified MaxResults value, a token
+  is included in the response so that the remaining results can be retrieved.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-    next set of results.
+  next set of results.
   * `:policy_name` (`t:string`) The name of the policy
   """
+
   @spec list_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resiliency_policies_errors()}
+
   def list_resiliency_policies(%Client{} = client, options \\ []) do
     url_path = "/list-resiliency-policies"
 
@@ -4412,29 +4702,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_sop_recommendations(AWS.Client.t(), list_sop_recommendations_request(), Keyword.t()) ::
+
+  @spec list_sop_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sop_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sop_recommendations_errors()}
-  def list_sop_recommendations(%Client{} = client, input, options \\ []) do
+
+  def list_sop_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-sop-recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4446,15 +4747,17 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-    response. If more results exist than the specified MaxResults value, a token
-    is included in the response so that the remaining results can be retrieved.
+  response. If more results exist than the specified MaxResults value, a token
+  is included in the response so that the remaining results can be retrieved.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-    next set of results.
+  next set of results.
   """
+
   @spec list_suggested_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suggested_resiliency_policies_errors()}
+
   def list_suggested_resiliency_policies(%Client{} = client, options \\ []) do
     url_path = "/list-suggested-resiliency-policies"
 
@@ -4508,14 +4811,16 @@ defmodule AWS.Resiliencehub do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a specific
-    resource in your Resilience Hub application.
+  resource in your Resilience Hub application.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4553,33 +4858,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_test_recommendations(
-          AWS.Client.t(),
-          list_test_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_test_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_test_recommendations_errors()}
-  def list_test_recommendations(%Client{} = client, input, options \\ []) do
+
+  def list_test_recommendations(%Client{} = client, options \\ []) do
     url_path = "/list-test-recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4593,33 +4905,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec list_unsupported_app_version_resources(
-          AWS.Client.t(),
-          list_unsupported_app_version_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_unsupported_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_unsupported_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_unsupported_app_version_resources_errors()}
-  def list_unsupported_app_version_resources(%Client{} = client, input, options \\ []) do
+
+  def list_unsupported_app_version_resources(%Client{} = client, options \\ []) do
     url_path = "/list-unsupported-app-version-resources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4631,29 +4950,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec publish_app_version(AWS.Client.t(), publish_app_version_request(), Keyword.t()) ::
+
+  @spec publish_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, publish_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_app_version_errors()}
-  def publish_app_version(%Client{} = client, input, options \\ []) do
+
+  def publish_app_version(%Client{} = client, options \\ []) do
     url_path = "/publish-app-version"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4666,33 +4996,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec put_draft_app_version_template(
-          AWS.Client.t(),
-          put_draft_app_version_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_draft_app_version_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_draft_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_draft_app_version_template_errors()}
-  def put_draft_app_version_template(%Client{} = client, input, options \\ []) do
+
+  def put_draft_app_version_template(%Client{} = client, options \\ []) do
     url_path = "/put-draft-app-version-template"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4704,33 +5041,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec remove_draft_app_version_resource_mappings(
-          AWS.Client.t(),
-          remove_draft_app_version_resource_mappings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_draft_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_draft_app_version_resource_mappings_errors()}
-  def remove_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
+
+  def remove_draft_app_version_resource_mappings(%Client{} = client, options \\ []) do
     url_path = "/remove-draft-app-version-resource-mappings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4742,33 +5086,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec resolve_app_version_resources(
-          AWS.Client.t(),
-          resolve_app_version_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec resolve_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, resolve_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_app_version_resources_errors()}
-  def resolve_app_version_resources(%Client{} = client, input, options \\ []) do
+
+  def resolve_app_version_resources(%Client{} = client, options \\ []) do
     url_path = "/resolve-app-version-resources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4780,29 +5131,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec start_app_assessment(AWS.Client.t(), start_app_assessment_request(), Keyword.t()) ::
+
+  @spec start_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_assessment_errors()}
-  def start_app_assessment(%Client{} = client, input, options \\ []) do
+
+  def start_app_assessment(%Client{} = client, options \\ []) do
     url_path = "/start-app-assessment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4815,29 +5177,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4848,26 +5221,43 @@ defmodule AWS.Resiliencehub do
   ## Parameters:
   * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]`) The keys of the
-    tags you want to remove.
+  tags you want to remove.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4876,7 +5266,7 @@ defmodule AWS.Resiliencehub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4891,29 +5281,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec update_app(AWS.Client.t(), update_app_request(), Keyword.t()) ::
+
+  @spec update_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_errors()}
-  def update_app(%Client{} = client, input, options \\ []) do
+
+  def update_app(%Client{} = client, options \\ []) do
     url_path = "/update-app"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4925,29 +5326,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec update_app_version(AWS.Client.t(), update_app_version_request(), Keyword.t()) ::
+
+  @spec update_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_errors()}
-  def update_app_version(%Client{} = client, input, options \\ []) do
+
+  def update_app_version(%Client{} = client, options \\ []) do
     url_path = "/update-app-version"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4959,33 +5371,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec update_app_version_app_component(
-          AWS.Client.t(),
-          update_app_version_app_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_app_component_errors()}
-  def update_app_version_app_component(%Client{} = client, input, options \\ []) do
+
+  def update_app_version_app_component(%Client{} = client, options \\ []) do
     url_path = "/update-app-version-app-component"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4997,33 +5416,40 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec update_app_version_resource(
-          AWS.Client.t(),
-          update_app_version_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_version_resource_errors()}
-  def update_app_version_resource(%Client{} = client, input, options \\ []) do
+
+  def update_app_version_resource(%Client{} = client, options \\ []) do
     url_path = "/update-app-version-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5035,28 +5461,39 @@ defmodule AWS.Resiliencehub do
 
   ## Optional parameters:
   """
-  @spec update_resiliency_policy(AWS.Client.t(), update_resiliency_policy_request(), Keyword.t()) ::
+
+  @spec update_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resiliency_policy_errors()}
-  def update_resiliency_policy(%Client{} = client, input, options \\ []) do
+
+  def update_resiliency_policy(%Client{} = client, options \\ []) do
     url_path = "/update-resiliency-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

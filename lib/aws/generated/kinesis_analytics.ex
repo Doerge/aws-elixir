@@ -1424,16 +1424,25 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20AddApplicationCloudWatchLoggingOption&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_application_cloud_watch_logging_option_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CloudWatchLoggingOption") => cloud_watch_logging_option(),
+      required("CurrentApplicationVersionId") => float()
+    }
   """
-  @spec add_application_cloud_watch_logging_option(
-          AWS.Client.t(),
-          add_application_cloud_watch_logging_option_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_application_cloud_watch_logging_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_cloud_watch_logging_option_errors()}
-  def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
+
+  def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1449,12 +1458,24 @@ defmodule AWS.KinesisAnalytics do
   source to your Amazon Kinesis application. For conceptual information, see
   [Configuring Application
   Input](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20AddApplicationInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_application_input_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CurrentApplicationVersionId") => float(),
+      required("Input") => input()
+    }
   """
-  @spec add_application_input(AWS.Client.t(), add_application_input_request(), Keyword.t()) ::
+
+  @spec add_application_input(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_input_errors()}
-  def add_application_input(%Client{} = client, input, options \\ []) do
+
+  def add_application_input(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1467,16 +1488,30 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20AddApplicationInputProcessingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_application_input_processing_configuration_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CurrentApplicationVersionId") => float(),
+      required("InputId") => String.t(),
+      required("InputProcessingConfiguration") => input_processing_configuration()
+    }
   """
+
   @spec add_application_input_processing_configuration(
           AWS.Client.t(),
-          add_application_input_processing_configuration_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, add_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_input_processing_configuration_errors()}
-  def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+
+  def add_application_input_processing_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1496,12 +1531,24 @@ defmodule AWS.KinesisAnalytics do
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html). Adds an external
   destination to your Amazon Kinesis Analytics application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20AddApplicationOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_application_output_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CurrentApplicationVersionId") => float(),
+      required("Output") => output()
+    }
   """
-  @spec add_application_output(AWS.Client.t(), add_application_output_request(), Keyword.t()) ::
+
+  @spec add_application_output(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_output_errors()}
-  def add_application_output(%Client{} = client, input, options \\ []) do
+
+  def add_application_output(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1515,16 +1562,25 @@ defmodule AWS.KinesisAnalytics do
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html). Adds a reference
   data source to an existing application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20AddApplicationReferenceDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_application_reference_data_source_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CurrentApplicationVersionId") => float(),
+      required("ReferenceDataSource") => reference_data_source()
+    }
   """
-  @spec add_application_reference_data_source(
-          AWS.Client.t(),
-          add_application_reference_data_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_application_reference_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_application_reference_data_source_errors()}
-  def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
+
+  def add_application_reference_data_source(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1537,12 +1593,28 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_application_request`)
+    %{
+      optional("ApplicationCode") => String.t(),
+      optional("ApplicationDescription") => String.t(),
+      optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()()),
+      optional("Inputs") => list(input()()),
+      optional("Outputs") => list(output()()),
+      optional("Tags") => list(tag()()),
+      required("ApplicationName") => String.t()
+    }
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1555,12 +1627,23 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CreateTimestamp") => non_neg_integer()
+    }
   """
-  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, input, options \\ []) do
+
+  def delete_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1573,16 +1656,25 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20DeleteApplicationCloudWatchLoggingOption&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_cloud_watch_logging_option_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CloudWatchLoggingOptionId") => String.t(),
+      required("CurrentApplicationVersionId") => float()
+    }
   """
-  @spec delete_application_cloud_watch_logging_option(
-          AWS.Client.t(),
-          delete_application_cloud_watch_logging_option_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_application_cloud_watch_logging_option(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_cloud_watch_logging_option_errors()}
-  def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
+
+  def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1595,16 +1687,29 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20DeleteApplicationInputProcessingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_input_processing_configuration_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CurrentApplicationVersionId") => float(),
+      required("InputId") => String.t()
+    }
   """
+
   @spec delete_application_input_processing_configuration(
           AWS.Client.t(),
-          delete_application_input_processing_configuration_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, delete_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_input_processing_configuration_errors()}
-  def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_application_input_processing_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1623,16 +1728,24 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20DeleteApplicationOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_output_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CurrentApplicationVersionId") => float(),
+      required("OutputId") => String.t()
+    }
   """
-  @spec delete_application_output(
-          AWS.Client.t(),
-          delete_application_output_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_application_output(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_output_errors()}
-  def delete_application_output(%Client{} = client, input, options \\ []) do
+
+  def delete_application_output(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1647,16 +1760,25 @@ defmodule AWS.KinesisAnalytics do
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html). Deletes a
   reference data source configuration from the specified application
   configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20DeleteApplicationReferenceDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_reference_data_source_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("CurrentApplicationVersionId") => float(),
+      required("ReferenceId") => String.t()
+    }
   """
-  @spec delete_application_reference_data_source(
-          AWS.Client.t(),
-          delete_application_reference_data_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_application_reference_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_reference_data_source_errors()}
-  def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
+
+  def delete_application_reference_data_source(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1670,12 +1792,22 @@ defmodule AWS.KinesisAnalytics do
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html). Returns
   information about a specific Amazon Kinesis Analytics application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20DescribeApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_application_request`)
+    %{
+      required("ApplicationName") => String.t()
+    }
   """
-  @spec describe_application(AWS.Client.t(), describe_application_request(), Keyword.t()) ::
+
+  @spec describe_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_errors()}
-  def describe_application(%Client{} = client, input, options \\ []) do
+
+  def describe_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1692,12 +1824,26 @@ defmodule AWS.KinesisAnalytics do
   stream or Amazon Kinesis Firehose delivery stream) or S3 object. In the
   response, the operation returns the inferred schema and also the sample
   records that the operation used to infer the schema.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20DiscoverInputSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:discover_input_schema_request`)
+    %{
+      optional("InputProcessingConfiguration") => input_processing_configuration(),
+      optional("InputStartingPositionConfiguration") => input_starting_position_configuration(),
+      optional("ResourceARN") => String.t(),
+      optional("RoleARN") => String.t(),
+      optional("S3Configuration") => s3_configuration()
+    }
   """
-  @spec discover_input_schema(AWS.Client.t(), discover_input_schema_request(), Keyword.t()) ::
+
+  @spec discover_input_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, discover_input_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_input_schema_errors()}
-  def discover_input_schema(%Client{} = client, input, options \\ []) do
+
+  def discover_input_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1716,11 +1862,22 @@ defmodule AWS.KinesisAnalytics do
   can send another request by adding the `ExclusiveStartApplicationName` in the
   request body, and set the value of this to the last application name from the
   previous response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_applications_request`)
+    %{
+      optional("ExclusiveStartApplicationName") => String.t(),
+      optional("Limit") => integer()
+    }
   """
-  @spec list_applications(AWS.Client.t(), list_applications_request(), Keyword.t()) ::
+
+  @spec list_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_applications(%Client{} = client, input, options \\ []) do
+
+  def list_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1731,12 +1888,22 @@ defmodule AWS.KinesisAnalytics do
   Retrieves the list of key-value tags assigned to the application. For more
   information, see [Using
   Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1751,12 +1918,23 @@ defmodule AWS.KinesisAnalytics do
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html). Starts the
   specified Amazon Kinesis Analytics application. After creating an application,
   you must exclusively call this operation to start your application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20StartApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_application_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("InputConfigurations") => list(input_configuration()())
+    }
   """
-  @spec start_application(AWS.Client.t(), start_application_request(), Keyword.t()) ::
+
+  @spec start_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
-  def start_application(%Client{} = client, input, options \\ []) do
+
+  def start_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1775,12 +1953,22 @@ defmodule AWS.KinesisAnalytics do
   operation to find the application state. After the application is stopped,
   Amazon Kinesis Analytics stops reading data from the input, the application
   stops processing data, and there is no output written to the destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20StopApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_application_request`)
+    %{
+      required("ApplicationName") => String.t()
+    }
   """
-  @spec stop_application(AWS.Client.t(), stop_application_request(), Keyword.t()) ::
+
+  @spec stop_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
-  def stop_application(%Client{} = client, input, options \\ []) do
+
+  def stop_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1793,12 +1981,23 @@ defmodule AWS.KinesisAnalytics do
   number of user-defined application tags is 50. For more information, see
   [Using
   Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1809,12 +2008,23 @@ defmodule AWS.KinesisAnalytics do
   Removes one or more tags from a Kinesis Analytics application. For more
   information, see [Using
   Tagging](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1827,12 +2037,24 @@ defmodule AWS.KinesisAnalytics do
   Java applications. For more information about version 2, see [Amazon Kinesis
   Data Analytics API V2
   Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisanalytics%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_application_request`)
+    %{
+      required("ApplicationName") => String.t(),
+      required("ApplicationUpdate") => application_update(),
+      required("CurrentApplicationVersionId") => float()
+    }
   """
-  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, input, options \\ []) do
+
+  def update_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

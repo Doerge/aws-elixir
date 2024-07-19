@@ -1262,16 +1262,23 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Gets the properties associated with a medical entities detection job. Use this
   operation to get the status of a detection job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DescribeEntitiesDetectionV2Job&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_entities_detection_v2_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec describe_entities_detection_v2_job(
-          AWS.Client.t(),
-          describe_entities_detection_v2_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_entities_detection_v2_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entities_detection_v2_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entities_detection_v2_job_errors()}
-  def describe_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
+
+  def describe_entities_detection_v2_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1281,16 +1288,23 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Gets the properties associated with an InferICD10CM job. Use this operation to
   get the status of an inference job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DescribeICD10CMInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_icd10_cm_inference_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec describe_icd10_cm_inference_job(
-          AWS.Client.t(),
-          describe_icd10_cm_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_icd10_cm_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_icd10_cm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_icd10_cm_inference_job_errors()}
-  def describe_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
+
+  def describe_icd10_cm_inference_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1300,16 +1314,22 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Gets the properties associated with a protected health information (PHI)
   detection job. Use this operation to get the status of a detection job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DescribePHIDetectionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_phi_detection_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec describe_phi_detection_job(
-          AWS.Client.t(),
-          describe_phi_detection_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_phi_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_phi_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_phi_detection_job_errors()}
-  def describe_phi_detection_job(%Client{} = client, input, options \\ []) do
+
+  def describe_phi_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1319,16 +1339,23 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Gets the properties associated with an InferRxNorm job. Use this operation to
   get the status of an inference job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DescribeRxNormInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_rx_norm_inference_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec describe_rx_norm_inference_job(
-          AWS.Client.t(),
-          describe_rx_norm_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_rx_norm_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rx_norm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rx_norm_inference_job_errors()}
-  def describe_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
+
+  def describe_rx_norm_inference_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1338,16 +1365,23 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Gets the properties associated with an InferSNOMEDCT job. Use this operation to
   get the status of an inference job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DescribeSNOMEDCTInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_s_n_o_m_e_d_c_t_inference_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec describe_s_n_o_m_e_d_c_t_inference_job(
-          AWS.Client.t(),
-          describe_s_n_o_m_e_d_c_t_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_s_n_o_m_e_d_c_t_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_s_n_o_m_e_d_c_t_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_s_n_o_m_e_d_c_t_inference_job_errors()}
-  def describe_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
+
+  def describe_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1357,12 +1391,22 @@ defmodule AWS.ComprehendMedical do
   @doc """
   The `DetectEntities` operation is deprecated. You should use the
   `DetectEntitiesV2` operation instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DetectEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detect_entities_request`)
+    %{
+      required("Text") => String.t()
+    }
   """
-  @spec detect_entities(AWS.Client.t(), detect_entities_request(), Keyword.t()) ::
+
+  @spec detect_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_entities_errors()}
-  def detect_entities(%Client{} = client, input, options \\ []) do
+
+  def detect_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1378,12 +1422,22 @@ defmodule AWS.ComprehendMedical do
   model for determining the entities in your medical text and changes the way
   that some entities are returned in the output. You should use the
   `DetectEntitiesV2` operation in all new applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DetectEntitiesV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detect_entities_v2_request`)
+    %{
+      required("Text") => String.t()
+    }
   """
-  @spec detect_entities_v2(AWS.Client.t(), detect_entities_v2_request(), Keyword.t()) ::
+
+  @spec detect_entities_v2(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_entities_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_entities_v2_errors()}
-  def detect_entities_v2(%Client{} = client, input, options \\ []) do
+
+  def detect_entities_v2(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1394,12 +1448,22 @@ defmodule AWS.ComprehendMedical do
   Inspects the clinical text for protected health information (PHI) entities and
   returns the entity category, location, and confidence score for each entity.
   Amazon Comprehend Medical only detects entities in English language texts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20DetectPHI&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detect_phi_request`)
+    %{
+      required("Text") => String.t()
+    }
   """
-  @spec detect_phi(AWS.Client.t(), detect_phi_request(), Keyword.t()) ::
+
+  @spec detect_phi(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_phi_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_phi_errors()}
-  def detect_phi(%Client{} = client, input, options \\ []) do
+
+  def detect_phi(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1411,12 +1475,22 @@ defmodule AWS.ComprehendMedical do
   and links those entities to normalized concept identifiers in the ICD-10-CM
   knowledge base from the Centers for Disease Control. Amazon Comprehend Medical
   only detects medical entities in English language texts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20InferICD10CM&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:infer_icd10_cm_request`)
+    %{
+      required("Text") => String.t()
+    }
   """
-  @spec infer_icd10_cm(AWS.Client.t(), infer_icd10_cm_request(), Keyword.t()) ::
+
+  @spec infer_icd10_cm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, infer_icd10_cm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, infer_icd10_cm_errors()}
-  def infer_icd10_cm(%Client{} = client, input, options \\ []) do
+
+  def infer_icd10_cm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1428,12 +1502,22 @@ defmodule AWS.ComprehendMedical do
   to the normalized concept identifiers in the RxNorm database from the National
   Library of Medicine. Amazon Comprehend Medical only detects medical entities
   in English language texts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20InferRxNorm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:infer_rx_norm_request`)
+    %{
+      required("Text") => String.t()
+    }
   """
-  @spec infer_rx_norm(AWS.Client.t(), infer_rx_norm_request(), Keyword.t()) ::
+
+  @spec infer_rx_norm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, infer_rx_norm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, infer_rx_norm_errors()}
-  def infer_rx_norm(%Client{} = client, input, options \\ []) do
+
+  def infer_rx_norm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1444,12 +1528,22 @@ defmodule AWS.ComprehendMedical do
   InferSNOMEDCT detects possible medical concepts as entities and links them to
   codes from the Systematized Nomenclature of Medicine, Clinical Terms
   (SNOMED-CT) ontology
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20InferSNOMEDCT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:infer_s_n_o_m_e_d_c_t_request`)
+    %{
+      required("Text") => String.t()
+    }
   """
-  @spec infer_s_n_o_m_e_d_c_t(AWS.Client.t(), infer_s_n_o_m_e_d_c_t_request(), Keyword.t()) ::
+
+  @spec infer_s_n_o_m_e_d_c_t(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, infer_s_n_o_m_e_d_c_t_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, infer_s_n_o_m_e_d_c_t_errors()}
-  def infer_s_n_o_m_e_d_c_t(%Client{} = client, input, options \\ []) do
+
+  def infer_s_n_o_m_e_d_c_t(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1458,16 +1552,25 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Gets a list of medical entity detection jobs that you have submitted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20ListEntitiesDetectionV2Jobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_entities_detection_v2_jobs_request`)
+    %{
+      optional("Filter") => comprehend_medical_async_job_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_entities_detection_v2_jobs(
-          AWS.Client.t(),
-          list_entities_detection_v2_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_entities_detection_v2_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entities_detection_v2_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_detection_v2_jobs_errors()}
-  def list_entities_detection_v2_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_entities_detection_v2_jobs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1476,16 +1579,24 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Gets a list of InferICD10CM jobs that you have submitted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20ListICD10CMInferenceJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_icd10_cm_inference_jobs_request`)
+    %{
+      optional("Filter") => comprehend_medical_async_job_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_icd10_cm_inference_jobs(
-          AWS.Client.t(),
-          list_icd10_cm_inference_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_icd10_cm_inference_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_icd10_cm_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_icd10_cm_inference_jobs_errors()}
-  def list_icd10_cm_inference_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_icd10_cm_inference_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1495,12 +1606,24 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Gets a list of protected health information (PHI) detection jobs you have
   submitted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20ListPHIDetectionJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_phi_detection_jobs_request`)
+    %{
+      optional("Filter") => comprehend_medical_async_job_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_phi_detection_jobs(AWS.Client.t(), list_phi_detection_jobs_request(), Keyword.t()) ::
+
+  @spec list_phi_detection_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_phi_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phi_detection_jobs_errors()}
-  def list_phi_detection_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_phi_detection_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1509,16 +1632,24 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Gets a list of InferRxNorm jobs that you have submitted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20ListRxNormInferenceJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rx_norm_inference_jobs_request`)
+    %{
+      optional("Filter") => comprehend_medical_async_job_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_rx_norm_inference_jobs(
-          AWS.Client.t(),
-          list_rx_norm_inference_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_rx_norm_inference_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rx_norm_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rx_norm_inference_jobs_errors()}
-  def list_rx_norm_inference_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_rx_norm_inference_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1527,16 +1658,25 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Gets a list of InferSNOMEDCT jobs a user has submitted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20ListSNOMEDCTInferenceJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_s_n_o_m_e_d_c_t_inference_jobs_request`)
+    %{
+      optional("Filter") => comprehend_medical_async_job_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_s_n_o_m_e_d_c_t_inference_jobs(
-          AWS.Client.t(),
-          list_s_n_o_m_e_d_c_t_inference_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_s_n_o_m_e_d_c_t_inference_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_s_n_o_m_e_d_c_t_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_s_n_o_m_e_d_c_t_inference_jobs_errors()}
-  def list_s_n_o_m_e_d_c_t_inference_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_s_n_o_m_e_d_c_t_inference_jobs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1547,16 +1687,29 @@ defmodule AWS.ComprehendMedical do
   Starts an asynchronous medical entity detection job for a collection of
   documents. Use the `DescribeEntitiesDetectionV2Job` operation to track the
   status of a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StartEntitiesDetectionV2Job&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_entities_detection_v2_job_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobName") => String.t(),
+      optional("KMSKey") => String.t(),
+      required("DataAccessRoleArn") => String.t(),
+      required("InputDataConfig") => input_data_config(),
+      required("LanguageCode") => list(any()),
+      required("OutputDataConfig") => output_data_config()
+    }
   """
-  @spec start_entities_detection_v2_job(
-          AWS.Client.t(),
-          start_entities_detection_v2_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_entities_detection_v2_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_entities_detection_v2_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_entities_detection_v2_job_errors()}
-  def start_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
+
+  def start_entities_detection_v2_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1567,16 +1720,28 @@ defmodule AWS.ComprehendMedical do
   Starts an asynchronous job to detect medical conditions and link them to the
   ICD-10-CM ontology. Use the `DescribeICD10CMInferenceJob` operation to track
   the status of a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StartICD10CMInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_icd10_cm_inference_job_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobName") => String.t(),
+      optional("KMSKey") => String.t(),
+      required("DataAccessRoleArn") => String.t(),
+      required("InputDataConfig") => input_data_config(),
+      required("LanguageCode") => list(any()),
+      required("OutputDataConfig") => output_data_config()
+    }
   """
-  @spec start_icd10_cm_inference_job(
-          AWS.Client.t(),
-          start_icd10_cm_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_icd10_cm_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_icd10_cm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_icd10_cm_inference_job_errors()}
-  def start_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
+
+  def start_icd10_cm_inference_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1586,12 +1751,28 @@ defmodule AWS.ComprehendMedical do
   @doc """
   Starts an asynchronous job to detect protected health information (PHI). Use the
   `DescribePHIDetectionJob` operation to track the status of a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StartPHIDetectionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_phi_detection_job_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobName") => String.t(),
+      optional("KMSKey") => String.t(),
+      required("DataAccessRoleArn") => String.t(),
+      required("InputDataConfig") => input_data_config(),
+      required("LanguageCode") => list(any()),
+      required("OutputDataConfig") => output_data_config()
+    }
   """
-  @spec start_phi_detection_job(AWS.Client.t(), start_phi_detection_job_request(), Keyword.t()) ::
+
+  @spec start_phi_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_phi_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_phi_detection_job_errors()}
-  def start_phi_detection_job(%Client{} = client, input, options \\ []) do
+
+  def start_phi_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1602,16 +1783,28 @@ defmodule AWS.ComprehendMedical do
   Starts an asynchronous job to detect medication entities and link them to the
   RxNorm ontology. Use the `DescribeRxNormInferenceJob` operation to track the
   status of a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StartRxNormInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_rx_norm_inference_job_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobName") => String.t(),
+      optional("KMSKey") => String.t(),
+      required("DataAccessRoleArn") => String.t(),
+      required("InputDataConfig") => input_data_config(),
+      required("LanguageCode") => list(any()),
+      required("OutputDataConfig") => output_data_config()
+    }
   """
-  @spec start_rx_norm_inference_job(
-          AWS.Client.t(),
-          start_rx_norm_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_rx_norm_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_rx_norm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_rx_norm_inference_job_errors()}
-  def start_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
+
+  def start_rx_norm_inference_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1622,16 +1815,29 @@ defmodule AWS.ComprehendMedical do
   Starts an asynchronous job to detect medical concepts and link them to the
   SNOMED-CT ontology. Use the DescribeSNOMEDCTInferenceJob operation to track
   the status of a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StartSNOMEDCTInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_s_n_o_m_e_d_c_t_inference_job_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobName") => String.t(),
+      optional("KMSKey") => String.t(),
+      required("DataAccessRoleArn") => String.t(),
+      required("InputDataConfig") => input_data_config(),
+      required("LanguageCode") => list(any()),
+      required("OutputDataConfig") => output_data_config()
+    }
   """
-  @spec start_s_n_o_m_e_d_c_t_inference_job(
-          AWS.Client.t(),
-          start_s_n_o_m_e_d_c_t_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_s_n_o_m_e_d_c_t_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_s_n_o_m_e_d_c_t_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_s_n_o_m_e_d_c_t_inference_job_errors()}
-  def start_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
+
+  def start_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1640,16 +1846,23 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Stops a medical entities detection job in progress.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StopEntitiesDetectionV2Job&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_entities_detection_v2_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec stop_entities_detection_v2_job(
-          AWS.Client.t(),
-          stop_entities_detection_v2_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_entities_detection_v2_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_entities_detection_v2_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_entities_detection_v2_job_errors()}
-  def stop_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
+
+  def stop_entities_detection_v2_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1658,16 +1871,22 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Stops an InferICD10CM inference job in progress.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StopICD10CMInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_icd10_cm_inference_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec stop_icd10_cm_inference_job(
-          AWS.Client.t(),
-          stop_icd10_cm_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_icd10_cm_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_icd10_cm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_icd10_cm_inference_job_errors()}
-  def stop_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
+
+  def stop_icd10_cm_inference_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1676,12 +1895,22 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Stops a protected health information (PHI) detection job in progress.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StopPHIDetectionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_phi_detection_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec stop_phi_detection_job(AWS.Client.t(), stop_phi_detection_job_request(), Keyword.t()) ::
+
+  @spec stop_phi_detection_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_phi_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_phi_detection_job_errors()}
-  def stop_phi_detection_job(%Client{} = client, input, options \\ []) do
+
+  def stop_phi_detection_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1690,16 +1919,22 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Stops an InferRxNorm inference job in progress.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StopRxNormInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_rx_norm_inference_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec stop_rx_norm_inference_job(
-          AWS.Client.t(),
-          stop_rx_norm_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_rx_norm_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_rx_norm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_rx_norm_inference_job_errors()}
-  def stop_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
+
+  def stop_rx_norm_inference_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1708,16 +1943,23 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Stops an InferSNOMEDCT inference job in progress.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=comprehendmedical%20StopSNOMEDCTInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_s_n_o_m_e_d_c_t_inference_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec stop_s_n_o_m_e_d_c_t_inference_job(
-          AWS.Client.t(),
-          stop_s_n_o_m_e_d_c_t_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_s_n_o_m_e_d_c_t_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_s_n_o_m_e_d_c_t_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_s_n_o_m_e_d_c_t_inference_job_errors()}
-  def stop_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
+
+  def stop_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 

@@ -2682,12 +2682,34 @@ defmodule AWS.Forecast do
   AutoPredictor, which involves applying the optimal combination of algorithms
   to each time series in your datasets. You can use `CreateAutoPredictor` to
   create new predictors or upgrade/retrain existing predictors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateAutoPredictor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_auto_predictor_request`)
+    %{
+      optional("DataConfig") => data_config(),
+      optional("EncryptionConfig") => encryption_config(),
+      optional("ExplainPredictor") => boolean(),
+      optional("ForecastDimensions") => list(String.t()()),
+      optional("ForecastFrequency") => String.t(),
+      optional("ForecastHorizon") => integer(),
+      optional("ForecastTypes") => list(String.t()()),
+      optional("MonitorConfig") => monitor_config(),
+      optional("OptimizationMetric") => list(any()),
+      optional("ReferencePredictorArn") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TimeAlignmentBoundary") => time_alignment_boundary(),
+      required("PredictorName") => String.t()
+    }
   """
-  @spec create_auto_predictor(AWS.Client.t(), create_auto_predictor_request(), Keyword.t()) ::
+
+  @spec create_auto_predictor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_auto_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_auto_predictor_errors()}
-  def create_auto_predictor(%Client{} = client, input, options \\ []) do
+
+  def create_auto_predictor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2698,12 +2720,28 @@ defmodule AWS.Forecast do
   Creates an Amazon Forecast dataset. The information about the dataset that you
   provide helps Forecast understand how to consume the data for model training.
   This includes the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_request`)
+    %{
+      optional("DataFrequency") => String.t(),
+      optional("EncryptionConfig") => encryption_config(),
+      optional("Tags") => list(tag()()),
+      required("DatasetName") => String.t(),
+      required("DatasetType") => list(any()),
+      required("Domain") => list(any()),
+      required("Schema") => schema()
+    }
   """
-  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
+
+  @spec create_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-  def create_dataset(%Client{} = client, input, options \\ []) do
+
+  def create_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2718,12 +2756,25 @@ defmodule AWS.Forecast do
   operation. After creating a dataset group and adding datasets, you use the
   dataset group when you create a predictor. For more information, see [Dataset
   groups](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateDatasetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_group_request`)
+    %{
+      optional("DatasetArns") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      required("DatasetGroupName") => String.t(),
+      required("Domain") => list(any())
+    }
   """
-  @spec create_dataset_group(AWS.Client.t(), create_dataset_group_request(), Keyword.t()) ::
+
+  @spec create_dataset_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_group_errors()}
-  def create_dataset_group(%Client{} = client, input, options \\ []) do
+
+  def create_dataset_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2743,16 +2794,31 @@ defmodule AWS.Forecast do
   permissions](https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html).
   The training data must be in CSV or Parquet format. The delimiter must be a
   comma (,).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateDatasetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_import_job_request`)
+    %{
+      optional("Format") => String.t(),
+      optional("GeolocationFormat") => String.t(),
+      optional("ImportMode") => list(any()),
+      optional("Tags") => list(tag()()),
+      optional("TimeZone") => String.t(),
+      optional("TimestampFormat") => String.t(),
+      optional("UseGeolocationForTimeZone") => boolean(),
+      required("DataSource") => data_source(),
+      required("DatasetArn") => String.t(),
+      required("DatasetImportJobName") => String.t()
+    }
   """
-  @spec create_dataset_import_job(
-          AWS.Client.t(),
-          create_dataset_import_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_dataset_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_import_job_errors()}
-  def create_dataset_import_job(%Client{} = client, input, options \\ []) do
+
+  def create_dataset_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2763,12 +2829,30 @@ defmodule AWS.Forecast do
   Explainability is only available for Forecasts and Predictors generated from an
   AutoPredictor (`CreateAutoPredictor`) Creates an Amazon Forecast
   Explainability.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateExplainability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_explainability_request`)
+    %{
+      optional("DataSource") => data_source(),
+      optional("EnableVisualization") => boolean(),
+      optional("EndDateTime") => String.t(),
+      optional("Schema") => schema(),
+      optional("StartDateTime") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ExplainabilityConfig") => explainability_config(),
+      required("ExplainabilityName") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec create_explainability(AWS.Client.t(), create_explainability_request(), Keyword.t()) ::
+
+  @spec create_explainability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_explainability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_explainability_errors()}
-  def create_explainability(%Client{} = client, input, options \\ []) do
+
+  def create_explainability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2782,16 +2866,26 @@ defmodule AWS.Forecast do
   an Amazon S3 bucket and an Identity and Access Management (IAM) role that
   Amazon Forecast can assume to access the Amazon S3 bucket. For more
   information, see `aws-forecast-iam-roles`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateExplainabilityExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_explainability_export_request`)
+    %{
+      optional("Format") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Destination") => data_destination(),
+      required("ExplainabilityArn") => String.t(),
+      required("ExplainabilityExportName") => String.t()
+    }
   """
-  @spec create_explainability_export(
-          AWS.Client.t(),
-          create_explainability_export_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_explainability_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_explainability_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_explainability_export_errors()}
-  def create_explainability_export(%Client{} = client, input, options \\ []) do
+
+  def create_explainability_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2807,12 +2901,26 @@ defmodule AWS.Forecast do
   determined by the `ForecastHorizon` value, which you specify in the
   `CreatePredictor` request. When you query a forecast, you can request a
   specific date range within the forecast.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_forecast_request`)
+    %{
+      optional("ForecastTypes") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("TimeSeriesSelector") => time_series_selector(),
+      required("ForecastName") => String.t(),
+      required("PredictorArn") => String.t()
+    }
   """
-  @spec create_forecast(AWS.Client.t(), create_forecast_request(), Keyword.t()) ::
+
+  @spec create_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_forecast_errors()}
-  def create_forecast(%Client{} = client, input, options \\ []) do
+
+  def create_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2823,16 +2931,26 @@ defmodule AWS.Forecast do
   Exports a forecast created by the `CreateForecast` operation to your Amazon
   Simple Storage Service (Amazon S3) bucket. The forecast file name will match
   the following conventions: __
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateForecastExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_forecast_export_job_request`)
+    %{
+      optional("Format") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Destination") => data_destination(),
+      required("ForecastArn") => String.t(),
+      required("ForecastExportJobName") => String.t()
+    }
   """
-  @spec create_forecast_export_job(
-          AWS.Client.t(),
-          create_forecast_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_forecast_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_forecast_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_forecast_export_job_errors()}
-  def create_forecast_export_job(%Client{} = client, input, options \\ []) do
+
+  def create_forecast_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2844,12 +2962,24 @@ defmodule AWS.Forecast do
   monitoring allows you to see how your predictor's performance changes over
   time. For more information, see [Predictor
   Monitoring](https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_monitor_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("MonitorName") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec create_monitor(AWS.Client.t(), create_monitor_request(), Keyword.t()) ::
+
+  @spec create_monitor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
-  def create_monitor(%Client{} = client, input, options \\ []) do
+
+  def create_monitor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2861,12 +2991,36 @@ defmodule AWS.Forecast do
   predictor functionalities provided by Amazon Forecast. To create a predictor
   that is compatible with all aspects of Forecast, use `CreateAutoPredictor`.
   Creates an Amazon Forecast predictor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreatePredictor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_predictor_request`)
+    %{
+      optional("AlgorithmArn") => String.t(),
+      optional("AutoMLOverrideStrategy") => list(any()),
+      optional("EncryptionConfig") => encryption_config(),
+      optional("EvaluationParameters") => evaluation_parameters(),
+      optional("ForecastTypes") => list(String.t()()),
+      optional("HPOConfig") => hyper_parameter_tuning_job_config(),
+      optional("OptimizationMetric") => list(any()),
+      optional("PerformAutoML") => boolean(),
+      optional("PerformHPO") => boolean(),
+      optional("Tags") => list(tag()()),
+      optional("TrainingParameters") => map(),
+      required("FeaturizationConfig") => featurization_config(),
+      required("ForecastHorizon") => integer(),
+      required("InputDataConfig") => input_data_config(),
+      required("PredictorName") => String.t()
+    }
   """
-  @spec create_predictor(AWS.Client.t(), create_predictor_request(), Keyword.t()) ::
+
+  @spec create_predictor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_predictor_errors()}
-  def create_predictor(%Client{} = client, input, options \\ []) do
+
+  def create_predictor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2878,16 +3032,27 @@ defmodule AWS.Forecast do
   `CreateAutoPredictor` or `CreatePredictor` operations. Two folders containing
   CSV or Parquet files are exported to your specified S3 bucket. The export file
   names will match the following conventions:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreatePredictorBacktestExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_predictor_backtest_export_job_request`)
+    %{
+      optional("Format") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Destination") => data_destination(),
+      required("PredictorArn") => String.t(),
+      required("PredictorBacktestExportJobName") => String.t()
+    }
   """
-  @spec create_predictor_backtest_export_job(
-          AWS.Client.t(),
-          create_predictor_backtest_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_predictor_backtest_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_predictor_backtest_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_predictor_backtest_export_job_errors()}
-  def create_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
+
+  def create_predictor_backtest_export_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2904,12 +3069,25 @@ defmodule AWS.Forecast do
   to clear space for new styles. After creating a baseline forecast, you can use
   a what-if analysis to investigate how different sales tactics might affect
   your goals.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateWhatIfAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_what_if_analysis_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      optional("TimeSeriesSelector") => time_series_selector(),
+      required("ForecastArn") => String.t(),
+      required("WhatIfAnalysisName") => String.t()
+    }
   """
-  @spec create_what_if_analysis(AWS.Client.t(), create_what_if_analysis_request(), Keyword.t()) ::
+
+  @spec create_what_if_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_what_if_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_what_if_analysis_errors()}
-  def create_what_if_analysis(%Client{} = client, input, options \\ []) do
+
+  def create_what_if_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2920,12 +3098,26 @@ defmodule AWS.Forecast do
   A what-if forecast is a forecast that is created from a modified version of the
   baseline forecast. Each what-if forecast incorporates either a replacement
   dataset or a set of transformations to the original dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateWhatIfForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_what_if_forecast_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      optional("TimeSeriesReplacementsDataSource") => time_series_replacements_data_source(),
+      optional("TimeSeriesTransformations") => list(time_series_transformation()()),
+      required("WhatIfAnalysisArn") => String.t(),
+      required("WhatIfForecastName") => String.t()
+    }
   """
-  @spec create_what_if_forecast(AWS.Client.t(), create_what_if_forecast_request(), Keyword.t()) ::
+
+  @spec create_what_if_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_what_if_forecast_errors()}
-  def create_what_if_forecast(%Client{} = client, input, options \\ []) do
+
+  def create_what_if_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2936,16 +3128,27 @@ defmodule AWS.Forecast do
   Exports a forecast created by the `CreateWhatIfForecast` operation to your
   Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will
   match the following conventions: `≈__`
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20CreateWhatIfForecastExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_what_if_forecast_export_request`)
+    %{
+      optional("Format") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Destination") => data_destination(),
+      required("WhatIfForecastArns") => list(String.t()()),
+      required("WhatIfForecastExportName") => String.t()
+    }
   """
-  @spec create_what_if_forecast_export(
-          AWS.Client.t(),
-          create_what_if_forecast_export_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_what_if_forecast_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_what_if_forecast_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_what_if_forecast_export_errors()}
-  def create_what_if_forecast_export(%Client{} = client, input, options \\ []) do
+
+  def create_what_if_forecast_export(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2962,12 +3165,22 @@ defmodule AWS.Forecast do
   contain the deleted dataset. In order to update the dataset group, use the
   [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html)
   operation, omitting the deleted dataset's ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dataset_request`)
+    %{
+      required("DatasetArn") => String.t()
+    }
   """
-  @spec delete_dataset(AWS.Client.t(), delete_dataset_request(), Keyword.t()) ::
+
+  @spec delete_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-  def delete_dataset(%Client{} = client, input, options \\ []) do
+
+  def delete_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2981,12 +3194,22 @@ defmodule AWS.Forecast do
   `CREATE_FAILED`, or `UPDATE_FAILED`. To get the status, use the
   [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html)
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteDatasetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dataset_group_request`)
+    %{
+      required("DatasetGroupArn") => String.t()
+    }
   """
-  @spec delete_dataset_group(AWS.Client.t(), delete_dataset_group_request(), Keyword.t()) ::
+
+  @spec delete_dataset_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_group_errors()}
-  def delete_dataset_group(%Client{} = client, input, options \\ []) do
+
+  def delete_dataset_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3000,16 +3223,22 @@ defmodule AWS.Forecast do
   `ACTIVE` or `CREATE_FAILED`. To get the status, use the
   [DescribeDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html)
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteDatasetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dataset_import_job_request`)
+    %{
+      required("DatasetImportJobArn") => String.t()
+    }
   """
-  @spec delete_dataset_import_job(
-          AWS.Client.t(),
-          delete_dataset_import_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_dataset_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_import_job_errors()}
-  def delete_dataset_import_job(%Client{} = client, input, options \\ []) do
+
+  def delete_dataset_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3018,12 +3247,22 @@ defmodule AWS.Forecast do
 
   @doc """
   Deletes an Explainability resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteExplainability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_explainability_request`)
+    %{
+      required("ExplainabilityArn") => String.t()
+    }
   """
-  @spec delete_explainability(AWS.Client.t(), delete_explainability_request(), Keyword.t()) ::
+
+  @spec delete_explainability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_explainability_errors()}
-  def delete_explainability(%Client{} = client, input, options \\ []) do
+
+  def delete_explainability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3032,16 +3271,22 @@ defmodule AWS.Forecast do
 
   @doc """
   Deletes an Explainability export.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteExplainabilityExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_explainability_export_request`)
+    %{
+      required("ExplainabilityExportArn") => String.t()
+    }
   """
-  @spec delete_explainability_export(
-          AWS.Client.t(),
-          delete_explainability_export_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_explainability_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_explainability_export_errors()}
-  def delete_explainability_export(%Client{} = client, input, options \\ []) do
+
+  def delete_explainability_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3052,12 +3297,22 @@ defmodule AWS.Forecast do
   Deletes a forecast created using the `CreateForecast` operation. You can delete
   only forecasts that have a status of `ACTIVE` or `CREATE_FAILED`. To get the
   status, use the `DescribeForecast` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_forecast_request`)
+    %{
+      required("ForecastArn") => String.t()
+    }
   """
-  @spec delete_forecast(AWS.Client.t(), delete_forecast_request(), Keyword.t()) ::
+
+  @spec delete_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_forecast_errors()}
-  def delete_forecast(%Client{} = client, input, options \\ []) do
+
+  def delete_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3069,16 +3324,22 @@ defmodule AWS.Forecast do
   operation. You can delete only export jobs that have a status of `ACTIVE` or
   `CREATE_FAILED`. To get the status, use the `DescribeForecastExportJob`
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteForecastExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_forecast_export_job_request`)
+    %{
+      required("ForecastExportJobArn") => String.t()
+    }
   """
-  @spec delete_forecast_export_job(
-          AWS.Client.t(),
-          delete_forecast_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_forecast_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_forecast_export_job_errors()}
-  def delete_forecast_export_job(%Client{} = client, input, options \\ []) do
+
+  def delete_forecast_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3088,12 +3349,22 @@ defmodule AWS.Forecast do
   @doc """
   Deletes a monitor resource. You can only delete a monitor resource with a status
   of `ACTIVE`, `ACTIVE_STOPPED`, `CREATE_FAILED`, or `CREATE_STOPPED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_monitor_request`)
+    %{
+      required("MonitorArn") => String.t()
+    }
   """
-  @spec delete_monitor(AWS.Client.t(), delete_monitor_request(), Keyword.t()) ::
+
+  @spec delete_monitor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
-  def delete_monitor(%Client{} = client, input, options \\ []) do
+
+  def delete_monitor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3104,12 +3375,22 @@ defmodule AWS.Forecast do
   Deletes a predictor created using the `DescribePredictor` or `CreatePredictor`
   operations. You can delete only predictor that have a status of `ACTIVE` or
   `CREATE_FAILED`. To get the status, use the `DescribePredictor` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeletePredictor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_predictor_request`)
+    %{
+      required("PredictorArn") => String.t()
+    }
   """
-  @spec delete_predictor(AWS.Client.t(), delete_predictor_request(), Keyword.t()) ::
+
+  @spec delete_predictor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_predictor_errors()}
-  def delete_predictor(%Client{} = client, input, options \\ []) do
+
+  def delete_predictor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3118,16 +3399,23 @@ defmodule AWS.Forecast do
 
   @doc """
   Deletes a predictor backtest export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeletePredictorBacktestExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_predictor_backtest_export_job_request`)
+    %{
+      required("PredictorBacktestExportJobArn") => String.t()
+    }
   """
-  @spec delete_predictor_backtest_export_job(
-          AWS.Client.t(),
-          delete_predictor_backtest_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_predictor_backtest_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_predictor_backtest_export_job_errors()}
-  def delete_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
+
+  def delete_predictor_backtest_export_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3139,12 +3427,22 @@ defmodule AWS.Forecast do
   and its child resources. Child resources are resources that were created from
   another resource. For example, when a forecast is generated from a predictor,
   the forecast is the child resource and the predictor is the parent resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteResourceTree&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_tree_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_resource_tree(AWS.Client.t(), delete_resource_tree_request(), Keyword.t()) ::
+
+  @spec delete_resource_tree(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_tree_errors()}
-  def delete_resource_tree(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_tree(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3156,12 +3454,22 @@ defmodule AWS.Forecast do
   You can delete only what-if analyses that have a status of `ACTIVE` or
   `CREATE_FAILED`. To get the status, use the `DescribeWhatIfAnalysis`
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteWhatIfAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_what_if_analysis_request`)
+    %{
+      required("WhatIfAnalysisArn") => String.t()
+    }
   """
-  @spec delete_what_if_analysis(AWS.Client.t(), delete_what_if_analysis_request(), Keyword.t()) ::
+
+  @spec delete_what_if_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_what_if_analysis_errors()}
-  def delete_what_if_analysis(%Client{} = client, input, options \\ []) do
+
+  def delete_what_if_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3173,12 +3481,22 @@ defmodule AWS.Forecast do
   You can delete only what-if forecasts that have a status of `ACTIVE` or
   `CREATE_FAILED`. To get the status, use the `DescribeWhatIfForecast`
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteWhatIfForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_what_if_forecast_request`)
+    %{
+      required("WhatIfForecastArn") => String.t()
+    }
   """
-  @spec delete_what_if_forecast(AWS.Client.t(), delete_what_if_forecast_request(), Keyword.t()) ::
+
+  @spec delete_what_if_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_what_if_forecast_errors()}
-  def delete_what_if_forecast(%Client{} = client, input, options \\ []) do
+
+  def delete_what_if_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3190,16 +3508,23 @@ defmodule AWS.Forecast do
   operation. You can delete only what-if forecast exports that have a status of
   `ACTIVE` or `CREATE_FAILED`. To get the status, use the
   `DescribeWhatIfForecastExport` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DeleteWhatIfForecastExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_what_if_forecast_export_request`)
+    %{
+      required("WhatIfForecastExportArn") => String.t()
+    }
   """
-  @spec delete_what_if_forecast_export(
-          AWS.Client.t(),
-          delete_what_if_forecast_export_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_what_if_forecast_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_what_if_forecast_export_errors()}
-  def delete_what_if_forecast_export(%Client{} = client, input, options \\ []) do
+
+  def delete_what_if_forecast_export(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3208,12 +3533,22 @@ defmodule AWS.Forecast do
 
   @doc """
   Describes a predictor created using the CreateAutoPredictor operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeAutoPredictor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_auto_predictor_request`)
+    %{
+      required("PredictorArn") => String.t()
+    }
   """
-  @spec describe_auto_predictor(AWS.Client.t(), describe_auto_predictor_request(), Keyword.t()) ::
+
+  @spec describe_auto_predictor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_auto_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_predictor_errors()}
-  def describe_auto_predictor(%Client{} = client, input, options \\ []) do
+
+  def describe_auto_predictor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3226,12 +3561,22 @@ defmodule AWS.Forecast do
   operation. In addition to listing the parameters specified in the
   `CreateDataset` request, this operation includes the following dataset
   properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_request`)
+    %{
+      required("DatasetArn") => String.t()
+    }
   """
-  @spec describe_dataset(AWS.Client.t(), describe_dataset_request(), Keyword.t()) ::
+
+  @spec describe_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-  def describe_dataset(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3244,12 +3589,22 @@ defmodule AWS.Forecast do
   operation. In addition to listing the parameters provided in the
   `CreateDatasetGroup` request, this operation includes the following
   properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeDatasetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_group_request`)
+    %{
+      required("DatasetGroupArn") => String.t()
+    }
   """
-  @spec describe_dataset_group(AWS.Client.t(), describe_dataset_group_request(), Keyword.t()) ::
+
+  @spec describe_dataset_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_group_errors()}
-  def describe_dataset_group(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3262,16 +3617,22 @@ defmodule AWS.Forecast do
   operation. In addition to listing the parameters provided in the
   `CreateDatasetImportJob` request, this operation includes the following
   properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeDatasetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_import_job_request`)
+    %{
+      required("DatasetImportJobArn") => String.t()
+    }
   """
-  @spec describe_dataset_import_job(
-          AWS.Client.t(),
-          describe_dataset_import_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_dataset_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_import_job_errors()}
-  def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3281,12 +3642,22 @@ defmodule AWS.Forecast do
   @doc """
   Describes an Explainability resource created using the `CreateExplainability`
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeExplainability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_explainability_request`)
+    %{
+      required("ExplainabilityArn") => String.t()
+    }
   """
-  @spec describe_explainability(AWS.Client.t(), describe_explainability_request(), Keyword.t()) ::
+
+  @spec describe_explainability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_explainability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_explainability_errors()}
-  def describe_explainability(%Client{} = client, input, options \\ []) do
+
+  def describe_explainability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3296,16 +3667,23 @@ defmodule AWS.Forecast do
   @doc """
   Describes an Explainability export created using the
   `CreateExplainabilityExport` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeExplainabilityExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_explainability_export_request`)
+    %{
+      required("ExplainabilityExportArn") => String.t()
+    }
   """
-  @spec describe_explainability_export(
-          AWS.Client.t(),
-          describe_explainability_export_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_explainability_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_explainability_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_explainability_export_errors()}
-  def describe_explainability_export(%Client{} = client, input, options \\ []) do
+
+  def describe_explainability_export(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3316,12 +3694,22 @@ defmodule AWS.Forecast do
   Describes a forecast created using the `CreateForecast` operation. In addition
   to listing the properties provided in the `CreateForecast` request, this
   operation lists the following properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_forecast_request`)
+    %{
+      required("ForecastArn") => String.t()
+    }
   """
-  @spec describe_forecast(AWS.Client.t(), describe_forecast_request(), Keyword.t()) ::
+
+  @spec describe_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_forecast_errors()}
-  def describe_forecast(%Client{} = client, input, options \\ []) do
+
+  def describe_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3333,16 +3721,22 @@ defmodule AWS.Forecast do
   operation. In addition to listing the properties provided by the user in the
   `CreateForecastExportJob` request, this operation lists the following
   properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeForecastExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_forecast_export_job_request`)
+    %{
+      required("ForecastExportJobArn") => String.t()
+    }
   """
-  @spec describe_forecast_export_job(
-          AWS.Client.t(),
-          describe_forecast_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_forecast_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_forecast_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_forecast_export_job_errors()}
-  def describe_forecast_export_job(%Client{} = client, input, options \\ []) do
+
+  def describe_forecast_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3352,12 +3746,22 @@ defmodule AWS.Forecast do
   @doc """
   Describes a monitor resource. In addition to listing the properties provided in
   the `CreateMonitor` request, this operation lists the following properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_monitor_request`)
+    %{
+      required("MonitorArn") => String.t()
+    }
   """
-  @spec describe_monitor(AWS.Client.t(), describe_monitor_request(), Keyword.t()) ::
+
+  @spec describe_monitor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_monitor_errors()}
-  def describe_monitor(%Client{} = client, input, options \\ []) do
+
+  def describe_monitor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3368,12 +3772,22 @@ defmodule AWS.Forecast do
   This operation is only valid for legacy predictors created with CreatePredictor.
   If you are not using a legacy predictor, use `DescribeAutoPredictor`.
   Describes a predictor created using the `CreatePredictor` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribePredictor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_predictor_request`)
+    %{
+      required("PredictorArn") => String.t()
+    }
   """
-  @spec describe_predictor(AWS.Client.t(), describe_predictor_request(), Keyword.t()) ::
+
+  @spec describe_predictor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_predictor_errors()}
-  def describe_predictor(%Client{} = client, input, options \\ []) do
+
+  def describe_predictor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3385,16 +3799,23 @@ defmodule AWS.Forecast do
   `CreatePredictorBacktestExportJob` operation. In addition to listing the
   properties provided by the user in the `CreatePredictorBacktestExportJob`
   request, this operation lists the following properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribePredictorBacktestExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_predictor_backtest_export_job_request`)
+    %{
+      required("PredictorBacktestExportJobArn") => String.t()
+    }
   """
-  @spec describe_predictor_backtest_export_job(
-          AWS.Client.t(),
-          describe_predictor_backtest_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_predictor_backtest_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_predictor_backtest_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_predictor_backtest_export_job_errors()}
-  def describe_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
+
+  def describe_predictor_backtest_export_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3405,16 +3826,22 @@ defmodule AWS.Forecast do
   Describes the what-if analysis created using the `CreateWhatIfAnalysis`
   operation. In addition to listing the properties provided in the
   `CreateWhatIfAnalysis` request, this operation lists the following properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeWhatIfAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_what_if_analysis_request`)
+    %{
+      required("WhatIfAnalysisArn") => String.t()
+    }
   """
-  @spec describe_what_if_analysis(
-          AWS.Client.t(),
-          describe_what_if_analysis_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_what_if_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_what_if_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_what_if_analysis_errors()}
-  def describe_what_if_analysis(%Client{} = client, input, options \\ []) do
+
+  def describe_what_if_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3425,16 +3852,22 @@ defmodule AWS.Forecast do
   Describes the what-if forecast created using the `CreateWhatIfForecast`
   operation. In addition to listing the properties provided in the
   `CreateWhatIfForecast` request, this operation lists the following properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeWhatIfForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_what_if_forecast_request`)
+    %{
+      required("WhatIfForecastArn") => String.t()
+    }
   """
-  @spec describe_what_if_forecast(
-          AWS.Client.t(),
-          describe_what_if_forecast_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_what_if_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_what_if_forecast_errors()}
-  def describe_what_if_forecast(%Client{} = client, input, options \\ []) do
+
+  def describe_what_if_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3446,16 +3879,23 @@ defmodule AWS.Forecast do
   `CreateWhatIfForecastExport` operation. In addition to listing the properties
   provided in the `CreateWhatIfForecastExport` request, this operation lists the
   following properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20DescribeWhatIfForecastExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_what_if_forecast_export_request`)
+    %{
+      required("WhatIfForecastExportArn") => String.t()
+    }
   """
-  @spec describe_what_if_forecast_export(
-          AWS.Client.t(),
-          describe_what_if_forecast_export_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_what_if_forecast_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_what_if_forecast_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_what_if_forecast_export_errors()}
-  def describe_what_if_forecast_export(%Client{} = client, input, options \\ []) do
+
+  def describe_what_if_forecast_export(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3473,12 +3913,22 @@ defmodule AWS.Forecast do
   `EvaluationParameters` object, which is optionally included in the
   `CreatePredictor` request. If `NumberOfBacktestWindows` isn't specified, the
   number defaults to one.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20GetAccuracyMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_accuracy_metrics_request`)
+    %{
+      required("PredictorArn") => String.t()
+    }
   """
-  @spec get_accuracy_metrics(AWS.Client.t(), get_accuracy_metrics_request(), Keyword.t()) ::
+
+  @spec get_accuracy_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_accuracy_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_accuracy_metrics_errors()}
-  def get_accuracy_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_accuracy_metrics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3493,12 +3943,23 @@ defmodule AWS.Forecast do
   complete set of properties by using the dataset group ARN with the
   [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html)
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListDatasetGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dataset_groups_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_dataset_groups(AWS.Client.t(), list_dataset_groups_request(), Keyword.t()) ::
+
+  @spec list_dataset_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dataset_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_groups_errors()}
-  def list_dataset_groups(%Client{} = client, input, options \\ []) do
+
+  def list_dataset_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3515,12 +3976,24 @@ defmodule AWS.Forecast do
   operation. You can filter the list by providing an array of
   [Filter](https://docs.aws.amazon.com/forecast/latest/dg/API_Filter.html)
   objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListDatasetImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dataset_import_jobs_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_dataset_import_jobs(AWS.Client.t(), list_dataset_import_jobs_request(), Keyword.t()) ::
+
+  @spec list_dataset_import_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dataset_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_import_jobs_errors()}
-  def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_dataset_import_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3535,12 +4008,23 @@ defmodule AWS.Forecast do
   use the ARN with the
   [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html)
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_datasets_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_datasets(AWS.Client.t(), list_datasets_request(), Keyword.t()) ::
+
+  @spec list_datasets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-  def list_datasets(%Client{} = client, input, options \\ []) do
+
+  def list_datasets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3551,12 +4035,24 @@ defmodule AWS.Forecast do
   Returns a list of Explainability resources created using the
   `CreateExplainability` operation. This operation returns a summary for each
   Explainability. You can filter the list using an array of `Filter` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListExplainabilities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_explainabilities_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_explainabilities(AWS.Client.t(), list_explainabilities_request(), Keyword.t()) ::
+
+  @spec list_explainabilities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_explainabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_explainabilities_errors()}
-  def list_explainabilities(%Client{} = client, input, options \\ []) do
+
+  def list_explainabilities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3568,16 +4064,24 @@ defmodule AWS.Forecast do
   `CreateExplainabilityExport` operation. This operation returns a summary for
   each Explainability export. You can filter the list using an array of `Filter`
   objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListExplainabilityExports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_explainability_exports_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_explainability_exports(
-          AWS.Client.t(),
-          list_explainability_exports_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_explainability_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_explainability_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_explainability_exports_errors()}
-  def list_explainability_exports(%Client{} = client, input, options \\ []) do
+
+  def list_explainability_exports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3591,16 +4095,24 @@ defmodule AWS.Forecast do
   Name (ARN). To retrieve the complete set of properties, use the ARN with the
   `DescribeForecastExportJob` operation. You can filter the list using an array
   of `Filter` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListForecastExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_forecast_export_jobs_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_forecast_export_jobs(
-          AWS.Client.t(),
-          list_forecast_export_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_forecast_export_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_forecast_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_forecast_export_jobs_errors()}
-  def list_forecast_export_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_forecast_export_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3613,12 +4125,24 @@ defmodule AWS.Forecast do
   its Amazon Resource Name (ARN). To retrieve the complete set of properties,
   specify the ARN with the `DescribeForecast` operation. You can filter the list
   using an array of `Filter` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListForecasts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_forecasts_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_forecasts(AWS.Client.t(), list_forecasts_request(), Keyword.t()) ::
+
+  @spec list_forecasts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_forecasts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_forecasts_errors()}
-  def list_forecasts(%Client{} = client, input, options \\ []) do
+
+  def list_forecasts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3628,12 +4152,25 @@ defmodule AWS.Forecast do
   @doc """
   Returns a list of the monitoring evaluation results and predictor events
   collected by the monitor resource during different windows of time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListMonitorEvaluations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_monitor_evaluations_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("MonitorArn") => String.t()
+    }
   """
-  @spec list_monitor_evaluations(AWS.Client.t(), list_monitor_evaluations_request(), Keyword.t()) ::
+
+  @spec list_monitor_evaluations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_monitor_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitor_evaluations_errors()}
-  def list_monitor_evaluations(%Client{} = client, input, options \\ []) do
+
+  def list_monitor_evaluations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3646,12 +4183,24 @@ defmodule AWS.Forecast do
   returns of a summary of its properties, including its Amazon Resource Name
   (ARN). You can retrieve a complete set of properties of a monitor resource by
   specify the monitor's ARN in the `DescribeMonitor` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListMonitors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_monitors_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_monitors(AWS.Client.t(), list_monitors_request(), Keyword.t()) ::
+
+  @spec list_monitors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
-  def list_monitors(%Client{} = client, input, options \\ []) do
+
+  def list_monitors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3663,16 +4212,25 @@ defmodule AWS.Forecast do
   `CreatePredictorBacktestExportJob` operation. This operation returns a summary
   for each backtest export job. You can filter the list using an array of
   `Filter` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListPredictorBacktestExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_predictor_backtest_export_jobs_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_predictor_backtest_export_jobs(
-          AWS.Client.t(),
-          list_predictor_backtest_export_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_predictor_backtest_export_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_predictor_backtest_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_predictor_backtest_export_jobs_errors()}
-  def list_predictor_backtest_export_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_predictor_backtest_export_jobs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3683,12 +4241,24 @@ defmodule AWS.Forecast do
   Returns a list of predictors created using the `CreateAutoPredictor` or
   `CreatePredictor` operations. For each predictor, this operation returns a
   summary of its properties, including its Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListPredictors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_predictors_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_predictors(AWS.Client.t(), list_predictors_request(), Keyword.t()) ::
+
+  @spec list_predictors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_predictors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_predictors_errors()}
-  def list_predictors(%Client{} = client, input, options \\ []) do
+
+  def list_predictors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3697,12 +4267,22 @@ defmodule AWS.Forecast do
 
   @doc """
   Lists the tags for an Amazon Forecast resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3715,12 +4295,24 @@ defmodule AWS.Forecast do
   properties, including its Amazon Resource Name (ARN). You can retrieve the
   complete set of properties by using the what-if analysis ARN with the
   `DescribeWhatIfAnalysis` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListWhatIfAnalyses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_what_if_analyses_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_what_if_analyses(AWS.Client.t(), list_what_if_analyses_request(), Keyword.t()) ::
+
+  @spec list_what_if_analyses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_what_if_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_what_if_analyses_errors()}
-  def list_what_if_analyses(%Client{} = client, input, options \\ []) do
+
+  def list_what_if_analyses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3733,16 +4325,25 @@ defmodule AWS.Forecast do
   operation returns a summary of its properties, including its Amazon Resource
   Name (ARN). You can retrieve the complete set of properties by using the
   what-if forecast export ARN with the `DescribeWhatIfForecastExport` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListWhatIfForecastExports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_what_if_forecast_exports_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_what_if_forecast_exports(
-          AWS.Client.t(),
-          list_what_if_forecast_exports_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_what_if_forecast_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_what_if_forecast_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_what_if_forecast_exports_errors()}
-  def list_what_if_forecast_exports(%Client{} = client, input, options \\ []) do
+
+  def list_what_if_forecast_exports(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3755,12 +4356,24 @@ defmodule AWS.Forecast do
   properties, including its Amazon Resource Name (ARN). You can retrieve the
   complete set of properties by using the what-if forecast ARN with the
   `DescribeWhatIfForecast` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ListWhatIfForecasts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_what_if_forecasts_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_what_if_forecasts(AWS.Client.t(), list_what_if_forecasts_request(), Keyword.t()) ::
+
+  @spec list_what_if_forecasts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_what_if_forecasts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_what_if_forecasts_errors()}
-  def list_what_if_forecasts(%Client{} = client, input, options \\ []) do
+
+  def list_what_if_forecasts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3769,12 +4382,22 @@ defmodule AWS.Forecast do
 
   @doc """
   Resumes a stopped monitor resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20ResumeResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:resume_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec resume_resource(AWS.Client.t(), resume_resource_request(), Keyword.t()) ::
+
+  @spec resume_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_resource_errors()}
-  def resume_resource(%Client{} = client, input, options \\ []) do
+
+  def resume_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3784,12 +4407,22 @@ defmodule AWS.Forecast do
   @doc """
   Stops a resource. The resource undergoes the following states: `CREATE_STOPPING`
   and `CREATE_STOPPED`. You cannot resume a resource once it has been stopped.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20StopResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec stop_resource(AWS.Client.t(), stop_resource_request(), Keyword.t()) ::
+
+  @spec stop_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_resource_errors()}
-  def stop_resource(%Client{} = client, input, options \\ []) do
+
+  def stop_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3801,12 +4434,23 @@ defmodule AWS.Forecast do
   existing tags on a resource are not specified in the request parameters, they
   are not changed. When a resource is deleted, the tags associated with that
   resource are also deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3815,12 +4459,23 @@ defmodule AWS.Forecast do
 
   @doc """
   Deletes the specified tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3829,12 +4484,23 @@ defmodule AWS.Forecast do
 
   @doc """
   Replaces the datasets in a dataset group with the specified datasets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecast%20UpdateDatasetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_dataset_group_request`)
+    %{
+      required("DatasetArns") => list(String.t()()),
+      required("DatasetGroupArn") => String.t()
+    }
   """
-  @spec update_dataset_group(AWS.Client.t(), update_dataset_group_request(), Keyword.t()) ::
+
+  @spec update_dataset_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_group_errors()}
-  def update_dataset_group(%Client{} = client, input, options \\ []) do
+
+  def update_dataset_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -312,12 +312,22 @@ defmodule AWS.CostandUsageReport do
   @doc """
   Deletes the specified report. Any tags associated with the report are also
   deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costandusagereportservice%20DeleteReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_report_definition_request`)
+    %{
+      required("ReportName") => String.t()
+    }
   """
-  @spec delete_report_definition(AWS.Client.t(), delete_report_definition_request(), Keyword.t()) ::
+
+  @spec delete_report_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_report_definition_errors()}
-  def delete_report_definition(%Client{} = client, input, options \\ []) do
+
+  def delete_report_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -326,16 +336,23 @@ defmodule AWS.CostandUsageReport do
 
   @doc """
   Lists the Amazon Web Services Cost and Usage Report available to this account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costandusagereportservice%20DescribeReportDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_report_definitions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_report_definitions(
-          AWS.Client.t(),
-          describe_report_definitions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_report_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_report_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_definitions_errors()}
-  def describe_report_definitions(%Client{} = client, input, options \\ []) do
+
+  def describe_report_definitions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -344,12 +361,22 @@ defmodule AWS.CostandUsageReport do
 
   @doc """
   Lists the tags associated with the specified report definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costandusagereportservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ReportName") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -358,12 +385,23 @@ defmodule AWS.CostandUsageReport do
 
   @doc """
   Allows you to programmatically update your report preferences.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costandusagereportservice%20ModifyReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_report_definition_request`)
+    %{
+      required("ReportDefinition") => report_definition(),
+      required("ReportName") => String.t()
+    }
   """
-  @spec modify_report_definition(AWS.Client.t(), modify_report_definition_request(), Keyword.t()) ::
+
+  @spec modify_report_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_report_definition_errors()}
-  def modify_report_definition(%Client{} = client, input, options \\ []) do
+
+  def modify_report_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -372,12 +410,23 @@ defmodule AWS.CostandUsageReport do
 
   @doc """
   Creates a new report using the description that you provide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costandusagereportservice%20PutReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_report_definition_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("ReportDefinition") => report_definition()
+    }
   """
-  @spec put_report_definition(AWS.Client.t(), put_report_definition_request(), Keyword.t()) ::
+
+  @spec put_report_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_report_definition_errors()}
-  def put_report_definition(%Client{} = client, input, options \\ []) do
+
+  def put_report_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -386,12 +435,23 @@ defmodule AWS.CostandUsageReport do
 
   @doc """
   Associates a set of tags with a report definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costandusagereportservice%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ReportName") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -400,12 +460,23 @@ defmodule AWS.CostandUsageReport do
 
   @doc """
   Disassociates a set of tags from a report definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=costandusagereportservice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ReportName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

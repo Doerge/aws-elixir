@@ -616,12 +616,22 @@ defmodule AWS.CloudControl do
   [Canceling resource operation
   requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel)
   in the *Amazon Web Services Cloud Control API User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20CancelResourceRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_resource_request_input`)
+    %{
+      required("RequestToken") => String.t()
+    }
   """
-  @spec cancel_resource_request(AWS.Client.t(), cancel_resource_request_input(), Keyword.t()) ::
+
+  @spec cancel_resource_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_resource_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_resource_request_errors()}
-  def cancel_resource_request(%Client{} = client, input, options \\ []) do
+
+  def cancel_resource_request(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -637,12 +647,26 @@ defmodule AWS.CloudControl do
   [GetResourceRequestStatus](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html)
   using the `RequestToken` of the `ProgressEvent` type returned by
   `CreateResource`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20CreateResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_resource_input`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("TypeVersionId") => String.t(),
+      required("DesiredState") => String.t(),
+      required("TypeName") => String.t()
+    }
   """
-  @spec create_resource(AWS.Client.t(), create_resource_input(), Keyword.t()) ::
+
+  @spec create_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_errors()}
-  def create_resource(%Client{} = client, input, options \\ []) do
+
+  def create_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -657,12 +681,26 @@ defmodule AWS.CloudControl do
   request by calling
   [GetResourceRequestStatus](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html)
   using the `RequestToken` of the `ProgressEvent` returned by `DeleteResource`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20DeleteResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_input`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("TypeVersionId") => String.t(),
+      required("Identifier") => String.t(),
+      required("TypeName") => String.t()
+    }
   """
-  @spec delete_resource(AWS.Client.t(), delete_resource_input(), Keyword.t()) ::
+
+  @spec delete_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_errors()}
-  def delete_resource(%Client{} = client, input, options \\ []) do
+
+  def delete_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -673,12 +711,25 @@ defmodule AWS.CloudControl do
   Returns information about the current state of the specified resource. For
   details, see [Reading a resource's current
   state](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20GetResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_input`)
+    %{
+      optional("RoleArn") => String.t(),
+      optional("TypeVersionId") => String.t(),
+      required("Identifier") => String.t(),
+      required("TypeName") => String.t()
+    }
   """
-  @spec get_resource(AWS.Client.t(), get_resource_input(), Keyword.t()) ::
+
+  @spec get_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_errors()}
-  def get_resource(%Client{} = client, input, options \\ []) do
+
+  def get_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -690,16 +741,22 @@ defmodule AWS.CloudControl do
   information, see [Tracking the progress of resource operation
   requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track)
   in the *Amazon Web Services Cloud Control API User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20GetResourceRequestStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_request_status_input`)
+    %{
+      required("RequestToken") => String.t()
+    }
   """
-  @spec get_resource_request_status(
-          AWS.Client.t(),
-          get_resource_request_status_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_resource_request_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_request_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_request_status_errors()}
-  def get_resource_request_status(%Client{} = client, input, options \\ []) do
+
+  def get_resource_request_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -711,11 +768,23 @@ defmodule AWS.CloudControl do
   status types. For more information, see [Listing active resource operation
   requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list)
   in the *Amazon Web Services Cloud Control API User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20ListResourceRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_requests_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceRequestStatusFilter") => resource_request_status_filter()
+    }
   """
-  @spec list_resource_requests(AWS.Client.t(), list_resource_requests_input(), Keyword.t()) ::
+
+  @spec list_resource_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_resource_requests(%Client{} = client, input, options \\ []) do
+
+  def list_resource_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -727,12 +796,27 @@ defmodule AWS.CloudControl do
   [Discovering
   resources](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html)
   in the *Amazon Web Services Cloud Control API User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20ListResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resources_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceModel") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("TypeVersionId") => String.t(),
+      required("TypeName") => String.t()
+    }
   """
-  @spec list_resources(AWS.Client.t(), list_resources_input(), Keyword.t()) ::
+
+  @spec list_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
-  def list_resources(%Client{} = client, input, options \\ []) do
+
+  def list_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -747,12 +831,27 @@ defmodule AWS.CloudControl do
   on how Cloud Control API performs resource update operations, see [Updating a
   resource](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html)
   in the *Amazon Web Services Cloud Control API User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudcontrol%20UpdateResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_resource_input`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("TypeVersionId") => String.t(),
+      required("Identifier") => String.t(),
+      required("PatchDocument") => String.t(),
+      required("TypeName") => String.t()
+    }
   """
-  @spec update_resource(AWS.Client.t(), update_resource_input(), Keyword.t()) ::
+
+  @spec update_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_errors()}
-  def update_resource(%Client{} = client, input, options \\ []) do
+
+  def update_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -17,18 +17,18 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       describe_hub_request() :: %{
         optional("HubArn") => String.t()
       }
-
+      
   """
   @type describe_hub_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_method_settings() :: %{
         "CacheDataEncrypted" => boolean(),
         "CacheTtlInSeconds" => integer(),
@@ -43,51 +43,51 @@ defmodule AWS.SecurityHub do
         "ThrottlingRateLimit" => float(),
         "UnauthorizedCacheControlHeaderStrategy" => String.t()
       }
-
+      
   """
   @type aws_api_gateway_method_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_from_master_account_request() :: %{}
-
+      
   """
   @type disassociate_from_master_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_standards_control_request() :: %{
         optional("ControlStatus") => list(any()),
         optional("DisabledReason") => String.t()
       }
-
+      
   """
   @type update_standards_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       standards_managed_by() :: %{
         "Company" => String.t(),
         "Product" => String.t()
       }
-
+      
   """
   @type standards_managed_by() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_cluster_config_zone_awareness_config_details() :: %{
         "AvailabilityZoneCount" => integer()
       }
-
+      
   """
   @type aws_open_search_service_domain_cluster_config_zone_awareness_config_details() :: %{
           String.t() => any()
@@ -96,7 +96,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_security_finding_filters() :: %{
         "Region" => list(string_filter()()),
         "ResourceTags" => list(map_filter()()),
@@ -203,34 +203,34 @@ defmodule AWS.SecurityHub do
         "ResourcePartition" => list(string_filter()()),
         "ProcessTerminatedAt" => list(date_filter()())
       }
-
+      
   """
   @type aws_security_finding_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_finding_aggregator_response() :: %{
         "FindingAggregationRegion" => String.t(),
         "FindingAggregatorArn" => String.t(),
         "RegionLinkingMode" => String.t(),
         "Regions" => list(String.t()())
       }
-
+      
   """
   @type get_finding_aggregator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
         "KmsKeyId" => String.t(),
         "LogConfiguration" => aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details(),
         "Logging" => String.t()
       }
-
+      
   """
   @type aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
           String.t() => any()
@@ -239,11 +239,11 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
           String.t() => any()
@@ -252,38 +252,38 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_local_secondary_index() :: %{
         "IndexArn" => String.t(),
         "IndexName" => String.t(),
         "KeySchema" => list(aws_dynamo_db_table_key_schema()()),
         "Projection" => aws_dynamo_db_table_projection()
       }
-
+      
   """
   @type aws_dynamo_db_table_local_secondary_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_findings_error() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type import_findings_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details() :: %{
         "AvailabilityZoneCount" => integer()
       }
-
+      
   """
   @type aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details() ::
           %{String.t() => any()}
@@ -291,25 +291,25 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source() :: %{
         "RulesSourceList" => rule_group_source_list_details(),
         "RulesString" => String.t(),
         "StatefulRules" => list(rule_group_source_stateful_rules_details()()),
         "StatelessRulesAndCustomActions" => rule_group_source_stateless_rules_and_custom_actions_details()
       }
-
+      
   """
   @type rule_group_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
         "ClientRootCertificateChain" => String.t()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
           String.t() => any()
@@ -318,49 +318,49 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_access_log_settings() :: %{
         "DestinationArn" => String.t(),
         "Format" => String.t()
       }
-
+      
   """
   @type aws_api_gateway_access_log_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_cluster_node() :: %{
         "NodeRole" => String.t(),
         "PrivateIpAddress" => String.t(),
         "PublicIpAddress" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_cluster_node() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_resize_info() :: %{
         "AllowCancelResize" => boolean(),
         "ResizeType" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_resize_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() :: %{
         "Add" => list(String.t()()),
         "Drop" => list(String.t()())
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() ::
           %{String.t() => any()}
@@ -368,64 +368,64 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_dead_letter_config() :: %{
         "TargetArn" => String.t()
       }
-
+      
   """
   @type aws_lambda_function_dead_letter_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_policy_response() :: %{}
-
+      
   """
   @type delete_configuration_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       boolean_configuration_options() :: %{
         "DefaultValue" => boolean()
       }
-
+      
   """
   @type boolean_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       record() :: %{
         "JsonPath" => String.t(),
         "RecordIndex" => float()
       }
-
+      
   """
   @type record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_route53_hosted_zone_details() :: %{
         "HostedZone" => aws_route53_hosted_zone_object_details(),
         "NameServers" => list(String.t()()),
         "QueryLoggingConfig" => aws_route53_query_logging_config_details(),
         "Vpcs" => list(aws_route53_hosted_zone_vpc_details()())
       }
-
+      
   """
   @type aws_route53_hosted_zone_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_rules_details() :: %{
         "Action" => aws_wafv2_rules_action_details(),
         "Name" => String.t(),
@@ -433,28 +433,28 @@ defmodule AWS.SecurityHub do
         "Priority" => integer(),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
-
+      
   """
   @type aws_wafv2_rules_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_list_configuration_options() :: %{
         "DefaultValue" => list(integer()()),
         "Max" => integer(),
         "MaxItems" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type integer_list_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_user_details() :: %{
         "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()()),
         "CreateDate" => String.t(),
@@ -465,14 +465,14 @@ defmodule AWS.SecurityHub do
         "UserName" => String.t(),
         "UserPolicyList" => list(aws_iam_user_policy()())
       }
-
+      
   """
   @type aws_iam_user_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_details() :: %{
         "ContainerRuntime" => String.t(),
         "ImageId" => String.t(),
@@ -482,25 +482,25 @@ defmodule AWS.SecurityHub do
         "Privileged" => boolean(),
         "VolumeMounts" => list(volume_mount()())
       }
-
+      
   """
   @type container_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_instance_profile_role() :: %{
         "Arn" => String.t(),
         "AssumeRolePolicyDocument" => String.t(),
@@ -509,14 +509,14 @@ defmodule AWS.SecurityHub do
         "RoleId" => String.t(),
         "RoleName" => String.t()
       }
-
+      
   """
   @type aws_iam_instance_profile_role() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_security_group_details() :: %{
         "DbSecurityGroupArn" => String.t(),
         "DbSecurityGroupDescription" => String.t(),
@@ -526,76 +526,76 @@ defmodule AWS.SecurityHub do
         "OwnerId" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_rds_db_security_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_standards_controls_response() :: %{
         "Controls" => list(standards_control()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type describe_standards_controls_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_placement_constraints_details() :: %{
         "Expression" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ecs_service_placement_constraints_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       range() :: %{
         "End" => float(),
         "Start" => float(),
         "StartColumn" => float()
       }
-
+      
   """
   @type range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_security_group_ip_range() :: %{
         "CidrIp" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_rds_db_security_group_ip_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_layer_version_details() :: %{
         "CompatibleRuntimes" => list(String.t()()),
         "CreatedDate" => String.t(),
         "Version" => float()
       }
-
+      
   """
   @type aws_lambda_layer_version_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_v2_api_details() :: %{
         "ApiEndpoint" => String.t(),
         "ApiId" => String.t(),
@@ -608,25 +608,25 @@ defmodule AWS.SecurityHub do
         "RouteSelectionExpression" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type aws_api_gateway_v2_api_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decline_invitations_response() :: %{
         "UnprocessedAccounts" => list(result()())
       }
-
+      
   """
   @type decline_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_policy_association_summary() :: %{
         "AssociationStatus" => list(any()),
         "AssociationStatusMessage" => String.t(),
@@ -636,37 +636,37 @@ defmodule AWS.SecurityHub do
         "TargetType" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type configuration_policy_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_endpoint() :: %{
         "Address" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type aws_redshift_cluster_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_provisioned_throughput_override() :: %{
         "ReadCapacityUnits" => integer()
       }
-
+      
   """
   @type aws_dynamo_db_table_provisioned_throughput_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       firewall_policy_details() :: %{
         "StatefulRuleGroupReferences" => list(firewall_policy_stateful_rule_group_references_details()()),
         "StatelessCustomActions" => list(firewall_policy_stateless_custom_actions_details()()),
@@ -674,58 +674,58 @@ defmodule AWS.SecurityHub do
         "StatelessFragmentDefaultActions" => list(String.t()()),
         "StatelessRuleGroupReferences" => list(firewall_policy_stateless_rule_group_references_details()())
       }
-
+      
   """
   @type firewall_policy_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_access_key_session_context_attributes() :: %{
         "CreationDate" => String.t(),
         "MfaAuthenticated" => boolean()
       }
-
+      
   """
   @type aws_iam_access_key_session_context_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_organization_admin_account_response() :: %{}
-
+      
   """
   @type disable_organization_admin_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_default_cache_behavior() :: %{
         "ViewerProtocolPolicy" => String.t()
       }
-
+      
   """
   @type aws_cloud_front_distribution_default_cache_behavior() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elbv2_load_balancer_attribute() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_elbv2_load_balancer_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_control() :: %{
         "Description" => String.t(),
         "LastUpdateReason" => String.t(),
@@ -738,49 +738,49 @@ defmodule AWS.SecurityHub do
         "Title" => String.t(),
         "UpdateStatus" => list(any())
       }
-
+      
   """
   @type security_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_account_public_access_block_details() :: %{
         "BlockPublicAcls" => boolean(),
         "BlockPublicPolicy" => boolean(),
         "IgnorePublicAcls" => boolean(),
         "RestrictPublicBuckets" => boolean()
       }
-
+      
   """
   @type aws_s3_account_public_access_block_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_security_hub_response() :: %{}
-
+      
   """
   @type disable_security_hub_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       classification_status() :: %{
         "Code" => String.t(),
         "Reason" => String.t()
       }
-
+      
   """
   @type classification_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vulnerability() :: %{
         "CodeVulnerabilities" => list(vulnerability_code_vulnerabilities()()),
         "Cvss" => list(cvss()()),
@@ -794,26 +794,26 @@ defmodule AWS.SecurityHub do
         "Vendor" => vulnerability_vendor(),
         "VulnerablePackages" => list(software_package()())
       }
-
+      
   """
   @type vulnerability() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elastic_beanstalk_environment_environment_link() :: %{
         "EnvironmentName" => String.t(),
         "LinkName" => String.t()
       }
-
+      
   """
   @type aws_elastic_beanstalk_environment_environment_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecr_repository_details() :: %{
         "Arn" => String.t(),
         "ImageScanningConfiguration" => aws_ecr_repository_image_scanning_configuration_details(),
@@ -822,66 +822,66 @@ defmodule AWS.SecurityHub do
         "RepositoryName" => String.t(),
         "RepositoryPolicyText" => String.t()
       }
-
+      
   """
   @type aws_ecr_repository_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_header() :: %{
         "Destination" => network_path_component_details(),
         "Protocol" => String.t(),
         "Source" => network_path_component_details()
       }
-
+      
   """
   @type network_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insights_request() :: %{
         optional("InsightArns") => list(String.t()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type get_insights_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       availability_zone() :: %{
         "SubnetId" => String.t(),
         "ZoneName" => String.t()
       }
-
+      
   """
   @type availability_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_organization_configuration_request() :: %{}
-
+      
   """
   @type describe_organization_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
         "ScanEc2InstanceWithFindings" => aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details(),
         "ServiceRole" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
           String.t() => any()
@@ -890,13 +890,13 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() :: %{
         "Prefix" => String.t(),
         "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() ::
           %{String.t() => any()}
@@ -904,7 +904,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_cluster_config_details() :: %{
         "DedicatedMasterCount" => integer(),
         "DedicatedMasterEnabled" => boolean(),
@@ -917,69 +917,69 @@ defmodule AWS.SecurityHub do
         "ZoneAwarenessConfig" => aws_open_search_service_domain_cluster_config_zone_awareness_config_details(),
         "ZoneAwarenessEnabled" => boolean()
       }
-
+      
   """
   @type aws_open_search_service_domain_cluster_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_path_component() :: %{
         "ComponentId" => String.t(),
         "ComponentType" => String.t(),
         "Egress" => network_header(),
         "Ingress" => network_header()
       }
-
+      
   """
   @type network_path_component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_cluster_parameter_group() :: %{
         "ClusterParameterStatusList" => list(aws_redshift_cluster_cluster_parameter_status()()),
         "ParameterApplyStatus" => String.t(),
         "ParameterGroupName" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_cluster_parameter_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_web_acl_rules_list_action_details() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_web_acl_rules_list_action_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       association_state_details() :: %{
         "State" => String.t(),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type association_state_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details() :: %{
         "Max" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details() :: %{
           String.t() => any()
@@ -988,95 +988,95 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       get_members_response() :: %{
         "Members" => list(member()()),
         "UnprocessedAccounts" => list(result()())
       }
-
+      
   """
   @type get_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waf_action() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type waf_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       status_reason() :: %{
         "Description" => String.t(),
         "ReasonCode" => String.t()
       }
-
+      
   """
   @type status_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_local_port_details() :: %{
         "Port" => integer(),
         "PortName" => String.t()
       }
-
+      
   """
   @type action_local_port_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_client_authentication_details() :: %{
         "Sasl" => aws_msk_cluster_cluster_info_client_authentication_sasl_details(),
         "Tls" => aws_msk_cluster_cluster_info_client_authentication_tls_details(),
         "Unauthenticated" => aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_client_authentication_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waf_excluded_rule() :: %{
         "RuleId" => String.t()
       }
-
+      
   """
   @type waf_excluded_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_mount_point() :: %{
         "ContainerPath" => String.t(),
         "SourceVolume" => String.t()
       }
-
+      
   """
   @type aws_mount_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rule_match_attributes_destination_ports() :: %{
         "FromPort" => integer(),
         "ToPort" => integer()
       }
-
+      
   """
   @type rule_group_source_stateless_rule_match_attributes_destination_ports() :: %{
           String.t() => any()
@@ -1085,37 +1085,37 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       admin_account() :: %{
         "AccountId" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type admin_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remediation() :: %{
         "Recommendation" => recommendation()
       }
-
+      
   """
   @type remediation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
         "Operands" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details()()),
         "Prefix" => String.t(),
         "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
           String.t() => any()
@@ -1124,18 +1124,18 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_certificate_manager_certificate_options() :: %{
         "CertificateTransparencyLoggingPreference" => String.t()
       }
-
+      
   """
   @type aws_certificate_manager_certificate_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_details() :: %{
         "ClientAuthentication" => aws_msk_cluster_cluster_info_client_authentication_details(),
         "ClusterName" => String.t(),
@@ -1144,28 +1144,28 @@ defmodule AWS.SecurityHub do
         "EnhancedMonitoring" => String.t(),
         "NumberOfBrokerNodes" => integer()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_import_findings_for_product_response() :: %{}
-
+      
   """
   @type disable_import_findings_for_product_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
         "ReadOnly" => boolean(),
         "SourceContainer" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
           String.t() => any()
@@ -1174,19 +1174,19 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       accept_administrator_invitation_request() :: %{
         required("AdministratorId") => String.t(),
         required("InvitationId") => String.t()
       }
-
+      
   """
   @type accept_administrator_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateful_rules_header_details() :: %{
         "Destination" => String.t(),
         "DestinationPort" => String.t(),
@@ -1195,25 +1195,25 @@ defmodule AWS.SecurityHub do
         "Source" => String.t(),
         "SourcePort" => String.t()
       }
-
+      
   """
   @type rule_group_source_stateful_rules_header_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_standards_control_associations_response() :: %{
         "UnprocessedAssociationUpdates" => list(unprocessed_standards_control_association_update()())
       }
-
+      
   """
   @type batch_update_standards_control_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       classification_result() :: %{
         "AdditionalOccurrences" => boolean(),
         "CustomDataIdentifiers" => custom_data_identifiers_result(),
@@ -1222,32 +1222,32 @@ defmodule AWS.SecurityHub do
         "SizeClassified" => float(),
         "Status" => classification_status()
       }
-
+      
   """
   @type classification_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_certificate_manager_certificate_extended_key_usage() :: %{
         "Name" => String.t(),
         "OId" => String.t()
       }
-
+      
   """
   @type aws_certificate_manager_certificate_extended_key_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
         "ContainerPath" => String.t(),
         "ReadOnly" => boolean(),
         "SourceVolume" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
           String.t() => any()
@@ -1256,50 +1256,50 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       ipv6_cidr_block_association() :: %{
         "AssociationId" => String.t(),
         "CidrBlockState" => String.t(),
         "Ipv6CidrBlock" => String.t()
       }
-
+      
   """
   @type ipv6_cidr_block_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       severity_update() :: %{
         "Label" => list(any()),
         "Normalized" => integer(),
         "Product" => float()
       }
-
+      
   """
   @type severity_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_remote_port_details() :: %{
         "Port" => integer(),
         "PortName" => String.t()
       }
-
+      
   """
   @type action_remote_port_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() :: %{
         "Days" => integer(),
         "StorageClass" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() ::
           %{String.t() => any()}
@@ -1307,32 +1307,32 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_rule_group_details() :: %{
         "MetricName" => String.t(),
         "Name" => String.t(),
         "RuleGroupId" => String.t(),
         "Rules" => list(aws_waf_regional_rule_group_rules_details()())
       }
-
+      
   """
   @type aws_waf_regional_rule_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_kubernetes_details() :: %{
         "AuditLogs" => aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_kubernetes_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_kinesis_stream_details() :: %{
         "Arn" => String.t(),
         "Name" => String.t(),
@@ -1340,25 +1340,25 @@ defmodule AWS.SecurityHub do
         "ShardCount" => integer(),
         "StreamEncryption" => aws_kinesis_stream_stream_encryption_details()
       }
-
+      
   """
   @type aws_kinesis_stream_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_volume_host_details() :: %{
         "SourcePath" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_volume_host_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_launch_configuration_details() :: %{
         "AssociatePublicIpAddress" => boolean(),
         "BlockDeviceMappings" => list(aws_auto_scaling_launch_configuration_block_device_mappings_details()()),
@@ -1380,23 +1380,23 @@ defmodule AWS.SecurityHub do
         "SpotPrice" => String.t(),
         "UserData" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_launch_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_administrator_account_request() :: %{}
-
+      
   """
   @type get_administrator_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       process_details() :: %{
         "LaunchedAt" => String.t(),
         "Name" => String.t(),
@@ -1405,27 +1405,27 @@ defmodule AWS.SecurityHub do
         "Pid" => integer(),
         "TerminatedAt" => String.t()
       }
-
+      
   """
   @type process_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
         "Value" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
           String.t() => any()
@@ -1434,54 +1434,54 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       sensitive_data_result() :: %{
         "Category" => String.t(),
         "Detections" => list(sensitive_data_detections()()),
         "TotalCount" => float()
       }
-
+      
   """
   @type sensitive_data_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_security_hub_configuration_response() :: %{}
-
+      
   """
   @type update_security_hub_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{
         "DeviceName" => String.t(),
         "Ebs" => aws_ec2_launch_template_data_block_device_mapping_set_ebs_details(),
         "NoDevice" => String.t(),
         "VirtualName" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_formation_stack_drift_information_details() :: %{
         "StackDriftStatus" => String.t()
       }
-
+      
   """
   @type aws_cloud_formation_stack_drift_information_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_connection_action() :: %{
         "Blocked" => boolean(),
         "ConnectionDirection" => String.t(),
@@ -1490,14 +1490,14 @@ defmodule AWS.SecurityHub do
         "RemoteIpDetails" => action_remote_ip_details(),
         "RemotePortDetails" => action_remote_port_details()
       }
-
+      
   """
   @type network_connection_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{
         "Hostname" => String.t(),
         "HttpRedirectCode" => String.t(),
@@ -1505,37 +1505,37 @@ defmodule AWS.SecurityHub do
         "ReplaceKeyPrefixWith" => String.t(),
         "ReplaceKeyWith" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_action_target_response() :: %{
         "ActionTargetArn" => String.t()
       }
-
+      
   """
   @type create_action_target_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_kinesis_stream_stream_encryption_details() :: %{
         "EncryptionType" => String.t(),
         "KeyId" => String.t()
       }
-
+      
   """
   @type aws_kinesis_stream_stream_encryption_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_snapshot_details() :: %{
         "AllocatedStorage" => integer(),
         "AvailabilityZone" => String.t(),
@@ -1565,37 +1565,37 @@ defmodule AWS.SecurityHub do
         "Timezone" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_rds_db_snapshot_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_enable_standards_response() :: %{
         "StandardsSubscriptions" => list(standards_subscription()())
       }
-
+      
   """
   @type batch_enable_standards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_domain_endpoint_options() :: %{
         "EnforceHTTPS" => boolean(),
         "TLSSecurityPolicy" => String.t()
       }
-
+      
   """
   @type aws_elasticsearch_domain_domain_endpoint_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compliance() :: %{
         "AssociatedStandards" => list(associated_standard()()),
         "RelatedRequirements" => list(String.t()()),
@@ -1604,50 +1604,50 @@ defmodule AWS.SecurityHub do
         "Status" => list(any()),
         "StatusReasons" => list(status_reason()())
       }
-
+      
   """
   @type compliance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_paths() :: %{
         "FileName" => String.t(),
         "FilePath" => String.t(),
         "Hash" => String.t(),
         "ResourceId" => String.t()
       }
-
+      
   """
   @type file_paths() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sensitive_data_detections() :: %{
         "Count" => float(),
         "Occurrences" => occurrences(),
         "Type" => String.t()
       }
-
+      
   """
   @type sensitive_data_detections() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_action_target_request() :: %{}
-
+      
   """
   @type delete_action_target_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_details() :: %{
         "ClusterArn" => String.t(),
         "Containers" => list(aws_ecs_container_details()()),
@@ -1659,39 +1659,39 @@ defmodule AWS.SecurityHub do
         "Version" => String.t(),
         "Volumes" => list(aws_ecs_task_volume_details()())
       }
-
+      
   """
   @type aws_ecs_task_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_in_use_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_instance_associated_role() :: %{
         "FeatureName" => String.t(),
         "RoleArn" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_rds_db_instance_associated_role() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_policy_response() :: %{
         "Arn" => String.t(),
         "ConfigurationPolicy" => list(),
@@ -1701,51 +1701,51 @@ defmodule AWS.SecurityHub do
         "Name" => String.t(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type create_configuration_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_access_point_vpc_configuration_details() :: %{
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_s3_access_point_vpc_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_attached_managed_policy() :: %{
         "PolicyArn" => String.t(),
         "PolicyName" => String.t()
       }
-
+      
   """
   @type aws_iam_attached_managed_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_sqs_queue_details() :: %{
         "DeadLetterTargetArn" => String.t(),
         "KmsDataKeyReusePeriodSeconds" => integer(),
         "KmsMasterKeyId" => String.t(),
         "QueueName" => String.t()
       }
-
+      
   """
   @type aws_sqs_queue_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       automation_rules_finding_filters() :: %{
         "ResourceTags" => list(map_filter()()),
         "ResourceId" => list(string_filter()()),
@@ -1786,26 +1786,26 @@ defmodule AWS.SecurityHub do
         "ResourceType" => list(string_filter()()),
         "ResourcePartition" => list(string_filter()())
       }
-
+      
   """
   @type automation_rules_finding_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_interface_private_ip_address_detail() :: %{
         "PrivateDnsName" => String.t(),
         "PrivateIpAddress" => String.t()
       }
-
+      
   """
   @type aws_ec2_network_interface_private_ip_address_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_app_sync_graph_ql_api_details() :: %{
         "AdditionalAuthenticationProviders" => list(aws_app_sync_graph_ql_api_additional_authentication_providers_details()()),
         "ApiId" => String.t(),
@@ -1820,60 +1820,60 @@ defmodule AWS.SecurityHub do
         "WafWebAclArn" => String.t(),
         "XrayEnabled" => boolean()
       }
-
+      
   """
   @type aws_app_sync_graph_ql_api_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_variables_ip_sets_details() :: %{
         "Definition" => list(String.t()())
       }
-
+      
   """
   @type rule_group_variables_ip_sets_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_standards_control_associations_request() :: %{
         required("StandardsControlAssociationUpdates") => list(standards_control_association_update()())
       }
-
+      
   """
   @type batch_update_standards_control_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_pending_cloud_watch_logs_exports() :: %{
         "LogTypesToDisable" => list(String.t()()),
         "LogTypesToEnable" => list(String.t()())
       }
-
+      
   """
   @type aws_rds_pending_cloud_watch_logs_exports() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_configuration_policy_associations_response() :: %{
         "ConfigurationPolicyAssociations" => list(configuration_policy_association_summary()()),
         "UnprocessedConfigurationPolicyAssociations" => list(unprocessed_configuration_policy_association()())
       }
-
+      
   """
   @type batch_get_configuration_policy_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_certificate_manager_certificate_domain_validation_option() :: %{
         "DomainName" => String.t(),
         "ResourceRecord" => aws_certificate_manager_certificate_resource_record(),
@@ -1882,43 +1882,43 @@ defmodule AWS.SecurityHub do
         "ValidationMethod" => String.t(),
         "ValidationStatus" => String.t()
       }
-
+      
   """
   @type aws_certificate_manager_certificate_domain_validation_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       organization_configuration() :: %{
         "ConfigurationType" => list(any()),
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type organization_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_web_acl_action_details() :: %{
         "Allow" => aws_wafv2_action_allow_details(),
         "Block" => aws_wafv2_action_block_details()
       }
-
+      
   """
   @type aws_wafv2_web_acl_action_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details() :: %{
         "Predicate" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details() :: %{
           String.t() => any()
@@ -1927,7 +1927,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_group_details() :: %{
         "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()()),
         "CreateDate" => String.t(),
@@ -1936,23 +1936,23 @@ defmodule AWS.SecurityHub do
         "GroupPolicyList" => list(aws_iam_group_policy()()),
         "Path" => String.t()
       }
-
+      
   """
   @type aws_iam_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_standards_control_response() :: %{}
-
+      
   """
   @type update_standards_control_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       automation_rules_metadata() :: %{
         "CreatedAt" => non_neg_integer(),
         "CreatedBy" => String.t(),
@@ -1964,18 +1964,18 @@ defmodule AWS.SecurityHub do
         "RuleStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type automation_rules_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() :: %{
         "LogGroupArn" => String.t()
       }
-
+      
   """
   @type aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() ::
           %{String.t() => any()}
@@ -1983,20 +1983,20 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_instance_endpoint() :: %{
         "Address" => String.t(),
         "HostedZoneId" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type aws_rds_db_instance_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_event_subscription_details() :: %{
         "CustSubscriptionId" => String.t(),
         "CustomerAwsId" => String.t(),
@@ -2009,14 +2009,14 @@ defmodule AWS.SecurityHub do
         "Status" => String.t(),
         "SubscriptionCreationTime" => String.t()
       }
-
+      
   """
   @type aws_rds_event_subscription_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_subnet_details() :: %{
         "AssignIpv6AddressOnCreation" => boolean(),
         "AvailabilityZone" => String.t(),
@@ -2032,14 +2032,14 @@ defmodule AWS.SecurityHub do
         "SubnetId" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_ec2_subnet_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_details() :: %{
         "DefaultVersionNumber" => float(),
         "Id" => String.t(),
@@ -2047,14 +2047,14 @@ defmodule AWS.SecurityHub do
         "LaunchTemplateData" => aws_ec2_launch_template_data_details(),
         "LaunchTemplateName" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_metadata_options_details() :: %{
         "HttpEndpoint" => String.t(),
         "HttpProtocolIpv6" => String.t(),
@@ -2062,14 +2062,14 @@ defmodule AWS.SecurityHub do
         "HttpTokens" => String.t(),
         "InstanceMetadataTags" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_metadata_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_cluster_details() :: %{
         "Status" => String.t(),
         "Engine" => String.t(),
@@ -2110,60 +2110,60 @@ defmodule AWS.SecurityHub do
         "Endpoint" => String.t(),
         "DbClusterMembers" => list(aws_rds_db_cluster_member()())
       }
-
+      
   """
   @type aws_rds_db_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_standards_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_standards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_action_block_details() :: %{
         "CustomResponse" => aws_wafv2_custom_response_details()
       }
-
+      
   """
   @type aws_wafv2_action_block_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invitation() :: %{
         "AccountId" => String.t(),
         "InvitationId" => String.t(),
         "InvitedAt" => non_neg_integer(),
         "MemberStatus" => String.t()
       }
-
+      
   """
   @type invitation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_from_master_account_response() :: %{}
-
+      
   """
   @type disassociate_from_master_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_access_key_details() :: %{
         "AccessKeyId" => String.t(),
         "AccountId" => String.t(),
@@ -2175,80 +2175,80 @@ defmodule AWS.SecurityHub do
         "Status" => list(any()),
         "UserName" => String.t()
       }
-
+      
   """
   @type aws_iam_access_key_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_key_schema() :: %{
         "AttributeName" => String.t(),
         "KeyType" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_key_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       related_finding() :: %{
         "Id" => String.t(),
         "ProductArn" => String.t()
       }
-
+      
   """
   @type related_finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_automation_rules_response() :: %{
         "ProcessedAutomationRules" => list(String.t()()),
         "UnprocessedAutomationRules" => list(unprocessed_automation_rule()())
       }
-
+      
   """
   @type batch_update_automation_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_products_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ProductArn") => String.t()
       }
-
+      
   """
   @type describe_products_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_access_key_session_context() :: %{
         "Attributes" => aws_iam_access_key_session_context_attributes(),
         "SessionIssuer" => aws_iam_access_key_session_context_session_issuer()
       }
-
+      
   """
   @type aws_iam_access_key_session_context() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
           String.t() => any()
@@ -2257,7 +2257,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_network_interface_set_details() :: %{
         "AssociateCarrierIpAddress" => boolean(),
         "AssociatePublicIpAddress" => boolean(),
@@ -2279,28 +2279,28 @@ defmodule AWS.SecurityHub do
         "SecondaryPrivateIpAddressCount" => integer(),
         "SubnetId" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_network_interface_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_status_info() :: %{
         "Message" => String.t(),
         "Normal" => boolean(),
         "Status" => String.t(),
         "StatusType" => String.t()
       }
-
+      
   """
   @type aws_rds_db_status_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_recovery_point_details() :: %{
         "BackupSizeInBytes" => float(),
         "BackupVaultArn" => String.t(),
@@ -2322,14 +2322,14 @@ defmodule AWS.SecurityHub do
         "StatusMessage" => String.t(),
         "StorageClass" => String.t()
       }
-
+      
   """
   @type aws_backup_recovery_point_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_item() :: %{
         "CustomOriginConfig" => aws_cloud_front_distribution_origin_custom_origin_config(),
         "DomainName" => String.t(),
@@ -2337,14 +2337,14 @@ defmodule AWS.SecurityHub do
         "OriginPath" => String.t(),
         "S3OriginConfig" => aws_cloud_front_distribution_origin_s3_origin_config()
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_health_check_details() :: %{
         "Command" => list(String.t()()),
         "Interval" => integer(),
@@ -2352,7 +2352,7 @@ defmodule AWS.SecurityHub do
         "StartPeriod" => integer(),
         "Timeout" => integer()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_health_check_details() :: %{
           String.t() => any()
@@ -2361,116 +2361,116 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_access_log() :: %{
         "EmitInterval" => integer(),
         "Enabled" => boolean(),
         "S3BucketName" => String.t(),
         "S3BucketPrefix" => String.t()
       }
-
+      
   """
   @type aws_elb_load_balancer_access_log() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_standards_control_associations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("SecurityControlId") => String.t()
       }
-
+      
   """
   @type list_standards_control_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_acl_association() :: %{
         "NetworkAclAssociationId" => String.t(),
         "NetworkAclId" => String.t(),
         "SubnetId" => String.t()
       }
-
+      
   """
   @type aws_ec2_network_acl_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_result_value() :: %{
         "Count" => integer(),
         "GroupByAttributeValue" => String.t()
       }
-
+      
   """
   @type insight_result_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disable_standards_response() :: %{
         "StandardsSubscriptions" => list(standards_subscription()())
       }
-
+      
   """
   @type batch_disable_standards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_user_policy() :: %{
         "PolicyName" => String.t()
       }
-
+      
   """
   @type aws_iam_user_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_security_finding_identifier() :: %{
         "Id" => String.t(),
         "ProductArn" => String.t()
       }
-
+      
   """
   @type aws_security_finding_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_groups() :: %{
         "Items" => list(aws_cloud_front_distribution_origin_group()())
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_cluster_option_group_membership() :: %{
         "DbClusterOptionGroupName" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_rds_db_cluster_option_group_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_acl_details() :: %{
         "Associations" => list(aws_ec2_network_acl_association()()),
         "Entries" => list(aws_ec2_network_acl_entry()()),
@@ -2479,59 +2479,59 @@ defmodule AWS.SecurityHub do
         "OwnerId" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_ec2_network_acl_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_instance_network_interfaces_details() :: %{
         "NetworkInterfaceId" => String.t()
       }
-
+      
   """
   @type aws_ec2_instance_network_interfaces_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_endpoint_replication_config_details() :: %{
         "State" => String.t()
       }
-
+      
   """
   @type aws_events_endpoint_replication_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_group() :: %{
         "FailoverCriteria" => aws_cloud_front_distribution_origin_group_failover()
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_definition() :: %{
         "ConfigurationOptions" => list(),
         "Description" => String.t()
       }
-
+      
   """
   @type parameter_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_global_secondary_index() :: %{
         "Backfilling" => boolean(),
         "IndexArn" => String.t(),
@@ -2543,14 +2543,14 @@ defmodule AWS.SecurityHub do
         "Projection" => aws_dynamo_db_table_projection(),
         "ProvisionedThroughput" => aws_dynamo_db_table_provisioned_throughput()
       }
-
+      
   """
   @type aws_dynamo_db_table_global_secondary_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_finding_history_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
@@ -2558,14 +2558,14 @@ defmodule AWS.SecurityHub do
         optional("StartTime") => non_neg_integer(),
         required("FindingIdentifier") => aws_security_finding_identifier()
       }
-
+      
   """
   @type get_finding_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_eks_cluster_details() :: %{
         "Arn" => String.t(),
         "CertificateAuthorityData" => String.t(),
@@ -2577,27 +2577,27 @@ defmodule AWS.SecurityHub do
         "RoleArn" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type aws_eks_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_deferred_maintenance_window() :: %{
         "DeferMaintenanceEndTime" => String.t(),
         "DeferMaintenanceIdentifier" => String.t(),
         "DeferMaintenanceStartTime" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_deferred_maintenance_window() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpc_endpoint_service_details() :: %{
         "AcceptanceRequired" => boolean(),
         "AvailabilityZones" => list(String.t()()),
@@ -2611,34 +2611,34 @@ defmodule AWS.SecurityHub do
         "ServiceState" => String.t(),
         "ServiceType" => list(aws_ec2_vpc_endpoint_service_service_type_details()())
       }
-
+      
   """
   @type aws_ec2_vpc_endpoint_service_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_connection_settings() :: %{
         "IdleTimeout" => integer()
       }
-
+      
   """
   @type aws_elb_load_balancer_connection_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_finding_aggregator_request() :: %{}
-
+      
   """
   @type delete_finding_aggregator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       automation_rules_finding_fields_update() :: %{
         "Confidence" => integer(),
         "Criticality" => integer(),
@@ -2650,85 +2650,85 @@ defmodule AWS.SecurityHub do
         "VerificationState" => list(any()),
         "Workflow" => workflow_update()
       }
-
+      
   """
   @type automation_rules_finding_fields_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_notification_configuration_filter() :: %{
         "S3KeyFilter" => aws_s3_bucket_notification_configuration_s3_key_filter()
       }
-
+      
   """
   @type aws_s3_bucket_notification_configuration_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_deployment_configuration_details() :: %{
         "DeploymentCircuitBreaker" => aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details(),
         "MaximumPercent" => integer(),
         "MinimumHealthyPercent" => integer()
       }
-
+      
   """
   @type aws_ecs_service_deployment_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_enclave_options_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_enclave_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_security_hub_response() :: %{}
-
+      
   """
   @type enable_security_hub_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stateless_custom_publish_metric_action_dimension() :: %{
         "Value" => String.t()
       }
-
+      
   """
   @type stateless_custom_publish_metric_action_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_cluster_security_group() :: %{
         "ClusterSecurityGroupName" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_cluster_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
         "DirectoryId" => String.t()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
           String.t() => any()
@@ -2737,26 +2737,26 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       cell() :: %{
         "CellReference" => String.t(),
         "Column" => float(),
         "ColumnName" => String.t(),
         "Row" => float()
       }
-
+      
   """
   @type cell() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details() :: %{
         "Max" => float(),
         "Min" => float()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details() :: %{
           String.t() => any()
@@ -2765,100 +2765,100 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_vault_notifications_details() :: %{
         "BackupVaultEvents" => list(String.t()()),
         "SnsTopicArn" => String.t()
       }
-
+      
   """
   @type aws_backup_backup_vault_notifications_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       standards_control_association_id() :: %{
         "SecurityControlId" => String.t(),
         "StandardsArn" => String.t()
       }
-
+      
   """
   @type standards_control_association_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_logging_configuration() :: %{
         "DestinationBucketName" => String.t(),
         "LogFilePrefix" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_action_targets_response() :: %{
         "ActionTargets" => list(action_target()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type describe_action_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_option_group_membership() :: %{
         "OptionGroupName" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_rds_db_option_group_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_cluster_configuration_details() :: %{
         "ExecuteCommandConfiguration" => aws_ecs_cluster_configuration_execute_command_configuration_details()
       }
-
+      
   """
   @type aws_ecs_cluster_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_results_response() :: %{
         "InsightResults" => insight_results()
       }
-
+      
   """
   @type get_insight_results_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_notification_configuration() :: %{
         "Configurations" => list(aws_s3_bucket_notification_configuration_detail()())
       }
-
+      
   """
   @type aws_s3_bucket_notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_instance_metadata_options() :: %{
         "HttpEndpoint" => String.t(),
         "HttpProtocolIpv6" => String.t(),
@@ -2866,14 +2866,14 @@ defmodule AWS.SecurityHub do
         "HttpTokens" => String.t(),
         "InstanceMetadataTags" => String.t()
       }
-
+      
   """
   @type aws_ec2_instance_metadata_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() :: %{
         "CloudWatchEncryptionEnabled" => boolean(),
         "CloudWatchLogGroupName" => String.t(),
@@ -2881,7 +2881,7 @@ defmodule AWS.SecurityHub do
         "S3EncryptionEnabled" => boolean(),
         "S3KeyPrefix" => String.t()
       }
-
+      
   """
   @type aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() ::
           %{String.t() => any()}
@@ -2889,54 +2889,54 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       firewall_policy_stateless_custom_actions_details() :: %{
         "ActionDefinition" => stateless_custom_action_definition(),
         "ActionName" => String.t()
       }
-
+      
   """
   @type firewall_policy_stateless_custom_actions_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_details() :: %{
         "ClusterInfo" => aws_msk_cluster_cluster_info_details()
       }
-
+      
   """
   @type aws_msk_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_license_set_details() :: %{
         "LicenseConfigurationArn" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_license_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_list_details() :: %{
         "GeneratedRulesType" => String.t(),
         "TargetTypes" => list(String.t()()),
         "Targets" => list(String.t()())
       }
-
+      
   """
   @type rule_group_source_list_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_pending_modified_values() :: %{
         "AutomatedSnapshotRetentionPeriod" => integer(),
         "ClusterIdentifier" => String.t(),
@@ -2950,19 +2950,19 @@ defmodule AWS.SecurityHub do
         "NumberOfNodes" => integer(),
         "PubliclyAccessible" => boolean()
       }
-
+      
   """
   @type aws_redshift_cluster_pending_modified_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
         "Type" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
           String.t() => any()
@@ -2971,31 +2971,31 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_logs_config_details() :: %{
         "CloudWatchLogs" => aws_code_build_project_logs_config_cloud_watch_logs_details(),
         "S3Logs" => aws_code_build_project_logs_config_s3_logs_details()
       }
-
+      
   """
   @type aws_code_build_project_logs_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_connection_draining() :: %{
         "Enabled" => boolean(),
         "Timeout" => integer()
       }
-
+      
   """
   @type aws_elb_load_balancer_connection_draining() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
         "Autoprovision" => boolean(),
         "Driver" => String.t(),
@@ -3003,7 +3003,7 @@ defmodule AWS.SecurityHub do
         "Labels" => map(),
         "Scope" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
           String.t() => any()
@@ -3012,49 +3012,49 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_rule_group_rules_action_details() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_rule_group_rules_action_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_action_target_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_action_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_findings_request() :: %{
         optional("Filters") => aws_security_finding_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SortCriteria") => list(sort_criterion()())
       }
-
+      
   """
   @type get_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
         "Primary" => boolean(),
         "PrivateIpAddress" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
           String.t() => any()
@@ -3063,58 +3063,58 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpn_connection_routes_details() :: %{
         "DestinationCidrBlock" => String.t(),
         "State" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpn_connection_routes_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_app_sync_graph_ql_api_log_config_details() :: %{
         "CloudWatchLogsRoleArn" => String.t(),
         "ExcludeVerboseContent" => boolean(),
         "FieldLogLevel" => String.t()
       }
-
+      
   """
   @type aws_app_sync_graph_ql_api_log_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_plan_backup_plan_details() :: %{
         "AdvancedBackupSettings" => list(aws_backup_backup_plan_advanced_backup_settings_details()()),
         "BackupPlanName" => String.t(),
         "BackupPlanRule" => list(aws_backup_backup_plan_rule_details()())
       }
-
+      
   """
   @type aws_backup_backup_plan_backup_plan_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_rule_predicate_list_details() :: %{
         "DataId" => String.t(),
         "Negated" => boolean(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_rule_predicate_list_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_sns_topic_details() :: %{
         "ApplicationSuccessFeedbackRoleArn" => String.t(),
         "FirehoseFailureFeedbackRoleArn" => String.t(),
@@ -3128,38 +3128,38 @@ defmodule AWS.SecurityHub do
         "Subscription" => list(aws_sns_topic_subscription()()),
         "TopicName" => String.t()
       }
-
+      
   """
   @type aws_sns_topic_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       country() :: %{
         "CountryCode" => String.t(),
         "CountryName" => String.t()
       }
-
+      
   """
   @type country() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_standards_controls_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_standards_controls_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_control_definition() :: %{
         "CurrentRegionAvailability" => list(any()),
         "CustomizableProperties" => list(list(any())()),
@@ -3170,14 +3170,14 @@ defmodule AWS.SecurityHub do
         "SeverityRating" => list(any()),
         "Title" => String.t()
       }
-
+      
   """
   @type security_control_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_remote_ip_details() :: %{
         "City" => city(),
         "Country" => country(),
@@ -3185,14 +3185,14 @@ defmodule AWS.SecurityHub do
         "IpAddressV4" => String.t(),
         "Organization" => ip_organization_details()
       }
-
+      
   """
   @type action_remote_ip_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_transit_gateway_details() :: %{
         "AmazonSideAsn" => integer(),
         "AssociationDefaultRouteTableId" => String.t(),
@@ -3207,20 +3207,20 @@ defmodule AWS.SecurityHub do
         "TransitGatewayCidrBlocks" => list(String.t()()),
         "VpnEcmpSupport" => String.t()
       }
-
+      
   """
   @type aws_ec2_transit_gateway_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
         "LaunchTemplateId" => String.t(),
         "LaunchTemplateName" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
           String.t() => any()
@@ -3229,7 +3229,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_access_point_details() :: %{
         "AccessPointArn" => String.t(),
         "Alias" => String.t(),
@@ -3240,62 +3240,62 @@ defmodule AWS.SecurityHub do
         "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
         "VpcConfiguration" => aws_s3_access_point_vpc_configuration_details()
       }
-
+      
   """
   @type aws_s3_access_point_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       code_vulnerabilities_file_path() :: %{
         "EndLine" => integer(),
         "FileName" => String.t(),
         "FilePath" => String.t(),
         "StartLine" => integer()
       }
-
+      
   """
   @type code_vulnerabilities_file_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_flow_logs_details() :: %{
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_flow_logs_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecr_repository_lifecycle_policy_details() :: %{
         "LifecyclePolicyText" => String.t(),
         "RegistryId" => String.t()
       }
-
+      
   """
   @type aws_ecr_repository_lifecycle_policy_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_web_acl_details() :: %{
         "Arn" => String.t(),
         "Capacity" => float(),
@@ -3308,14 +3308,14 @@ defmodule AWS.SecurityHub do
         "Rules" => list(aws_wafv2_rules_details()()),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
-
+      
   """
   @type aws_wafv2_web_acl_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_role_details() :: %{
         "AssumeRolePolicyDocument" => String.t(),
         "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()()),
@@ -3328,65 +3328,65 @@ defmodule AWS.SecurityHub do
         "RoleName" => String.t(),
         "RolePolicyList" => list(aws_iam_role_policy()())
       }
-
+      
   """
   @type aws_iam_role_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elastic_beanstalk_environment_option_setting() :: %{
         "Namespace" => String.t(),
         "OptionName" => String.t(),
         "ResourceName" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_elastic_beanstalk_environment_option_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_recovery_point_created_by_details() :: %{
         "BackupPlanArn" => String.t(),
         "BackupPlanId" => String.t(),
         "BackupPlanVersion" => String.t(),
         "BackupRuleId" => String.t()
       }
-
+      
   """
   @type aws_backup_recovery_point_created_by_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding_history_update_source() :: %{
         "Identity" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type finding_history_update_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_organization_admin_account_request() :: %{
         required("AdminAccountId") => String.t()
       }
-
+      
   """
   @type disable_organization_admin_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_eip_details() :: %{
         "AllocationId" => String.t(),
         "AssociationId" => String.t(),
@@ -3399,42 +3399,42 @@ defmodule AWS.SecurityHub do
         "PublicIp" => String.t(),
         "PublicIpv4Pool" => String.t()
       }
-
+      
   """
   @type aws_ec2_eip_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_control_definitions_response() :: %{
         "NextToken" => String.t(),
         "SecurityControlDefinitions" => list(security_control_definition()())
       }
-
+      
   """
   @type list_security_control_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_automation_rules_request() :: %{
         required("UpdateAutomationRulesRequestItems") => list(update_automation_rules_request_item()())
       }
-
+      
   """
   @type batch_update_automation_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details() :: %{
         "Max" => float(),
         "Min" => float()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details() :: %{
           String.t() => any()
@@ -3443,131 +3443,131 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_standards_control_association() :: %{
         "ErrorCode" => list(any()),
         "ErrorReason" => String.t(),
         "StandardsControlAssociationId" => standards_control_association_id()
       }
-
+      
   """
   @type unprocessed_standards_control_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{
         "CloudwatchLogGroup" => String.t(),
         "CloudwatchLogStream" => String.t(),
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rule_match_attributes_source_ports() :: %{
         "FromPort" => integer(),
         "ToPort" => integer()
       }
-
+      
   """
   @type rule_group_source_stateless_rule_match_attributes_source_ports() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_members_response() :: %{
         "UnprocessedAccounts" => list(result()())
       }
-
+      
   """
   @type delete_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding_history_update() :: %{
         "NewValue" => String.t(),
         "OldValue" => String.t(),
         "UpdatedField" => String.t()
       }
-
+      
   """
   @type finding_history_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_restore_summary() :: %{
         "RestoreDateTime" => String.t(),
         "RestoreInProgress" => boolean(),
         "SourceBackupArn" => String.t(),
         "SourceTableArn" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_restore_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_configuration() :: %{
         "Value" => list(),
         "ValueType" => list(any())
       }
-
+      
   """
   @type parameter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invite_members_request() :: %{
         required("AccountIds") => list(String.t()())
       }
-
+      
   """
   @type invite_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_results() :: %{
         "GroupByAttribute" => String.t(),
         "InsightArn" => String.t(),
         "ResultValues" => list(insight_result_value()())
       }
-
+      
   """
   @type insight_results() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_encryption_info_details() :: %{
         "EncryptionAtRest" => aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details(),
         "EncryptionInTransit" => aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_encryption_info_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_details() :: %{
         "CapacityProviderStrategy" => list(aws_ecs_service_capacity_provider_strategy_details()()),
         "Cluster" => String.t(),
@@ -3592,45 +3592,45 @@ defmodule AWS.SecurityHub do
         "ServiceRegistries" => list(aws_ecs_service_service_registries_details()()),
         "TaskDefinition" => String.t()
       }
-
+      
   """
   @type aws_ecs_service_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_standards_response() :: %{
         "NextToken" => String.t(),
         "Standards" => list(standard()())
       }
-
+      
   """
   @type describe_standards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ip_organization_details() :: %{
         "Asn" => integer(),
         "AsnOrg" => String.t(),
         "Isp" => String.t(),
         "Org" => String.t()
       }
-
+      
   """
   @type ip_organization_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
         "Items" => list(integer()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
           String.t() => any()
@@ -3639,30 +3639,30 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rule_definition() :: %{
         "Actions" => list(String.t()()),
         "MatchAttributes" => rule_group_source_stateless_rule_match_attributes()
       }
-
+      
   """
   @type rule_group_source_stateless_rule_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       standards_status_reason() :: %{
         "StatusReasonCode" => list(any())
       }
-
+      
   """
   @type standards_status_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cors_configuration() :: %{
         "AllowCredentials" => boolean(),
         "AllowHeaders" => list(String.t()()),
@@ -3671,14 +3671,14 @@ defmodule AWS.SecurityHub do
         "ExposeHeaders" => list(String.t()()),
         "MaxAge" => integer()
       }
-
+      
   """
   @type aws_cors_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_formation_stack_details() :: %{
         "Capabilities" => list(String.t()()),
         "CreationTime" => String.t(),
@@ -3696,77 +3696,77 @@ defmodule AWS.SecurityHub do
         "StackStatusReason" => String.t(),
         "TimeoutInMinutes" => integer()
       }
-
+      
   """
   @type aws_cloud_formation_stack_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associated_standard() :: %{
         "StandardsId" => String.t()
       }
-
+      
   """
   @type associated_standard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_cluster_snapshot_copy_status() :: %{
         "DestinationRegion" => String.t(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "RetentionPeriod" => integer(),
         "SnapshotCopyGrantName" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_cluster_snapshot_copy_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       severity() :: %{
         "Label" => list(any()),
         "Normalized" => integer(),
         "Original" => String.t(),
         "Product" => float()
       }
-
+      
   """
   @type severity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_iam_role() :: %{
         "ApplyStatus" => String.t(),
         "IamRoleArn" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_iam_role() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_amazon_mq_broker_users_details() :: %{
         "PendingChange" => String.t(),
         "Username" => String.t()
       }
-
+      
   """
   @type aws_amazon_mq_broker_users_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
         "AbortIncompleteMultipartUpload" => aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details(),
         "ExpirationDate" => String.t(),
@@ -3780,40 +3780,40 @@ defmodule AWS.SecurityHub do
         "Status" => String.t(),
         "Transitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details()())
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_environment() :: %{
         "Error" => aws_lambda_function_environment_error(),
         "Variables" => map()
       }
-
+      
   """
   @type aws_lambda_function_environment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_plan_details() :: %{
         "BackupPlan" => aws_backup_backup_plan_backup_plan_details(),
         "BackupPlanArn" => String.t(),
         "BackupPlanId" => String.t(),
         "VersionId" => String.t()
       }
-
+      
   """
   @type aws_backup_backup_plan_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_policy_response() :: %{
         "Arn" => String.t(),
         "ConfigurationPolicy" => list(),
@@ -3823,14 +3823,14 @@ defmodule AWS.SecurityHub do
         "Name" => String.t(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type get_configuration_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       standard() :: %{
         "Description" => String.t(),
         "EnabledByDefault" => boolean(),
@@ -3838,36 +3838,36 @@ defmodule AWS.SecurityHub do
         "StandardsArn" => String.t(),
         "StandardsManagedBy" => standards_managed_by()
       }
-
+      
   """
   @type standard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_hibernation_options_details() :: %{
         "Configured" => boolean()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_hibernation_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_automation_rules_request() :: %{
         required("AutomationRulesArns") => list(String.t()())
       }
-
+      
   """
   @type batch_delete_automation_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_health_check() :: %{
         "HealthyThreshold" => integer(),
         "Interval" => integer(),
@@ -3875,14 +3875,14 @@ defmodule AWS.SecurityHub do
         "Timeout" => integer(),
         "UnhealthyThreshold" => integer()
       }
-
+      
   """
   @type aws_elb_load_balancer_health_check() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_web_acl_details() :: %{
         "DefaultAction" => String.t(),
         "MetricName" => String.t(),
@@ -3890,51 +3890,51 @@ defmodule AWS.SecurityHub do
         "RulesList" => list(aws_waf_regional_web_acl_rules_list_details()()),
         "WebAclId" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_web_acl_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_standards_control_associations_request() :: %{
         required("StandardsControlAssociationIds") => list(standards_control_association_id()())
       }
-
+      
   """
   @type batch_get_standards_control_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_vpc_options() :: %{
         "AvailabilityZones" => list(String.t()()),
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()()),
         "VPCId" => String.t()
       }
-
+      
   """
   @type aws_elasticsearch_domain_vpc_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_custom_http_header() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_wafv2_custom_http_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_amazon_mq_broker_logs_details() :: %{
         "Audit" => boolean(),
         "AuditLogGroup" => String.t(),
@@ -3942,27 +3942,27 @@ defmodule AWS.SecurityHub do
         "GeneralLogGroup" => String.t(),
         "Pending" => aws_amazon_mq_broker_logs_pending_details()
       }
-
+      
   """
   @type aws_amazon_mq_broker_logs_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       double_configuration_options() :: %{
         "DefaultValue" => float(),
         "Max" => float(),
         "Min" => float()
       }
-
+      
   """
   @type double_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vulnerability_vendor() :: %{
         "Name" => String.t(),
         "Url" => String.t(),
@@ -3970,40 +3970,40 @@ defmodule AWS.SecurityHub do
         "VendorSeverity" => String.t(),
         "VendorUpdatedAt" => String.t()
       }
-
+      
   """
   @type vulnerability_vendor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_eks_cluster_logging_cluster_logging_details() :: %{
         "Enabled" => boolean(),
         "Types" => list(String.t()())
       }
-
+      
   """
   @type aws_eks_cluster_logging_cluster_logging_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_source() :: %{
         "GitCloneDepth" => integer(),
         "InsecureSsl" => boolean(),
         "Location" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_placement_details() :: %{
         "Affinity" => String.t(),
         "AvailabilityZone" => String.t(),
@@ -4014,30 +4014,30 @@ defmodule AWS.SecurityHub do
         "SpreadDomain" => String.t(),
         "Tenancy" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_placement_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rule_match_attributes_sources() :: %{
         "AddressDefinition" => String.t()
       }
-
+      
   """
   @type rule_group_source_stateless_rule_match_attributes_sources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details() :: %{
         "Max" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details() ::
           %{String.t() => any()}
@@ -4045,7 +4045,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_elastic_beanstalk_environment_details() :: %{
         "ApplicationName" => String.t(),
         "Cname" => String.t(),
@@ -4064,60 +4064,60 @@ defmodule AWS.SecurityHub do
         "Tier" => aws_elastic_beanstalk_environment_tier(),
         "VersionLabel" => String.t()
       }
-
+      
   """
   @type aws_elastic_beanstalk_environment_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateful_rules_details() :: %{
         "Action" => String.t(),
         "Header" => rule_group_source_stateful_rules_header_details(),
         "RuleOptions" => list(rule_group_source_stateful_rules_options_details()())
       }
-
+      
   """
   @type rule_group_source_stateful_rules_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_insight_response() :: %{}
-
+      
   """
   @type update_insight_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_enable_standards_request() :: %{
         required("StandardsSubscriptionRequests") => list(standards_subscription_request()())
       }
-
+      
   """
   @type batch_enable_standards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_log_publishing_options() :: %{
         "AuditLogs" => aws_elasticsearch_domain_log_publishing_options_log_config(),
         "IndexSlowLogs" => aws_elasticsearch_domain_log_publishing_options_log_config(),
         "SearchSlowLogs" => aws_elasticsearch_domain_log_publishing_options_log_config()
       }
-
+      
   """
   @type aws_elasticsearch_domain_log_publishing_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       standards_control_association_summary() :: %{
         "AssociationStatus" => list(any()),
         "RelatedRequirements" => list(String.t()()),
@@ -4129,51 +4129,51 @@ defmodule AWS.SecurityHub do
         "UpdatedAt" => non_neg_integer(),
         "UpdatedReason" => String.t()
       }
-
+      
   """
   @type standards_control_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_network_configuration_details() :: %{
         "AwsVpcConfiguration" => aws_ecs_service_network_configuration_aws_vpc_configuration_details()
       }
-
+      
   """
   @type aws_ecs_service_network_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateful_rules_options_details() :: %{
         "Keyword" => String.t(),
         "Settings" => list(String.t()())
       }
-
+      
   """
   @type rule_group_source_stateful_rules_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_logging() :: %{
         "Bucket" => String.t(),
         "Enabled" => boolean(),
         "IncludeCookies" => boolean(),
         "Prefix" => String.t()
       }
-
+      
   """
   @type aws_cloud_front_distribution_logging() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details() :: %{
         "DeleteOnTermination" => boolean(),
         "Encrypted" => boolean(),
@@ -4182,7 +4182,7 @@ defmodule AWS.SecurityHub do
         "VolumeSize" => integer(),
         "VolumeType" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details() :: %{
           String.t() => any()
@@ -4191,7 +4191,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_subnet_group() :: %{
         "DbSubnetGroupArn" => String.t(),
         "DbSubnetGroupDescription" => String.t(),
@@ -4200,38 +4200,38 @@ defmodule AWS.SecurityHub do
         "Subnets" => list(aws_rds_db_subnet_group_subnet()()),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_rds_db_subnet_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_classification_details() :: %{
         "DetailedResultsLocation" => String.t(),
         "Result" => classification_result()
       }
-
+      
   """
   @type data_classification_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rules_details() :: %{
         "Priority" => integer(),
         "RuleDefinition" => rule_group_source_stateless_rule_definition()
       }
-
+      
   """
   @type rule_group_source_stateless_rules_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
         "AuthorizationConfig" => aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details(),
         "FilesystemId" => String.t(),
@@ -4239,7 +4239,7 @@ defmodule AWS.SecurityHub do
         "TransitEncryption" => String.t(),
         "TransitEncryptionPort" => integer()
       }
-
+      
   """
   @type aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
           String.t() => any()
@@ -4248,46 +4248,46 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       disassociate_from_administrator_account_response() :: %{}
-
+      
   """
   @type disassociate_from_administrator_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_website_configuration_routing_rule_condition() :: %{
         "HttpErrorCodeReturnedEquals" => String.t(),
         "KeyPrefixEquals" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_website_configuration_routing_rule_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_hsm_status() :: %{
         "HsmClientCertificateIdentifier" => String.t(),
         "HsmConfigurationIdentifier" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_hsm_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
         "Count" => integer(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
           String.t() => any()
@@ -4296,13 +4296,13 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
         "AssignPublicIp" => String.t(),
         "SecurityGroups" => list(String.t()()),
         "Subnets" => list(String.t()())
       }
-
+      
   """
   @type aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
           String.t() => any()
@@ -4311,7 +4311,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       occurrences() :: %{
         "Cells" => list(cell()()),
         "LineRanges" => list(range()()),
@@ -4319,53 +4319,53 @@ defmodule AWS.SecurityHub do
         "Pages" => list(page()()),
         "Records" => list(record()())
       }
-
+      
   """
   @type occurrences() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_rule_details() :: %{
         "MetricName" => String.t(),
         "Name" => String.t(),
         "PredicateList" => list(aws_waf_regional_rule_predicate_list_details()()),
         "RuleId" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_rule_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_security_group_ip_range() :: %{
         "CidrIp" => String.t()
       }
-
+      
   """
   @type aws_ec2_security_group_ip_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_web_acl_details() :: %{
         "DefaultAction" => String.t(),
         "Name" => String.t(),
         "Rules" => list(aws_waf_web_acl_rule()()),
         "WebAclId" => String.t()
       }
-
+      
   """
   @type aws_waf_web_acl_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_artifacts_details() :: %{
         "ArtifactIdentifier" => String.t(),
         "EncryptionDisabled" => boolean(),
@@ -4377,39 +4377,39 @@ defmodule AWS.SecurityHub do
         "Path" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_artifacts_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       boolean_filter() :: %{
         "Value" => boolean()
       }
-
+      
   """
   @type boolean_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_configuration_policy_disassociation_response() :: %{}
-
+      
   """
   @type start_configuration_policy_disassociation_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
           String.t() => any()
@@ -4418,51 +4418,51 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       describe_organization_configuration_response() :: %{
         "AutoEnable" => boolean(),
         "AutoEnableStandards" => list(any()),
         "MemberAccountLimitReached" => boolean(),
         "OrganizationConfiguration" => organization_configuration()
       }
-
+      
   """
   @type describe_organization_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_cluster_associated_role() :: %{
         "RoleArn" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_rds_db_cluster_associated_role() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_plan_rule_copy_actions_details() :: %{
         "DestinationBackupVaultArn" => String.t(),
         "Lifecycle" => aws_backup_backup_plan_lifecycle_details()
       }
-
+      
   """
   @type aws_backup_backup_plan_rule_copy_actions_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() :: %{
         "LaunchTemplateId" => String.t(),
         "LaunchTemplateName" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() ::
           %{String.t() => any()}
@@ -4470,7 +4470,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_stage_details() :: %{
         "AccessLogSettings" => aws_api_gateway_access_log_settings(),
         "CacheClusterEnabled" => boolean(),
@@ -4489,14 +4489,14 @@ defmodule AWS.SecurityHub do
         "Variables" => map(),
         "WebAclArn" => String.t()
       }
-
+      
   """
   @type aws_api_gateway_stage_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       standards_control() :: %{
         "ControlId" => String.t(),
         "ControlStatus" => list(any()),
@@ -4509,46 +4509,46 @@ defmodule AWS.SecurityHub do
         "StandardsControlArn" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type standards_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_domain_membership() :: %{
         "Domain" => String.t(),
         "Fqdn" => String.t(),
         "IamRoleName" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_rds_db_domain_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_certificate_manager_certificate_renewal_summary() :: %{
         "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()()),
         "RenewalStatus" => String.t(),
         "RenewalStatusReason" => String.t(),
         "UpdatedAt" => String.t()
       }
-
+      
   """
   @type aws_certificate_manager_certificate_renewal_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details() :: %{
         "DaysAfterInitiation" => integer()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details() ::
           %{String.t() => any()}
@@ -4556,16 +4556,16 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       update_security_control_response() :: %{}
-
+      
   """
   @type update_security_control_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_replica() :: %{
         "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_replica_global_secondary_index()()),
         "KmsMasterKeyId" => String.t(),
@@ -4574,14 +4574,14 @@ defmodule AWS.SecurityHub do
         "ReplicaStatus" => String.t(),
         "ReplicaStatusDescription" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_replica() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dms_replication_instance_details() :: %{
         "AllocatedStorage" => integer(),
         "AutoMinorVersionUpgrade" => boolean(),
@@ -4596,42 +4596,42 @@ defmodule AWS.SecurityHub do
         "ReplicationSubnetGroup" => aws_dms_replication_instance_replication_subnet_group_details(),
         "VpcSecurityGroups" => list(aws_dms_replication_instance_vpc_security_groups_details()())
       }
-
+      
   """
   @type aws_dms_replication_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_access_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_access_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_lb_cookie_stickiness_policy() :: %{
         "CookieExpirationPeriod" => float(),
         "PolicyName" => String.t()
       }
-
+      
   """
   @type aws_elb_lb_cookie_stickiness_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
         "Ipv6Prefix" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
           String.t() => any()
@@ -4640,11 +4640,11 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
         "Ipv4Prefix" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
           String.t() => any()
@@ -4653,11 +4653,11 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_step_function_state_machine_logging_configuration_destinations_details() :: %{
         "CloudWatchLogsLogGroup" => aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details()
       }
-
+      
   """
   @type aws_step_function_state_machine_logging_configuration_destinations_details() :: %{
           String.t() => any()
@@ -4666,7 +4666,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_elasticsearch_cluster_config_details() :: %{
         "DedicatedMasterCount" => integer(),
         "DedicatedMasterEnabled" => boolean(),
@@ -4676,37 +4676,37 @@ defmodule AWS.SecurityHub do
         "ZoneAwarenessConfig" => aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details(),
         "ZoneAwarenessEnabled" => boolean()
       }
-
+      
   """
   @type aws_elasticsearch_domain_elasticsearch_cluster_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rules_and_custom_actions_details() :: %{
         "CustomActions" => list(rule_group_source_custom_actions_details()()),
         "StatelessRules" => list(rule_group_source_stateless_rules_details()())
       }
-
+      
   """
   @type rule_group_source_stateless_rules_and_custom_actions_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_server_side_encryption_rule() :: %{
         "ApplyServerSideEncryptionByDefault" => aws_s3_bucket_server_side_encryption_by_default()
       }
-
+      
   """
   @type aws_s3_bucket_server_side_encryption_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_policy_summary() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
@@ -4715,14 +4715,14 @@ defmodule AWS.SecurityHub do
         "ServiceEnabled" => boolean(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type configuration_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_certificate_manager_certificate_details() :: %{
         "CertificateAuthorityArn" => String.t(),
         "CreatedAt" => String.t(),
@@ -4748,38 +4748,38 @@ defmodule AWS.SecurityHub do
         "SubjectAlternativeNames" => list(String.t()()),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_certificate_manager_certificate_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_enabled_standards_response() :: %{
         "NextToken" => String.t(),
         "StandardsSubscriptions" => list(standards_subscription()())
       }
-
+      
   """
   @type get_enabled_standards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_route53_hosted_zone_vpc_details() :: %{
         "Id" => String.t(),
         "Region" => String.t()
       }
-
+      
   """
   @type aws_route53_hosted_zone_vpc_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_instance_profile() :: %{
         "Arn" => String.t(),
         "CreateDate" => String.t(),
@@ -4788,56 +4788,56 @@ defmodule AWS.SecurityHub do
         "Path" => String.t(),
         "Roles" => list(aws_iam_instance_profile_role()())
       }
-
+      
   """
   @type aws_iam_instance_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dns_request_action() :: %{
         "Blocked" => boolean(),
         "Domain" => String.t(),
         "Protocol" => String.t()
       }
-
+      
   """
   @type dns_request_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_controls_configuration() :: %{
         "DisabledSecurityControlIdentifiers" => list(String.t()()),
         "EnabledSecurityControlIdentifiers" => list(String.t()()),
         "SecurityControlCustomParameters" => list(security_control_custom_parameter()())
       }
-
+      
   """
   @type security_controls_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details() :: %{
         "EbsVolumes" => aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details() ::
           %{String.t() => any()}
@@ -4845,46 +4845,46 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       update_security_hub_configuration_request() :: %{
         optional("AutoEnableControls") => boolean(),
         optional("ControlFindingGenerator") => list(any())
       }
-
+      
   """
   @type update_security_hub_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_members_request() :: %{
         required("AccountIds") => list(String.t()())
       }
-
+      
   """
   @type get_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_variables_port_sets_details() :: %{
         "Definition" => list(String.t()())
       }
-
+      
   """
   @type rule_group_variables_port_sets_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() :: %{
         "CapacityReservationId" => String.t(),
         "CapacityReservationResourceGroupArn" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() ::
           %{String.t() => any()}
@@ -4892,22 +4892,22 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       create_members_request() :: %{
         required("AccountDetails") => list(account_details()())
       }
-
+      
   """
   @type create_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
         "HealthCheck" => String.t()
       }
-
+      
   """
   @type aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
           String.t() => any()
@@ -4916,73 +4916,73 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_policies() :: %{
         "AppCookieStickinessPolicies" => list(aws_elb_app_cookie_stickiness_policy()()),
         "LbCookieStickinessPolicies" => list(aws_elb_lb_cookie_stickiness_policy()()),
         "OtherPolicies" => list(String.t()())
       }
-
+      
   """
   @type aws_elb_load_balancer_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_replica_global_secondary_index() :: %{
         "IndexName" => String.t(),
         "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override()
       }
-
+      
   """
   @type aws_dynamo_db_table_replica_global_secondary_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       icmp_type_code() :: %{
         "Code" => integer(),
         "Type" => integer()
       }
-
+      
   """
   @type icmp_type_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_recovery_point_lifecycle_details() :: %{
         "DeleteAfterDays" => float(),
         "MoveToColdStorageAfterDays" => float()
       }
-
+      
   """
   @type aws_backup_recovery_point_lifecycle_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_market_options_details() :: %{
         "MarketType" => String.t(),
         "SpotOptions" => aws_ec2_launch_template_data_instance_market_options_spot_options_details()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_market_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() :: %{
         "EncryptionOption" => String.t(),
         "KmsKey" => String.t()
       }
-
+      
   """
   @type aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() ::
           %{String.t() => any()}
@@ -4990,7 +4990,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_interface_attachment() :: %{
         "AttachTime" => String.t(),
         "AttachmentId" => String.t(),
@@ -5000,26 +5000,26 @@ defmodule AWS.SecurityHub do
         "InstanceOwnerId" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_ec2_network_interface_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_variables() :: %{
         "IpSets" => rule_group_variables_ip_sets_details(),
         "PortSets" => rule_group_variables_port_sets_details()
       }
-
+      
   """
   @type rule_group_variables() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_access_key_session_context_session_issuer() :: %{
         "AccountId" => String.t(),
         "Arn" => String.t(),
@@ -5027,25 +5027,25 @@ defmodule AWS.SecurityHub do
         "Type" => String.t(),
         "UserName" => String.t()
       }
-
+      
   """
   @type aws_iam_access_key_session_context_session_issuer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_members_request() :: %{
         required("AccountIds") => list(String.t()())
       }
-
+      
   """
   @type disassociate_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_v2_route_settings() :: %{
         "DataTraceEnabled" => boolean(),
         "DetailedMetricsEnabled" => boolean(),
@@ -5053,14 +5053,14 @@ defmodule AWS.SecurityHub do
         "ThrottlingBurstLimit" => integer(),
         "ThrottlingRateLimit" => float()
       }
-
+      
   """
   @type aws_api_gateway_v2_route_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_volume_details() :: %{
         "Attachments" => list(aws_ec2_volume_attachment()()),
         "CreateTime" => String.t(),
@@ -5074,31 +5074,31 @@ defmodule AWS.SecurityHub do
         "VolumeScanStatus" => String.t(),
         "VolumeType" => String.t()
       }
-
+      
   """
   @type aws_ec2_volume_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_findings_response() :: %{
         "Findings" => list(aws_security_finding()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_network_interface_count_details() :: %{
         "Max" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_network_interface_count_details() :: %{
           String.t() => any()
@@ -5107,21 +5107,21 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_rule_group_details() :: %{
         "MetricName" => String.t(),
         "Name" => String.t(),
         "RuleGroupId" => String.t(),
         "Rules" => list(aws_waf_rule_group_rules_details()())
       }
-
+      
   """
   @type aws_waf_rule_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_details() :: %{
         "CacheBehaviors" => aws_cloud_front_distribution_cache_behaviors(),
         "DefaultCacheBehavior" => aws_cloud_front_distribution_default_cache_behavior(),
@@ -5136,25 +5136,25 @@ defmodule AWS.SecurityHub do
         "ViewerCertificate" => aws_cloud_front_distribution_viewer_certificate(),
         "WebAclId" => String.t()
       }
-
+      
   """
   @type aws_cloud_front_distribution_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_cache_behavior() :: %{
         "ViewerProtocolPolicy" => String.t()
       }
-
+      
   """
   @type aws_cloud_front_distribution_cache_behavior() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_security_group_details() :: %{
         "GroupId" => String.t(),
         "GroupName" => String.t(),
@@ -5163,47 +5163,47 @@ defmodule AWS.SecurityHub do
         "OwnerId" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_ec2_security_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_container_details() :: %{
         "Image" => String.t(),
         "MountPoints" => list(aws_mount_point()()),
         "Name" => String.t(),
         "Privileged" => boolean()
       }
-
+      
   """
   @type aws_ecs_container_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_service_registries_details() :: %{
         "ContainerName" => String.t(),
         "ContainerPort" => integer(),
         "Port" => integer(),
         "RegistryArn" => String.t()
       }
-
+      
   """
   @type aws_ecs_service_service_registries_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_environment_details() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_environment_details() :: %{
           String.t() => any()
@@ -5212,29 +5212,29 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       vulnerability_code_vulnerabilities() :: %{
         "Cwes" => list(String.t()()),
         "FilePath" => code_vulnerabilities_file_path(),
         "SourceArn" => String.t()
       }
-
+      
   """
   @type vulnerability_code_vulnerabilities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_action_target_response() :: %{}
-
+      
   """
   @type update_action_target_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dms_endpoint_details() :: %{
         "CertificateArn" => String.t(),
         "DatabaseName" => String.t(),
@@ -5250,97 +5250,97 @@ defmodule AWS.SecurityHub do
         "SslMode" => String.t(),
         "Username" => String.t()
       }
-
+      
   """
   @type aws_dms_endpoint_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommendation() :: %{
         "Text" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding_aggregator() :: %{
         "FindingAggregatorArn" => String.t()
       }
-
+      
   """
   @type finding_aggregator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_members_request() :: %{
         required("AccountIds") => list(String.t()())
       }
-
+      
   """
   @type delete_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_dns_logs_details() :: %{
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_dns_logs_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invite_members_response() :: %{
         "UnprocessedAccounts" => list(result()())
       }
-
+      
   """
   @type invite_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_notification_configuration_s3_key_filter() :: %{
         "FilterRules" => list(aws_s3_bucket_notification_configuration_s3_key_filter_rule()())
       }
-
+      
   """
   @type aws_s3_bucket_notification_configuration_s3_key_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_vpc_security_group() :: %{
         "Status" => String.t(),
         "VpcSecurityGroupId" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_vpc_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
         "MinimumInstanceMetadataServiceVersion" => String.t()
       }
-
+      
   """
   @type aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
           String.t() => any()
@@ -5349,7 +5349,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpn_connection_vgw_telemetry_details() :: %{
         "AcceptedRouteCount" => integer(),
         "CertificateArn" => String.t(),
@@ -5358,18 +5358,18 @@ defmodule AWS.SecurityHub do
         "Status" => String.t(),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpn_connection_vgw_telemetry_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
           String.t() => any()
@@ -5378,35 +5378,35 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       vpc_info_cidr_block_set_details() :: %{
         "CidrBlock" => String.t()
       }
-
+      
   """
   @type vpc_info_cidr_block_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_billing_mode_summary() :: %{
         "BillingMode" => String.t(),
         "LastUpdateToPayPerRequestDateTime" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_billing_mode_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
           String.t() => any()
@@ -5415,24 +5415,24 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       account_details() :: %{
         "AccountId" => String.t(),
         "Email" => String.t()
       }
-
+      
   """
   @type account_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details() :: %{
         "Max" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details() :: %{
           String.t() => any()
@@ -5441,24 +5441,24 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_custom_response_details() :: %{
         "CustomResponseBodyKey" => String.t(),
         "ResponseCode" => integer(),
         "ResponseHeaders" => list(aws_wafv2_custom_http_header()())
       }
-
+      
   """
   @type aws_wafv2_custom_response_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
         "Route" => String.t()
       }
-
+      
   """
   @type aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
           String.t() => any()
@@ -5467,26 +5467,26 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_rule_group_rules_details() :: %{
         "Action" => aws_waf_rule_group_rules_action_details(),
         "Priority" => integer(),
         "RuleId" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_rule_group_rules_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() :: %{
         "Reason" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() ::
           %{String.t() => any()}
@@ -5494,115 +5494,115 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_s3_origin_config() :: %{
         "OriginAccessIdentity" => String.t()
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_s3_origin_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_automation_rules_response() :: %{
         "Rules" => list(automation_rules_config()()),
         "UnprocessedAutomationRules" => list(unprocessed_automation_rule()())
       }
-
+      
   """
   @type batch_get_automation_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       load_balancer_state() :: %{
         "Code" => String.t(),
         "Reason" => String.t()
       }
-
+      
   """
   @type load_balancer_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_list_configuration_options() :: %{
         "DefaultValue" => list(String.t()()),
         "ExpressionDescription" => String.t(),
         "MaxItems" => integer(),
         "Re2Expression" => String.t()
       }
-
+      
   """
   @type string_list_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_event_schemas_registry_details() :: %{
         "Description" => String.t(),
         "RegistryArn" => String.t(),
         "RegistryName" => String.t()
       }
-
+      
   """
   @type aws_event_schemas_registry_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
         "AttributeName" => String.t(),
         "AttributeValues" => list(String.t()())
       }
-
+      
   """
   @type aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_automation_rules_request() :: %{
         required("AutomationRulesArns") => list(String.t()())
       }
-
+      
   """
   @type batch_get_automation_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       result() :: %{
         "AccountId" => String.t(),
         "ProcessingResult" => String.t()
       }
-
+      
   """
   @type result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_details() :: %{
         "CloudTrail" => aws_guard_duty_detector_data_sources_cloud_trail_details(),
         "DnsLogs" => aws_guard_duty_detector_data_sources_dns_logs_details(),
@@ -5611,48 +5611,48 @@ defmodule AWS.SecurityHub do
         "MalwareProtection" => aws_guard_duty_detector_data_sources_malware_protection_details(),
         "S3Logs" => aws_guard_duty_detector_data_sources_s3_logs_details()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type workflow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_insight_response() :: %{
         "InsightArn" => String.t()
       }
-
+      
   """
   @type create_insight_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sort_criterion() :: %{
         "Field" => String.t(),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type sort_criterion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       automation_rules_config() :: %{
         "Actions" => list(automation_rules_action()()),
         "CreatedAt" => non_neg_integer(),
@@ -5666,26 +5666,26 @@ defmodule AWS.SecurityHub do
         "RuleStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type automation_rules_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_environment_registry_credential() :: %{
         "Credential" => String.t(),
         "CredentialProvider" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_environment_registry_credential() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_plan_rule_details() :: %{
         "CompletionWindowMinutes" => float(),
         "CopyActions" => list(aws_backup_backup_plan_rule_copy_actions_details()()),
@@ -5697,25 +5697,25 @@ defmodule AWS.SecurityHub do
         "StartWindowMinutes" => float(),
         "TargetBackupVault" => String.t()
       }
-
+      
   """
   @type aws_backup_backup_plan_rule_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       keyword_filter() :: %{
         "Value" => String.t()
       }
-
+      
   """
   @type keyword_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       product() :: %{
         "ActivationUrl" => String.t(),
         "Categories" => list(String.t()()),
@@ -5727,55 +5727,55 @@ defmodule AWS.SecurityHub do
         "ProductName" => String.t(),
         "ProductSubscriptionResourcePolicy" => String.t()
       }
-
+      
   """
   @type product() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_route53_query_logging_config_details() :: %{
         "CloudWatchLogsLogGroupArn" => cloud_watch_logs_log_group_arn_config_details()
       }
-
+      
   """
   @type aws_route53_query_logging_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_object_lock_configuration() :: %{
         "ObjectLockEnabled" => String.t(),
         "Rule" => aws_s3_bucket_object_lock_configuration_rule_details()
       }
-
+      
   """
   @type aws_s3_bucket_object_lock_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_route53_hosted_zone_object_details() :: %{
         "Config" => aws_route53_hosted_zone_config_details(),
         "Id" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type aws_route53_hosted_zone_object_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
         "CapacityReservationPreference" => String.t(),
         "CapacityReservationTarget" => aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
           String.t() => any()
@@ -5784,7 +5784,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_cluster_snapshot_details() :: %{
         "AllocatedStorage" => integer(),
         "AvailabilityZones" => list(String.t()()),
@@ -5806,14 +5806,14 @@ defmodule AWS.SecurityHub do
         "StorageEncrypted" => boolean(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_rds_db_cluster_snapshot_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       software_package() :: %{
         "Architecture" => String.t(),
         "Epoch" => String.t(),
@@ -5827,55 +5827,55 @@ defmodule AWS.SecurityHub do
         "SourceLayerHash" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type software_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_input_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_input_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       port_range_from_to() :: %{
         "From" => integer(),
         "To" => integer()
       }
-
+      
   """
   @type port_range_from_to() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       volume_mount() :: %{
         "MountPath" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type volume_mount() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details() :: %{
         "Max" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details() ::
           %{String.t() => any()}
@@ -5883,7 +5883,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_restore_status() :: %{
         "CurrentRestoreRateInMegaBytesPerSecond" => float(),
         "ElapsedTimeInSeconds" => float(),
@@ -5892,120 +5892,120 @@ defmodule AWS.SecurityHub do
         "SnapshotSizeInMegaBytes" => float(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_restore_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_configuration_policy_disassociation_request() :: %{
         optional("Target") => list(),
         required("ConfigurationPolicyIdentifier") => String.t()
       }
-
+      
   """
   @type start_configuration_policy_disassociation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_standards_control_association_update() :: %{
         "ErrorCode" => list(any()),
         "ErrorReason" => String.t(),
         "StandardsControlAssociationUpdate" => standards_control_association_update()
       }
-
+      
   """
   @type unprocessed_standards_control_association_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_finding_aggregator_request() :: %{
         optional("Regions") => list(String.t()()),
         required("FindingAggregatorArn") => String.t(),
         required("RegionLinkingMode") => String.t()
       }
-
+      
   """
   @type update_finding_aggregator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_code() :: %{
         "S3Bucket" => String.t(),
         "S3Key" => String.t(),
         "S3ObjectVersion" => String.t(),
         "ZipFile" => String.t()
       }
-
+      
   """
   @type aws_lambda_function_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_certificate_manager_certificate_resource_record() :: %{
         "Name" => String.t(),
         "Type" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_certificate_manager_certificate_resource_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_ssl_protocols() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_ssl_protocols() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_filter() :: %{
         "DateRange" => date_range(),
         "End" => String.t(),
         "Start" => String.t()
       }
-
+      
   """
   @type date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details() :: %{
         "InstancesDistribution" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details(),
         "LaunchTemplate" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details()
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details() :: %{
           String.t() => any()
@@ -6014,38 +6014,38 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_private_dns_name_options_details() :: %{
         "EnableResourceNameDnsAAAARecord" => boolean(),
         "EnableResourceNameDnsARecord" => boolean(),
         "HostnameType" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_private_dns_name_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_policy_associations_response() :: %{
         "ConfigurationPolicyAssociationSummaries" => list(configuration_policy_association_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_configuration_policy_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
         "ContainerPath" => String.t(),
         "MountOptions" => list(String.t()()),
         "Size" => integer()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
           String.t() => any()
@@ -6054,7 +6054,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_sage_maker_notebook_instance_details() :: %{
         "AcceleratorTypes" => list(String.t()()),
         "AdditionalCodeRepositories" => list(String.t()()),
@@ -6077,25 +6077,25 @@ defmodule AWS.SecurityHub do
         "Url" => String.t(),
         "VolumeSizeInGB" => integer()
       }
-
+      
   """
   @type aws_sage_maker_notebook_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_policy_association_request() :: %{
         required("Target") => list()
       }
-
+      
   """
   @type get_configuration_policy_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_trail_trail_details() :: %{
         "CloudWatchLogsLogGroupArn" => String.t(),
         "CloudWatchLogsRoleArn" => String.t(),
@@ -6113,14 +6113,14 @@ defmodule AWS.SecurityHub do
         "SnsTopicName" => String.t(),
         "TrailArn" => String.t()
       }
-
+      
   """
   @type aws_cloud_trail_trail_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
         "DpdTimeoutSeconds" => integer(),
         "IkeVersions" => list(String.t()()),
@@ -6139,19 +6139,19 @@ defmodule AWS.SecurityHub do
         "ReplayWindowSize" => integer(),
         "TunnelInsideCidr" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpn_connection_options_tunnel_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
         "Namespace" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
           String.t() => any()
@@ -6160,18 +6160,18 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_security_group_prefix_list_id() :: %{
         "PrefixListId" => String.t()
       }
-
+      
   """
   @type aws_ec2_security_group_prefix_list_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_details() :: %{
         "AuthenticationOptions" => list(aws_ec2_client_vpn_endpoint_authentication_options_details()()),
         "ClientCidrBlock" => String.t(),
@@ -6190,25 +6190,25 @@ defmodule AWS.SecurityHub do
         "VpcId" => String.t(),
         "VpnPort" => integer()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_group_failover() :: %{
         "StatusCodes" => aws_cloud_front_distribution_origin_group_failover_status_codes()
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_group_failover() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_secrets_manager_secret_details() :: %{
         "Deleted" => boolean(),
         "Description" => String.t(),
@@ -6219,14 +6219,14 @@ defmodule AWS.SecurityHub do
         "RotationOccurredWithinFrequency" => boolean(),
         "RotationRules" => aws_secrets_manager_secret_rotation_rules()
       }
-
+      
   """
   @type aws_secrets_manager_secret_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_network_firewall_rule_group_details() :: %{
         "Capacity" => integer(),
         "Description" => String.t(),
@@ -6236,14 +6236,14 @@ defmodule AWS.SecurityHub do
         "RuleGroupName" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_network_firewall_rule_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
         "Capabilities" => aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details(),
         "Devices" => list(aws_ecs_task_definition_container_definitions_linux_parameters_devices_details()()),
@@ -6253,7 +6253,7 @@ defmodule AWS.SecurityHub do
         "Swappiness" => integer(),
         "Tmpfs" => list(aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details()())
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
           String.t() => any()
@@ -6262,31 +6262,31 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       create_finding_aggregator_request() :: %{
         optional("Regions") => list(String.t()()),
         required("RegionLinkingMode") => String.t()
       }
-
+      
   """
   @type create_finding_aggregator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_finding_history_response() :: %{
         "NextToken" => String.t(),
         "Records" => list(finding_history_record()())
       }
-
+      
   """
   @type get_finding_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_automation_rules_request_item() :: %{
         "Actions" => list(automation_rules_action()()),
         "Criteria" => automation_rules_finding_filters(),
@@ -6297,14 +6297,14 @@ defmodule AWS.SecurityHub do
         "RuleOrder" => integer(),
         "RuleStatus" => list(any())
       }
-
+      
   """
   @type update_automation_rules_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_object_details() :: %{
         "ContentType" => String.t(),
         "ETag" => String.t(),
@@ -6313,54 +6313,54 @@ defmodule AWS.SecurityHub do
         "ServerSideEncryption" => String.t(),
         "VersionId" => String.t()
       }
-
+      
   """
   @type aws_s3_object_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_encryption_at_rest_options() :: %{
         "Enabled" => boolean(),
         "KmsKeyId" => String.t()
       }
-
+      
   """
   @type aws_elasticsearch_domain_encryption_at_rest_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{
         "GroupName" => String.t(),
         "Status" => String.t(),
         "StreamName" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_members_response() :: %{}
-
+      
   """
   @type disassociate_members_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
         "LogDriver" => String.t(),
         "Options" => map(),
         "SecretOptions" => list(aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details()())
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
           String.t() => any()
@@ -6369,77 +6369,77 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       disable_import_findings_for_product_request() :: %{}
-
+      
   """
   @type disable_import_findings_for_product_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_organization_configuration_response() :: %{}
-
+      
   """
   @type update_organization_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_security_control() :: %{
         "ErrorCode" => list(any()),
         "ErrorReason" => String.t(),
         "SecurityControlId" => String.t()
       }
-
+      
   """
   @type unprocessed_security_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_listener_description() :: %{
         "Listener" => aws_elb_load_balancer_listener(),
         "PolicyNames" => list(String.t()())
       }
-
+      
   """
   @type aws_elb_load_balancer_listener_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_target() :: %{
         "ActionTargetArn" => String.t(),
         "Description" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type action_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_volume_attachment() :: %{
         "AttachTime" => String.t(),
         "DeleteOnTermination" => boolean(),
         "InstanceId" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_ec2_volume_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_findings_request() :: %{
         optional("Confidence") => integer(),
         optional("Criticality") => integer(),
@@ -6452,50 +6452,50 @@ defmodule AWS.SecurityHub do
         optional("Workflow") => workflow_update(),
         required("FindingIdentifiers") => list(aws_security_finding_identifier()())
       }
-
+      
   """
   @type batch_update_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generator_details() :: %{
         "Description" => String.t(),
         "Labels" => list(String.t()()),
         "Name" => String.t()
       }
-
+      
   """
   @type generator_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_app_cookie_stickiness_policy() :: %{
         "CookieName" => String.t(),
         "PolicyName" => String.t()
       }
-
+      
   """
   @type aws_elb_app_cookie_stickiness_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_info_ipv6_cidr_block_set_details() :: %{
         "Ipv6CidrBlock" => String.t()
       }
-
+      
   """
   @type vpc_info_ipv6_cidr_block_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_automation_rule_request() :: %{
         optional("IsTerminal") => boolean(),
         optional("RuleStatus") => list(any()),
@@ -6506,26 +6506,26 @@ defmodule AWS.SecurityHub do
         required("RuleName") => String.t(),
         required("RuleOrder") => integer()
       }
-
+      
   """
   @type create_automation_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpc_peering_connection_status_details() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpc_peering_connection_status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_step_function_state_machine_details() :: %{
         "Label" => String.t(),
         "LoggingConfiguration" => aws_step_function_state_machine_logging_configuration_details(),
@@ -6536,61 +6536,61 @@ defmodule AWS.SecurityHub do
         "TracingConfiguration" => aws_step_function_state_machine_tracing_configuration_details(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_step_function_state_machine_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rule_match_attributes_destinations() :: %{
         "AddressDefinition" => String.t()
       }
-
+      
   """
   @type rule_group_source_stateless_rule_match_attributes_destinations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insights_response() :: %{
         "Insights" => list(insight()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_insights_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_launch_configuration_metadata_options() :: %{
         "HttpEndpoint" => String.t(),
         "HttpPutResponseHopLimit" => integer(),
         "HttpTokens" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_launch_configuration_metadata_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waf_override_action() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type waf_override_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_rest_api_details() :: %{
         "ApiKeySource" => String.t(),
         "BinaryMediaTypes" => list(String.t()()),
@@ -6602,63 +6602,63 @@ defmodule AWS.SecurityHub do
         "Name" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type aws_api_gateway_rest_api_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_group_policy() :: %{
         "PolicyName" => String.t()
       }
-
+      
   """
   @type aws_iam_group_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_rate_based_rule_match_predicate() :: %{
         "DataId" => String.t(),
         "Negated" => boolean(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_rate_based_rule_match_predicate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_eks_cluster_logging_details() :: %{
         "ClusterLogging" => list(aws_eks_cluster_logging_cluster_logging_details()())
       }
-
+      
   """
   @type aws_eks_cluster_logging_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_rule_group_rules_details() :: %{
         "Action" => aws_waf_regional_rule_group_rules_action_details(),
         "Priority" => integer(),
         "RuleId" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_rule_group_rules_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       standards_control_association_detail() :: %{
         "AssociationStatus" => list(any()),
         "RelatedRequirements" => list(String.t()()),
@@ -6671,99 +6671,99 @@ defmodule AWS.SecurityHub do
         "UpdatedAt" => non_neg_integer(),
         "UpdatedReason" => String.t()
       }
-
+      
   """
   @type standards_control_association_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_efs_access_point_root_directory_creation_info_details() :: %{
         "OwnerGid" => String.t(),
         "OwnerUid" => String.t(),
         "Permissions" => String.t()
       }
-
+      
   """
   @type aws_efs_access_point_root_directory_creation_info_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_invitation_response() :: %{}
-
+      
   """
   @type accept_invitation_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       decline_invitations_request() :: %{
         required("AccountIds") => list(String.t()())
       }
-
+      
   """
   @type decline_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_vpc_config() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "Subnets" => list(String.t()()),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_cluster_member() :: %{
         "DbClusterParameterGroupStatus" => String.t(),
         "DbInstanceIdentifier" => String.t(),
         "IsClusterWriter" => boolean(),
         "PromotionTier" => integer()
       }
-
+      
   """
   @type aws_rds_db_cluster_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_action_target_request() :: %{
         required("Description") => String.t(),
         required("Id") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_action_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_placement_strategies_details() :: %{
         "Field" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ecs_service_placement_strategies_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_rate_based_rule_details() :: %{
         "MatchPredicates" => list(aws_waf_rate_based_rule_match_predicate()()),
         "MetricName" => String.t(),
@@ -6772,53 +6772,53 @@ defmodule AWS.SecurityHub do
         "RateLimit" => float(),
         "RuleId" => String.t()
       }
-
+      
   """
   @type aws_waf_rate_based_rule_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_master_account_response() :: %{
         "Master" => invitation()
       }
-
+      
   """
   @type get_master_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_automation_rules_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_automation_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_step_function_state_machine_tracing_configuration_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_step_function_state_machine_tracing_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
         "Type" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
           String.t() => any()
@@ -6827,25 +6827,25 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_canary_settings() :: %{
         "DeploymentId" => String.t(),
         "PercentTraffic" => float(),
         "StageVariableOverrides" => map(),
         "UseStageCache" => boolean()
       }
-
+      
   """
   @type aws_api_gateway_canary_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_web_acl_captcha_config_immunity_time_property_details() :: %{
         "ImmunityTime" => float()
       }
-
+      
   """
   @type aws_wafv2_web_acl_captcha_config_immunity_time_property_details() :: %{
           String.t() => any()
@@ -6854,31 +6854,31 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       list_enabled_products_for_import_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_enabled_products_for_import_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_products_response() :: %{
         "NextToken" => String.t(),
         "Products" => list(product()())
       }
-
+      
   """
   @type describe_products_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_web_acl_rule() :: %{
         "Action" => waf_action(),
         "ExcludedRules" => list(waf_excluded_rule()()),
@@ -6887,27 +6887,27 @@ defmodule AWS.SecurityHub do
         "RuleId" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_web_acl_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cidr_block_association() :: %{
         "AssociationId" => String.t(),
         "CidrBlock" => String.t(),
         "CidrBlockState" => String.t()
       }
-
+      
   """
   @type cidr_block_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpc_peering_connection_vpc_info_details() :: %{
         "CidrBlock" => String.t(),
         "CidrBlockSet" => list(vpc_info_cidr_block_set_details()()),
@@ -6917,14 +6917,14 @@ defmodule AWS.SecurityHub do
         "Region" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpc_peering_connection_vpc_info_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_call_action() :: %{
         "AffectedResources" => map(),
         "Api" => String.t(),
@@ -6935,26 +6935,26 @@ defmodule AWS.SecurityHub do
         "RemoteIpDetails" => action_remote_ip_details(),
         "ServiceName" => String.t()
       }
-
+      
   """
   @type aws_api_call_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_instance_vpc_security_group() :: %{
         "Status" => String.t(),
         "VpcSecurityGroupId" => String.t()
       }
-
+      
   """
   @type aws_rds_db_instance_vpc_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_instance_details() :: %{
         "LatestRestorableTime" => String.t(),
         "DBName" => String.t(),
@@ -7014,48 +7014,48 @@ defmodule AWS.SecurityHub do
         "MonitoringRoleArn" => String.t(),
         "ListenerEndpoint" => aws_rds_db_instance_endpoint()
       }
-
+      
   """
   @type aws_rds_db_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_security_control_definition_response() :: %{
         "SecurityControlDefinition" => security_control_definition()
       }
-
+      
   """
   @type get_security_control_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_inference_accelerators_details() :: %{
         "DeviceName" => String.t(),
         "DeviceType" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_inference_accelerators_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_invitations_request() :: %{
         required("AccountIds") => list(String.t()())
       }
-
+      
   """
   @type delete_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() :: %{
         "OnDemandAllocationStrategy" => String.t(),
         "OnDemandBaseCapacity" => integer(),
@@ -7064,7 +7064,7 @@ defmodule AWS.SecurityHub do
         "SpotInstancePools" => integer(),
         "SpotMaxPrice" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() ::
           %{String.t() => any()}
@@ -7072,7 +7072,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_kms_key_details() :: %{
         "AWSAccountId" => String.t(),
         "CreationDate" => float(),
@@ -7083,19 +7083,19 @@ defmodule AWS.SecurityHub do
         "KeyState" => String.t(),
         "Origin" => String.t()
       }
-
+      
   """
   @type aws_kms_key_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
         "LaunchTemplateSpecification" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification(),
         "Overrides" => list(aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details()())
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
           String.t() => any()
@@ -7104,28 +7104,28 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
         "CertificateAuthorityArnList" => list(String.t()()),
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_findings_response() :: %{}
-
+      
   """
   @type update_findings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_details() :: %{
         "AccessControlList" => String.t(),
         "BucketLifecycleConfiguration" => aws_s3_bucket_bucket_lifecycle_configuration_details(),
@@ -7142,14 +7142,14 @@ defmodule AWS.SecurityHub do
         "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
         "ServerSideEncryptionConfiguration" => aws_s3_bucket_server_side_encryption_configuration()
       }
-
+      
   """
   @type aws_s3_bucket_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_network_firewall_firewall_policy_details() :: %{
         "Description" => String.t(),
         "FirewallPolicy" => firewall_policy_details(),
@@ -7157,39 +7157,39 @@ defmodule AWS.SecurityHub do
         "FirewallPolicyId" => String.t(),
         "FirewallPolicyName" => String.t()
       }
-
+      
   """
   @type aws_network_firewall_firewall_policy_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_eks_cluster_resources_vpc_config_details() :: %{
         "EndpointPublicAccess" => boolean(),
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()())
       }
-
+      
   """
   @type aws_eks_cluster_resources_vpc_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_enabled_products_for_import_response() :: %{
         "NextToken" => String.t(),
         "ProductSubscriptions" => list(String.t()())
       }
-
+      
   """
   @type list_enabled_products_for_import_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_domain_endpoint_options_details() :: %{
         "CustomEndpoint" => String.t(),
         "CustomEndpointCertificateArn" => String.t(),
@@ -7197,19 +7197,19 @@ defmodule AWS.SecurityHub do
         "EnforceHTTPS" => boolean(),
         "TLSSecurityPolicy" => String.t()
       }
-
+      
   """
   @type aws_open_search_service_domain_domain_endpoint_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() :: %{
         "AccessPointId" => String.t(),
         "Iam" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() ::
           %{String.t() => any()}
@@ -7217,70 +7217,70 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_rate_based_rule_match_predicate() :: %{
         "DataId" => String.t(),
         "Negated" => boolean(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_rate_based_rule_match_predicate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_efs_access_point_posix_user_details() :: %{
         "Gid" => String.t(),
         "SecondaryGids" => list(String.t()()),
         "Uid" => String.t()
       }
-
+      
   """
   @type aws_efs_access_point_posix_user_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_rule_predicate_list_details() :: %{
         "DataId" => String.t(),
         "Negated" => boolean(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_rule_predicate_list_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       port_range() :: %{
         "Begin" => integer(),
         "End" => integer()
       }
-
+      
   """
   @type port_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_policies_response() :: %{
         "ConfigurationPolicySummaries" => list(configuration_policy_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_configuration_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_amazon_mq_broker_ldap_server_metadata_details() :: %{
         "Hosts" => list(String.t()()),
         "RoleBase" => String.t(),
@@ -7293,14 +7293,14 @@ defmodule AWS.SecurityHub do
         "UserSearchMatching" => String.t(),
         "UserSearchSubtree" => boolean()
       }
-
+      
   """
   @type aws_amazon_mq_broker_ldap_server_metadata_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding_provider_fields() :: %{
         "Confidence" => integer(),
         "Criticality" => integer(),
@@ -7308,85 +7308,85 @@ defmodule AWS.SecurityHub do
         "Severity" => finding_provider_severity(),
         "Types" => list(String.t()())
       }
-
+      
   """
   @type finding_provider_fields() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_organization_configuration_request() :: %{
         optional("AutoEnableStandards") => list(any()),
         optional("OrganizationConfiguration") => organization_configuration(),
         required("AutoEnable") => boolean()
       }
-
+      
   """
   @type update_organization_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_organization_admin_account_request() :: %{
         required("AdminAccountId") => String.t()
       }
-
+      
   """
   @type enable_organization_admin_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dms_replication_instance_replication_subnet_group_details() :: %{
         "ReplicationSubnetGroupIdentifier" => String.t()
       }
-
+      
   """
   @type aws_dms_replication_instance_replication_subnet_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_sns_topic_subscription() :: %{
         "Endpoint" => String.t(),
         "Protocol" => String.t()
       }
-
+      
   """
   @type aws_sns_topic_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_route53_hosted_zone_config_details() :: %{
         "Comment" => String.t()
       }
-
+      
   """
   @type aws_route53_hosted_zone_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_formation_stack_outputs_details() :: %{
         "Description" => String.t(),
         "OutputKey" => String.t(),
         "OutputValue" => String.t()
       }
-
+      
   """
   @type aws_cloud_formation_stack_outputs_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       threat_intel_indicator() :: %{
         "Category" => list(any()),
         "LastObservedAt" => String.t(),
@@ -7395,38 +7395,38 @@ defmodule AWS.SecurityHub do
         "Type" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type threat_intel_indicator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_findings_response() :: %{
         "ProcessedFindings" => list(aws_security_finding_identifier()()),
         "UnprocessedFindings" => list(batch_update_findings_unprocessed_finding()())
       }
-
+      
   """
   @type batch_update_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geo_location() :: %{
         "Lat" => float(),
         "Lon" => float()
       }
-
+      
   """
   @type geo_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action() :: %{
         "ActionType" => String.t(),
         "AwsApiCallAction" => aws_api_call_action(),
@@ -7434,33 +7434,33 @@ defmodule AWS.SecurityHub do
         "NetworkConnectionAction" => network_connection_action(),
         "PortProbeAction" => port_probe_action()
       }
-
+      
   """
   @type action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_log_publishing_option() :: %{
         "CloudWatchLogsLogGroupArn" => String.t(),
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_open_search_service_domain_log_publishing_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
         "AuthenticationType" => String.t(),
         "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
         "OpenIdConnectConfig" => aws_app_sync_graph_ql_api_open_id_connect_config_details(),
         "UserPoolConfig" => aws_app_sync_graph_ql_api_user_pool_config_details()
       }
-
+      
   """
   @type aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
           String.t() => any()
@@ -7469,35 +7469,35 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       custom_data_identifiers_detections() :: %{
         "Arn" => String.t(),
         "Count" => float(),
         "Name" => String.t(),
         "Occurrences" => occurrences()
       }
-
+      
   """
   @type custom_data_identifiers_detections() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_finding_aggregator_response() :: %{
         "FindingAggregationRegion" => String.t(),
         "FindingAggregatorArn" => String.t(),
         "RegionLinkingMode" => String.t(),
         "Regions" => list(String.t()())
       }
-
+      
   """
   @type create_finding_aggregator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_details() :: %{
         "DataSources" => aws_guard_duty_detector_data_sources_details(),
         "Features" => list(aws_guard_duty_detector_features_details()()),
@@ -7505,14 +7505,14 @@ defmodule AWS.SecurityHub do
         "ServiceRole" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_service_software_options() :: %{
         "AutomatedUpdateDate" => String.t(),
         "Cancellable" => boolean(),
@@ -7522,37 +7522,37 @@ defmodule AWS.SecurityHub do
         "UpdateAvailable" => boolean(),
         "UpdateStatus" => String.t()
       }
-
+      
   """
   @type aws_elasticsearch_domain_service_software_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       firewall_policy_stateful_rule_group_references_details() :: %{
         "ResourceArn" => String.t()
       }
-
+      
   """
   @type firewall_policy_stateful_rule_group_references_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_permissions_boundary() :: %{
         "PermissionsBoundaryArn" => String.t(),
         "PermissionsBoundaryType" => String.t()
       }
-
+      
   """
   @type aws_iam_permissions_boundary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_vault_details() :: %{
         "AccessPolicy" => String.t(),
         "BackupVaultArn" => String.t(),
@@ -7560,19 +7560,19 @@ defmodule AWS.SecurityHub do
         "EncryptionKeyArn" => String.t(),
         "Notifications" => aws_backup_backup_vault_notifications_details()
       }
-
+      
   """
   @type aws_backup_backup_vault_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() :: %{
         "SamlProviderArn" => String.t(),
         "SelfServiceSamlProviderArn" => String.t()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() ::
           %{String.t() => any()}
@@ -7580,90 +7580,90 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       propagating_vgw_set_details() :: %{
         "GatewayId" => String.t()
       }
-
+      
   """
   @type propagating_vgw_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_invitations_response() :: %{
         "UnprocessedAccounts" => list(result()())
       }
-
+      
   """
   @type delete_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_import_findings_response() :: %{
         "FailedCount" => integer(),
         "FailedFindings" => list(import_findings_error()()),
         "SuccessCount" => integer()
       }
-
+      
   """
   @type batch_import_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       port_probe_action() :: %{
         "Blocked" => boolean(),
         "PortProbeDetails" => list(port_probe_detail()())
       }
-
+      
   """
   @type port_probe_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_rules_action_count_details() :: %{
         "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
       }
-
+      
   """
   @type aws_wafv2_rules_action_count_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_xray_encryption_config_details() :: %{
         "KeyId" => String.t(),
         "Status" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_xray_encryption_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_organization_admin_accounts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_organization_admin_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_attributes() :: %{
         "AccessLog" => aws_elb_load_balancer_access_log(),
         "AdditionalAttributes" => list(aws_elb_load_balancer_additional_attribute()()),
@@ -7671,18 +7671,18 @@ defmodule AWS.SecurityHub do
         "ConnectionSettings" => aws_elb_load_balancer_connection_settings(),
         "CrossZoneLoadBalancing" => aws_elb_load_balancer_cross_zone_load_balancing()
       }
-
+      
   """
   @type aws_elb_load_balancer_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details() :: %{
           String.t() => any()
@@ -7691,25 +7691,25 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       standards_control_association_update() :: %{
         "AssociationStatus" => list(any()),
         "SecurityControlId" => String.t(),
         "StandardsArn" => String.t(),
         "UpdatedReason" => String.t()
       }
-
+      
   """
   @type standards_control_association_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details() :: %{
           String.t() => any()
@@ -7718,33 +7718,33 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       rule_group_details() :: %{
         "RuleVariables" => rule_group_variables(),
         "RulesSource" => rule_group_source()
       }
-
+      
   """
   @type rule_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_policy_request() :: %{
         optional("ConfigurationPolicy") => list(),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("UpdatedReason") => String.t()
       }
-
+      
   """
   @type update_configuration_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_details() :: %{
         "AvailabilityZones" => list(String.t()()),
         "BackendServerDescriptions" => list(aws_elb_load_balancer_backend_server_description()()),
@@ -7764,76 +7764,76 @@ defmodule AWS.SecurityHub do
         "Subnets" => list(String.t()()),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_elb_load_balancer_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       threat() :: %{
         "FilePaths" => list(file_paths()()),
         "ItemCount" => integer(),
         "Name" => String.t(),
         "Severity" => String.t()
       }
-
+      
   """
   @type threat() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ssm_patch_compliance_details() :: %{
         "Patch" => aws_ssm_patch()
       }
-
+      
   """
   @type aws_ssm_patch_compliance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_hub_response() :: %{
         "AutoEnableControls" => boolean(),
         "ControlFindingGenerator" => list(any()),
         "HubArn" => String.t(),
         "SubscribedAt" => String.t()
       }
-
+      
   """
   @type describe_hub_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_deployment_controller_details() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ecs_service_deployment_controller_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type internal_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_instance_details() :: %{
         "IamInstanceProfileArn" => String.t(),
         "ImageId" => String.t(),
@@ -7849,14 +7849,14 @@ defmodule AWS.SecurityHub do
         "VirtualizationType" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_ec2_instance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_security_group_user_id_group_pair() :: %{
         "GroupId" => String.t(),
         "GroupName" => String.t(),
@@ -7865,159 +7865,159 @@ defmodule AWS.SecurityHub do
         "VpcId" => String.t(),
         "VpcPeeringConnectionId" => String.t()
       }
-
+      
   """
   @type aws_ec2_security_group_user_id_group_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_import_findings_request() :: %{
         required("Findings") => list(aws_security_finding()())
       }
-
+      
   """
   @type batch_import_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_projection() :: %{
         "NonKeyAttributes" => list(String.t()()),
         "ProjectionType" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_projection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_vpc_options_details() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()())
       }
-
+      
   """
   @type aws_open_search_service_domain_vpc_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_insight_response() :: %{
         "InsightArn" => String.t()
       }
-
+      
   """
   @type delete_insight_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_invitations_count_request() :: %{}
-
+      
   """
   @type get_invitations_count_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_rules_action_details() :: %{
         "Allow" => aws_wafv2_action_allow_details(),
         "Block" => aws_wafv2_action_block_details(),
         "Captcha" => aws_wafv2_rules_action_captcha_details(),
         "Count" => aws_wafv2_rules_action_count_details()
       }
-
+      
   """
   @type aws_wafv2_rules_action_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_security_controls_response() :: %{
         "SecurityControls" => list(security_control()()),
         "UnprocessedIds" => list(unprocessed_security_control()())
       }
-
+      
   """
   @type batch_get_security_controls_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_volumes_details() :: %{
         "DockerVolumeConfiguration" => aws_ecs_task_definition_volumes_docker_volume_configuration_details(),
         "EfsVolumeConfiguration" => aws_ecs_task_definition_volumes_efs_volume_configuration_details(),
         "Host" => aws_ecs_task_definition_volumes_host_details(),
         "Name" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_volumes_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_app_sync_graph_ql_api_user_pool_config_details() :: %{
         "AppIdClientRegex" => String.t(),
         "AwsRegion" => String.t(),
         "DefaultAction" => String.t(),
         "UserPoolId" => String.t()
       }
-
+      
   """
   @type aws_app_sync_graph_ql_api_user_pool_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_plan_lifecycle_details() :: %{
         "DeleteAfterDays" => float(),
         "MoveToColdStorageAfterDays" => float()
       }
-
+      
   """
   @type aws_backup_backup_plan_lifecycle_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_processor_feature() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_rds_db_processor_feature() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_details() :: %{
         "Command" => list(String.t()()),
         "MemoryReservation" => integer(),
@@ -8059,18 +8059,18 @@ defmodule AWS.SecurityHub do
         "Cpu" => integer(),
         "Memory" => integer()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_node_to_node_encryption_options_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_open_search_service_domain_node_to_node_encryption_options_details() :: %{
           String.t() => any()
@@ -8079,52 +8079,52 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       city() :: %{
         "CityName" => String.t()
       }
-
+      
   """
   @type city() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_invitation_request() :: %{
         required("InvitationId") => String.t(),
         required("MasterId") => String.t()
       }
-
+      
   """
   @type accept_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       association_filters() :: %{
         "AssociationStatus" => list(any()),
         "AssociationType" => list(any()),
         "ConfigurationPolicyId" => String.t()
       }
-
+      
   """
   @type association_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
         "BlockDurationMinutes" => integer(),
         "InstanceInterruptionBehavior" => String.t(),
@@ -8132,7 +8132,7 @@ defmodule AWS.SecurityHub do
         "SpotInstanceType" => String.t(),
         "ValidUntil" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
           String.t() => any()
@@ -8141,7 +8141,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_details() :: %{
         "AcceleratorCount" => aws_ec2_launch_template_data_instance_requirements_accelerator_count_details(),
         "AcceleratorManufacturers" => list(String.t()()),
@@ -8165,39 +8165,39 @@ defmodule AWS.SecurityHub do
         "TotalLocalStorageGB" => aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details(),
         "VCpuCount" => aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_members_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("OnlyAssociated") => boolean()
       }
-
+      
   """
   @type list_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_members_response() :: %{
         "Members" => list(member()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_security_group_ip_permission() :: %{
         "FromPort" => integer(),
         "IpProtocol" => String.t(),
@@ -8207,27 +8207,27 @@ defmodule AWS.SecurityHub do
         "ToPort" => integer(),
         "UserIdGroupPairs" => list(aws_ec2_security_group_user_id_group_pair()())
       }
-
+      
   """
   @type aws_ec2_security_group_ip_permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_step_function_state_machine_logging_configuration_details() :: %{
         "Destinations" => list(aws_step_function_state_machine_logging_configuration_destinations_details()()),
         "IncludeExecutionData" => boolean(),
         "Level" => String.t()
       }
-
+      
   """
   @type aws_step_function_state_machine_logging_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpn_connection_details() :: %{
         "Category" => String.t(),
         "CustomerGatewayConfiguration" => String.t(),
@@ -8241,31 +8241,31 @@ defmodule AWS.SecurityHub do
         "VpnConnectionId" => String.t(),
         "VpnGatewayId" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpn_connection_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       firewall_policy_stateless_rule_group_references_details() :: %{
         "Priority" => integer(),
         "ResourceArn" => String.t()
       }
-
+      
   """
   @type firewall_policy_stateless_rule_group_references_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details() :: %{
         "Enable" => boolean(),
         "Rollback" => boolean()
       }
-
+      
   """
   @type aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details() :: %{
           String.t() => any()
@@ -8274,20 +8274,20 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       get_enabled_standards_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StandardsSubscriptionArns") => list(String.t()())
       }
-
+      
   """
   @type get_enabled_standards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding_history_record() :: %{
         "FindingCreated" => boolean(),
         "FindingIdentifier" => aws_security_finding_identifier(),
@@ -8296,38 +8296,38 @@ defmodule AWS.SecurityHub do
         "UpdateTime" => non_neg_integer(),
         "Updates" => list(finding_history_update()())
       }
-
+      
   """
   @type finding_history_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{
         "Base" => integer(),
         "CapacityProvider" => String.t(),
         "Weight" => integer()
       }
-
+      
   """
   @type aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_rule_group_rules_action_details() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_rule_group_rules_action_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_details() :: %{
         "Artifacts" => list(aws_code_build_project_artifacts_details()()),
         "EncryptionKey" => String.t(),
@@ -8339,18 +8339,18 @@ defmodule AWS.SecurityHub do
         "Source" => aws_code_build_project_source(),
         "VpcConfig" => aws_code_build_project_vpc_config()
       }
-
+      
   """
   @type aws_code_build_project_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_launch_configuration_instance_monitoring_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_auto_scaling_launch_configuration_instance_monitoring_details() :: %{
           String.t() => any()
@@ -8359,19 +8359,19 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       standards_subscription_request() :: %{
         "StandardsArn" => String.t(),
         "StandardsInput" => map()
       }
-
+      
   """
   @type standards_subscription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_details() :: %{
         "AccessPolicies" => String.t(),
         "DomainEndpointOptions" => aws_elasticsearch_domain_domain_endpoint_options(),
@@ -8387,85 +8387,85 @@ defmodule AWS.SecurityHub do
         "ServiceSoftwareOptions" => aws_elasticsearch_domain_service_software_options(),
         "VPCOptions" => aws_elasticsearch_domain_vpc_options()
       }
-
+      
   """
   @type aws_elasticsearch_domain_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_monitoring_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_monitoring_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpc_endpoint_service_service_type_details() :: %{
         "ServiceType" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpc_endpoint_service_service_type_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_interface_security_group() :: %{
         "GroupId" => String.t(),
         "GroupName" => String.t()
       }
-
+      
   """
   @type aws_ec2_network_interface_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_secrets_manager_secret_rotation_rules() :: %{
         "AutomaticallyAfterDays" => integer()
       }
-
+      
   """
   @type aws_secrets_manager_secret_rotation_rules() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_authentication_options_details() :: %{
         "ActiveDirectory" => aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details(),
         "FederatedAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details(),
         "MutualAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_server_side_encryption_by_default() :: %{
         "KMSMasterKeyID" => String.t(),
         "SSEAlgorithm" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_server_side_encryption_by_default() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_rule_group_details() :: %{
         "Arn" => String.t(),
         "Capacity" => float(),
@@ -8476,14 +8476,14 @@ defmodule AWS.SecurityHub do
         "Scope" => String.t(),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
-
+      
   """
   @type aws_wafv2_rule_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_configuration_policy_association_response() :: %{
         "AssociationStatus" => list(any()),
         "AssociationStatusMessage" => String.t(),
@@ -8493,48 +8493,48 @@ defmodule AWS.SecurityHub do
         "TargetType" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type start_configuration_policy_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stateless_custom_publish_metric_action() :: %{
         "Dimensions" => list(stateless_custom_publish_metric_action_dimension()())
       }
-
+      
   """
   @type stateless_custom_publish_metric_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origins() :: %{
         "Items" => list(aws_cloud_front_distribution_origin_item()())
       }
-
+      
   """
   @type aws_cloud_front_distribution_origins() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_finding_aggregators_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_finding_aggregators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network() :: %{
         "DestinationDomain" => String.t(),
         "DestinationIpV4" => String.t(),
@@ -8549,102 +8549,102 @@ defmodule AWS.SecurityHub do
         "SourceMac" => String.t(),
         "SourcePort" => integer()
       }
-
+      
   """
   @type network() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_stream_specification() :: %{
         "StreamEnabled" => boolean(),
         "StreamViewType" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_stream_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_subnet_group_subnet() :: %{
         "SubnetAvailabilityZone" => aws_rds_db_subnet_group_subnet_availability_zone(),
         "SubnetIdentifier" => String.t(),
         "SubnetStatus" => String.t()
       }
-
+      
   """
   @type aws_rds_db_subnet_group_subnet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_notification_configuration_detail() :: %{
         "Destination" => String.t(),
         "Events" => list(String.t()()),
         "Filter" => aws_s3_bucket_notification_configuration_filter(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_notification_configuration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_master_account_request() :: %{}
-
+      
   """
   @type get_master_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_endpoint_configuration() :: %{
         "Types" => list(String.t()())
       }
-
+      
   """
   @type aws_api_gateway_endpoint_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecr_repository_image_scanning_configuration_details() :: %{
         "ScanOnPush" => boolean()
       }
-
+      
   """
   @type aws_ecr_repository_image_scanning_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_insight_request() :: %{}
-
+      
   """
   @type delete_insight_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpc_peering_connection_details() :: %{
         "AccepterVpcInfo" => aws_ec2_vpc_peering_connection_vpc_info_details(),
         "ExpirationTime" => String.t(),
@@ -8652,37 +8652,37 @@ defmodule AWS.SecurityHub do
         "Status" => aws_ec2_vpc_peering_connection_status_details(),
         "VpcPeeringConnectionId" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpc_peering_connection_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_role_policy() :: %{
         "PolicyName" => String.t()
       }
-
+      
   """
   @type aws_iam_role_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_iam_instance_profile_details() :: %{
         "Arn" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_iam_instance_profile_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_service_software_options_details() :: %{
         "AutomatedUpdateDate" => String.t(),
         "Cancellable" => boolean(),
@@ -8693,7 +8693,7 @@ defmodule AWS.SecurityHub do
         "UpdateAvailable" => boolean(),
         "UpdateStatus" => String.t()
       }
-
+      
   """
   @type aws_open_search_service_domain_service_software_options_details() :: %{
           String.t() => any()
@@ -8702,49 +8702,49 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_master_user_options_details() :: %{
         "MasterUserArn" => String.t(),
         "MasterUserName" => String.t(),
         "MasterUserPassword" => String.t()
       }
-
+      
   """
   @type aws_open_search_service_domain_master_user_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_logs_config_s3_logs_details() :: %{
         "EncryptionDisabled" => boolean(),
         "Location" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_logs_config_s3_logs_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       automation_rules_action() :: %{
         "FindingFieldsUpdate" => automation_rules_finding_fields_update(),
         "Type" => list(any())
       }
-
+      
   """
   @type automation_rules_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details() :: %{
           String.t() => any()
@@ -8753,7 +8753,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_network_firewall_firewall_details() :: %{
         "DeleteProtection" => boolean(),
         "Description" => String.t(),
@@ -8766,52 +8766,52 @@ defmodule AWS.SecurityHub do
         "SubnetMappings" => list(aws_network_firewall_firewall_subnet_mappings_details()()),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_network_firewall_firewall_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_ulimits_details() :: %{
         "HardLimit" => integer(),
         "Name" => String.t(),
         "SoftLimit" => integer()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_ulimits_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_findings_request() :: %{
         optional("Note") => note_update(),
         optional("RecordState") => list(any()),
         required("Filters") => aws_security_finding_filters()
       }
-
+      
   """
   @type update_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_standards_control_associations_response() :: %{
         "NextToken" => String.t(),
         "StandardsControlAssociationSummaries" => list(standards_control_association_summary()())
       }
-
+      
   """
   @type list_standards_control_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rule_match_attributes() :: %{
         "DestinationPorts" => list(rule_group_source_stateless_rule_match_attributes_destination_ports()()),
         "Destinations" => list(rule_group_source_stateless_rule_match_attributes_destinations()()),
@@ -8820,14 +8820,14 @@ defmodule AWS.SecurityHub do
         "Sources" => list(rule_group_source_stateless_rule_match_attributes_sources()()),
         "TcpFlags" => list(rule_group_source_stateless_rule_match_attributes_tcp_flags()())
       }
-
+      
   """
   @type rule_group_source_stateless_rule_match_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ssm_compliance_summary() :: %{
         "ComplianceType" => String.t(),
         "CompliantCriticalCount" => integer(),
@@ -8848,64 +8848,64 @@ defmodule AWS.SecurityHub do
         "PatchGroup" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_ssm_compliance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{
         "Name" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_certificate_manager_certificate_key_usage() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type aws_certificate_manager_certificate_key_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_security_control_request() :: %{
         optional("LastUpdateReason") => String.t(),
         required("Parameters") => map(),
         required("SecurityControlId") => String.t()
       }
-
+      
   """
   @type update_security_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_security_group_ec2_security_group() :: %{
         "Ec2SecurityGroupId" => String.t(),
         "Ec2SecurityGroupName" => String.t(),
         "Ec2SecurityGroupOwnerId" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_rds_db_security_group_ec2_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_policy_response() :: %{
         "Arn" => String.t(),
         "ConfigurationPolicy" => list(),
@@ -8915,14 +8915,14 @@ defmodule AWS.SecurityHub do
         "Name" => String.t(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type update_configuration_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_details() :: %{
         "DBName" => String.t(),
         "AutomatedSnapshotRetentionPeriod" => integer(),
@@ -8969,160 +8969,160 @@ defmodule AWS.SecurityHub do
         "ExpectedNextSnapshotScheduleTime" => String.t(),
         "LoggingStatus" => aws_redshift_cluster_logging_status()
       }
-
+      
   """
   @type aws_redshift_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_action_target_response() :: %{
         "ActionTargetArn" => String.t()
       }
-
+      
   """
   @type delete_action_target_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_server_side_encryption_configuration() :: %{
         "Rules" => list(aws_s3_bucket_server_side_encryption_rule()())
       }
-
+      
   """
   @type aws_s3_bucket_server_side_encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_invitations_count_response() :: %{
         "InvitationsCount" => integer()
       }
-
+      
   """
   @type get_invitations_count_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_action_allow_details() :: %{
         "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
       }
-
+      
   """
   @type aws_wafv2_action_allow_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_athena_work_group_configuration_details() :: %{
         "ResultConfiguration" => aws_athena_work_group_configuration_result_configuration_details()
       }
-
+      
   """
   @type aws_athena_work_group_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_visibility_config_details() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
         "MetricName" => String.t(),
         "SampledRequestsEnabled" => boolean()
       }
-
+      
   """
   @type aws_wafv2_visibility_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_eventbus_details() :: %{
         "Arn" => String.t(),
         "Name" => String.t(),
         "Policy" => String.t()
       }
-
+      
   """
   @type aws_events_eventbus_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_layer() :: %{
         "Arn" => String.t(),
         "CodeSize" => integer()
       }
-
+      
   """
   @type aws_lambda_function_layer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_invitations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_cache_behaviors() :: %{
         "Items" => list(aws_cloud_front_distribution_cache_behavior()())
       }
-
+      
   """
   @type aws_cloud_front_distribution_cache_behaviors() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_configuration_policy_association_request() :: %{
         required("ConfigurationPolicyIdentifier") => String.t(),
         required("Target") => list()
       }
-
+      
   """
   @type start_configuration_policy_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_control_parameter() :: %{
         "Name" => String.t(),
         "Value" => list(String.t()())
       }
-
+      
   """
   @type security_control_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
         "ContainerPort" => integer(),
         "HostPort" => integer(),
         "Protocol" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
           String.t() => any()
@@ -9131,36 +9131,36 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_web_acl_rules_list_override_action_details() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_web_acl_rules_list_override_action_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_endpoint_event_buses_details() :: %{
         "EventBusArn" => String.t()
       }
-
+      
   """
   @type aws_events_endpoint_event_buses_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
         "DeviceName" => String.t(),
         "Ebs" => aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details(),
         "NoDevice" => boolean(),
         "VirtualName" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
           String.t() => any()
@@ -9169,47 +9169,47 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_interface_ip_v6_address_detail() :: %{
         "IpV6Address" => String.t()
       }
-
+      
   """
   @type aws_ec2_network_interface_ip_v6_address_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_instance() :: %{
         "InstanceId" => String.t()
       }
-
+      
   """
   @type aws_elb_load_balancer_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enum_configuration_options() :: %{
         "AllowedValues" => list(String.t()()),
         "DefaultValue" => String.t()
       }
-
+      
   """
   @type enum_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
         "Date" => String.t(),
         "Days" => integer(),
         "StorageClass" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
           String.t() => any()
@@ -9218,35 +9218,35 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       custom_data_identifiers_result() :: %{
         "Detections" => list(custom_data_identifiers_detections()()),
         "TotalCount" => float()
       }
-
+      
   """
   @type custom_data_identifiers_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_amazon_mq_broker_encryption_options_details() :: %{
         "KmsKeyId" => String.t(),
         "UseAwsOwnedKey" => boolean()
       }
-
+      
   """
   @type aws_amazon_mq_broker_encryption_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
         "DataVolumeKMSKeyId" => String.t()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
           String.t() => any()
@@ -9255,19 +9255,19 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_elastic_ip_status() :: %{
         "ElasticIp" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_elastic_ip_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       route_set_details() :: %{
         "CarrierGatewayId" => String.t(),
         "CoreNetworkArn" => String.t(),
@@ -9286,18 +9286,18 @@ defmodule AWS.SecurityHub do
         "TransitGatewayId" => String.t(),
         "VpcPeeringConnectionId" => String.t()
       }
-
+      
   """
   @type route_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_athena_work_group_configuration_result_configuration_details() :: %{
         "EncryptionConfiguration" => aws_athena_work_group_configuration_result_configuration_encryption_configuration_details()
       }
-
+      
   """
   @type aws_athena_work_group_configuration_result_configuration_details() :: %{
           String.t() => any()
@@ -9306,7 +9306,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       member() :: %{
         "AccountId" => String.t(),
         "AdministratorId" => String.t(),
@@ -9316,26 +9316,26 @@ defmodule AWS.SecurityHub do
         "MemberStatus" => String.t(),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_website_configuration_routing_rule() :: %{
         "Condition" => aws_s3_bucket_website_configuration_routing_rule_condition(),
         "Redirect" => aws_s3_bucket_website_configuration_routing_rule_redirect()
       }
-
+      
   """
   @type aws_s3_bucket_website_configuration_routing_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dms_replication_task_details() :: %{
         "CdcStartPosition" => String.t(),
         "CdcStartTime" => String.t(),
@@ -9351,19 +9351,19 @@ defmodule AWS.SecurityHub do
         "TargetEndpointArn" => String.t(),
         "TaskData" => String.t()
       }
-
+      
   """
   @type aws_dms_replication_task_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() ::
           %{String.t() => any()}
@@ -9371,43 +9371,43 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       string_filter() :: %{
         "Comparison" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type string_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_finding_aggregators_response() :: %{
         "FindingAggregators" => list(finding_aggregator()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_finding_aggregators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_policy_details() :: %{
         "AttachmentCount" => integer(),
         "CreateDate" => String.t(),
@@ -9421,187 +9421,187 @@ defmodule AWS.SecurityHub do
         "PolicyVersionList" => list(aws_iam_policy_version()()),
         "UpdateDate" => String.t()
       }
-
+      
   """
   @type aws_iam_policy_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_security_controls_request() :: %{
         required("SecurityControlIds") => list(String.t()())
       }
-
+      
   """
   @type batch_get_security_controls_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_organization_admin_account_response() :: %{}
-
+      
   """
   @type enable_organization_admin_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_automation_rule() :: %{
         "ErrorCode" => integer(),
         "ErrorMessage" => String.t(),
         "RuleArn" => String.t()
       }
-
+      
   """
   @type unprocessed_automation_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_automation_rule_response() :: %{
         "RuleArn" => String.t()
       }
-
+      
   """
   @type create_automation_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_volume_details() :: %{
         "Host" => aws_ecs_task_volume_host_details(),
         "Name" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_volume_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_cluster_parameter_status() :: %{
         "ParameterApplyErrorDescription" => String.t(),
         "ParameterApplyStatus" => String.t(),
         "ParameterName" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_cluster_parameter_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_sse_description() :: %{
         "InaccessibleEncryptionDateTime" => String.t(),
         "KmsMasterKeyArn" => String.t(),
         "SseType" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_sse_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_policy_association() :: %{
         "Target" => list()
       }
-
+      
   """
   @type configuration_policy_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       adjustment() :: %{
         "Metric" => String.t(),
         "Reason" => String.t()
       }
-
+      
   """
   @type adjustment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logs_log_group_arn_config_details() :: %{
         "CloudWatchLogsLogGroupArn" => String.t(),
         "HostedZoneId" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type cloud_watch_logs_log_group_arn_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_amazon_mq_broker_logs_pending_details() :: %{
         "Audit" => boolean(),
         "General" => boolean()
       }
-
+      
   """
   @type aws_amazon_mq_broker_logs_pending_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       note_update() :: %{
         "Text" => String.t(),
         "UpdatedBy" => String.t()
       }
-
+      
   """
   @type note_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_efs_access_point_root_directory_details() :: %{
         "CreationInfo" => aws_efs_access_point_root_directory_creation_info_details(),
         "Path" => String.t()
       }
-
+      
   """
   @type aws_efs_access_point_root_directory_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_info_peering_options_details() :: %{
         "AllowDnsResolutionFromRemoteVpc" => boolean(),
         "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
         "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
       }
-
+      
   """
   @type vpc_info_peering_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_instance_requirements_accelerator_count_details() :: %{
         "Max" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_instance_requirements_accelerator_count_details() :: %{
           String.t() => any()
@@ -9610,42 +9610,42 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_maintenance_options_details() :: %{
         "AutoRecovery" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_maintenance_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_update() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type workflow_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_action_targets_request() :: %{
         optional("ActionTargetArns") => list(String.t()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_action_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_acl_entry() :: %{
         "CidrBlock" => String.t(),
         "Egress" => boolean(),
@@ -9656,14 +9656,14 @@ defmodule AWS.SecurityHub do
         "RuleAction" => String.t(),
         "RuleNumber" => integer()
       }
-
+      
   """
   @type aws_ec2_network_acl_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_details() :: %{
         "BlockDeviceMappingSet" => list(aws_ec2_launch_template_data_block_device_mapping_set_details()()),
         "CapacityReservationSpecification" => aws_ec2_launch_template_data_capacity_reservation_specification_details(),
@@ -9696,14 +9696,14 @@ defmodule AWS.SecurityHub do
         "SecurityGroupSet" => list(String.t()()),
         "UserData" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       association_set_details() :: %{
         "AssociationState" => association_state_details(),
         "GatewayId" => String.t(),
@@ -9712,26 +9712,26 @@ defmodule AWS.SecurityHub do
         "RouteTableId" => String.t(),
         "SubnetId" => String.t()
       }
-
+      
   """
   @type association_set_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_versioning_configuration() :: %{
         "IsMfaDeleteEnabled" => boolean(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_bucket_versioning_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_origin_custom_origin_config() :: %{
         "HttpPort" => integer(),
         "HttpsPort" => integer(),
@@ -9740,14 +9740,14 @@ defmodule AWS.SecurityHub do
         "OriginReadTimeout" => integer(),
         "OriginSslProtocols" => aws_cloud_front_distribution_origin_ssl_protocols()
       }
-
+      
   """
   @type aws_cloud_front_distribution_origin_custom_origin_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_details() :: %{
         "AccessPolicies" => String.t(),
         "AdvancedSecurityOptions" => aws_open_search_service_domain_advanced_security_options_details(),
@@ -9765,30 +9765,30 @@ defmodule AWS.SecurityHub do
         "ServiceSoftwareOptions" => aws_open_search_service_domain_service_software_options_details(),
         "VpcOptions" => aws_open_search_service_domain_vpc_options_details()
       }
-
+      
   """
   @type aws_open_search_service_domain_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_credit_specification_details() :: %{
         "CpuCredits" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_credit_specification_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_client_authentication_sasl_details() :: %{
         "Iam" => aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details(),
         "Scram" => aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_client_authentication_sasl_details() :: %{
           String.t() => any()
@@ -9797,19 +9797,19 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_watch_alarm_dimensions_details() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_cloud_watch_alarm_dimensions_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       patch_summary() :: %{
         "FailedCount" => integer(),
         "Id" => String.t(),
@@ -9823,32 +9823,32 @@ defmodule AWS.SecurityHub do
         "OperationStartTime" => String.t(),
         "RebootOption" => String.t()
       }
-
+      
   """
   @type patch_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_cluster_cluster_settings_details() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_ecs_cluster_cluster_settings_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
         "ContainerPath" => String.t(),
         "HostPath" => String.t(),
         "Permissions" => list(String.t()())
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
           String.t() => any()
@@ -9857,23 +9857,23 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_security_group_ipv6_range() :: %{
         "CidrIpv6" => String.t()
       }
-
+      
   """
   @type aws_ec2_security_group_ipv6_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
         "Hostname" => String.t(),
         "IpAddress" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
           String.t() => any()
@@ -9882,101 +9882,101 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_network_firewall_firewall_subnet_mappings_details() :: %{
         "SubnetId" => String.t()
       }
-
+      
   """
   @type aws_network_firewall_firewall_subnet_mappings_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_object_lock_configuration_rule_details() :: %{
         "DefaultRetention" => aws_s3_bucket_object_lock_configuration_rule_default_retention_details()
       }
-
+      
   """
   @type aws_s3_bucket_object_lock_configuration_rule_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_finding_aggregator_response() :: %{}
-
+      
   """
   @type delete_finding_aggregator_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_findings_unprocessed_finding() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "FindingIdentifier" => aws_security_finding_identifier()
       }
-
+      
   """
   @type batch_update_findings_unprocessed_finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_policy_associations_request() :: %{
         optional("Filters") => association_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_configuration_policy_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_import_findings_for_product_response() :: %{
         "ProductSubscriptionArn" => String.t()
       }
-
+      
   """
   @type enable_import_findings_for_product_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_log_publishing_options_details() :: %{
         "AuditLogs" => aws_open_search_service_domain_log_publishing_option(),
         "IndexSlowLogs" => aws_open_search_service_domain_log_publishing_option(),
         "SearchSlowLogs" => aws_open_search_service_domain_log_publishing_option()
       }
-
+      
   """
   @type aws_open_search_service_domain_log_publishing_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_control_definitions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StandardsArn") => String.t()
       }
-
+      
   """
   @type list_security_control_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_web_acl_rules_list_details() :: %{
         "Action" => aws_waf_regional_web_acl_rules_list_action_details(),
         "OverrideAction" => aws_waf_regional_web_acl_rules_list_override_action_details(),
@@ -9984,67 +9984,67 @@ defmodule AWS.SecurityHub do
         "RuleId" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_web_acl_rules_list_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{
         "Rules" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_details()())
       }
-
+      
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       malware() :: %{
         "Name" => String.t(),
         "Path" => String.t(),
         "State" => list(any()),
         "Type" => list(any())
       }
-
+      
   """
   @type malware() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_cross_zone_load_balancing() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_elb_load_balancer_cross_zone_load_balancing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_web_acl_captcha_config_details() :: %{
         "ImmunityTimeProperty" => aws_wafv2_web_acl_captcha_config_immunity_time_property_details()
       }
-
+      
   """
   @type aws_wafv2_web_acl_captcha_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_advanced_security_options_details() :: %{
         "Enabled" => boolean(),
         "InternalUserDatabaseEnabled" => boolean(),
         "MasterUserOptions" => aws_open_search_service_domain_master_user_options_details()
       }
-
+      
   """
   @type aws_open_search_service_domain_advanced_security_options_details() :: %{
           String.t() => any()
@@ -10053,12 +10053,12 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
         "ClientBroker" => String.t(),
         "InCluster" => boolean()
       }
-
+      
   """
   @type aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
           String.t() => any()
@@ -10067,21 +10067,21 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_athena_work_group_details() :: %{
         "Configuration" => aws_athena_work_group_configuration_details(),
         "Description" => String.t(),
         "Name" => String.t(),
         "State" => String.t()
       }
-
+      
   """
   @type aws_athena_work_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cvss() :: %{
         "Adjustments" => list(adjustment()()),
         "BaseScore" => float(),
@@ -10089,19 +10089,19 @@ defmodule AWS.SecurityHub do
         "Source" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type cvss() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
         "Enabled" => boolean(),
         "KmsKeyId" => String.t()
       }
-
+      
   """
   @type aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
           String.t() => any()
@@ -10110,7 +10110,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_security_finding() :: %{
         "Region" => String.t(),
         "GeneratorDetails" => generator_details(),
@@ -10157,57 +10157,57 @@ defmodule AWS.SecurityHub do
         "VerificationState" => list(any()),
         "Process" => process_details()
       }
-
+      
   """
   @type aws_security_finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_endpoint_routing_config_failover_config_details() :: %{
         "Primary" => aws_events_endpoint_routing_config_failover_config_primary_details(),
         "Secondary" => aws_events_endpoint_routing_config_failover_config_secondary_details()
       }
-
+      
   """
   @type aws_events_endpoint_routing_config_failover_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_instance_monitoring_details() :: %{
         "State" => String.t()
       }
-
+      
   """
   @type aws_ec2_instance_monitoring_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_finding_aggregator_request() :: %{}
-
+      
   """
   @type get_finding_aggregator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_tracing_config() :: %{
         "Mode" => String.t()
       }
-
+      
   """
   @type aws_lambda_function_tracing_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_details() :: %{
         "AvailabilityZones" => list(aws_auto_scaling_auto_scaling_group_availability_zones_list_details()()),
         "CapacityRebalance" => boolean(),
@@ -10219,69 +10219,69 @@ defmodule AWS.SecurityHub do
         "LoadBalancerNames" => list(String.t()()),
         "MixedInstancesPolicy" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details()
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_source_security_group() :: %{
         "GroupName" => String.t(),
         "OwnerAlias" => String.t()
       }
-
+      
   """
   @type aws_elb_load_balancer_source_security_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{
         "AuthorizerResultTtlInSeconds" => integer(),
         "AuthorizerUri" => String.t(),
         "IdentityValidationExpression" => String.t()
       }
-
+      
   """
   @type aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iam_policy_version() :: %{
         "CreateDate" => String.t(),
         "IsDefaultVersion" => boolean(),
         "VersionId" => String.t()
       }
-
+      
   """
   @type aws_iam_policy_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_backup_plan_advanced_backup_settings_details() :: %{
         "BackupOptions" => map(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type aws_backup_backup_plan_advanced_backup_settings_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() :: %{
         "InstanceType" => String.t(),
         "WeightedCapacity" => String.t()
       }
-
+      
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() ::
           %{String.t() => any()}
@@ -10289,13 +10289,13 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
         "Days" => integer(),
         "Mode" => String.t(),
         "Years" => integer()
       }
-
+      
   """
   @type aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
           String.t() => any()
@@ -10304,53 +10304,53 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_website_configuration_redirect_to() :: %{
         "Hostname" => String.t(),
         "Protocol" => String.t()
       }
-
+      
   """
   @type aws_s3_bucket_website_configuration_redirect_to() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_call_action_domain_details() :: %{
         "Domain" => String.t()
       }
-
+      
   """
   @type aws_api_call_action_domain_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_import_findings_for_product_request() :: %{
         required("ProductArn") => String.t()
       }
-
+      
   """
   @type enable_import_findings_for_product_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_range() :: %{
         "Unit" => list(any()),
         "Value" => integer()
       }
-
+      
   """
   @type date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_details() :: %{
         "AwsEc2ClientVpnEndpoint" => aws_ec2_client_vpn_endpoint_details(),
         "AwsNetworkFirewallRuleGroup" => aws_network_firewall_rule_group_details(),
@@ -10452,104 +10452,104 @@ defmodule AWS.SecurityHub do
         "AwsApiGatewayRestApi" => aws_api_gateway_rest_api_details(),
         "AwsWafv2RuleGroup" => aws_wafv2_rule_group_details()
       }
-
+      
   """
   @type resource_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_insight_request() :: %{
         required("Filters") => aws_security_finding_filters(),
         required("GroupByAttribute") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_insight_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_proxy_configuration_details() :: %{
         "ContainerName" => String.t(),
         "ProxyConfigurationProperties" => list(aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details()()),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_proxy_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight() :: %{
         "Filters" => aws_security_finding_filters(),
         "GroupByAttribute" => String.t(),
         "InsightArn" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type insight() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_path_component_details() :: %{
         "Address" => list(String.t()()),
         "PortRanges" => list(port_range()())
       }
-
+      
   """
   @type network_path_component_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_placement_constraints_details() :: %{
         "Expression" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_placement_constraints_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_policy_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("ConfigurationPolicy") => list(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_configuration_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_backend_server_description() :: %{
         "InstancePort" => integer(),
         "PolicyNames" => list(String.t()())
       }
-
+      
   """
   @type aws_elb_load_balancer_backend_server_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_cluster_details() :: %{
         "ActiveServicesCount" => integer(),
         "CapacityProviders" => list(String.t()()),
@@ -10562,23 +10562,23 @@ defmodule AWS.SecurityHub do
         "RunningTasksCount" => integer(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_ecs_cluster_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_administrator_invitation_response() :: %{}
-
+      
   """
   @type accept_administrator_invitation_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_details() :: %{
         "ContainerDefinitions" => list(aws_ecs_task_definition_container_definitions_details()()),
         "Cpu" => String.t(),
@@ -10596,95 +10596,95 @@ defmodule AWS.SecurityHub do
         "TaskRoleArn" => String.t(),
         "Volumes" => list(aws_ecs_task_definition_volumes_details()())
       }
-
+      
   """
   @type aws_ecs_task_definition_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stateless_custom_action_definition() :: %{
         "PublishMetricAction" => stateless_custom_publish_metric_action()
       }
-
+      
   """
   @type stateless_custom_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_features_details() :: %{
         "Name" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_features_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_insight_results_request() :: %{}
-
+      
   """
   @type get_insight_results_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_endpoint_routing_config_details() :: %{
         "FailoverConfig" => aws_events_endpoint_routing_config_failover_config_details()
       }
-
+      
   """
   @type aws_events_endpoint_routing_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_hub_policy() :: %{
         "EnabledStandardIdentifiers" => list(String.t()()),
         "SecurityControlsConfiguration" => security_controls_configuration(),
         "ServiceEnabled" => boolean()
       }
-
+      
   """
   @type security_hub_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_security_hub_request() :: %{
         optional("ControlFindingGenerator") => list(any()),
         optional("EnableDefaultStandards") => boolean(),
         optional("Tags") => map()
       }
-
+      
   """
   @type enable_security_hub_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_additional_attribute() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_elb_load_balancer_additional_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_provisioned_throughput() :: %{
         "LastDecreaseDateTime" => String.t(),
         "LastIncreaseDateTime" => String.t(),
@@ -10692,46 +10692,46 @@ defmodule AWS.SecurityHub do
         "ReadCapacityUnits" => integer(),
         "WriteCapacityUnits" => integer()
       }
-
+      
   """
   @type aws_dynamo_db_table_provisioned_throughput() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_secrets_details() :: %{
         "Name" => String.t(),
         "ValueFrom" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_secrets_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_subnet_group_subnet_availability_zone() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type aws_rds_db_subnet_group_subnet_availability_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_policy_request() :: %{}
-
+      
   """
   @type delete_configuration_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecr_container_image_details() :: %{
         "Architecture" => String.t(),
         "ImageDigest" => String.t(),
@@ -10740,14 +10740,14 @@ defmodule AWS.SecurityHub do
         "RegistryId" => String.t(),
         "RepositoryName" => String.t()
       }
-
+      
   """
   @type aws_ecr_container_image_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_network_interface_details() :: %{
         "Attachment" => aws_ec2_network_interface_attachment(),
         "IpV6Addresses" => list(aws_ec2_network_interface_ip_v6_address_detail()()),
@@ -10758,14 +10758,14 @@ defmodule AWS.SecurityHub do
         "SecurityGroups" => list(aws_ec2_network_interface_security_group()()),
         "SourceDestCheck" => boolean()
       }
-
+      
   """
   @type aws_ec2_network_interface_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_redshift_cluster_logging_status() :: %{
         "BucketName" => String.t(),
         "LastFailureMessage" => String.t(),
@@ -10774,19 +10774,19 @@ defmodule AWS.SecurityHub do
         "LoggingEnabled" => boolean(),
         "S3KeyPrefix" => String.t()
       }
-
+      
   """
   @type aws_redshift_cluster_logging_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() :: %{
         "Name" => String.t(),
         "ValueFrom" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() ::
           %{String.t() => any()}
@@ -10794,126 +10794,126 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       security_control_custom_parameter() :: %{
         "Parameters" => map(),
         "SecurityControlId" => String.t()
       }
-
+      
   """
   @type security_control_custom_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{
         "DayOfWeek" => String.t(),
         "TimeOfDay" => String.t(),
         "TimeZone" => String.t()
       }
-
+      
   """
   @type aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_capacity_provider_strategy_details() :: %{
         "Base" => integer(),
         "CapacityProvider" => String.t(),
         "Weight" => integer()
       }
-
+      
   """
   @type aws_ecs_service_capacity_provider_strategy_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_custom_request_handling_details() :: %{
         "InsertHeaders" => list(aws_wafv2_custom_http_header()())
       }
-
+      
   """
   @type aws_wafv2_custom_request_handling_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_guard_duty_detector_data_sources_s3_logs_details() :: %{
         "Status" => String.t()
       }
-
+      
   """
   @type aws_guard_duty_detector_data_sources_s3_logs_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_rule_details() :: %{
         "MetricName" => String.t(),
         "Name" => String.t(),
         "PredicateList" => list(aws_waf_rule_predicate_list_details()()),
         "RuleId" => String.t()
       }
-
+      
   """
   @type aws_waf_rule_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_organization_admin_accounts_response() :: %{
         "AdminAccounts" => list(admin_account()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_organization_admin_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disable_standards_request() :: %{
         required("StandardsSubscriptionArns") => list(String.t()())
       }
-
+      
   """
   @type batch_disable_standards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       port_probe_detail() :: %{
         "LocalIpDetails" => action_local_ip_details(),
         "LocalPortDetails" => action_local_port_details(),
         "RemoteIpDetails" => action_remote_ip_details()
       }
-
+      
   """
   @type port_probe_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_policy_request() :: %{}
-
+      
   """
   @type get_configuration_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_waf_regional_rate_based_rule_details() :: %{
         "MatchPredicates" => list(aws_waf_regional_rate_based_rule_match_predicate()()),
         "MetricName" => String.t(),
@@ -10922,69 +10922,69 @@ defmodule AWS.SecurityHub do
         "RateLimit" => float(),
         "RuleId" => String.t()
       }
-
+      
   """
   @type aws_waf_regional_rate_based_rule_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_s3_bucket_website_configuration() :: %{
         "ErrorDocument" => String.t(),
         "IndexDocumentSuffix" => String.t(),
         "RedirectAllRequestsTo" => aws_s3_bucket_website_configuration_redirect_to(),
         "RoutingRules" => list(aws_s3_bucket_website_configuration_routing_rule()())
       }
-
+      
   """
   @type aws_s3_bucket_website_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpc_details() :: %{
         "CidrBlockAssociationSet" => list(cidr_block_association()()),
         "DhcpOptionsId" => String.t(),
         "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()()),
         "State" => String.t()
       }
-
+      
   """
   @type aws_ec2_vpc_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enum_list_configuration_options() :: %{
         "AllowedValues" => list(String.t()()),
         "DefaultValue" => list(String.t()()),
         "MaxItems" => integer()
       }
-
+      
   """
   @type enum_list_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_from_administrator_account_request() :: %{}
-
+      
   """
   @type disassociate_from_administrator_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
         "Condition" => String.t(),
         "ContainerName" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
           String.t() => any()
@@ -10993,37 +10993,37 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_attribute_definition() :: %{
         "AttributeName" => String.t(),
         "AttributeType" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_attribute_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_custom_actions_details() :: %{
         "ActionDefinition" => stateless_custom_action_definition(),
         "ActionName" => String.t()
       }
-
+      
   """
   @type rule_group_source_custom_actions_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_environment_environment_variables_details() :: %{
         "Name" => String.t(),
         "Type" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_environment_environment_variables_details() :: %{
           String.t() => any()
@@ -11032,7 +11032,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       standards_subscription() :: %{
         "StandardsArn" => String.t(),
         "StandardsInput" => map(),
@@ -11040,18 +11040,18 @@ defmodule AWS.SecurityHub do
         "StandardsStatusReason" => standards_status_reason(),
         "StandardsSubscriptionArn" => String.t()
       }
-
+      
   """
   @type standards_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
         "CredentialsParameter" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
           String.t() => any()
@@ -11060,7 +11060,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_details() :: %{
         "Architectures" => list(String.t()()),
         "Code" => aws_lambda_function_code(),
@@ -11083,25 +11083,25 @@ defmodule AWS.SecurityHub do
         "Version" => String.t(),
         "VpcConfig" => aws_lambda_function_vpc_config()
       }
-
+      
   """
   @type aws_lambda_function_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_volumes_host_details() :: %{
         "SourcePath" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_volumes_host_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_events_endpoint_details() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
@@ -11115,18 +11115,18 @@ defmodule AWS.SecurityHub do
         "State" => String.t(),
         "StateReason" => String.t()
       }
-
+      
   """
   @type aws_events_endpoint_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
         "Ipv6Address" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
           String.t() => any()
@@ -11135,163 +11135,163 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       get_administrator_account_response() :: %{
         "Administrator" => invitation()
       }
-
+      
   """
   @type get_administrator_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_app_sync_graph_ql_api_open_id_connect_config_details() :: %{
         "AuthTtL" => float(),
         "ClientId" => String.t(),
         "IatTtL" => float(),
         "Issuer" => String.t()
       }
-
+      
   """
   @type aws_app_sync_graph_ql_api_open_id_connect_config_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_configuration_policy_associations_request() :: %{
         required("ConfigurationPolicyAssociationIdentifiers") => list(configuration_policy_association()())
       }
-
+      
   """
   @type batch_get_configuration_policy_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_standards_control_associations_response() :: %{
         "StandardsControlAssociationDetails" => list(standards_control_association_detail()()),
         "UnprocessedAssociations" => list(unprocessed_standards_control_association()())
       }
-
+      
   """
   @type batch_get_standards_control_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding_provider_severity() :: %{
         "Label" => list(any()),
         "Original" => String.t()
       }
-
+      
   """
   @type finding_provider_severity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_automation_rules_response() :: %{
         "ProcessedAutomationRules" => list(String.t()()),
         "UnprocessedAutomationRules" => list(unprocessed_automation_rule()())
       }
-
+      
   """
   @type batch_delete_automation_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_parameter_group() :: %{
         "DbParameterGroupName" => String.t(),
         "ParameterApplyStatus" => String.t()
       }
-
+      
   """
   @type aws_rds_db_parameter_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{
         "Enabled" => boolean(),
         "LambdaFunctionArn" => String.t(),
         "Status" => aws_ec2_client_vpn_endpoint_client_connect_options_status_details()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_security_control_definition_request() :: %{
         required("SecurityControlId") => String.t()
       }
-
+      
   """
   @type get_security_control_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       note() :: %{
         "Text" => String.t(),
         "UpdatedAt" => String.t(),
         "UpdatedBy" => String.t()
       }
-
+      
   """
   @type note() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_policies_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_configuration_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_conflict_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type resource_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_node_to_node_encryption_options() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_elasticsearch_domain_node_to_node_encryption_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dynamo_db_table_details() :: %{
         "AttributeDefinitions" => list(aws_dynamo_db_table_attribute_definition()()),
         "BillingModeSummary" => aws_dynamo_db_table_billing_mode_summary(),
@@ -11314,62 +11314,62 @@ defmodule AWS.SecurityHub do
         "TableSizeBytes" => float(),
         "TableStatus" => String.t()
       }
-
+      
   """
   @type aws_dynamo_db_table_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       page() :: %{
         "LineRange" => range(),
         "OffsetRange" => range(),
         "PageNumber" => float()
       }
-
+      
   """
   @type page() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elasticsearch_domain_log_publishing_options_log_config() :: %{
         "CloudWatchLogsLogGroupArn" => String.t(),
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_elasticsearch_domain_log_publishing_options_log_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_members_response() :: %{
         "UnprocessedAccounts" => list(result()())
       }
-
+      
   """
   @type create_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_automation_rules_response() :: %{
         "AutomationRulesMetadata" => list(automation_rules_metadata()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_automation_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_code_build_project_environment() :: %{
         "Certificate" => String.t(),
         "EnvironmentVariables" => list(aws_code_build_project_environment_environment_variables_details()()),
@@ -11378,14 +11378,14 @@ defmodule AWS.SecurityHub do
         "RegistryCredential" => aws_code_build_project_environment_registry_credential(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_code_build_project_environment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_policy_association_response() :: %{
         "AssociationStatus" => list(any()),
         "AssociationStatusMessage" => String.t(),
@@ -11395,63 +11395,63 @@ defmodule AWS.SecurityHub do
         "TargetType" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
-
+      
   """
   @type get_configuration_policy_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_cpu_options_details() :: %{
         "CoreCount" => integer(),
         "ThreadsPerCore" => integer()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_cpu_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
         "Flags" => list(String.t()()),
         "Masks" => list(String.t()())
       }
-
+      
   """
   @type rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_insight_request() :: %{
         optional("Filters") => aws_security_finding_filters(),
         optional("GroupByAttribute") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_insight_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_vpn_connection_options_details() :: %{
         "StaticRoutesOnly" => boolean(),
         "TunnelOptions" => list(aws_ec2_vpn_connection_options_tunnel_options_details()())
       }
-
+      
   """
   @type aws_ec2_vpn_connection_options_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elb_load_balancer_listener() :: %{
         "InstancePort" => integer(),
         "InstanceProtocol" => String.t(),
@@ -11459,52 +11459,52 @@ defmodule AWS.SecurityHub do
         "Protocol" => String.t(),
         "SslCertificateId" => String.t()
       }
-
+      
   """
   @type aws_elb_load_balancer_listener() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_configuration_options() :: %{
         "DefaultValue" => integer(),
         "Max" => integer(),
         "Min" => integer()
       }
-
+      
   """
   @type integer_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_backup_recovery_point_calculated_lifecycle_details() :: %{
         "DeleteAt" => String.t(),
         "MoveToColdStorageAt" => String.t()
       }
-
+      
   """
   @type aws_backup_recovery_point_calculated_lifecycle_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_configuration_options() :: %{
         "DefaultValue" => String.t(),
         "ExpressionDescription" => String.t(),
         "Re2Expression" => String.t()
       }
-
+      
   """
   @type string_configuration_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elbv2_load_balancer_details() :: %{
         "AvailabilityZones" => list(availability_zone()()),
         "CanonicalHostedZoneId" => String.t(),
@@ -11518,25 +11518,25 @@ defmodule AWS.SecurityHub do
         "Type" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_elbv2_load_balancer_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ssm_patch() :: %{
         "ComplianceSummary" => aws_ssm_compliance_summary()
       }
-
+      
   """
   @type aws_ssm_patch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_route_table_details() :: %{
         "AssociationSet" => list(association_set_details()()),
         "OwnerId" => String.t(),
@@ -11545,36 +11545,36 @@ defmodule AWS.SecurityHub do
         "RouteTableId" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_ec2_route_table_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ip_filter() :: %{
         "Cidr" => String.t()
       }
-
+      
   """
   @type ip_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_dms_replication_instance_vpc_security_groups_details() :: %{
         "VpcSecurityGroupId" => String.t()
       }
-
+      
   """
   @type aws_dms_replication_instance_vpc_security_groups_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_watch_alarm_details() :: %{
         "ActionsEnabled" => boolean(),
         "AlarmActions" => list(String.t()()),
@@ -11599,14 +11599,14 @@ defmodule AWS.SecurityHub do
         "TreatMissingData" => String.t(),
         "Unit" => String.t()
       }
-
+      
   """
   @type aws_cloud_watch_alarm_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       number_filter() :: %{
         "Eq" => float(),
         "Gt" => float(),
@@ -11614,48 +11614,48 @@ defmodule AWS.SecurityHub do
         "Lt" => float(),
         "Lte" => float()
       }
-
+      
   """
   @type number_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_environment_error() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type aws_lambda_function_environment_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_wafv2_rules_action_captcha_details() :: %{
         "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
       }
-
+      
   """
   @type aws_wafv2_rules_action_captcha_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_local_ip_details() :: %{
         "IpAddressV4" => String.t()
       }
-
+      
   """
   @type action_local_ip_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_efs_access_point_details() :: %{
         "AccessPointId" => String.t(),
         "Arn" => String.t(),
@@ -11664,14 +11664,14 @@ defmodule AWS.SecurityHub do
         "PosixUser" => aws_efs_access_point_posix_user_details(),
         "RootDirectory" => aws_efs_access_point_root_directory_details()
       }
-
+      
   """
   @type aws_efs_access_point_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_rds_db_pending_modified_values() :: %{
         "AllocatedStorage" => integer(),
         "BackupRetentionPeriod" => integer(),
@@ -11689,40 +11689,40 @@ defmodule AWS.SecurityHub do
         "ProcessorFeatures" => list(aws_rds_db_processor_feature()()),
         "StorageType" => String.t()
       }
-
+      
   """
   @type aws_rds_db_pending_modified_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_elastic_beanstalk_environment_tier() :: %{
         "Name" => String.t(),
         "Type" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type aws_elastic_beanstalk_environment_tier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_function_vpc_config() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()()),
         "VpcId" => String.t()
       }
-
+      
   """
   @type aws_lambda_function_vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_cloud_front_distribution_viewer_certificate() :: %{
         "AcmCertificateArn" => String.t(),
         "Certificate" => String.t(),
@@ -11732,14 +11732,14 @@ defmodule AWS.SecurityHub do
         "MinimumProtocolVersion" => String.t(),
         "SslSupportMethod" => String.t()
       }
-
+      
   """
   @type aws_cloud_front_distribution_viewer_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_api_gateway_v2_stage_details() :: %{
         "AccessLogSettings" => aws_api_gateway_access_log_settings(),
         "ApiGatewayManaged" => boolean(),
@@ -11755,14 +11755,14 @@ defmodule AWS.SecurityHub do
         "StageName" => String.t(),
         "StageVariables" => map()
       }
-
+      
   """
   @type aws_api_gateway_v2_stage_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_amazon_mq_broker_details() :: %{
         "AuthenticationStrategy" => String.t(),
         "AutoMinorVersionUpgrade" => boolean(),
@@ -11783,94 +11783,94 @@ defmodule AWS.SecurityHub do
         "SubnetIds" => list(String.t()()),
         "Users" => list(aws_amazon_mq_broker_users_details()())
       }
-
+      
   """
   @type aws_amazon_mq_broker_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_finding_aggregator_response() :: %{
         "FindingAggregationRegion" => String.t(),
         "FindingAggregatorArn" => String.t(),
         "RegionLinkingMode" => String.t(),
         "Regions" => list(String.t()())
       }
-
+      
   """
   @type update_finding_aggregator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       map_filter() :: %{
         "Comparison" => list(any()),
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type map_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disable_security_hub_request() :: %{}
-
+      
   """
   @type disable_security_hub_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_service_load_balancers_details() :: %{
         "ContainerName" => String.t(),
         "ContainerPort" => integer(),
         "LoadBalancerName" => String.t(),
         "TargetGroupArn" => String.t()
       }
-
+      
   """
   @type aws_ecs_service_load_balancers_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_configuration_policy_association() :: %{
         "ConfigurationPolicyAssociationIdentifiers" => configuration_policy_association(),
         "ErrorCode" => String.t(),
         "ErrorReason" => String.t()
       }
-
+      
   """
   @type unprocessed_configuration_policy_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_invitations_response() :: %{
         "Invitations" => list(invitation()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
         "Options" => map(),
         "Type" => String.t()
       }
-
+      
   """
   @type aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
           String.t() => any()
@@ -11879,7 +11879,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "ApplicationArn" => String.t(),
         "ApplicationName" => String.t(),
@@ -11892,19 +11892,19 @@ defmodule AWS.SecurityHub do
         "Tags" => map(),
         "Type" => String.t()
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
         "BannerText" => String.t(),
         "Enabled" => boolean()
       }
-
+      
   """
   @type aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
           String.t() => any()
@@ -11913,7 +11913,7 @@ defmodule AWS.SecurityHub do
   @typedoc """
 
   ## Example:
-
+      
       aws_ec2_launch_template_data_block_device_mapping_set_ebs_details() :: %{
         "DeleteOnTermination" => boolean(),
         "Encrypted" => boolean(),
@@ -11924,7 +11924,7 @@ defmodule AWS.SecurityHub do
         "VolumeSize" => integer(),
         "VolumeType" => String.t()
       }
-
+      
   """
   @type aws_ec2_launch_template_data_block_device_mapping_set_ebs_details() :: %{
           String.t() => any()
@@ -12491,33 +12491,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec accept_administrator_invitation(
-          AWS.Client.t(),
-          accept_administrator_invitation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec accept_administrator_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_administrator_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_administrator_invitation_errors()}
-  def accept_administrator_invitation(%Client{} = client, input, options \\ []) do
+
+  def accept_administrator_invitation(%Client{} = client, options \\ []) do
     url_path = "/administrator"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12535,29 +12542,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec accept_invitation(AWS.Client.t(), accept_invitation_request(), Keyword.t()) ::
+
+  @spec accept_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_invitation_errors()}
-  def accept_invitation(%Client{} = client, input, options \\ []) do
+
+  def accept_invitation(%Client{} = client, options \\ []) do
     url_path = "/master"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12569,33 +12587,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_delete_automation_rules(
-          AWS.Client.t(),
-          batch_delete_automation_rules_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_automation_rules_errors()}
-  def batch_delete_automation_rules(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/delete"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12607,29 +12632,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_disable_standards(AWS.Client.t(), batch_disable_standards_request(), Keyword.t()) ::
+
+  @spec batch_disable_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_disable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disable_standards_errors()}
-  def batch_disable_standards(%Client{} = client, input, options \\ []) do
+
+  def batch_disable_standards(%Client{} = client, options \\ []) do
     url_path = "/standards/deregister"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12642,29 +12678,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_enable_standards(AWS.Client.t(), batch_enable_standards_request(), Keyword.t()) ::
+
+  @spec batch_enable_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_enable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_enable_standards_errors()}
-  def batch_enable_standards(%Client{} = client, input, options \\ []) do
+
+  def batch_enable_standards(%Client{} = client, options \\ []) do
     url_path = "/standards/register"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12677,33 +12724,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_get_automation_rules(
-          AWS.Client.t(),
-          batch_get_automation_rules_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_automation_rules_errors()}
-  def batch_get_automation_rules(%Client{} = client, input, options \\ []) do
+
+  def batch_get_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12718,33 +12772,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_get_configuration_policy_associations(
-          AWS.Client.t(),
-          batch_get_configuration_policy_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_configuration_policy_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_configuration_policy_associations_errors()}
-  def batch_get_configuration_policy_associations(%Client{} = client, input, options \\ []) do
+
+  def batch_get_configuration_policy_associations(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/batchget"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12757,33 +12818,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_get_security_controls(
-          AWS.Client.t(),
-          batch_get_security_controls_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_security_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_security_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_security_controls_errors()}
-  def batch_get_security_controls(%Client{} = client, input, options \\ []) do
+
+  def batch_get_security_controls(%Client{} = client, options \\ []) do
     url_path = "/securityControls/batchGet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12796,33 +12864,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_get_standards_control_associations(
-          AWS.Client.t(),
-          batch_get_standards_control_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_standards_control_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_standards_control_associations_errors()}
-  def batch_get_standards_control_associations(%Client{} = client, input, options \\ []) do
+
+  def batch_get_standards_control_associations(%Client{} = client, options \\ []) do
     url_path = "/associations/batchGet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12836,29 +12911,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_import_findings(AWS.Client.t(), batch_import_findings_request(), Keyword.t()) ::
+
+  @spec batch_import_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_import_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_import_findings_errors()}
-  def batch_import_findings(%Client{} = client, input, options \\ []) do
+
+  def batch_import_findings(%Client{} = client, options \\ []) do
     url_path = "/findings/import"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12871,21 +12957,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_update_automation_rules(
-          AWS.Client.t(),
-          batch_update_automation_rules_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_automation_rules_errors()}
-  def batch_update_automation_rules(%Client{} = client, input, options \\ []) do
+
+  def batch_update_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -12894,7 +12997,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -12913,17 +13016,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_update_findings(AWS.Client.t(), batch_update_findings_request(), Keyword.t()) ::
+
+  @spec batch_update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_findings_errors()}
-  def batch_update_findings(%Client{} = client, input, options \\ []) do
+
+  def batch_update_findings(%Client{} = client, options \\ []) do
     url_path = "/findings/batchupdate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -12932,7 +13056,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -12948,21 +13072,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec batch_update_standards_control_associations(
-          AWS.Client.t(),
-          batch_update_standards_control_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_standards_control_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_standards_control_associations_errors()}
-  def batch_update_standards_control_associations(%Client{} = client, input, options \\ []) do
+
+  def batch_update_standards_control_associations(%Client{} = client, options \\ []) do
     url_path = "/associations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -12971,7 +13112,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -12986,29 +13127,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec create_action_target(AWS.Client.t(), create_action_target_request(), Keyword.t()) ::
+
+  @spec create_action_target(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_action_target_errors()}
-  def create_action_target(%Client{} = client, input, options \\ []) do
+
+  def create_action_target(%Client{} = client, options \\ []) do
     url_path = "/actionTargets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13020,29 +13172,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec create_automation_rule(AWS.Client.t(), create_automation_rule_request(), Keyword.t()) ::
+
+  @spec create_automation_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_automation_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_automation_rule_errors()}
-  def create_automation_rule(%Client{} = client, input, options \\ []) do
+
+  def create_automation_rule(%Client{} = client, options \\ []) do
     url_path = "/automationrules/create"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13055,33 +13218,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec create_configuration_policy(
-          AWS.Client.t(),
-          create_configuration_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_configuration_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_policy_errors()}
-  def create_configuration_policy(%Client{} = client, input, options \\ []) do
+
+  def create_configuration_policy(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicy/create"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13093,33 +13263,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec create_finding_aggregator(
-          AWS.Client.t(),
-          create_finding_aggregator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_finding_aggregator(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_finding_aggregator_errors()}
-  def create_finding_aggregator(%Client{} = client, input, options \\ []) do
+
+  def create_finding_aggregator(%Client{} = client, options \\ []) do
     url_path = "/findingAggregator/create"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13133,29 +13310,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec create_insight(AWS.Client.t(), create_insight_request(), Keyword.t()) ::
+
+  @spec create_insight(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_insight_errors()}
-  def create_insight(%Client{} = client, input, options \\ []) do
+
+  def create_insight(%Client{} = client, options \\ []) do
     url_path = "/insights"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13171,29 +13359,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec create_members(AWS.Client.t(), create_members_request(), Keyword.t()) ::
+
+  @spec create_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_members_errors()}
-  def create_members(%Client{} = client, input, options \\ []) do
+
+  def create_members(%Client{} = client, options \\ []) do
     url_path = "/members"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13206,29 +13405,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec decline_invitations(AWS.Client.t(), decline_invitations_request(), Keyword.t()) ::
+
+  @spec decline_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decline_invitations_errors()}
-  def decline_invitations(%Client{} = client, input, options \\ []) do
+
+  def decline_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations/decline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13238,26 +13448,42 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:action_target_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom
-    action target to delete.
+  action target to delete.
 
   ## Optional parameters:
   """
-  @spec delete_action_target(
-          AWS.Client.t(),
-          String.t(),
-          delete_action_target_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_action_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_action_target_errors()}
-  def delete_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
+
+  def delete_action_target(%Client{} = client, action_target_arn, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13266,7 +13492,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13283,26 +13509,42 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
-    unique identifier (UUID) of the configuration policy.
+  unique identifier (UUID) of the configuration policy.
 
   ## Optional parameters:
   """
-  @spec delete_configuration_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_configuration_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_policy_errors()}
-  def delete_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
+
+  def delete_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13311,7 +13553,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13325,28 +13567,43 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
-    delete. To obtain the ARN, use ListFindingAggregators.
+  delete. To obtain the ARN, use ListFindingAggregators.
 
   ## Optional parameters:
   """
-  @spec delete_finding_aggregator(
-          AWS.Client.t(),
-          String.t(),
-          delete_finding_aggregator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_finding_aggregator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_finding_aggregator_errors()}
-  def delete_finding_aggregator(%Client{} = client, finding_aggregator_arn, input, options \\ []) do
+
+  def delete_finding_aggregator(%Client{} = client, finding_aggregator_arn, options \\ []) do
     url_path =
       "/findingAggregator/delete/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13355,7 +13612,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13371,17 +13628,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec delete_insight(AWS.Client.t(), String.t(), delete_insight_request(), Keyword.t()) ::
+
+  @spec delete_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_insight_errors()}
-  def delete_insight(%Client{} = client, insight_arn, input, options \\ []) do
+
+  def delete_insight(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13390,7 +13668,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13407,29 +13685,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec delete_invitations(AWS.Client.t(), delete_invitations_request(), Keyword.t()) ::
+
+  @spec delete_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_invitations_errors()}
-  def delete_invitations(%Client{} = client, input, options \\ []) do
+
+  def delete_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations/delete"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13441,29 +13730,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec delete_members(AWS.Client.t(), delete_members_request(), Keyword.t()) ::
+
+  @spec delete_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_members_errors()}
-  def delete_members(%Client{} = client, input, options \\ []) do
+
+  def delete_members(%Client{} = client, options \\ []) do
     url_path = "/members/delete"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13475,29 +13775,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec describe_action_targets(AWS.Client.t(), describe_action_targets_request(), Keyword.t()) ::
+
+  @spec describe_action_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_action_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_targets_errors()}
-  def describe_action_targets(%Client{} = client, input, options \\ []) do
+
+  def describe_action_targets(%Client{} = client, options \\ []) do
     url_path = "/actionTargets/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13511,10 +13822,12 @@ defmodule AWS.SecurityHub do
   ## Optional parameters:
   * `:hub_arn` (`t:string`) The ARN of the Hub resource to retrieve.
   """
+
   @spec describe_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hub_errors()}
+
   def describe_hub(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -13564,10 +13877,12 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
+
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
+
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
 
@@ -13608,14 +13923,16 @@ defmodule AWS.SecurityHub do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-    first call to the DescribeProducts operation, set the value of this
-    parameter to NULL.
+  first call to the DescribeProducts operation, set the value of this
+  parameter to NULL.
   * `:product_arn` (`t:string`) The ARN of the integration to return.
   """
+
   @spec describe_products(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_products_errors()}
+
   def describe_products(%Client{} = client, options \\ []) do
     url_path = "/products"
 
@@ -13679,13 +13996,15 @@ defmodule AWS.SecurityHub do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of standards to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-    first call to the DescribeStandards operation, set the value of this
-    parameter to NULL.
+  first call to the DescribeStandards operation, set the value of this
+  parameter to NULL.
   """
+
   @spec describe_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_standards_errors()}
+
   def describe_standards(%Client{} = client, options \\ []) do
     url_path = "/standards"
 
@@ -13739,21 +14058,23 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:standards_subscription_arn` (`t:string`) The ARN of a resource that
-    represents your subscription to a supported standard. To get the
-    subscription ARNs of the standards you have enabled, use the
-    GetEnabledStandards operation.
+  represents your subscription to a supported standard. To get the
+  subscription ARNs of the standards you have enabled, use the
+  GetEnabledStandards operation.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of security standard controls
-    to return.
+  to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-    first call to the DescribeStandardsControls operation, set the value of this
-    parameter to NULL.
+  first call to the DescribeStandardsControls operation, set the value of this
+  parameter to NULL.
   """
+
   @spec describe_standards_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_standards_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_standards_controls_errors()}
+
   def describe_standards_controls(%Client{} = client, standards_subscription_arn, options \\ []) do
     url_path =
       "/standards/controls/#{AWS.Util.encode_multi_segment_uri(standards_subscription_arn)}"
@@ -13810,33 +14131,47 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:product_subscription_arn` (`t:string`) The ARN of the integrated product to
-    disable the integration for.
+  disable the integration for.
 
   ## Optional parameters:
   """
-  @spec disable_import_findings_for_product(
-          AWS.Client.t(),
-          String.t(),
-          disable_import_findings_for_product_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disable_import_findings_for_product(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_import_findings_for_product_errors()}
+
   def disable_import_findings_for_product(
         %Client{} = client,
         product_subscription_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/productSubscriptions/#{AWS.Util.encode_multi_segment_uri(product_subscription_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13845,7 +14180,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13861,33 +14196,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec disable_organization_admin_account(
-          AWS.Client.t(),
-          disable_organization_admin_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_organization_admin_account_errors()}
-  def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
+
+  def disable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/organization/admin/disable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13902,17 +14244,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec disable_security_hub(AWS.Client.t(), disable_security_hub_request(), Keyword.t()) ::
+
+  @spec disable_security_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_security_hub_errors()}
-  def disable_security_hub(%Client{} = client, input, options \\ []) do
+
+  def disable_security_hub(%Client{} = client, options \\ []) do
     url_path = "/accounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13921,7 +14284,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13937,33 +14300,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec disassociate_from_administrator_account(
-          AWS.Client.t(),
-          disassociate_from_administrator_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_from_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_from_administrator_account_errors()}
-  def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
+
+  def disassociate_from_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator/disassociate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13982,33 +14352,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec disassociate_from_master_account(
-          AWS.Client.t(),
-          disassociate_from_master_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_from_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_from_master_account_errors()}
-  def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
+
+  def disassociate_from_master_account(%Client{} = client, options \\ []) do
     url_path = "/master/disassociate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14021,29 +14398,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec disassociate_members(AWS.Client.t(), disassociate_members_request(), Keyword.t()) ::
+
+  @spec disassociate_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_members_errors()}
-  def disassociate_members(%Client{} = client, input, options \\ []) do
+
+  def disassociate_members(%Client{} = client, options \\ []) do
     url_path = "/members/disassociate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14056,33 +14444,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec enable_import_findings_for_product(
-          AWS.Client.t(),
-          enable_import_findings_for_product_request(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_import_findings_for_product(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_import_findings_for_product_errors()}
-  def enable_import_findings_for_product(%Client{} = client, input, options \\ []) do
+
+  def enable_import_findings_for_product(%Client{} = client, options \\ []) do
     url_path = "/productSubscriptions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14095,33 +14490,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec enable_organization_admin_account(
-          AWS.Client.t(),
-          enable_organization_admin_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_organization_admin_account_errors()}
-  def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
+
+  def enable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/organization/admin/enable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14136,29 +14538,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec enable_security_hub(AWS.Client.t(), enable_security_hub_request(), Keyword.t()) ::
+
+  @spec enable_security_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_security_hub_errors()}
-  def enable_security_hub(%Client{} = client, input, options \\ []) do
+
+  def enable_security_hub(%Client{} = client, options \\ []) do
     url_path = "/accounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14171,10 +14584,12 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
+
   @spec get_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_administrator_account_errors()}
+
   def get_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator"
 
@@ -14211,14 +14626,16 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
-    unique identifier (UUID) of the configuration policy.
+  unique identifier (UUID) of the configuration policy.
 
   ## Optional parameters:
   """
+
   @spec get_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_policy_errors()}
+
   def get_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/get/#{AWS.Util.encode_uri(identifier)}"
 
@@ -14259,33 +14676,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec get_configuration_policy_association(
-          AWS.Client.t(),
-          get_configuration_policy_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_configuration_policy_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_policy_association_errors()}
-  def get_configuration_policy_association(%Client{} = client, input, options \\ []) do
+
+  def get_configuration_policy_association(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14297,29 +14721,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec get_enabled_standards(AWS.Client.t(), get_enabled_standards_request(), Keyword.t()) ::
+
+  @spec get_enabled_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enabled_standards_errors()}
-  def get_enabled_standards(%Client{} = client, input, options \\ []) do
+
+  def get_enabled_standards(%Client{} = client, options \\ []) do
     url_path = "/standards/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14329,14 +14764,16 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
-    return details for. To obtain the ARN, use ListFindingAggregators.
+  return details for. To obtain the ARN, use ListFindingAggregators.
 
   ## Optional parameters:
   """
+
   @spec get_finding_aggregator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_aggregator_errors()}
+
   def get_finding_aggregator(%Client{} = client, finding_aggregator_arn, options \\ []) do
     url_path =
       "/findingAggregator/get/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
@@ -14377,29 +14814,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec get_finding_history(AWS.Client.t(), get_finding_history_request(), Keyword.t()) ::
+
+  @spec get_finding_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_finding_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_finding_history_errors()}
-  def get_finding_history(%Client{} = client, input, options \\ []) do
+
+  def get_finding_history(%Client{} = client, options \\ []) do
     url_path = "/findingHistory/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14411,29 +14859,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec get_findings(AWS.Client.t(), get_findings_request(), Keyword.t()) ::
+
+  @spec get_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_errors()}
-  def get_findings(%Client{} = client, input, options \\ []) do
+
+  def get_findings(%Client{} = client, options \\ []) do
     url_path = "/findings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14443,14 +14902,16 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:insight_arn` (`t:string`) The ARN of the insight for which to return
-    results.
+  results.
 
   ## Optional parameters:
   """
+
   @spec get_insight_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_insight_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_results_errors()}
+
   def get_insight_results(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/results/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
 
@@ -14488,29 +14949,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec get_insights(AWS.Client.t(), get_insights_request(), Keyword.t()) ::
+
+  @spec get_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insights_errors()}
-  def get_insights(%Client{} = client, input, options \\ []) do
+
+  def get_insights(%Client{} = client, options \\ []) do
     url_path = "/insights/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14523,10 +14995,12 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
+
   @spec get_invitations_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_invitations_count_errors()}
+
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitations/count"
 
@@ -14570,10 +15044,12 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
+
   @spec get_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_master_account_errors()}
+
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
 
@@ -14614,29 +15090,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec get_members(AWS.Client.t(), get_members_request(), Keyword.t()) ::
+
+  @spec get_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_members_errors()}
-  def get_members(%Client{} = client, input, options \\ []) do
+
+  def get_members(%Client{} = client, options \\ []) do
     url_path = "/members/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14648,15 +15135,18 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:security_control_id` (`t:string`) The ID of the security control to retrieve
-    the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+  the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
 
   ## Optional parameters:
   """
+
   @spec get_security_control_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_security_control_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_control_definition_errors()}
-  def get_security_control_definition(%Client{} = client, security_control_id, options \\ []) do
+
+  def get_security_control_definition(%Client{} = client, security_control_id, options \\ [])
+      when is_binary(security_control_id) do
     url_path = "/securityControl/definition"
 
     # Validate optional parameters
@@ -14696,29 +15186,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec invite_members(AWS.Client.t(), invite_members_request(), Keyword.t()) ::
+
+  @spec invite_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_members_errors()}
-  def invite_members(%Client{} = client, input, options \\ []) do
+
+  def invite_members(%Client{} = client, options \\ []) do
     url_path = "/members/invite"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14730,16 +15231,18 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of rules to return in the
-    response. This currently ranges from 1 to 100.
+  response. This currently ranges from 1 to 100.
   * `:next_token` (`t:string`) A token to specify where to start paginating the
-    response. This is the NextToken from a previously truncated response. On
-    your first call to the ListAutomationRules API, set the value of this
-    parameter to NULL.
+  response. This is the NextToken from a previously truncated response. On
+  your first call to the ListAutomationRules API, set the value of this
+  parameter to NULL.
   """
+
   @spec list_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_automation_rules_errors()}
+
   def list_automation_rules(%Client{} = client, options \\ []) do
     url_path = "/automationrules/list"
 
@@ -14797,24 +15300,26 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results that's returned by
-    ListConfigurationPolicies in each page of the response. When this parameter
-    is used, ListConfigurationPolicies returns the specified number of results
-    in a single page and a NextToken response element. You can see the remaining
-    results of the initial request by sending another ListConfigurationPolicies
-    request with the returned NextToken value. A valid range for MaxResults is
-    between 1 and 100.
+  ListConfigurationPolicies in each page of the response. When this parameter
+  is used, ListConfigurationPolicies returns the specified number of results
+  in a single page and a NextToken response element. You can see the remaining
+  results of the initial request by sending another ListConfigurationPolicies
+  request with the returned NextToken value. A valid range for MaxResults is
+  between 1 and 100.
   * `:next_token` (`t:string`) The NextToken value that's returned from a previous
-    paginated ListConfigurationPolicies request where MaxResults was used but
-    the results exceeded the value of that parameter. Pagination continues from
-    the MaxResults was used but the results exceeded the value of that
-    parameter. Pagination continues from the end of the previous response that
-    returned the NextToken value. This value is null when there are no more
-    results to return.
+  paginated ListConfigurationPolicies request where MaxResults was used but
+  the results exceeded the value of that parameter. Pagination continues from
+  the MaxResults was used but the results exceeded the value of that
+  parameter. Pagination continues from the end of the previous response that
+  returned the NextToken value. This value is null when there are no more
+  results to return.
   """
+
   @spec list_configuration_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_policies_errors()}
+
   def list_configuration_policies(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicy/list"
 
@@ -14872,33 +15377,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec list_configuration_policy_associations(
-          AWS.Client.t(),
-          list_configuration_policy_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_configuration_policy_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_policy_associations_errors()}
-  def list_configuration_policy_associations(%Client{} = client, input, options \\ []) do
+
+  def list_configuration_policy_associations(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14911,15 +15423,17 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-    first call to the ListEnabledProductsForImport operation, set the value of
-    this parameter to NULL.
+  first call to the ListEnabledProductsForImport operation, set the value of
+  this parameter to NULL.
   """
+
   @spec list_enabled_products_for_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_products_for_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_enabled_products_for_import_errors()}
+
   def list_enabled_products_for_import(%Client{} = client, options \\ []) do
     url_path = "/productSubscriptions"
 
@@ -14976,14 +15490,16 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. This
-    operation currently only returns a single result.
+  operation currently only returns a single result.
   * `:next_token` (`t:string`) The token returned with the previous set of
-    results. Identifies the next set of results to return.
+  results. Identifies the next set of results to return.
   """
+
   @spec list_finding_aggregators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_finding_aggregators_errors()}
+
   def list_finding_aggregators(%Client{} = client, options \\ []) do
     url_path = "/findingAggregator/list"
 
@@ -15040,15 +15556,17 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-    first call to the ListInvitations operation, set the value of this parameter
-    to NULL.
+  first call to the ListInvitations operation, set the value of this parameter
+  to NULL.
   """
+
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
+
   def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations"
 
@@ -15105,18 +15623,20 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-    first call to the ListMembers operation, set the value of this parameter to
-    NULL.
+  first call to the ListMembers operation, set the value of this parameter to
+  NULL.
   * `:only_associated` (`t:boolean`) Specifies which member accounts to include in
-    the response based on their relationship status with the administrator
-    account. The default value is TRUE.
+  the response based on their relationship status with the administrator
+  account. The default value is TRUE.
   """
+
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
+
   def list_members(%Client{} = client, options \\ []) do
     url_path = "/members"
 
@@ -15180,17 +15700,19 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-    first call to the ListOrganizationAdminAccounts operation, set the value of
-    this parameter to NULL. For subsequent calls to the operation, to continue
-    listing data, set the value of this parameter to the value returned from the
-    previous response.
+  first call to the ListOrganizationAdminAccounts operation, set the value of
+  this parameter to NULL. For subsequent calls to the operation, to continue
+  listing data, set the value of this parameter to the value returned from the
+  previous response.
   """
+
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_admin_accounts_errors()}
+
   def list_organization_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/organization/admin"
 
@@ -15246,19 +15768,21 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) An optional parameter that limits the total
-    results of the API response to the specified number. If this parameter isn't
-    provided in the request, the results include the first 25 security controls
-    that apply to the specified standard. The results also include a NextToken
-    parameter that you can use in a subsequent API call to get the next 25
-    controls. This repeats until all controls for the standard are returned.
+  results of the API response to the specified number. If this parameter isn't
+  provided in the request, the results include the first 25 security controls
+  that apply to the specified standard. The results also include a NextToken
+  parameter that you can use in a subsequent API call to get the next 25
+  controls. This repeats until all controls for the standard are returned.
   * `:next_token` (`t:string`) Optional pagination parameter.
   * `:standards_arn` (`t:string`) The Amazon Resource Name (ARN) of the standard
-    that you want to view controls for.
+  that you want to view controls for.
   """
+
   @spec list_security_control_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_control_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_control_definitions_errors()}
+
   def list_security_control_definitions(%Client{} = client, options \\ []) do
     url_path = "/securityControls/definitions"
 
@@ -15320,26 +15844,29 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:security_control_id` (`t:string`) The identifier of the control (identified
-    with SecurityControlId, SecurityControlArn, or a mix of both parameters)
-    that you want to determine the enablement status of in each enabled
-    standard.
+  with SecurityControlId, SecurityControlArn, or a mix of both parameters)
+  that you want to determine the enablement status of in each enabled
+  standard.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) An optional parameter that limits the total
-    results of the API response to the specified number. If this parameter isn't
-    provided in the request, the results include the first 25 standard and
-    control associations. The results also include a NextToken parameter that
-    you can use in a subsequent API call to get the next 25 associations. This
-    repeats until all associations for the specified control are returned. The
-    number of results is limited by the number of supported Security Hub
-    standards that you've enabled in the calling account.
+  results of the API response to the specified number. If this parameter isn't
+  provided in the request, the results include the first 25 standard and
+  control associations. The results also include a NextToken parameter that
+  you can use in a subsequent API call to get the next 25 associations. This
+  repeats until all associations for the specified control are returned. The
+  number of results is limited by the number of supported Security Hub
+  standards that you've enabled in the calling account.
   * `:next_token` (`t:string`) Optional pagination parameter.
   """
+
   @spec list_standards_control_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_standards_control_associations_errors()}
-  def list_standards_control_associations(%Client{} = client, security_control_id, options \\ []) do
+
+  def list_standards_control_associations(%Client{} = client, security_control_id, options \\ [])
+      when is_binary(security_control_id) do
     url_path = "/associations"
 
     # Validate optional parameters
@@ -15395,10 +15922,12 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -15439,33 +15968,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec start_configuration_policy_association(
-          AWS.Client.t(),
-          start_configuration_policy_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_configuration_policy_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_configuration_policy_association_errors()}
-  def start_configuration_policy_association(%Client{} = client, input, options \\ []) do
+
+  def start_configuration_policy_association(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/associate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15483,33 +16019,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec start_configuration_policy_disassociation(
-          AWS.Client.t(),
-          start_configuration_policy_disassociation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_configuration_policy_disassociation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_policy_disassociation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_configuration_policy_disassociation_errors()}
-  def start_configuration_policy_disassociation(%Client{} = client, input, options \\ []) do
+
+  def start_configuration_policy_disassociation(%Client{} = client, options \\ []) do
     url_path = "/configurationPolicyAssociation/disassociate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15522,29 +16065,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15555,27 +16109,44 @@ defmodule AWS.SecurityHub do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to remove the tags from.
   * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]`) The tag keys
-    associated with the tags to remove from the resource. You can remove up to
-    50 tags at a time.
+  associated with the tags to remove from the resource. You can remove up to
+  50 tags at a time.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15584,7 +16155,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15597,26 +16168,42 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:action_target_arn` (`t:string`) The ARN of the custom action target to
-    update.
+  update.
 
   ## Optional parameters:
   """
-  @spec update_action_target(
-          AWS.Client.t(),
-          String.t(),
-          update_action_target_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_action_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_action_target_errors()}
-  def update_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
+
+  def update_action_target(%Client{} = client, action_target_arn, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15625,7 +16212,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15639,26 +16226,42 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
-    unique identifier (UUID) of the configuration policy.
+  unique identifier (UUID) of the configuration policy.
 
   ## Optional parameters:
   """
-  @spec update_configuration_policy(
-          AWS.Client.t(),
-          String.t(),
-          update_configuration_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_policy_errors()}
-  def update_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
+
+  def update_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15667,7 +16270,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15684,21 +16287,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec update_finding_aggregator(
-          AWS.Client.t(),
-          update_finding_aggregator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_finding_aggregator(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_finding_aggregator_errors()}
-  def update_finding_aggregator(%Client{} = client, input, options \\ []) do
+
+  def update_finding_aggregator(%Client{} = client, options \\ []) do
     url_path = "/findingAggregator/update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15707,7 +16327,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15725,17 +16345,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec update_findings(AWS.Client.t(), update_findings_request(), Keyword.t()) ::
+
+  @spec update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_findings_errors()}
-  def update_findings(%Client{} = client, input, options \\ []) do
+
+  def update_findings(%Client{} = client, options \\ []) do
     url_path = "/findings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15744,7 +16385,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15760,17 +16401,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec update_insight(AWS.Client.t(), String.t(), update_insight_request(), Keyword.t()) ::
+
+  @spec update_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_insight_errors()}
-  def update_insight(%Client{} = client, insight_arn, input, options \\ []) do
+
+  def update_insight(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15779,7 +16441,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15795,33 +16457,40 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec update_organization_configuration(
-          AWS.Client.t(),
-          update_organization_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organization_configuration_errors()}
-  def update_organization_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15833,17 +16502,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec update_security_control(AWS.Client.t(), update_security_control_request(), Keyword.t()) ::
+
+  @spec update_security_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_security_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_control_errors()}
-  def update_security_control(%Client{} = client, input, options \\ []) do
+
+  def update_security_control(%Client{} = client, options \\ []) do
     url_path = "/securityControl/update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15852,7 +16542,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15867,21 +16557,38 @@ defmodule AWS.SecurityHub do
 
   ## Optional parameters:
   """
-  @spec update_security_hub_configuration(
-          AWS.Client.t(),
-          update_security_hub_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_security_hub_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_security_hub_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_hub_configuration_errors()}
-  def update_security_hub_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_security_hub_configuration(%Client{} = client, options \\ []) do
     url_path = "/accounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15890,7 +16597,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15904,26 +16611,42 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:standards_control_arn` (`t:string`) The ARN of the security standard control
-    to enable or disable.
+  to enable or disable.
 
   ## Optional parameters:
   """
-  @spec update_standards_control(
-          AWS.Client.t(),
-          String.t(),
-          update_standards_control_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_standards_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_standards_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_standards_control_errors()}
-  def update_standards_control(%Client{} = client, standards_control_arn, input, options \\ []) do
+
+  def update_standards_control(%Client{} = client, standards_control_arn, options \\ []) do
     url_path = "/standards/control/#{AWS.Util.encode_multi_segment_uri(standards_control_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15932,7 +16655,7 @@ defmodule AWS.SecurityHub do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

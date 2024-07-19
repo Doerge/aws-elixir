@@ -4431,16 +4431,25 @@ defmodule AWS.Kendra do
   as a search application. For more information on creating a search application
   experience, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20AssociateEntitiesToExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_entities_to_experience_request`)
+    %{
+      required("EntityList") => list(entity_configuration()()),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec associate_entities_to_experience(
-          AWS.Client.t(),
-          associate_entities_to_experience_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_entities_to_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_entities_to_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_entities_to_experience_errors()}
-  def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
+
+  def associate_entities_to_experience(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4454,16 +4463,25 @@ defmodule AWS.Kendra do
   on creating a search application experience, see [Building a search experience
   with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20AssociatePersonasToEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_personas_to_entities_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t(),
+      required("Personas") => list(entity_persona_configuration()())
+    }
   """
-  @spec associate_personas_to_entities(
-          AWS.Client.t(),
-          associate_personas_to_entities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_personas_to_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_personas_to_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_personas_to_entities_errors()}
-  def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
+
+  def associate_personas_to_entities(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4478,12 +4496,24 @@ defmodule AWS.Kendra do
   Amazon Web Services CloudWatch log. You can also use the
   `BatchGetDocumentStatus` API to monitor the progress of deleting your
   documents.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20BatchDeleteDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_document_request`)
+    %{
+      optional("DataSourceSyncJobMetricTarget") => data_source_sync_job_metric_target(),
+      required("DocumentIdList") => list(String.t()()),
+      required("IndexId") => String.t()
+    }
   """
-  @spec batch_delete_document(AWS.Client.t(), batch_delete_document_request(), Keyword.t()) ::
+
+  @spec batch_delete_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_document_errors()}
-  def batch_delete_document(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4494,16 +4524,24 @@ defmodule AWS.Kendra do
   Removes one or more sets of featured results. Features results are placed above
   all other results for certain queries. If there's an exact match of a query,
   then one or more specific documents are featured in the search results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20BatchDeleteFeaturedResultsSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_featured_results_set_request`)
+    %{
+      required("FeaturedResultsSetIds") => list(String.t()()),
+      required("IndexId") => String.t()
+    }
   """
-  @spec batch_delete_featured_results_set(
-          AWS.Client.t(),
-          batch_delete_featured_results_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_featured_results_set_errors()}
-  def batch_delete_featured_results_set(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_featured_results_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4517,16 +4555,23 @@ defmodule AWS.Kendra do
   asynchronously. You can use the `BatchGetDocumentStatus` API to get the
   current status of a list of documents so that you can determine if they have
   been successfully indexed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20BatchGetDocumentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_document_status_request`)
+    %{
+      required("DocumentInfoList") => list(document_info()()),
+      required("IndexId") => String.t()
+    }
   """
-  @spec batch_get_document_status(
-          AWS.Client.t(),
-          batch_get_document_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_document_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_document_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_document_status_errors()}
-  def batch_get_document_status(%Client{} = client, input, options \\ []) do
+
+  def batch_get_document_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4539,12 +4584,25 @@ defmodule AWS.Kendra do
   bucket. Use this API to ingest your text and unstructured text into an index,
   add custom attributes to the documents, and to attach an access control list
   to the documents added to the index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20BatchPutDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_put_document_request`)
+    %{
+      optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
+      optional("RoleArn") => String.t(),
+      required("Documents") => list(document()()),
+      required("IndexId") => String.t()
+    }
   """
-  @spec batch_put_document(AWS.Client.t(), batch_put_document_request(), Keyword.t()) ::
+
+  @spec batch_put_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_put_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_document_errors()}
-  def batch_put_document(%Client{} = client, input, options \\ []) do
+
+  def batch_put_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4558,12 +4616,22 @@ defmodule AWS.Kendra do
   to the query log from the time you cleared suggestions. If you do not see any
   new suggestions, then please allow Amazon Kendra to collect enough queries to
   learn new suggestions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ClearQuerySuggestions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:clear_query_suggestions_request`)
+    %{
+      required("IndexId") => String.t()
+    }
   """
-  @spec clear_query_suggestions(AWS.Client.t(), clear_query_suggestions_request(), Keyword.t()) ::
+
+  @spec clear_query_suggestions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, clear_query_suggestions_errors()}
-  def clear_query_suggestions(%Client{} = client, input, options \\ []) do
+
+  def clear_query_suggestions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4585,16 +4653,28 @@ defmodule AWS.Kendra do
   access control configuration to allow access if the user returns to the
   company and re-joins the 'top-secret' team. You can re-configure access
   control for your documents as circumstances change.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateAccessControlConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_access_control_configuration_request`)
+    %{
+      optional("AccessControlList") => list(principal()()),
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("HierarchicalAccessControlList") => list(hierarchical_principal()()),
+      required("IndexId") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_access_control_configuration(
-          AWS.Client.t(),
-          create_access_control_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_control_configuration_errors()}
-  def create_access_control_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_access_control_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4606,12 +4686,33 @@ defmodule AWS.Kendra do
   index. You specify a name, data source connector type and description for your
   data source. You also specify configuration information for the data source
   connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_data_source_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Configuration") => data_source_configuration(),
+      optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
+      optional("Description") => String.t(),
+      optional("LanguageCode") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("Schedule") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VpcConfiguration") => data_source_vpc_configuration(),
+      required("IndexId") => String.t(),
+      required("Name") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec create_data_source(AWS.Client.t(), create_data_source_request(), Keyword.t()) ::
+
+  @spec create_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
-  def create_data_source(%Client{} = client, input, options \\ []) do
+
+  def create_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4623,12 +4724,27 @@ defmodule AWS.Kendra do
   information on creating a search application experience, including using the
   Python and Java SDKs, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_experience_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Configuration") => experience_configuration(),
+      optional("Description") => String.t(),
+      optional("RoleArn") => String.t(),
+      required("IndexId") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_experience(AWS.Client.t(), create_experience_request(), Keyword.t()) ::
+
+  @spec create_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experience_errors()}
-  def create_experience(%Client{} = client, input, options \\ []) do
+
+  def create_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4639,12 +4755,30 @@ defmodule AWS.Kendra do
   Creates a set of frequently ask questions (FAQs) using a specified FAQ file
   stored in an Amazon S3 bucket. Adding FAQs to an index is an asynchronous
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateFaq&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_faq_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("FileFormat") => list(any()),
+      optional("LanguageCode") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("IndexId") => String.t(),
+      required("Name") => String.t(),
+      required("RoleArn") => String.t(),
+      required("S3Path") => s3_path()
+    }
   """
-  @spec create_faq(AWS.Client.t(), create_faq_request(), Keyword.t()) ::
+
+  @spec create_faq(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_faq_errors()}
-  def create_faq(%Client{} = client, input, options \\ []) do
+
+  def create_faq(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4657,16 +4791,29 @@ defmodule AWS.Kendra do
   You map specific queries to specific documents for featuring in the results.
   If a query contains an exact match, then one or more specific documents are
   featured in the search results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateFeaturedResultsSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_featured_results_set_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("FeaturedDocuments") => list(featured_document()()),
+      optional("QueryTexts") => list(String.t()()),
+      optional("Status") => list(any()),
+      optional("Tags") => list(tag()()),
+      required("FeaturedResultsSetName") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec create_featured_results_set(
-          AWS.Client.t(),
-          create_featured_results_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_featured_results_set_errors()}
-  def create_featured_results_set(%Client{} = client, input, options \\ []) do
+
+  def create_featured_results_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4678,12 +4825,31 @@ defmodule AWS.Kendra do
   determine if index creation has completed, check the `Status` field returned
   from a call to `DescribeIndex`. The `Status` field is set to `ACTIVE` when the
   index is ready to use.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_index_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("Edition") => list(any()),
+      optional("ServerSideEncryptionConfiguration") => server_side_encryption_configuration(),
+      optional("Tags") => list(tag()()),
+      optional("UserContextPolicy") => list(any()),
+      optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
+      optional("UserTokenConfigurations") => list(user_token_configuration()()),
+      required("Name") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_index(AWS.Client.t(), create_index_request(), Keyword.t()) ::
+
+  @spec create_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
-  def create_index(%Client{} = client, input, options \\ []) do
+
+  def create_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4694,16 +4860,29 @@ defmodule AWS.Kendra do
   Creates a block list to exlcude certain queries from suggestions. Any query that
   contains words or phrases specified in the block list is blocked or filtered
   out from being shown as a suggestion.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateQuerySuggestionsBlockList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_query_suggestions_block_list_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("IndexId") => String.t(),
+      required("Name") => String.t(),
+      required("RoleArn") => String.t(),
+      required("SourceS3Path") => s3_path()
+    }
   """
-  @spec create_query_suggestions_block_list(
-          AWS.Client.t(),
-          create_query_suggestions_block_list_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_query_suggestions_block_list_errors()}
-  def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+
+  def create_query_suggestions_block_list(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4713,12 +4892,28 @@ defmodule AWS.Kendra do
   @doc """
   Creates a thesaurus for an index. The thesaurus contains a list of synonyms in
   Solr format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20CreateThesaurus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_thesaurus_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("IndexId") => String.t(),
+      required("Name") => String.t(),
+      required("RoleArn") => String.t(),
+      required("SourceS3Path") => s3_path()
+    }
   """
-  @spec create_thesaurus(AWS.Client.t(), create_thesaurus_request(), Keyword.t()) ::
+
+  @spec create_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_thesaurus_errors()}
-  def create_thesaurus(%Client{} = client, input, options \\ []) do
+
+  def create_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4730,16 +4925,24 @@ defmodule AWS.Kendra do
   an index. This includes user and group access information for your documents.
   This is useful for user context filtering, where search results are filtered
   based on the user or their group access to documents.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteAccessControlConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_access_control_configuration_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec delete_access_control_configuration(
-          AWS.Client.t(),
-          delete_access_control_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_control_configuration_errors()}
-  def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_access_control_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4752,12 +4955,23 @@ defmodule AWS.Kendra do
   deleted, the `Status` field returned by a call to the `DescribeDataSource` API
   is set to `DELETING`. For more information, see [Deleting Data
   Sources](https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_data_source_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec delete_data_source(AWS.Client.t(), delete_data_source_request(), Keyword.t()) ::
+
+  @spec delete_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-  def delete_data_source(%Client{} = client, input, options \\ []) do
+
+  def delete_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4769,12 +4983,23 @@ defmodule AWS.Kendra do
   information on creating a search application experience, see [Building a
   search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_experience_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec delete_experience(AWS.Client.t(), delete_experience_request(), Keyword.t()) ::
+
+  @spec delete_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experience_errors()}
-  def delete_experience(%Client{} = client, input, options \\ []) do
+
+  def delete_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4783,12 +5008,23 @@ defmodule AWS.Kendra do
 
   @doc """
   Removes an FAQ from an index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteFaq&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_faq_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec delete_faq(AWS.Client.t(), delete_faq_request(), Keyword.t()) ::
+
+  @spec delete_faq(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_faq_errors()}
-  def delete_faq(%Client{} = client, input, options \\ []) do
+
+  def delete_faq(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4799,12 +5035,22 @@ defmodule AWS.Kendra do
   Deletes an Amazon Kendra index. An exception is not thrown if the index is
   already being deleted. While the index is being deleted, the `Status` field
   returned by a call to the `DescribeIndex` API is set to `DELETING`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_index_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec delete_index(AWS.Client.t(), delete_index_request(), Keyword.t()) ::
+
+  @spec delete_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_errors()}
-  def delete_index(%Client{} = client, input, options \\ []) do
+
+  def delete_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4816,12 +5062,25 @@ defmodule AWS.Kendra do
   longer access documents only available to that group. For example, after
   deleting the group "Summer Interns", all interns who belonged to that group no
   longer see intern-only documents in their search results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeletePrincipalMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_principal_mapping_request`)
+    %{
+      optional("DataSourceId") => String.t(),
+      optional("OrderingId") => float(),
+      required("GroupId") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec delete_principal_mapping(AWS.Client.t(), delete_principal_mapping_request(), Keyword.t()) ::
+
+  @spec delete_principal_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_principal_mapping_errors()}
-  def delete_principal_mapping(%Client{} = client, input, options \\ []) do
+
+  def delete_principal_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4832,16 +5091,24 @@ defmodule AWS.Kendra do
   Deletes a block list used for query suggestions for an index. A deleted block
   list might not take effect right away. Amazon Kendra needs to refresh the
   entire suggestions list to add back the queries that were previously blocked.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteQuerySuggestionsBlockList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_query_suggestions_block_list_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec delete_query_suggestions_block_list(
-          AWS.Client.t(),
-          delete_query_suggestions_block_list_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_query_suggestions_block_list_errors()}
-  def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+
+  def delete_query_suggestions_block_list(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4850,12 +5117,23 @@ defmodule AWS.Kendra do
 
   @doc """
   Deletes an Amazon Kendra thesaurus.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DeleteThesaurus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_thesaurus_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec delete_thesaurus(AWS.Client.t(), delete_thesaurus_request(), Keyword.t()) ::
+
+  @spec delete_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_thesaurus_errors()}
-  def delete_thesaurus(%Client{} = client, input, options \\ []) do
+
+  def delete_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4867,16 +5145,24 @@ defmodule AWS.Kendra do
   documents in an index. This includes user and group access information for
   your documents. This is useful for user context filtering, where search
   results are filtered based on the user or their group access to documents.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeAccessControlConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_access_control_configuration_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_access_control_configuration(
-          AWS.Client.t(),
-          describe_access_control_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_control_configuration_errors()}
-  def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
+
+  def describe_access_control_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4885,12 +5171,23 @@ defmodule AWS.Kendra do
 
   @doc """
   Gets information about an Amazon Kendra data source connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_data_source_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_data_source(AWS.Client.t(), describe_data_source_request(), Keyword.t()) ::
+
+  @spec describe_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_source_errors()}
-  def describe_data_source(%Client{} = client, input, options \\ []) do
+
+  def describe_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4902,12 +5199,23 @@ defmodule AWS.Kendra do
   application. For more information on creating a search application experience,
   see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_experience_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_experience(AWS.Client.t(), describe_experience_request(), Keyword.t()) ::
+
+  @spec describe_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_experience_errors()}
-  def describe_experience(%Client{} = client, input, options \\ []) do
+
+  def describe_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4916,12 +5224,23 @@ defmodule AWS.Kendra do
 
   @doc """
   Gets information about an FAQ list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeFaq&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_faq_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_faq(AWS.Client.t(), describe_faq_request(), Keyword.t()) ::
+
+  @spec describe_faq(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_faq_errors()}
-  def describe_faq(%Client{} = client, input, options \\ []) do
+
+  def describe_faq(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4932,16 +5251,24 @@ defmodule AWS.Kendra do
   Gets information about a set of featured results. Features results are placed
   above all other results for certain queries. If there's an exact match of a
   query, then one or more specific documents are featured in the search results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeFeaturedResultsSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_featured_results_set_request`)
+    %{
+      required("FeaturedResultsSetId") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_featured_results_set(
-          AWS.Client.t(),
-          describe_featured_results_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_featured_results_set_errors()}
-  def describe_featured_results_set(%Client{} = client, input, options \\ []) do
+
+  def describe_featured_results_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4950,12 +5277,22 @@ defmodule AWS.Kendra do
 
   @doc """
   Gets information about an Amazon Kendra index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_index_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec describe_index(AWS.Client.t(), describe_index_request(), Keyword.t()) ::
+
+  @spec describe_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_index_errors()}
-  def describe_index(%Client{} = client, input, options \\ []) do
+
+  def describe_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4969,16 +5306,24 @@ defmodule AWS.Kendra do
   actions were received by Amazon Kendra, the latest action that should process
   and apply after other actions, and useful error messages if an action could
   not be processed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribePrincipalMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_principal_mapping_request`)
+    %{
+      optional("DataSourceId") => String.t(),
+      required("GroupId") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_principal_mapping(
-          AWS.Client.t(),
-          describe_principal_mapping_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_principal_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_principal_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_principal_mapping_errors()}
-  def describe_principal_mapping(%Client{} = client, input, options \\ []) do
+
+  def describe_principal_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4988,16 +5333,24 @@ defmodule AWS.Kendra do
   @doc """
   Gets information about a block list used for query suggestions for an index.
   This is used to check the current settings that are applied to a block list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeQuerySuggestionsBlockList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_query_suggestions_block_list_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_query_suggestions_block_list(
-          AWS.Client.t(),
-          describe_query_suggestions_block_list_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_suggestions_block_list_errors()}
-  def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+
+  def describe_query_suggestions_block_list(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5007,16 +5360,23 @@ defmodule AWS.Kendra do
   @doc """
   Gets information on the settings of query suggestions for an index. This is used
   to check the current settings applied to query suggestions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeQuerySuggestionsConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_query_suggestions_config_request`)
+    %{
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_query_suggestions_config(
-          AWS.Client.t(),
-          describe_query_suggestions_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_query_suggestions_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_query_suggestions_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_suggestions_config_errors()}
-  def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
+
+  def describe_query_suggestions_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5025,12 +5385,23 @@ defmodule AWS.Kendra do
 
   @doc """
   Gets information about an Amazon Kendra thesaurus.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DescribeThesaurus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_thesaurus_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec describe_thesaurus(AWS.Client.t(), describe_thesaurus_request(), Keyword.t()) ::
+
+  @spec describe_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_thesaurus_errors()}
-  def describe_thesaurus(%Client{} = client, input, options \\ []) do
+
+  def describe_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5043,16 +5414,25 @@ defmodule AWS.Kendra do
   experience such as a search application. For more information on creating a
   search application experience, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DisassociateEntitiesFromExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_entities_from_experience_request`)
+    %{
+      required("EntityList") => list(entity_configuration()()),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec disassociate_entities_from_experience(
-          AWS.Client.t(),
-          disassociate_entities_from_experience_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_entities_from_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_entities_from_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_entities_from_experience_errors()}
-  def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
+
+  def disassociate_entities_from_experience(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5066,16 +5446,25 @@ defmodule AWS.Kendra do
   on creating a search application experience, see [Building a search experience
   with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20DisassociatePersonasFromEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_personas_from_entities_request`)
+    %{
+      required("EntityIds") => list(String.t()()),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec disassociate_personas_from_entities(
-          AWS.Client.t(),
-          disassociate_personas_from_entities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_personas_from_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_personas_from_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_personas_from_entities_errors()}
-  def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
+
+  def disassociate_personas_from_entities(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5084,12 +5473,26 @@ defmodule AWS.Kendra do
 
   @doc """
   Fetches the queries that are suggested to your users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20GetQuerySuggestions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_query_suggestions_request`)
+    %{
+      optional("AttributeSuggestionsConfig") => attribute_suggestions_get_config(),
+      optional("MaxSuggestionsCount") => integer(),
+      optional("SuggestionTypes") => list(list(any())()),
+      required("IndexId") => String.t(),
+      required("QueryText") => String.t()
+    }
   """
-  @spec get_query_suggestions(AWS.Client.t(), get_query_suggestions_request(), Keyword.t()) ::
+
+  @spec get_query_suggestions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_query_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_suggestions_errors()}
-  def get_query_suggestions(%Client{} = client, input, options \\ []) do
+
+  def get_query_suggestions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5099,12 +5502,26 @@ defmodule AWS.Kendra do
   @doc """
   Retrieves search metrics data. The data provides a snapshot of how your users
   interact with your search application and how effective the application is.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20GetSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_snapshots_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t(),
+      required("Interval") => list(any()),
+      required("MetricType") => list(any())
+    }
   """
-  @spec get_snapshots(AWS.Client.t(), get_snapshots_request(), Keyword.t()) ::
+
+  @spec get_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshots_errors()}
-  def get_snapshots(%Client{} = client, input, options \\ []) do
+
+  def get_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5116,16 +5533,25 @@ defmodule AWS.Kendra do
   and group access information for your documents. This is useful for user
   context filtering, where search results are filtered based on the user or
   their group access to documents.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListAccessControlConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_access_control_configurations_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_access_control_configurations(
-          AWS.Client.t(),
-          list_access_control_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_access_control_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_access_control_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_control_configurations_errors()}
-  def list_access_control_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_access_control_configurations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5134,16 +5560,27 @@ defmodule AWS.Kendra do
 
   @doc """
   Gets statistics about synchronizing a data source connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListDataSourceSyncJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_source_sync_jobs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StartTimeFilter") => time_range(),
+      optional("StatusFilter") => list(any()),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_data_source_sync_jobs(
-          AWS.Client.t(),
-          list_data_source_sync_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_data_source_sync_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_source_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_source_sync_jobs_errors()}
-  def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5152,12 +5589,24 @@ defmodule AWS.Kendra do
 
   @doc """
   Lists the data source connectors that you have created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListDataSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_sources_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_data_sources(AWS.Client.t(), list_data_sources_request(), Keyword.t()) ::
+
+  @spec list_data_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
-  def list_data_sources(%Client{} = client, input, options \\ []) do
+
+  def list_data_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5167,12 +5616,25 @@ defmodule AWS.Kendra do
   @doc """
   Lists specific permissions of users and groups with access to your Amazon Kendra
   experience.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListEntityPersonas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_entity_personas_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_entity_personas(AWS.Client.t(), list_entity_personas_request(), Keyword.t()) ::
+
+  @spec list_entity_personas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entity_personas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entity_personas_errors()}
-  def list_entity_personas(%Client{} = client, input, options \\ []) do
+
+  def list_entity_personas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5186,12 +5648,24 @@ defmodule AWS.Kendra do
   creating a search application experience, see [Building a search experience
   with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListExperienceEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_experience_entities_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_experience_entities(AWS.Client.t(), list_experience_entities_request(), Keyword.t()) ::
+
+  @spec list_experience_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_experience_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experience_entities_errors()}
-  def list_experience_entities(%Client{} = client, input, options \\ []) do
+
+  def list_experience_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5203,12 +5677,24 @@ defmodule AWS.Kendra do
   experience such as a search application. For more information on creating a
   search application experience, see [Building a search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListExperiences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_experiences_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_experiences(AWS.Client.t(), list_experiences_request(), Keyword.t()) ::
+
+  @spec list_experiences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_experiences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiences_errors()}
-  def list_experiences(%Client{} = client, input, options \\ []) do
+
+  def list_experiences(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5217,12 +5703,24 @@ defmodule AWS.Kendra do
 
   @doc """
   Gets a list of FAQ lists associated with an index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListFaqs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_faqs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_faqs(AWS.Client.t(), list_faqs_request(), Keyword.t()) ::
+
+  @spec list_faqs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_faqs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_faqs_errors()}
-  def list_faqs(%Client{} = client, input, options \\ []) do
+
+  def list_faqs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5234,16 +5732,24 @@ defmodule AWS.Kendra do
   placed above all other results for certain queries. If there's an exact match
   of a query, then one or more specific documents are featured in the search
   results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListFeaturedResultsSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_featured_results_sets_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_featured_results_sets(
-          AWS.Client.t(),
-          list_featured_results_sets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_featured_results_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_featured_results_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_featured_results_sets_errors()}
-  def list_featured_results_sets(%Client{} = client, input, options \\ []) do
+
+  def list_featured_results_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5253,16 +5759,27 @@ defmodule AWS.Kendra do
   @doc """
   Provides a list of groups that are mapped to users before a given ordering or
   timestamp identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListGroupsOlderThanOrderingId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_groups_older_than_ordering_id_request`)
+    %{
+      optional("DataSourceId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t(),
+      required("OrderingId") => float()
+    }
   """
-  @spec list_groups_older_than_ordering_id(
-          AWS.Client.t(),
-          list_groups_older_than_ordering_id_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_groups_older_than_ordering_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_groups_older_than_ordering_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_older_than_ordering_id_errors()}
-  def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
+
+  def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5271,12 +5788,23 @@ defmodule AWS.Kendra do
 
   @doc """
   Lists the Amazon Kendra indexes that you created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListIndices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_indices_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_indices(AWS.Client.t(), list_indices_request(), Keyword.t()) ::
+
+  @spec list_indices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indices_errors()}
-  def list_indices(%Client{} = client, input, options \\ []) do
+
+  def list_indices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5287,16 +5815,25 @@ defmodule AWS.Kendra do
   Lists the block lists used for query suggestions for an index. For information
   on the current quota limits for block lists, see [Quotas for Amazon
   Kendra](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListQuerySuggestionsBlockLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_query_suggestions_block_lists_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_query_suggestions_block_lists(
-          AWS.Client.t(),
-          list_query_suggestions_block_lists_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_query_suggestions_block_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_query_suggestions_block_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_query_suggestions_block_lists_errors()}
-  def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
+
+  def list_query_suggestions_block_lists(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5306,12 +5843,22 @@ defmodule AWS.Kendra do
   @doc """
   Gets a list of tags associated with a specified resource. Indexes, FAQs, and
   data sources can have tags associated with them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5320,12 +5867,24 @@ defmodule AWS.Kendra do
 
   @doc """
   Lists the thesauri for an index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20ListThesauri&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_thesauri_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec list_thesauri(AWS.Client.t(), list_thesauri_request(), Keyword.t()) ::
+
+  @spec list_thesauri(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_thesauri_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_thesauri_errors()}
-  def list_thesauri(%Client{} = client, input, options \\ []) do
+
+  def list_thesauri(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5340,12 +5899,27 @@ defmodule AWS.Kendra do
   work in these teams. Only users who work in research and engineering, and
   therefore belong in the intellectual property group, can see top-secret
   company documents in their search results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20PutPrincipalMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_principal_mapping_request`)
+    %{
+      optional("DataSourceId") => String.t(),
+      optional("OrderingId") => float(),
+      optional("RoleArn") => String.t(),
+      required("GroupId") => String.t(),
+      required("GroupMembers") => group_members(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec put_principal_mapping(AWS.Client.t(), put_principal_mapping_request(), Keyword.t()) ::
+
+  @spec put_principal_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_principal_mapping_errors()}
-  def put_principal_mapping(%Client{} = client, input, options \\ []) do
+
+  def put_principal_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5360,12 +5934,36 @@ defmodule AWS.Kendra do
   API, which can return longer semantically relevant passages. We recommend
   using the `Retrieve` API instead of filing a service limit increase to
   increase the `Query` API document excerpt length.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20Query&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:query_request`)
+    %{
+      optional("AttributeFilter") => attribute_filter(),
+      optional("CollapseConfiguration") => collapse_configuration(),
+      optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()()),
+      optional("Facets") => list(facet()()),
+      optional("PageNumber") => integer(),
+      optional("PageSize") => integer(),
+      optional("QueryResultTypeFilter") => list(any()),
+      optional("QueryText") => String.t(),
+      optional("RequestedDocumentAttributes") => list(String.t()()),
+      optional("SortingConfiguration") => sorting_configuration(),
+      optional("SortingConfigurations") => list(sorting_configuration()()),
+      optional("SpellCorrectionConfiguration") => spell_correction_configuration(),
+      optional("UserContext") => user_context(),
+      optional("VisitorId") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec query(AWS.Client.t(), query_request(), Keyword.t()) ::
+
+  @spec query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_errors()}
-  def query(%Client{} = client, input, options \\ []) do
+
+  def query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5385,12 +5983,29 @@ defmodule AWS.Kendra do
   documents produce zero passages using the `Retrieve` API, you can
   alternatively use the `Query` API and its types of responses. You can also do
   the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20Retrieve&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:retrieve_request`)
+    %{
+      optional("AttributeFilter") => attribute_filter(),
+      optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()()),
+      optional("PageNumber") => integer(),
+      optional("PageSize") => integer(),
+      optional("RequestedDocumentAttributes") => list(String.t()()),
+      optional("UserContext") => user_context(),
+      required("IndexId") => String.t(),
+      required("QueryText") => String.t()
+    }
   """
-  @spec retrieve(AWS.Client.t(), retrieve_request(), Keyword.t()) ::
+
+  @spec retrieve(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retrieve_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retrieve_errors()}
-  def retrieve(%Client{} = client, input, options \\ []) do
+
+  def retrieve(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5401,16 +6016,23 @@ defmodule AWS.Kendra do
   Starts a synchronization job for a data source connector. If a synchronization
   job is already in progress, Amazon Kendra returns a `ResourceInUseException`
   exception.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20StartDataSourceSyncJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_data_source_sync_job_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec start_data_source_sync_job(
-          AWS.Client.t(),
-          start_data_source_sync_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_data_source_sync_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_source_sync_job_errors()}
-  def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
+
+  def start_data_source_sync_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5420,16 +6042,23 @@ defmodule AWS.Kendra do
   @doc """
   Stops a synchronization job that is currently running. You can't stop a
   scheduled synchronization job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20StopDataSourceSyncJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_data_source_sync_job_request`)
+    %{
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec stop_data_source_sync_job(
-          AWS.Client.t(),
-          stop_data_source_sync_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_data_source_sync_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_data_source_sync_job_errors()}
-  def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
+
+  def stop_data_source_sync_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5439,12 +6068,25 @@ defmodule AWS.Kendra do
   @doc """
   Enables you to provide feedback to Amazon Kendra to improve the performance of
   your index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20SubmitFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:submit_feedback_request`)
+    %{
+      optional("ClickFeedbackItems") => list(click_feedback()()),
+      optional("RelevanceFeedbackItems") => list(relevance_feedback()()),
+      required("IndexId") => String.t(),
+      required("QueryId") => String.t()
+    }
   """
-  @spec submit_feedback(AWS.Client.t(), submit_feedback_request(), Keyword.t()) ::
+
+  @spec submit_feedback(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_feedback_errors()}
-  def submit_feedback(%Client{} = client, input, options \\ []) do
+
+  def submit_feedback(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5454,12 +6096,23 @@ defmodule AWS.Kendra do
   @doc """
   Adds the specified tag to the specified index, FAQ, or data source resource. If
   the tag already exists, the existing value is replaced with the new value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5468,12 +6121,23 @@ defmodule AWS.Kendra do
 
   @doc """
   Removes a tag from an index, FAQ, or a data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5493,16 +6157,28 @@ defmodule AWS.Kendra do
   user suddenly returns to their previous team and should no longer have access
   to top secret documents. You can update the access control configuration to
   re-configure access control for your documents as circumstances change.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateAccessControlConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_access_control_configuration_request`)
+    %{
+      optional("AccessControlList") => list(principal()()),
+      optional("Description") => String.t(),
+      optional("HierarchicalAccessControlList") => list(hierarchical_principal()()),
+      optional("Name") => String.t(),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec update_access_control_configuration(
-          AWS.Client.t(),
-          update_access_control_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_access_control_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_control_configuration_errors()}
-  def update_access_control_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_access_control_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5511,12 +6187,31 @@ defmodule AWS.Kendra do
 
   @doc """
   Updates an Amazon Kendra data source connector.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_data_source_request`)
+    %{
+      optional("Configuration") => data_source_configuration(),
+      optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
+      optional("Description") => String.t(),
+      optional("LanguageCode") => String.t(),
+      optional("Name") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("Schedule") => String.t(),
+      optional("VpcConfiguration") => data_source_vpc_configuration(),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec update_data_source(AWS.Client.t(), update_data_source_request(), Keyword.t()) ::
+
+  @spec update_data_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-  def update_data_source(%Client{} = client, input, options \\ []) do
+
+  def update_data_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5528,12 +6223,27 @@ defmodule AWS.Kendra do
   information on creating a search application experience, see [Building a
   search experience with no
   code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_experience_request`)
+    %{
+      optional("Configuration") => experience_configuration(),
+      optional("Description") => String.t(),
+      optional("Name") => String.t(),
+      optional("RoleArn") => String.t(),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec update_experience(AWS.Client.t(), update_experience_request(), Keyword.t()) ::
+
+  @spec update_experience(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experience_errors()}
-  def update_experience(%Client{} = client, input, options \\ []) do
+
+  def update_experience(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5545,16 +6255,28 @@ defmodule AWS.Kendra do
   results for certain queries. You map specific queries to specific documents
   for featuring in the results. If a query contains an exact match of a query,
   then one or more specific documents are featured in the search results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateFeaturedResultsSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_featured_results_set_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("FeaturedDocuments") => list(featured_document()()),
+      optional("FeaturedResultsSetName") => String.t(),
+      optional("QueryTexts") => list(String.t()()),
+      optional("Status") => list(any()),
+      required("FeaturedResultsSetId") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec update_featured_results_set(
-          AWS.Client.t(),
-          update_featured_results_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_featured_results_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_featured_results_set_errors()}
-  def update_featured_results_set(%Client{} = client, input, options \\ []) do
+
+  def update_featured_results_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5563,12 +6285,30 @@ defmodule AWS.Kendra do
 
   @doc """
   Updates an Amazon Kendra index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_index_request`)
+    %{
+      optional("CapacityUnits") => capacity_units_configuration(),
+      optional("Description") => String.t(),
+      optional("DocumentMetadataConfigurationUpdates") => list(document_metadata_configuration()()),
+      optional("Name") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("UserContextPolicy") => list(any()),
+      optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
+      optional("UserTokenConfigurations") => list(user_token_configuration()()),
+      required("Id") => String.t()
+    }
   """
-  @spec update_index(AWS.Client.t(), update_index_request(), Keyword.t()) ::
+
+  @spec update_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_index_errors()}
-  def update_index(%Client{} = client, input, options \\ []) do
+
+  def update_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5580,16 +6320,28 @@ defmodule AWS.Kendra do
   list might not take effect right away. Amazon Kendra needs to refresh the
   entire suggestions list to apply any updates to the block list. Other changes
   not related to the block list apply immediately.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateQuerySuggestionsBlockList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_query_suggestions_block_list_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Name") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("SourceS3Path") => s3_path(),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec update_query_suggestions_block_list(
-          AWS.Client.t(),
-          update_query_suggestions_block_list_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_query_suggestions_block_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_query_suggestions_block_list_errors()}
-  def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
+
+  def update_query_suggestions_block_list(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5599,16 +6351,29 @@ defmodule AWS.Kendra do
   @doc """
   Updates the settings of query suggestions for an index. Amazon Kendra supports
   partial updates, so you only need to provide the fields you want to update.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateQuerySuggestionsConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_query_suggestions_config_request`)
+    %{
+      optional("AttributeSuggestionsConfig") => attribute_suggestions_update_config(),
+      optional("IncludeQueriesWithoutUserInformation") => boolean(),
+      optional("MinimumNumberOfQueryingUsers") => integer(),
+      optional("MinimumQueryCount") => integer(),
+      optional("Mode") => list(any()),
+      optional("QueryLogLookBackWindowInDays") => integer(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec update_query_suggestions_config(
-          AWS.Client.t(),
-          update_query_suggestions_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_query_suggestions_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_query_suggestions_config_errors()}
-  def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
+
+  def update_query_suggestions_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5617,12 +6382,27 @@ defmodule AWS.Kendra do
 
   @doc """
   Updates a thesaurus for an index.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendra%20UpdateThesaurus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_thesaurus_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Name") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("SourceS3Path") => s3_path(),
+      required("Id") => String.t(),
+      required("IndexId") => String.t()
+    }
   """
-  @spec update_thesaurus(AWS.Client.t(), update_thesaurus_request(), Keyword.t()) ::
+
+  @spec update_thesaurus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_thesaurus_errors()}
-  def update_thesaurus(%Client{} = client, input, options \\ []) do
+
+  def update_thesaurus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

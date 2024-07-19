@@ -29,7 +29,7 @@ defmodule AWS.InternetMonitor do
   @typedoc """
 
   ## Example:
-
+      
       get_health_event_output() :: %{
         optional("CreatedAt") => [non_neg_integer()],
         optional("EndedAt") => [non_neg_integer()],
@@ -43,55 +43,55 @@ defmodule AWS.InternetMonitor do
         required("StartedAt") => [non_neg_integer()],
         required("Status") => String.t()
       }
-
+      
   """
   @type get_health_event_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       health_events_config() :: %{
         "AvailabilityLocalHealthEventsConfig" => local_health_events_config(),
         "AvailabilityScoreThreshold" => float(),
         "PerformanceLocalHealthEventsConfig" => local_health_events_config(),
         "PerformanceScoreThreshold" => float()
       }
-
+      
   """
   @type health_events_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_monitors_input() :: %{
         optional("IncludeLinkedAccounts") => [boolean()],
         optional("MaxResults") => integer(),
         optional("MonitorStatus") => [String.t()],
         optional("NextToken") => [String.t()]
       }
-
+      
   """
   @type list_monitors_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_query_results_output() :: %{
         "Data" => list(list([String.t()]())()),
         "Fields" => list(query_field()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type get_query_results_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_monitor_output() :: %{
         "CreatedAt" => [non_neg_integer()],
         "HealthEventsConfig" => health_events_config(),
@@ -107,81 +107,81 @@ defmodule AWS.InternetMonitor do
         "Tags" => map(),
         "TrafficPercentageToMonitor" => integer()
       }
-
+      
   """
   @type get_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_query_output() :: %{
         "QueryId" => [String.t()]
       }
-
+      
   """
   @type start_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_monitors_output() :: %{
         "Monitors" => list(monitor()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type list_monitors_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_parameter() :: %{
         "Field" => [String.t()],
         "Operator" => String.t(),
         "Values" => list([String.t()]())
       }
-
+      
   """
   @type filter_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_query_input() :: %{}
-
+      
   """
   @type stop_query_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       network_impairment() :: %{
         "AsPath" => list(network()()),
         "NetworkEventType" => String.t(),
         "Networks" => list(network()())
       }
-
+      
   """
   @type network_impairment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_monitor_output() :: %{}
-
+      
   """
   @type delete_monitor_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       client_location() :: %{
         "ASName" => [String.t()],
         "ASNumber" => [float()],
@@ -192,14 +192,14 @@ defmodule AWS.InternetMonitor do
         "Metro" => [String.t()],
         "Subdivision" => [String.t()]
       }
-
+      
   """
   @type client_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_internet_events_input() :: %{
         optional("EndTime") => [non_neg_integer()],
         optional("EventStatus") => [String.t()],
@@ -208,50 +208,50 @@ defmodule AWS.InternetMonitor do
         optional("NextToken") => [String.t()],
         optional("StartTime") => [non_neg_integer()]
       }
-
+      
   """
   @type list_internet_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitor() :: %{
         "MonitorArn" => String.t(),
         "MonitorName" => String.t(),
         "ProcessingStatus" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type monitor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       impacted_location() :: %{
         "ASName" => [String.t()],
         "ASNumber" => [float()],
@@ -269,102 +269,102 @@ defmodule AWS.InternetMonitor do
         "Subdivision" => [String.t()],
         "SubdivisionCode" => [String.t()]
       }
-
+      
   """
   @type impacted_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_query_status_output() :: %{
         "Status" => String.t()
       }
-
+      
   """
   @type get_query_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_monitor_input() :: %{}
-
+      
   """
   @type delete_monitor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_internet_event_input() :: %{}
-
+      
   """
   @type get_internet_event_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internet_measurements_log_delivery() :: %{
         "S3Config" => s3_config()
       }
-
+      
   """
   @type internet_measurements_log_delivery() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       local_health_events_config() :: %{
         "HealthScoreThreshold" => float(),
         "MinTrafficImpact" => float(),
         "Status" => String.t()
       }
-
+      
   """
   @type local_health_events_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_config() :: %{
         "BucketName" => [String.t()],
         "BucketPrefix" => [String.t()],
         "LogDeliveryStatus" => String.t()
       }
-
+      
   """
   @type s3_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_internet_event_output() :: %{
         "ClientLocation" => client_location(),
         "EndedAt" => [non_neg_integer()],
@@ -374,135 +374,135 @@ defmodule AWS.InternetMonitor do
         "EventType" => String.t(),
         "StartedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type get_internet_event_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       performance_measurement() :: %{
         "ExperienceScore" => [float()],
         "PercentOfClientLocationImpacted" => [float()],
         "PercentOfTotalTrafficImpacted" => [float()],
         "RoundTripTime" => round_trip_time()
       }
-
+      
   """
   @type performance_measurement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_query_status_input() :: %{}
-
+      
   """
   @type get_query_status_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_monitor_input() :: %{
         optional("LinkedAccountId") => String.t()
       }
-
+      
   """
   @type get_monitor_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_query_output() :: %{}
-
+      
   """
   @type stop_query_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_health_events_output() :: %{
         optional("NextToken") => [String.t()],
         required("HealthEvents") => list(health_event()())
       }
-
+      
   """
   @type list_health_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_health_event_input() :: %{
         optional("LinkedAccountId") => String.t()
       }
-
+      
   """
   @type get_health_event_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       availability_measurement() :: %{
         "ExperienceScore" => [float()],
         "PercentOfClientLocationImpacted" => [float()],
         "PercentOfTotalTrafficImpacted" => [float()]
       }
-
+      
   """
   @type availability_measurement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_health_events_input() :: %{
         optional("EndTime") => [non_neg_integer()],
         optional("EventStatus") => String.t(),
@@ -511,48 +511,48 @@ defmodule AWS.InternetMonitor do
         optional("NextToken") => [String.t()],
         optional("StartTime") => [non_neg_integer()]
       }
-
+      
   """
   @type list_health_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_field() :: %{
         "Name" => [String.t()],
         "Type" => [String.t()]
       }
-
+      
   """
   @type query_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         "TagKeys" => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_monitor_input() :: %{
         optional("ClientToken") => [String.t()],
         optional("HealthEventsConfig") => health_events_config(),
@@ -563,14 +563,14 @@ defmodule AWS.InternetMonitor do
         optional("Status") => String.t(),
         optional("TrafficPercentageToMonitor") => integer()
       }
-
+      
   """
   @type update_monitor_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       health_event() :: %{
         "CreatedAt" => [non_neg_integer()],
         "EndedAt" => [non_neg_integer()],
@@ -584,160 +584,160 @@ defmodule AWS.InternetMonitor do
         "StartedAt" => [non_neg_integer()],
         "Status" => String.t()
       }
-
+      
   """
   @type health_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_query_results_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()]
       }
-
+      
   """
   @type get_query_results_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network() :: %{
         "ASName" => [String.t()],
         "ASNumber" => [float()]
       }
-
+      
   """
   @type network() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       round_trip_time() :: %{
         "P50" => [float()],
         "P90" => [float()],
         "P95" => [float()]
       }
-
+      
   """
   @type round_trip_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_monitor_output() :: %{
         "Arn" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type create_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internet_health() :: %{
         "Availability" => availability_measurement(),
         "Performance" => performance_measurement()
       }
-
+      
   """
   @type internet_health() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_internet_events_output() :: %{
         "InternetEvents" => list(internet_event_summary()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type list_internet_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internet_event_summary() :: %{
         "ClientLocation" => client_location(),
         "EndedAt" => [non_neg_integer()],
@@ -747,14 +747,14 @@ defmodule AWS.InternetMonitor do
         "EventType" => String.t(),
         "StartedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type internet_event_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_query_input() :: %{
         optional("FilterParameters") => list(filter_parameter()()),
         optional("LinkedAccountId") => String.t(),
@@ -762,26 +762,26 @@ defmodule AWS.InternetMonitor do
         required("QueryType") => String.t(),
         required("StartTime") => [non_neg_integer()]
       }
-
+      
   """
   @type start_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_monitor_output() :: %{
         "MonitorArn" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type update_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_monitor_input() :: %{
         optional("ClientToken") => [String.t()],
         optional("HealthEventsConfig") => health_events_config(),
@@ -792,7 +792,7 @@ defmodule AWS.InternetMonitor do
         optional("TrafficPercentageToMonitor") => integer(),
         required("MonitorName") => String.t()
       }
-
+      
   """
   @type create_monitor_input() :: %{String.t() => any()}
 
@@ -946,29 +946,40 @@ defmodule AWS.InternetMonitor do
 
   ## Optional parameters:
   """
-  @spec create_monitor(AWS.Client.t(), create_monitor_input(), Keyword.t()) ::
+
+  @spec create_monitor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
-  def create_monitor(%Client{} = client, input, options \\ []) do
+
+  def create_monitor(%Client{} = client, options \\ []) do
     url_path = "/v20210603/Monitors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -981,17 +992,38 @@ defmodule AWS.InternetMonitor do
 
   ## Optional parameters:
   """
-  @spec delete_monitor(AWS.Client.t(), String.t(), delete_monitor_input(), Keyword.t()) ::
+
+  @spec delete_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
-  def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
+
+  def delete_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1000,7 +1032,7 @@ defmodule AWS.InternetMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1018,21 +1050,23 @@ defmodule AWS.InternetMonitor do
 
   ## Parameters:
   * `:event_id` (`t:string`) The internally-generated identifier of a health
-    event. Because EventID contains the forward slash (“/”) character, you must
-    URL-encode the EventID field in the request URL.
+  event. Because EventID contains the forward slash (“/”) character, you must
+  URL-encode the EventID field in the request URL.
   * `:monitor_name` (`t:string`) The name of the monitor.
 
   ## Optional parameters:
   * `:linked_account_id` (`t:string`) The account ID for an account that you've
-    set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
-    configure cross-account sharing by using Amazon CloudWatch Observability
-    Access Manager. For more information, see Internet Monitor cross-account
-    observability in the Amazon CloudWatch Internet Monitor User Guide.
+  set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
+  configure cross-account sharing by using Amazon CloudWatch Observability
+  Access Manager. For more information, see Internet Monitor cross-account
+  observability in the Amazon CloudWatch Internet Monitor User Guide.
   """
+
   @spec get_health_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_health_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_health_event_errors()}
+
   def get_health_event(%Client{} = client, event_id, monitor_name, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents/#{AWS.Util.encode_uri(event_id)}"
@@ -1083,14 +1117,16 @@ defmodule AWS.InternetMonitor do
 
   ## Parameters:
   * `:event_id` (`t:string`) The EventId of the internet event to return
-    information for.
+  information for.
 
   ## Optional parameters:
   """
+
   @spec get_internet_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_internet_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_internet_event_errors()}
+
   def get_internet_event(%Client{} = client, event_id, options \\ []) do
     url_path = "/v20210603/InternetEvents/#{AWS.Util.encode_uri(event_id)}"
 
@@ -1132,15 +1168,17 @@ defmodule AWS.InternetMonitor do
 
   ## Optional parameters:
   * `:linked_account_id` (`t:string`) The account ID for an account that you've
-    set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
-    configure cross-account sharing by using Amazon CloudWatch Observability
-    Access Manager. For more information, see Internet Monitor cross-account
-    observability in the Amazon CloudWatch Internet Monitor User Guide.
+  set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
+  configure cross-account sharing by using Amazon CloudWatch Observability
+  Access Manager. For more information, see Internet Monitor cross-account
+  observability in the Amazon CloudWatch Internet Monitor User Guide.
   """
+
   @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
+
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
 
@@ -1189,19 +1227,22 @@ defmodule AWS.InternetMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string`) The name of the monitor to return data for.
-  * `:query_id` (`t:`) The ID of the query that you want to return data results
-    for. A QueryId is an internally-generated identifier for a specific query.
+  * `:query_id` (`t:string`) The ID of the query that you want to return data
+  results for. A QueryId is an internally-generated identifier for a specific
+  query.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of query results that you want to
-    return with this call.
-  * `:next_token` (`t:`) The token for the next set of results. You receive this
-    token from a previous call.
+  return with this call.
+  * `:next_token` (`t:string`) The token for the next set of results. You receive
+  this token from a previous call.
   """
+
   @spec get_query_results(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_results_errors()}
+
   def get_query_results(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Results"
@@ -1259,15 +1300,18 @@ defmodule AWS.InternetMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string`) The name of the monitor.
-  * `:query_id` (`t:`) The ID of the query that you want to return the status for.
-    A QueryId is an internally-generated dentifier for a specific query.
+  * `:query_id` (`t:string`) The ID of the query that you want to return the
+  status for. A QueryId is an internally-generated dentifier for a specific
+  query.
 
   ## Optional parameters:
   """
+
   @spec get_query_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_status_errors()}
+
   def get_query_status(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}/Status"
@@ -1308,24 +1352,26 @@ defmodule AWS.InternetMonitor do
   * `:monitor_name` (`t:string`) The name of the monitor.
 
   ## Optional parameters:
-  * `:end_time` (`t:`) The time when a health event ended. If the health event is
-    still ongoing, then the end time is not set.
+  * `:end_time` (`t:string`) The time when a health event ended. If the health
+  event is still ongoing, then the end time is not set.
   * `:event_status` (`t:string`) The status of a health event.
   * `:linked_account_id` (`t:string`) The account ID for an account that you've
-    set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
-    configure cross-account sharing by using Amazon CloudWatch Observability
-    Access Manager. For more information, see Internet Monitor cross-account
-    observability in the Amazon CloudWatch Internet Monitor User Guide.
+  set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You
+  configure cross-account sharing by using Amazon CloudWatch Observability
+  Access Manager. For more information, see Internet Monitor cross-account
+  observability in the Amazon CloudWatch Internet Monitor User Guide.
   * `:max_results` (`t:integer`) The number of health event objects that you want
-    to return with this call.
-  * `:next_token` (`t:`) The token for the next set of results. You receive this
-    token from a previous call.
-  * `:start_time` (`t:`) The time when a health event started.
+  to return with this call.
+  * `:next_token` (`t:string`) The token for the next set of results. You receive
+  this token from a previous call.
+  * `:start_time` (`t:string`) The time when a health event started.
   """
+
   @spec list_health_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_health_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_health_events_errors()}
+
   def list_health_events(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/HealthEvents"
 
@@ -1429,21 +1475,23 @@ defmodule AWS.InternetMonitor do
   ## Parameters:
 
   ## Optional parameters:
-  * `:end_time` (`t:`) The end time of the time window that you want to get a list
-    of internet events for.
-  * `:event_status` (`t:`) The status of an internet event.
-  * `:event_type` (`t:`) The type of network impairment.
+  * `:end_time` (`t:string`) The end time of the time window that you want to get
+  a list of internet events for.
+  * `:event_status` (`t:string`) The status of an internet event.
+  * `:event_type` (`t:string`) The type of network impairment.
   * `:max_results` (`t:integer`) The number of query results that you want to
-    return with this call.
-  * `:next_token` (`t:`) The token for the next set of results. You receive this
-    token from a previous call.
-  * `:start_time` (`t:`) The start time of the time window that you want to get a
-    list of internet events for.
+  return with this call.
+  * `:next_token` (`t:string`) The token for the next set of results. You receive
+  this token from a previous call.
+  * `:start_time` (`t:string`) The start time of the time window that you want to
+  get a list of internet events for.
   """
+
   @spec list_internet_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_internet_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_internet_events_errors()}
+
   def list_internet_events(%Client{} = client, options \\ []) do
     url_path = "/v20210603/InternetEvents"
 
@@ -1541,23 +1589,26 @@ defmodule AWS.InternetMonitor do
   ## Parameters:
 
   ## Optional parameters:
-  * `:include_linked_accounts` (`t:`) A boolean option that you can set to TRUE to
-    include monitors for linked accounts in a list of monitors, when you've set
-    up cross-account sharing in Amazon CloudWatch Internet Monitor. You
-    configure cross-account sharing by using Amazon CloudWatch Observability
-    Access Manager. For more information, see Internet Monitor cross-account
-    observability in the Amazon CloudWatch Internet Monitor User Guide.
+  * `:include_linked_accounts` (`t:string`) A boolean option that you can set to
+  TRUE to include monitors for linked accounts in a list of monitors, when
+  you've set up cross-account sharing in Amazon CloudWatch Internet Monitor.
+  You configure cross-account sharing by using Amazon CloudWatch Observability
+  Access Manager. For more information, see Internet Monitor cross-account
+  observability in the Amazon CloudWatch Internet Monitor User Guide.
   * `:max_results` (`t:integer`) The number of monitor objects that you want to
-    return with this call.
-  * `:monitor_status` (`t:`) The status of a monitor. This includes the status of
-    the data processing for the monitor and the status of the monitor itself.
-  * `:next_token` (`t:`) The token for the next set of results. You receive this
-    token from a previous call.
+  return with this call.
+  * `:monitor_status` (`t:string`) The status of a monitor. This includes the
+  status of the data processing for the monitor and the status of the monitor
+  itself.
+  * `:next_token` (`t:string`) The token for the next set of results. You receive
+  this token from a previous call.
   """
+
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
+
   def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/v20210603/Monitors"
 
@@ -1634,10 +1685,12 @@ defmodule AWS.InternetMonitor do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1679,29 +1732,40 @@ defmodule AWS.InternetMonitor do
 
   ## Optional parameters:
   """
-  @spec start_query(AWS.Client.t(), String.t(), start_query_input(), Keyword.t()) ::
+
+  @spec start_query(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_query_errors()}
-  def start_query(%Client{} = client, monitor_name, input, options \\ []) do
+
+  def start_query(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1711,24 +1775,44 @@ defmodule AWS.InternetMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string`) The name of the monitor.
-  * `:query_id` (`t:`) The ID of the query that you want to stop. A QueryId is an
-    internally-generated identifier for a specific query.
+  * `:query_id` (`t:string`) The ID of the query that you want to stop. A QueryId
+  is an internally-generated identifier for a specific query.
 
   ## Optional parameters:
   """
-  @spec stop_query(AWS.Client.t(), String.t(), String.t(), stop_query_input(), Keyword.t()) ::
+
+  @spec stop_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_query_errors()}
-  def stop_query(%Client{} = client, monitor_name, query_id, input, options \\ []) do
+
+  def stop_query(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1737,7 +1821,7 @@ defmodule AWS.InternetMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1752,34 +1836,45 @@ defmodule AWS.InternetMonitor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag that you
-    add to a resource. Tags are supported only for monitors in Amazon CloudWatch
-    Internet Monitor.
+  add to a resource. Tags are supported only for monitors in Amazon CloudWatch
+  Internet Monitor.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1789,28 +1884,45 @@ defmodule AWS.InternetMonitor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag you
-    remove a resource from.
+  remove a resource from.
   * `:tag_keys` (`t:list[com.amazonaws.internetmonitor#TagKey]`) Tag keys that you
-    remove from a resource.
+  remove from a resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1819,7 +1931,7 @@ defmodule AWS.InternetMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1838,17 +1950,38 @@ defmodule AWS.InternetMonitor do
 
   ## Optional parameters:
   """
-  @spec update_monitor(AWS.Client.t(), String.t(), update_monitor_input(), Keyword.t()) ::
+
+  @spec update_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
-  def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
+
+  def update_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1857,7 +1990,7 @@ defmodule AWS.InternetMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

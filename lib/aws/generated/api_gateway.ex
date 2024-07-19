@@ -12,92 +12,92 @@ defmodule AWS.APIGateway do
   @typedoc """
 
   ## Example:
-
+      
       update_stage_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_key_ids() :: %{
         "ids" => list(String.t()()),
         "warnings" => list(String.t()())
       }
-
+      
   """
   @type api_key_ids() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_configuration() :: %{
         "types" => list(list(any())()),
         "vpcEndpointIds" => list(String.t()())
       }
-
+      
   """
   @type endpoint_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_api_keys_request() :: %{
         optional("failOnWarnings") => boolean(),
         required("body") => binary(),
         required("format") => list(any())
       }
-
+      
   """
   @type import_api_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stages_request() :: %{
         optional("deploymentId") => String.t()
       }
-
+      
   """
   @type get_stages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sdk_types_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_sdk_types_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       canary_settings() :: %{
         "deploymentId" => String.t(),
         "percentTraffic" => float(),
         "stageVariableOverrides" => map(),
         "useStageCache" => boolean()
       }
-
+      
   """
   @type canary_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       method_setting() :: %{
         "cacheDataEncrypted" => boolean(),
         "cacheTtlInSeconds" => integer(),
@@ -110,14 +110,14 @@ defmodule AWS.APIGateway do
         "throttlingRateLimit" => float(),
         "unauthorizedCacheControlHeaderStrategy" => list(any())
       }
-
+      
   """
   @type method_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stage() :: %{
         "accessLogSettings" => access_log_settings(),
         "cacheClusterEnabled" => boolean(),
@@ -137,37 +137,37 @@ defmodule AWS.APIGateway do
         "variables" => map(),
         "webAclArn" => String.t()
       }
-
+      
   """
   @type stage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deployments_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_deployments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authorizer() :: %{
         "authType" => String.t(),
         "authorizerCredentials" => String.t(),
@@ -180,14 +180,14 @@ defmodule AWS.APIGateway do
         "providerARNs" => list(String.t()()),
         "type" => list(any())
       }
-
+      
   """
   @type authorizer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_usage_request() :: %{
         optional("keyId") => String.t(),
         optional("limit") => integer(),
@@ -195,109 +195,109 @@ defmodule AWS.APIGateway do
         required("endDate") => String.t(),
         required("startDate") => String.t()
       }
-
+      
   """
   @type get_usage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sdk_response() :: %{
         "body" => binary(),
         "contentDisposition" => String.t(),
         "contentType" => String.t()
       }
-
+      
   """
   @type sdk_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_response() :: %{
         "body" => binary(),
         "contentDisposition" => String.t(),
         "contentType" => String.t()
       }
-
+      
   """
   @type export_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_tags_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttle_settings() :: %{
         "burstLimit" => integer(),
         "rateLimit" => float()
       }
-
+      
   """
   @type throttle_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_request() :: %{}
-
+      
   """
   @type delete_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_resource_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment() :: %{
         "apiSummary" => map(),
         "createdDate" => non_neg_integer(),
         "description" => String.t(),
         "id" => String.t()
       }
-
+      
   """
   @type deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integration() :: %{
         "cacheKeyParameters" => list(String.t()()),
         "cacheNamespace" => String.t(),
@@ -315,41 +315,41 @@ defmodule AWS.APIGateway do
         "type" => list(any()),
         "uri" => String.t()
       }
-
+      
   """
   @type integration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_client_certificate_request() :: %{}
-
+      
   """
   @type delete_client_certificate_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_usage_plan_key_request() :: %{}
-
+      
   """
   @type get_usage_plan_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_documentation_part_request() :: %{}
-
+      
   """
   @type delete_documentation_part_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_documentation_parts_request() :: %{
         optional("limit") => integer(),
         optional("locationStatus") => list(any()),
@@ -358,23 +358,23 @@ defmodule AWS.APIGateway do
         optional("position") => String.t(),
         optional("type") => list(any())
       }
-
+      
   """
   @type get_documentation_parts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_method_response_request() :: %{}
-
+      
   """
   @type get_method_response_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       test_invoke_authorizer_request() :: %{
         optional("additionalContext") => map(),
         optional("body") => String.t(),
@@ -383,87 +383,87 @@ defmodule AWS.APIGateway do
         optional("pathWithQueryString") => String.t(),
         optional("stageVariables") => map()
       }
-
+      
   """
   @type test_invoke_authorizer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_client_certificate_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_client_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_integration_response_request() :: %{}
-
+      
   """
   @type delete_integration_response_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       patch_operation() :: %{
         "from" => String.t(),
         "op" => list(any()),
         "path" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type patch_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mutual_tls_authentication() :: %{
         "truststoreUri" => String.t(),
         "truststoreVersion" => String.t(),
         "truststoreWarnings" => list(String.t()())
       }
-
+      
   """
   @type mutual_tls_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       base_path_mapping() :: %{
         "basePath" => String.t(),
         "restApiId" => String.t(),
         "stage" => String.t()
       }
-
+      
   """
   @type base_path_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_documentation_version_request() :: %{
         optional("description") => String.t(),
         optional("stageName") => String.t(),
         required("documentationVersion") => String.t()
       }
-
+      
   """
   @type create_documentation_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_response() :: %{
         "defaultResponse" => boolean(),
         "responseParameters" => map(),
@@ -471,83 +471,83 @@ defmodule AWS.APIGateway do
         "responseType" => list(any()),
         "statusCode" => String.t()
       }
-
+      
   """
   @type gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_rest_api_request() :: %{
         optional("failOnWarnings") => boolean(),
         optional("parameters") => map(),
         required("body") => binary()
       }
-
+      
   """
   @type import_rest_api_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       documentation_versions() :: %{
         "items" => list(documentation_version()()),
         "position" => String.t()
       }
-
+      
   """
   @type documentation_versions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_api_key_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_api_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_links() :: %{
         "items" => list(vpc_link()()),
         "position" => String.t()
       }
-
+      
   """
   @type vpc_links() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_usage_plan_request() :: %{}
-
+      
   """
   @type get_usage_plan_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       usage_plans() :: %{
         "items" => list(usage_plan()()),
         "position" => String.t()
       }
-
+      
   """
   @type usage_plans() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_deployment_request() :: %{
         optional("cacheClusterEnabled") => boolean(),
         optional("cacheClusterSize") => list(any()),
@@ -558,37 +558,37 @@ defmodule AWS.APIGateway do
         optional("tracingEnabled") => boolean(),
         optional("variables") => map()
       }
-
+      
   """
   @type create_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_base_path_mapping_request() :: %{}
-
+      
   """
   @type get_base_path_mapping_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_model_request() :: %{
         optional("description") => String.t(),
         optional("schema") => String.t(),
         required("contentType") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_integration_request() :: %{
         optional("cacheKeyParameters") => list(String.t()()),
         optional("cacheNamespace") => String.t(),
@@ -605,45 +605,45 @@ defmodule AWS.APIGateway do
         optional("uri") => String.t(),
         required("type") => list(any())
       }
-
+      
   """
   @type put_integration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_gateway_response_request() :: %{}
-
+      
   """
   @type get_gateway_response_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_request_validator_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_request_validator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_model_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_domain_name_request() :: %{
         optional("certificateArn") => String.t(),
         optional("certificateBody") => String.t(),
@@ -659,51 +659,51 @@ defmodule AWS.APIGateway do
         optional("tags") => map(),
         required("domainName") => String.t()
       }
-
+      
   """
   @type create_domain_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_base_path_mapping_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_base_path_mapping_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       usage_plan_keys() :: %{
         "items" => list(usage_plan_key()()),
         "position" => String.t()
       }
-
+      
   """
   @type usage_plan_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sdk_type() :: %{
         "configurationProperties" => list(sdk_configuration_property()()),
         "description" => String.t(),
         "friendlyName" => String.t(),
         "id" => String.t()
       }
-
+      
   """
   @type sdk_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_link() :: %{
         "description" => String.t(),
         "id" => String.t(),
@@ -713,75 +713,75 @@ defmodule AWS.APIGateway do
         "tags" => map(),
         "targetArns" => list(String.t()())
       }
-
+      
   """
   @type vpc_link() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_documentation_part_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_documentation_part_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_model_template_request() :: %{}
-
+      
   """
   @type get_model_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_authorizer_request() :: %{}
-
+      
   """
   @type delete_authorizer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_request_validator_request() :: %{}
-
+      
   """
   @type delete_request_validator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_authorizer_request() :: %{
         optional("authType") => String.t(),
         optional("authorizerCredentials") => String.t(),
@@ -793,67 +793,67 @@ defmodule AWS.APIGateway do
         required("name") => String.t(),
         required("type") => list(any())
       }
-
+      
   """
   @type create_authorizer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stage_request() :: %{}
-
+      
   """
   @type get_stage_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_authorizer_request() :: %{}
-
+      
   """
   @type get_authorizer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stages() :: %{
         "item" => list(stage()())
       }
-
+      
   """
   @type stages() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_usage_plan_keys_request() :: %{
         optional("limit") => integer(),
         optional("nameQuery") => String.t(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_usage_plan_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gateway_response_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_gateway_response_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       usage() :: %{
         "endDate" => String.t(),
         "items" => map(),
@@ -861,168 +861,168 @@ defmodule AWS.APIGateway do
         "startDate" => String.t(),
         "usagePlanId" => String.t()
       }
-
+      
   """
   @type usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_responses() :: %{
         "items" => list(gateway_response()()),
         "position" => String.t()
       }
-
+      
   """
   @type gateway_responses() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stage_key() :: %{
         "restApiId" => String.t(),
         "stageName" => String.t()
       }
-
+      
   """
   @type stage_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_method_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_method_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       client_certificates() :: %{
         "items" => list(client_certificate()()),
         "position" => String.t()
       }
-
+      
   """
   @type client_certificates() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_usage_plan_key_request() :: %{}
-
+      
   """
   @type delete_usage_plan_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_names() :: %{
         "items" => list(domain_name()()),
         "position" => String.t()
       }
-
+      
   """
   @type domain_names() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resources() :: %{
         "items" => list(resource()()),
         "position" => String.t()
       }
-
+      
   """
   @type resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_stage_request() :: %{}
-
+      
   """
   @type delete_stage_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_authorizers_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_authorizers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_rest_api_request() :: %{}
-
+      
   """
   @type delete_rest_api_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_documentation_version_request() :: %{}
-
+      
   """
   @type delete_documentation_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_documentation_part_request() :: %{
         required("location") => documentation_part_location(),
         required("properties") => String.t()
       }
-
+      
   """
   @type create_documentation_part_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       request_validator() :: %{
         "id" => String.t(),
         "name" => String.t(),
         "validateRequestBody" => boolean(),
         "validateRequestParameters" => boolean()
       }
-
+      
   """
   @type request_validator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_method_request() :: %{}
-
+      
   """
   @type get_method_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       rest_api() :: %{
         "apiKeySource" => list(any()),
         "binaryMediaTypes" => list(String.t()()),
@@ -1039,108 +1039,108 @@ defmodule AWS.APIGateway do
         "version" => String.t(),
         "warnings" => list(String.t()())
       }
-
+      
   """
   @type rest_api() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_client_certificates_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_client_certificates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resources_request() :: %{
         optional("embed") => list(String.t()()),
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_gateway_responses_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_gateway_responses_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_integration_request() :: %{}
-
+      
   """
   @type delete_integration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sdk_request() :: %{
         optional("parameters") => map()
       }
-
+      
   """
   @type get_sdk_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_documentation_parts_request() :: %{
         optional("failOnWarnings") => boolean(),
         optional("mode") => list(any()),
         required("body") => binary()
       }
-
+      
   """
   @type import_documentation_parts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_request_validator_request() :: %{
         optional("name") => String.t(),
         optional("validateRequestBody") => boolean(),
         optional("validateRequestParameters") => boolean()
       }
-
+      
   """
   @type create_request_validator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sdk_configuration_property() :: %{
         "defaultValue" => String.t(),
         "description" => String.t(),
@@ -1148,175 +1148,175 @@ defmodule AWS.APIGateway do
         "name" => String.t(),
         "required" => boolean()
       }
-
+      
   """
   @type sdk_configuration_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       base_path_mappings() :: %{
         "items" => list(base_path_mapping()()),
         "position" => String.t()
       }
-
+      
   """
   @type base_path_mappings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deployment_request() :: %{
         optional("embed") => list(String.t()())
       }
-
+      
   """
   @type get_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_vpc_link_request() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t(),
         required("targetArns") => list(String.t()())
       }
-
+      
   """
   @type create_vpc_link_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_request_validators_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_request_validators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_client_certificate_request() :: %{
         optional("description") => String.t(),
         optional("tags") => map()
       }
-
+      
   """
   @type generate_client_certificate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account() :: %{
         "apiKeyVersion" => String.t(),
         "cloudwatchRoleArn" => String.t(),
         "features" => list(String.t()()),
         "throttleSettings" => throttle_settings()
       }
-
+      
   """
   @type account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flush_stage_authorizers_cache_request() :: %{}
-
+      
   """
   @type flush_stage_authorizers_cache_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tags() :: %{
         "tags" => map()
       }
-
+      
   """
   @type tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_names_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_domain_names_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_usage_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_usage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_integration_request() :: %{}
-
+      
   """
   @type get_integration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_integration_response_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_integration_response_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       documentation_part_location() :: %{
         "method" => String.t(),
         "name" => String.t(),
@@ -1324,36 +1324,36 @@ defmodule AWS.APIGateway do
         "statusCode" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type documentation_part_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_rest_api_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_rest_api_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_integration_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_integration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_method_request() :: %{
         optional("apiKeyRequired") => boolean(),
         optional("authorizationScopes") => list(String.t()()),
@@ -1364,48 +1364,48 @@ defmodule AWS.APIGateway do
         optional("requestValidatorId") => String.t(),
         required("authorizationType") => String.t()
       }
-
+      
   """
   @type put_method_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_resource_request() :: %{
         required("pathPart") => String.t()
       }
-
+      
   """
   @type create_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_domain_name_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_domain_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rest_apis() :: %{
         "items" => list(rest_api()()),
         "position" => String.t()
       }
-
+      
   """
   @type rest_apis() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_api_key_request() :: %{
         optional("customerId") => String.t(),
         optional("description") => String.t(),
@@ -1416,25 +1416,25 @@ defmodule AWS.APIGateway do
         optional("tags") => map(),
         optional("value") => String.t()
       }
-
+      
   """
   @type create_api_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_name() :: %{
         "certificateArn" => String.t(),
         "certificateName" => String.t(),
@@ -1454,14 +1454,14 @@ defmodule AWS.APIGateway do
         "securityPolicy" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type domain_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_stage_request() :: %{
         optional("cacheClusterEnabled") => boolean(),
         optional("cacheClusterSize") => list(any()),
@@ -1474,43 +1474,43 @@ defmodule AWS.APIGateway do
         required("deploymentId") => String.t(),
         required("stageName") => String.t()
       }
-
+      
   """
   @type create_stage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_method_response_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_method_response_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_deployment_request() :: %{}
-
+      
   """
   @type delete_deployment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_method_response_request() :: %{}
-
+      
   """
   @type delete_method_response_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       client_certificate() :: %{
         "clientCertificateId" => String.t(),
         "createdDate" => non_neg_integer(),
@@ -1519,14 +1519,14 @@ defmodule AWS.APIGateway do
         "pemEncodedCertificate" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type client_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_api_keys_request() :: %{
         optional("customerId") => String.t(),
         optional("includeValues") => boolean(),
@@ -1534,227 +1534,227 @@ defmodule AWS.APIGateway do
         optional("nameQuery") => String.t(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_api_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mutual_tls_authentication_input() :: %{
         "truststoreUri" => String.t(),
         "truststoreVersion" => String.t()
       }
-
+      
   """
   @type mutual_tls_authentication_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_request() :: %{
         optional("embed") => list(String.t()())
       }
-
+      
   """
   @type get_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment_canary_settings() :: %{
         "percentTraffic" => float(),
         "stageVariableOverrides" => map(),
         "useStageCache" => boolean()
       }
-
+      
   """
   @type deployment_canary_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_method_request() :: %{}
-
+      
   """
   @type delete_method_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       api_stage() :: %{
         "apiId" => String.t(),
         "stage" => String.t(),
         "throttle" => map()
       }
-
+      
   """
   @type api_stage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_export_request() :: %{
         optional("accepts") => String.t(),
         optional("parameters") => map()
       }
-
+      
   """
   @type get_export_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_model_request() :: %{}
-
+      
   """
   @type delete_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tls_config() :: %{
         "insecureSkipVerification" => boolean()
       }
-
+      
   """
   @type tls_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_documentation_part_request() :: %{}
-
+      
   """
   @type get_documentation_part_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       access_log_settings() :: %{
         "destinationArn" => String.t(),
         "format" => String.t()
       }
-
+      
   """
   @type access_log_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       documentation_version() :: %{
         "createdDate" => non_neg_integer(),
         "description" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type documentation_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_integration_response_request() :: %{}
-
+      
   """
   @type get_integration_response_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_rest_api_request() :: %{}
-
+      
   """
   @type get_rest_api_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       api_keys() :: %{
         "items" => list(api_key()()),
         "position" => String.t(),
         "warnings" => list(String.t()())
       }
-
+      
   """
   @type api_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_models_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_base_path_mapping_request() :: %{
         optional("basePath") => String.t(),
         optional("stage") => String.t(),
         required("restApiId") => String.t()
       }
-
+      
   """
   @type create_base_path_mapping_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       method_response() :: %{
         "responseModels" => map(),
         "responseParameters" => map(),
         "statusCode" => String.t()
       }
-
+      
   """
   @type method_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_vpc_link_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_vpc_link_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sdk_type_request() :: %{}
-
+      
   """
   @type get_sdk_type_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       usage_plan() :: %{
         "apiStages" => list(api_stage()()),
         "description" => String.t(),
@@ -1765,99 +1765,99 @@ defmodule AWS.APIGateway do
         "tags" => map(),
         "throttle" => throttle_settings()
       }
-
+      
   """
   @type usage_plan() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_name_request() :: %{}
-
+      
   """
   @type get_domain_name_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_usage_plan_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_usage_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sdk_types() :: %{
         "items" => list(sdk_type()())
       }
-
+      
   """
   @type sdk_types() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_usage_plan_key_request() :: %{
         required("keyId") => String.t(),
         required("keyType") => String.t()
       }
-
+      
   """
   @type create_usage_plan_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_api_key_request() :: %{}
-
+      
   """
   @type delete_api_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_model_request() :: %{
         optional("flatten") => boolean()
       }
-
+      
   """
   @type get_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_documentation_version_request() :: %{}
-
+      
   """
   @type get_documentation_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_usage_plans_request() :: %{
         optional("keyId") => String.t(),
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_usage_plans_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_usage_plan_request() :: %{
         optional("apiStages") => list(api_stage()()),
         optional("description") => String.t(),
@@ -1866,147 +1866,147 @@ defmodule AWS.APIGateway do
         optional("throttle") => throttle_settings(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_usage_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_rest_apis_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_rest_apis_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_client_certificate_request() :: %{}
-
+      
   """
   @type get_client_certificate_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       documentation_part() :: %{
         "id" => String.t(),
         "location" => documentation_part_location(),
         "properties" => String.t()
       }
-
+      
   """
   @type documentation_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       method_snapshot() :: %{
         "apiKeyRequired" => boolean(),
         "authorizationType" => String.t()
       }
-
+      
   """
   @type method_snapshot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_method_response_request() :: %{
         optional("responseModels") => map(),
         optional("responseParameters") => map()
       }
-
+      
   """
   @type put_method_response_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       request_validators() :: %{
         "items" => list(request_validator()()),
         "position" => String.t()
       }
-
+      
   """
   @type request_validators() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       models() :: %{
         "items" => list(model()()),
         "position" => String.t()
       }
-
+      
   """
   @type models() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_base_path_mapping_request() :: %{}
-
+      
   """
   @type delete_base_path_mapping_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_domain_name_request() :: %{}
-
+      
   """
   @type delete_domain_name_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       documentation_parts() :: %{
         "items" => list(documentation_part()()),
         "position" => String.t()
       }
-
+      
   """
   @type documentation_parts() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_vpc_link_request() :: %{}
-
+      
   """
   @type get_vpc_link_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       test_invoke_authorizer_response() :: %{
         "authorization" => map(),
         "claims" => map(),
@@ -2016,46 +2016,46 @@ defmodule AWS.APIGateway do
         "policy" => String.t(),
         "principalId" => String.t()
       }
-
+      
   """
   @type test_invoke_authorizer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       documentation_part_ids() :: %{
         "ids" => list(String.t()()),
         "warnings" => list(String.t()())
       }
-
+      
   """
   @type documentation_part_ids() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_usage_plan_request() :: %{}
-
+      
   """
   @type delete_usage_plan_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       method() :: %{
         "apiKeyRequired" => boolean(),
         "authorizationScopes" => list(String.t()()),
@@ -2069,25 +2069,25 @@ defmodule AWS.APIGateway do
         "requestParameters" => map(),
         "requestValidatorId" => String.t()
       }
-
+      
   """
   @type method() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template() :: %{
         "value" => String.t()
       }
-
+      
   """
   @type template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_invoke_method_request() :: %{
         optional("body") => String.t(),
         optional("clientCertificateId") => String.t(),
@@ -2096,70 +2096,70 @@ defmodule AWS.APIGateway do
         optional("pathWithQueryString") => String.t(),
         optional("stageVariables") => map()
       }
-
+      
   """
   @type test_invoke_method_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_api_key_request() :: %{
         optional("includeValue") => boolean()
       }
-
+      
   """
   @type get_api_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_vpc_links_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_vpc_links_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authorizers() :: %{
         "items" => list(authorizer()()),
         "position" => String.t()
       }
-
+      
   """
   @type authorizers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_base_path_mappings_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_base_path_mappings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_request_validator_request() :: %{}
-
+      
   """
   @type get_request_validator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       api_key() :: %{
         "createdDate" => non_neg_integer(),
         "customerId" => String.t(),
@@ -2172,37 +2172,37 @@ defmodule AWS.APIGateway do
         "tags" => map(),
         "value" => String.t()
       }
-
+      
   """
   @type api_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_integration_response_request() :: %{
         optional("contentHandling") => list(any()),
         optional("responseParameters") => map(),
         optional("responseTemplates") => map(),
         optional("selectionPattern") => String.t()
       }
-
+      
   """
   @type put_integration_response_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_request() :: %{}
-
+      
   """
   @type get_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       integration_response() :: %{
         "contentHandling" => list(any()),
         "responseParameters" => map(),
@@ -2210,14 +2210,14 @@ defmodule AWS.APIGateway do
         "selectionPattern" => String.t(),
         "statusCode" => String.t()
       }
-
+      
   """
   @type integration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_invoke_method_response() :: %{
         "body" => String.t(),
         "headers" => map(),
@@ -2226,23 +2226,23 @@ defmodule AWS.APIGateway do
         "multiValueHeaders" => map(),
         "status" => integer()
       }
-
+      
   """
   @type test_invoke_method_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flush_stage_cache_request() :: %{}
-
+      
   """
   @type flush_stage_cache_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       model() :: %{
         "contentType" => String.t(),
         "description" => String.t(),
@@ -2250,143 +2250,143 @@ defmodule AWS.APIGateway do
         "name" => String.t(),
         "schema" => String.t()
       }
-
+      
   """
   @type model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployments() :: %{
         "items" => list(deployment()()),
         "position" => String.t()
       }
-
+      
   """
   @type deployments() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_documentation_version_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_documentation_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_deployment_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_rest_api_request() :: %{
         optional("failOnWarnings") => boolean(),
         optional("mode") => list(any()),
         optional("parameters") => map(),
         required("body") => binary()
       }
-
+      
   """
   @type put_rest_api_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quota_settings() :: %{
         "limit" => integer(),
         "offset" => integer(),
         "period" => list(any())
       }
-
+      
   """
   @type quota_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_gateway_response_request() :: %{}
-
+      
   """
   @type delete_gateway_response_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_documentation_versions_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t()
       }
-
+      
   """
   @type get_documentation_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       usage_plan_key() :: %{
         "id" => String.t(),
         "name" => String.t(),
         "type" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type usage_plan_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vpc_link_request() :: %{}
-
+      
   """
   @type delete_vpc_link_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_authorizer_request() :: %{
         optional("patchOperations") => list(patch_operation()())
       }
-
+      
   """
   @type update_authorizer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_gateway_response_request() :: %{
         optional("responseParameters") => map(),
         optional("responseTemplates") => map(),
         optional("statusCode") => String.t()
       }
-
+      
   """
   @type put_gateway_response_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_rest_api_request() :: %{
         optional("apiKeySource") => list(any()),
         optional("binaryMediaTypes") => list(String.t()()),
@@ -2400,14 +2400,14 @@ defmodule AWS.APIGateway do
         optional("version") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_rest_api_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "id" => String.t(),
         "parentId" => String.t(),
@@ -2415,7 +2415,7 @@ defmodule AWS.APIGateway do
         "pathPart" => String.t(),
         "resourceMethods" => map()
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
@@ -3282,29 +3282,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_api_key(AWS.Client.t(), create_api_key_request(), Keyword.t()) ::
+
+  @spec create_api_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_api_key_errors()}
-  def create_api_key(%Client{} = client, input, options \\ []) do
+
+  def create_api_key(%Client{} = client, options \\ []) do
     url_path = "/apikeys"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3317,29 +3328,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_authorizer(AWS.Client.t(), String.t(), create_authorizer_request(), Keyword.t()) ::
+
+  @spec create_authorizer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_authorizer_errors()}
-  def create_authorizer(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def create_authorizer(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3349,38 +3371,44 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-    create.
+  create.
 
   ## Optional parameters:
   """
-  @spec create_base_path_mapping(
-          AWS.Client.t(),
-          String.t(),
-          create_base_path_mapping_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_base_path_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_base_path_mapping_errors()}
-  def create_base_path_mapping(%Client{} = client, domain_name, input, options \\ []) do
+
+  def create_base_path_mapping(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3394,29 +3422,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_deployment(AWS.Client.t(), String.t(), create_deployment_request(), Keyword.t()) ::
+
+  @spec create_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-  def create_deployment(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def create_deployment(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3429,34 +3468,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_documentation_part(
-          AWS.Client.t(),
-          String.t(),
-          create_documentation_part_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_documentation_part(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_documentation_part_errors()}
-  def create_documentation_part(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def create_documentation_part(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3469,34 +3514,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_documentation_version(
-          AWS.Client.t(),
-          String.t(),
-          create_documentation_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_documentation_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_documentation_version_errors()}
-  def create_documentation_version(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def create_documentation_version(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3508,29 +3559,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_domain_name(AWS.Client.t(), create_domain_name_request(), Keyword.t()) ::
+
+  @spec create_domain_name(AWS.Client.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_name_errors()}
-  def create_domain_name(%Client{} = client, input, options \\ []) do
+
+  def create_domain_name(%Client{} = client, options \\ []) do
     url_path = "/domainnames"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3540,33 +3602,44 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string`) The RestApi identifier under which the Model will
-    be created.
+  be created.
 
   ## Optional parameters:
   """
-  @spec create_model(AWS.Client.t(), String.t(), create_model_request(), Keyword.t()) ::
+
+  @spec create_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
-  def create_model(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def create_model(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3579,34 +3652,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_request_validator(
-          AWS.Client.t(),
-          String.t(),
-          create_request_validator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_request_validator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_request_validator_errors()}
-  def create_request_validator(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def create_request_validator(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3620,37 +3699,41 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_resource(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_errors()}
-  def create_resource(%Client{} = client, parent_id, rest_api_id, input, options \\ []) do
+
+  def create_resource(%Client{} = client, parent_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(parent_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3662,29 +3745,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_rest_api(AWS.Client.t(), create_rest_api_request(), Keyword.t()) ::
+
+  @spec create_rest_api(AWS.Client.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rest_api_errors()}
-  def create_rest_api(%Client{} = client, input, options \\ []) do
+
+  def create_rest_api(%Client{} = client, options \\ []) do
     url_path = "/restapis"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3698,29 +3792,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_stage(AWS.Client.t(), String.t(), create_stage_request(), Keyword.t()) ::
+
+  @spec create_stage(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stage_errors()}
-  def create_stage(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def create_stage(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3733,29 +3838,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_usage_plan(AWS.Client.t(), create_usage_plan_request(), Keyword.t()) ::
+
+  @spec create_usage_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_plan_errors()}
-  def create_usage_plan(%Client{} = client, input, options \\ []) do
+
+  def create_usage_plan(%Client{} = client, options \\ []) do
     url_path = "/usageplans"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3765,39 +3881,45 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-    the usage plan containing the to-be-created UsagePlanKey resource
-    representing a plan customer.
+  the usage plan containing the to-be-created UsagePlanKey resource
+  representing a plan customer.
 
   ## Optional parameters:
   """
-  @spec create_usage_plan_key(
-          AWS.Client.t(),
-          String.t(),
-          create_usage_plan_key_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_usage_plan_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_plan_key_errors()}
-  def create_usage_plan_key(%Client{} = client, usage_plan_id, input, options \\ []) do
+
+  def create_usage_plan_key(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3812,29 +3934,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec create_vpc_link(AWS.Client.t(), create_vpc_link_request(), Keyword.t()) ::
+
+  @spec create_vpc_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_link_errors()}
-  def create_vpc_link(%Client{} = client, input, options \\ []) do
+
+  def create_vpc_link(%Client{} = client, options \\ []) do
     url_path = "/vpclinks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -3847,17 +3980,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_api_key(AWS.Client.t(), String.t(), delete_api_key_request(), Keyword.t()) ::
+
+  @spec delete_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_api_key_errors()}
-  def delete_api_key(%Client{} = client, api_key, input, options \\ []) do
+
+  def delete_api_key(%Client{} = client, api_key, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3866,7 +4020,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -3883,25 +4037,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_authorizer(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_authorizer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_authorizer_errors()}
-  def delete_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
+
+  def delete_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3910,7 +4078,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -3923,31 +4091,45 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:base_path` (`t:string`) The base path name of the BasePathMapping resource
-    to delete.
+  to delete.
   * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-    delete.
+  delete.
 
   ## Optional parameters:
   """
-  @spec delete_base_path_mapping(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_base_path_mapping_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_base_path_mapping_errors()}
-  def delete_base_path_mapping(%Client{} = client, base_path, domain_name, input, options \\ []) do
+
+  def delete_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
     url_path =
       "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3956,7 +4138,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -3969,26 +4151,42 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate
-    resource to be deleted.
+  resource to be deleted.
 
   ## Optional parameters:
   """
-  @spec delete_client_certificate(
-          AWS.Client.t(),
-          String.t(),
-          delete_client_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_client_certificate_errors()}
-  def delete_client_certificate(%Client{} = client, client_certificate_id, input, options \\ []) do
+
+  def delete_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3997,7 +4195,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4011,30 +4209,44 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:deployment_id` (`t:string`) The identifier of the Deployment resource to
-    delete.
+  delete.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec delete_deployment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_deployment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_errors()}
-  def delete_deployment(%Client{} = client, deployment_id, rest_api_id, input, options \\ []) do
+
+  def delete_deployment(%Client{} = client, deployment_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4043,7 +4255,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4056,36 +4268,49 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_part_id` (`t:string`) The identifier of the to-be-deleted
-    documentation part.
+  documentation part.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec delete_documentation_part(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_documentation_part_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_documentation_part_errors()}
+
   def delete_documentation_part(
         %Client{} = client,
         documentation_part_id,
         rest_api_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts/#{AWS.Util.encode_uri(documentation_part_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4094,7 +4319,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4107,36 +4332,49 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_version` (`t:string`) The version identifier of a
-    to-be-deleted documentation snapshot.
+  to-be-deleted documentation snapshot.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec delete_documentation_version(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_documentation_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_documentation_version_errors()}
+
   def delete_documentation_version(
         %Client{} = client,
         documentation_version,
         rest_api_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions/#{AWS.Util.encode_uri(documentation_version)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4145,7 +4383,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4161,17 +4399,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_domain_name(AWS.Client.t(), String.t(), delete_domain_name_request(), Keyword.t()) ::
+
+  @spec delete_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_name_errors()}
-  def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
+
+  def delete_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4180,7 +4439,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4194,37 +4453,45 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-    The response type of the associated GatewayResponse.
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
+  The response type of the associated GatewayResponse.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec delete_gateway_response(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_gateway_response_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_response_errors()}
-  def delete_gateway_response(
-        %Client{} = client,
-        response_type,
-        rest_api_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4233,7 +4500,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4246,40 +4513,46 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string`) Specifies a delete integration request's HTTP
-    method.
+  method.
   * `:resource_id` (`t:string`) Specifies a delete integration request's resource
-    identifier.
+  identifier.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec delete_integration(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_integration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_errors()}
-  def delete_integration(
-        %Client{} = client,
-        http_method,
-        resource_id,
-        rest_api_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4288,7 +4561,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4301,44 +4574,62 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string`) Specifies a delete integration response request's
-    HTTP method.
+  HTTP method.
   * `:resource_id` (`t:string`) Specifies a delete integration response request's
-    resource identifier.
+  resource identifier.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:status_code` (`t:string`) Specifies a delete integration response request's
-    status code.
+  status code.
 
   ## Optional parameters:
   """
+
   @spec delete_integration_response(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_integration_response_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_response_errors()}
+
   def delete_integration_response(
         %Client{} = client,
         http_method,
         resource_id,
         rest_api_id,
         status_code,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration/responses/#{AWS.Util.encode_uri(status_code)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4347,7 +4638,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4365,33 +4656,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_method(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_method_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_method_errors()}
-  def delete_method(
-        %Client{} = client,
-        http_method,
-        resource_id,
-        rest_api_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4400,7 +4697,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4414,42 +4711,60 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string`) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse
-    resource.
+  resource.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:status_code` (`t:string`) The status code identifier for the MethodResponse
-    resource.
+  resource.
 
   ## Optional parameters:
   """
+
   @spec delete_method_response(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_method_response_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_method_response_errors()}
+
   def delete_method_response(
         %Client{} = client,
         http_method,
         resource_id,
         rest_api_id,
         status_code,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/responses/#{AWS.Util.encode_uri(status_code)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4458,7 +4773,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4475,19 +4790,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_model(AWS.Client.t(), String.t(), String.t(), delete_model_request(), Keyword.t()) ::
+
+  @spec delete_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_errors()}
-  def delete_model(%Client{} = client, model_name, rest_api_id, input, options \\ []) do
+
+  def delete_model(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4496,7 +4831,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4509,36 +4844,49 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:request_validator_id` (`t:string`) The identifier of the RequestValidator to
-    be deleted.
+  be deleted.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec delete_request_validator(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_request_validator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_request_validator_errors()}
+
   def delete_request_validator(
         %Client{} = client,
         request_validator_id,
         rest_api_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators/#{AWS.Util.encode_uri(request_validator_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4547,7 +4895,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4564,25 +4912,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_resource(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_errors()}
-  def delete_resource(%Client{} = client, resource_id, rest_api_id, input, options \\ []) do
+
+  def delete_resource(%Client{} = client, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4591,7 +4953,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4607,17 +4969,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_rest_api(AWS.Client.t(), String.t(), delete_rest_api_request(), Keyword.t()) ::
+
+  @spec delete_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rest_api_errors()}
-  def delete_rest_api(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def delete_rest_api(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4626,7 +5009,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4643,19 +5026,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_stage(AWS.Client.t(), String.t(), String.t(), delete_stage_request(), Keyword.t()) ::
+
+  @spec delete_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stage_errors()}
-  def delete_stage(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
+
+  def delete_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4664,7 +5067,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4680,17 +5083,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec delete_usage_plan(AWS.Client.t(), String.t(), delete_usage_plan_request(), Keyword.t()) ::
+
+  @spec delete_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_plan_errors()}
-  def delete_usage_plan(%Client{} = client, usage_plan_id, input, options \\ []) do
+
+  def delete_usage_plan(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4699,7 +5123,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4714,30 +5138,44 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:key_id` (`t:string`) The Id of the UsagePlanKey resource to be deleted.
   * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-    the usage plan containing the to-be-deleted UsagePlanKey resource
-    representing a plan customer.
+  the usage plan containing the to-be-deleted UsagePlanKey resource
+  representing a plan customer.
 
   ## Optional parameters:
   """
-  @spec delete_usage_plan_key(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_usage_plan_key_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_usage_plan_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_plan_key_errors()}
-  def delete_usage_plan_key(%Client{} = client, key_id, usage_plan_id, input, options \\ []) do
+
+  def delete_usage_plan_key(%Client{} = client, key_id, usage_plan_id, options \\ []) do
     url_path =
       "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4746,7 +5184,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4759,21 +5197,42 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:vpc_link_id` (`t:string`) The identifier of the VpcLink. It is used in an
-    Integration to reference this VpcLink.
+  Integration to reference this VpcLink.
 
   ## Optional parameters:
   """
-  @spec delete_vpc_link(AWS.Client.t(), String.t(), delete_vpc_link_request(), Keyword.t()) ::
+
+  @spec delete_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_link_errors()}
-  def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
+
+  def delete_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4782,7 +5241,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4799,31 +5258,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec flush_stage_authorizers_cache(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          flush_stage_authorizers_cache_request(),
-          Keyword.t()
-        ) ::
+
+  @spec flush_stage_authorizers_cache(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, flush_stage_authorizers_cache_errors()}
-  def flush_stage_authorizers_cache(
-        %Client{} = client,
-        rest_api_id,
-        stage_name,
-        input,
-        options \\ []
-      ) do
+
+  def flush_stage_authorizers_cache(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/authorizers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4832,7 +5299,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4849,25 +5316,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec flush_stage_cache(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          flush_stage_cache_request(),
-          Keyword.t()
-        ) ::
+
+  @spec flush_stage_cache(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, flush_stage_cache_errors()}
-  def flush_stage_cache(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
+
+  def flush_stage_cache(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/data"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4876,7 +5357,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -4891,33 +5372,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec generate_client_certificate(
-          AWS.Client.t(),
-          generate_client_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_client_certificate(AWS.Client.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_client_certificate_errors()}
-  def generate_client_certificate(%Client{} = client, input, options \\ []) do
+
+  def generate_client_certificate(%Client{} = client, options \\ []) do
     url_path = "/clientcertificates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -4929,10 +5417,12 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
+
   @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, account(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
+
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/account"
 
@@ -4971,12 +5461,14 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:include_value` (`t:boolean`) A boolean flag to specify whether (true) or not
-    (false) the result contains the key value.
+  (false) the result contains the key value.
   """
+
   @spec get_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_api_key_errors()}
+
   def get_api_key(%Client{} = client, api_key, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
 
@@ -5025,19 +5517,21 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:customer_id` (`t:string`) The identifier of a customer in Amazon Web
-    Services Marketplace or an external system, such as a developer portal.
+  Services Marketplace or an external system, such as a developer portal.
   * `:include_values` (`t:boolean`) A boolean flag to specify whether (true) or
-    not (false) the result contains key values.
+  not (false) the result contains key values.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:name_query` (`t:string`) The name of queried API keys.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_api_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, api_keys(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_api_keys_errors()}
+
   def get_api_keys(%Client{} = client, options \\ []) do
     url_path = "/apikeys"
 
@@ -5122,10 +5616,12 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
+
   @spec get_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorizer_errors()}
+
   def get_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
@@ -5165,14 +5661,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorizers(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorizers_errors()}
+
   def get_authorizers(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers"
 
@@ -5226,18 +5724,20 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:base_path` (`t:string`) The base path name that callers of the API must
-    provide as part of the URL after the domain name. This value must be unique
-    for all of the mappings across a single API. Specify '(none)' if you do not
-    want callers to specify any base path name after the domain name.
+  provide as part of the URL after the domain name. This value must be unique
+  for all of the mappings across a single API. Specify '(none)' if you do not
+  want callers to specify any base path name after the domain name.
   * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-    be described.
+  be described.
 
   ## Optional parameters:
   """
+
   @spec get_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_base_path_mapping_errors()}
+
   def get_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
     url_path =
       "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
@@ -5277,14 +5777,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_base_path_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mappings(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_base_path_mappings_errors()}
+
   def get_base_path_mappings(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
 
@@ -5338,14 +5840,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate
-    resource to be described.
+  resource to be described.
 
   ## Optional parameters:
   """
+
   @spec get_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_client_certificate_errors()}
+
   def get_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
 
@@ -5383,14 +5887,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_client_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, client_certificates(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_client_certificates_errors()}
+
   def get_client_certificates(%Client{} = client, options \\ []) do
     url_path = "/clientcertificates"
 
@@ -5444,25 +5950,27 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:deployment_id` (`t:string`) The identifier of the Deployment resource to get
-    information about.
+  information about.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to
-    retrieve the specified embedded resources of the returned Deployment
-    resource in the response. In a REST API call, this embed parameter value is
-    a list of comma-separated strings, as in GET
-    /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2. The SDK
-    and other platform-dependent libraries might use a different format for the
-    list. Currently, this request supports only retrieval of the embedded API
-    summary this way. Hence, the parameter value must be a single-valued list
-    containing only the "apisummary" string. For example, GET
-    /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary.
+  retrieve the specified embedded resources of the returned Deployment
+  resource in the response. In a REST API call, this embed parameter value is
+  a list of comma-separated strings, as in GET
+  /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2. The SDK
+  and other platform-dependent libraries might use a different format for the
+  list. Currently, this request supports only retrieval of the embedded API
+  summary this way. Hence, the parameter value must be a single-valued list
+  containing only the "apisummary" string. For example, GET
+  /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary.
   """
+
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
+
   def get_deployment(%Client{} = client, deployment_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -5513,14 +6021,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployments_errors()}
+
   def get_deployments(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments"
 
@@ -5574,15 +6084,17 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_part_id` (`t:string`) The string identifier of the associated
-    RestApi.
+  RestApi.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
+
   @spec get_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_part_errors()}
+
   def get_documentation_part(
         %Client{} = client,
         documentation_part_id,
@@ -5627,25 +6139,27 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:location_status` (`t:enum["DOCUMENTED|UNDOCUMENTED"]`) The status of the API
-    documentation parts to retrieve. Valid values are DOCUMENTED for retrieving
-    DocumentationPart resources with content and UNDOCUMENTED for
-    DocumentationPart resources without content.
+  documentation parts to retrieve. Valid values are DOCUMENTED for retrieving
+  DocumentationPart resources with content and UNDOCUMENTED for
+  DocumentationPart resources without content.
   * `:name_query` (`t:string`) The name of API entities of the to-be-retrieved
-    documentation parts.
+  documentation parts.
   * `:path` (`t:string`) The path of API entities of the to-be-retrieved
-    documentation parts.
+  documentation parts.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   * `:type`
-    (`t:enum["API|AUTHORIZER|METHOD|MODEL|PATH_PARAMETER|QUERY_PARAMETER|REQUEST_BODY|REQUEST_HEADER|RESOURCE|RESPONSE|RESPONSE_BODY|RESPONSE_HEADER"]`)
-    The type of API entities of the to-be-retrieved documentation parts.
+  (`t:enum["API|AUTHORIZER|METHOD|MODEL|PATH_PARAMETER|QUERY_PARAMETER|REQUEST_BODY|REQUEST_HEADER|RESOURCE|RESPONSE|RESPONSE_BODY|RESPONSE_HEADER"]`)
+  The type of API entities of the to-be-retrieved documentation parts.
   """
+
   @spec get_documentation_parts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_parts(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_parts_errors()}
+
   def get_documentation_parts(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
 
@@ -5734,15 +6248,17 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_version` (`t:string`) The version identifier of the
-    to-be-retrieved documentation snapshot.
+  to-be-retrieved documentation snapshot.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
+
   @spec get_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_version_errors()}
+
   def get_documentation_version(
         %Client{} = client,
         documentation_version,
@@ -5787,14 +6303,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_documentation_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_versions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_documentation_versions_errors()}
+
   def get_documentation_versions(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions"
 
@@ -5852,10 +6370,12 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
+
   @spec get_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_name_errors()}
+
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
 
@@ -5893,14 +6413,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, domain_names(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_names_errors()}
+
   def get_domain_names(%Client{} = client, options \\ []) do
     url_path = "/domainnames"
 
@@ -5954,28 +6476,30 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:export_type` (`t:string`) The type of export. Acceptable values are 'oas30'
-    for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
+  for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:stage_name` (`t:string`) The name of the Stage that will be exported.
 
   ## Optional parameters:
   * `:parameters` (`t:map`) A key-value map of query string parameters that
-    specify properties of the export, depending on the requested exportType. For
-    exportType oas30 and swagger, any combination of the following parameters
-    are supported: extensions='integrations' or extensions='apigateway' will
-    export the API with x-amazon-apigateway-integration extensions.
-    extensions='authorizers' will export the API with
-    x-amazon-apigateway-authorizer extensions. postman will export the API with
-    Postman extensions, allowing for import to the Postman tool
+  specify properties of the export, depending on the requested exportType. For
+  exportType oas30 and swagger, any combination of the following parameters
+  are supported: extensions='integrations' or extensions='apigateway' will
+  export the API with x-amazon-apigateway-integration extensions.
+  extensions='authorizers' will export the API with
+  x-amazon-apigateway-authorizer extensions. postman will export the API with
+  Postman extensions, allowing for import to the Postman tool
   * `:accepts` (`t:string`) The content-type of the export, for example
-    application/json. Currently application/json and application/yaml are
-    supported for exportType ofoas30 and swagger. This should be specified in
-    the Accept header for direct API requests.
+  application/json. Currently application/json and application/yaml are
+  supported for exportType ofoas30 and swagger. This should be specified in
+  the Accept header for direct API requests.
   """
+
   @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_errors()}
+
   def get_export(%Client{} = client, export_type, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/exports/#{AWS.Util.encode_uri(export_type)}"
@@ -6036,16 +6560,18 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-    The response type of the associated GatewayResponse.
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
+  The response type of the associated GatewayResponse.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
+
   @spec get_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gateway_response_errors()}
+
   def get_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
@@ -6088,16 +6614,18 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500. The GatewayResponses
-    collection does not support pagination and the limit does not apply here.
+  default value is 25 and the maximum value is 500. The GatewayResponses
+  collection does not support pagination and the limit does not apply here.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set. The GatewayResponse collection does not support pagination and the
-    position does not apply here.
+  set. The GatewayResponse collection does not support pagination and the
+  position does not apply here.
   """
+
   @spec get_gateway_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_responses(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gateway_responses_errors()}
+
   def get_gateway_responses(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses"
 
@@ -6152,15 +6680,17 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string`) Specifies a get integration request's HTTP method.
   * `:resource_id` (`t:string`) Specifies a get integration request's resource
-    identifier
+  identifier
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
+
   @spec get_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_errors()}
+
   def get_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
@@ -6197,15 +6727,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string`) Specifies a get integration response request's
-    HTTP method.
+  HTTP method.
   * `:resource_id` (`t:string`) Specifies a get integration response request's
-    resource identifier.
+  resource identifier.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:status_code` (`t:string`) Specifies a get integration response request's
-    status code.
+  status code.
 
   ## Optional parameters:
   """
+
   @spec get_integration_response(
           AWS.Client.t(),
           String.t(),
@@ -6217,6 +6748,7 @@ defmodule AWS.APIGateway do
           {:ok, integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_integration_response_errors()}
+
   def get_integration_response(
         %Client{} = client,
         http_method,
@@ -6265,10 +6797,12 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
+
   @spec get_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_method_errors()}
+
   def get_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
@@ -6306,12 +6840,13 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string`) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse
-    resource.
+  resource.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:status_code` (`t:string`) The status code for the MethodResponse resource.
 
   ## Optional parameters:
   """
+
   @spec get_method_response(
           AWS.Client.t(),
           String.t(),
@@ -6323,6 +6858,7 @@ defmodule AWS.APIGateway do
           {:ok, method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_method_response_errors()}
+
   def get_method_response(
         %Client{} = client,
         http_method,
@@ -6367,17 +6903,19 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:model_name` (`t:string`) The name of the model as an identifier.
   * `:rest_api_id` (`t:string`) The RestApi identifier under which the Model
-    exists.
+  exists.
 
   ## Optional parameters:
   * `:flatten` (`t:boolean`) A query parameter of a Boolean value to resolve
-    (true) all external model references and returns a flattened model schema or
-    not (false) The default is false.
+  (true) all external model references and returns a flattened model schema or
+  not (false) The default is false.
   """
+
   @spec get_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_errors()}
+
   def get_model(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
@@ -6426,15 +6964,17 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:model_name` (`t:string`) The name of the model for which to generate a
-    template.
+  template.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
+
   @spec get_model_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_template_errors()}
+
   def get_model_template(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}/default_template"
@@ -6474,14 +7014,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, models(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_models_errors()}
+
   def get_models(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models"
 
@@ -6535,15 +7077,17 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:request_validator_id` (`t:string`) The identifier of the RequestValidator to
-    be retrieved.
+  be retrieved.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
+
   @spec get_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_request_validator_errors()}
+
   def get_request_validator(%Client{} = client, request_validator_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators/#{AWS.Util.encode_uri(request_validator_id)}"
@@ -6583,14 +7127,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_request_validators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, request_validators(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_request_validators_errors()}
+
   def get_request_validators(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators"
 
@@ -6648,17 +7194,19 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to
-    retrieve the specified resources embedded in the returned Resource
-    representation in the response. This embed parameter value is a list of
-    comma-separated strings. Currently, the request supports only retrieval of
-    the embedded Method resources this way. The query parameter value must be a
-    single-valued list and contain the "methods" string. For example, GET
-    /restapis/{restapi_id}/resources/{resource_id}?embed=methods.
+  retrieve the specified resources embedded in the returned Resource
+  representation in the response. This embed parameter value is a list of
+  comma-separated strings. Currently, the request supports only retrieval of
+  the embedded Method resources this way. The query parameter value must be a
+  single-valued list and contain the "methods" string. For example, GET
+  /restapis/{restapi_id}/resources/{resource_id}?embed=methods.
   """
+
   @spec get_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_errors()}
+
   def get_resource(%Client{} = client, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
@@ -6709,21 +7257,23 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter used to
-    retrieve the specified resources embedded in the returned Resources resource
-    in the response. This embed parameter value is a list of comma-separated
-    strings. Currently, the request supports only retrieval of the embedded
-    Method resources this way. The query parameter value must be a single-valued
-    list and contain the "methods" string. For example, GET
-    /restapis/{restapi_id}/resources?embed=methods.
+  retrieve the specified resources embedded in the returned Resources resource
+  in the response. This embed parameter value is a list of comma-separated
+  strings. Currently, the request supports only retrieval of the embedded
+  Method resources this way. The query parameter value must be a single-valued
+  list and contain the "methods" string. For example, GET
+  /restapis/{restapi_id}/resources?embed=methods.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resources(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resources_errors()}
+
   def get_resources(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources"
 
@@ -6787,10 +7337,12 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
+
   @spec get_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rest_api_errors()}
+
   def get_rest_api(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
 
@@ -6828,14 +7380,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_rest_apis(AWS.Client.t(), Keyword.t()) ::
           {:ok, rest_apis(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rest_apis_errors()}
+
   def get_rest_apis(%Client{} = client, options \\ []) do
     url_path = "/restapis"
 
@@ -6890,22 +7444,24 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:sdk_type` (`t:string`) The language for the generated SDK. Currently java,
-    javascript, android, objectivec (for iOS), swift (for iOS), and ruby are
-    supported.
+  javascript, android, objectivec (for iOS), swift (for iOS), and ruby are
+  supported.
   * `:stage_name` (`t:string`) The name of the Stage that the SDK will use.
 
   ## Optional parameters:
   * `:parameters` (`t:map`) A string-to-string key-value map of query parameters
-    sdkType-dependent properties of the SDK. For sdkType of objectivec or swift,
-    a parameter named classPrefix is required. For sdkType of android,
-    parameters named groupId, artifactId, artifactVersion, and invokerPackage
-    are required. For sdkType of java, parameters named serviceName and
-    javaPackageName are required.
+  sdkType-dependent properties of the SDK. For sdkType of objectivec or swift,
+  a parameter named classPrefix is required. For sdkType of android,
+  parameters named groupId, artifactId, artifactVersion, and invokerPackage
+  are required. For sdkType of java, parameters named serviceName and
+  javaPackageName are required.
   """
+
   @spec get_sdk(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, sdk_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sdk_errors()}
+
   def get_sdk(%Client{} = client, rest_api_id, sdk_type, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/sdks/#{AWS.Util.encode_uri(sdk_type)}"
@@ -6963,10 +7519,12 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
+
   @spec get_sdk_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sdk_type(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sdk_type_errors()}
+
   def get_sdk_type(%Client{} = client, id, options \\ []) do
     url_path = "/sdktypes/#{AWS.Util.encode_uri(id)}"
 
@@ -7004,14 +7562,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_sdk_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, sdk_types(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sdk_types_errors()}
+
   def get_sdk_types(%Client{} = client, options \\ []) do
     url_path = "/sdktypes"
 
@@ -7066,14 +7626,16 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:stage_name` (`t:string`) The name of the Stage resource to get information
-    about.
+  about.
 
   ## Optional parameters:
   """
+
   @spec get_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stage_errors()}
+
   def get_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
@@ -7114,10 +7676,12 @@ defmodule AWS.APIGateway do
   ## Optional parameters:
   * `:deployment_id` (`t:string`) The stages' deployment identifiers.
   """
+
   @spec get_stages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stages(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stages_errors()}
+
   def get_stages(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages"
 
@@ -7167,15 +7731,17 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) (Not currently supported) The maximum number of
-    returned results per page. The default value is 25 and the maximum value is
-    500.
+  returned results per page. The default value is 25 and the maximum value is
+  500.
   * `:position` (`t:string`) (Not currently supported) The current pagination
-    position in the paged result set.
+  position in the paged result set.
   """
+
   @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
+
   def get_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -7229,24 +7795,27 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string`) The Id of the usage plan associated with the
-    usage data.
+  usage data.
   * `:end_date` (`t:string`) The ending date (e.g., 2016-12-31) of the usage data.
   * `:start_date` (`t:string`) The starting date (e.g., 2016-01-01) of the usage
-    data.
+  data.
 
   ## Optional parameters:
   * `:key_id` (`t:string`) The Id of the API key associated with the resultant
-    usage data.
+  usage data.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_usage(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_errors()}
-  def get_usage(%Client{} = client, usage_plan_id, end_date, start_date, options \\ []) do
+
+  def get_usage(%Client{} = client, usage_plan_id, end_date, start_date, options \\ [])
+      when is_binary(end_date) and is_binary(start_date) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/usage"
 
     # Validate optional parameters
@@ -7306,14 +7875,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string`) The identifier of the UsagePlan resource to be
-    retrieved.
+  retrieved.
 
   ## Optional parameters:
   """
+
   @spec get_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plan_errors()}
+
   def get_usage_plan(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
 
@@ -7349,17 +7920,19 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:key_id` (`t:string`) The key Id of the to-be-retrieved UsagePlanKey resource
-    representing a plan customer.
+  representing a plan customer.
   * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-    the usage plan containing the to-be-retrieved UsagePlanKey resource
-    representing a plan customer.
+  the usage plan containing the to-be-retrieved UsagePlanKey resource
+  representing a plan customer.
 
   ## Optional parameters:
   """
+
   @spec get_usage_plan_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plan_key_errors()}
+
   def get_usage_plan_key(%Client{} = client, key_id, usage_plan_id, options \\ []) do
     url_path =
       "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}"
@@ -7397,21 +7970,23 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing
-    the usage plan containing the to-be-retrieved UsagePlanKey resource
-    representing a plan customer.
+  the usage plan containing the to-be-retrieved UsagePlanKey resource
+  representing a plan customer.
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:name_query` (`t:string`) A query parameter specifying the name of the
-    to-be-returned usage plan keys.
+  to-be-returned usage plan keys.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_usage_plan_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_keys(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plan_keys_errors()}
+
   def get_usage_plan_keys(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys"
 
@@ -7474,16 +8049,18 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:key_id` (`t:string`) The identifier of the API key associated with the usage
-    plans.
+  plans.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_usage_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, usage_plans(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_plans_errors()}
+
   def get_usage_plans(%Client{} = client, options \\ []) do
     url_path = "/usageplans"
 
@@ -7544,14 +8121,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:vpc_link_id` (`t:string`) The identifier of the VpcLink. It is used in an
-    Integration to reference this VpcLink.
+  Integration to reference this VpcLink.
 
   ## Optional parameters:
   """
+
   @spec get_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_link_errors()}
+
   def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
 
@@ -7589,14 +8168,16 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-    default value is 25 and the maximum value is 500.
+  default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-    set.
+  set.
   """
+
   @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, vpc_links(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vpc_links_errors()}
+
   def get_vpc_links(%Client{} = client, options \\ []) do
     url_path = "/vpclinks"
 
@@ -7650,26 +8231,49 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:format` (`t:enum["csv"]`) A query parameter to specify the input format to
-    imported API keys. Currently, only the csv format is supported.
+  imported API keys. Currently, only the csv format is supported.
+  * `:input` (`t:map`):
+    * `:body` (`t:blob`) The payload of the POST request to import API keys. For the
+  payload format, see API Key File Format.
 
   ## Optional parameters:
   * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to
-    rollback ApiKey importation (true) or not (false) when error is encountered.
+  rollback ApiKey importation (true) or not (false) when error is encountered.
   """
-  @spec import_api_keys(AWS.Client.t(), import_api_keys_request(), Keyword.t()) ::
+
+  @spec import_api_keys(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, api_key_ids(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_api_keys_errors()}
-  def import_api_keys(%Client{} = client, input, options \\ []) do
+
+  def import_api_keys(%Client{} = client, format, input, options \\ [])
+      when is_map(input) and is_binary(format) do
     url_path = "/apikeys?mode=import"
+
+    # Validate optional parameters
+    optional_params = [fail_on_warnings: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"failOnWarnings", "failonwarnings"},
-        {"format", "format"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"format", format}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :fail_on_warnings) do
+        [{"failonwarnings", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -7679,17 +8283,9 @@ defmodule AWS.APIGateway do
       options
       |> Keyword.drop([:fail_on_warnings])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7699,35 +8295,60 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:input` (`t:map`):
+    * `:body` (`t:blob`) Raw byte array representing the to-be-imported
+  documentation parts. To import from an OpenAPI file, this is a JSON object.
 
   ## Optional parameters:
   * `:fail_on_warnings` (`t:boolean`) A query parameter to specify whether to
-    rollback the documentation importation (true) or not (false) when a warning
-    is encountered. The default value is false.
+  rollback the documentation importation (true) or not (false) when a warning
+  is encountered. The default value is false.
   * `:mode` (`t:enum["Merge|Overwrite"]`) A query parameter to indicate whether to
-    overwrite (overwrite) any existing DocumentationParts definition or to merge
-    (merge) the new definition into the existing one. The default value is
-    merge.
+  overwrite (overwrite) any existing DocumentationParts definition or to merge
+  (merge) the new definition into the existing one. The default value is
+  merge.
   """
-  @spec import_documentation_parts(
-          AWS.Client.t(),
-          String.t(),
-          import_documentation_parts_request(),
-          Keyword.t()
-        ) ::
+
+  @spec import_documentation_parts(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, documentation_part_ids(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_documentation_parts_errors()}
-  def import_documentation_parts(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def import_documentation_parts(%Client{} = client, rest_api_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts"
+
+    # Validate optional parameters
+    optional_params = [fail_on_warnings: nil, mode: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"failOnWarnings", "failonwarnings"},
-        {"mode", "mode"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :mode) do
+        [{"mode", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :fail_on_warnings) do
+        [{"failonwarnings", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -7737,7 +8358,9 @@ defmodule AWS.APIGateway do
       options
       |> Keyword.drop([:fail_on_warnings, :mode])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7747,30 +8370,60 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20ImportRestApi&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:body` (`t:blob`) The POST request body containing external API definitions.
+  Currently, only OpenAPI definition JSON/YAML files are supported. The
+  maximum size of the API definition file is 6MB.
 
   ## Optional parameters:
   * `:parameters` (`t:map`) A key-value map of context-specific query string
-    parameters specifying the behavior of different API importing operations.
-    The following shows operation-specific parameters and their supported
-    values.
+  parameters specifying the behavior of different API importing operations.
+  The following shows operation-specific parameters and their supported
+  values.
   * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to
-    rollback the API creation (true) or not (false) when a warning is
-    encountered. The default value is false.
+  rollback the API creation (true) or not (false) when a warning is
+  encountered. The default value is false.
   """
-  @spec import_rest_api(AWS.Client.t(), import_rest_api_request(), Keyword.t()) ::
+
+  @spec import_rest_api(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_rest_api_errors()}
-  def import_rest_api(%Client{} = client, input, options \\ []) do
+
+  def import_rest_api(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/restapis?mode=import"
+
+    # Validate optional parameters
+    optional_params = [parameters: nil, fail_on_warnings: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"parameters", "parameters"},
-        {"failOnWarnings", "failonwarnings"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :fail_on_warnings) do
+        [{"failonwarnings", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :parameters) do
+        [{"parameters", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -7780,17 +8433,9 @@ defmodule AWS.APIGateway do
       options
       |> Keyword.drop([:parameters, :fail_on_warnings])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7801,33 +8446,47 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-    The response type of the associated GatewayResponse
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
+  The response type of the associated GatewayResponse
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec put_gateway_response(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          put_gateway_response_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_gateway_response_errors()}
-  def put_gateway_response(%Client{} = client, response_type, rest_api_id, input, options \\ []) do
+
+  def put_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7839,20 +8498,25 @@ defmodule AWS.APIGateway do
   * `:http_method` (`t:string`) Specifies the HTTP method for the integration.
   * `:resource_id` (`t:string`) Specifies a put integration request's resource ID.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:input` (`t:map`):
+    * `:http_method` (`t:string`) Specifies the HTTP method for the integration.
+    * `:integration_http_method` (`t:string`) The HTTP method for the integration.
 
   ## Optional parameters:
   """
+
   @spec put_integration(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          put_integration_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_integration_errors()}
+
   def put_integration(
         %Client{} = client,
         http_method,
@@ -7860,17 +8524,36 @@ defmodule AWS.APIGateway do
         rest_api_id,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7880,46 +8563,64 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string`) Specifies a put integration response request's
-    HTTP method.
+  HTTP method.
   * `:resource_id` (`t:string`) Specifies a put integration response request's
-    resource identifier.
+  resource identifier.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:status_code` (`t:string`) Specifies the status code that is used to map the
-    integration response to an existing MethodResponse.
+  integration response to an existing MethodResponse.
 
   ## Optional parameters:
   """
+
   @spec put_integration_response(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          put_integration_response_request(),
           Keyword.t()
         ) ::
           {:ok, integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_integration_response_errors()}
+
   def put_integration_response(
         %Client{} = client,
         http_method,
         resource_id,
         rest_api_id,
         status_code,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration/responses/#{AWS.Util.encode_uri(status_code)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7930,33 +8631,46 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string`) Specifies the method request's HTTP method type.
   * `:resource_id` (`t:string`) The Resource identifier for the new Method
-    resource.
+  resource.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec put_method(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          put_method_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_method_errors()}
-  def put_method(%Client{} = client, http_method, resource_id, rest_api_id, input, options \\ []) do
+
+  def put_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7972,37 +8686,55 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
+
   @spec put_method_response(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          put_method_response_request(),
           Keyword.t()
         ) ::
           {:ok, method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_method_response_errors()}
+
   def put_method_response(
         %Client{} = client,
         http_method,
         resource_id,
         rest_api_id,
         status_code,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/responses/#{AWS.Util.encode_uri(status_code)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8014,35 +8746,71 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:input` (`t:map`):
+    * `:body` (`t:blob`) The PUT request body containing external API definitions.
+  Currently, only OpenAPI definition JSON/YAML files are supported. The
+  maximum size of the API definition file is 6MB.
 
   ## Optional parameters:
   * `:parameters` (`t:map`) Custom header parameters as part of the request. For
-    example, to exclude DocumentationParts from an imported API, set
-    ignore=documentation as a parameters value, as in the AWS CLI command of aws
-    apigateway import-rest-api --parameters ignore=documentation --body
-    'file:///path/to/imported-api-body.json'.
+  example, to exclude DocumentationParts from an imported API, set
+  ignore=documentation as a parameters value, as in the AWS CLI command of aws
+  apigateway import-rest-api --parameters ignore=documentation --body
+  'file:///path/to/imported-api-body.json'.
   * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to
-    rollback the API update (true) or not (false) when a warning is encountered.
-    The default value is false.
+  rollback the API update (true) or not (false) when a warning is encountered.
+  The default value is false.
   * `:mode` (`t:enum["Merge|Overwrite"]`) The mode query parameter to specify the
-    update mode. Valid values are "merge" and "overwrite". By default, the
-    update mode is "merge".
+  update mode. Valid values are "merge" and "overwrite". By default, the
+  update mode is "merge".
   """
-  @spec put_rest_api(AWS.Client.t(), String.t(), put_rest_api_request(), Keyword.t()) ::
+
+  @spec put_rest_api(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_rest_api_errors()}
-  def put_rest_api(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def put_rest_api(%Client{} = client, rest_api_id, input, options \\ []) when is_map(input) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
+
+    # Validate optional parameters
+    optional_params = [parameters: nil, fail_on_warnings: nil, mode: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"parameters", "parameters"},
-        {"failOnWarnings", "failonwarnings"},
-        {"mode", "mode"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :mode) do
+        [{"mode", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :fail_on_warnings) do
+        [{"failonwarnings", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :parameters) do
+        [{"parameters", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -8052,7 +8820,9 @@ defmodule AWS.APIGateway do
       options
       |> Keyword.drop([:parameters, :fail_on_warnings, :mode])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8065,19 +8835,40 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -8088,42 +8879,46 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:authorizer_id` (`t:string`) Specifies a test invoke authorizer request's
-    Authorizer ID.
+  Authorizer ID.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec test_invoke_authorizer(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          test_invoke_authorizer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec test_invoke_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_invoke_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_invoke_authorizer_errors()}
-  def test_invoke_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
+
+  def test_invoke_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8134,52 +8929,48 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string`) Specifies a test invoke method request's HTTP
-    method.
+  method.
   * `:resource_id` (`t:string`) Specifies a test invoke method request's resource
-    ID.
+  ID.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec test_invoke_method(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          test_invoke_method_request(),
-          Keyword.t()
-        ) ::
+
+  @spec test_invoke_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_invoke_method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_invoke_method_errors()}
-  def test_invoke_method(
-        %Client{} = client,
-        http_method,
-        resource_id,
-        rest_api_id,
-        input,
-        options \\ []
-      ) do
+
+  def test_invoke_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8190,26 +8981,43 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of a resource that can be tagged.
   * `:tag_keys` (`t:list[com.amazonaws.apigateway#String]`) The Tag keys to
-    delete.
+  delete.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8218,7 +9026,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8233,17 +9041,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_account(AWS.Client.t(), update_account_request(), Keyword.t()) ::
+
+  @spec update_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, account(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_errors()}
-  def update_account(%Client{} = client, input, options \\ []) do
+
+  def update_account(%Client{} = client, options \\ []) do
     url_path = "/account"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8252,7 +9081,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8268,17 +9097,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_api_key(AWS.Client.t(), String.t(), update_api_key_request(), Keyword.t()) ::
+
+  @spec update_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_api_key_errors()}
-  def update_api_key(%Client{} = client, api_key, input, options \\ []) do
+
+  def update_api_key(%Client{} = client, api_key, options \\ []) do
     url_path = "/apikeys/#{AWS.Util.encode_uri(api_key)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8287,7 +9137,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8304,25 +9154,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_authorizer(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_authorizer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_authorizer_errors()}
-  def update_authorizer(%Client{} = client, authorizer_id, rest_api_id, input, options \\ []) do
+
+  def update_authorizer(%Client{} = client, authorizer_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8331,7 +9195,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8344,31 +9208,45 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:base_path` (`t:string`) The base path of the BasePathMapping resource to
-    change.
+  change.
   * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to
-    change.
+  change.
 
   ## Optional parameters:
   """
-  @spec update_base_path_mapping(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_base_path_mapping_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_base_path_mapping_errors()}
-  def update_base_path_mapping(%Client{} = client, base_path, domain_name, input, options \\ []) do
+
+  def update_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
     url_path =
       "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8377,7 +9255,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8390,26 +9268,42 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate
-    resource to be updated.
+  resource to be updated.
 
   ## Optional parameters:
   """
-  @spec update_client_certificate(
-          AWS.Client.t(),
-          String.t(),
-          update_client_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_client_certificate_errors()}
-  def update_client_certificate(%Client{} = client, client_certificate_id, input, options \\ []) do
+
+  def update_client_certificate(%Client{} = client, client_certificate_id, options \\ []) do
     url_path = "/clientcertificates/#{AWS.Util.encode_uri(client_certificate_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8418,7 +9312,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8431,30 +9325,44 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:deployment_id` (`t:string`) The replacement identifier for the Deployment
-    resource to change information about.
+  resource to change information about.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec update_deployment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_deployment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deployment_errors()}
-  def update_deployment(%Client{} = client, deployment_id, rest_api_id, input, options \\ []) do
+
+  def update_deployment(%Client{} = client, deployment_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8463,7 +9371,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8476,36 +9384,49 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_part_id` (`t:string`) The identifier of the to-be-updated
-    documentation part.
+  documentation part.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec update_documentation_part(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_documentation_part_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_documentation_part_errors()}
+
   def update_documentation_part(
         %Client{} = client,
         documentation_part_id,
         rest_api_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/parts/#{AWS.Util.encode_uri(documentation_part_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8514,7 +9435,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8527,36 +9448,49 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_version` (`t:string`) The version identifier of the
-    to-be-updated documentation version.
+  to-be-updated documentation version.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec update_documentation_version(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_documentation_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_documentation_version_errors()}
+
   def update_documentation_version(
         %Client{} = client,
         documentation_version,
         rest_api_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/documentation/versions/#{AWS.Util.encode_uri(documentation_version)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8565,7 +9499,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8581,17 +9515,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_domain_name(AWS.Client.t(), String.t(), update_domain_name_request(), Keyword.t()) ::
+
+  @spec update_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_name_errors()}
-  def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
+
+  def update_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8600,7 +9555,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8613,37 +9568,45 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
-    The response type of the associated GatewayResponse.
+  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`)
+  The response type of the associated GatewayResponse.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec update_gateway_response(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_gateway_response_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_response_errors()}
-  def update_gateway_response(
-        %Client{} = client,
-        response_type,
-        rest_api_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_gateway_response(%Client{} = client, response_type, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/gatewayresponses/#{AWS.Util.encode_uri(response_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8652,7 +9615,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8665,40 +9628,46 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string`) Represents an update integration request's HTTP
-    method.
+  method.
   * `:resource_id` (`t:string`) Represents an update integration request's
-    resource identifier.
+  resource identifier.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec update_integration(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_integration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_errors()}
-  def update_integration(
-        %Client{} = client,
-        http_method,
-        resource_id,
-        rest_api_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_integration(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8707,7 +9676,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8720,44 +9689,62 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string`) Specifies an update integration response request's
-    HTTP method.
+  HTTP method.
   * `:resource_id` (`t:string`) Specifies an update integration response request's
-    resource identifier.
+  resource identifier.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:status_code` (`t:string`) Specifies an update integration response request's
-    status code.
+  status code.
 
   ## Optional parameters:
   """
+
   @spec update_integration_response(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_integration_response_request(),
           Keyword.t()
         ) ::
           {:ok, integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_integration_response_errors()}
+
   def update_integration_response(
         %Client{} = client,
         http_method,
         resource_id,
         rest_api_id,
         status_code,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration/responses/#{AWS.Util.encode_uri(status_code)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8766,7 +9753,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8784,33 +9771,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_method(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_method_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_method_errors()}
-  def update_method(
-        %Client{} = client,
-        http_method,
-        resource_id,
-        rest_api_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_method(%Client{} = client, http_method, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8819,7 +9812,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8833,41 +9826,59 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string`) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse
-    resource.
+  resource.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:status_code` (`t:string`) The status code for the MethodResponse resource.
 
   ## Optional parameters:
   """
+
   @spec update_method_response(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_method_response_request(),
           Keyword.t()
         ) ::
           {:ok, method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_method_response_errors()}
+
   def update_method_response(
         %Client{} = client,
         http_method,
         resource_id,
         rest_api_id,
         status_code,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/responses/#{AWS.Util.encode_uri(status_code)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8876,7 +9887,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       201
     )
@@ -8893,19 +9904,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_model(AWS.Client.t(), String.t(), String.t(), update_model_request(), Keyword.t()) ::
+
+  @spec update_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_errors()}
-  def update_model(%Client{} = client, model_name, rest_api_id, input, options \\ []) do
+
+  def update_model(%Client{} = client, model_name, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/models/#{AWS.Util.encode_uri(model_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8914,7 +9945,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8927,36 +9958,49 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:request_validator_id` (`t:string`) The identifier of RequestValidator to be
-    updated.
+  updated.
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
-  @spec update_request_validator(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_request_validator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_request_validator_errors()}
+
   def update_request_validator(
         %Client{} = client,
         request_validator_id,
         rest_api_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/requestvalidators/#{AWS.Util.encode_uri(request_validator_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8965,7 +10009,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8982,25 +10026,39 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_resource(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_errors()}
-  def update_resource(%Client{} = client, resource_id, rest_api_id, input, options \\ []) do
+
+  def update_resource(%Client{} = client, resource_id, rest_api_id, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9009,7 +10067,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -9025,17 +10083,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_rest_api(AWS.Client.t(), String.t(), update_rest_api_request(), Keyword.t()) ::
+
+  @spec update_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rest_api_errors()}
-  def update_rest_api(%Client{} = client, rest_api_id, input, options \\ []) do
+
+  def update_rest_api(%Client{} = client, rest_api_id, options \\ []) do
     url_path = "/restapis/#{AWS.Util.encode_uri(rest_api_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9044,7 +10123,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -9058,23 +10137,43 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
   * `:stage_name` (`t:string`) The name of the Stage resource to change
-    information about.
+  information about.
 
   ## Optional parameters:
   """
-  @spec update_stage(AWS.Client.t(), String.t(), String.t(), update_stage_request(), Keyword.t()) ::
+
+  @spec update_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stage_errors()}
-  def update_stage(%Client{} = client, rest_api_id, stage_name, input, options \\ []) do
+
+  def update_stage(%Client{} = client, rest_api_id, stage_name, options \\ []) do
     url_path =
       "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9083,7 +10182,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -9097,25 +10196,45 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:key_id` (`t:string`) The identifier of the API key associated with the usage
-    plan in which a temporary extension is granted to the remaining quota.
+  plan in which a temporary extension is granted to the remaining quota.
   * `:usage_plan_id` (`t:string`) The Id of the usage plan associated with the
-    usage data.
+  usage data.
 
   ## Optional parameters:
   """
-  @spec update_usage(AWS.Client.t(), String.t(), String.t(), update_usage_request(), Keyword.t()) ::
+
+  @spec update_usage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_usage_errors()}
-  def update_usage(%Client{} = client, key_id, usage_plan_id, input, options \\ []) do
+
+  def update_usage(%Client{} = client, key_id, usage_plan_id, options \\ []) do
     url_path =
       "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}/keys/#{AWS.Util.encode_uri(key_id)}/usage"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9124,7 +10243,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -9140,17 +10259,38 @@ defmodule AWS.APIGateway do
 
   ## Optional parameters:
   """
-  @spec update_usage_plan(AWS.Client.t(), String.t(), update_usage_plan_request(), Keyword.t()) ::
+
+  @spec update_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_usage_plan_errors()}
-  def update_usage_plan(%Client{} = client, usage_plan_id, input, options \\ []) do
+
+  def update_usage_plan(%Client{} = client, usage_plan_id, options \\ []) do
     url_path = "/usageplans/#{AWS.Util.encode_uri(usage_plan_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9159,7 +10299,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -9172,21 +10312,42 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:vpc_link_id` (`t:string`) The identifier of the VpcLink. It is used in an
-    Integration to reference this VpcLink.
+  Integration to reference this VpcLink.
 
   ## Optional parameters:
   """
-  @spec update_vpc_link(AWS.Client.t(), String.t(), update_vpc_link_request(), Keyword.t()) ::
+
+  @spec update_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_link_errors()}
-  def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
+
+  def update_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9195,7 +10356,7 @@ defmodule AWS.APIGateway do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

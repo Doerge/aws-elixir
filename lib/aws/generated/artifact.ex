@@ -12,191 +12,191 @@ defmodule AWS.Artifact do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_settings() :: %{
         "notificationSubscriptionStatus" => String.t()
       }
-
+      
   """
   @type account_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_settings_request() :: %{}
-
+      
   """
   @type get_account_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_settings_response() :: %{
         "accountSettings" => account_settings()
       }
-
+      
   """
   @type get_account_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_report_metadata_request() :: %{
         optional("reportVersion") => float(),
         required("reportId") => String.t()
       }
-
+      
   """
   @type get_report_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_report_metadata_response() :: %{
         "reportDetails" => report_detail()
       }
-
+      
   """
   @type get_report_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_report_request() :: %{
         optional("reportVersion") => float(),
         required("reportId") => String.t(),
         required("termToken") => String.t()
       }
-
+      
   """
   @type get_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_report_response() :: %{
         "documentPresignedUrl" => [String.t()]
       }
-
+      
   """
   @type get_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_term_for_report_request() :: %{
         optional("reportVersion") => float(),
         required("reportId") => String.t()
       }
-
+      
   """
   @type get_term_for_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_term_for_report_response() :: %{
         "documentPresignedUrl" => [String.t()],
         "termToken" => [String.t()]
       }
-
+      
   """
   @type get_term_for_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_reports_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_reports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_reports_response() :: %{
         "nextToken" => String.t(),
         "reports" => list(report_summary()())
       }
-
+      
   """
   @type list_reports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_settings_request() :: %{
         optional("notificationSubscriptionStatus") => String.t()
       }
-
+      
   """
   @type put_account_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_settings_response() :: %{
         "accountSettings" => account_settings()
       }
-
+      
   """
   @type put_account_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       report_detail() :: %{
         "acceptanceType" => String.t(),
         "arn" => String.t(),
@@ -219,14 +219,14 @@ defmodule AWS.Artifact do
         "uploadState" => String.t(),
         "version" => float()
       }
-
+      
   """
   @type report_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       report_summary() :: %{
         "acceptanceType" => String.t(),
         "arn" => String.t(),
@@ -244,27 +244,27 @@ defmodule AWS.Artifact do
         "uploadState" => String.t(),
         "version" => float()
       }
-
+      
   """
   @type report_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -272,46 +272,46 @@ defmodule AWS.Artifact do
         "resourceType" => [String.t()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
         "retryAfterSeconds" => [integer()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
@@ -392,10 +392,12 @@ defmodule AWS.Artifact do
 
   ## Optional parameters:
   """
+
   @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
+
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/v1/account-settings/get"
 
@@ -432,16 +434,19 @@ defmodule AWS.Artifact do
   ## Parameters:
   * `:report_id` (`t:string`) Unique resource ID for the report resource.
   * `:term_token` (`t:string`) Unique download token provided by GetTermForReport
-    API.
+  API.
 
   ## Optional parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
+
   @spec get_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_errors()}
-  def get_report(%Client{} = client, report_id, term_token, options \\ []) do
+
+  def get_report(%Client{} = client, report_id, term_token, options \\ [])
+      when is_binary(report_id) and is_binary(term_token) do
     url_path = "/v1/report/get"
 
     # Validate optional parameters
@@ -491,11 +496,14 @@ defmodule AWS.Artifact do
   ## Optional parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
+
   @spec get_report_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_report_metadata_errors()}
-  def get_report_metadata(%Client{} = client, report_id, options \\ []) do
+
+  def get_report_metadata(%Client{} = client, report_id, options \\ [])
+      when is_binary(report_id) do
     url_path = "/v1/report/getMetadata"
 
     # Validate optional parameters
@@ -545,11 +553,14 @@ defmodule AWS.Artifact do
   ## Optional parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
+
   @spec get_term_for_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_term_for_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_term_for_report_errors()}
-  def get_term_for_report(%Client{} = client, report_id, options \\ []) do
+
+  def get_term_for_report(%Client{} = client, report_id, options \\ [])
+      when is_binary(report_id) do
     url_path = "/v1/report/getTermForReport"
 
     # Validate optional parameters
@@ -597,14 +608,16 @@ defmodule AWS.Artifact do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of resources to return in the
-    paginated response.
+  paginated response.
   * `:next_token` (`t:string`) Pagination token to request the next page of
-    resources.
+  resources.
   """
+
   @spec list_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reports_errors()}
+
   def list_reports(%Client{} = client, options \\ []) do
     url_path = "/v1/report/list"
 
@@ -660,18 +673,39 @@ defmodule AWS.Artifact do
 
   ## Optional parameters:
   """
-  @spec put_account_settings(AWS.Client.t(), put_account_settings_request(), Keyword.t()) ::
+
+  @spec put_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_settings_errors()}
-  def put_account_settings(%Client{} = client, input, options \\ []) do
+
+  def put_account_settings(%Client{} = client, options \\ []) do
     url_path = "/v1/account-settings/put"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

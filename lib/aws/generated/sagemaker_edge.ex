@@ -12,33 +12,33 @@ defmodule AWS.SagemakerEdge do
   @typedoc """
 
   ## Example:
-
+      
       checksum() :: %{
         "Sum" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type checksum() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       definition() :: %{
         "Checksum" => checksum(),
         "ModelHandle" => String.t(),
         "S3Url" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment_model() :: %{
         "DesiredState" => list(any()),
         "ModelHandle" => String.t(),
@@ -49,14 +49,14 @@ defmodule AWS.SagemakerEdge do
         "Status" => list(any()),
         "StatusReason" => String.t()
       }
-
+      
   """
   @type deployment_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment_result() :: %{
         "DeploymentEndTime" => non_neg_integer(),
         "DeploymentModels" => list(deployment_model()()),
@@ -65,100 +65,100 @@ defmodule AWS.SagemakerEdge do
         "DeploymentStatus" => String.t(),
         "DeploymentStatusMessage" => String.t()
       }
-
+      
   """
   @type deployment_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       edge_deployment() :: %{
         "Definitions" => list(definition()()),
         "DeploymentName" => String.t(),
         "FailureHandlingPolicy" => list(any()),
         "Type" => list(any())
       }
-
+      
   """
   @type edge_deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       edge_metric() :: %{
         "Dimension" => String.t(),
         "MetricName" => String.t(),
         "Timestamp" => non_neg_integer(),
         "Value" => float()
       }
-
+      
   """
   @type edge_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deployments_request() :: %{
         required("DeviceFleetName") => String.t(),
         required("DeviceName") => String.t()
       }
-
+      
   """
   @type get_deployments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deployments_result() :: %{
         "Deployments" => list(edge_deployment()())
       }
-
+      
   """
   @type get_deployments_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_device_registration_request() :: %{
         required("DeviceFleetName") => String.t(),
         required("DeviceName") => String.t()
       }
-
+      
   """
   @type get_device_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_device_registration_result() :: %{
         "CacheTTL" => String.t(),
         "DeviceRegistration" => String.t()
       }
-
+      
   """
   @type get_device_registration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model() :: %{
         "LatestInference" => non_neg_integer(),
         "LatestSampleTime" => non_neg_integer(),
@@ -166,14 +166,14 @@ defmodule AWS.SagemakerEdge do
         "ModelName" => String.t(),
         "ModelVersion" => String.t()
       }
-
+      
   """
   @type model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_heartbeat_request() :: %{
         optional("AgentMetrics") => list(edge_metric()()),
         optional("DeploymentResult") => deployment_result(),
@@ -182,7 +182,7 @@ defmodule AWS.SagemakerEdge do
         required("DeviceFleetName") => String.t(),
         required("DeviceName") => String.t()
       }
-
+      
   """
   @type send_heartbeat_request() :: %{String.t() => any()}
 
@@ -217,29 +217,40 @@ defmodule AWS.SagemakerEdge do
 
   ## Optional parameters:
   """
-  @spec get_deployments(AWS.Client.t(), get_deployments_request(), Keyword.t()) ::
+
+  @spec get_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployments_errors()}
-  def get_deployments(%Client{} = client, input, options \\ []) do
+
+  def get_deployments(%Client{} = client, options \\ []) do
     url_path = "/GetDeployments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -251,29 +262,40 @@ defmodule AWS.SagemakerEdge do
 
   ## Optional parameters:
   """
-  @spec get_device_registration(AWS.Client.t(), get_device_registration_request(), Keyword.t()) ::
+
+  @spec get_device_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_device_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_registration_errors()}
-  def get_device_registration(%Client{} = client, input, options \\ []) do
+
+  def get_device_registration(%Client{} = client, options \\ []) do
     url_path = "/GetDeviceRegistration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -285,28 +307,39 @@ defmodule AWS.SagemakerEdge do
 
   ## Optional parameters:
   """
-  @spec send_heartbeat(AWS.Client.t(), send_heartbeat_request(), Keyword.t()) ::
+
+  @spec send_heartbeat(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_heartbeat_errors()}
-  def send_heartbeat(%Client{} = client, input, options \\ []) do
+
+  def send_heartbeat(%Client{} = client, options \\ []) do
     url_path = "/SendHeartbeat"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

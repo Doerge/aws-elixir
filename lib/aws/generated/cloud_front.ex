@@ -12,261 +12,261 @@ defmodule AWS.CloudFront do
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type response_headers_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalidation_summary() :: %{
         "CreateTime" => non_neg_integer(),
         "Id" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type invalidation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_origin_access_controls() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_origin_access_controls() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       realtime_metrics_subscription_config() :: %{
         "RealtimeMetricsSubscriptionStatus" => list(any())
       }
-
+      
   """
   @type realtime_metrics_subscription_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_value_store_association() :: %{
         "KeyValueStoreARN" => String.t()
       }
-
+      
   """
   @type key_value_store_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       signer() :: %{
         "AwsAccountNumber" => String.t(),
         "KeyPairIds" => key_pair_ids()
       }
-
+      
   """
   @type signer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cache_policy_request() :: %{
         optional("IfMatch") => String.t(),
         required("CachePolicyConfig") => cache_policy_config()
       }
-
+      
   """
   @type update_cache_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_response_headers_policies_result() :: %{
         "ResponseHeadersPolicyList" => response_headers_policy_list()
       }
-
+      
   """
   @type list_response_headers_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_front_origin_access_identity_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cloud_front_origin_access_identity_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_realtime_log_configs_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_realtime_log_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_origin_groups_per_distribution() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_origin_groups_per_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       end_point() :: %{
         "KinesisStreamConfig" => kinesis_stream_config(),
         "StreamType" => String.t()
       }
-
+      
   """
   @type end_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_response_headers_policy_result() :: %{
         "ETag" => String.t(),
         "ResponseHeadersPolicy" => response_headers_policy()
       }
-
+      
   """
   @type update_response_headers_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_distribution_not_disabled() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type streaming_distribution_not_disabled() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_realtime_log_config_request() :: %{
         optional("ARN") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type delete_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_origin_request_policies_result() :: %{
         "OriginRequestPolicyList" => origin_request_policy_list()
       }
-
+      
   """
   @type list_origin_request_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cannot_change_immutable_public_key_fields() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cannot_change_immutable_public_key_fields() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_function_associations() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_origin_access_identity() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_origin_access_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forwarded_values() :: %{
         "Cookies" => cookie_preference(),
         "Headers" => headers(),
         "QueryString" => boolean(),
         "QueryStringCacheKeys" => query_string_cache_keys()
       }
-
+      
   """
   @type forwarded_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_not_disabled() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type distribution_not_disabled() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Resource") => String.t(),
         required("Tags") => tags()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       realtime_log_configs() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(realtime_log_config()()),
@@ -274,145 +274,145 @@ defmodule AWS.CloudFront do
         "MaxItems" => integer(),
         "NextMarker" => String.t()
       }
-
+      
   """
   @type realtime_log_configs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_continuous_deployment_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_continuous_deployment_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_continuous_deployment_policy_request() :: %{}
-
+      
   """
   @type get_continuous_deployment_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_group_result() :: %{
         "ETag" => String.t(),
         "KeyGroup" => key_group()
       }
-
+      
   """
   @type update_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_custom_headers_in_response_headers_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_custom_headers_in_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_response_headers_policies() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_response_headers_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_cookies_in_cache_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_cookies_in_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_invalidations_in_progress() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_invalidations_in_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       status_codes() :: %{
         "Items" => list(integer()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type status_codes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_distribution_config_request() :: %{}
-
+      
   """
   @type get_streaming_distribution_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_function_associations() :: %{
         "Items" => list(lambda_function_association()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type lambda_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_continuous_deployment_policies() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_continuous_deployment_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_long_c_s_p_in_response_headers_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_long_c_s_p_in_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_summary() :: %{
         "Comment" => String.t(),
         "ContentTypeProfileConfig" => content_type_profile_config(),
@@ -420,305 +420,305 @@ defmodule AWS.CloudFront do
         "LastModifiedTime" => non_neg_integer(),
         "QueryArgProfileConfig" => query_arg_profile_config()
       }
-
+      
   """
   @type field_level_encryption_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_arg_profile_empty() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type query_arg_profile_empty() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_request_policy_request() :: %{}
-
+      
   """
   @type get_origin_request_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_config_with_tags() :: %{
         "DistributionConfig" => distribution_config(),
         "Tags" => tags()
       }
-
+      
   """
   @type distribution_config_with_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       copy_distribution_result() :: %{
         "Distribution" => distribution(),
         "ETag" => String.t(),
         "Location" => String.t()
       }
-
+      
   """
   @type copy_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_origin_request_policy_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_origin_request_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cloud_front_origin_access_identity_request() :: %{}
-
+      
   """
   @type get_cloud_front_origin_access_identity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       illegal_origin_access_configuration() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type illegal_origin_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_profile_request() :: %{}
-
+      
   """
   @type get_field_level_encryption_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_if_match_version() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_if_match_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_origin_request_policy_result() :: %{
         "ETag" => String.t(),
         "OriginRequestPolicy" => origin_request_policy()
       }
-
+      
   """
   @type update_origin_request_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_field_level_encryption_profile_request() :: %{
         required("FieldLevelEncryptionProfileConfig") => field_level_encryption_profile_config()
       }
-
+      
   """
   @type create_field_level_encryption_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_associated_to_cache_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_associated_to_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trusted_key_group_does_not_exist() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type trusted_key_group_does_not_exist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_policy_list() :: %{
         "Items" => list(continuous_deployment_policy_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type continuous_deployment_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_realtime_log_config_result() :: %{
         "RealtimeLogConfig" => realtime_log_config()
       }
-
+      
   """
   @type create_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_entities() :: %{
         "Items" => list(encryption_entity()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type encryption_entities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cloud_front_origin_access_identity_config_result() :: %{
         "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_cloud_front_origin_access_identity_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_origin_request_policies_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type list_origin_request_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_query_string_parameters() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_query_string_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_monitoring_subscription_result() :: %{
         "MonitoringSubscription" => monitoring_subscription()
       }
-
+      
   """
   @type get_monitoring_subscription_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_functions() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_functions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_associated_to_origin_request_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_associated_to_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_function_result() :: %{
         "ContentType" => String.t(),
         "ETag" => String.t(),
         "FunctionCode" => binary()
       }
-
+      
   """
   @type get_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_associated_to_key_group() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_associated_to_key_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_tagging() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_tagging() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_continuous_deployment_policy_config_request() :: %{}
-
+      
   """
   @type get_continuous_deployment_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_config() :: %{
         "Comment" => String.t(),
         "CookiesConfig" => origin_request_policy_cookies_config(),
@@ -726,245 +726,245 @@ defmodule AWS.CloudFront do
         "Name" => String.t(),
         "QueryStringsConfig" => origin_request_policy_query_strings_config()
       }
-
+      
   """
   @type origin_request_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_key_value_stores_result() :: %{
         "KeyValueStoreList" => key_value_store_list()
       }
-
+      
   """
   @type list_key_value_stores_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_continuous_deployment_policy_result() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
         "ETag" => String.t()
       }
-
+      
   """
   @type update_continuous_deployment_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_protocol_settings() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_protocol_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_list() :: %{
         "Items" => list(field_level_encryption_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type field_level_encryption_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_response_headers_policy_request() :: %{}
-
+      
   """
   @type get_response_headers_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_web_acl_id_result() :: %{
         "DistributionList" => distribution_list()
       }
-
+      
   """
   @type list_distributions_by_web_acl_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_key_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type public_key_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_single_weight_config() :: %{
         "SessionStickinessConfig" => session_stickiness_config(),
         "Weight" => float()
       }
-
+      
   """
   @type continuous_deployment_single_weight_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_strict_transport_security() :: %{
         "AccessControlMaxAgeSec" => integer(),
         "IncludeSubdomains" => boolean(),
         "Override" => boolean(),
         "Preload" => boolean()
       }
-
+      
   """
   @type response_headers_policy_strict_transport_security() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_distribution_config_result() :: %{
         "ETag" => String.t(),
         "StreamingDistributionConfig" => streaming_distribution_config()
       }
-
+      
   """
   @type get_streaming_distribution_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_not_found() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type entity_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_field_level_encryption_config_request() :: %{
         optional("IfMatch") => String.t(),
         required("FieldLevelEncryptionConfig") => field_level_encryption_config()
       }
-
+      
   """
   @type update_field_level_encryption_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_monitoring_subscription_result() :: %{}
-
+      
   """
   @type delete_monitoring_subscription_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_invalidations_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_invalidations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
         "ETag" => String.t()
       }
-
+      
   """
   @type update_cache_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflicting_alias() :: %{
         "AccountId" => String.t(),
         "Alias" => String.t(),
         "DistributionId" => String.t()
       }
-
+      
   """
   @type conflicting_alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_cache_policy_id_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_distributions_by_cache_policy_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_field_level_encryption_content_type_profiles() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_field_level_encryption_content_type_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_policy_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type continuous_deployment_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_config() :: %{
         "Comment" => String.t(),
         "DefaultTTL" => float(),
@@ -973,52 +973,52 @@ defmodule AWS.CloudFront do
         "Name" => String.t(),
         "ParametersInCacheKeyAndForwardedToOrigin" => parameters_in_cache_key_and_forwarded_to_origin()
       }
-
+      
   """
   @type cache_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trusted_key_groups() :: %{
         "Enabled" => boolean(),
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type trusted_key_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cloud_front_origin_access_identity_request() :: %{
         optional("IfMatch") => String.t(),
         required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
       }
-
+      
   """
   @type update_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_front_origin_access_identity_summary() :: %{
         "Comment" => String.t(),
         "Id" => String.t(),
         "S3CanonicalUserId" => String.t()
       }
-
+      
   """
   @type cloud_front_origin_access_identity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_access_control_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(origin_access_control_summary()()),
@@ -1027,72 +1027,72 @@ defmodule AWS.CloudFront do
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type origin_access_control_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geo_restriction() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer(),
         "RestrictionType" => list(any())
       }
-
+      
   """
   @type geo_restriction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_content_type_options() :: %{
         "Override" => boolean()
       }
-
+      
   """
   @type response_headers_policy_content_type_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_origin_access_control_request() :: %{
         required("OriginAccessControlConfig") => origin_access_control_config()
       }
-
+      
   """
   @type create_origin_access_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_request_policy_config_request() :: %{}
-
+      
   """
   @type get_origin_request_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       copy_distribution_request() :: %{
         optional("Enabled") => boolean(),
         optional("IfMatch") => String.t(),
         optional("Staging") => boolean(),
         required("CallerReference") => String.t()
       }
-
+      
   """
   @type copy_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_result() :: %{
         "ComputeUtilization" => String.t(),
         "FunctionErrorMessage" => String.t(),
@@ -1100,37 +1100,37 @@ defmodule AWS.CloudFront do
         "FunctionOutput" => String.t(),
         "FunctionSummary" => function_summary()
       }
-
+      
   """
   @type test_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cloud_front_origin_access_identity_result() :: %{
         "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
         "ETag" => String.t()
       }
-
+      
   """
   @type update_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_group_member() :: %{
         "OriginId" => String.t()
       }
-
+      
   """
   @type origin_group_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_summary() :: %{
         "ARN" => String.t(),
         "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
@@ -1154,94 +1154,94 @@ defmodule AWS.CloudFront do
         "ViewerCertificate" => viewer_certificate(),
         "WebACLId" => String.t()
       }
-
+      
   """
   @type distribution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cloud_front_origin_access_identities_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_cloud_front_origin_access_identities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alias_i_c_p_recordal() :: %{
         "CNAME" => String.t(),
         "ICPRecordalStatus" => list(any())
       }
-
+      
   """
   @type alias_i_c_p_recordal() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cloud_front_origin_access_identities_result() :: %{
         "CloudFrontOriginAccessIdentityList" => cloud_front_origin_access_identity_list()
       }
-
+      
   """
   @type list_cloud_front_origin_access_identities_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_stickiness_config() :: %{
         "IdleTTL" => integer(),
         "MaximumTTL" => integer()
       }
-
+      
   """
   @type session_stickiness_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_public_keys_result() :: %{
         "PublicKeyList" => public_key_list()
       }
-
+      
   """
   @type list_public_keys_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_field_level_encryption_configs_result() :: %{
         "FieldLevelEncryptionList" => field_level_encryption_list()
       }
-
+      
   """
   @type list_field_level_encryption_configs_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_config_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type field_level_encryption_config_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_cache_behavior() :: %{
         "AllowedMethods" => allowed_methods(),
         "CachePolicyId" => String.t(),
@@ -1262,256 +1262,256 @@ defmodule AWS.CloudFront do
         "TrustedSigners" => trusted_signers(),
         "ViewerProtocolPolicy" => list(any())
       }
-
+      
   """
   @type default_cache_behavior() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_profile() :: %{
         "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config(),
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer()
       }
-
+      
   """
   @type field_level_encryption_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       illegal_update() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type illegal_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_key_value_store_result() :: %{
         "ETag" => String.t(),
         "KeyValueStore" => key_value_store(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_key_value_store_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_policy_summary() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy()
       }
-
+      
   """
   @type continuous_deployment_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_functions_result() :: %{
         "FunctionList" => function_list()
       }
-
+      
   """
   @type list_functions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_front_origin_access_identity_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cloud_front_origin_access_identity_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_function_result() :: %{
         "ETag" => String.t(),
         "FunctionSummary" => function_summary()
       }
-
+      
   """
   @type describe_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_group_config() :: %{
         "Comment" => String.t(),
         "Items" => list(String.t()()),
         "Name" => String.t()
       }
-
+      
   """
   @type key_group_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_origin() :: %{
         "DomainName" => String.t(),
         "OriginAccessIdentity" => String.t()
       }
-
+      
   """
   @type s3_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy() :: %{
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "ResponseHeadersPolicyConfig" => response_headers_policy_config()
       }
-
+      
   """
   @type response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_t_t_l_order() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_t_t_l_order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_profile_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type field_level_encryption_profile_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_function_result() :: %{
         "TestResult" => test_result()
       }
-
+      
   """
   @type test_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitoring_subscription() :: %{
         "RealtimeMetricsSubscriptionConfig" => realtime_metrics_subscription_config()
       }
-
+      
   """
   @type monitoring_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_public_key_config_request() :: %{}
-
+      
   """
   @type get_public_key_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_invalidation_result() :: %{
         "Invalidation" => invalidation()
       }
-
+      
   """
   @type get_invalidation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_logging_config() :: %{
         "Bucket" => String.t(),
         "Enabled" => boolean(),
         "Prefix" => String.t()
       }
-
+      
   """
   @type streaming_logging_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_invalidation_request() :: %{
         required("InvalidationBatch") => invalidation_batch()
       }
-
+      
   """
   @type create_invalidation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_string_cache_keys() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type query_string_cache_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_distribution_request() :: %{
         required("StreamingDistributionConfig") => streaming_distribution_config()
       }
-
+      
   """
   @type create_streaming_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_access_control_summary() :: %{
         "Description" => String.t(),
         "Id" => String.t(),
@@ -1520,490 +1520,490 @@ defmodule AWS.CloudFront do
         "SigningBehavior" => list(any()),
         "SigningProtocol" => list(any())
       }
-
+      
   """
   @type origin_access_control_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_key_group_config_request() :: %{}
-
+      
   """
   @type get_key_group_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_cookie_names_in_white_list() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_cookie_names_in_white_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_distribution_request() :: %{
         required("DistributionConfig") => distribution_config()
       }
-
+      
   """
   @type create_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_continuous_deployment_policy_request() :: %{
         required("ContinuousDeploymentPolicyConfig") => continuous_deployment_policy_config()
       }
-
+      
   """
   @type create_continuous_deployment_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_config() :: %{
         "Bucket" => String.t(),
         "Enabled" => boolean(),
         "IncludeCookies" => boolean(),
         "Prefix" => String.t()
       }
-
+      
   """
   @type logging_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_argument() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_argument() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_referrer_policy() :: %{
         "Override" => boolean(),
         "ReferrerPolicy" => list(any())
       }
-
+      
   """
   @type response_headers_policy_referrer_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("Resource") => String.t(),
         required("TagKeys") => tag_keys()
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_distribution_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
         "StreamingDistribution" => streaming_distribution()
       }
-
+      
   """
   @type create_streaming_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_web_acl_id() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_web_acl_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_cookies_in_origin_request_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_cookies_in_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_cache_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_continuous_deployment_policy_result() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
         "ETag" => String.t(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_continuous_deployment_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_group() :: %{
         "Id" => String.t(),
         "KeyGroupConfig" => key_group_config(),
         "LastModifiedTime" => non_neg_integer()
       }
-
+      
   """
   @type key_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_key_group_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_distributions_by_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_public_key_request() :: %{
         optional("IfMatch") => String.t(),
         required("PublicKeyConfig") => public_key_config()
       }
-
+      
   """
   @type update_public_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       content_type_profile() :: %{
         "ContentType" => String.t(),
         "Format" => list(any()),
         "ProfileId" => String.t()
       }
-
+      
   """
   @type content_type_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_key_group_result() :: %{
         "ETag" => String.t(),
         "KeyGroup" => key_group()
       }
-
+      
   """
   @type get_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_headers_config() :: %{
         "HeaderBehavior" => list(any()),
         "Headers" => headers()
       }
-
+      
   """
   @type origin_request_policy_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_too_large() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type batch_too_large() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_arg_profiles() :: %{
         "Items" => list(query_arg_profile()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type query_arg_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_continuous_deployment_policy_request() :: %{
         optional("IfMatch") => String.t(),
         required("ContinuousDeploymentPolicyConfig") => continuous_deployment_policy_config()
       }
-
+      
   """
   @type update_continuous_deployment_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_access_control_allow_origins() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type response_headers_policy_access_control_allow_origins() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_association() :: %{
         "EventType" => list(any()),
         "FunctionARN" => String.t()
       }
-
+      
   """
   @type function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_group_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type key_group_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_realtime_log_config_request() :: %{
         optional("ARN") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type get_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_group_list() :: %{
         "Items" => list(key_group_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type key_group_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_policy() :: %{
         "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer()
       }
-
+      
   """
   @type continuous_deployment_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_shield() :: %{
         "Enabled" => boolean(),
         "OriginShieldRegion" => String.t()
       }
-
+      
   """
   @type origin_shield() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type entity_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       content_type_profiles() :: %{
         "Items" => list(content_type_profile()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type content_type_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_frame_options() :: %{
         "FrameOption" => list(any()),
         "Override" => boolean()
       }
-
+      
   """
   @type response_headers_policy_frame_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_field_level_encryption_profiles_result() :: %{
         "FieldLevelEncryptionProfileList" => field_level_encryption_profile_list()
       }
-
+      
   """
   @type list_field_level_encryption_profiles_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_size_limit_exceeded() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type entity_size_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_profile_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type field_level_encryption_profile_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_field_level_encryption_config() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_field_level_encryption_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_list() :: %{
         "Items" => list(cache_policy_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type cache_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_public_keys_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_public_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_distribution_config_result() :: %{
         "DistributionConfig" => distribution_config(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_distribution_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_key_value_stores_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
         optional("Status") => String.t()
       }
-
+      
   """
   @type list_key_value_stores_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_distribution() :: %{
         "ARN" => String.t(),
         "ActiveTrustedSigners" => active_trusted_signers(),
@@ -2013,302 +2013,302 @@ defmodule AWS.CloudFront do
         "Status" => String.t(),
         "StreamingDistributionConfig" => streaming_distribution_config()
       }
-
+      
   """
   @type streaming_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origins() :: %{
         "Items" => list(origin()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type origins() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_cloud_front_origin_access_identity() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_cloud_front_origin_access_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_field_level_encryption_config_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_field_level_encryption_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_size_limit_exceeded() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type function_size_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cached_methods() :: %{
         "Items" => list(list(any())()),
         "Quantity" => integer()
       }
-
+      
   """
   @type cached_methods() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_origin_access_control() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_value_store_result() :: %{
         "ETag" => String.t(),
         "KeyValueStore" => key_value_store()
       }
-
+      
   """
   @type describe_key_value_store_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_origin() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_behaviors() :: %{
         "Items" => list(cache_behavior()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type cache_behaviors() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_headers() :: %{
         "Items" => list(origin_custom_header()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type custom_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_config_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type field_level_encryption_config_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_realtime_log_config_request() :: %{
         required("EndPoints") => list(end_point()()),
         required("Fields") => list(String.t()()),
         required("Name") => String.t(),
         required("SamplingRate") => float()
       }
-
+      
   """
   @type create_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_operation() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type unsupported_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_headers_in_cache_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_headers_in_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_associations() :: %{
         "Items" => list(function_association()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_certificates() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_certificates() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_conflicting_aliases_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
         required("Alias") => String.t(),
         required("DistributionId") => String.t()
       }
-
+      
   """
   @type list_conflicting_aliases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_distribution_with_tags_request() :: %{
         required("StreamingDistributionConfigWithTags") => streaming_distribution_config_with_tags()
       }
-
+      
   """
   @type create_streaming_distribution_with_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       traffic_config() :: %{
         "SingleHeaderConfig" => continuous_deployment_single_header_config(),
         "SingleWeightConfig" => continuous_deployment_single_weight_config(),
         "Type" => list(any())
       }
-
+      
   """
   @type traffic_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_cookies_config() :: %{
         "CookieBehavior" => list(any()),
         "Cookies" => cookie_names()
       }
-
+      
   """
   @type cache_policy_cookies_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cloud_front_origin_access_identity_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_function_association() :: %{
         "EventType" => list(any()),
         "IncludeBody" => boolean(),
         "LambdaFunctionARN" => String.t()
       }
-
+      
   """
   @type lambda_function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_value_store_request() :: %{}
-
+      
   """
   @type describe_key_value_store_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_distribution_config_request() :: %{}
-
+      
   """
   @type get_distribution_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_public_key_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_public_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_config() :: %{
         "Aliases" => aliases(),
         "CacheBehaviors" => cache_behaviors(),
@@ -2330,655 +2330,655 @@ defmodule AWS.CloudFront do
         "ViewerCertificate" => viewer_certificate(),
         "WebACLId" => String.t()
       }
-
+      
   """
   @type distribution_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_continuous_deployment_policy_result() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_continuous_deployment_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_required_protocol() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_required_protocol() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_function_request() :: %{
         optional("Stage") => list(any())
       }
-
+      
   """
   @type get_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_cookies_config() :: %{
         "CookieBehavior" => list(any()),
         "Cookies" => cookie_names()
       }
-
+      
   """
   @type origin_request_policy_cookies_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_value_store_result() :: %{
         "ETag" => String.t(),
         "KeyValueStore" => key_value_store()
       }
-
+      
   """
   @type update_key_value_store_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_key_groups_result() :: %{
         "KeyGroupList" => key_group_list()
       }
-
+      
   """
   @type list_key_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_key_group_request() :: %{
         required("KeyGroupConfig") => key_group_config()
       }
-
+      
   """
   @type create_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_response_headers_policy_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_response_headers_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_access_control_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type origin_access_control_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       precondition_failed() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type precondition_failed() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_key_list() :: %{
         "Items" => list(public_key_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type public_key_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_response_headers_policy_request() :: %{
         optional("IfMatch") => String.t(),
         required("ResponseHeadersPolicyConfig") => response_headers_policy_config()
       }
-
+      
   """
   @type update_response_headers_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_custom_headers_config() :: %{
         "Items" => list(response_headers_policy_custom_header()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type response_headers_policy_custom_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cache_policy_config_request() :: %{}
-
+      
   """
   @type get_cache_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_key_groups_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_key_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distribution_cnames() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distribution_cnames() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_origin_request_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_distribution() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_profile_config_request() :: %{}
-
+      
   """
   @type get_field_level_encryption_profile_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_summary() :: %{
         "CachePolicy" => cache_policy(),
         "Type" => list(any())
       }
-
+      
   """
   @type cache_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_arg_profile() :: %{
         "ProfileId" => String.t(),
         "QueryArg" => String.t()
       }
-
+      
   """
   @type query_arg_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_access_control_expose_headers() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type response_headers_policy_access_control_expose_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_origin_config() :: %{
         "OriginAccessIdentity" => String.t()
       }
-
+      
   """
   @type s3_origin_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_distribution_request() :: %{
         optional("IfMatch") => String.t(),
         required("DistributionConfig") => distribution_config()
       }
-
+      
   """
   @type update_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_trusted_signers() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_trusted_signers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_function_request() :: %{
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_function_result() :: %{
         "FunctionSummary" => function_summary()
       }
-
+      
   """
   @type publish_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_query_strings_in_origin_request_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_query_strings_in_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_cache_policies() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_cache_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_remove_headers_config() :: %{
         "Items" => list(response_headers_policy_remove_header()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type response_headers_policy_remove_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_error_code() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_error_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_result() :: %{
         "DistributionList" => distribution_list()
       }
-
+      
   """
   @type list_distributions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_response_headers_policies_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type list_response_headers_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption() :: %{
         "FieldLevelEncryptionConfig" => field_level_encryption_config(),
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer()
       }
-
+      
   """
   @type field_level_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_geo_restriction_parameter() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_geo_restriction_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_value_store_associations() :: %{
         "Items" => list(key_value_store_association()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type key_value_store_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_access_control() :: %{
         "Id" => String.t(),
         "OriginAccessControlConfig" => origin_access_control_config()
       }
-
+      
   """
   @type origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type origin_request_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy() :: %{
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "OriginRequestPolicyConfig" => origin_request_policy_config()
       }
-
+      
   """
   @type origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type response_headers_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_policy_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type continuous_deployment_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_list() :: %{
         "Items" => list(response_headers_policy_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type response_headers_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_origin_access_control_request() :: %{
         optional("IfMatch") => String.t(),
         required("OriginAccessControlConfig") => origin_access_control_config()
       }
-
+      
   """
   @type update_origin_access_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_realtime_log_config_result() :: %{
         "RealtimeLogConfig" => realtime_log_config()
       }
-
+      
   """
   @type update_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_with_function_associations() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_with_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       missing_body() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type missing_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cookie_names() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type cookie_names() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_query_strings_in_cache_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_query_strings_in_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inconsistent_quantities() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type inconsistent_quantities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_headers_for_s3_origin() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_headers_for_s3_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_cache_policy_id_result() :: %{
         "DistributionIdList" => distribution_id_list()
       }
-
+      
   """
   @type list_distributions_by_cache_policy_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_patterns() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type field_patterns() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitoring_subscription_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type monitoring_subscription_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_lambda_function_association() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_lambda_function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tags() :: %{
         "Items" => list(tag()())
       }
-
+      
   """
   @type tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution() :: %{
         "ARN" => String.t(),
         "ActiveTrustedKeyGroups" => active_trusted_key_groups(),
@@ -2991,364 +2991,364 @@ defmodule AWS.CloudFront do
         "LastModifiedTime" => non_neg_integer(),
         "Status" => String.t()
       }
-
+      
   """
   @type distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cache_policy_request() :: %{
         required("CachePolicyConfig") => cache_policy_config()
       }
-
+      
   """
   @type create_cache_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_query_strings_config() :: %{
         "QueryStringBehavior" => list(any()),
         "QueryStrings" => query_string_names()
       }
-
+      
   """
   @type origin_request_policy_query_strings_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_origin_keepalive_timeout() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_origin_keepalive_timeout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_continuous_deployment_policies_result() :: %{
         "ContinuousDeploymentPolicyList" => continuous_deployment_policy_list()
       }
-
+      
   """
   @type list_continuous_deployment_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kinesis_stream_config() :: %{
         "RoleARN" => String.t(),
         "StreamARN" => String.t()
       }
-
+      
   """
   @type kinesis_stream_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_forward_cookies() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_forward_cookies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_key_group_result() :: %{
         "ETag" => String.t(),
         "KeyGroup" => key_group(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_key_group_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_field_level_encryption_config_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryption" => field_level_encryption(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_field_level_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       realtime_log_config_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type realtime_log_config_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_cache_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aliases() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type aliases() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_alias_request() :: %{
         required("Alias") => String.t()
       }
-
+      
   """
   @type associate_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_groups() :: %{
         "Items" => list(origin_group()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type origin_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_entity() :: %{
         "FieldPatterns" => field_patterns(),
         "ProviderId" => String.t(),
         "PublicKeyId" => String.t()
       }
-
+      
   """
   @type encryption_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalidation_batch() :: %{
         "CallerReference" => String.t(),
         "Paths" => paths()
       }
-
+      
   """
   @type invalidation_batch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_distributions_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_streaming_distributions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trusted_signer_does_not_exist() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type trusted_signer_does_not_exist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cloud_front_origin_access_identity_request() :: %{
         required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
       }
-
+      
   """
   @type create_cloud_front_origin_access_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_streaming_distribution() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_streaming_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_origin_read_timeout() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_origin_read_timeout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_invalidation_request() :: %{}
-
+      
   """
   @type get_invalidation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_policy_config() :: %{
         "Enabled" => boolean(),
         "StagingDistributionDnsNames" => staging_distribution_dns_names(),
         "TrafficConfig" => traffic_config()
       }
-
+      
   """
   @type continuous_deployment_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_request_policy_config_result() :: %{
         "ETag" => String.t(),
         "OriginRequestPolicyConfig" => origin_request_policy_config()
       }
-
+      
   """
   @type get_origin_request_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_response_headers_policy_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
         "ResponseHeadersPolicy" => response_headers_policy()
       }
-
+      
   """
   @type create_response_headers_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_value_store_request() :: %{
         required("Comment") => String.t(),
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type update_key_value_store_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_domain_name_for_origin_access_control() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_domain_name_for_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_content_security_policy() :: %{
         "ContentSecurityPolicy" => String.t(),
         "Override" => boolean()
       }
-
+      
   """
   @type response_headers_policy_content_security_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_key() :: %{
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t(),
         "PublicKeyConfig" => public_key_config()
       }
-
+      
   """
   @type public_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_field_level_encryption_profile_request() :: %{
         optional("IfMatch") => String.t(),
         required("FieldLevelEncryptionProfileConfig") => field_level_encryption_profile_config()
       }
-
+      
   """
   @type update_field_level_encryption_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_profile_summary() :: %{
         "Comment" => String.t(),
         "EncryptionEntities" => encryption_entities(),
@@ -3356,460 +3356,460 @@ defmodule AWS.CloudFront do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type field_level_encryption_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_summary() :: %{
         "FunctionConfig" => function_config(),
         "FunctionMetadata" => function_metadata(),
         "Name" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type function_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_key_groups_associated_to_distribution() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_key_groups_associated_to_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
         "ETag" => String.t(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_cache_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_key_value_store_request() :: %{
         optional("Comment") => String.t(),
         optional("ImportSource") => import_source(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_key_value_store_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_custom_header() :: %{
         "HeaderName" => String.t(),
         "HeaderValue" => String.t()
       }
-
+      
   """
   @type origin_custom_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_field_level_encryption_profiles_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_field_level_encryption_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cache_policy_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_headers_in_forwarded_values() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_headers_in_forwarded_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_remove_header() :: %{
         "Header" => String.t()
       }
-
+      
   """
   @type response_headers_policy_remove_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_request() :: %{}
-
+      
   """
   @type get_field_level_encryption_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_minimum_protocol_version() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_minimum_protocol_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_value_store_list() :: %{
         "Items" => list(key_value_store()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type key_value_store_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cloud_front_origin_access_identity_result() :: %{
         "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_string_names() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type query_string_names() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryption" => field_level_encryption()
       }
-
+      
   """
   @type get_field_level_encryption_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_streaming_distribution_request() :: %{
         optional("IfMatch") => String.t(),
         required("StreamingDistributionConfig") => streaming_distribution_config()
       }
-
+      
   """
   @type update_streaming_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_streaming_distributions() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_streaming_distributions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_origin_access_control() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cannot_delete_entity_while_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cannot_delete_entity_while_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflicting_aliases_list() :: %{
         "Items" => list(conflicting_alias()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type conflicting_aliases_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_field_level_encryption_profiles() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_field_level_encryption_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_field_level_encryption_configs_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_field_level_encryption_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_public_key_result() :: %{
         "ETag" => String.t(),
         "PublicKey" => public_key()
       }
-
+      
   """
   @type update_public_key_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_config_request() :: %{}
-
+      
   """
   @type get_field_level_encryption_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_field_level_encryption_configs() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_field_level_encryption_configs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_key_value_store_request() :: %{
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_key_value_store_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_origin_custom_headers() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_origin_custom_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_function_result() :: %{
         "ETag" => String.t(),
         "FunctionSummary" => function_summary(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_function_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type distribution_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_config() :: %{
         "CallerReference" => String.t(),
         "Comment" => String.t(),
         "ContentTypeProfileConfig" => content_type_profile_config(),
         "QueryArgProfileConfig" => query_arg_profile_config()
       }
-
+      
   """
   @type field_level_encryption_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cache_policies_result() :: %{
         "CachePolicyList" => cache_policy_list()
       }
-
+      
   """
   @type list_cache_policies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       active_trusted_signers() :: %{
         "Enabled" => boolean(),
         "Items" => list(signer()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type active_trusted_signers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_front_origin_access_identity() :: %{
         "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
         "Id" => String.t(),
         "S3CanonicalUserId" => String.t()
       }
-
+      
   """
   @type cloud_front_origin_access_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_functions_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
         optional("Stage") => list(any())
       }
-
+      
   """
   @type list_functions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_origins() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_origins() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_with_single_function_arn() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_with_single_function_arn() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_with_lambda_associations() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_with_lambda_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_resource() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(distribution_summary()()),
@@ -3818,14 +3818,14 @@ defmodule AWS.CloudFront do
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type distribution_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_config() :: %{
         "Comment" => String.t(),
         "CorsConfig" => response_headers_policy_cors_config(),
@@ -3835,356 +3835,356 @@ defmodule AWS.CloudFront do
         "SecurityHeadersConfig" => response_headers_policy_security_headers_config(),
         "ServerTimingHeadersConfig" => response_headers_policy_server_timing_headers_config()
       }
-
+      
   """
   @type response_headers_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cache_policy_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_cache_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_result() :: %{
         "Tags" => tags()
       }
-
+      
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_response_headers_policy_config_request() :: %{}
-
+      
   """
   @type get_response_headers_policy_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_field_level_encryption_encryption_entities() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_field_level_encryption_encryption_entities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_lambda_function_associations() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_lambda_function_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_streaming_distribution_cnames() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_streaming_distribution_cnames() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_config() :: %{
         "Comment" => String.t(),
         "KeyValueStoreAssociations" => key_value_store_associations(),
         "Runtime" => list(any())
       }
-
+      
   """
   @type function_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_distributions_result() :: %{
         "StreamingDistributionList" => streaming_distribution_list()
       }
-
+      
   """
   @type list_streaming_distributions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_summary() :: %{
         "OriginRequestPolicy" => origin_request_policy(),
         "Type" => list(any())
       }
-
+      
   """
   @type origin_request_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_keys() :: %{
         "Items" => list(String.t()())
       }
-
+      
   """
   @type tag_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_realtime_log_configs() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_realtime_log_configs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cache_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_group() :: %{
         "FailoverCriteria" => origin_group_failover_criteria(),
         "Id" => String.t(),
         "Members" => origin_group_members()
       }
-
+      
   """
   @type origin_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_key_group_request() :: %{}
-
+      
   """
   @type get_key_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_public_key_request() :: %{}
-
+      
   """
   @type get_public_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_distribution_result() :: %{
         "Distribution" => distribution(),
         "ETag" => String.t(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_error_response() :: %{
         "ErrorCachingMinTTL" => float(),
         "ErrorCode" => integer(),
         "ResponseCode" => String.t(),
         "ResponsePagePath" => String.t()
       }
-
+      
   """
   @type custom_error_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_associated_to_response_headers_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_associated_to_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_function_request() :: %{
         optional("Stage") => list(any()),
         required("EventObject") => binary(),
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type test_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_monitoring_subscription_result() :: %{
         "MonitoringSubscription" => monitoring_subscription()
       }
-
+      
   """
   @type create_monitoring_subscription_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_custom_header() :: %{
         "Header" => String.t(),
         "Override" => boolean(),
         "Value" => String.t()
       }
-
+      
   """
   @type response_headers_policy_custom_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_function_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_function_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_profile_config_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config()
       }
-
+      
   """
   @type get_field_level_encryption_profile_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_ssl_protocols() :: %{
         "Items" => list(list(any())()),
         "Quantity" => integer()
       }
-
+      
   """
   @type origin_ssl_protocols() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_cloud_front_origin_access_identities() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_cloud_front_origin_access_identities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_profile_config() :: %{
         "CallerReference" => String.t(),
         "Comment" => String.t(),
         "EncryptionEntities" => encryption_entities(),
         "Name" => String.t()
       }
-
+      
   """
   @type field_level_encryption_profile_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_origin_access_controls_result() :: %{
         "OriginAccessControlList" => origin_access_control_list()
       }
-
+      
   """
   @type list_origin_access_controls_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_web_acl_id_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_distributions_by_web_acl_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_response_headers_policy_id_result() :: %{
         "DistributionIdList" => distribution_id_list()
       }
-
+      
   """
   @type list_distributions_by_response_headers_policy_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_monitoring_subscription_request() :: %{}
-
+      
   """
   @type get_monitoring_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       origin() :: %{
         "ConnectionAttempts" => integer(),
         "ConnectionTimeout" => integer(),
@@ -4197,62 +4197,62 @@ defmodule AWS.CloudFront do
         "OriginShield" => origin_shield(),
         "S3OriginConfig" => s3_origin_config()
       }
-
+      
   """
   @type origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_field_level_encryption_profile_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryptionProfile" => field_level_encryption_profile(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_field_level_encryption_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_public_keys_in_key_group() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_public_keys_in_key_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       continuous_deployment_single_header_config() :: %{
         "Header" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type continuous_deployment_single_header_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_distributions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_realtime_log_config_request() :: %{
         optional("ARN") => String.t(),
         optional("EndPoints") => list(end_point()()),
@@ -4260,115 +4260,115 @@ defmodule AWS.CloudFront do
         optional("Name") => String.t(),
         optional("SamplingRate") => float()
       }
-
+      
   """
   @type update_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_distribution_result() :: %{
         "Distribution" => distribution(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_cache_behaviors() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_cache_behaviors() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_access_control_request() :: %{}
-
+      
   """
   @type get_origin_access_control_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_invalidations_result() :: %{
         "InvalidationList" => invalidation_list()
       }
-
+      
   """
   @type list_invalidations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_list() :: %{
         "Items" => list(function_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type function_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cloud_front_origin_access_identity_config_request() :: %{}
-
+      
   """
   @type get_cloud_front_origin_access_identity_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_server_timing_headers_config() :: %{
         "Enabled" => boolean(),
         "SamplingRate" => float()
       }
-
+      
   """
   @type response_headers_policy_server_timing_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       headers() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       realtime_log_config_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type realtime_log_config_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_distribution_summary() :: %{
         "ARN" => String.t(),
         "Aliases" => aliases(),
@@ -4382,28 +4382,28 @@ defmodule AWS.CloudFront do
         "Status" => String.t(),
         "TrustedSigners" => trusted_signers()
       }
-
+      
   """
   @type streaming_distribution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_realtime_log_config_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
         optional("RealtimeLogConfigArn") => String.t(),
         optional("RealtimeLogConfigName") => String.t()
       }
-
+      
   """
   @type list_distributions_by_realtime_log_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_cors_config() :: %{
         "AccessControlAllowCredentials" => boolean(),
         "AccessControlAllowHeaders" => response_headers_policy_access_control_allow_headers(),
@@ -4413,222 +4413,222 @@ defmodule AWS.CloudFront do
         "AccessControlMaxAgeSec" => integer(),
         "OriginOverride" => boolean()
       }
-
+      
   """
   @type response_headers_policy_cors_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_group_failover_criteria() :: %{
         "StatusCodes" => status_codes()
       }
-
+      
   """
   @type origin_group_failover_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_key_groups() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_key_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("Resource") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_public_key_config_result() :: %{
         "ETag" => String.t(),
         "PublicKeyConfig" => public_key_config()
       }
-
+      
   """
   @type get_public_key_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_function_failed() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type test_function_failed() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_response_headers_policy_config_result() :: %{
         "ETag" => String.t(),
         "ResponseHeadersPolicyConfig" => response_headers_policy_config()
       }
-
+      
   """
   @type get_response_headers_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type function_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_group_members() :: %{
         "Items" => list(origin_group_member()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type origin_group_members() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_distribution_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type streaming_distribution_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_default_root_object() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_default_root_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_origin_request_policy_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
         "OriginRequestPolicy" => origin_request_policy()
       }
-
+      
   """
   @type create_origin_request_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_origin_request_policy_id_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_distributions_by_origin_request_policy_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cname_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type cname_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_profile_size_exceeded() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type field_level_encryption_profile_size_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_response_headers_policy_request() :: %{
         required("ResponseHeadersPolicyConfig") => response_headers_policy_config()
       }
-
+      
   """
   @type create_response_headers_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_field_level_encryption_field_patterns() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_field_level_encryption_field_patterns() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_continuous_deployment_policy_config_result() :: %{
         "ContinuousDeploymentPolicyConfig" => continuous_deployment_policy_config(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_continuous_deployment_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_list() :: %{
         "Items" => list(origin_request_policy_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type origin_request_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_value_store() :: %{
         "ARN" => String.t(),
         "Comment" => String.t(),
@@ -4637,291 +4637,291 @@ defmodule AWS.CloudFront do
         "Name" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type key_value_store() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_remove_headers_in_response_headers_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_remove_headers_in_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_origin_request_policies() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_origin_request_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_access_control_result() :: %{
         "ETag" => String.t(),
         "OriginAccessControl" => origin_access_control()
       }
-
+      
   """
   @type get_origin_access_control_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_origin_access_control_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_origin_access_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_continuous_deployment_policy_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_continuous_deployment_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cloud_front_origin_access_identity_result() :: %{
         "CloudFrontOriginAccessIdentity" => cloud_front_origin_access_identity(),
         "ETag" => String.t(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_cloud_front_origin_access_identity_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_response_headers_policy_result() :: %{
         "ETag" => String.t(),
         "ResponseHeadersPolicy" => response_headers_policy()
       }
-
+      
   """
   @type get_response_headers_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_key_group_result() :: %{
         "DistributionIdList" => distribution_id_list()
       }
-
+      
   """
   @type list_distributions_by_key_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cache_policies_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type list_cache_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_invalidation() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_invalidation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_query_string_parameters() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_query_string_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       illegal_delete() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type illegal_delete() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_viewer_certificate() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_viewer_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_distribution_result() :: %{
         "Distribution" => distribution(),
         "ETag" => String.t()
       }
-
+      
   """
   @type update_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_conflicting_aliases_result() :: %{
         "ConflictingAliasesList" => conflicting_aliases_list()
       }
-
+      
   """
   @type list_conflicting_aliases_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_distribution_with_staging_config_request() :: %{
         optional("IfMatch") => String.t(),
         optional("StagingDistributionId") => String.t()
       }
-
+      
   """
   @type update_distribution_with_staging_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       paths() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type paths() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_relative_path() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_relative_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_field_level_encryption_config_request() :: %{
         required("FieldLevelEncryptionConfig") => field_level_encryption_config()
       }
-
+      
   """
   @type create_field_level_encryption_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_origin_access_control_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
         "OriginAccessControl" => origin_access_control()
       }
-
+      
   """
   @type create_origin_access_control_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_streaming_distribution_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_streaming_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_response_headers_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_response_headers_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_front_origin_access_identity_config() :: %{
         "CallerReference" => String.t(),
         "Comment" => String.t()
       }
-
+      
   """
   @type cloud_front_origin_access_identity_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_g_key_pair_ids() :: %{
         "KeyGroupId" => String.t(),
         "KeyPairIds" => key_pair_ids()
       }
-
+      
   """
   @type k_g_key_pair_ids() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalidation_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(invalidation_summary()()),
@@ -4930,39 +4930,39 @@ defmodule AWS.CloudFront do
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type invalidation_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_public_key_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
         "PublicKey" => public_key()
       }
-
+      
   """
   @type create_public_key_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_access_control_allow_methods() :: %{
         "Items" => list(list(any())()),
         "Quantity" => integer()
       }
-
+      
   """
   @type response_headers_policy_access_control_allow_methods() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_security_headers_config() :: %{
         "ContentSecurityPolicy" => response_headers_policy_content_security_policy(),
         "ContentTypeOptions" => response_headers_policy_content_type_options(),
@@ -4971,259 +4971,259 @@ defmodule AWS.CloudFront do
         "StrictTransportSecurity" => response_headers_policy_strict_transport_security(),
         "XSSProtection" => response_headers_policy_x_s_s_protection()
       }
-
+      
   """
   @type response_headers_policy_security_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       realtime_log_config_owner_mismatch() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type realtime_log_config_owner_mismatch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_distribution_with_tags_result() :: %{
         "Distribution" => distribution(),
         "ETag" => String.t(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_distribution_with_tags_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_origin_request_policy_request() :: %{
         optional("IfMatch") => String.t(),
         required("OriginRequestPolicyConfig") => origin_request_policy_config()
       }
-
+      
   """
   @type update_origin_request_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_access_control_already_exists() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type origin_access_control_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_distribution_request() :: %{}
-
+      
   """
   @type get_distribution_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_distribution_config_with_tags() :: %{
         "StreamingDistributionConfig" => streaming_distribution_config(),
         "Tags" => tags()
       }
-
+      
   """
   @type streaming_distribution_config_with_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_field_level_encryption_profile_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_field_level_encryption_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_function_request() :: %{
         required("FunctionCode") => binary(),
         required("FunctionConfig") => function_config(),
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type update_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_origin_access_control_result() :: %{
         "ETag" => String.t(),
         "OriginAccessControl" => origin_access_control()
       }
-
+      
   """
   @type update_origin_access_control_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_source() :: %{
         "SourceARN" => String.t(),
         "SourceType" => list(any())
       }
-
+      
   """
   @type import_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_distribution_request() :: %{
         optional("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_level_encryption_profile_list() :: %{
         "Items" => list(field_level_encryption_profile_summary()()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type field_level_encryption_profile_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_realtime_log_config_result() :: %{
         "DistributionList" => distribution_list()
       }
-
+      
   """
   @type list_distributions_by_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_origin() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_arg_profile_config() :: %{
         "ForwardWhenQueryArgProfileIsUnknown" => boolean(),
         "QueryArgProfiles" => query_arg_profiles()
       }
-
+      
   """
   @type query_arg_profile_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_config_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryptionConfig" => field_level_encryption_config()
       }
-
+      
   """
   @type get_field_level_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_monitoring_subscription_request() :: %{}
-
+      
   """
   @type delete_monitoring_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_monitoring_subscription() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_monitoring_subscription() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_function_request() :: %{
         required("FunctionCode") => binary(),
         required("FunctionConfig") => function_config(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       allowed_methods() :: %{
         "CachedMethods" => cached_methods(),
         "Items" => list(list(any())()),
         "Quantity" => integer()
       }
-
+      
   """
   @type allowed_methods() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_origin_access_controls_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_origin_access_controls_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_key_summary() :: %{
         "Comment" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -5231,18 +5231,18 @@ defmodule AWS.CloudFront do
         "Id" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type public_key_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       illegal_field_level_encryption_config_association_with_cache_behavior() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type illegal_field_level_encryption_config_association_with_cache_behavior() :: %{
           String.t() => any()
@@ -5251,7 +5251,7 @@ defmodule AWS.CloudFront do
   @typedoc """
 
   ## Example:
-
+      
       cloud_front_origin_access_identity_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(cloud_front_origin_access_identity_summary()()),
@@ -5260,194 +5260,194 @@ defmodule AWS.CloudFront do
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type cloud_front_origin_access_identity_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_origin_request_policy_id_result() :: %{
         "DistributionIdList" => distribution_id_list()
       }
-
+      
   """
   @type list_distributions_by_origin_request_policy_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_public_keys() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_public_keys() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cache_policy_config_result() :: %{
         "CachePolicyConfig" => cache_policy_config(),
         "ETag" => String.t()
       }
-
+      
   """
   @type get_cache_policy_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy() :: %{
         "CachePolicyConfig" => cache_policy_config(),
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer()
       }
-
+      
   """
   @type cache_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_key_config() :: %{
         "CallerReference" => String.t(),
         "Comment" => String.t(),
         "EncodedKey" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type public_key_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_distribution_result() :: %{
         "ETag" => String.t(),
         "StreamingDistribution" => streaming_distribution()
       }
-
+      
   """
   @type get_streaming_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_distribution_with_tags_request() :: %{
         required("DistributionConfigWithTags") => distribution_config_with_tags()
       }
-
+      
   """
   @type create_distribution_with_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_streaming_distribution_result() :: %{
         "ETag" => String.t(),
         "StreamingDistribution" => streaming_distribution()
       }
-
+      
   """
   @type update_streaming_distribution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_continuous_deployment_policies_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_continuous_deployment_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_x_s_s_protection() :: %{
         "ModeBlock" => boolean(),
         "Override" => boolean(),
         "Protection" => boolean(),
         "ReportUri" => String.t()
       }
-
+      
   """
   @type response_headers_policy_x_s_s_protection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_error_responses() :: %{
         "Items" => list(custom_error_response()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type custom_error_responses() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_field_level_encryption_profile() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_field_level_encryption_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_invalidation_result() :: %{
         "Invalidation" => invalidation(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_invalidation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_key_group_config_result() :: %{
         "ETag" => String.t(),
         "KeyGroupConfig" => key_group_config()
       }
-
+      
   """
   @type get_key_group_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_function_association() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_function_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_behavior() :: %{
         "AllowedMethods" => allowed_methods(),
         "CachePolicyId" => String.t(),
@@ -5469,26 +5469,26 @@ defmodule AWS.CloudFront do
         "TrustedSigners" => trusted_signers(),
         "ViewerProtocolPolicy" => list(any())
       }
-
+      
   """
   @type cache_behavior() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_field_level_encryption_config_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryption" => field_level_encryption()
       }
-
+      
   """
   @type update_field_level_encryption_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameters_in_cache_key_and_forwarded_to_origin() :: %{
         "CookiesConfig" => cache_policy_cookies_config(),
         "EnableAcceptEncodingBrotli" => boolean(),
@@ -5496,81 +5496,81 @@ defmodule AWS.CloudFront do
         "HeadersConfig" => cache_policy_headers_config(),
         "QueryStringsConfig" => cache_policy_query_strings_config()
       }
-
+      
   """
   @type parameters_in_cache_key_and_forwarded_to_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_realtime_log_configs_result() :: %{
         "RealtimeLogConfigs" => realtime_log_configs()
       }
-
+      
   """
   @type list_realtime_log_configs_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_headers_config() :: %{
         "HeaderBehavior" => list(any()),
         "Headers" => headers()
       }
-
+      
   """
   @type cache_policy_headers_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_origin_request_policy_request() :: %{
         required("OriginRequestPolicyConfig") => origin_request_policy_config()
       }
-
+      
   """
   @type create_origin_request_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_key_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type public_key_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type function_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_headers_in_origin_request_policy() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_headers_in_origin_request_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       viewer_certificate() :: %{
         "ACMCertificateArn" => String.t(),
         "Certificate" => String.t(),
@@ -5580,38 +5580,38 @@ defmodule AWS.CloudFront do
         "MinimumProtocolVersion" => list(any()),
         "SSLSupportMethod" => list(any())
       }
-
+      
   """
   @type viewer_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cache_policy_query_strings_config() :: %{
         "QueryStringBehavior" => list(any()),
         "QueryStrings" => query_string_names()
       }
-
+      
   """
   @type cache_policy_query_strings_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distributions_by_response_headers_policy_id_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type list_distributions_by_response_headers_policy_id_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_access_control_config() :: %{
         "Description" => String.t(),
         "Name" => String.t(),
@@ -5619,61 +5619,61 @@ defmodule AWS.CloudFront do
         "SigningBehavior" => list(any()),
         "SigningProtocol" => list(any())
       }
-
+      
   """
   @type origin_access_control_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_realtime_log_config() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_realtime_log_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_public_key_result() :: %{
         "ETag" => String.t(),
         "PublicKey" => public_key()
       }
-
+      
   """
   @type get_public_key_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_function_request() :: %{
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type publish_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trusted_signers() :: %{
         "Enabled" => boolean(),
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type trusted_signers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_distribution_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(streaming_distribution_summary()()),
@@ -5682,212 +5682,212 @@ defmodule AWS.CloudFront do
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type streaming_distribution_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_function_request() :: %{
         optional("Stage") => list(any())
       }
-
+      
   """
   @type describe_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       staging_distribution_dns_names() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type staging_distribution_dns_names() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_summary() :: %{
         "ResponseHeadersPolicy" => response_headers_policy(),
         "Type" => list(any())
       }
-
+      
   """
   @type response_headers_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_request_policy_result() :: %{
         "ETag" => String.t(),
         "OriginRequestPolicy" => origin_request_policy()
       }
-
+      
   """
   @type get_origin_request_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_public_key() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_public_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_limit_exceeded() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type entity_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_public_key_request() :: %{
         required("PublicKeyConfig") => public_key_config()
       }
-
+      
   """
   @type create_public_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_metadata() :: %{
         "CreatedTime" => non_neg_integer(),
         "FunctionARN" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Stage" => list(any())
       }
-
+      
   """
   @type function_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_access_control_config_result() :: %{
         "ETag" => String.t(),
         "OriginAccessControlConfig" => origin_access_control_config()
       }
-
+      
   """
   @type get_origin_access_control_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       restrictions() :: %{
         "GeoRestriction" => geo_restriction()
       }
-
+      
   """
   @type restrictions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_pair_ids() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type key_pair_ids() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cache_policy_request() :: %{}
-
+      
   """
   @type get_cache_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_response_code() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_response_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalidation() :: %{
         "CreateTime" => non_neg_integer(),
         "Id" => String.t(),
         "InvalidationBatch" => invalidation_batch(),
         "Status" => String.t()
       }
-
+      
   """
   @type invalidation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cookie_preference() :: %{
         "Forward" => list(any()),
         "WhitelistedNames" => cookie_names()
       }
-
+      
   """
   @type cookie_preference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_group_request() :: %{
         optional("IfMatch") => String.t(),
         required("KeyGroupConfig") => key_group_config()
       }
-
+      
   """
   @type update_key_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_distribution_config() :: %{
         "Aliases" => aliases(),
         "CallerReference" => String.t(),
@@ -5898,38 +5898,38 @@ defmodule AWS.CloudFront do
         "S3Origin" => s3_origin(),
         "TrustedSigners" => trusted_signers()
       }
-
+      
   """
   @type streaming_distribution_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_field_level_encryption_query_arg_profiles() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_field_level_encryption_query_arg_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       active_trusted_key_groups() :: %{
         "Enabled" => boolean(),
         "Items" => list(k_g_key_pair_ids()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type active_trusted_key_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       realtime_log_config() :: %{
         "ARN" => String.t(),
         "EndPoints" => list(end_point()()),
@@ -5937,23 +5937,23 @@ defmodule AWS.CloudFront do
         "Name" => String.t(),
         "SamplingRate" => float()
       }
-
+      
   """
   @type realtime_log_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_origin_access_control_config_request() :: %{}
-
+      
   """
   @type get_origin_access_control_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_id_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(String.t()()),
@@ -5962,73 +5962,73 @@ defmodule AWS.CloudFront do
         "NextMarker" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type distribution_id_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_location_code() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_location_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       staging_distribution_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type staging_distribution_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origin_request_policy_in_use() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type origin_request_policy_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_group_summary() :: %{
         "KeyGroup" => key_group()
       }
-
+      
   """
   @type key_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_monitoring_subscription_request() :: %{
         required("MonitoringSubscription") => monitoring_subscription()
       }
-
+      
   """
   @type create_monitoring_subscription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_associated_to_field_level_encryption_config() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_associated_to_field_level_encryption_config() :: %{
           String.t() => any()
@@ -6037,31 +6037,31 @@ defmodule AWS.CloudFront do
   @typedoc """
 
   ## Example:
-
+      
       content_type_profile_config() :: %{
         "ContentTypeProfiles" => content_type_profiles(),
         "ForwardWhenContentTypeIsUnknown" => boolean()
       }
-
+      
   """
   @type content_type_profile_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_headers_policy_access_control_allow_headers() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
       }
-
+      
   """
   @type response_headers_policy_access_control_allow_headers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_origin_config() :: %{
         "HTTPPort" => integer(),
         "HTTPSPort" => integer(),
@@ -6070,99 +6070,99 @@ defmodule AWS.CloudFront do
         "OriginReadTimeout" => integer(),
         "OriginSslProtocols" => origin_ssl_protocols()
       }
-
+      
   """
   @type custom_origin_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_distribution_with_tags_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
         "StreamingDistribution" => streaming_distribution()
       }
-
+      
   """
   @type create_streaming_distribution_with_tags_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_level_encryption_profile_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryptionProfile" => field_level_encryption_profile()
       }
-
+      
   """
   @type get_field_level_encryption_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_distribution_request() :: %{}
-
+      
   """
   @type get_streaming_distribution_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_realtime_log_config_result() :: %{
         "RealtimeLogConfig" => realtime_log_config()
       }
-
+      
   """
   @type get_realtime_log_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_distribution_with_staging_config_result() :: %{
         "Distribution" => distribution(),
         "ETag" => String.t()
       }
-
+      
   """
   @type update_distribution_with_staging_config_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_field_level_encryption_profile_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryptionProfile" => field_level_encryption_profile()
       }
-
+      
   """
   @type update_field_level_encryption_profile_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_distributions_associated_to_origin_access_control() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_distributions_associated_to_origin_access_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_function_result() :: %{
         "ETag" => String.t(),
         "FunctionSummary" => function_summary()
       }
-
+      
   """
   @type update_function_result() :: %{String.t() => any()}
 
@@ -7098,32 +7098,48 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:target_distribution_id` (`t:string`) The ID of the distribution that you're
-    associating the alias with.
+  associating the alias with.
   * `:alias` (`t:string`) The alias (also known as a CNAME) to add to the target
-    distribution.
+  distribution.
 
   ## Optional parameters:
   """
-  @spec associate_alias(AWS.Client.t(), String.t(), associate_alias_request(), Keyword.t()) ::
+
+  @spec associate_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_alias_errors()}
-  def associate_alias(%Client{} = client, target_distribution_id, input, options \\ []) do
+
+  def associate_alias(%Client{} = client, target_distribution_id, alias, options \\ [])
+      when is_binary(alias) do
     url_path =
       "/2020-05-31/distribution/#{AWS.Util.encode_uri(target_distribution_id)}/associate-alias"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Alias", "Alias"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"Alias", alias}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7139,24 +7155,27 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:primary_distribution_id` (`t:string`) The identifier of the primary
-    distribution whose configuration you are copying. To get a distribution ID,
-    use ListDistributions.
+  distribution whose configuration you are copying. To get a distribution ID,
+  use ListDistributions.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version identifier of the primary distribution
-    whose configuration you are copying. This is the ETag value returned in the
-    response to GetDistribution and GetDistributionConfig.
+  whose configuration you are copying. This is the ETag value returned in the
+  response to GetDistribution and GetDistributionConfig.
   * `:staging` (`t:boolean`) The type of distribution that your primary
-    distribution will be copied to. The only valid value is True, indicating
-    that you are copying to a staging distribution.
+  distribution will be copied to. The only valid value is True, indicating
+  that you are copying to a staging distribution.
   """
-  @spec copy_distribution(AWS.Client.t(), String.t(), copy_distribution_request(), Keyword.t()) ::
+
+  @spec copy_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, copy_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_distribution_errors()}
-  def copy_distribution(%Client{} = client, primary_distribution_id, input, options \\ []) do
+
+  def copy_distribution(%Client{} = client, primary_distribution_id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(primary_distribution_id)}/copy"
 
+    # Validate optional parameters
     optional_params = [if_match: nil, staging: nil]
 
     options =
@@ -7165,14 +7184,34 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"},
-        {"Staging", "Staging"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :staging) do
+        [{"Staging", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7189,17 +7228,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match, :staging])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7210,17 +7241,44 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateCachePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:cache_policy_config` (`t:structure`) A cache policy configuration.
 
   ## Optional parameters:
   """
-  @spec create_cache_policy(AWS.Client.t(), create_cache_policy_request(), Keyword.t()) ::
+
+  @spec create_cache_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cache_policy_errors()}
-  def create_cache_policy(%Client{} = client, input, options \\ []) do
+
+  def create_cache_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/cache-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7232,17 +7290,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7257,21 +7307,46 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:cloud_front_origin_access_identity_config` (`t:structure`) The current
+  configuration information for the identity.
 
   ## Optional parameters:
   """
-  @spec create_cloud_front_origin_access_identity(
-          AWS.Client.t(),
-          create_cloud_front_origin_access_identity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_cloud_front_origin_access_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cloud_front_origin_access_identity_errors()}
-  def create_cloud_front_origin_access_identity(%Client{} = client, input, options \\ []) do
+
+  def create_cloud_front_origin_access_identity(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7283,17 +7358,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7306,21 +7373,46 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:continuous_deployment_policy_config` (`t:structure`) Contains the
+  configuration for a continuous deployment policy.
 
   ## Optional parameters:
   """
-  @spec create_continuous_deployment_policy(
-          AWS.Client.t(),
-          create_continuous_deployment_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_continuous_deployment_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_continuous_deployment_policy_errors()}
-  def create_continuous_deployment_policy(%Client{} = client, input, options \\ []) do
+
+  def create_continuous_deployment_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/continuous-deployment-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7332,17 +7424,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7351,17 +7435,45 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:distribution_config` (`t:structure`) The distribution's configuration
+  information.
 
   ## Optional parameters:
   """
-  @spec create_distribution(AWS.Client.t(), create_distribution_request(), Keyword.t()) ::
+
+  @spec create_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_distribution_errors()}
-  def create_distribution(%Client{} = client, input, options \\ []) do
+
+  def create_distribution(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/distribution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7373,17 +7485,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7393,21 +7497,46 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateDistributionWithTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:distribution_config_with_tags` (`t:structure`) The distribution's
+  configuration information.
 
   ## Optional parameters:
   """
-  @spec create_distribution_with_tags(
-          AWS.Client.t(),
-          create_distribution_with_tags_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_distribution_with_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_distribution_with_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_distribution_with_tags_errors()}
-  def create_distribution_with_tags(%Client{} = client, input, options \\ []) do
+
+  def create_distribution_with_tags(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/distribution?WithTags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7419,17 +7548,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7438,21 +7559,46 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:field_level_encryption_config` (`t:structure`) The request to create a new
+  field-level encryption configuration.
 
   ## Optional parameters:
   """
-  @spec create_field_level_encryption_config(
-          AWS.Client.t(),
-          create_field_level_encryption_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_field_level_encryption_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_field_level_encryption_config_errors()}
-  def create_field_level_encryption_config(%Client{} = client, input, options \\ []) do
+
+  def create_field_level_encryption_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7464,17 +7610,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7483,21 +7621,46 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:field_level_encryption_profile_config` (`t:structure`) The request to create
+  a field-level encryption profile.
 
   ## Optional parameters:
   """
-  @spec create_field_level_encryption_profile(
-          AWS.Client.t(),
-          create_field_level_encryption_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_field_level_encryption_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_field_level_encryption_profile_errors()}
-  def create_field_level_encryption_profile(%Client{} = client, input, options \\ []) do
+
+  def create_field_level_encryption_profile(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption-profile"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7509,17 +7672,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7533,14 +7688,39 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec create_function(AWS.Client.t(), create_function_request(), Keyword.t()) ::
+
+  @spec create_function(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_function_errors()}
-  def create_function(%Client{} = client, input, options \\ []) do
+
+  def create_function(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/function"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7552,17 +7732,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7574,22 +7746,46 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:distribution_id` (`t:string`) The distribution's id.
+  * `:input` (`t:map`):
+    * `:invalidation_batch` (`t:structure`) The batch information for the
+  invalidation.
 
   ## Optional parameters:
   """
-  @spec create_invalidation(
-          AWS.Client.t(),
-          String.t(),
-          create_invalidation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_invalidation(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_invalidation_errors()}
-  def create_invalidation(%Client{} = client, distribution_id, input, options \\ []) do
+
+  def create_invalidation(%Client{} = client, distribution_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7601,17 +7797,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7631,17 +7819,44 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateKeyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:key_group_config` (`t:structure`) A key group configuration.
 
   ## Optional parameters:
   """
-  @spec create_key_group(AWS.Client.t(), create_key_group_request(), Keyword.t()) ::
+
+  @spec create_key_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_group_errors()}
-  def create_key_group(%Client{} = client, input, options \\ []) do
+
+  def create_key_group(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/key-group"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7653,17 +7868,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7678,14 +7885,39 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec create_key_value_store(AWS.Client.t(), create_key_value_store_request(), Keyword.t()) ::
+
+  @spec create_key_value_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_value_store_errors()}
-  def create_key_value_store(%Client{} = client, input, options \\ []) do
+
+  def create_key_value_store(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/key-value-store"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7697,17 +7929,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7718,40 +7942,50 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:distribution_id` (`t:string`) The ID of the distribution that you are
-    enabling metrics for.
+  enabling metrics for.
+  * `:input` (`t:map`):
+    * `:monitoring_subscription` (`t:structure`) A monitoring subscription. This
+  structure contains information about whether additional CloudWatch metrics
+  are enabled for a given CloudFront distribution.
 
   ## Optional parameters:
   """
-  @spec create_monitoring_subscription(
-          AWS.Client.t(),
-          String.t(),
-          create_monitoring_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_monitoring_subscription(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitoring_subscription_errors()}
-  def create_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
+
+  def create_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7764,21 +7998,45 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateOriginAccessControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:origin_access_control_config` (`t:structure`) Contains the origin access
+  control.
 
   ## Optional parameters:
   """
-  @spec create_origin_access_control(
-          AWS.Client.t(),
-          create_origin_access_control_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_origin_access_control(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_origin_access_control_errors()}
-  def create_origin_access_control(%Client{} = client, input, options \\ []) do
+
+  def create_origin_access_control(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/origin-access-control"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7790,17 +8048,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7813,21 +8063,45 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:origin_request_policy_config` (`t:structure`) An origin request policy
+  configuration.
 
   ## Optional parameters:
   """
-  @spec create_origin_request_policy(
-          AWS.Client.t(),
-          create_origin_request_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_origin_request_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_origin_request_policy_errors()}
-  def create_origin_request_policy(%Client{} = client, input, options \\ []) do
+
+  def create_origin_request_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/origin-request-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7839,17 +8113,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7861,17 +8127,44 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreatePublicKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:public_key_config` (`t:structure`) A CloudFront public key configuration.
 
   ## Optional parameters:
   """
-  @spec create_public_key(AWS.Client.t(), create_public_key_request(), Keyword.t()) ::
+
+  @spec create_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_public_key_errors()}
-  def create_public_key(%Client{} = client, input, options \\ []) do
+
+  def create_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/public-key"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7883,17 +8176,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7907,33 +8192,40 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec create_realtime_log_config(
-          AWS.Client.t(),
-          create_realtime_log_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_realtime_log_config_errors()}
-  def create_realtime_log_config(%Client{} = client, input, options \\ []) do
+
+  def create_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7945,21 +8237,47 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:response_headers_policy_config` (`t:structure`) Contains metadata about the
+  response headers policy, and a set of configurations that specify the HTTP
+  headers.
 
   ## Optional parameters:
   """
-  @spec create_response_headers_policy(
-          AWS.Client.t(),
-          create_response_headers_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_response_headers_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_response_headers_policy_errors()}
-  def create_response_headers_policy(%Client{} = client, input, options \\ []) do
+
+  def create_response_headers_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/response-headers-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -7971,17 +8289,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7993,21 +8303,46 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateStreamingDistribution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:streaming_distribution_config` (`t:structure`) The streaming distribution's
+  configuration information.
 
   ## Optional parameters:
   """
-  @spec create_streaming_distribution(
-          AWS.Client.t(),
-          create_streaming_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_streaming_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_distribution_errors()}
-  def create_streaming_distribution(%Client{} = client, input, options \\ []) do
+
+  def create_streaming_distribution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/streaming-distribution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -8019,17 +8354,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8041,21 +8368,46 @@ defmodule AWS.CloudFront do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateStreamingDistributionWithTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:streaming_distribution_config_with_tags` (`t:structure`) The streaming
+  distribution's configuration information.
 
   ## Optional parameters:
   """
-  @spec create_streaming_distribution_with_tags(
-          AWS.Client.t(),
-          create_streaming_distribution_with_tags_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_streaming_distribution_with_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_streaming_distribution_with_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_distribution_with_tags_errors()}
-  def create_streaming_distribution_with_tags(%Client{} = client, input, options \\ []) do
+
+  def create_streaming_distribution_with_tags(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/streaming-distribution?WithTags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -8067,17 +8419,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8089,25 +8433,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the cache policy that you are
-    deleting. To get the identifier, you can use ListCachePolicies.
+  deleting. To get the identifier, you can use ListCachePolicies.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the cache policy that you are
-    deleting. The version is the cache policy's ETag value, which you can get
-    using ListCachePolicies, GetCachePolicy, or GetCachePolicyConfig.
+  deleting. The version is the cache policy's ETag value, which you can get
+  using ListCachePolicies, GetCachePolicy, or GetCachePolicyConfig.
   """
-  @spec delete_cache_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_cache_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_cache_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cache_policy_errors()}
-  def delete_cache_policy(%Client{} = client, id, input, options \\ []) do
+
+  def delete_cache_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8116,13 +8458,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8132,6 +8482,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8139,7 +8491,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8155,20 +8507,18 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header you received from a
-    previous GET or PUT request. For example: E2QWRUHAPOMQZL.
+  previous GET or PUT request. For example: E2QWRUHAPOMQZL.
   """
-  @spec delete_cloud_front_origin_access_identity(
-          AWS.Client.t(),
-          String.t(),
-          delete_cloud_front_origin_access_identity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_cloud_front_origin_access_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cloud_front_origin_access_identity_errors()}
-  def delete_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
+
+  def delete_cloud_front_origin_access_identity(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8177,13 +8527,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8193,6 +8551,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8200,7 +8560,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8213,24 +8573,22 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the continuous deployment policy that you
-    are deleting.
+  are deleting.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the continuous
-    deployment policy that you are deleting.
+  deployment policy that you are deleting.
   """
-  @spec delete_continuous_deployment_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_continuous_deployment_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_continuous_deployment_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_continuous_deployment_policy_errors()}
-  def delete_continuous_deployment_policy(%Client{} = client, id, input, options \\ []) do
+
+  def delete_continuous_deployment_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8239,13 +8597,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8255,6 +8621,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8262,7 +8630,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8278,20 +8646,18 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    you disabled the distribution. For example: E2QWRUHAPOMQZL.
+  you disabled the distribution. For example: E2QWRUHAPOMQZL.
   """
-  @spec delete_distribution(
-          AWS.Client.t(),
-          String.t(),
-          delete_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_distribution_errors()}
-  def delete_distribution(%Client{} = client, id, input, options \\ []) do
+
+  def delete_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8300,13 +8666,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8316,6 +8690,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8323,7 +8699,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8336,25 +8712,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The ID of the configuration you want to delete from
-    CloudFront.
+  CloudFront.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the configuration identity to delete. For example:
-    E2QWRUHAPOMQZL.
+  retrieving the configuration identity to delete. For example:
+  E2QWRUHAPOMQZL.
   """
-  @spec delete_field_level_encryption_config(
-          AWS.Client.t(),
-          String.t(),
-          delete_field_level_encryption_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_field_level_encryption_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_field_level_encryption_config_errors()}
-  def delete_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
+
+  def delete_field_level_encryption_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8363,13 +8737,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8379,6 +8761,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8386,7 +8770,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8399,24 +8783,22 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) Request the ID of the profile you want to delete from
-    CloudFront.
+  CloudFront.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the profile to delete. For example: E2QWRUHAPOMQZL.
+  retrieving the profile to delete. For example: E2QWRUHAPOMQZL.
   """
-  @spec delete_field_level_encryption_profile(
-          AWS.Client.t(),
-          String.t(),
-          delete_field_level_encryption_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_field_level_encryption_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_field_level_encryption_profile_errors()}
-  def delete_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
+
+  def delete_field_level_encryption_profile(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8425,13 +8807,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8441,6 +8831,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8448,7 +8840,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8464,18 +8856,22 @@ defmodule AWS.CloudFront do
   ## Parameters:
   * `:name` (`t:string`) The name of the function that you are deleting.
   * `:if_match` (`t:string`) The current version (ETag value) of the function that
-    you are deleting, which you can get using DescribeFunction.
+  you are deleting, which you can get using DescribeFunction.
 
   ## Optional parameters:
   """
-  @spec delete_function(AWS.Client.t(), String.t(), delete_function_request(), Keyword.t()) ::
+
+  @spec delete_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_function_errors()}
-  def delete_function(%Client{} = client, name, input, options \\ []) do
+
+  def delete_function(%Client{} = client, name, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8483,16 +8879,20 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8501,7 +8901,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8516,20 +8916,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the key group that you are deleting. To
-    get the identifier, use ListKeyGroups.
+  get the identifier, use ListKeyGroups.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the key group that you are deleting.
-    The version is the key group's ETag value. To get the ETag, use GetKeyGroup
-    or GetKeyGroupConfig.
+  The version is the key group's ETag value. To get the ETag, use GetKeyGroup
+  or GetKeyGroupConfig.
   """
-  @spec delete_key_group(AWS.Client.t(), String.t(), delete_key_group_request(), Keyword.t()) ::
+
+  @spec delete_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_group_errors()}
-  def delete_key_group(%Client{} = client, id, input, options \\ []) do
+
+  def delete_key_group(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8538,13 +8941,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8554,6 +8965,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8561,7 +8974,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8578,19 +8991,18 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec delete_key_value_store(
-          AWS.Client.t(),
-          String.t(),
-          delete_key_value_store_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_key_value_store(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_value_store_errors()}
-  def delete_key_value_store(%Client{} = client, name, input, options \\ []) do
+
+  def delete_key_value_store(%Client{} = client, name, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8598,16 +9010,20 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8616,7 +9032,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8630,28 +9046,43 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:distribution_id` (`t:string`) The ID of the distribution that you are
-    disabling metrics for.
+  disabling metrics for.
 
   ## Optional parameters:
   """
-  @spec delete_monitoring_subscription(
-          AWS.Client.t(),
-          String.t(),
-          delete_monitoring_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_monitoring_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitoring_subscription_errors()}
-  def delete_monitoring_subscription(%Client{} = client, distribution_id, input, options \\ []) do
+
+  def delete_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8660,7 +9091,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8673,24 +9104,22 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier of the origin access control that you
-    are deleting.
+  are deleting.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the origin access
-    control that you are deleting.
+  control that you are deleting.
   """
-  @spec delete_origin_access_control(
-          AWS.Client.t(),
-          String.t(),
-          delete_origin_access_control_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_origin_access_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_access_control_errors()}
-  def delete_origin_access_control(%Client{} = client, id, input, options \\ []) do
+
+  def delete_origin_access_control(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8699,13 +9128,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8715,6 +9152,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8722,7 +9161,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8738,27 +9177,25 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the origin request policy that
-    you are deleting. To get the identifier, you can use
-    ListOriginRequestPolicies.
+  you are deleting. To get the identifier, you can use
+  ListOriginRequestPolicies.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the origin request policy that you are
-    deleting. The version is the origin request policy's ETag value, which you
-    can get using ListOriginRequestPolicies, GetOriginRequestPolicy, or
-    GetOriginRequestPolicyConfig.
+  deleting. The version is the origin request policy's ETag value, which you
+  can get using ListOriginRequestPolicies, GetOriginRequestPolicy, or
+  GetOriginRequestPolicyConfig.
   """
-  @spec delete_origin_request_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_origin_request_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_origin_request_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_origin_request_policy_errors()}
-  def delete_origin_request_policy(%Client{} = client, id, input, options \\ []) do
+
+  def delete_origin_request_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8767,13 +9204,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8783,6 +9228,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8790,7 +9237,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8803,19 +9250,22 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The ID of the public key you want to remove from
-    CloudFront.
+  CloudFront.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the public key identity to delete. For example: E2QWRUHAPOMQZL.
+  retrieving the public key identity to delete. For example: E2QWRUHAPOMQZL.
   """
-  @spec delete_public_key(AWS.Client.t(), String.t(), delete_public_key_request(), Keyword.t()) ::
+
+  @spec delete_public_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_public_key_errors()}
-  def delete_public_key(%Client{} = client, id, input, options \\ []) do
+
+  def delete_public_key(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8824,13 +9274,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8840,6 +9298,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8847,7 +9307,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8865,33 +9325,40 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec delete_realtime_log_config(
-          AWS.Client.t(),
-          delete_realtime_log_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_realtime_log_config_errors()}
-  def delete_realtime_log_config(%Client{} = client, input, options \\ []) do
+
+  def delete_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/delete-realtime-log-config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -8904,24 +9371,22 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier for the response headers policy that you are
-    deleting.
+  deleting.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the response headers policy that you
-    are deleting.
+  are deleting.
   """
-  @spec delete_response_headers_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_response_headers_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_response_headers_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_response_headers_policy_errors()}
-  def delete_response_headers_policy(%Client{} = client, id, input, options \\ []) do
+
+  def delete_response_headers_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8930,13 +9395,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -8946,6 +9419,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8953,7 +9428,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8971,20 +9446,18 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
+  you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
   """
-  @spec delete_streaming_distribution(
-          AWS.Client.t(),
-          String.t(),
-          delete_streaming_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_streaming_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_streaming_distribution_errors()}
-  def delete_streaming_distribution(%Client{} = client, id, input, options \\ []) do
+
+  def delete_streaming_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -8993,13 +9466,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -9009,6 +9490,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -9016,7 +9499,7 @@ defmodule AWS.CloudFront do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9030,16 +9513,18 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the function that you are getting information
-    about.
+  about.
 
   ## Optional parameters:
   * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function's stage, either
-    DEVELOPMENT or LIVE.
+  DEVELOPMENT or LIVE.
   """
+
   @spec describe_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_function_errors()}
+
   def describe_function(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/describe"
 
@@ -9096,10 +9581,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec describe_key_value_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_value_store_errors()}
+
   def describe_key_value_store(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
 
@@ -9141,17 +9628,19 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the cache policy. If the cache
-    policy is attached to a distribution's cache behavior, you can get the
-    policy's identifier using ListDistributions or GetDistribution. If the cache
-    policy is not attached to a cache behavior, you can get the identifier using
-    ListCachePolicies.
+  policy is attached to a distribution's cache behavior, you can get the
+  policy's identifier using ListDistributions or GetDistribution. If the cache
+  policy is not attached to a cache behavior, you can get the identifier using
+  ListCachePolicies.
 
   ## Optional parameters:
   """
+
   @spec get_cache_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cache_policy_errors()}
+
   def get_cache_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9193,17 +9682,19 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the cache policy. If the cache
-    policy is attached to a distribution's cache behavior, you can get the
-    policy's identifier using ListDistributions or GetDistribution. If the cache
-    policy is not attached to a cache behavior, you can get the identifier using
-    ListCachePolicies.
+  policy is attached to a distribution's cache behavior, you can get the
+  policy's identifier using ListDistributions or GetDistribution. If the cache
+  policy is not attached to a cache behavior, you can get the identifier using
+  ListCachePolicies.
 
   ## Optional parameters:
   """
+
   @spec get_cache_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cache_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cache_policy_config_errors()}
+
   def get_cache_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9248,10 +9739,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_cloud_front_origin_access_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_front_origin_access_identity_errors()}
+
   def get_cloud_front_origin_access_identity(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}"
 
@@ -9296,10 +9789,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_cloud_front_origin_access_identity_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_front_origin_access_identity_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_front_origin_access_identity_config_errors()}
+
   def get_cloud_front_origin_access_identity_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9342,14 +9837,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the continuous deployment policy that you
-    are getting.
+  are getting.
 
   ## Optional parameters:
   """
+
   @spec get_continuous_deployment_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_continuous_deployment_policy_errors()}
+
   def get_continuous_deployment_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -9391,14 +9888,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the continuous deployment policy whose
-    configuration you are getting.
+  configuration you are getting.
 
   ## Optional parameters:
   """
+
   @spec get_continuous_deployment_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_continuous_deployment_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_continuous_deployment_policy_config_errors()}
+
   def get_continuous_deployment_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9440,14 +9939,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The distribution's ID. If the ID is empty, an empty
-    distribution configuration is returned.
+  distribution configuration is returned.
 
   ## Optional parameters:
   """
+
   @spec get_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_errors()}
+
   def get_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -9489,14 +9990,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The distribution's ID. If the ID is empty, an empty
-    distribution configuration is returned.
+  distribution configuration is returned.
 
   ## Optional parameters:
   """
+
   @spec get_distribution_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_config_errors()}
+
   def get_distribution_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9538,14 +10041,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) Request the ID for the field-level encryption configuration
-    information.
+  information.
 
   ## Optional parameters:
   """
+
   @spec get_field_level_encryption(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_errors()}
+
   def get_field_level_encryption(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}"
 
@@ -9587,14 +10092,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) Request the ID for the field-level encryption configuration
-    information.
+  information.
 
   ## Optional parameters:
   """
+
   @spec get_field_level_encryption_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_config_errors()}
+
   def get_field_level_encryption_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9636,14 +10143,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) Get the ID for the field-level encryption profile
-    information.
+  information.
 
   ## Optional parameters:
   """
+
   @spec get_field_level_encryption_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_profile_errors()}
+
   def get_field_level_encryption_profile(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}"
 
@@ -9685,14 +10194,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) Get the ID for the field-level encryption profile
-    configuration information.
+  configuration information.
 
   ## Optional parameters:
   """
+
   @spec get_field_level_encryption_profile_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_field_level_encryption_profile_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_field_level_encryption_profile_config_errors()}
+
   def get_field_level_encryption_profile_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9738,12 +10249,14 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function's stage, either
-    DEVELOPMENT or LIVE.
+  DEVELOPMENT or LIVE.
   """
+
   @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_function_errors()}
+
   def get_function(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
@@ -9798,14 +10311,16 @@ defmodule AWS.CloudFront do
   ## Parameters:
   * `:distribution_id` (`t:string`) The distribution's ID.
   * `:id` (`t:string`) The identifier for the invalidation request, for example,
-    IDFDVBD632BHDS5.
+  IDFDVBD632BHDS5.
 
   ## Optional parameters:
   """
+
   @spec get_invalidation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_invalidation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_invalidation_errors()}
+
   def get_invalidation(%Client{} = client, distribution_id, id, options \\ []) do
     url_path =
       "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation/#{AWS.Util.encode_uri(id)}"
@@ -9843,14 +10358,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the key group that you are getting. To
-    get the identifier, use ListKeyGroups.
+  get the identifier, use ListKeyGroups.
 
   ## Optional parameters:
   """
+
   @spec get_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_group_errors()}
+
   def get_key_group(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
@@ -9892,14 +10409,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the key group whose configuration you are
-    getting. To get the identifier, use ListKeyGroups.
+  getting. To get the identifier, use ListKeyGroups.
 
   ## Optional parameters:
   """
+
   @spec get_key_group_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_key_group_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_group_config_errors()}
+
   def get_key_group_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}/config"
 
@@ -9942,14 +10461,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:distribution_id` (`t:string`) The ID of the distribution that you are
-    getting metrics information for.
+  getting metrics information for.
 
   ## Optional parameters:
   """
+
   @spec get_monitoring_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitoring_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitoring_subscription_errors()}
+
   def get_monitoring_subscription(%Client{} = client, distribution_id, options \\ []) do
     url_path =
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
@@ -9989,10 +10510,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_origin_access_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_access_control_errors()}
+
   def get_origin_access_control(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}"
 
@@ -10037,10 +10560,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_origin_access_control_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_access_control_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_access_control_config_errors()}
+
   def get_origin_access_control_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10082,17 +10607,19 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the origin request policy. If the
-    origin request policy is attached to a distribution's cache behavior, you
-    can get the policy's identifier using ListDistributions or GetDistribution.
-    If the origin request policy is not attached to a cache behavior, you can
-    get the identifier using ListOriginRequestPolicies.
+  origin request policy is attached to a distribution's cache behavior, you
+  can get the policy's identifier using ListDistributions or GetDistribution.
+  If the origin request policy is not attached to a cache behavior, you can
+  get the identifier using ListOriginRequestPolicies.
 
   ## Optional parameters:
   """
+
   @spec get_origin_request_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_request_policy_errors()}
+
   def get_origin_request_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -10134,17 +10661,19 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the origin request policy. If the
-    origin request policy is attached to a distribution's cache behavior, you
-    can get the policy's identifier using ListDistributions or GetDistribution.
-    If the origin request policy is not attached to a cache behavior, you can
-    get the identifier using ListOriginRequestPolicies.
+  origin request policy is attached to a distribution's cache behavior, you
+  can get the policy's identifier using ListDistributions or GetDistribution.
+  If the origin request policy is not attached to a cache behavior, you can
+  get the identifier using ListOriginRequestPolicies.
 
   ## Optional parameters:
   """
+
   @spec get_origin_request_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_origin_request_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_origin_request_policy_config_errors()}
+
   def get_origin_request_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10189,10 +10718,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_public_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_errors()}
+
   def get_public_key(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}"
 
@@ -10234,14 +10765,16 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the public key whose configuration you
-    are getting.
+  are getting.
 
   ## Optional parameters:
   """
+
   @spec get_public_key_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_key_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_config_errors()}
+
   def get_public_key_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10285,29 +10818,40 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec get_realtime_log_config(AWS.Client.t(), get_realtime_log_config_request(), Keyword.t()) ::
+
+  @spec get_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_realtime_log_config_errors()}
-  def get_realtime_log_config(%Client{} = client, input, options \\ []) do
+
+  def get_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/get-realtime-log-config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -10321,10 +10865,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_response_headers_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_response_headers_policy_errors()}
+
   def get_response_headers_policy(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
 
@@ -10369,10 +10915,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_response_headers_policy_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_headers_policy_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_response_headers_policy_config_errors()}
+
   def get_response_headers_policy_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10418,10 +10966,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_streaming_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_distribution_errors()}
+
   def get_streaming_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -10466,10 +11016,12 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec get_streaming_distribution_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_distribution_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_distribution_config_errors()}
+
   def get_streaming_distribution_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
 
@@ -10515,19 +11067,21 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of cache policies. The response includes cache
-    policies in the list that occur after the marker. To get the next page of
-    the list, set this field's value to the value of NextMarker from the current
-    page's response.
+  where to begin in your list of cache policies. The response includes cache
+  policies in the list that occur after the marker. To get the next page of
+  the list, set this field's value to the value of NextMarker from the current
+  page's response.
   * `:max_items` (`t:integer`) The maximum number of cache policies that you want
-    in the response.
+  in the response.
   * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified
-    kinds of cache policies. Valid values are:
+  kinds of cache policies. Valid values are:
   """
+
   @spec list_cache_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cache_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cache_policies_errors()}
+
   def list_cache_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/cache-policy"
 
@@ -10590,17 +11144,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
-    begin in your list of origin access identities. The results include
-    identities in the list that occur after the marker. To get the next page of
-    results, set the Marker to the value of the NextMarker from the current
-    page's response (which is also the ID of the last identity on that page).
+  begin in your list of origin access identities. The results include
+  identities in the list that occur after the marker. To get the next page of
+  results, set the Marker to the value of the NextMarker from the current
+  page's response (which is also the ID of the last identity on that page).
   * `:max_items` (`t:integer`) The maximum number of origin access identities you
-    want in the response body.
+  want in the response body.
   """
+
   @spec list_cloud_front_origin_access_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_front_origin_access_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cloud_front_origin_access_identities_errors()}
+
   def list_cloud_front_origin_access_identities(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront"
 
@@ -10667,24 +11223,27 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:alias` (`t:string`) The alias (also called a CNAME) to search for
-    conflicting aliases.
+  conflicting aliases.
   * `:distribution_id` (`t:string`) The ID of a distribution in your account that
-    has an attached SSL/TLS certificate that includes the provided alias.
+  has an attached SSL/TLS certificate that includes the provided alias.
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in the list of conflicting aliases. The response includes
-    conflicting aliases in the list that occur after the marker. To get the next
-    page of the list, set this field's value to the value of NextMarker from the
-    current page's response.
+  where to begin in the list of conflicting aliases. The response includes
+  conflicting aliases in the list that occur after the marker. To get the next
+  page of the list, set this field's value to the value of NextMarker from the
+  current page's response.
   * `:max_items` (`t:integer`) The maximum number of conflicting aliases that you
-    want in the response.
+  want in the response.
   """
+
   @spec list_conflicting_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_conflicting_aliases_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_conflicting_aliases_errors()}
-  def list_conflicting_aliases(%Client{} = client, alias, distribution_id, options \\ []) do
+
+  def list_conflicting_aliases(%Client{} = client, alias, distribution_id, options \\ [])
+      when is_binary(alias) and is_binary(distribution_id) do
     url_path = "/2020-05-31/conflicting-alias"
 
     # Validate optional parameters
@@ -10740,17 +11299,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of continuous deployment policies. The response
-    includes policies in the list that occur after the marker. To get the next
-    page of the list, set this field's value to the value of NextMarker from the
-    current page's response.
+  where to begin in your list of continuous deployment policies. The response
+  includes policies in the list that occur after the marker. To get the next
+  page of the list, set this field's value to the value of NextMarker from the
+  current page's response.
   * `:max_items` (`t:integer`) The maximum number of continuous deployment
-    policies that you want returned in the response.
+  policies that you want returned in the response.
   """
+
   @spec list_continuous_deployment_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_continuous_deployment_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_continuous_deployment_policies_errors()}
+
   def list_continuous_deployment_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy"
 
@@ -10806,17 +11367,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
-    begin in your list of distributions. The results include distributions in
-    the list that occur after the marker. To get the next page of results, set
-    the Marker to the value of the NextMarker from the current page's response
-    (which is also the ID of the last distribution on that page).
+  begin in your list of distributions. The results include distributions in
+  the list that occur after the marker. To get the next page of results, set
+  the Marker to the value of the NextMarker from the current page's response
+  (which is also the ID of the last distribution on that page).
   * `:max_items` (`t:integer`) The maximum number of distributions you want in the
-    response body.
+  response body.
   """
+
   @spec list_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_errors()}
+
   def list_distributions(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/distribution"
 
@@ -10871,21 +11434,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:cache_policy_id` (`t:string`) The ID of the cache policy whose associated
-    distribution IDs you want to list.
+  distribution IDs you want to list.
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of distribution IDs. The response includes
-    distribution IDs in the list that occur after the marker. To get the next
-    page of the list, set this field's value to the value of NextMarker from the
-    current page's response.
+  where to begin in your list of distribution IDs. The response includes
+  distribution IDs in the list that occur after the marker. To get the next
+  page of the list, set this field's value to the value of NextMarker from the
+  current page's response.
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
-    want in the response.
+  want in the response.
   """
+
   @spec list_distributions_by_cache_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_cache_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_cache_policy_id_errors()}
+
   def list_distributions_by_cache_policy_id(%Client{} = client, cache_policy_id, options \\ []) do
     url_path = "/2020-05-31/distributionsByCachePolicyId/#{AWS.Util.encode_uri(cache_policy_id)}"
 
@@ -10940,21 +11505,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:key_group_id` (`t:string`) The ID of the key group whose associated
-    distribution IDs you are listing.
+  distribution IDs you are listing.
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of distribution IDs. The response includes
-    distribution IDs in the list that occur after the marker. To get the next
-    page of the list, set this field's value to the value of NextMarker from the
-    current page's response.
+  where to begin in your list of distribution IDs. The response includes
+  distribution IDs in the list that occur after the marker. To get the next
+  page of the list, set this field's value to the value of NextMarker from the
+  current page's response.
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
-    want in the response.
+  want in the response.
   """
+
   @spec list_distributions_by_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_key_group_errors()}
+
   def list_distributions_by_key_group(%Client{} = client, key_group_id, options \\ []) do
     url_path = "/2020-05-31/distributionsByKeyGroupId/#{AWS.Util.encode_uri(key_group_id)}"
 
@@ -11009,21 +11576,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:origin_request_policy_id` (`t:string`) The ID of the origin request policy
-    whose associated distribution IDs you want to list.
+  whose associated distribution IDs you want to list.
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of distribution IDs. The response includes
-    distribution IDs in the list that occur after the marker. To get the next
-    page of the list, set this field's value to the value of NextMarker from the
-    current page's response.
+  where to begin in your list of distribution IDs. The response includes
+  distribution IDs in the list that occur after the marker. To get the next
+  page of the list, set this field's value to the value of NextMarker from the
+  current page's response.
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
-    want in the response.
+  want in the response.
   """
+
   @spec list_distributions_by_origin_request_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_origin_request_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_origin_request_policy_id_errors()}
+
   def list_distributions_by_origin_request_policy_id(
         %Client{} = client,
         origin_request_policy_id,
@@ -11088,33 +11657,40 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec list_distributions_by_realtime_log_config(
-          AWS.Client.t(),
-          list_distributions_by_realtime_log_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_distributions_by_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distributions_by_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_realtime_log_config_errors()}
-  def list_distributions_by_realtime_log_config(%Client{} = client, input, options \\ []) do
+
+  def list_distributions_by_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/distributionsByRealtimeLogConfig"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11125,21 +11701,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:response_headers_policy_id` (`t:string`) The ID of the response headers
-    policy whose associated distribution IDs you want to list.
+  policy whose associated distribution IDs you want to list.
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of distribution IDs. The response includes
-    distribution IDs in the list that occur after the marker. To get the next
-    page of the list, set this field's value to the value of NextMarker from the
-    current page's response.
+  where to begin in your list of distribution IDs. The response includes
+  distribution IDs in the list that occur after the marker. To get the next
+  page of the list, set this field's value to the value of NextMarker from the
+  current page's response.
   * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
-    want to get in the response.
+  want to get in the response.
   """
+
   @spec list_distributions_by_response_headers_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_response_headers_policy_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_response_headers_policy_id_errors()}
+
   def list_distributions_by_response_headers_policy_id(
         %Client{} = client,
         response_headers_policy_id,
@@ -11198,23 +11776,25 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:web_acl_id` (`t:string`) The ID of the WAF web ACL that you want to list the
-    associated distributions. If you specify "null" for the ID, the request
-    returns a list of the distributions that aren't associated with a web ACL.
+  associated distributions. If you specify "null" for the ID, the request
+  returns a list of the distributions that aren't associated with a web ACL.
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use Marker and MaxItems to control pagination of
-    results. If you have more than MaxItems distributions that satisfy the
-    request, the response includes a NextMarker element. To get the next page of
-    results, submit another request. For the value of Marker, specify the value
-    of NextMarker from the last response. (For the first request, omit Marker.)
+  results. If you have more than MaxItems distributions that satisfy the
+  request, the response includes a NextMarker element. To get the next page of
+  results, submit another request. For the value of Marker, specify the value
+  of NextMarker from the last response. (For the first request, omit Marker.)
   * `:max_items` (`t:integer`) The maximum number of distributions that you want
-    CloudFront to return in the response body. The maximum and default values
-    are both 100.
+  CloudFront to return in the response body. The maximum and default values
+  are both 100.
   """
+
   @spec list_distributions_by_web_acl_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_web_acl_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distributions_by_web_acl_id_errors()}
+
   def list_distributions_by_web_acl_id(%Client{} = client, web_acl_id, options \\ []) do
     url_path = "/2020-05-31/distributionsByWebACLId/#{AWS.Util.encode_uri(web_acl_id)}"
 
@@ -11271,17 +11851,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
-    begin in your list of configurations. The results include configurations in
-    the list that occur after the marker. To get the next page of results, set
-    the Marker to the value of the NextMarker from the current page's response
-    (which is also the ID of the last configuration on that page).
+  begin in your list of configurations. The results include configurations in
+  the list that occur after the marker. To get the next page of results, set
+  the Marker to the value of the NextMarker from the current page's response
+  (which is also the ID of the last configuration on that page).
   * `:max_items` (`t:integer`) The maximum number of field-level encryption
-    configurations you want in the response body.
+  configurations you want in the response body.
   """
+
   @spec list_field_level_encryption_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_field_level_encryption_configs_errors()}
+
   def list_field_level_encryption_configs(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption"
 
@@ -11338,17 +11920,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
-    begin in your list of profiles. The results include profiles in the list
-    that occur after the marker. To get the next page of results, set the Marker
-    to the value of the NextMarker from the current page's response (which is
-    also the ID of the last profile on that page).
+  begin in your list of profiles. The results include profiles in the list
+  that occur after the marker. To get the next page of results, set the Marker
+  to the value of the NextMarker from the current page's response (which is
+  also the ID of the last profile on that page).
   * `:max_items` (`t:integer`) The maximum number of field-level encryption
-    profiles you want in the response body.
+  profiles you want in the response body.
   """
+
   @spec list_field_level_encryption_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_field_level_encryption_profiles_errors()}
+
   def list_field_level_encryption_profiles(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile"
 
@@ -11406,19 +11990,21 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of functions. The response includes functions in
-    the list that occur after the marker. To get the next page of the list, set
-    this field's value to the value of NextMarker from the current page's
-    response.
+  where to begin in your list of functions. The response includes functions in
+  the list that occur after the marker. To get the next page of the list, set
+  this field's value to the value of NextMarker from the current page's
+  response.
   * `:max_items` (`t:integer`) The maximum number of functions that you want in
-    the response.
+  the response.
   * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) An optional filter to return only the
-    functions that are in the specified stage, either DEVELOPMENT or LIVE.
+  functions that are in the specified stage, either DEVELOPMENT or LIVE.
   """
+
   @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_functions_errors()}
+
   def list_functions(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/function"
 
@@ -11482,19 +12068,21 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this parameter when paginating results to indicate
-    where to begin in your list of invalidation batches. Because the results are
-    returned in decreasing order from most recent to oldest, the most recent
-    results are on the first page, the second page will contain earlier results,
-    and so on. To get the next page of results, set Marker to the value of the
-    NextMarker from the current page's response. This value is the same as the
-    ID of the last invalidation batch on that page.
+  where to begin in your list of invalidation batches. Because the results are
+  returned in decreasing order from most recent to oldest, the most recent
+  results are on the first page, the second page will contain earlier results,
+  and so on. To get the next page of results, set Marker to the value of the
+  NextMarker from the current page's response. This value is the same as the
+  ID of the last invalidation batch on that page.
   * `:max_items` (`t:integer`) The maximum number of invalidation batches that you
-    want in the response body.
+  want in the response body.
   """
+
   @spec list_invalidations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_invalidations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invalidations_errors()}
+
   def list_invalidations(%Client{} = client, distribution_id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
 
@@ -11550,17 +12138,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of key groups. The response includes key groups
-    in the list that occur after the marker. To get the next page of the list,
-    set this field's value to the value of NextMarker from the current page's
-    response.
+  where to begin in your list of key groups. The response includes key groups
+  in the list that occur after the marker. To get the next page of the list,
+  set this field's value to the value of NextMarker from the current page's
+  response.
   * `:max_items` (`t:integer`) The maximum number of key groups that you want in
-    the response.
+  the response.
   """
+
   @spec list_key_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_groups_errors()}
+
   def list_key_groups(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/key-group"
 
@@ -11617,14 +12207,16 @@ defmodule AWS.CloudFront do
   ## Optional parameters:
   * `:marker` (`t:string`) The marker associated with the key value stores list.
   * `:max_items` (`t:integer`) The maximum number of items in the key value stores
-    list.
+  list.
   * `:status` (`t:string`) The status of the request for the key value stores
-    list.
+  list.
   """
+
   @spec list_key_value_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_value_stores_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_value_stores_errors()}
+
   def list_key_value_stores(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/key-value-store"
 
@@ -11688,17 +12280,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of origin access controls. The response includes
-    the items in the list that occur after the marker. To get the next page of
-    the list, set this field's value to the value of NextMarker from the current
-    page's response.
+  where to begin in your list of origin access controls. The response includes
+  the items in the list that occur after the marker. To get the next page of
+  the list, set this field's value to the value of NextMarker from the current
+  page's response.
   * `:max_items` (`t:integer`) The maximum number of origin access controls that
-    you want in the response.
+  you want in the response.
   """
+
   @spec list_origin_access_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_access_controls_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origin_access_controls_errors()}
+
   def list_origin_access_controls(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/origin-access-control"
 
@@ -11756,19 +12350,21 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of origin request policies. The response
-    includes origin request policies in the list that occur after the marker. To
-    get the next page of the list, set this field's value to the value of
-    NextMarker from the current page's response.
+  where to begin in your list of origin request policies. The response
+  includes origin request policies in the list that occur after the marker. To
+  get the next page of the list, set this field's value to the value of
+  NextMarker from the current page's response.
   * `:max_items` (`t:integer`) The maximum number of origin request policies that
-    you want in the response.
+  you want in the response.
   * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified
-    kinds of origin request policies. Valid values are:
+  kinds of origin request policies. Valid values are:
   """
+
   @spec list_origin_request_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_request_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_origin_request_policies_errors()}
+
   def list_origin_request_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy"
 
@@ -11831,17 +12427,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this when paginating results to indicate where to
-    begin in your list of public keys. The results include public keys in the
-    list that occur after the marker. To get the next page of results, set the
-    Marker to the value of the NextMarker from the current page's response
-    (which is also the ID of the last public key on that page).
+  begin in your list of public keys. The results include public keys in the
+  list that occur after the marker. To get the next page of results, set the
+  Marker to the value of the NextMarker from the current page's response
+  (which is also the ID of the last public key on that page).
   * `:max_items` (`t:integer`) The maximum number of public keys you want in the
-    response body.
+  response body.
   """
+
   @spec list_public_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_public_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_public_keys_errors()}
+
   def list_public_keys(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/public-key"
 
@@ -11897,17 +12495,19 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of real-time log configurations. The response
-    includes real-time log configurations in the list that occur after the
-    marker. To get the next page of the list, set this field's value to the
-    value of NextMarker from the current page's response.
+  where to begin in your list of real-time log configurations. The response
+  includes real-time log configurations in the list that occur after the
+  marker. To get the next page of the list, set this field's value to the
+  value of NextMarker from the current page's response.
   * `:max_items` (`t:integer`) The maximum number of real-time log configurations
-    that you want in the response.
+  that you want in the response.
   """
+
   @spec list_realtime_log_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_realtime_log_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_realtime_log_configs_errors()}
+
   def list_realtime_log_configs(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
 
@@ -11965,19 +12565,21 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) Use this field when paginating results to indicate
-    where to begin in your list of response headers policies. The response
-    includes response headers policies in the list that occur after the marker.
-    To get the next page of the list, set this field's value to the value of
-    NextMarker from the current page's response.
+  where to begin in your list of response headers policies. The response
+  includes response headers policies in the list that occur after the marker.
+  To get the next page of the list, set this field's value to the value of
+  NextMarker from the current page's response.
   * `:max_items` (`t:integer`) The maximum number of response headers policies
-    that you want to get in the response.
+  that you want to get in the response.
   * `:type` (`t:enum["custom|managed"]`) A filter to get only the specified kind
-    of response headers policies. Valid values are:
+  of response headers policies. Valid values are:
   """
+
   @spec list_response_headers_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_response_headers_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_response_headers_policies_errors()}
+
   def list_response_headers_policies(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy"
 
@@ -12040,14 +12642,16 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   * `:marker` (`t:string`) The value that you provided for the Marker request
-    parameter.
+  parameter.
   * `:max_items` (`t:integer`) The value that you provided for the MaxItems
-    request parameter.
+  request parameter.
   """
+
   @spec list_streaming_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streaming_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_distributions_errors()}
+
   def list_streaming_distributions(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution"
 
@@ -12106,11 +12710,14 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, resource, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource, options \\ [])
+      when is_binary(resource) do
     url_path = "/2020-05-31/tagging"
 
     # Validate optional parameters
@@ -12151,18 +12758,22 @@ defmodule AWS.CloudFront do
   ## Parameters:
   * `:name` (`t:string`) The name of the function that you are publishing.
   * `:if_match` (`t:string`) The current version (ETag value) of the function that
-    you are publishing, which you can get using DescribeFunction.
+  you are publishing, which you can get using DescribeFunction.
 
   ## Optional parameters:
   """
-  @spec publish_function(AWS.Client.t(), String.t(), publish_function_request(), Keyword.t()) ::
+
+  @spec publish_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, publish_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_function_errors()}
-  def publish_function(%Client{} = client, name, input, options \\ []) do
+
+  def publish_function(%Client{} = client, name, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/publish"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -12170,28 +12781,22 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12203,37 +12808,47 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:resource` (`t:string`) An ARN of a CloudFront resource.
+  * `:input` (`t:map`):
+    * `:tags` (`t:structure`) A complex type that contains zero or more Tag
+  elements.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource, input, options \\ [])
+      when is_map(input) and is_binary(resource) do
     url_path = "/2020-05-31/tagging?Operation=Tag"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Resource", "Resource"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"Resource", resource}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -12252,18 +12867,21 @@ defmodule AWS.CloudFront do
   ## Parameters:
   * `:name` (`t:string`) The name of the function that you are testing.
   * `:if_match` (`t:string`) The current version (ETag value) of the function that
-    you are testing, which you can get using DescribeFunction.
+  you are testing, which you can get using DescribeFunction.
 
   ## Optional parameters:
   """
-  @spec test_function(AWS.Client.t(), String.t(), test_function_request(), Keyword.t()) ::
+
+  @spec test_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_function_errors()}
-  def test_function(%Client{} = client, name, input, options \\ []) do
+
+  def test_function(%Client{} = client, name, if_match, options \\ []) when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}/test"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -12271,28 +12889,22 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12304,37 +12916,47 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:resource` (`t:string`) An ARN of a CloudFront resource.
+  * `:input` (`t:map`):
+    * `:tag_keys` (`t:structure`) A complex type that contains zero or more Tag key
+  elements.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource, input, options \\ [])
+      when is_map(input) and is_binary(resource) do
     url_path = "/2020-05-31/tagging?Operation=Untag"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Resource", "Resource"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"Resource", resource}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -12347,26 +12969,26 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the cache policy that you are
-    updating. The identifier is returned in a cache behavior's CachePolicyId
-    field in the response to GetDistributionConfig.
+  updating. The identifier is returned in a cache behavior's CachePolicyId
+  field in the response to GetDistributionConfig.
+  * `:input` (`t:map`):
+    * `:cache_policy_config` (`t:structure`) A cache policy configuration.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the cache policy that you are
-    updating. The version is returned in the cache policy's ETag field in the
-    response to GetCachePolicyConfig.
+  updating. The version is returned in the cache policy's ETag field in the
+  response to GetCachePolicyConfig.
   """
-  @spec update_cache_policy(
-          AWS.Client.t(),
-          String.t(),
-          update_cache_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_cache_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cache_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cache_policy_errors()}
-  def update_cache_policy(%Client{} = client, id, input, options \\ []) do
+
+  def update_cache_policy(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/cache-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12375,13 +12997,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12398,7 +13034,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12408,23 +13046,30 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identity's id.
+  * `:input` (`t:map`):
+    * `:cloud_front_origin_access_identity_config` (`t:structure`) The identity's
+  configuration information.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
+  retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
   """
+
   @spec update_cloud_front_origin_access_identity(
           AWS.Client.t(),
           String.t(),
-          update_cloud_front_origin_access_identity_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, update_cloud_front_origin_access_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cloud_front_origin_access_identity_errors()}
-  def update_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ []) do
+
+  def update_cloud_front_origin_access_identity(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront/#{AWS.Util.encode_uri(id)}/config"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12433,13 +13078,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12456,7 +13115,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12472,24 +13133,31 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the continuous deployment policy that you
-    are updating.
+  are updating.
+  * `:input` (`t:map`):
+    * `:continuous_deployment_policy_config` (`t:structure`) The continuous
+  deployment policy configuration.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the continuous
-    deployment policy that you are updating.
+  deployment policy that you are updating.
   """
+
   @spec update_continuous_deployment_policy(
           AWS.Client.t(),
           String.t(),
-          update_continuous_deployment_policy_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, update_continuous_deployment_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_continuous_deployment_policy_errors()}
-  def update_continuous_deployment_policy(%Client{} = client, id, input, options \\ []) do
+
+  def update_continuous_deployment_policy(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/continuous-deployment-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12498,13 +13166,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12521,7 +13203,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12534,23 +13218,24 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The distribution's id.
+  * `:input` (`t:map`):
+    * `:distribution_config` (`t:structure`) The distribution's configuration
+  information.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
+  retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
   """
-  @spec update_distribution(
-          AWS.Client.t(),
-          String.t(),
-          update_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_distribution(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_errors()}
-  def update_distribution(%Client{} = client, id, input, options \\ []) do
+
+  def update_distribution(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12559,13 +13244,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12582,7 +13281,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12602,27 +13303,25 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the primary distribution to which you are
-    copying a staging distribution's configuration.
+  copying a staging distribution's configuration.
 
   ## Optional parameters:
   * `:staging_distribution_id` (`t:string`) The identifier of the staging
-    distribution whose configuration you are copying to the primary
-    distribution.
+  distribution whose configuration you are copying to the primary
+  distribution.
   * `:if_match` (`t:string`) The current versions (ETag values) of both primary
-    and staging distributions. Provide these in the following format:
+  and staging distributions. Provide these in the following format:
   """
-  @spec update_distribution_with_staging_config(
-          AWS.Client.t(),
-          String.t(),
-          update_distribution_with_staging_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_distribution_with_staging_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_distribution_with_staging_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_with_staging_config_errors()}
-  def update_distribution_with_staging_config(%Client{} = client, id, input, options \\ []) do
+
+  def update_distribution_with_staging_config(%Client{} = client, id, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/promote-staging-config"
 
+    # Validate optional parameters
     optional_params = [staging_distribution_id: nil, if_match: nil]
 
     options =
@@ -12631,17 +13330,34 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
-    {query_params, input} =
-      [
-        {"StagingDistributionId", "StagingDistributionId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :staging_distribution_id) do
+        [{"StagingDistributionId", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12658,7 +13374,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:staging_distribution_id, :if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12668,24 +13386,31 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The ID of the configuration you want to update.
+  * `:input` (`t:map`):
+    * `:field_level_encryption_config` (`t:structure`) Request to update a
+  field-level encryption configuration.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the configuration identity to update. For example:
-    E2QWRUHAPOMQZL.
+  retrieving the configuration identity to update. For example:
+  E2QWRUHAPOMQZL.
   """
+
   @spec update_field_level_encryption_config(
           AWS.Client.t(),
           String.t(),
-          update_field_level_encryption_config_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, update_field_level_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_field_level_encryption_config_errors()}
-  def update_field_level_encryption_config(%Client{} = client, id, input, options \\ []) do
+
+  def update_field_level_encryption_config(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption/#{AWS.Util.encode_uri(id)}/config"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12694,13 +13419,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12717,7 +13456,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12727,23 +13468,30 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The ID of the field-level encryption profile request.
+  * `:input` (`t:map`):
+    * `:field_level_encryption_profile_config` (`t:structure`) Request to update a
+  field-level encryption profile.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the profile identity to update. For example: E2QWRUHAPOMQZL.
+  retrieving the profile identity to update. For example: E2QWRUHAPOMQZL.
   """
+
   @spec update_field_level_encryption_profile(
           AWS.Client.t(),
           String.t(),
-          update_field_level_encryption_profile_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, update_field_level_encryption_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_field_level_encryption_profile_errors()}
-  def update_field_level_encryption_profile(%Client{} = client, id, input, options \\ []) do
+
+  def update_field_level_encryption_profile(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/field-level-encryption-profile/#{AWS.Util.encode_uri(id)}/config"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12752,13 +13500,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12775,7 +13537,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12787,18 +13551,22 @@ defmodule AWS.CloudFront do
   ## Parameters:
   * `:name` (`t:string`) The name of the function that you are updating.
   * `:if_match` (`t:string`) The current version (ETag value) of the function that
-    you are updating, which you can get using DescribeFunction.
+  you are updating, which you can get using DescribeFunction.
 
   ## Optional parameters:
   """
-  @spec update_function(AWS.Client.t(), String.t(), update_function_request(), Keyword.t()) ::
+
+  @spec update_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_function_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_function_errors()}
-  def update_function(%Client{} = client, name, input, options \\ []) do
+
+  def update_function(%Client{} = client, name, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path = "/2020-05-31/function/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -12806,13 +13574,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETtag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12824,7 +13600,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12836,18 +13614,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the key group that you are updating.
+  * `:input` (`t:map`):
+    * `:key_group_config` (`t:structure`) The key group configuration.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the key group that you are updating.
-    The version is the key group's ETag value.
+  The version is the key group's ETag value.
   """
-  @spec update_key_group(AWS.Client.t(), String.t(), update_key_group_request(), Keyword.t()) ::
+
+  @spec update_key_group(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_key_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_group_errors()}
-  def update_key_group(%Client{} = client, id, input, options \\ []) do
+
+  def update_key_group(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/key-group/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12856,13 +13639,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12879,7 +13676,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12893,19 +13692,18 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec update_key_value_store(
-          AWS.Client.t(),
-          String.t(),
-          update_key_value_store_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_key_value_store(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_key_value_store_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_value_store_errors()}
-  def update_key_value_store(%Client{} = client, name, input, options \\ []) do
+
+  def update_key_value_store(%Client{} = client, name, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -12913,13 +13711,21 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12931,7 +13737,9 @@ defmodule AWS.CloudFront do
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12941,24 +13749,25 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier of the origin access control that you
-    are updating.
+  are updating.
+  * `:input` (`t:map`):
+    * `:origin_access_control_config` (`t:structure`) An origin access control.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The current version (ETag value) of the origin access
-    control that you are updating.
+  control that you are updating.
   """
-  @spec update_origin_access_control(
-          AWS.Client.t(),
-          String.t(),
-          update_origin_access_control_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_origin_access_control(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_origin_access_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_origin_access_control_errors()}
-  def update_origin_access_control(%Client{} = client, id, input, options \\ []) do
+
+  def update_origin_access_control(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/origin-access-control/#{AWS.Util.encode_uri(id)}/config"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -12967,13 +13776,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -12990,7 +13813,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13003,26 +13828,28 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The unique identifier for the origin request policy that
-    you are updating. The identifier is returned in a cache behavior's
-    OriginRequestPolicyId field in the response to GetDistributionConfig.
+  you are updating. The identifier is returned in a cache behavior's
+  OriginRequestPolicyId field in the response to GetDistributionConfig.
+  * `:input` (`t:map`):
+    * `:origin_request_policy_config` (`t:structure`) An origin request policy
+  configuration.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the origin request policy that you are
-    updating. The version is returned in the origin request policy's ETag field
-    in the response to GetOriginRequestPolicyConfig.
+  updating. The version is returned in the origin request policy's ETag field
+  in the response to GetOriginRequestPolicyConfig.
   """
-  @spec update_origin_request_policy(
-          AWS.Client.t(),
-          String.t(),
-          update_origin_request_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_origin_request_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_origin_request_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_origin_request_policy_errors()}
-  def update_origin_request_policy(%Client{} = client, id, input, options \\ []) do
+
+  def update_origin_request_policy(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/origin-request-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -13031,13 +13858,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -13054,7 +13895,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13065,18 +13908,23 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the public key that you are updating.
+  * `:input` (`t:map`):
+    * `:public_key_config` (`t:structure`) A public key configuration.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the public key to update. For example: E2QWRUHAPOMQZL.
+  retrieving the public key to update. For example: E2QWRUHAPOMQZL.
   """
-  @spec update_public_key(AWS.Client.t(), String.t(), update_public_key_request(), Keyword.t()) ::
+
+  @spec update_public_key(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_public_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_public_key_errors()}
-  def update_public_key(%Client{} = client, id, input, options \\ []) do
+
+  def update_public_key(%Client{} = client, id, input, options \\ []) when is_map(input) do
     url_path = "/2020-05-31/public-key/#{AWS.Util.encode_uri(id)}/config"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -13085,13 +13933,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -13108,7 +13970,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13123,23 +13987,40 @@ defmodule AWS.CloudFront do
 
   ## Optional parameters:
   """
-  @spec update_realtime_log_config(
-          AWS.Client.t(),
-          update_realtime_log_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_realtime_log_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_realtime_log_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_realtime_log_config_errors()}
-  def update_realtime_log_config(%Client{} = client, input, options \\ []) do
+
+  def update_realtime_log_config(%Client{} = client, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13151,24 +14032,26 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier for the response headers policy that you are
-    updating.
+  updating.
+  * `:input` (`t:map`):
+    * `:response_headers_policy_config` (`t:structure`) A response headers policy
+  configuration.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The version of the response headers policy that you
-    are updating.
+  are updating.
   """
-  @spec update_response_headers_policy(
-          AWS.Client.t(),
-          String.t(),
-          update_response_headers_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_response_headers_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_response_headers_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_response_headers_policy_errors()}
-  def update_response_headers_policy(%Client{} = client, id, input, options \\ []) do
+
+  def update_response_headers_policy(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/response-headers-policy/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -13177,13 +14060,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -13200,7 +14097,9 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13210,24 +14109,26 @@ defmodule AWS.CloudFront do
 
   ## Parameters:
   * `:id` (`t:string`) The streaming distribution's id.
+  * `:input` (`t:map`):
+    * `:streaming_distribution_config` (`t:structure`) The streaming distribution's
+  configuration information.
 
   ## Optional parameters:
   * `:if_match` (`t:string`) The value of the ETag header that you received when
-    retrieving the streaming distribution's configuration. For example:
-    E2QWRUHAPOMQZL.
+  retrieving the streaming distribution's configuration. For example:
+  E2QWRUHAPOMQZL.
   """
-  @spec update_streaming_distribution(
-          AWS.Client.t(),
-          String.t(),
-          update_streaming_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_streaming_distribution(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_streaming_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_streaming_distribution_errors()}
-  def update_streaming_distribution(%Client{} = client, id, input, options \\ []) do
+
+  def update_streaming_distribution(%Client{} = client, id, input, options \\ [])
+      when is_map(input) do
     url_path = "/2020-05-31/streaming-distribution/#{AWS.Util.encode_uri(id)}/config"
 
+    # Validate optional parameters
     optional_params = [if_match: nil]
 
     options =
@@ -13236,13 +14137,27 @@ defmodule AWS.CloudFront do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :if_match) do
+        [{"If-Match", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -13259,6 +14174,8 @@ defmodule AWS.CloudFront do
       options
       |> Keyword.drop([:if_match])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

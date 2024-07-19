@@ -2866,20 +2866,33 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Attaches the specified customer managed policy to the specified `PermissionSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20AttachCustomerManagedPolicyReferenceToPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_customer_managed_policy_reference_to_permission_set_request`)
+    %{
+      required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
+
   @spec attach_customer_managed_policy_reference_to_permission_set(
           AWS.Client.t(),
-          attach_customer_managed_policy_reference_to_permission_set_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, attach_customer_managed_policy_reference_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_customer_managed_policy_reference_to_permission_set_errors()}
+
   def attach_customer_managed_policy_reference_to_permission_set(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2894,16 +2907,25 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Attaches an Amazon Web Services managed policy ARN to a permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20AttachManagedPolicyToPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_managed_policy_to_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("ManagedPolicyArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec attach_managed_policy_to_permission_set(
-          AWS.Client.t(),
-          attach_managed_policy_to_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec attach_managed_policy_to_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_managed_policy_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_managed_policy_to_permission_set_errors()}
-  def attach_managed_policy_to_permission_set(%Client{} = client, input, options \\ []) do
+
+  def attach_managed_policy_to_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2914,16 +2936,27 @@ defmodule AWS.SSOAdmin do
   Assigns access to a principal for a specified Amazon Web Services account using
   a specified permission set. The term *principal* here refers to a user or
   group that is defined in IAM Identity Center.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20CreateAccountAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_account_assignment_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t(),
+      required("PrincipalId") => String.t(),
+      required("PrincipalType") => list(any()),
+      required("TargetId") => String.t(),
+      required("TargetType") => list(any())
+    }
   """
-  @spec create_account_assignment(
-          AWS.Client.t(),
-          create_account_assignment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_account_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_account_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_assignment_errors()}
-  def create_account_assignment(%Client{} = client, input, options \\ []) do
+
+  def create_account_assignment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2933,12 +2966,29 @@ defmodule AWS.SSOAdmin do
   @doc """
   Creates an application in IAM Identity Center for the given application
   provider.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_application_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("PortalOptions") => portal_options(),
+      optional("Status") => list(any()),
+      optional("Tags") => list(tag()()),
+      required("ApplicationProviderArn") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2947,16 +2997,25 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Grant application access to a user or group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20CreateApplicationAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_application_assignment_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("PrincipalId") => String.t(),
+      required("PrincipalType") => list(any())
+    }
   """
-  @spec create_application_assignment(
-          AWS.Client.t(),
-          create_application_assignment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_application_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_assignment_errors()}
-  def create_application_assignment(%Client{} = client, input, options \\ []) do
+
+  def create_application_assignment(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2969,12 +3028,24 @@ defmodule AWS.SSOAdmin do
   account in an organization. You can create only one instance per account and
   across all Amazon Web Services Regions. The CreateInstance request is rejected
   if the following apply:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20CreateInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_instance_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Name") => String.t(),
+      optional("Tags") => list(tag()())
+    }
   """
-  @spec create_instance(AWS.Client.t(), create_instance_request(), Keyword.t()) ::
+
+  @spec create_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_errors()}
-  def create_instance(%Client{} = client, input, options \\ []) do
+
+  def create_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2988,20 +3059,32 @@ defmodule AWS.SSOAdmin do
   ABAC, see [Attribute-Based Access
   Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
   User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20CreateInstanceAccessControlAttributeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_instance_access_control_attribute_configuration_request`)
+    %{
+      required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
+      required("InstanceArn") => String.t()
+    }
   """
+
   @spec create_instance_access_control_attribute_configuration(
           AWS.Client.t(),
-          create_instance_access_control_attribute_configuration_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, create_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_access_control_attribute_configuration_errors()}
+
   def create_instance_access_control_attribute_configuration(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3016,12 +3099,27 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Creates a permission set within a specified IAM Identity Center instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20CreatePermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_permission_set_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("RelayState") => String.t(),
+      optional("SessionDuration") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("InstanceArn") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_permission_set(AWS.Client.t(), create_permission_set_request(), Keyword.t()) ::
+
+  @spec create_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_set_errors()}
-  def create_permission_set(%Client{} = client, input, options \\ []) do
+
+  def create_permission_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3032,16 +3130,27 @@ defmodule AWS.SSOAdmin do
   Creates a connection to a trusted token issuer in an instance of IAM Identity
   Center. A trusted token issuer enables trusted identity propagation to be used
   with applications that authenticate outside of Amazon Web Services.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20CreateTrustedTokenIssuer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_trusted_token_issuer_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("InstanceArn") => String.t(),
+      required("Name") => String.t(),
+      required("TrustedTokenIssuerConfiguration") => list(),
+      required("TrustedTokenIssuerType") => list(any())
+    }
   """
-  @spec create_trusted_token_issuer(
-          AWS.Client.t(),
-          create_trusted_token_issuer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_trusted_token_issuer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trusted_token_issuer_errors()}
-  def create_trusted_token_issuer(%Client{} = client, input, options \\ []) do
+
+  def create_trusted_token_issuer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3051,16 +3160,27 @@ defmodule AWS.SSOAdmin do
   @doc """
   Deletes a principal's access from a specified Amazon Web Services account using
   a specified permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteAccountAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_account_assignment_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t(),
+      required("PrincipalId") => String.t(),
+      required("PrincipalType") => list(any()),
+      required("TargetId") => String.t(),
+      required("TargetType") => list(any())
+    }
   """
-  @spec delete_account_assignment(
-          AWS.Client.t(),
-          delete_account_assignment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_account_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_account_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_assignment_errors()}
-  def delete_account_assignment(%Client{} = client, input, options \\ []) do
+
+  def delete_account_assignment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3070,12 +3190,22 @@ defmodule AWS.SSOAdmin do
   @doc """
   Deletes the association with the application. The connected service resource
   still exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_request`)
+    %{
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, input, options \\ []) do
+
+  def delete_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3084,16 +3214,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Deletes an IAM Identity Center access scope from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteApplicationAccessScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_access_scope_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("Scope") => String.t()
+    }
   """
-  @spec delete_application_access_scope(
-          AWS.Client.t(),
-          delete_application_access_scope_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_application_access_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_access_scope_errors()}
-  def delete_application_access_scope(%Client{} = client, input, options \\ []) do
+
+  def delete_application_access_scope(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3103,16 +3241,25 @@ defmodule AWS.SSOAdmin do
   @doc """
   Revoke application access to an application by deleting application assignments
   for a user or group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteApplicationAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_assignment_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("PrincipalId") => String.t(),
+      required("PrincipalType") => list(any())
+    }
   """
-  @spec delete_application_assignment(
-          AWS.Client.t(),
-          delete_application_assignment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_application_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_assignment_errors()}
-  def delete_application_assignment(%Client{} = client, input, options \\ []) do
+
+  def delete_application_assignment(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3121,16 +3268,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Deletes an authentication method from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteApplicationAuthenticationMethod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_authentication_method_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("AuthenticationMethodType") => list(any())
+    }
   """
-  @spec delete_application_authentication_method(
-          AWS.Client.t(),
-          delete_application_authentication_method_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_application_authentication_method(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_authentication_method_errors()}
-  def delete_application_authentication_method(%Client{} = client, input, options \\ []) do
+
+  def delete_application_authentication_method(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3139,12 +3294,23 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Deletes a grant from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteApplicationGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_grant_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("GrantType") => list(any())
+    }
   """
-  @spec delete_application_grant(AWS.Client.t(), delete_application_grant_request(), Keyword.t()) ::
+
+  @spec delete_application_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_grant_errors()}
-  def delete_application_grant(%Client{} = client, input, options \\ []) do
+
+  def delete_application_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3153,16 +3319,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Deletes the inline policy from a specified permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteInlinePolicyFromPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_inline_policy_from_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec delete_inline_policy_from_permission_set(
-          AWS.Client.t(),
-          delete_inline_policy_from_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_inline_policy_from_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_inline_policy_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inline_policy_from_permission_set_errors()}
-  def delete_inline_policy_from_permission_set(%Client{} = client, input, options \\ []) do
+
+  def delete_inline_policy_from_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3174,12 +3348,22 @@ defmodule AWS.SSOAdmin do
   instance can call this API. Neither the delegated administrator nor member
   account can delete the organization instance, but those roles can delete their
   own instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_instance_request`)
+    %{
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec delete_instance(AWS.Client.t(), delete_instance_request(), Keyword.t()) ::
+
+  @spec delete_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_errors()}
-  def delete_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3194,20 +3378,31 @@ defmodule AWS.SSOAdmin do
   not be passed. For more information about ABAC, see [Attribute-Based Access
   Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
   User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteInstanceAccessControlAttributeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_instance_access_control_attribute_configuration_request`)
+    %{
+      required("InstanceArn") => String.t()
+    }
   """
+
   @spec delete_instance_access_control_attribute_configuration(
           AWS.Client.t(),
-          delete_instance_access_control_attribute_configuration_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, delete_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_access_control_attribute_configuration_errors()}
+
   def delete_instance_access_control_attribute_configuration(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3222,12 +3417,23 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Deletes the specified permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeletePermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec delete_permission_set(AWS.Client.t(), delete_permission_set_request(), Keyword.t()) ::
+
+  @spec delete_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_set_errors()}
-  def delete_permission_set(%Client{} = client, input, options \\ []) do
+
+  def delete_permission_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3236,16 +3442,28 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Deletes the permissions boundary from a specified `PermissionSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeletePermissionsBoundaryFromPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_permissions_boundary_from_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
+
   @spec delete_permissions_boundary_from_permission_set(
           AWS.Client.t(),
-          delete_permissions_boundary_from_permission_set_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, delete_permissions_boundary_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permissions_boundary_from_permission_set_errors()}
-  def delete_permissions_boundary_from_permission_set(%Client{} = client, input, options \\ []) do
+
+  def delete_permissions_boundary_from_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3261,16 +3479,22 @@ defmodule AWS.SSOAdmin do
   @doc """
   Deletes a trusted token issuer configuration from an instance of IAM Identity
   Center.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DeleteTrustedTokenIssuer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_trusted_token_issuer_request`)
+    %{
+      required("TrustedTokenIssuerArn") => String.t()
+    }
   """
-  @spec delete_trusted_token_issuer(
-          AWS.Client.t(),
-          delete_trusted_token_issuer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_trusted_token_issuer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trusted_token_issuer_errors()}
-  def delete_trusted_token_issuer(%Client{} = client, input, options \\ []) do
+
+  def delete_trusted_token_issuer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3279,16 +3503,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Describes the status of the assignment creation request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeAccountAssignmentCreationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_account_assignment_creation_status_request`)
+    %{
+      required("AccountAssignmentCreationRequestId") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec describe_account_assignment_creation_status(
-          AWS.Client.t(),
-          describe_account_assignment_creation_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_account_assignment_creation_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_assignment_creation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_assignment_creation_status_errors()}
-  def describe_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
+
+  def describe_account_assignment_creation_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3297,16 +3529,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Describes the status of the assignment deletion request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeAccountAssignmentDeletionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_account_assignment_deletion_status_request`)
+    %{
+      required("AccountAssignmentDeletionRequestId") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec describe_account_assignment_deletion_status(
-          AWS.Client.t(),
-          describe_account_assignment_deletion_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_account_assignment_deletion_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_assignment_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_assignment_deletion_status_errors()}
-  def describe_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
+
+  def describe_account_assignment_deletion_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3316,12 +3556,22 @@ defmodule AWS.SSOAdmin do
   @doc """
   Retrieves the details of an application associated with an instance of IAM
   Identity Center.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_application_request`)
+    %{
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec describe_application(AWS.Client.t(), describe_application_request(), Keyword.t()) ::
+
+  @spec describe_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_errors()}
-  def describe_application(%Client{} = client, input, options \\ []) do
+
+  def describe_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3334,16 +3584,25 @@ defmodule AWS.SSOAdmin do
   access to the application through a group. Therefore, don’t use this API to
   test access to an application for a user. Instead use
   `ListApplicationAssignmentsForPrincipal`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeApplicationAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_application_assignment_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("PrincipalId") => String.t(),
+      required("PrincipalType") => list(any())
+    }
   """
-  @spec describe_application_assignment(
-          AWS.Client.t(),
-          describe_application_assignment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_application_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_assignment_errors()}
-  def describe_application_assignment(%Client{} = client, input, options \\ []) do
+
+  def describe_application_assignment(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3354,16 +3613,23 @@ defmodule AWS.SSOAdmin do
   Retrieves details about a provider that can be used to connect an Amazon Web
   Services managed application or customer managed application to IAM Identity
   Center.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeApplicationProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_application_provider_request`)
+    %{
+      required("ApplicationProviderArn") => String.t()
+    }
   """
-  @spec describe_application_provider(
-          AWS.Client.t(),
-          describe_application_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_application_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_provider_errors()}
-  def describe_application_provider(%Client{} = client, input, options \\ []) do
+
+  def describe_application_provider(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3373,12 +3639,22 @@ defmodule AWS.SSOAdmin do
   @doc """
   Returns the details of an instance of IAM Identity Center. The status can be one
   of the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_request`)
+    %{
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec describe_instance(AWS.Client.t(), describe_instance_request(), Keyword.t()) ::
+
+  @spec describe_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_errors()}
-  def describe_instance(%Client{} = client, input, options \\ []) do
+
+  def describe_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3393,20 +3669,31 @@ defmodule AWS.SSOAdmin do
   about ABAC, see [Attribute-Based Access
   Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
   User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeInstanceAccessControlAttributeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_access_control_attribute_configuration_request`)
+    %{
+      required("InstanceArn") => String.t()
+    }
   """
+
   @spec describe_instance_access_control_attribute_configuration(
           AWS.Client.t(),
-          describe_instance_access_control_attribute_configuration_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, describe_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_access_control_attribute_configuration_errors()}
+
   def describe_instance_access_control_attribute_configuration(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3421,12 +3708,23 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Gets the details of the permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribePermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec describe_permission_set(AWS.Client.t(), describe_permission_set_request(), Keyword.t()) ::
+
+  @spec describe_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_permission_set_errors()}
-  def describe_permission_set(%Client{} = client, input, options \\ []) do
+
+  def describe_permission_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3435,16 +3733,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Describes the status for the given permission set provisioning request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribePermissionSetProvisioningStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_permission_set_provisioning_status_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("ProvisionPermissionSetRequestId") => String.t()
+    }
   """
-  @spec describe_permission_set_provisioning_status(
-          AWS.Client.t(),
-          describe_permission_set_provisioning_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_permission_set_provisioning_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_permission_set_provisioning_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_permission_set_provisioning_status_errors()}
-  def describe_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
+
+  def describe_permission_set_provisioning_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3456,16 +3762,23 @@ defmodule AWS.SSOAdmin do
   instance of IAM Identity Center. Details include the name of the trusted token
   issuer, the issuer URL, and the path of the source attribute and the
   destination attribute for a trusted token issuer configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DescribeTrustedTokenIssuer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trusted_token_issuer_request`)
+    %{
+      required("TrustedTokenIssuerArn") => String.t()
+    }
   """
-  @spec describe_trusted_token_issuer(
-          AWS.Client.t(),
-          describe_trusted_token_issuer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_trusted_token_issuer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_token_issuer_errors()}
-  def describe_trusted_token_issuer(%Client{} = client, input, options \\ []) do
+
+  def describe_trusted_token_issuer(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3475,20 +3788,33 @@ defmodule AWS.SSOAdmin do
   @doc """
   Detaches the specified customer managed policy from the specified
   `PermissionSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DetachCustomerManagedPolicyReferenceFromPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_customer_managed_policy_reference_from_permission_set_request`)
+    %{
+      required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
+
   @spec detach_customer_managed_policy_reference_from_permission_set(
           AWS.Client.t(),
-          detach_customer_managed_policy_reference_from_permission_set_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, detach_customer_managed_policy_reference_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_customer_managed_policy_reference_from_permission_set_errors()}
+
   def detach_customer_managed_policy_reference_from_permission_set(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3504,16 +3830,25 @@ defmodule AWS.SSOAdmin do
   @doc """
   Detaches the attached Amazon Web Services managed policy ARN from the specified
   permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20DetachManagedPolicyFromPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_managed_policy_from_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("ManagedPolicyArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec detach_managed_policy_from_permission_set(
-          AWS.Client.t(),
-          detach_managed_policy_from_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec detach_managed_policy_from_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_managed_policy_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_managed_policy_from_permission_set_errors()}
-  def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
+
+  def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3523,16 +3858,23 @@ defmodule AWS.SSOAdmin do
   @doc """
   Retrieves the authorized targets for an IAM Identity Center access scope for an
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20GetApplicationAccessScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_application_access_scope_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("Scope") => String.t()
+    }
   """
-  @spec get_application_access_scope(
-          AWS.Client.t(),
-          get_application_access_scope_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_application_access_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_application_access_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_access_scope_errors()}
-  def get_application_access_scope(%Client{} = client, input, options \\ []) do
+
+  def get_application_access_scope(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3541,16 +3883,23 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Retrieves the configuration of `PutApplicationAssignmentConfiguration`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20GetApplicationAssignmentConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_application_assignment_configuration_request`)
+    %{
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec get_application_assignment_configuration(
-          AWS.Client.t(),
-          get_application_assignment_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_application_assignment_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_application_assignment_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_assignment_configuration_errors()}
-  def get_application_assignment_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_application_assignment_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3559,16 +3908,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Retrieves details about an authentication method used by an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20GetApplicationAuthenticationMethod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_application_authentication_method_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("AuthenticationMethodType") => list(any())
+    }
   """
-  @spec get_application_authentication_method(
-          AWS.Client.t(),
-          get_application_authentication_method_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_application_authentication_method(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_application_authentication_method_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_authentication_method_errors()}
-  def get_application_authentication_method(%Client{} = client, input, options \\ []) do
+
+  def get_application_authentication_method(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3577,12 +3934,23 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Retrieves details about an application grant.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20GetApplicationGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_application_grant_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("GrantType") => list(any())
+    }
   """
-  @spec get_application_grant(AWS.Client.t(), get_application_grant_request(), Keyword.t()) ::
+
+  @spec get_application_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_application_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_grant_errors()}
-  def get_application_grant(%Client{} = client, input, options \\ []) do
+
+  def get_application_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3591,16 +3959,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Obtains the inline policy assigned to the permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20GetInlinePolicyForPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_inline_policy_for_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec get_inline_policy_for_permission_set(
-          AWS.Client.t(),
-          get_inline_policy_for_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_inline_policy_for_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_inline_policy_for_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_inline_policy_for_permission_set_errors()}
-  def get_inline_policy_for_permission_set(%Client{} = client, input, options \\ []) do
+
+  def get_inline_policy_for_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3609,16 +3985,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Obtains the permissions boundary for a specified `PermissionSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20GetPermissionsBoundaryForPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_permissions_boundary_for_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec get_permissions_boundary_for_permission_set(
-          AWS.Client.t(),
-          get_permissions_boundary_for_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_permissions_boundary_for_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_permissions_boundary_for_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permissions_boundary_for_permission_set_errors()}
-  def get_permissions_boundary_for_permission_set(%Client{} = client, input, options \\ []) do
+
+  def get_permissions_boundary_for_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3628,16 +4012,26 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the status of the Amazon Web Services account assignment creation requests
   for a specified IAM Identity Center instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListAccountAssignmentCreationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_account_assignment_creation_status_request`)
+    %{
+      optional("Filter") => operation_status_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec list_account_assignment_creation_status(
-          AWS.Client.t(),
-          list_account_assignment_creation_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_account_assignment_creation_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_account_assignment_creation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_assignment_creation_status_errors()}
-  def list_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
+
+  def list_account_assignment_creation_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3647,16 +4041,26 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the status of the Amazon Web Services account assignment deletion requests
   for a specified IAM Identity Center instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListAccountAssignmentDeletionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_account_assignment_deletion_status_request`)
+    %{
+      optional("Filter") => operation_status_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec list_account_assignment_deletion_status(
-          AWS.Client.t(),
-          list_account_assignment_deletion_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_account_assignment_deletion_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_account_assignment_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_assignment_deletion_status_errors()}
-  def list_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
+
+  def list_account_assignment_deletion_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3666,12 +4070,26 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the assignee of the specified Amazon Web Services account with the
   specified permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListAccountAssignments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_account_assignments_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AccountId") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec list_account_assignments(AWS.Client.t(), list_account_assignments_request(), Keyword.t()) ::
+
+  @spec list_account_assignments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_account_assignments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_assignments_errors()}
-  def list_account_assignments(%Client{} = client, input, options \\ []) do
+
+  def list_account_assignments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3681,16 +4099,28 @@ defmodule AWS.SSOAdmin do
   @doc """
   Retrieves a list of the IAM Identity Center associated Amazon Web Services
   accounts that the principal has access to.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListAccountAssignmentsForPrincipal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_account_assignments_for_principal_request`)
+    %{
+      optional("Filter") => list_account_assignments_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PrincipalId") => String.t(),
+      required("PrincipalType") => list(any())
+    }
   """
-  @spec list_account_assignments_for_principal(
-          AWS.Client.t(),
-          list_account_assignments_for_principal_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_account_assignments_for_principal(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_account_assignments_for_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_assignments_for_principal_errors()}
-  def list_account_assignments_for_principal(%Client{} = client, input, options \\ []) do
+
+  def list_account_assignments_for_principal(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3700,16 +4130,27 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists all the Amazon Web Services accounts where the specified permission set is
   provisioned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListAccountsForProvisionedPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_accounts_for_provisioned_permission_set_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ProvisioningStatus") => list(any()),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec list_accounts_for_provisioned_permission_set(
-          AWS.Client.t(),
-          list_accounts_for_provisioned_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_accounts_for_provisioned_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_accounts_for_provisioned_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_for_provisioned_permission_set_errors()}
-  def list_accounts_for_provisioned_permission_set(%Client{} = client, input, options \\ []) do
+
+  def list_accounts_for_provisioned_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3718,16 +4159,25 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the access scopes and authorized targets associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListApplicationAccessScopes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_access_scopes_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec list_application_access_scopes(
-          AWS.Client.t(),
-          list_application_access_scopes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_access_scopes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_access_scopes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_access_scopes_errors()}
-  def list_application_access_scopes(%Client{} = client, input, options \\ []) do
+
+  def list_application_access_scopes(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3736,16 +4186,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists Amazon Web Services account users that are assigned to an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListApplicationAssignments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_assignments_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec list_application_assignments(
-          AWS.Client.t(),
-          list_application_assignments_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_assignments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_assignments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_assignments_errors()}
-  def list_application_assignments(%Client{} = client, input, options \\ []) do
+
+  def list_application_assignments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3754,16 +4212,28 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the applications to which a specified principal is assigned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListApplicationAssignmentsForPrincipal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_assignments_for_principal_request`)
+    %{
+      optional("Filter") => list_application_assignments_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PrincipalId") => String.t(),
+      required("PrincipalType") => list(any())
+    }
   """
-  @spec list_application_assignments_for_principal(
-          AWS.Client.t(),
-          list_application_assignments_for_principal_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_assignments_for_principal(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_assignments_for_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_assignments_for_principal_errors()}
-  def list_application_assignments_for_principal(%Client{} = client, input, options \\ []) do
+
+  def list_application_assignments_for_principal(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3772,16 +4242,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists all of the authentication methods supported by the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListApplicationAuthenticationMethods&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_authentication_methods_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec list_application_authentication_methods(
-          AWS.Client.t(),
-          list_application_authentication_methods_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_authentication_methods(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_authentication_methods_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_authentication_methods_errors()}
-  def list_application_authentication_methods(%Client{} = client, input, options \\ []) do
+
+  def list_application_authentication_methods(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3790,12 +4268,23 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   List the grants associated with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListApplicationGrants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_grants_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec list_application_grants(AWS.Client.t(), list_application_grants_request(), Keyword.t()) ::
+
+  @spec list_application_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_grants_errors()}
-  def list_application_grants(%Client{} = client, input, options \\ []) do
+
+  def list_application_grants(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3805,16 +4294,23 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the application providers configured in the IAM Identity Center identity
   store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListApplicationProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_providers_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_application_providers(
-          AWS.Client.t(),
-          list_application_providers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_providers_errors()}
-  def list_application_providers(%Client{} = client, input, options \\ []) do
+
+  def list_application_providers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3826,12 +4322,25 @@ defmodule AWS.SSOAdmin do
   listing applications for an instance in the management account, member
   accounts must use the `applicationAccount` parameter to filter the list to
   only applications created from that account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_applications_request`)
+    %{
+      optional("Filter") => list_applications_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec list_applications(AWS.Client.t(), list_applications_request(), Keyword.t()) ::
+
+  @spec list_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, input, options \\ []) do
+
+  def list_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3840,20 +4349,34 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists all customer managed policies attached to a specified `PermissionSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListCustomerManagedPolicyReferencesInPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_customer_managed_policy_references_in_permission_set_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
+
   @spec list_customer_managed_policy_references_in_permission_set(
           AWS.Client.t(),
-          list_customer_managed_policy_references_in_permission_set_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, list_customer_managed_policy_references_in_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_customer_managed_policy_references_in_permission_set_errors()}
+
   def list_customer_managed_policy_references_in_permission_set(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3869,12 +4392,23 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the details of the organization and account instances of IAM Identity
   Center that were created in or visible to the account calling this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_instances_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_instances(AWS.Client.t(), list_instances_request(), Keyword.t()) ::
+
+  @spec list_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
-  def list_instances(%Client{} = client, input, options \\ []) do
+
+  def list_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3884,16 +4418,26 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the Amazon Web Services managed policy that is attached to a specified
   permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListManagedPoliciesInPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_managed_policies_in_permission_set_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec list_managed_policies_in_permission_set(
-          AWS.Client.t(),
-          list_managed_policies_in_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_managed_policies_in_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_managed_policies_in_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_policies_in_permission_set_errors()}
-  def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
+
+  def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3903,16 +4447,26 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists the status of the permission set provisioning requests for a specified IAM
   Identity Center instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListPermissionSetProvisioningStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_permission_set_provisioning_status_request`)
+    %{
+      optional("Filter") => operation_status_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec list_permission_set_provisioning_status(
-          AWS.Client.t(),
-          list_permission_set_provisioning_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_permission_set_provisioning_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_permission_set_provisioning_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_set_provisioning_status_errors()}
-  def list_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
+
+  def list_permission_set_provisioning_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3921,12 +4475,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the `PermissionSet`s in an IAM Identity Center instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListPermissionSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_permission_sets_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec list_permission_sets(AWS.Client.t(), list_permission_sets_request(), Keyword.t()) ::
+
+  @spec list_permission_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_permission_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_sets_errors()}
-  def list_permission_sets(%Client{} = client, input, options \\ []) do
+
+  def list_permission_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3936,16 +4502,27 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists all the permission sets that are provisioned to a specified Amazon Web
   Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListPermissionSetsProvisionedToAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_permission_sets_provisioned_to_account_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ProvisioningStatus") => list(any()),
+      required("AccountId") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec list_permission_sets_provisioned_to_account(
-          AWS.Client.t(),
-          list_permission_sets_provisioned_to_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_permission_sets_provisioned_to_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_permission_sets_provisioned_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_sets_provisioned_to_account_errors()}
-  def list_permission_sets_provisioned_to_account(%Client{} = client, input, options \\ []) do
+
+  def list_permission_sets_provisioned_to_account(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3954,12 +4531,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Lists the tags that are attached to a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      optional("InstanceArn") => String.t(),
+      optional("NextToken") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3969,16 +4558,24 @@ defmodule AWS.SSOAdmin do
   @doc """
   Lists all the trusted token issuers configured in an instance of IAM Identity
   Center.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ListTrustedTokenIssuers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_trusted_token_issuers_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceArn") => String.t()
+    }
   """
-  @spec list_trusted_token_issuers(
-          AWS.Client.t(),
-          list_trusted_token_issuers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_trusted_token_issuers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_trusted_token_issuers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trusted_token_issuers_errors()}
-  def list_trusted_token_issuers(%Client{} = client, input, options \\ []) do
+
+  def list_trusted_token_issuers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3988,12 +4585,25 @@ defmodule AWS.SSOAdmin do
   @doc """
   The process by which a specified permission set is provisioned to the specified
   target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20ProvisionPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:provision_permission_set_request`)
+    %{
+      optional("TargetId") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t(),
+      required("TargetType") => list(any())
+    }
   """
-  @spec provision_permission_set(AWS.Client.t(), provision_permission_set_request(), Keyword.t()) ::
+
+  @spec provision_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, provision_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, provision_permission_set_errors()}
-  def provision_permission_set(%Client{} = client, input, options \\ []) do
+
+  def provision_permission_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4003,16 +4613,24 @@ defmodule AWS.SSOAdmin do
   @doc """
   Adds or updates the list of authorized targets for an IAM Identity Center access
   scope for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20PutApplicationAccessScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_application_access_scope_request`)
+    %{
+      optional("AuthorizedTargets") => list(String.t()()),
+      required("ApplicationArn") => String.t(),
+      required("Scope") => String.t()
+    }
   """
-  @spec put_application_access_scope(
-          AWS.Client.t(),
-          put_application_access_scope_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_application_access_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_application_access_scope_errors()}
-  def put_application_access_scope(%Client{} = client, input, options \\ []) do
+
+  def put_application_access_scope(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4028,16 +4646,24 @@ defmodule AWS.SSOAdmin do
   created using
   [CreateApplicationAssignment](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html).,
   the user retains access if `AssignmentsRequired` is set to `true`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20PutApplicationAssignmentConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_application_assignment_configuration_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("AssignmentRequired") => boolean()
+    }
   """
-  @spec put_application_assignment_configuration(
-          AWS.Client.t(),
-          put_application_assignment_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_application_assignment_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_application_assignment_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_application_assignment_configuration_errors()}
-  def put_application_assignment_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_application_assignment_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4046,16 +4672,25 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Adds or updates an authentication method for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20PutApplicationAuthenticationMethod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_application_authentication_method_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("AuthenticationMethod") => list(),
+      required("AuthenticationMethodType") => list(any())
+    }
   """
-  @spec put_application_authentication_method(
-          AWS.Client.t(),
-          put_application_authentication_method_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_application_authentication_method(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_application_authentication_method_errors()}
-  def put_application_authentication_method(%Client{} = client, input, options \\ []) do
+
+  def put_application_authentication_method(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4064,12 +4699,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Adds a grant to an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20PutApplicationGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_application_grant_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("Grant") => list(),
+      required("GrantType") => list(any())
+    }
   """
-  @spec put_application_grant(AWS.Client.t(), put_application_grant_request(), Keyword.t()) ::
+
+  @spec put_application_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_application_grant_errors()}
-  def put_application_grant(%Client{} = client, input, options \\ []) do
+
+  def put_application_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4078,16 +4725,25 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Attaches an inline policy to a permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20PutInlinePolicyToPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_inline_policy_to_permission_set_request`)
+    %{
+      required("InlinePolicy") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec put_inline_policy_to_permission_set(
-          AWS.Client.t(),
-          put_inline_policy_to_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_inline_policy_to_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_inline_policy_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_inline_policy_to_permission_set_errors()}
-  def put_inline_policy_to_permission_set(%Client{} = client, input, options \\ []) do
+
+  def put_inline_policy_to_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4097,16 +4753,25 @@ defmodule AWS.SSOAdmin do
   @doc """
   Attaches an Amazon Web Services managed or customer managed policy to the
   specified `PermissionSet` as a permissions boundary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20PutPermissionsBoundaryToPermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_permissions_boundary_to_permission_set_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t(),
+      required("PermissionsBoundary") => permissions_boundary()
+    }
   """
-  @spec put_permissions_boundary_to_permission_set(
-          AWS.Client.t(),
-          put_permissions_boundary_to_permission_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_permissions_boundary_to_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_permissions_boundary_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_permissions_boundary_to_permission_set_errors()}
-  def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do
+
+  def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4115,12 +4780,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Associates a set of tags with a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      optional("InstanceArn") => String.t(),
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4129,12 +4806,24 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Disassociates a set of tags from a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      optional("InstanceArn") => String.t(),
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4143,12 +4832,26 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Updates application properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_application_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Name") => String.t(),
+      optional("PortalOptions") => update_application_portal_options(),
+      optional("Status") => list(any()),
+      required("ApplicationArn") => String.t()
+    }
   """
-  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, input, options \\ []) do
+
+  def update_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4158,12 +4861,23 @@ defmodule AWS.SSOAdmin do
   @doc """
   Update the details for the instance of IAM Identity Center that is owned by the
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20UpdateInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_instance_request`)
+    %{
+      required("InstanceArn") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_instance(AWS.Client.t(), update_instance_request(), Keyword.t()) ::
+
+  @spec update_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_errors()}
-  def update_instance(%Client{} = client, input, options \\ []) do
+
+  def update_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4181,20 +4895,32 @@ defmodule AWS.SSOAdmin do
   information about ABAC, see [Attribute-Based Access
   Control](/singlesignon/latest/userguide/abac.html) in the *IAM Identity Center
   User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20UpdateInstanceAccessControlAttributeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_instance_access_control_attribute_configuration_request`)
+    %{
+      required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
+      required("InstanceArn") => String.t()
+    }
   """
+
   @spec update_instance_access_control_attribute_configuration(
           AWS.Client.t(),
-          update_instance_access_control_attribute_configuration_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, update_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_access_control_attribute_configuration_errors()}
+
   def update_instance_access_control_attribute_configuration(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4209,12 +4935,26 @@ defmodule AWS.SSOAdmin do
 
   @doc """
   Updates an existing permission set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20UpdatePermissionSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_permission_set_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("RelayState") => String.t(),
+      optional("SessionDuration") => String.t(),
+      required("InstanceArn") => String.t(),
+      required("PermissionSetArn") => String.t()
+    }
   """
-  @spec update_permission_set(AWS.Client.t(), update_permission_set_request(), Keyword.t()) ::
+
+  @spec update_permission_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_permission_set_errors()}
-  def update_permission_set(%Client{} = client, input, options \\ []) do
+
+  def update_permission_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4224,16 +4964,24 @@ defmodule AWS.SSOAdmin do
   @doc """
   Updates the name of the trusted token issuer, or the path of a source attribute
   or destination attribute for a trusted token issuer configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssoadmin%20UpdateTrustedTokenIssuer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_trusted_token_issuer_request`)
+    %{
+      optional("Name") => String.t(),
+      optional("TrustedTokenIssuerConfiguration") => list(),
+      required("TrustedTokenIssuerArn") => String.t()
+    }
   """
-  @spec update_trusted_token_issuer(
-          AWS.Client.t(),
-          update_trusted_token_issuer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_trusted_token_issuer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trusted_token_issuer_errors()}
-  def update_trusted_token_issuer(%Client{} = client, input, options \\ []) do
+
+  def update_trusted_token_issuer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

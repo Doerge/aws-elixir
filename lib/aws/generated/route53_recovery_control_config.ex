@@ -13,61 +13,61 @@ defmodule AWS.Route53RecoveryControlConfig do
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_request() :: %{}
-
+      
   """
   @type describe_cluster_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_control_panel_response() :: %{
         "ControlPanel" => control_panel()
       }
-
+      
   """
   @type update_control_panel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_routing_control_response() :: %{
         "RoutingControl" => routing_control()
       }
-
+      
   """
   @type describe_routing_control_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_safety_rule_response() :: %{
         "AssertionRule" => assertion_rule(),
         "GatingRule" => gating_rule()
       }
-
+      
   """
   @type describe_safety_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gating_rule() :: %{
         "ControlPanelArn" => String.t(),
         "GatingControls" => list(String.t()()),
@@ -79,260 +79,260 @@ defmodule AWS.Route53RecoveryControlConfig do
         "TargetControls" => list(String.t()()),
         "WaitPeriodMs" => integer()
       }
-
+      
   """
   @type gating_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_response() :: %{
         "Cluster" => cluster()
       }
-
+      
   """
   @type describe_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_control_panel_response() :: %{}
-
+      
   """
   @type delete_control_panel_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_response() :: %{
         "Cluster" => cluster()
       }
-
+      
   """
   @type create_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routing_controls_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_routing_controls_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_control_panel_request() :: %{
         required("ControlPanelArn") => String.t(),
         required("ControlPanelName") => String.t()
       }
-
+      
   """
   @type update_control_panel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_routing_control_request() :: %{}
-
+      
   """
   @type delete_routing_control_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_response() :: %{
         "Policy" => String.t()
       }
-
+      
   """
   @type get_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gating_rule_update() :: %{
         "Name" => String.t(),
         "SafetyRuleArn" => String.t(),
         "WaitPeriodMs" => integer()
       }
-
+      
   """
   @type gating_rule_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_control_panel_response() :: %{
         "ControlPanel" => control_panel()
       }
-
+      
   """
   @type describe_control_panel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_control_panels_response() :: %{
         "ControlPanels" => list(control_panel()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_control_panels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_endpoint() :: %{
         "Endpoint" => String.t(),
         "Region" => String.t()
       }
-
+      
   """
   @type cluster_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_routing_control_request() :: %{
         optional("ClientToken") => String.t(),
         optional("ControlPanelArn") => String.t(),
         required("ClusterArn") => String.t(),
         required("RoutingControlName") => String.t()
       }
-
+      
   """
   @type create_routing_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_routing_control_response() :: %{}
-
+      
   """
   @type delete_routing_control_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_routing_control_request() :: %{
         required("RoutingControlArn") => String.t(),
         required("RoutingControlName") => String.t()
       }
-
+      
   """
   @type update_routing_control_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_safety_rule_response() :: %{}
-
+      
   """
   @type delete_safety_rule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
         required("ClusterName") => String.t()
       }
-
+      
   """
   @type create_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       assertion_rule_update() :: %{
         "Name" => String.t(),
         "SafetyRuleArn" => String.t(),
         "WaitPeriodMs" => integer()
       }
-
+      
   """
   @type assertion_rule_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_routing_control_response() :: %{
         "RoutingControl" => routing_control()
       }
-
+      
   """
   @type create_routing_control_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster() :: %{
         "ClusterArn" => String.t(),
         "ClusterEndpoints" => list(cluster_endpoint()()),
@@ -340,48 +340,48 @@ defmodule AWS.Route53RecoveryControlConfig do
         "Owner" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_control_panel_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
         required("ClusterArn") => String.t(),
         required("ControlPanelName") => String.t()
       }
-
+      
   """
   @type create_control_panel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_control_panel_request() :: %{}
-
+      
   """
   @type describe_control_panel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_control() :: %{
         "ControlPanelArn" => String.t(),
         "Name" => String.t(),
@@ -389,171 +389,171 @@ defmodule AWS.Route53RecoveryControlConfig do
         "RoutingControlArn" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type routing_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_safety_rule_request() :: %{
         optional("AssertionRuleUpdate") => assertion_rule_update(),
         optional("GatingRuleUpdate") => gating_rule_update()
       }
-
+      
   """
   @type update_safety_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_safety_rule_request() :: %{}
-
+      
   """
   @type describe_safety_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_safety_rule_request() :: %{
         optional("AssertionRule") => new_assertion_rule(),
         optional("ClientToken") => String.t(),
         optional("GatingRule") => new_gating_rule(),
         optional("Tags") => map()
       }
-
+      
   """
   @type create_safety_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routing_controls_response() :: %{
         "NextToken" => String.t(),
         "RoutingControls" => list(routing_control()())
       }
-
+      
   """
   @type list_routing_controls_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_response() :: %{
         "Clusters" => list(cluster()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_clusters_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_request() :: %{}
-
+      
   """
   @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_response() :: %{}
-
+      
   """
   @type delete_cluster_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_routing_control_response() :: %{
         "RoutingControl" => routing_control()
       }
-
+      
   """
   @type update_routing_control_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule() :: %{
         "ASSERTION" => assertion_rule(),
         "GATING" => gating_rule()
       }
-
+      
   """
   @type rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_config() :: %{
         "Inverted" => boolean(),
         "Threshold" => integer(),
         "Type" => list(any())
       }
-
+      
   """
   @type rule_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_safety_rule_request() :: %{}
-
+      
   """
   @type delete_safety_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_clusters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_route53_health_checks_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_associated_route53_health_checks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_gating_rule() :: %{
         "ControlPanelArn" => String.t(),
         "GatingControls" => list(String.t()()),
@@ -562,25 +562,25 @@ defmodule AWS.Route53RecoveryControlConfig do
         "TargetControls" => list(String.t()()),
         "WaitPeriodMs" => integer()
       }
-
+      
   """
   @type new_gating_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       assertion_rule() :: %{
         "AssertedControls" => list(String.t()()),
         "ControlPanelArn" => String.t(),
@@ -591,14 +591,14 @@ defmodule AWS.Route53RecoveryControlConfig do
         "Status" => list(any()),
         "WaitPeriodMs" => integer()
       }
-
+      
   """
   @type assertion_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_assertion_rule() :: %{
         "AssertedControls" => list(String.t()()),
         "ControlPanelArn" => String.t(),
@@ -606,23 +606,23 @@ defmodule AWS.Route53RecoveryControlConfig do
         "RuleConfig" => rule_config(),
         "WaitPeriodMs" => integer()
       }
-
+      
   """
   @type new_assertion_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_request() :: %{}
-
+      
   """
   @type delete_cluster_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       control_panel() :: %{
         "ClusterArn" => String.t(),
         "ControlPanelArn" => String.t(),
@@ -632,160 +632,160 @@ defmodule AWS.Route53RecoveryControlConfig do
         "RoutingControlCount" => integer(),
         "Status" => list(any())
       }
-
+      
   """
   @type control_panel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_control_panel_request() :: %{}
-
+      
   """
   @type delete_control_panel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_safety_rule_response() :: %{
         "AssertionRule" => assertion_rule(),
         "GatingRule" => gating_rule()
       }
-
+      
   """
   @type update_safety_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_route53_health_checks_response() :: %{
         "HealthCheckIds" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_associated_route53_health_checks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_control_panel_response() :: %{
         "ControlPanel" => control_panel()
       }
-
+      
   """
   @type create_control_panel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_safety_rules_response() :: %{
         "NextToken" => String.t(),
         "SafetyRules" => list(rule()())
       }
-
+      
   """
   @type list_safety_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_safety_rules_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_safety_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_control_panels_request() :: %{
         optional("ClusterArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_control_panels_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_routing_control_request() :: %{}
-
+      
   """
   @type describe_routing_control_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_safety_rule_response() :: %{
         "AssertionRule" => assertion_rule(),
         "GatingRule" => gating_rule()
       }
-
+      
   """
   @type create_safety_rule_response() :: %{String.t() => any()}
 
@@ -962,29 +962,40 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
+
+  @spec create_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-  def create_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cluster(%Client{} = client, options \\ []) do
     url_path = "/cluster"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1000,29 +1011,40 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec create_control_panel(AWS.Client.t(), create_control_panel_request(), Keyword.t()) ::
+
+  @spec create_control_panel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_control_panel_errors()}
-  def create_control_panel(%Client{} = client, input, options \\ []) do
+
+  def create_control_panel(%Client{} = client, options \\ []) do
     url_path = "/controlpanel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1036,29 +1058,40 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec create_routing_control(AWS.Client.t(), create_routing_control_request(), Keyword.t()) ::
+
+  @spec create_routing_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_routing_control_errors()}
-  def create_routing_control(%Client{} = client, input, options \\ []) do
+
+  def create_routing_control(%Client{} = client, options \\ []) do
     url_path = "/routingcontrol"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1073,29 +1106,40 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec create_safety_rule(AWS.Client.t(), create_safety_rule_request(), Keyword.t()) ::
+
+  @spec create_safety_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_safety_rule_errors()}
-  def create_safety_rule(%Client{} = client, input, options \\ []) do
+
+  def create_safety_rule(%Client{} = client, options \\ []) do
     url_path = "/safetyrule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1105,21 +1149,42 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster that
-    you're deleting.
+  you're deleting.
 
   ## Optional parameters:
   """
-  @spec delete_cluster(AWS.Client.t(), String.t(), delete_cluster_request(), Keyword.t()) ::
+
+  @spec delete_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-  def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def delete_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1128,7 +1193,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1141,26 +1206,42 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    control panel.
+  control panel.
 
   ## Optional parameters:
   """
-  @spec delete_control_panel(
-          AWS.Client.t(),
-          String.t(),
-          delete_control_panel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_control_panel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_control_panel_errors()}
-  def delete_control_panel(%Client{} = client, control_panel_arn, input, options \\ []) do
+
+  def delete_control_panel(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1169,7 +1250,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1182,26 +1263,42 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    routing control that you're deleting.
+  routing control that you're deleting.
 
   ## Optional parameters:
   """
-  @spec delete_routing_control(
-          AWS.Client.t(),
-          String.t(),
-          delete_routing_control_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_routing_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_routing_control_errors()}
-  def delete_routing_control(%Client{} = client, routing_control_arn, input, options \\ []) do
+
+  def delete_routing_control(%Client{} = client, routing_control_arn, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1210,7 +1307,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1226,17 +1323,38 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec delete_safety_rule(AWS.Client.t(), String.t(), delete_safety_rule_request(), Keyword.t()) ::
+
+  @spec delete_safety_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_safety_rule_errors()}
-  def delete_safety_rule(%Client{} = client, safety_rule_arn, input, options \\ []) do
+
+  def delete_safety_rule(%Client{} = client, safety_rule_arn, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1245,7 +1363,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1262,10 +1380,12 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
+
   @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
+
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -1301,14 +1421,16 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    control panel.
+  control panel.
 
   ## Optional parameters:
   """
+
   @spec describe_control_panel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_control_panel_errors()}
+
   def describe_control_panel(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
 
@@ -1346,14 +1468,16 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    routing control.
+  routing control.
 
   ## Optional parameters:
   """
+
   @spec describe_routing_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_routing_control_errors()}
+
   def describe_routing_control(%Client{} = client, routing_control_arn, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
 
@@ -1392,10 +1516,12 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
+
   @spec describe_safety_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_safety_rule_errors()}
+
   def describe_safety_rule(%Client{} = client, safety_rule_arn, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
 
@@ -1434,10 +1560,12 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
+
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
+
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1474,18 +1602,20 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    routing control.
+  routing control.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
+  with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
-    you want to see.
+  you want to see.
   """
+
   @spec list_associated_route53_health_checks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_route53_health_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_route53_health_checks_errors()}
+
   def list_associated_route53_health_checks(
         %Client{} = client,
         routing_control_arn,
@@ -1546,14 +1676,16 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
+  with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
-    you want to see.
+  you want to see.
   """
+
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
+
   def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/cluster"
 
@@ -1610,14 +1742,16 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Optional parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of a cluster.
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
+  with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
-    you want to see.
+  you want to see.
   """
+
   @spec list_control_panels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_panels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_control_panels_errors()}
+
   def list_control_panels(%Client{} = client, options \\ []) do
     url_path = "/controlpanels"
 
@@ -1681,18 +1815,20 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    control panel.
+  control panel.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
+  with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
-    you want to see.
+  you want to see.
   """
+
   @spec list_routing_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_controls_errors()}
+
   def list_routing_controls(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}/routingcontrols"
 
@@ -1747,18 +1883,20 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    control panel.
+  control panel.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-    with this call.
+  with this call.
   * `:next_token` (`t:string`) The token that identifies which batch of results
-    you want to see.
+  you want to see.
   """
+
   @spec list_safety_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_safety_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_safety_rules_errors()}
+
   def list_safety_rules(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}/safetyrules"
 
@@ -1812,14 +1950,16 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-    that's tagged.
+  that's tagged.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1855,33 +1995,44 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-    that's tagged.
+  that's tagged.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1891,28 +2042,45 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
-    that's tagged.
+  that's tagged.
   * `:tag_keys` (`t:list[com.amazonaws.route53recoverycontrolconfig#__string]`)
-    Keys for the tags to be removed.
+  Keys for the tags to be removed.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "TagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"TagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1921,7 +2089,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1937,19 +2105,40 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec update_control_panel(AWS.Client.t(), update_control_panel_request(), Keyword.t()) ::
+
+  @spec update_control_panel(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_control_panel_errors()}
-  def update_control_panel(%Client{} = client, input, options \\ []) do
+
+  def update_control_panel(%Client{} = client, options \\ []) do
     url_path = "/controlpanel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1963,19 +2152,40 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec update_routing_control(AWS.Client.t(), update_routing_control_request(), Keyword.t()) ::
+
+  @spec update_routing_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_control_errors()}
-  def update_routing_control(%Client{} = client, input, options \\ []) do
+
+  def update_routing_control(%Client{} = client, options \\ []) do
     url_path = "/routingcontrol"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1989,18 +2199,39 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Optional parameters:
   """
-  @spec update_safety_rule(AWS.Client.t(), update_safety_rule_request(), Keyword.t()) ::
+
+  @spec update_safety_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_safety_rule_errors()}
-  def update_safety_rule(%Client{} = client, input, options \\ []) do
+
+  def update_safety_rule(%Client{} = client, options \\ []) do
     url_path = "/safetyrule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

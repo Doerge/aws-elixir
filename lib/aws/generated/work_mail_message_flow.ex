@@ -13,108 +13,108 @@ defmodule AWS.WorkMailMessageFlow do
   @typedoc """
 
   ## Example:
-
+      
       get_raw_message_content_request() :: %{}
-
+      
   """
   @type get_raw_message_content_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_raw_message_content_response() :: %{
         "messageContent" => binary()
       }
-
+      
   """
   @type get_raw_message_content_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_content_location() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_content_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_frozen() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type message_frozen() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_rejected() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type message_rejected() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_raw_message_content_request() :: %{
         required("content") => raw_message_content()
       }
-
+      
   """
   @type put_raw_message_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_raw_message_content_response() :: %{}
-
+      
   """
   @type put_raw_message_content_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       raw_message_content() :: %{
         "s3Reference" => s3_reference()
       }
-
+      
   """
   @type raw_message_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_reference() :: %{
         "bucket" => String.t(),
         "key" => String.t(),
         "objectVersion" => String.t()
       }
-
+      
   """
   @type s3_reference() :: %{String.t() => any()}
 
@@ -152,10 +152,12 @@ defmodule AWS.WorkMailMessageFlow do
 
   ## Optional parameters:
   """
+
   @spec get_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_raw_message_content_errors()}
+
   def get_raw_message_content(%Client{} = client, message_id, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
 
@@ -194,33 +196,39 @@ defmodule AWS.WorkMailMessageFlow do
 
   ## Optional parameters:
   """
-  @spec put_raw_message_content(
-          AWS.Client.t(),
-          String.t(),
-          put_raw_message_content_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_raw_message_content_errors()}
-  def put_raw_message_content(%Client{} = client, message_id, input, options \\ []) do
+
+  def put_raw_message_content(%Client{} = client, message_id, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

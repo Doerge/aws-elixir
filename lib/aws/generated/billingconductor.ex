@@ -30,42 +30,42 @@ defmodule AWS.Billingconductor do
   @typedoc """
 
   ## Example:
-
+      
       delete_pricing_rule_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type delete_pricing_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_item_percentage_charge_details() :: %{
         "PercentageValue" => float()
       }
-
+      
   """
   @type list_custom_line_item_percentage_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_rules_output() :: %{
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
         optional("PricingRules") => list(pricing_rule_list_element()())
       }
-
+      
   """
   @type list_pricing_rules_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resources_associated_to_custom_line_item_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("Filters") => list_resources_associated_to_custom_line_item_filter(),
@@ -73,64 +73,64 @@ defmodule AWS.Billingconductor do
         optional("NextToken") => String.t(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type list_resources_associated_to_custom_line_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_rules_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("Filters") => list_pricing_rules_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_pricing_rules_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_custom_line_item_charge_details() :: %{
         "Flat" => update_custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()()),
         "Percentage" => update_custom_line_item_percentage_charge_details()
       }
-
+      
   """
   @type update_custom_line_item_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_pricing_rules_input() :: %{
         required("Arn") => String.t(),
         required("PricingRuleArns") => list(String.t()())
       }
-
+      
   """
   @type disassociate_pricing_rules_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_billing_group_input() :: %{
         optional("AccountGrouping") => update_billing_group_account_grouping(),
         optional("ComputationPreference") => computation_preference(),
@@ -139,63 +139,63 @@ defmodule AWS.Billingconductor do
         optional("Status") => String.t(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type update_billing_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_pricing_rules_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type associate_pricing_rules_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_free_tier_config() :: %{
         "Activated" => boolean()
       }
-
+      
   """
   @type create_free_tier_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_plans_output() :: %{
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
         optional("PricingPlans") => list(pricing_plan_list_element()())
       }
-
+      
   """
   @type list_pricing_plans_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_rules_associated_to_pricing_plan_output() :: %{
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
         optional("PricingPlanArn") => String.t(),
         optional("PricingRuleArns") => list(String.t()())
       }
-
+      
   """
   @type list_pricing_rules_associated_to_pricing_plan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_billing_group_input() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -205,34 +205,34 @@ defmodule AWS.Billingconductor do
         required("ComputationPreference") => computation_preference(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_billing_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_pricing_rule_input() :: %{
         required("Arn") => String.t()
       }
-
+      
   """
   @type delete_pricing_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_billing_group_cost_report_input() :: %{
         optional("BillingPeriodRange") => billing_period_range(),
         optional("GroupBy") => list(String.t()()),
@@ -240,42 +240,42 @@ defmodule AWS.Billingconductor do
         optional("NextToken") => String.t(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type get_billing_group_cost_report_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_item_charge_details() :: %{
         "Flat" => list_custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()()),
         "Percentage" => list_custom_line_item_percentage_charge_details(),
         "Type" => String.t()
       }
-
+      
   """
   @type list_custom_line_item_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_plans_associated_with_pricing_rule_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("PricingRuleArn") => String.t()
       }
-
+      
   """
   @type list_pricing_plans_associated_with_pricing_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_pricing_rule_input() :: %{
         optional("BillingEntity") => String.t(),
         optional("ClientToken") => String.t(),
@@ -290,195 +290,195 @@ defmodule AWS.Billingconductor do
         required("Scope") => String.t(),
         required("Type") => String.t()
       }
-
+      
   """
   @type create_pricing_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_custom_line_item_percentage_charge_details() :: %{
         "PercentageValue" => float()
       }
-
+      
   """
   @type update_custom_line_item_percentage_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_pricing_plan_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type create_pricing_plan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_billing_group_cost_reports_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("Filters") => list_billing_group_cost_reports_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_billing_group_cost_reports_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_pricing_rule_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type create_pricing_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_tier_config() :: %{
         "Activated" => boolean()
       }
-
+      
   """
   @type free_tier_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_error() :: %{
         "Message" => String.t(),
         "Reason" => String.t()
       }
-
+      
   """
   @type associate_resource_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_billing_group_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type create_billing_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_line_item_charge_details() :: %{
         "Flat" => custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()()),
         "Percentage" => custom_line_item_percentage_charge_details(),
         "Type" => String.t()
       }
-
+      
   """
   @type custom_line_item_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_resources_to_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
         required("ResourceArns") => list(String.t()()),
         required("TargetArn") => String.t()
       }
-
+      
   """
   @type batch_associate_resources_to_custom_line_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         "TagKeys" => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_items_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("Filters") => list_custom_line_items_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_custom_line_items_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_item_versions_output() :: %{
         optional("CustomLineItemVersions") => list(custom_line_item_version_list_element()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_custom_line_item_versions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_pricing_rules_input() :: %{
         required("Arn") => String.t(),
         required("PricingRuleArns") => list(String.t()())
       }
-
+      
   """
   @type associate_pricing_rules_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_line_item_billing_period_range() :: %{
         "ExclusiveEndBillingPeriod" => String.t(),
         "InclusiveStartBillingPeriod" => String.t()
       }
-
+      
   """
   @type custom_line_item_billing_period_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_items_output() :: %{
         optional("CustomLineItems") => list(custom_line_item_list_element()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_custom_line_items_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pricing_plan_output() :: %{
         optional("Arn") => String.t(),
         optional("Description") => String.t(),
@@ -486,14 +486,14 @@ defmodule AWS.Billingconductor do
         optional("Name") => String.t(),
         optional("Size") => float()
       }
-
+      
   """
   @type update_pricing_plan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_billing_group_output() :: %{
         optional("AccountGrouping") => update_billing_group_account_grouping(),
         optional("Arn") => String.t(),
@@ -506,37 +506,37 @@ defmodule AWS.Billingconductor do
         optional("Status") => String.t(),
         optional("StatusReason") => String.t()
       }
-
+      
   """
   @type update_billing_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_resources_from_custom_line_item_output() :: %{
         optional("FailedDisassociatedResources") => list(disassociate_resource_response_element()()),
         optional("SuccessfullyDisassociatedResources") => list(disassociate_resource_response_element()())
       }
-
+      
   """
   @type batch_disassociate_resources_from_custom_line_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       computation_preference() :: %{
         "PricingPlanArn" => String.t()
       }
-
+      
   """
   @type computation_preference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pricing_plan_list_element() :: %{
         "Arn" => String.t(),
         "CreationTime" => float(),
@@ -545,174 +545,174 @@ defmodule AWS.Billingconductor do
         "Name" => String.t(),
         "Size" => float()
       }
-
+      
   """
   @type pricing_plan_list_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resources_associated_to_custom_line_item_response_element() :: %{
         "Arn" => String.t(),
         "EndBillingPeriod" => String.t(),
         "Relationship" => String.t()
       }
-
+      
   """
   @type list_resources_associated_to_custom_line_item_response_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_pricing_rules_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type disassociate_pricing_rules_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_billing_group_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type delete_billing_group_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "Reason" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       billing_period_range() :: %{
         "ExclusiveEndBillingPeriod" => String.t(),
         "InclusiveStartBillingPeriod" => String.t()
       }
-
+      
   """
   @type billing_period_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_plans_associated_with_pricing_rule_output() :: %{
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
         optional("PricingPlanArns") => list(String.t()()),
         optional("PricingRuleArn") => String.t()
       }
-
+      
   """
   @type list_pricing_plans_associated_with_pricing_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_tiering_input() :: %{
         "FreeTier" => update_free_tier_config()
       }
-
+      
   """
   @type update_tiering_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_billing_groups_output() :: %{
         optional("BillingGroups") => list(billing_group_list_element()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_billing_groups_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_item_versions_input() :: %{
         optional("Filters") => list_custom_line_item_versions_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type list_custom_line_item_versions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_pricing_plan_input() :: %{
         required("Arn") => String.t()
       }
-
+      
   """
   @type delete_pricing_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_account_associations_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("Filters") => list_account_associations_filter(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_account_associations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_item_versions_filter() :: %{
         "BillingPeriodRange" => list_custom_line_item_versions_billing_period_range_filter()
       }
-
+      
   """
   @type list_custom_line_item_versions_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       billing_group_cost_report_result_element() :: %{
         "AWSCost" => String.t(),
         "Arn" => String.t(),
@@ -722,51 +722,51 @@ defmodule AWS.Billingconductor do
         "MarginPercentage" => String.t(),
         "ProformaCost" => String.t()
       }
-
+      
   """
   @type billing_group_cost_report_result_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_rules_associated_to_pricing_plan_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("PricingPlanArn") => String.t()
       }
-
+      
   """
   @type list_pricing_rules_associated_to_pricing_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_grouping() :: %{
         "AutoAssociate" => [boolean()],
         "LinkedAccountIds" => list(String.t()())
       }
-
+      
   """
   @type account_grouping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_custom_line_item_flat_charge_details() :: %{
         "ChargeValue" => float()
       }
-
+      
   """
   @type update_custom_line_item_flat_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_pricing_plan_input() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -774,169 +774,169 @@ defmodule AWS.Billingconductor do
         optional("Tags") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_pricing_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_plans_filter() :: %{
         "Arns" => list(String.t()())
       }
-
+      
   """
   @type list_pricing_plans_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_item_flat_charge_details() :: %{
         "ChargeValue" => float()
       }
-
+      
   """
   @type list_custom_line_item_flat_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "Message" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resources_associated_to_custom_line_item_output() :: %{
         optional("Arn") => String.t(),
         optional("AssociatedResources") => list(list_resources_associated_to_custom_line_item_response_element()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_resources_associated_to_custom_line_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_account_associations_output() :: %{
         optional("LinkedAccounts") => list(account_associations_list_element()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_account_associations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_plans_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("Filters") => list_pricing_plans_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_pricing_plans_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pricing_plan_input() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type update_pricing_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_account_associations_filter() :: %{
         "AccountId" => String.t(),
         "AccountIds" => list(String.t()()),
         "Association" => String.t()
       }
-
+      
   """
   @type list_account_associations_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_billing_group_cost_reports_filter() :: %{
         "BillingGroupArns" => list(String.t()())
       }
-
+      
   """
   @type list_billing_group_cost_reports_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pricing_rules_filter() :: %{
         "Arns" => list(String.t()())
       }
-
+      
   """
   @type list_pricing_rules_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_response_element() :: %{
         "Arn" => String.t(),
         "Error" => associate_resource_error()
       }
-
+      
   """
   @type associate_resource_response_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_line_item_flat_charge_details() :: %{
         "ChargeValue" => float()
       }
-
+      
   """
   @type custom_line_item_flat_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pricing_rule_output() :: %{
         optional("Arn") => String.t(),
         optional("AssociatedPricingPlanCount") => float(),
@@ -952,227 +952,227 @@ defmodule AWS.Billingconductor do
         optional("Type") => String.t(),
         optional("UsageType") => String.t()
       }
-
+      
   """
   @type update_pricing_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type delete_custom_line_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_item_filter() :: %{
         "Attribute" => String.t(),
         "MatchOption" => String.t(),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type line_item_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t(),
         "RetryAfterSeconds" => integer()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_line_item_percentage_charge_details() :: %{
         "AssociatedValues" => list(String.t()()),
         "PercentageValue" => float()
       }
-
+      
   """
   @type custom_line_item_percentage_charge_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_billing_groups_filter() :: %{
         "Arns" => list(String.t()()),
         "AutoAssociate" => [boolean()],
         "PricingPlan" => String.t(),
         "Statuses" => list(String.t()())
       }
-
+      
   """
   @type list_billing_groups_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_accounts_input() :: %{
         required("AccountIds") => list(String.t()()),
         required("Arn") => String.t()
       }
-
+      
   """
   @type disassociate_accounts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_billing_group_account_grouping() :: %{
         "AutoAssociate" => [boolean()]
       }
-
+      
   """
   @type list_billing_group_account_grouping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_billing_group_cost_report_output() :: %{
         "BillingGroupCostReportResults" => list(billing_group_cost_report_result_element()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_billing_group_cost_report_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_items_filter() :: %{
         "AccountIds" => list(String.t()()),
         "Arns" => list(String.t()()),
         "BillingGroups" => list(String.t()()),
         "Names" => list(String.t()())
       }
-
+      
   """
   @type list_custom_line_items_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_custom_line_item_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type create_custom_line_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_billing_group_account_grouping() :: %{
         "AutoAssociate" => [boolean()]
       }
-
+      
   """
   @type update_billing_group_account_grouping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_resource_response_element() :: %{
         "Arn" => String.t(),
         "Error" => associate_resource_error()
       }
-
+      
   """
   @type disassociate_resource_response_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()()),
         "Message" => String.t(),
         "Reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_resources_from_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
         required("ResourceArns") => list(String.t()()),
         required("TargetArn") => String.t()
       }
-
+      
   """
   @type batch_disassociate_resources_from_custom_line_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_line_item_versions_billing_period_range_filter() :: %{
         "EndBillingPeriod" => String.t(),
         "StartBillingPeriod" => String.t()
       }
-
+      
   """
   @type list_custom_line_item_versions_billing_period_range_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_limit_exceeded_exception() :: %{
         "LimitCode" => String.t(),
         "Message" => String.t(),
@@ -1180,14 +1180,14 @@ defmodule AWS.Billingconductor do
         "ResourceType" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type service_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_line_item_list_element() :: %{
         "AccountId" => String.t(),
         "Arn" => String.t(),
@@ -1201,14 +1201,14 @@ defmodule AWS.Billingconductor do
         "Name" => String.t(),
         "ProductCode" => String.t()
       }
-
+      
   """
   @type custom_line_item_list_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_line_item_version_list_element() :: %{
         "AccountId" => String.t(),
         "Arn" => String.t(),
@@ -1225,26 +1225,26 @@ defmodule AWS.Billingconductor do
         "StartBillingPeriod" => String.t(),
         "StartTime" => float()
       }
-
+      
   """
   @type custom_line_item_version_list_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t(),
         "RetryAfterSeconds" => integer()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
         optional("ChargeDetails") => update_custom_line_item_charge_details(),
@@ -1252,26 +1252,26 @@ defmodule AWS.Billingconductor do
         optional("Name") => String.t(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type update_custom_line_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute() :: %{
         "Key" => [String.t()],
         "Value" => [String.t()]
       }
-
+      
   """
   @type attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       billing_group_list_element() :: %{
         "AccountGrouping" => list_billing_group_account_grouping(),
         "Arn" => String.t(),
@@ -1285,14 +1285,14 @@ defmodule AWS.Billingconductor do
         "Status" => String.t(),
         "StatusReason" => String.t()
       }
-
+      
   """
   @type billing_group_list_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pricing_rule_input() :: %{
         optional("Description") => String.t(),
         optional("ModifierPercentage") => float(),
@@ -1301,81 +1301,81 @@ defmodule AWS.Billingconductor do
         optional("Type") => String.t(),
         required("Arn") => String.t()
       }
-
+      
   """
   @type update_pricing_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_pricing_plan_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type delete_pricing_plan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tiering() :: %{
         "FreeTier" => free_tier_config()
       }
-
+      
   """
   @type tiering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_tiering_input() :: %{
         "FreeTier" => create_free_tier_config()
       }
-
+      
   """
   @type create_tiering_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_accounts_input() :: %{
         required("AccountIds") => list(String.t()()),
         required("Arn") => String.t()
       }
-
+      
   """
   @type associate_accounts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resources_associated_to_custom_line_item_filter() :: %{
         "Relationship" => String.t()
       }
-
+      
   """
   @type list_resources_associated_to_custom_line_item_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_accounts_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type associate_accounts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pricing_rule_list_element() :: %{
         "Arn" => String.t(),
         "AssociatedPricingPlanCount" => float(),
@@ -1392,110 +1392,110 @@ defmodule AWS.Billingconductor do
         "Type" => String.t(),
         "UsageType" => String.t()
       }
-
+      
   """
   @type pricing_rule_list_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_free_tier_config() :: %{
         "Activated" => boolean()
       }
-
+      
   """
   @type update_free_tier_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_billing_groups_input() :: %{
         optional("BillingPeriod") => String.t(),
         optional("Filters") => list_billing_groups_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_billing_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_accounts_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type disassociate_accounts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_associations_list_element() :: %{
         "AccountEmail" => String.t(),
         "AccountId" => String.t(),
         "AccountName" => String.t(),
         "BillingGroupArn" => String.t()
       }
-
+      
   """
   @type account_associations_list_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_billing_group_input() :: %{
         required("Arn") => String.t()
       }
-
+      
   """
   @type delete_billing_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_billing_group_cost_reports_output() :: %{
         optional("BillingGroupCostReports") => list(billing_group_cost_report_element()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_billing_group_cost_reports_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_resources_to_custom_line_item_output() :: %{
         optional("FailedAssociatedResources") => list(associate_resource_response_element()()),
         optional("SuccessfullyAssociatedResources") => list(associate_resource_response_element()())
       }
-
+      
   """
   @type batch_associate_resources_to_custom_line_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_custom_line_item_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type delete_custom_line_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_custom_line_item_input() :: %{
         "AccountId" => String.t(),
         "BillingGroupArn" => String.t(),
@@ -1506,14 +1506,14 @@ defmodule AWS.Billingconductor do
         "Name" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type create_custom_line_item_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_custom_line_item_output() :: %{
         optional("Arn") => String.t(),
         optional("AssociationSize") => float(),
@@ -1523,14 +1523,14 @@ defmodule AWS.Billingconductor do
         optional("LastModifiedTime") => float(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_custom_line_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       billing_group_cost_report_element() :: %{
         "AWSCost" => String.t(),
         "Arn" => String.t(),
@@ -1539,7 +1539,7 @@ defmodule AWS.Billingconductor do
         "MarginPercentage" => String.t(),
         "ProformaCost" => String.t()
       }
-
+      
   """
   @type billing_group_cost_report_element() :: %{String.t() => any()}
 
@@ -1809,29 +1809,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec associate_accounts(AWS.Client.t(), associate_accounts_input(), Keyword.t()) ::
+
+  @spec associate_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_accounts_errors()}
-  def associate_accounts(%Client{} = client, input, options \\ []) do
+
+  def associate_accounts(%Client{} = client, options \\ []) do
     url_path = "/associate-accounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1844,19 +1855,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec associate_pricing_rules(AWS.Client.t(), associate_pricing_rules_input(), Keyword.t()) ::
+
+  @spec associate_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_pricing_rules_errors()}
-  def associate_pricing_rules(%Client{} = client, input, options \\ []) do
+
+  def associate_pricing_rules(%Client{} = client, options \\ []) do
     url_path = "/associate-pricing-rules"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1868,23 +1900,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec batch_associate_resources_to_custom_line_item(
-          AWS.Client.t(),
-          batch_associate_resources_to_custom_line_item_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_associate_resources_to_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_associate_resources_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_resources_to_custom_line_item_errors()}
-  def batch_associate_resources_to_custom_line_item(%Client{} = client, input, options \\ []) do
+
+  def batch_associate_resources_to_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/batch-associate-resources-to-custom-line-item"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1896,23 +1945,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec batch_disassociate_resources_from_custom_line_item(
-          AWS.Client.t(),
-          batch_disassociate_resources_from_custom_line_item_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_disassociate_resources_from_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_disassociate_resources_from_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_resources_from_custom_line_item_errors()}
-  def batch_disassociate_resources_from_custom_line_item(%Client{} = client, input, options \\ []) do
+
+  def batch_disassociate_resources_from_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/batch-disassociate-resources-from-custom-line-item"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1925,16 +1991,19 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
-    Idempotency isn't currently supported, but will be implemented in a future
-    update.
+  Idempotency isn't currently supported, but will be implemented in a future
+  update.
   """
-  @spec create_billing_group(AWS.Client.t(), create_billing_group_input(), Keyword.t()) ::
+
+  @spec create_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_billing_group_errors()}
-  def create_billing_group(%Client{} = client, input, options \\ []) do
+
+  def create_billing_group(%Client{} = client, options \\ []) do
     url_path = "/create-billing-group"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -1943,13 +2012,21 @@ defmodule AWS.Billingconductor do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1959,17 +2036,9 @@ defmodule AWS.Billingconductor do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1983,16 +2052,19 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
-    Idempotency isn't currently supported, but will be implemented in a future
-    update.
+  Idempotency isn't currently supported, but will be implemented in a future
+  update.
   """
-  @spec create_custom_line_item(AWS.Client.t(), create_custom_line_item_input(), Keyword.t()) ::
+
+  @spec create_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_line_item_errors()}
-  def create_custom_line_item(%Client{} = client, input, options \\ []) do
+
+  def create_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/create-custom-line-item"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2001,13 +2073,21 @@ defmodule AWS.Billingconductor do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2017,17 +2097,9 @@ defmodule AWS.Billingconductor do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2040,16 +2112,19 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
-    Idempotency isn't currently supported, but will be implemented in a future
-    update.
+  Idempotency isn't currently supported, but will be implemented in a future
+  update.
   """
-  @spec create_pricing_plan(AWS.Client.t(), create_pricing_plan_input(), Keyword.t()) ::
+
+  @spec create_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pricing_plan_errors()}
-  def create_pricing_plan(%Client{} = client, input, options \\ []) do
+
+  def create_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/create-pricing-plan"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2058,13 +2133,21 @@ defmodule AWS.Billingconductor do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2074,17 +2157,9 @@ defmodule AWS.Billingconductor do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2097,16 +2172,19 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) The token that's needed to support idempotency.
-    Idempotency isn't currently supported, but will be implemented in a future
-    update.
+  Idempotency isn't currently supported, but will be implemented in a future
+  update.
   """
-  @spec create_pricing_rule(AWS.Client.t(), create_pricing_rule_input(), Keyword.t()) ::
+
+  @spec create_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pricing_rule_errors()}
-  def create_pricing_rule(%Client{} = client, input, options \\ []) do
+
+  def create_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/create-pricing-rule"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2115,13 +2193,21 @@ defmodule AWS.Billingconductor do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2131,17 +2217,9 @@ defmodule AWS.Billingconductor do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2153,29 +2231,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec delete_billing_group(AWS.Client.t(), delete_billing_group_input(), Keyword.t()) ::
+
+  @spec delete_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_billing_group_errors()}
-  def delete_billing_group(%Client{} = client, input, options \\ []) do
+
+  def delete_billing_group(%Client{} = client, options \\ []) do
     url_path = "/delete-billing-group"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2188,29 +2277,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec delete_custom_line_item(AWS.Client.t(), delete_custom_line_item_input(), Keyword.t()) ::
+
+  @spec delete_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_line_item_errors()}
-  def delete_custom_line_item(%Client{} = client, input, options \\ []) do
+
+  def delete_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/delete-custom-line-item"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2223,29 +2323,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec delete_pricing_plan(AWS.Client.t(), delete_pricing_plan_input(), Keyword.t()) ::
+
+  @spec delete_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pricing_plan_errors()}
-  def delete_pricing_plan(%Client{} = client, input, options \\ []) do
+
+  def delete_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/delete-pricing-plan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2258,29 +2369,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec delete_pricing_rule(AWS.Client.t(), delete_pricing_rule_input(), Keyword.t()) ::
+
+  @spec delete_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pricing_rule_errors()}
-  def delete_pricing_rule(%Client{} = client, input, options \\ []) do
+
+  def delete_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/delete-pricing-rule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2292,29 +2414,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec disassociate_accounts(AWS.Client.t(), disassociate_accounts_input(), Keyword.t()) ::
+
+  @spec disassociate_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_accounts_errors()}
-  def disassociate_accounts(%Client{} = client, input, options \\ []) do
+
+  def disassociate_accounts(%Client{} = client, options \\ []) do
     url_path = "/disassociate-accounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2326,23 +2459,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec disassociate_pricing_rules(
-          AWS.Client.t(),
-          disassociate_pricing_rules_input(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_pricing_rules_errors()}
-  def disassociate_pricing_rules(%Client{} = client, input, options \\ []) do
+
+  def disassociate_pricing_rules(%Client{} = client, options \\ []) do
     url_path = "/disassociate-pricing-rules"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2356,33 +2506,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec get_billing_group_cost_report(
-          AWS.Client.t(),
-          get_billing_group_cost_report_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_billing_group_cost_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_billing_group_cost_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_billing_group_cost_report_errors()}
-  def get_billing_group_cost_report(%Client{} = client, input, options \\ []) do
+
+  def get_billing_group_cost_report(%Client{} = client, options \\ []) do
     url_path = "/get-billing-group-cost-report"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2397,29 +2554,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_account_associations(AWS.Client.t(), list_account_associations_input(), Keyword.t()) ::
+
+  @spec list_account_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_account_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_associations_errors()}
-  def list_account_associations(%Client{} = client, input, options \\ []) do
+
+  def list_account_associations(%Client{} = client, options \\ []) do
     url_path = "/list-account-associations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2433,33 +2601,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_billing_group_cost_reports(
-          AWS.Client.t(),
-          list_billing_group_cost_reports_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_billing_group_cost_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_group_cost_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_billing_group_cost_reports_errors()}
-  def list_billing_group_cost_reports(%Client{} = client, input, options \\ []) do
+
+  def list_billing_group_cost_reports(%Client{} = client, options \\ []) do
     url_path = "/list-billing-group-cost-reports"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2473,29 +2648,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_billing_groups(AWS.Client.t(), list_billing_groups_input(), Keyword.t()) ::
+
+  @spec list_billing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_billing_groups_errors()}
-  def list_billing_groups(%Client{} = client, input, options \\ []) do
+
+  def list_billing_groups(%Client{} = client, options \\ []) do
     url_path = "/list-billing-groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2507,33 +2693,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_custom_line_item_versions(
-          AWS.Client.t(),
-          list_custom_line_item_versions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_custom_line_item_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_line_item_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_line_item_versions_errors()}
-  def list_custom_line_item_versions(%Client{} = client, input, options \\ []) do
+
+  def list_custom_line_item_versions(%Client{} = client, options \\ []) do
     url_path = "/list-custom-line-item-versions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2547,29 +2740,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_custom_line_items(AWS.Client.t(), list_custom_line_items_input(), Keyword.t()) ::
+
+  @spec list_custom_line_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_line_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_line_items_errors()}
-  def list_custom_line_items(%Client{} = client, input, options \\ []) do
+
+  def list_custom_line_items(%Client{} = client, options \\ []) do
     url_path = "/list-custom-line-items"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2582,29 +2786,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_pricing_plans(AWS.Client.t(), list_pricing_plans_input(), Keyword.t()) ::
+
+  @spec list_pricing_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_plans_errors()}
-  def list_pricing_plans(%Client{} = client, input, options \\ []) do
+
+  def list_pricing_plans(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-plans"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2616,33 +2831,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_pricing_plans_associated_with_pricing_rule(
-          AWS.Client.t(),
-          list_pricing_plans_associated_with_pricing_rule_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_pricing_plans_associated_with_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_plans_associated_with_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_plans_associated_with_pricing_rule_errors()}
-  def list_pricing_plans_associated_with_pricing_rule(%Client{} = client, input, options \\ []) do
+
+  def list_pricing_plans_associated_with_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-plans-associated-with-pricing-rule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2655,29 +2877,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_pricing_rules(AWS.Client.t(), list_pricing_rules_input(), Keyword.t()) ::
+
+  @spec list_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_rules_errors()}
-  def list_pricing_rules(%Client{} = client, input, options \\ []) do
+
+  def list_pricing_rules(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-rules"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2689,33 +2922,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_pricing_rules_associated_to_pricing_plan(
-          AWS.Client.t(),
-          list_pricing_rules_associated_to_pricing_plan_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_pricing_rules_associated_to_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_rules_associated_to_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pricing_rules_associated_to_pricing_plan_errors()}
-  def list_pricing_rules_associated_to_pricing_plan(%Client{} = client, input, options \\ []) do
+
+  def list_pricing_rules_associated_to_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/list-pricing-rules-associated-to-pricing-plan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2727,33 +2967,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec list_resources_associated_to_custom_line_item(
-          AWS.Client.t(),
-          list_resources_associated_to_custom_line_item_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_resources_associated_to_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resources_associated_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_associated_to_custom_line_item_errors()}
-  def list_resources_associated_to_custom_line_item(%Client{} = client, input, options \\ []) do
+
+  def list_resources_associated_to_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/list-resources-associated-to-custom-line-item"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2763,14 +3010,16 @@ defmodule AWS.Billingconductor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-    the resource to list the tags.
+  the resource to list the tags.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2808,33 +3057,44 @@ defmodule AWS.Billingconductor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-    which to add tags.
+  which to add tags.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2844,28 +3104,45 @@ defmodule AWS.Billingconductor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-    which to delete tags.
+  which to delete tags.
   * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]`) The tags to
-    delete from the resource as a list of key-value pairs.
+  delete from the resource as a list of key-value pairs.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2874,7 +3151,7 @@ defmodule AWS.Billingconductor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2889,29 +3166,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec update_billing_group(AWS.Client.t(), update_billing_group_input(), Keyword.t()) ::
+
+  @spec update_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_billing_group_errors()}
-  def update_billing_group(%Client{} = client, input, options \\ []) do
+
+  def update_billing_group(%Client{} = client, options \\ []) do
     url_path = "/update-billing-group"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2923,29 +3211,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec update_custom_line_item(AWS.Client.t(), update_custom_line_item_input(), Keyword.t()) ::
+
+  @spec update_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_line_item_errors()}
-  def update_custom_line_item(%Client{} = client, input, options \\ []) do
+
+  def update_custom_line_item(%Client{} = client, options \\ []) do
     url_path = "/update-custom-line-item"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2957,19 +3256,40 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec update_pricing_plan(AWS.Client.t(), update_pricing_plan_input(), Keyword.t()) ::
+
+  @spec update_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_plan_errors()}
-  def update_pricing_plan(%Client{} = client, input, options \\ []) do
+
+  def update_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/update-pricing-plan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2981,18 +3301,39 @@ defmodule AWS.Billingconductor do
 
   ## Optional parameters:
   """
-  @spec update_pricing_rule(AWS.Client.t(), update_pricing_rule_input(), Keyword.t()) ::
+
+  @spec update_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_rule_errors()}
-  def update_pricing_rule(%Client{} = client, input, options \\ []) do
+
+  def update_pricing_rule(%Client{} = client, options \\ []) do
     url_path = "/update-pricing-rule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

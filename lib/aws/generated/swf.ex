@@ -2324,16 +2324,29 @@ defmodule AWS.SWF do
   meet the specified filtering criteria. This operation is eventually
   consistent. The results are best effort and may not exactly reflect recent
   updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20CountClosedWorkflowExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:count_closed_workflow_executions_input`)
+    %{
+      optional("closeStatusFilter") => close_status_filter(),
+      optional("closeTimeFilter") => execution_time_filter(),
+      optional("executionFilter") => workflow_execution_filter(),
+      optional("startTimeFilter") => execution_time_filter(),
+      optional("tagFilter") => tag_filter(),
+      optional("typeFilter") => workflow_type_filter(),
+      required("domain") => String.t()
+    }
   """
-  @spec count_closed_workflow_executions(
-          AWS.Client.t(),
-          count_closed_workflow_executions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec count_closed_workflow_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, workflow_execution_count(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, count_closed_workflow_executions_errors()}
-  def count_closed_workflow_executions(%Client{} = client, input, options \\ []) do
+
+  def count_closed_workflow_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2345,16 +2358,27 @@ defmodule AWS.SWF do
   the specified filtering criteria. This operation is eventually consistent. The
   results are best effort and may not exactly reflect recent updates and
   changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20CountOpenWorkflowExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:count_open_workflow_executions_input`)
+    %{
+      optional("executionFilter") => workflow_execution_filter(),
+      optional("tagFilter") => tag_filter(),
+      optional("typeFilter") => workflow_type_filter(),
+      required("domain") => String.t(),
+      required("startTimeFilter") => execution_time_filter()
+    }
   """
-  @spec count_open_workflow_executions(
-          AWS.Client.t(),
-          count_open_workflow_executions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec count_open_workflow_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, workflow_execution_count(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, count_open_workflow_executions_errors()}
-  def count_open_workflow_executions(%Client{} = client, input, options \\ []) do
+
+  def count_open_workflow_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2366,16 +2390,23 @@ defmodule AWS.SWF do
   count returned is an approximation and isn't guaranteed to be exact. If you
   specify a task list that no activity task was ever scheduled in then `0` is
   returned. **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20CountPendingActivityTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:count_pending_activity_tasks_input`)
+    %{
+      required("domain") => String.t(),
+      required("taskList") => task_list()
+    }
   """
-  @spec count_pending_activity_tasks(
-          AWS.Client.t(),
-          count_pending_activity_tasks_input(),
-          Keyword.t()
-        ) ::
+
+  @spec count_pending_activity_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, pending_task_count(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, count_pending_activity_tasks_errors()}
-  def count_pending_activity_tasks(%Client{} = client, input, options \\ []) do
+
+  def count_pending_activity_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2387,16 +2418,23 @@ defmodule AWS.SWF do
   count returned is an approximation and isn't guaranteed to be exact. If you
   specify a task list that no decision task was ever scheduled in then `0` is
   returned. **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20CountPendingDecisionTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:count_pending_decision_tasks_input`)
+    %{
+      required("domain") => String.t(),
+      required("taskList") => task_list()
+    }
   """
-  @spec count_pending_decision_tasks(
-          AWS.Client.t(),
-          count_pending_decision_tasks_input(),
-          Keyword.t()
-        ) ::
+
+  @spec count_pending_decision_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, pending_task_count(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, count_pending_decision_tasks_errors()}
-  def count_pending_decision_tasks(%Client{} = client, input, options \\ []) do
+
+  def count_pending_decision_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2406,12 +2444,23 @@ defmodule AWS.SWF do
   @doc """
   Deletes the specified *activity type*. Note: Prior to deletion, activity types
   must first be **deprecated**.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DeleteActivityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_activity_type_input`)
+    %{
+      required("activityType") => activity_type(),
+      required("domain") => String.t()
+    }
   """
-  @spec delete_activity_type(AWS.Client.t(), delete_activity_type_input(), Keyword.t()) ::
+
+  @spec delete_activity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_activity_type_errors()}
-  def delete_activity_type(%Client{} = client, input, options \\ []) do
+
+  def delete_activity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2421,12 +2470,23 @@ defmodule AWS.SWF do
   @doc """
   Deletes the specified *workflow type*. Note: Prior to deletion, workflow types
   must first be **deprecated**.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DeleteWorkflowType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_workflow_type_input`)
+    %{
+      required("domain") => String.t(),
+      required("workflowType") => workflow_type()
+    }
   """
-  @spec delete_workflow_type(AWS.Client.t(), delete_workflow_type_input(), Keyword.t()) ::
+
+  @spec delete_workflow_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_type_errors()}
-  def delete_workflow_type(%Client{} = client, input, options \\ []) do
+
+  def delete_workflow_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2438,12 +2498,23 @@ defmodule AWS.SWF do
   deprecated, you cannot create new tasks of that activity type. Tasks of this
   type that were scheduled before the type was deprecated continue to run.
   **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DeprecateActivityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deprecate_activity_type_input`)
+    %{
+      required("activityType") => activity_type(),
+      required("domain") => String.t()
+    }
   """
-  @spec deprecate_activity_type(AWS.Client.t(), deprecate_activity_type_input(), Keyword.t()) ::
+
+  @spec deprecate_activity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deprecate_activity_type_errors()}
-  def deprecate_activity_type(%Client{} = client, input, options \\ []) do
+
+  def deprecate_activity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2458,12 +2529,22 @@ defmodule AWS.SWF do
   Executions that were started before the domain was deprecated continues to
   run. This operation is eventually consistent. The results are best effort and
   may not exactly reflect recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DeprecateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deprecate_domain_input`)
+    %{
+      required("name") => String.t()
+    }
   """
-  @spec deprecate_domain(AWS.Client.t(), deprecate_domain_input(), Keyword.t()) ::
+
+  @spec deprecate_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deprecate_domain_errors()}
-  def deprecate_domain(%Client{} = client, input, options \\ []) do
+
+  def deprecate_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2477,12 +2558,23 @@ defmodule AWS.SWF do
   workflow type may still be used when calling visibility actions. This
   operation is eventually consistent. The results are best effort and may not
   exactly reflect recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DeprecateWorkflowType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deprecate_workflow_type_input`)
+    %{
+      required("domain") => String.t(),
+      required("workflowType") => workflow_type()
+    }
   """
-  @spec deprecate_workflow_type(AWS.Client.t(), deprecate_workflow_type_input(), Keyword.t()) ::
+
+  @spec deprecate_workflow_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deprecate_workflow_type_errors()}
-  def deprecate_workflow_type(%Client{} = client, input, options \\ []) do
+
+  def deprecate_workflow_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2493,12 +2585,23 @@ defmodule AWS.SWF do
   Returns information about the specified activity type. This includes
   configuration settings provided when the type was registered and other general
   information about the type. **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DescribeActivityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_activity_type_input`)
+    %{
+      required("activityType") => activity_type(),
+      required("domain") => String.t()
+    }
   """
-  @spec describe_activity_type(AWS.Client.t(), describe_activity_type_input(), Keyword.t()) ::
+
+  @spec describe_activity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activity_type_detail(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_activity_type_errors()}
-  def describe_activity_type(%Client{} = client, input, options \\ []) do
+
+  def describe_activity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2508,12 +2611,22 @@ defmodule AWS.SWF do
   @doc """
   Returns information about the specified domain, including description and
   status. **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DescribeDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_domain_input`)
+    %{
+      required("name") => String.t()
+    }
   """
-  @spec describe_domain(AWS.Client.t(), describe_domain_input(), Keyword.t()) ::
+
+  @spec describe_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, domain_detail(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
-  def describe_domain(%Client{} = client, input, options \\ []) do
+
+  def describe_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2524,16 +2637,23 @@ defmodule AWS.SWF do
   Returns information about the specified workflow execution including its type
   and some statistics. This operation is eventually consistent. The results are
   best effort and may not exactly reflect recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DescribeWorkflowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workflow_execution_input`)
+    %{
+      required("domain") => String.t(),
+      required("execution") => workflow_execution()
+    }
   """
-  @spec describe_workflow_execution(
-          AWS.Client.t(),
-          describe_workflow_execution_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workflow_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, workflow_execution_detail(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workflow_execution_errors()}
-  def describe_workflow_execution(%Client{} = client, input, options \\ []) do
+
+  def describe_workflow_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2544,12 +2664,23 @@ defmodule AWS.SWF do
   Returns information about the specified *workflow type*. This includes
   configuration settings specified when the type was registered and other
   information such as creation date, current status, etc. **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20DescribeWorkflowType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workflow_type_input`)
+    %{
+      required("domain") => String.t(),
+      required("workflowType") => workflow_type()
+    }
   """
-  @spec describe_workflow_type(AWS.Client.t(), describe_workflow_type_input(), Keyword.t()) ::
+
+  @spec describe_workflow_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, workflow_type_detail(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workflow_type_errors()}
-  def describe_workflow_type(%Client{} = client, input, options \\ []) do
+
+  def describe_workflow_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2562,16 +2693,27 @@ defmodule AWS.SWF do
   using the `nextPageToken` returned by the initial call. This operation is
   eventually consistent. The results are best effort and may not exactly reflect
   recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20GetWorkflowExecutionHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_workflow_execution_history_input`)
+    %{
+      optional("maximumPageSize") => integer(),
+      optional("nextPageToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      required("domain") => String.t(),
+      required("execution") => workflow_execution()
+    }
   """
-  @spec get_workflow_execution_history(
-          AWS.Client.t(),
-          get_workflow_execution_history_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_workflow_execution_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, history(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_execution_history_errors()}
-  def get_workflow_execution_history(%Client{} = client, input, options \\ []) do
+
+  def get_workflow_execution_history(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2585,12 +2727,27 @@ defmodule AWS.SWF do
   results may be split into multiple pages. To retrieve subsequent pages, make
   the call again using the `nextPageToken` returned by the initial call.
   **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20ListActivityTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_activity_types_input`)
+    %{
+      optional("maximumPageSize") => integer(),
+      optional("name") => String.t(),
+      optional("nextPageToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      required("domain") => String.t(),
+      required("registrationStatus") => list(any())
+    }
   """
-  @spec list_activity_types(AWS.Client.t(), list_activity_types_input(), Keyword.t()) ::
+
+  @spec list_activity_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activity_type_infos(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_activity_types_errors()}
-  def list_activity_types(%Client{} = client, input, options \\ []) do
+
+  def list_activity_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2604,16 +2761,32 @@ defmodule AWS.SWF do
   returned by the initial call. This operation is eventually consistent. The
   results are best effort and may not exactly reflect recent updates and
   changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20ListClosedWorkflowExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_closed_workflow_executions_input`)
+    %{
+      optional("closeStatusFilter") => close_status_filter(),
+      optional("closeTimeFilter") => execution_time_filter(),
+      optional("executionFilter") => workflow_execution_filter(),
+      optional("maximumPageSize") => integer(),
+      optional("nextPageToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      optional("startTimeFilter") => execution_time_filter(),
+      optional("tagFilter") => tag_filter(),
+      optional("typeFilter") => workflow_type_filter(),
+      required("domain") => String.t()
+    }
   """
-  @spec list_closed_workflow_executions(
-          AWS.Client.t(),
-          list_closed_workflow_executions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_closed_workflow_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, workflow_execution_infos(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_closed_workflow_executions_errors()}
-  def list_closed_workflow_executions(%Client{} = client, input, options \\ []) do
+
+  def list_closed_workflow_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2626,12 +2799,25 @@ defmodule AWS.SWF do
   the nextPageToken returned by the initial call. This operation is eventually
   consistent. The results are best effort and may not exactly reflect recent
   updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_domains_input`)
+    %{
+      optional("maximumPageSize") => integer(),
+      optional("nextPageToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      required("registrationStatus") => list(any())
+    }
   """
-  @spec list_domains(AWS.Client.t(), list_domains_input(), Keyword.t()) ::
+
+  @spec list_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, domain_infos(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-  def list_domains(%Client{} = client, input, options \\ []) do
+
+  def list_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2644,16 +2830,30 @@ defmodule AWS.SWF do
   subsequent pages, make the call again using the nextPageToken returned by the
   initial call. This operation is eventually consistent. The results are best
   effort and may not exactly reflect recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20ListOpenWorkflowExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_open_workflow_executions_input`)
+    %{
+      optional("executionFilter") => workflow_execution_filter(),
+      optional("maximumPageSize") => integer(),
+      optional("nextPageToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      optional("tagFilter") => tag_filter(),
+      optional("typeFilter") => workflow_type_filter(),
+      required("domain") => String.t(),
+      required("startTimeFilter") => execution_time_filter()
+    }
   """
-  @spec list_open_workflow_executions(
-          AWS.Client.t(),
-          list_open_workflow_executions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_open_workflow_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, workflow_execution_infos(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_open_workflow_executions_errors()}
-  def list_open_workflow_executions(%Client{} = client, input, options \\ []) do
+
+  def list_open_workflow_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2662,12 +2862,22 @@ defmodule AWS.SWF do
 
   @doc """
   List tags for a given domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2678,12 +2888,27 @@ defmodule AWS.SWF do
   Returns information about workflow types in the specified domain. The results
   may be split into multiple pages that can be retrieved by making the call
   repeatedly. **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20ListWorkflowTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_workflow_types_input`)
+    %{
+      optional("maximumPageSize") => integer(),
+      optional("name") => String.t(),
+      optional("nextPageToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      required("domain") => String.t(),
+      required("registrationStatus") => list(any())
+    }
   """
-  @spec list_workflow_types(AWS.Client.t(), list_workflow_types_input(), Keyword.t()) ::
+
+  @spec list_workflow_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, workflow_type_infos(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_types_errors()}
-  def list_workflow_types(%Client{} = client, input, options \\ []) do
+
+  def list_workflow_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2701,12 +2926,24 @@ defmodule AWS.SWF do
   should use its type to identify and process it correctly. Workers should set
   their client side socket timeout to at least 70 seconds (10 seconds higher
   than the maximum time service may hold the poll request).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20PollForActivityTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:poll_for_activity_task_input`)
+    %{
+      optional("identity") => String.t(),
+      required("domain") => String.t(),
+      required("taskList") => task_list()
+    }
   """
-  @spec poll_for_activity_task(AWS.Client.t(), poll_for_activity_task_input(), Keyword.t()) ::
+
+  @spec poll_for_activity_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activity_task(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, poll_for_activity_task_errors()}
-  def poll_for_activity_task(%Client{} = client, input, options \\ []) do
+
+  def poll_for_activity_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2724,12 +2961,28 @@ defmodule AWS.SWF do
   specified task list before the timeout of 60 seconds expires, an empty result
   is returned. An empty result, in this context, means that a DecisionTask is
   returned, but that the value of taskToken is an empty string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20PollForDecisionTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:poll_for_decision_task_input`)
+    %{
+      optional("identity") => String.t(),
+      optional("maximumPageSize") => integer(),
+      optional("nextPageToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      optional("startAtPreviousStartedEvent") => boolean(),
+      required("domain") => String.t(),
+      required("taskList") => task_list()
+    }
   """
-  @spec poll_for_decision_task(AWS.Client.t(), poll_for_decision_task_input(), Keyword.t()) ::
+
+  @spec poll_for_decision_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decision_task(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, poll_for_decision_task_errors()}
-  def poll_for_decision_task(%Client{} = client, input, options \\ []) do
+
+  def poll_for_decision_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2746,16 +2999,24 @@ defmodule AWS.SWF do
   `cancelRequested` flag returned by the service is set to `true`. This action
   resets the `taskHeartbeatTimeout` clock. The `taskHeartbeatTimeout` is
   specified in `RegisterActivityType`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RecordActivityTaskHeartbeat&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:record_activity_task_heartbeat_input`)
+    %{
+      optional("details") => String.t(),
+      required("taskToken") => String.t()
+    }
   """
-  @spec record_activity_task_heartbeat(
-          AWS.Client.t(),
-          record_activity_task_heartbeat_input(),
-          Keyword.t()
-        ) ::
+
+  @spec record_activity_task_heartbeat(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activity_task_status(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, record_activity_task_heartbeat_errors()}
-  def record_activity_task_heartbeat(%Client{} = client, input, options \\ []) do
+
+  def record_activity_task_heartbeat(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2767,12 +3028,31 @@ defmodule AWS.SWF do
   specified domain. A `TypeAlreadyExists` fault is returned if the type already
   exists in the domain. You cannot change any configuration settings of the type
   after its registration, and it must be registered as a new version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RegisterActivityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_activity_type_input`)
+    %{
+      optional("defaultTaskHeartbeatTimeout") => String.t(),
+      optional("defaultTaskList") => task_list(),
+      optional("defaultTaskPriority") => String.t(),
+      optional("defaultTaskScheduleToCloseTimeout") => String.t(),
+      optional("defaultTaskScheduleToStartTimeout") => String.t(),
+      optional("defaultTaskStartToCloseTimeout") => String.t(),
+      optional("description") => String.t(),
+      required("domain") => String.t(),
+      required("name") => String.t(),
+      required("version") => String.t()
+    }
   """
-  @spec register_activity_type(AWS.Client.t(), register_activity_type_input(), Keyword.t()) ::
+
+  @spec register_activity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_activity_type_errors()}
-  def register_activity_type(%Client{} = client, input, options \\ []) do
+
+  def register_activity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2781,12 +3061,25 @@ defmodule AWS.SWF do
 
   @doc """
   Registers a new domain. **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RegisterDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_domain_input`)
+    %{
+      optional("description") => String.t(),
+      optional("tags") => list(resource_tag()()),
+      required("name") => String.t(),
+      required("workflowExecutionRetentionPeriodInDays") => String.t()
+    }
   """
-  @spec register_domain(AWS.Client.t(), register_domain_input(), Keyword.t()) ::
+
+  @spec register_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_domain_errors()}
-  def register_domain(%Client{} = client, input, options \\ []) do
+
+  def register_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2797,12 +3090,31 @@ defmodule AWS.SWF do
   Registers a new *workflow type* and its configuration settings in the specified
   domain. The retention period for the workflow history is set by the
   `RegisterDomain` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RegisterWorkflowType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_workflow_type_input`)
+    %{
+      optional("defaultChildPolicy") => list(any()),
+      optional("defaultExecutionStartToCloseTimeout") => String.t(),
+      optional("defaultLambdaRole") => String.t(),
+      optional("defaultTaskList") => task_list(),
+      optional("defaultTaskPriority") => String.t(),
+      optional("defaultTaskStartToCloseTimeout") => String.t(),
+      optional("description") => String.t(),
+      required("domain") => String.t(),
+      required("name") => String.t(),
+      required("version") => String.t()
+    }
   """
-  @spec register_workflow_type(AWS.Client.t(), register_workflow_type_input(), Keyword.t()) ::
+
+  @spec register_workflow_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_workflow_type_errors()}
-  def register_workflow_type(%Client{} = client, input, options \\ []) do
+
+  def register_workflow_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2817,16 +3129,25 @@ defmodule AWS.SWF do
   history with this event. If the runId isn't specified, the
   `WorkflowExecutionCancelRequested` event is recorded in the history of the
   current open workflow execution with the specified workflowId in the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RequestCancelWorkflowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:request_cancel_workflow_execution_input`)
+    %{
+      optional("runId") => String.t(),
+      required("domain") => String.t(),
+      required("workflowId") => String.t()
+    }
   """
-  @spec request_cancel_workflow_execution(
-          AWS.Client.t(),
-          request_cancel_workflow_execution_input(),
-          Keyword.t()
-        ) ::
+
+  @spec request_cancel_workflow_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, request_cancel_workflow_execution_errors()}
-  def request_cancel_workflow_execution(%Client{} = client, input, options \\ []) do
+
+  def request_cancel_workflow_execution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2838,16 +3159,24 @@ defmodule AWS.SWF do
   `taskToken` was successfully canceled. Additional `details` can be provided
   using the `details` argument. These `details` (if provided) appear in the
   `ActivityTaskCanceled` event added to the workflow history.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RespondActivityTaskCanceled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:respond_activity_task_canceled_input`)
+    %{
+      optional("details") => String.t(),
+      required("taskToken") => String.t()
+    }
   """
-  @spec respond_activity_task_canceled(
-          AWS.Client.t(),
-          respond_activity_task_canceled_input(),
-          Keyword.t()
-        ) ::
+
+  @spec respond_activity_task_canceled(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, respond_activity_task_canceled_errors()}
-  def respond_activity_task_canceled(%Client{} = client, input, options \\ []) do
+
+  def respond_activity_task_canceled(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2862,16 +3191,24 @@ defmodule AWS.SWF do
   instead. If the worker finds that the task is canceled through the `canceled`
   flag returned by `RecordActivityTaskHeartbeat`, it should cancel the task,
   clean up and then call `RespondActivityTaskCanceled`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RespondActivityTaskCompleted&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:respond_activity_task_completed_input`)
+    %{
+      optional("result") => String.t(),
+      required("taskToken") => String.t()
+    }
   """
-  @spec respond_activity_task_completed(
-          AWS.Client.t(),
-          respond_activity_task_completed_input(),
-          Keyword.t()
-        ) ::
+
+  @spec respond_activity_task_completed(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, respond_activity_task_completed_errors()}
-  def respond_activity_task_completed(%Client{} = client, input, options \\ []) do
+
+  def respond_activity_task_completed(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2889,16 +3226,24 @@ defmodule AWS.SWF do
   RespondActivityTaskFailed, or the task has [timed
   out](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types).
   **Access Control**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RespondActivityTaskFailed&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:respond_activity_task_failed_input`)
+    %{
+      optional("details") => String.t(),
+      optional("reason") => String.t(),
+      required("taskToken") => String.t()
+    }
   """
-  @spec respond_activity_task_failed(
-          AWS.Client.t(),
-          respond_activity_task_failed_input(),
-          Keyword.t()
-        ) ::
+
+  @spec respond_activity_task_failed(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, respond_activity_task_failed_errors()}
-  def respond_activity_task_failed(%Client{} = client, input, options \\ []) do
+
+  def respond_activity_task_failed(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2911,16 +3256,27 @@ defmodule AWS.SWF do
   list of decisions made while processing the task. A `DecisionTaskCompleted`
   event is added to the workflow history. The `executionContext` specified is
   attached to the event in the workflow execution history.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20RespondDecisionTaskCompleted&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:respond_decision_task_completed_input`)
+    %{
+      optional("decisions") => list(decision()()),
+      optional("executionContext") => String.t(),
+      optional("taskList") => task_list(),
+      optional("taskListScheduleToStartTimeout") => String.t(),
+      required("taskToken") => String.t()
+    }
   """
-  @spec respond_decision_task_completed(
-          AWS.Client.t(),
-          respond_decision_task_completed_input(),
-          Keyword.t()
-        ) ::
+
+  @spec respond_decision_task_completed(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, respond_decision_task_completed_errors()}
-  def respond_decision_task_completed(%Client{} = client, input, options \\ []) do
+
+  def respond_decision_task_completed(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2934,12 +3290,26 @@ defmodule AWS.SWF do
   defined signalName and input (if provided). If a runId isn't specified, then
   the `WorkflowExecutionSignaled` event is recorded in the history of the
   current open workflow with the matching workflowId in the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20SignalWorkflowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:signal_workflow_execution_input`)
+    %{
+      optional("input") => String.t(),
+      optional("runId") => String.t(),
+      required("domain") => String.t(),
+      required("signalName") => String.t(),
+      required("workflowId") => String.t()
+    }
   """
-  @spec signal_workflow_execution(AWS.Client.t(), signal_workflow_execution_input(), Keyword.t()) ::
+
+  @spec signal_workflow_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, signal_workflow_execution_errors()}
-  def signal_workflow_execution(%Client{} = client, input, options \\ []) do
+
+  def signal_workflow_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2950,12 +3320,32 @@ defmodule AWS.SWF do
   Starts an execution of the workflow type in the specified domain using the
   provided `workflowId` and input data. This action returns the newly started
   workflow execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20StartWorkflowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_workflow_execution_input`)
+    %{
+      optional("childPolicy") => list(any()),
+      optional("executionStartToCloseTimeout") => String.t(),
+      optional("input") => String.t(),
+      optional("lambdaRole") => String.t(),
+      optional("tagList") => list(String.t()()),
+      optional("taskList") => task_list(),
+      optional("taskPriority") => String.t(),
+      optional("taskStartToCloseTimeout") => String.t(),
+      required("domain") => String.t(),
+      required("workflowId") => String.t(),
+      required("workflowType") => workflow_type()
+    }
   """
-  @spec start_workflow_execution(AWS.Client.t(), start_workflow_execution_input(), Keyword.t()) ::
+
+  @spec start_workflow_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, run(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workflow_execution_errors()}
-  def start_workflow_execution(%Client{} = client, input, options \\ []) do
+
+  def start_workflow_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2964,12 +3354,23 @@ defmodule AWS.SWF do
 
   @doc """
   Add a tag to a Amazon SWF domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tags") => list(resource_tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2983,16 +3384,27 @@ defmodule AWS.SWF do
   execution, is applied to any open child workflow executions of this workflow
   execution. If the identified workflow execution was in progress, it is
   terminated immediately.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20TerminateWorkflowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:terminate_workflow_execution_input`)
+    %{
+      optional("childPolicy") => list(any()),
+      optional("details") => String.t(),
+      optional("reason") => String.t(),
+      optional("runId") => String.t(),
+      required("domain") => String.t(),
+      required("workflowId") => String.t()
+    }
   """
-  @spec terminate_workflow_execution(
-          AWS.Client.t(),
-          terminate_workflow_execution_input(),
-          Keyword.t()
-        ) ::
+
+  @spec terminate_workflow_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_workflow_execution_errors()}
-  def terminate_workflow_execution(%Client{} = client, input, options \\ []) do
+
+  def terminate_workflow_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3004,12 +3416,23 @@ defmodule AWS.SWF do
   been undeprecated, you can create new tasks of that activity type. This
   operation is eventually consistent. The results are best effort and may not
   exactly reflect recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20UndeprecateActivityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:undeprecate_activity_type_input`)
+    %{
+      required("activityType") => activity_type(),
+      required("domain") => String.t()
+    }
   """
-  @spec undeprecate_activity_type(AWS.Client.t(), undeprecate_activity_type_input(), Keyword.t()) ::
+
+  @spec undeprecate_activity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, undeprecate_activity_type_errors()}
-  def undeprecate_activity_type(%Client{} = client, input, options \\ []) do
+
+  def undeprecate_activity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3021,12 +3444,22 @@ defmodule AWS.SWF do
   undeprecated it can be used to create new workflow executions or register new
   types. This operation is eventually consistent. The results are best effort
   and may not exactly reflect recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20UndeprecateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:undeprecate_domain_input`)
+    %{
+      required("name") => String.t()
+    }
   """
-  @spec undeprecate_domain(AWS.Client.t(), undeprecate_domain_input(), Keyword.t()) ::
+
+  @spec undeprecate_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, undeprecate_domain_errors()}
-  def undeprecate_domain(%Client{} = client, input, options \\ []) do
+
+  def undeprecate_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3038,12 +3471,23 @@ defmodule AWS.SWF do
   been undeprecated, you can create new executions of that type. This operation
   is eventually consistent. The results are best effort and may not exactly
   reflect recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20UndeprecateWorkflowType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:undeprecate_workflow_type_input`)
+    %{
+      required("domain") => String.t(),
+      required("workflowType") => workflow_type()
+    }
   """
-  @spec undeprecate_workflow_type(AWS.Client.t(), undeprecate_workflow_type_input(), Keyword.t()) ::
+
+  @spec undeprecate_workflow_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, undeprecate_workflow_type_errors()}
-  def undeprecate_workflow_type(%Client{} = client, input, options \\ []) do
+
+  def undeprecate_workflow_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3052,12 +3496,23 @@ defmodule AWS.SWF do
 
   @doc """
   Remove a tag from a Amazon SWF domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=swf%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

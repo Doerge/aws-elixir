@@ -16,153 +16,153 @@ defmodule AWS.PrivateNetworks do
   @typedoc """
 
   ## Example:
-
+      
       list_orders_response() :: %{
         optional("nextToken") => String.t(),
         optional("orders") => list(order()())
       }
-
+      
   """
   @type list_orders_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_network_site_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         required("networkSiteArn") => String.t()
       }
-
+      
   """
   @type update_network_site_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_network_response() :: %{
         optional("tags") => map(),
         required("network") => network()
       }
-
+      
   """
   @type create_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_networks_response() :: %{
         optional("networks") => list(network()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_networks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ordered_resource_definition() :: %{
         "commitmentConfiguration" => commitment_configuration(),
         "count" => [integer()],
         "type" => String.t()
       }
-
+      
   """
   @type ordered_resource_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tracking_information() :: %{
         "trackingNumber" => [String.t()]
       }
-
+      
   """
   @type tracking_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_network_request() :: %{}
-
+      
   """
   @type get_network_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       site_plan() :: %{
         "options" => list(name_value_pair()()),
         "resourceDefinitions" => list(network_resource_definition()())
       }
-
+      
   """
   @type site_plan() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_network_resource_request() :: %{}
-
+      
   """
   @type get_network_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_device_identifiers_response() :: %{
         optional("deviceIdentifiers") => list(device_identifier()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_device_identifiers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       acknowledge_order_receipt_request() :: %{
         required("orderArn") => String.t()
       }
-
+      
   """
   @type acknowledge_order_receipt_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device_identifier() :: %{
         "createdAt" => non_neg_integer(),
         "deviceIdentifierArn" => String.t(),
@@ -174,48 +174,48 @@ defmodule AWS.PrivateNetworks do
         "trafficGroupArn" => String.t(),
         "vendor" => [String.t()]
       }
-
+      
   """
   @type device_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_network_resource_update_response() :: %{
         optional("networkResource") => network_resource()
       }
-
+      
   """
   @type start_network_resource_update_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_network_site_response() :: %{
         optional("networkSite") => network_site(),
         optional("tags") => map()
       }
-
+      
   """
   @type get_network_site_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       position() :: %{
         "elevation" => [float()],
         "elevationReference" => String.t(),
@@ -223,87 +223,87 @@ defmodule AWS.PrivateNetworks do
         "latitude" => [float()],
         "longitude" => [float()]
       }
-
+      
   """
   @type position() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configure_access_point_response() :: %{
         required("accessPoint") => network_resource()
       }
-
+      
   """
   @type configure_access_point_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_network_response() :: %{
         required("network") => network()
       }
-
+      
   """
   @type delete_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_device_identifier_response() :: %{
         optional("deviceIdentifier") => device_identifier(),
         optional("tags") => map()
       }
-
+      
   """
   @type get_device_identifier_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_network_sites_request() :: %{
         optional("filters") => map(),
         optional("maxResults") => [integer()],
         optional("startToken") => String.t(),
         required("networkArn") => String.t()
       }
-
+      
   """
   @type list_network_sites_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       name_value_pair() :: %{
         "name" => [String.t()],
         "value" => [String.t()]
       }
-
+      
   """
   @type name_value_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_resource_definition() :: %{
         "count" => [integer()],
         "options" => list(name_value_pair()()),
         "type" => String.t()
       }
-
+      
   """
   @type network_resource_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_site() :: %{
         "availabilityZone" => [String.t()],
         "availabilityZoneId" => [String.t()],
@@ -317,27 +317,27 @@ defmodule AWS.PrivateNetworks do
         "status" => String.t(),
         "statusReason" => [String.t()]
       }
-
+      
   """
   @type network_site() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configure_access_point_request() :: %{
         optional("cpiSecretKey") => String.t(),
         optional("cpiUserId") => String.t(),
@@ -346,141 +346,141 @@ defmodule AWS.PrivateNetworks do
         optional("position") => position(),
         required("accessPointArn") => String.t()
       }
-
+      
   """
   @type configure_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_network_site_response() :: %{
         optional("networkSite") => network_site(),
         optional("tags") => map()
       }
-
+      
   """
   @type update_network_site_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_network_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_network_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       return_information() :: %{
         "replacementOrderArn" => String.t(),
         "returnReason" => [String.t()],
         "shippingAddress" => address(),
         "shippingLabel" => [String.t()]
       }
-
+      
   """
   @type return_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_networks_request() :: %{
         optional("filters") => map(),
         optional("maxResults") => [integer()],
         optional("startToken") => String.t()
       }
-
+      
   """
   @type list_networks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_network_site_response() :: %{
         optional("networkSite") => network_site()
       }
-
+      
   """
   @type activate_network_site_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_order_request() :: %{}
-
+      
   """
   @type get_order_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_network_site_response() :: %{
         optional("networkSite") => network_site(),
         optional("tags") => map()
       }
-
+      
   """
   @type create_network_site_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_network_site_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_network_site_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deactivate_device_identifier_response() :: %{
         required("deviceIdentifier") => device_identifier()
       }
-
+      
   """
   @type deactivate_device_identifier_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       order() :: %{
         "acknowledgmentStatus" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -491,195 +491,195 @@ defmodule AWS.PrivateNetworks do
         "shippingAddress" => address(),
         "trackingInformation" => list(tracking_information()())
       }
-
+      
   """
   @type order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_network_resource_response() :: %{
         optional("tags") => map(),
         required("networkResource") => network_resource()
       }
-
+      
   """
   @type get_network_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ping_response() :: %{
         optional("status") => [String.t()]
       }
-
+      
   """
   @type ping_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_device_identifier_response() :: %{
         optional("tags") => map(),
         required("deviceIdentifier") => device_identifier()
       }
-
+      
   """
   @type activate_device_identifier_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       acknowledge_order_receipt_response() :: %{
         required("order") => order()
       }
-
+      
   """
   @type acknowledge_order_receipt_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_network_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("tags") => map(),
         required("networkName") => String.t()
       }
-
+      
   """
   @type create_network_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_network_resources_request() :: %{
         optional("filters") => map(),
         optional("maxResults") => [integer()],
         optional("startToken") => String.t(),
         required("networkArn") => String.t()
       }
-
+      
   """
   @type list_network_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_network_resources_response() :: %{
         optional("networkResources") => list(network_resource()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_network_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deactivate_device_identifier_request() :: %{
         optional("clientToken") => String.t(),
         required("deviceIdentifierArn") => String.t()
       }
-
+      
   """
   @type deactivate_device_identifier_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_device_identifiers_request() :: %{
         optional("filters") => map(),
         optional("maxResults") => [integer()],
         optional("startToken") => String.t(),
         required("networkArn") => String.t()
       }
-
+      
   """
   @type list_device_identifiers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_device_identifier_request() :: %{
         optional("clientToken") => String.t(),
         required("deviceIdentifierArn") => String.t()
       }
-
+      
   """
   @type activate_device_identifier_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       commitment_information() :: %{
         "commitmentConfiguration" => commitment_configuration(),
         "expiresOn" => non_neg_integer(),
         "startAt" => non_neg_integer()
       }
-
+      
   """
   @type commitment_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_network_response() :: %{
         optional("tags") => map(),
         required("network") => network()
       }
-
+      
   """
   @type get_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       network() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
@@ -688,70 +688,70 @@ defmodule AWS.PrivateNetworks do
         "status" => String.t(),
         "statusReason" => [String.t()]
       }
-
+      
   """
   @type network() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_network_site_request() :: %{
         optional("clientToken") => String.t(),
         optional("commitmentConfiguration") => commitment_configuration(),
         required("networkSiteArn") => String.t(),
         required("shippingAddress") => address()
       }
-
+      
   """
   @type activate_network_site_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_device_identifier_request() :: %{}
-
+      
   """
   @type get_device_identifier_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       network_resource() :: %{
         "attributes" => list(name_value_pair()()),
         "commitmentInformation" => commitment_information(),
@@ -771,34 +771,34 @@ defmodule AWS.PrivateNetworks do
         "type" => String.t(),
         "vendor" => [String.t()]
       }
-
+      
   """
   @type network_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_network_site_request() :: %{}
-
+      
   """
   @type get_network_site_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_network_resource_update_request() :: %{
         optional("commitmentConfiguration") => commitment_configuration(),
         optional("returnReason") => [String.t()],
@@ -806,14 +806,14 @@ defmodule AWS.PrivateNetworks do
         required("networkResourceArn") => String.t(),
         required("updateType") => String.t()
       }
-
+      
   """
   @type start_network_resource_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       address() :: %{
         "city" => String.t(),
         "company" => String.t(),
@@ -827,65 +827,65 @@ defmodule AWS.PrivateNetworks do
         "street2" => String.t(),
         "street3" => String.t()
       }
-
+      
   """
   @type address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_order_response() :: %{
         optional("tags") => map(),
         required("order") => order()
       }
-
+      
   """
   @type get_order_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       commitment_configuration() :: %{
         "automaticRenewal" => [boolean()],
         "commitmentLength" => String.t()
       }
-
+      
   """
   @type commitment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_network_site_plan_request() :: %{
         optional("clientToken") => String.t(),
         required("networkSiteArn") => String.t(),
         required("pendingPlan") => site_plan()
       }
-
+      
   """
   @type update_network_site_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_orders_request() :: %{
         optional("filters") => map(),
         optional("maxResults") => [integer()],
         optional("startToken") => String.t(),
         required("networkArn") => String.t()
       }
-
+      
   """
   @type list_orders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_network_site_request() :: %{
         optional("availabilityZone") => [String.t()],
         optional("availabilityZoneId") => [String.t()],
@@ -896,30 +896,30 @@ defmodule AWS.PrivateNetworks do
         required("networkArn") => String.t(),
         required("networkSiteName") => String.t()
       }
-
+      
   """
   @type create_network_site_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_network_site_response() :: %{
         optional("networkSite") => network_site()
       }
-
+      
   """
   @type delete_network_site_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_network_sites_response() :: %{
         optional("networkSites") => list(network_site()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_network_sites_response() :: %{String.t() => any()}
 
@@ -1043,33 +1043,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec acknowledge_order_receipt(
-          AWS.Client.t(),
-          acknowledge_order_receipt_request(),
-          Keyword.t()
-        ) ::
+
+  @spec acknowledge_order_receipt(AWS.Client.t(), Keyword.t()) ::
           {:ok, acknowledge_order_receipt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, acknowledge_order_receipt_errors()}
-  def acknowledge_order_receipt(%Client{} = client, input, options \\ []) do
+
+  def acknowledge_order_receipt(%Client{} = client, options \\ []) do
     url_path = "/v1/orders/acknowledge"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1081,33 +1088,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec activate_device_identifier(
-          AWS.Client.t(),
-          activate_device_identifier_request(),
-          Keyword.t()
-        ) ::
+
+  @spec activate_device_identifier(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_device_identifier_errors()}
-  def activate_device_identifier(%Client{} = client, input, options \\ []) do
+
+  def activate_device_identifier(%Client{} = client, options \\ []) do
     url_path = "/v1/device-identifiers/activate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1119,29 +1133,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec activate_network_site(AWS.Client.t(), activate_network_site_request(), Keyword.t()) ::
+
+  @spec activate_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_network_site_errors()}
-  def activate_network_site(%Client{} = client, input, options \\ []) do
+
+  def activate_network_site(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/activate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1153,29 +1178,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec configure_access_point(AWS.Client.t(), configure_access_point_request(), Keyword.t()) ::
+
+  @spec configure_access_point(AWS.Client.t(), Keyword.t()) ::
           {:ok, configure_access_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_access_point_errors()}
-  def configure_access_point(%Client{} = client, input, options \\ []) do
+
+  def configure_access_point(%Client{} = client, options \\ []) do
     url_path = "/v1/network-resources/configure"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1187,29 +1223,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec create_network(AWS.Client.t(), create_network_request(), Keyword.t()) ::
+
+  @spec create_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_errors()}
-  def create_network(%Client{} = client, input, options \\ []) do
+
+  def create_network(%Client{} = client, options \\ []) do
     url_path = "/v1/networks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1221,29 +1268,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec create_network_site(AWS.Client.t(), create_network_site_request(), Keyword.t()) ::
+
+  @spec create_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_network_site_errors()}
-  def create_network_site(%Client{} = client, input, options \\ []) do
+
+  def create_network_site(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1255,33 +1313,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec deactivate_device_identifier(
-          AWS.Client.t(),
-          deactivate_device_identifier_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deactivate_device_identifier(AWS.Client.t(), Keyword.t()) ::
           {:ok, deactivate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_device_identifier_errors()}
-  def deactivate_device_identifier(%Client{} = client, input, options \\ []) do
+
+  def deactivate_device_identifier(%Client{} = client, options \\ []) do
     url_path = "/v1/device-identifiers/deactivate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1297,22 +1362,42 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. For more information, see
-    How to ensure idempotency.
+  provide to ensure the idempotency of the request. For more information, see
+  How to ensure idempotency.
   """
-  @spec delete_network(AWS.Client.t(), String.t(), delete_network_request(), Keyword.t()) ::
+
+  @spec delete_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_errors()}
-  def delete_network(%Client{} = client, network_arn, input, options \\ []) do
+
+  def delete_network(%Client{} = client, network_arn, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1322,6 +1407,8 @@ defmodule AWS.PrivateNetworks do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1329,7 +1416,7 @@ defmodule AWS.PrivateNetworks do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1346,31 +1433,46 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
-    site.
+  site.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. For more information, see
-    How to ensure idempotency.
+  provide to ensure the idempotency of the request. For more information, see
+  How to ensure idempotency.
   """
-  @spec delete_network_site(
-          AWS.Client.t(),
-          String.t(),
-          delete_network_site_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_network_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_network_site_errors()}
-  def delete_network_site(%Client{} = client, network_site_arn, input, options \\ []) do
+
+  def delete_network_site(%Client{} = client, network_site_arn, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1380,6 +1482,8 @@ defmodule AWS.PrivateNetworks do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1387,7 +1491,7 @@ defmodule AWS.PrivateNetworks do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1400,14 +1504,16 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:device_identifier_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    device identifier.
+  device identifier.
 
   ## Optional parameters:
   """
+
   @spec get_device_identifier(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_identifier_errors()}
+
   def get_device_identifier(%Client{} = client, device_identifier_arn, options \\ []) do
     url_path = "/v1/device-identifiers/#{AWS.Util.encode_uri(device_identifier_arn)}"
 
@@ -1446,10 +1552,12 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
+
   @spec get_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_errors()}
+
   def get_network(%Client{} = client, network_arn, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
 
@@ -1485,14 +1593,16 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    network resource.
+  network resource.
 
   ## Optional parameters:
   """
+
   @spec get_network_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_resource_errors()}
+
   def get_network_resource(%Client{} = client, network_resource_arn, options \\ []) do
     url_path = "/v1/network-resources/#{AWS.Util.encode_uri(network_resource_arn)}"
 
@@ -1528,14 +1638,16 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
-    site.
+  site.
 
   ## Optional parameters:
   """
+
   @spec get_network_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_network_site_errors()}
+
   def get_network_site(%Client{} = client, network_site_arn, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
 
@@ -1574,10 +1686,12 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
+
   @spec get_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_order_errors()}
+
   def get_order(%Client{} = client, order_arn, options \\ []) do
     url_path = "/v1/orders/#{AWS.Util.encode_uri(order_arn)}"
 
@@ -1617,29 +1731,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec list_device_identifiers(AWS.Client.t(), list_device_identifiers_request(), Keyword.t()) ::
+
+  @spec list_device_identifiers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_identifiers_errors()}
-  def list_device_identifiers(%Client{} = client, input, options \\ []) do
+
+  def list_device_identifiers(%Client{} = client, options \\ []) do
     url_path = "/v1/device-identifiers/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1653,29 +1778,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec list_network_resources(AWS.Client.t(), list_network_resources_request(), Keyword.t()) ::
+
+  @spec list_network_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_resources_errors()}
-  def list_network_resources(%Client{} = client, input, options \\ []) do
+
+  def list_network_resources(%Client{} = client, options \\ []) do
     url_path = "/v1/network-resources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1688,29 +1824,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec list_network_sites(AWS.Client.t(), list_network_sites_request(), Keyword.t()) ::
+
+  @spec list_network_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_network_sites_errors()}
-  def list_network_sites(%Client{} = client, input, options \\ []) do
+
+  def list_network_sites(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1723,29 +1870,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec list_networks(AWS.Client.t(), list_networks_request(), Keyword.t()) ::
+
+  @spec list_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_networks_errors()}
-  def list_networks(%Client{} = client, input, options \\ []) do
+
+  def list_networks(%Client{} = client, options \\ []) do
     url_path = "/v1/networks/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1759,29 +1917,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec list_orders(AWS.Client.t(), list_orders_request(), Keyword.t()) ::
+
+  @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_orders_errors()}
-  def list_orders(%Client{} = client, input, options \\ []) do
+
+  def list_orders(%Client{} = client, options \\ []) do
     url_path = "/v1/orders/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1794,10 +1963,12 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1835,10 +2006,12 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
+
   @spec ping(AWS.Client.t(), Keyword.t()) ::
           {:ok, ping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, ping_errors()}
+
   def ping(%Client{} = client, options \\ []) do
     url_path = "/ping"
 
@@ -1876,33 +2049,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec start_network_resource_update(
-          AWS.Client.t(),
-          start_network_resource_update_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_network_resource_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_network_resource_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_network_resource_update_errors()}
-  def start_network_resource_update(%Client{} = client, input, options \\ []) do
+
+  def start_network_resource_update(%Client{} = client, options \\ []) do
     url_path = "/v1/network-resources/update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1915,29 +2095,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1951,22 +2142,39 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1975,7 +2183,7 @@ defmodule AWS.PrivateNetworks do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1990,19 +2198,40 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec update_network_site(AWS.Client.t(), update_network_site_request(), Keyword.t()) ::
+
+  @spec update_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_site_errors()}
-  def update_network_site(%Client{} = client, input, options \\ []) do
+
+  def update_network_site(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/site"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2014,18 +2243,39 @@ defmodule AWS.PrivateNetworks do
 
   ## Optional parameters:
   """
-  @spec update_network_site_plan(AWS.Client.t(), update_network_site_plan_request(), Keyword.t()) ::
+
+  @spec update_network_site_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_network_site_plan_errors()}
-  def update_network_site_plan(%Client{} = client, input, options \\ []) do
+
+  def update_network_site_plan(%Client{} = client, options \\ []) do
     url_path = "/v1/network-sites/plan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

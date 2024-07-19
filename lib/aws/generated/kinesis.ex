@@ -1319,12 +1319,24 @@ defmodule AWS.Kinesis do
   50 tags to a data stream. When invoking this API, you must use either the
   `StreamARN` or the `StreamName` parameter, or both. It is recommended that you
   use the `StreamARN` input parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20AddTagsToStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_stream_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("Tags") => map()
+    }
   """
-  @spec add_tags_to_stream(AWS.Client.t(), add_tags_to_stream_input(), Keyword.t()) ::
+
+  @spec add_tags_to_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_stream_errors()}
-  def add_tags_to_stream(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1346,12 +1358,24 @@ defmodule AWS.Kinesis do
   read total of 2 MiB per second. Each shard can support writes up to 1,000
   records per second, up to a maximum data write total of 1 MiB per second. If
   the amount of data input increases or decreases, you can add or remove shards.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20CreateStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_stream_input`)
+    %{
+      optional("ShardCount") => integer(),
+      optional("StreamModeDetails") => stream_mode_details(),
+      required("StreamName") => String.t()
+    }
   """
-  @spec create_stream(AWS.Client.t(), create_stream_input(), Keyword.t()) ::
+
+  @spec create_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stream_errors()}
-  def create_stream(%Client{} = client, input, options \\ []) do
+
+  def create_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1365,16 +1389,25 @@ defmodule AWS.Kinesis do
   API, you must use either the `StreamARN` or the `StreamName` parameter, or
   both. It is recommended that you use the `StreamARN` input parameter when you
   invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DecreaseStreamRetentionPeriod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:decrease_stream_retention_period_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("RetentionPeriodHours") => integer()
+    }
   """
-  @spec decrease_stream_retention_period(
-          AWS.Client.t(),
-          decrease_stream_retention_period_input(),
-          Keyword.t()
-        ) ::
+
+  @spec decrease_stream_retention_period(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrease_stream_retention_period_errors()}
-  def decrease_stream_retention_period(%Client{} = client, input, options \\ []) do
+
+  def decrease_stream_retention_period(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1384,12 +1417,22 @@ defmodule AWS.Kinesis do
   @doc """
   Delete a policy for the specified data stream or consumer. Request patterns can
   be one of the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_policy_input`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_input(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1404,12 +1447,24 @@ defmodule AWS.Kinesis do
   use either the `StreamARN` or the `StreamName` parameter, or both. It is
   recommended that you use the `StreamARN` input parameter when you invoke this
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DeleteStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_stream_input`)
+    %{
+      optional("EnforceConsumerDeletion") => boolean(),
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t()
+    }
   """
-  @spec delete_stream(AWS.Client.t(), delete_stream_input(), Keyword.t()) ::
+
+  @spec delete_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stream_errors()}
-  def delete_stream(%Client{} = client, input, options \\ []) do
+
+  def delete_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1425,16 +1480,24 @@ defmodule AWS.Kinesis do
   list of the descriptions of all the consumers that are currently registered
   with a given data stream. The description of a consumer contains its name and
   ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DeregisterStreamConsumer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_stream_consumer_input`)
+    %{
+      optional("ConsumerARN") => String.t(),
+      optional("ConsumerName") => String.t(),
+      optional("StreamARN") => String.t()
+    }
   """
-  @spec deregister_stream_consumer(
-          AWS.Client.t(),
-          deregister_stream_consumer_input(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_stream_consumer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_stream_consumer_errors()}
-  def deregister_stream_consumer(%Client{} = client, input, options \\ []) do
+
+  def deregister_stream_consumer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1444,12 +1507,22 @@ defmodule AWS.Kinesis do
   @doc """
   Describes the shard limits and usage for the account. If you update your account
   limits, the old limits might be returned for a few minutes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DescribeLimits&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_limits_input`)
+    %{
+      
+    }
   """
-  @spec describe_limits(AWS.Client.t(), describe_limits_input(), Keyword.t()) ::
+
+  @spec describe_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_limits_errors()}
-  def describe_limits(%Client{} = client, input, options \\ []) do
+
+  def describe_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1462,12 +1535,25 @@ defmodule AWS.Kinesis do
   summarized description of the specified Kinesis data stream and the
   `ListShards` API to list the shards in a specified data stream and obtain
   information about each shard.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DescribeStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stream_input`)
+    %{
+      optional("ExclusiveStartShardId") => String.t(),
+      optional("Limit") => integer(),
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t()
+    }
   """
-  @spec describe_stream(AWS.Client.t(), describe_stream_input(), Keyword.t()) ::
+
+  @spec describe_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stream_errors()}
-  def describe_stream(%Client{} = client, input, options \\ []) do
+
+  def describe_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1483,12 +1569,24 @@ defmodule AWS.Kinesis do
   the `ListStreamConsumers` operation to get a list of the descriptions of all
   the consumers that are currently registered with a given data stream. This
   operation has a limit of 20 transactions per second per stream.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DescribeStreamConsumer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stream_consumer_input`)
+    %{
+      optional("ConsumerARN") => String.t(),
+      optional("ConsumerName") => String.t(),
+      optional("StreamARN") => String.t()
+    }
   """
-  @spec describe_stream_consumer(AWS.Client.t(), describe_stream_consumer_input(), Keyword.t()) ::
+
+  @spec describe_stream_consumer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stream_consumer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stream_consumer_errors()}
-  def describe_stream_consumer(%Client{} = client, input, options \\ []) do
+
+  def describe_stream_consumer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1500,12 +1598,23 @@ defmodule AWS.Kinesis do
   the shard list. When invoking this API, you must use either the `StreamARN` or
   the `StreamName` parameter, or both. It is recommended that you use the
   `StreamARN` input parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DescribeStreamSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stream_summary_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t()
+    }
   """
-  @spec describe_stream_summary(AWS.Client.t(), describe_stream_summary_input(), Keyword.t()) ::
+
+  @spec describe_stream_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stream_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stream_summary_errors()}
-  def describe_stream_summary(%Client{} = client, input, options \\ []) do
+
+  def describe_stream_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1514,16 +1623,24 @@ defmodule AWS.Kinesis do
 
   @doc """
   Disables enhanced monitoring.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20DisableEnhancedMonitoring&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_enhanced_monitoring_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("ShardLevelMetrics") => list(list(any())())
+    }
   """
-  @spec disable_enhanced_monitoring(
-          AWS.Client.t(),
-          disable_enhanced_monitoring_input(),
-          Keyword.t()
-        ) ::
+
+  @spec disable_enhanced_monitoring(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enhanced_monitoring_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_enhanced_monitoring_errors()}
-  def disable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
+
+  def disable_enhanced_monitoring(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1532,16 +1649,24 @@ defmodule AWS.Kinesis do
 
   @doc """
   Enables enhanced Kinesis data stream monitoring for shard-level metrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20EnableEnhancedMonitoring&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_enhanced_monitoring_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("ShardLevelMetrics") => list(list(any())())
+    }
   """
-  @spec enable_enhanced_monitoring(
-          AWS.Client.t(),
-          enable_enhanced_monitoring_input(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_enhanced_monitoring(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enhanced_monitoring_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_enhanced_monitoring_errors()}
-  def enable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
+
+  def enable_enhanced_monitoring(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1553,12 +1678,24 @@ defmodule AWS.Kinesis do
   you must use either the `StreamARN` or the `StreamName` parameter, or both. It
   is recommended that you use the `StreamARN` input parameter when you invoke
   this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20GetRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_records_input`)
+    %{
+      optional("Limit") => integer(),
+      optional("StreamARN") => String.t(),
+      required("ShardIterator") => String.t()
+    }
   """
-  @spec get_records(AWS.Client.t(), get_records_input(), Keyword.t()) ::
+
+  @spec get_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_records_errors()}
-  def get_records(%Client{} = client, input, options \\ []) do
+
+  def get_records(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1568,12 +1705,22 @@ defmodule AWS.Kinesis do
   @doc """
   Returns a policy attached to the specified data stream or consumer. Request
   patterns can be one of the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_policy_input`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_input(), Keyword.t()) ::
+
+  @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-  def get_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1585,12 +1732,27 @@ defmodule AWS.Kinesis do
   it is returned to the requester. When invoking this API, you must use either
   the `StreamARN` or the `StreamName` parameter, or both. It is recommended that
   you use the `StreamARN` input parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20GetShardIterator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_shard_iterator_input`)
+    %{
+      optional("StartingSequenceNumber") => String.t(),
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      optional("Timestamp") => non_neg_integer(),
+      required("ShardId") => String.t(),
+      required("ShardIteratorType") => list(any())
+    }
   """
-  @spec get_shard_iterator(AWS.Client.t(), get_shard_iterator_input(), Keyword.t()) ::
+
+  @spec get_shard_iterator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_shard_iterator_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_shard_iterator_errors()}
-  def get_shard_iterator(%Client{} = client, input, options \\ []) do
+
+  def get_shard_iterator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1604,16 +1766,25 @@ defmodule AWS.Kinesis do
   invoking this API, you must use either the `StreamARN` or the `StreamName`
   parameter, or both. It is recommended that you use the `StreamARN` input
   parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20IncreaseStreamRetentionPeriod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:increase_stream_retention_period_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("RetentionPeriodHours") => integer()
+    }
   """
-  @spec increase_stream_retention_period(
-          AWS.Client.t(),
-          increase_stream_retention_period_input(),
-          Keyword.t()
-        ) ::
+
+  @spec increase_stream_retention_period(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, increase_stream_retention_period_errors()}
-  def increase_stream_retention_period(%Client{} = client, input, options \\ []) do
+
+  def increase_stream_retention_period(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1626,12 +1797,28 @@ defmodule AWS.Kinesis do
   invoking this API, you must use either the `StreamARN` or the `StreamName`
   parameter, or both. It is recommended that you use the `StreamARN` input
   parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20ListShards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_shards_input`)
+    %{
+      optional("ExclusiveStartShardId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ShardFilter") => shard_filter(),
+      optional("StreamARN") => String.t(),
+      optional("StreamCreationTimestamp") => non_neg_integer(),
+      optional("StreamName") => String.t()
+    }
   """
-  @spec list_shards(AWS.Client.t(), list_shards_input(), Keyword.t()) ::
+
+  @spec list_shards(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_shards_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_shards_errors()}
-  def list_shards(%Client{} = client, input, options \\ []) do
+
+  def list_shards(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1641,12 +1828,25 @@ defmodule AWS.Kinesis do
   @doc """
   Lists the consumers registered to receive data from a stream using enhanced
   fan-out, and provides information about each consumer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20ListStreamConsumers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stream_consumers_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StreamCreationTimestamp") => non_neg_integer(),
+      required("StreamARN") => String.t()
+    }
   """
-  @spec list_stream_consumers(AWS.Client.t(), list_stream_consumers_input(), Keyword.t()) ::
+
+  @spec list_stream_consumers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stream_consumers_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stream_consumers_errors()}
-  def list_stream_consumers(%Client{} = client, input, options \\ []) do
+
+  def list_stream_consumers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1659,12 +1859,24 @@ defmodule AWS.Kinesis do
   returned streams using the `Limit` parameter. If you do not specify a value
   for the `Limit` parameter, Kinesis Data Streams uses the default limit, which
   is currently 100.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20ListStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_streams_input`)
+    %{
+      optional("ExclusiveStartStreamName") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_streams(AWS.Client.t(), list_streams_input(), Keyword.t()) ::
+
+  @spec list_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streams_errors()}
-  def list_streams(%Client{} = client, input, options \\ []) do
+
+  def list_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1674,12 +1886,25 @@ defmodule AWS.Kinesis do
   @doc """
   Lists the tags for the specified Kinesis data stream. This operation has a limit
   of five transactions per second per account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20ListTagsForStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_stream_input`)
+    %{
+      optional("ExclusiveStartTagKey") => String.t(),
+      optional("Limit") => integer(),
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t()
+    }
   """
-  @spec list_tags_for_stream(AWS.Client.t(), list_tags_for_stream_input(), Keyword.t()) ::
+
+  @spec list_tags_for_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_stream_errors()}
-  def list_tags_for_stream(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1699,12 +1924,25 @@ defmodule AWS.Kinesis do
   two parent shards. When invoking this API, you must use either the `StreamARN`
   or the `StreamName` parameter, or both. It is recommended that you use the
   `StreamARN` input parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20MergeShards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:merge_shards_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("AdjacentShardToMerge") => String.t(),
+      required("ShardToMerge") => String.t()
+    }
   """
-  @spec merge_shards(AWS.Client.t(), merge_shards_input(), Keyword.t()) ::
+
+  @spec merge_shards(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_shards_errors()}
-  def merge_shards(%Client{} = client, input, options \\ []) do
+
+  def merge_shards(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1719,12 +1957,27 @@ defmodule AWS.Kinesis do
   invoking this API, you must use either the `StreamARN` or the `StreamName`
   parameter, or both. It is recommended that you use the `StreamARN` input
   parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20PutRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_record_input`)
+    %{
+      optional("ExplicitHashKey") => String.t(),
+      optional("SequenceNumberForOrdering") => String.t(),
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("Data") => binary(),
+      required("PartitionKey") => String.t()
+    }
   """
-  @spec put_record(AWS.Client.t(), put_record_input(), Keyword.t()) ::
+
+  @spec put_record(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_record_errors()}
-  def put_record(%Client{} = client, input, options \\ []) do
+
+  def put_record(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1738,12 +1991,24 @@ defmodule AWS.Kinesis do
   use either the `StreamARN` or the `StreamName` parameter, or both. It is
   recommended that you use the `StreamARN` input parameter when you invoke this
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20PutRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_records_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("Records") => list(put_records_request_entry()())
+    }
   """
-  @spec put_records(AWS.Client.t(), put_records_input(), Keyword.t()) ::
+
+  @spec put_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_records_errors()}
-  def put_records(%Client{} = client, input, options \\ []) do
+
+  def put_records(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1760,12 +2025,23 @@ defmodule AWS.Kinesis do
   `403 Access Denied error`. If you receive a `ResourceNotFoundException`, check
   to see if you passed a valid stream or consumer resource. Request patterns can
   be one of the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_policy_input`)
+    %{
+      required("Policy") => String.t(),
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_input(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1780,12 +2056,23 @@ defmodule AWS.Kinesis do
   of consumers that read from the same stream. You can register up to 20
   consumers per stream. A given consumer can only be registered with one stream
   at a time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20RegisterStreamConsumer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_stream_consumer_input`)
+    %{
+      required("ConsumerName") => String.t(),
+      required("StreamARN") => String.t()
+    }
   """
-  @spec register_stream_consumer(AWS.Client.t(), register_stream_consumer_input(), Keyword.t()) ::
+
+  @spec register_stream_consumer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_stream_consumer_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_stream_consumer_errors()}
-  def register_stream_consumer(%Client{} = client, input, options \\ []) do
+
+  def register_stream_consumer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1798,12 +2085,24 @@ defmodule AWS.Kinesis do
   invoking this API, you must use either the `StreamARN` or the `StreamName`
   parameter, or both. It is recommended that you use the `StreamARN` input
   parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20RemoveTagsFromStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_stream_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec remove_tags_from_stream(AWS.Client.t(), remove_tags_from_stream_input(), Keyword.t()) ::
+
+  @spec remove_tags_from_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_stream_errors()}
-  def remove_tags_from_stream(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1819,12 +2118,25 @@ defmodule AWS.Kinesis do
   invoking this API, you must use either the `StreamARN` or the `StreamName`
   parameter, or both. It is recommended that you use the `StreamARN` input
   parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20SplitShard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:split_shard_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("NewStartingHashKey") => String.t(),
+      required("ShardToSplit") => String.t()
+    }
   """
-  @spec split_shard(AWS.Client.t(), split_shard_input(), Keyword.t()) ::
+
+  @spec split_shard(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, split_shard_errors()}
-  def split_shard(%Client{} = client, input, options \\ []) do
+
+  def split_shard(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1836,12 +2148,25 @@ defmodule AWS.Kinesis do
   for a specified stream. When invoking this API, you must use either the
   `StreamARN` or the `StreamName` parameter, or both. It is recommended that you
   use the `StreamARN` input parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20StartStreamEncryption&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_stream_encryption_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("EncryptionType") => list(any()),
+      required("KeyId") => String.t()
+    }
   """
-  @spec start_stream_encryption(AWS.Client.t(), start_stream_encryption_input(), Keyword.t()) ::
+
+  @spec start_stream_encryption(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_stream_encryption_errors()}
-  def start_stream_encryption(%Client{} = client, input, options \\ []) do
+
+  def start_stream_encryption(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1853,12 +2178,25 @@ defmodule AWS.Kinesis do
   you must use either the `StreamARN` or the `StreamName` parameter, or both. It
   is recommended that you use the `StreamARN` input parameter when you invoke
   this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20StopStreamEncryption&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_stream_encryption_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("EncryptionType") => list(any()),
+      required("KeyId") => String.t()
+    }
   """
-  @spec stop_stream_encryption(AWS.Client.t(), stop_stream_encryption_input(), Keyword.t()) ::
+
+  @spec stop_stream_encryption(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_stream_encryption_errors()}
-  def stop_stream_encryption(%Client{} = client, input, options \\ []) do
+
+  def stop_stream_encryption(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1876,12 +2214,24 @@ defmodule AWS.Kinesis do
   HTTP/2 connection for up to 5 minutes, after which time you need to call
   `SubscribeToShard` again to renew the subscription if you want to continue to
   receive records.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20SubscribeToShard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:subscribe_to_shard_input`)
+    %{
+      required("ConsumerARN") => String.t(),
+      required("ShardId") => String.t(),
+      required("StartingPosition") => starting_position()
+    }
   """
-  @spec subscribe_to_shard(AWS.Client.t(), subscribe_to_shard_input(), Keyword.t()) ::
+
+  @spec subscribe_to_shard(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, subscribe_to_shard_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, subscribe_to_shard_errors()}
-  def subscribe_to_shard(%Client{} = client, input, options \\ []) do
+
+  def subscribe_to_shard(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1894,12 +2244,25 @@ defmodule AWS.Kinesis do
   capacity mode. When invoking this API, you must use either the `StreamARN` or
   the `StreamName` parameter, or both. It is recommended that you use the
   `StreamARN` input parameter when you invoke this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20UpdateShardCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_shard_count_input`)
+    %{
+      optional("StreamARN") => String.t(),
+      optional("StreamName") => String.t(),
+      required("ScalingType") => list(any()),
+      required("TargetShardCount") => integer()
+    }
   """
-  @spec update_shard_count(AWS.Client.t(), update_shard_count_input(), Keyword.t()) ::
+
+  @spec update_shard_count(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_shard_count_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_shard_count_errors()}
-  def update_shard_count(%Client{} = client, input, options \\ []) do
+
+  def update_shard_count(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1910,12 +2273,23 @@ defmodule AWS.Kinesis do
   Updates the capacity mode of the data stream. Currently, in Kinesis Data
   Streams, you can choose between an **on-demand** capacity mode and a
   **provisioned** capacity mode for your data stream.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesis%20UpdateStreamMode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_stream_mode_input`)
+    %{
+      required("StreamARN") => String.t(),
+      required("StreamModeDetails") => stream_mode_details()
+    }
   """
-  @spec update_stream_mode(AWS.Client.t(), update_stream_mode_input(), Keyword.t()) ::
+
+  @spec update_stream_mode(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stream_mode_errors()}
-  def update_stream_mode(%Client{} = client, input, options \\ []) do
+
+  def update_stream_mode(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -13,123 +13,123 @@ defmodule AWS.LookoutVision do
   @typedoc """
 
   ## Example:
-
+      
       describe_project_response() :: %{
         "ProjectDescription" => project_description()
       }
-
+      
   """
   @type describe_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dataset_entries_request() :: %{
         optional("ClientToken") => String.t(),
         required("Changes") => binary()
       }
-
+      
   """
   @type update_dataset_entries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       greengrass_output_details() :: %{
         "ComponentName" => String.t(),
         "ComponentVersion" => String.t(),
         "ComponentVersionArn" => String.t()
       }
-
+      
   """
   @type greengrass_output_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_models_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_models_response() :: %{
         "Models" => list(model_metadata()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "Datasets" => list(dataset_metadata()()),
         "ProjectArn" => String.t(),
         "ProjectName" => String.t()
       }
-
+      
   """
   @type project_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dataset_entries_response() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type update_dataset_entries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dataset_response() :: %{}
-
+      
   """
   @type delete_dataset_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_source() :: %{
         "GroundTruthManifest" => dataset_ground_truth_manifest()
       }
-
+      
   """
   @type dataset_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "Description" => String.t(),
@@ -139,26 +139,26 @@ defmodule AWS.LookoutVision do
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type model_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pixel_anomaly() :: %{
         "Color" => String.t(),
         "TotalPercentageArea" => float()
       }
-
+      
   """
   @type pixel_anomaly() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "DatasetType" => String.t(),
@@ -168,23 +168,23 @@ defmodule AWS.LookoutVision do
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type dataset_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       model_packaging_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "JobName" => String.t(),
@@ -198,44 +198,44 @@ defmodule AWS.LookoutVision do
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type model_packaging_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_model_packaging_job_request() :: %{}
-
+      
   """
   @type describe_model_packaging_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       output_s3_object() :: %{
         "Bucket" => String.t(),
         "Key" => String.t()
       }
-
+      
   """
   @type output_s3_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_project_request() :: %{}
-
+      
   """
   @type describe_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_model_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -243,152 +243,152 @@ defmodule AWS.LookoutVision do
         optional("Tags") => list(tag()()),
         required("OutputConfig") => output_config()
       }
-
+      
   """
   @type create_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_model_request() :: %{}
-
+      
   """
   @type describe_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_model_response() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type start_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "ProjectArn" => String.t(),
         "ProjectName" => String.t()
       }
-
+      
   """
   @type project_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_model_response() :: %{
         "ModelDescription" => model_description()
       }
-
+      
   """
   @type describe_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detect_anomalies_response() :: %{
         "DetectAnomalyResult" => detect_anomaly_result()
       }
-
+      
   """
   @type detect_anomalies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dataset_response() :: %{
         "DatasetMetadata" => dataset_metadata()
       }
-
+      
   """
   @type create_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_response() :: %{
         "ProjectMetadata" => project_metadata()
       }
-
+      
   """
   @type create_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_model_packaging_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_model_packaging_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t(),
         "QuotaCode" => String.t(),
@@ -396,51 +396,51 @@ defmodule AWS.LookoutVision do
         "ResourceType" => list(any()),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_image_stats() :: %{
         "Anomaly" => integer(),
         "Labeled" => integer(),
         "Normal" => integer(),
         "Total" => integer()
       }
-
+      
   """
   @type dataset_image_stats() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_model_request() :: %{
         optional("ClientToken") => String.t()
       }
-
+      
   """
   @type stop_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_response() :: %{
         "NextToken" => String.t(),
         "Projects" => list(project_metadata()())
       }
-
+      
   """
   @type list_projects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dataset_entries_request() :: %{
         optional("AfterCreationDate") => non_neg_integer(),
         optional("AnomalyClass") => String.t(),
@@ -450,50 +450,50 @@ defmodule AWS.LookoutVision do
         optional("NextToken") => String.t(),
         optional("SourceRefContains") => String.t()
       }
-
+      
   """
   @type list_dataset_entries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_model_request() :: %{
         optional("ClientToken") => String.t(),
         optional("MaxInferenceUnits") => integer(),
         required("MinInferenceUnits") => integer()
       }
-
+      
   """
   @type start_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_location() :: %{
         "Bucket" => String.t(),
         "Prefix" => String.t()
       }
-
+      
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detect_anomaly_result() :: %{
         "Anomalies" => list(anomaly()()),
         "AnomalyMask" => binary(),
@@ -501,47 +501,47 @@ defmodule AWS.LookoutVision do
         "IsAnomalous" => boolean(),
         "Source" => image_source()
       }
-
+      
   """
   @type detect_anomaly_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_model_response() :: %{
         "ModelMetadata" => model_metadata()
       }
-
+      
   """
   @type create_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_source() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type image_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_packaging_output_details() :: %{
         "Greengrass" => greengrass_output_details()
       }
-
+      
   """
   @type model_packaging_output_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_packaging_job_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "JobName" => String.t(),
@@ -553,108 +553,108 @@ defmodule AWS.LookoutVision do
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type model_packaging_job_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_model_packaging_jobs_response() :: %{
         "ModelPackagingJobs" => list(model_packaging_job_metadata()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_model_packaging_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detect_anomalies_request() :: %{
         required("Body") => binary(),
         required("ContentType") => String.t()
       }
-
+      
   """
   @type detect_anomalies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_performance() :: %{
         "F1Score" => float(),
         "Precision" => float(),
         "Recall" => float()
       }
-
+      
   """
   @type model_performance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t(),
         "RetryAfterSeconds" => integer()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_ground_truth_manifest() :: %{
         "S3Object" => input_s3_object()
       }
-
+      
   """
   @type dataset_ground_truth_manifest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_response() :: %{
         "ProjectArn" => String.t()
       }
-
+      
   """
   @type delete_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly() :: %{
         "Name" => String.t(),
         "PixelAnomaly" => pixel_anomaly()
       }
-
+      
   """
   @type anomaly() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_model_request() :: %{
         optional("ClientToken") => String.t()
       }
-
+      
   """
   @type delete_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_model_packaging_job_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -662,151 +662,151 @@ defmodule AWS.LookoutVision do
         required("Configuration") => model_packaging_configuration(),
         required("ModelVersion") => String.t()
       }
-
+      
   """
   @type start_model_packaging_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       output_config() :: %{
         "S3Location" => s3_location()
       }
-
+      
   """
   @type output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dataset_response() :: %{
         "DatasetDescription" => dataset_description()
       }
-
+      
   """
   @type describe_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       target_platform() :: %{
         "Accelerator" => list(any()),
         "Arch" => list(any()),
         "Os" => list(any())
       }
-
+      
   """
   @type target_platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dataset_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DatasetSource") => dataset_source(),
         required("DatasetType") => String.t()
       }
-
+      
   """
   @type create_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t(),
         "QuotaCode" => String.t(),
         "RetryAfterSeconds" => integer(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_request() :: %{
         optional("ClientToken") => String.t(),
         required("ProjectName") => String.t()
       }
-
+      
   """
   @type create_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_projects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_packaging_configuration() :: %{
         "Greengrass" => greengrass_configuration()
       }
-
+      
   """
   @type model_packaging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       greengrass_configuration() :: %{
         "CompilerOptions" => String.t(),
         "ComponentDescription" => String.t(),
@@ -817,36 +817,36 @@ defmodule AWS.LookoutVision do
         "TargetDevice" => list(any()),
         "TargetPlatform" => target_platform()
       }
-
+      
   """
   @type greengrass_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_model_packaging_job_response() :: %{
         "ModelPackagingDescription" => model_packaging_description()
       }
-
+      
   """
   @type describe_model_packaging_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_model_packaging_job_response() :: %{
         "JobName" => String.t()
       }
-
+      
   """
   @type start_model_packaging_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       model_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "Description" => String.t(),
@@ -863,99 +863,99 @@ defmodule AWS.LookoutVision do
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type model_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dataset_request() :: %{}
-
+      
   """
   @type describe_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dataset_request() :: %{
         optional("ClientToken") => String.t()
       }
-
+      
   """
   @type delete_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_model_response() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type stop_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_request() :: %{
         optional("ClientToken") => String.t()
       }
-
+      
   """
   @type delete_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_model_response() :: %{
         "ModelArn" => String.t()
       }
-
+      
   """
   @type delete_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dataset_entries_response() :: %{
         "DatasetEntries" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_dataset_entries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "DatasetType" => String.t(),
         "Status" => list(any()),
         "StatusMessage" => String.t()
       }
-
+      
   """
   @type dataset_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       input_s3_object() :: %{
         "Bucket" => String.t(),
         "Key" => String.t(),
         "VersionId" => String.t()
       }
-
+      
   """
   @type input_s3_object() :: %{String.t() => any()}
 
@@ -1165,22 +1165,25 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:project_name` (`t:string`) The name of the project in which you want to
-    create a dataset.
+  create a dataset.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to CreateDataset completes only once. You choose the value to pass.
-    For example, An issue might prevent you from getting a response from
-    CreateDataset. In this case, safely retry your call to CreateDataset by
-    using the same ClientToken parameter value.
+  a call to CreateDataset completes only once. You choose the value to pass.
+  For example, An issue might prevent you from getting a response from
+  CreateDataset. In this case, safely retry your call to CreateDataset by
+  using the same ClientToken parameter value.
   """
-  @spec create_dataset(AWS.Client.t(), String.t(), create_dataset_request(), Keyword.t()) ::
+
+  @spec create_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-  def create_dataset(%Client{} = client, project_name, input, options \\ []) do
+
+  def create_dataset(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -1189,13 +1192,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1205,17 +1216,9 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1229,22 +1232,25 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:project_name` (`t:string`) The name of the project in which you want to
-    create a model version.
+  create a model version.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to CreateModel completes only once. You choose the value to pass. For
-    example, An issue might prevent you from getting a response from
-    CreateModel. In this case, safely retry your call to CreateModel by using
-    the same ClientToken parameter value.
+  a call to CreateModel completes only once. You choose the value to pass. For
+  example, An issue might prevent you from getting a response from
+  CreateModel. In this case, safely retry your call to CreateModel by using
+  the same ClientToken parameter value.
   """
-  @spec create_model(AWS.Client.t(), String.t(), create_model_request(), Keyword.t()) ::
+
+  @spec create_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
-  def create_model(%Client{} = client, project_name, input, options \\ []) do
+
+  def create_model(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -1253,13 +1259,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1269,17 +1283,9 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1292,18 +1298,21 @@ defmodule AWS.LookoutVision do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to CreateProject completes only once. You choose the value to pass.
-    For example, An issue might prevent you from getting a response from
-    CreateProject. In this case, safely retry your call to CreateProject by
-    using the same ClientToken parameter value.
+  a call to CreateProject completes only once. You choose the value to pass.
+  For example, An issue might prevent you from getting a response from
+  CreateProject. In this case, safely retry your call to CreateProject by
+  using the same ClientToken parameter value.
   """
-  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+
+  @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-  def create_project(%Client{} = client, input, options \\ []) do
+
+  def create_project(%Client{} = client, options \\ []) do
     url_path = "/2020-11-20/projects"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -1312,13 +1321,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1328,17 +1345,9 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1349,32 +1358,29 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:dataset_type` (`t:string`) The type of the dataset to delete. Specify train
-    to delete the training dataset. Specify test to delete the test dataset. To
-    delete the dataset in a single dataset project, specify train.
+  to delete the training dataset. Specify test to delete the test dataset. To
+  delete the dataset in a single dataset project, specify train.
   * `:project_name` (`t:string`) The name of the project that contains the dataset
-    that you want to delete.
+  that you want to delete.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to DeleteDataset completes only once. You choose the value to pass.
-    For example, An issue might prevent you from getting a response from
-    DeleteDataset. In this case, safely retry your call to DeleteDataset by
-    using the same ClientToken parameter value.
+  a call to DeleteDataset completes only once. You choose the value to pass.
+  For example, An issue might prevent you from getting a response from
+  DeleteDataset. In this case, safely retry your call to DeleteDataset by
+  using the same ClientToken parameter value.
   """
-  @spec delete_dataset(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_dataset_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_dataset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-  def delete_dataset(%Client{} = client, dataset_type, project_name, input, options \\ []) do
+
+  def delete_dataset(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -1383,13 +1389,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1399,6 +1413,8 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1406,7 +1422,7 @@ defmodule AWS.LookoutVision do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1423,25 +1439,28 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:model_version` (`t:string`) The version of the model that you want to
-    delete.
+  delete.
   * `:project_name` (`t:string`) The name of the project that contains the model
-    that you want to delete.
+  that you want to delete.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to DeleteModel completes only once. You choose the value to pass. For
-    example, an issue might prevent you from getting a response from
-    DeleteModel. In this case, safely retry your call to DeleteModel by using
-    the same ClientToken parameter value.
+  a call to DeleteModel completes only once. You choose the value to pass. For
+  example, an issue might prevent you from getting a response from
+  DeleteModel. In this case, safely retry your call to DeleteModel by using
+  the same ClientToken parameter value.
   """
-  @spec delete_model(AWS.Client.t(), String.t(), String.t(), delete_model_request(), Keyword.t()) ::
+
+  @spec delete_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_errors()}
-  def delete_model(%Client{} = client, model_version, project_name, input, options \\ []) do
+
+  def delete_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -1450,13 +1469,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1466,6 +1493,8 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1473,7 +1502,7 @@ defmodule AWS.LookoutVision do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1491,18 +1520,21 @@ defmodule AWS.LookoutVision do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to DeleteProject completes only once. You choose the value to pass.
-    For example, An issue might prevent you from getting a response from
-    DeleteProject. In this case, safely retry your call to DeleteProject by
-    using the same ClientToken parameter value.
+  a call to DeleteProject completes only once. You choose the value to pass.
+  For example, An issue might prevent you from getting a response from
+  DeleteProject. In this case, safely retry your call to DeleteProject by
+  using the same ClientToken parameter value.
   """
-  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
+
+  @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-  def delete_project(%Client{} = client, project_name, input, options \\ []) do
+
+  def delete_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -1511,13 +1543,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1527,6 +1567,8 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1534,7 +1576,7 @@ defmodule AWS.LookoutVision do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1547,17 +1589,19 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:dataset_type` (`t:string`) The type of the dataset to describe. Specify
-    train to describe the training dataset. Specify test to describe the test
-    dataset. If you have a single dataset project, specify train
+  train to describe the training dataset. Specify test to describe the test
+  dataset. If you have a single dataset project, specify train
   * `:project_name` (`t:string`) The name of the project that contains the dataset
-    that you want to describe.
+  that you want to describe.
 
   ## Optional parameters:
   """
+
   @spec describe_dataset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
+
   def describe_dataset(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}"
@@ -1594,16 +1638,18 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:model_version` (`t:string`) The version of the model that you want to
-    describe.
+  describe.
   * `:project_name` (`t:string`) The project that contains the version of a model
-    that you want to describe.
+  that you want to describe.
 
   ## Optional parameters:
   """
+
   @spec describe_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_errors()}
+
   def describe_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}"
@@ -1643,14 +1689,16 @@ defmodule AWS.LookoutVision do
   ## Parameters:
   * `:job_name` (`t:string`) The job name for the model packaging job.
   * `:project_name` (`t:string`) The name of the project that contains the model
-    packaging job that you want to describe.
+  packaging job that you want to describe.
 
   ## Optional parameters:
   """
+
   @spec describe_model_packaging_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_model_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_packaging_job_errors()}
+
   def describe_model_packaging_job(%Client{} = client, job_name, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs/#{AWS.Util.encode_uri(job_name)}"
@@ -1687,14 +1735,16 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:project_name` (`t:string`) The name of the project that you want to
-    describe.
+  describe.
 
   ## Optional parameters:
   """
+
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
+
   def describe_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
 
@@ -1735,27 +1785,41 @@ defmodule AWS.LookoutVision do
   ## Parameters:
   * `:model_version` (`t:string`) The version of the model that you want to use.
   * `:project_name` (`t:string`) The name of the project that contains the model
-    version that you want to use.
+  version that you want to use.
   * `:content_type` (`t:string`) The type of the image passed in Body. Valid
-    values are image/png (PNG format images) and image/jpeg (JPG format images).
+  values are image/png (PNG format images) and image/jpeg (JPG format images).
+  * `:input` (`t:map`):
+    * `:body` (`t:blob`) The unencrypted image bytes that you want to analyze.
 
   ## Optional parameters:
   """
+
   @spec detect_anomalies(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          detect_anomalies_request(),
+          String.t(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, detect_anomalies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_anomalies_errors()}
-  def detect_anomalies(%Client{} = client, model_version, project_name, input, options \\ []) do
+
+  def detect_anomalies(
+        %Client{} = client,
+        model_version,
+        project_name,
+        content_type,
+        input,
+        options \\ []
+      )
+      when is_map(input) and is_binary(content_type) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/detect"
 
-    optional_params = [content_type: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -1763,28 +1827,22 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ContentType", "Content-Type"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"Content-Type", content_type}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1796,38 +1854,40 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:dataset_type` (`t:string`) The type of the dataset that you want to list.
-    Specify train to list the training dataset. Specify test to list the test
-    dataset. If you have a single dataset project, specify train.
+  Specify train to list the training dataset. Specify test to list the test
+  dataset. If you have a single dataset project, specify train.
   * `:project_name` (`t:string`) The name of the project that contains the dataset
-    that you want to list.
+  that you want to list.
 
   ## Optional parameters:
   * `:after_creation_date` (`t:timestamp`) Only includes entries after the
-    specified date in the response. For example, 2020-06-23T00:00:00.
+  specified date in the response. For example, 2020-06-23T00:00:00.
   * `:anomaly_class` (`t:string`) Specify normal to include only normal images.
-    Specify anomaly to only include anomalous entries. If you don't specify a
-    value, Amazon Lookout for Vision returns normal and anomalous images.
+  Specify anomaly to only include anomalous entries. If you don't specify a
+  value, Amazon Lookout for Vision returns normal and anomalous images.
   * `:before_creation_date` (`t:timestamp`) Only includes entries before the
-    specified date in the response. For example, 2020-06-23T00:00:00.
+  specified date in the response. For example, 2020-06-23T00:00:00.
   * `:labeled` (`t:boolean`) Specify true to include labeled entries, otherwise
-    specify false. If you don't specify a value, Lookout for Vision returns all
-    entries.
+  specify false. If you don't specify a value, Lookout for Vision returns all
+  entries.
   * `:max_results` (`t:integer`) The maximum number of results to return per
-    paginated call. The largest value you can specify is 100. If you specify a
-    value greater than 100, a ValidationException error occurs. The default
-    value is 100.
+  paginated call. The largest value you can specify is 100. If you specify a
+  value greater than 100, a ValidationException error occurs. The default
+  value is 100.
   * `:next_token` (`t:string`) If the previous response was incomplete (because
-    there is more data to retrieve), Amazon Lookout for Vision returns a
-    pagination token in the response. You can use this pagination token to
-    retrieve the next set of dataset entries.
+  there is more data to retrieve), Amazon Lookout for Vision returns a
+  pagination token in the response. You can use this pagination token to
+  retrieve the next set of dataset entries.
   * `:source_ref_contains` (`t:string`) Perform a "contains" search on the values
-    of the source-ref key within the dataset. For example a value of "IMG_17"
-    returns all JSON Lines where the source-ref key value matches *IMG_17*.
+  of the source-ref key within the dataset. For example a value of "IMG_17"
+  returns all JSON Lines where the source-ref key value matches *IMG_17*.
   """
+
   @spec list_dataset_entries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_entries_errors()}
+
   def list_dataset_entries(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}/entries"
@@ -1935,22 +1995,24 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:project_name` (`t:string`) The name of the project for which you want to
-    list the model packaging jobs.
+  list the model packaging jobs.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
-    paginated call. The largest value you can specify is 100. If you specify a
-    value greater than 100, a ValidationException error occurs. The default
-    value is 100.
+  paginated call. The largest value you can specify is 100. If you specify a
+  value greater than 100, a ValidationException error occurs. The default
+  value is 100.
   * `:next_token` (`t:string`) If the previous response was incomplete (because
-    there is more results to retrieve), Amazon Lookout for Vision returns a
-    pagination token in the response. You can use this pagination token to
-    retrieve the next set of results.
+  there is more results to retrieve), Amazon Lookout for Vision returns a
+  pagination token in the response. You can use this pagination token to
+  retrieve the next set of results.
   """
+
   @spec list_model_packaging_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_model_packaging_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_packaging_jobs_errors()}
+
   def list_model_packaging_jobs(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs"
 
@@ -2006,22 +2068,24 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:project_name` (`t:string`) The name of the project that contains the model
-    versions that you want to list.
+  versions that you want to list.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
-    paginated call. The largest value you can specify is 100. If you specify a
-    value greater than 100, a ValidationException error occurs. The default
-    value is 100.
+  paginated call. The largest value you can specify is 100. If you specify a
+  value greater than 100, a ValidationException error occurs. The default
+  value is 100.
   * `:next_token` (`t:string`) If the previous response was incomplete (because
-    there is more data to retrieve), Amazon Lookout for Vision returns a
-    pagination token in the response. You can use this pagination token to
-    retrieve the next set of models.
+  there is more data to retrieve), Amazon Lookout for Vision returns a
+  pagination token in the response. You can use this pagination token to
+  retrieve the next set of models.
   """
+
   @spec list_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_models_errors()}
+
   def list_models(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models"
 
@@ -2080,18 +2144,20 @@ defmodule AWS.LookoutVision do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
-    paginated call. The largest value you can specify is 100. If you specify a
-    value greater than 100, a ValidationException error occurs. The default
-    value is 100.
+  paginated call. The largest value you can specify is 100. If you specify a
+  value greater than 100, a ValidationException error occurs. The default
+  value is 100.
   * `:next_token` (`t:string`) If the previous response was incomplete (because
-    there is more data to retrieve), Amazon Lookout for Vision returns a
-    pagination token in the response. You can use this pagination token to
-    retrieve the next set of projects.
+  there is more data to retrieve), Amazon Lookout for Vision returns a
+  pagination token in the response. You can use this pagination token to
+  retrieve the next set of projects.
   """
+
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
+
   def list_projects(%Client{} = client, options \\ []) do
     url_path = "/2020-11-20/projects"
 
@@ -2146,14 +2212,16 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the model for
-    which you want to list tags.
+  which you want to list tags.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2193,23 +2261,26 @@ defmodule AWS.LookoutVision do
   ## Parameters:
   * `:model_version` (`t:string`) The version of the model that you want to start.
   * `:project_name` (`t:string`) The name of the project that contains the model
-    that you want to start.
+  that you want to start.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to StartModel completes only once. You choose the value to pass. For
-    example, An issue might prevent you from getting a response from StartModel.
-    In this case, safely retry your call to StartModel by using the same
-    ClientToken parameter value.
+  a call to StartModel completes only once. You choose the value to pass. For
+  example, An issue might prevent you from getting a response from StartModel.
+  In this case, safely retry your call to StartModel by using the same
+  ClientToken parameter value.
   """
-  @spec start_model(AWS.Client.t(), String.t(), String.t(), start_model_request(), Keyword.t()) ::
+
+  @spec start_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_model_errors()}
-  def start_model(%Client{} = client, model_version, project_name, input, options \\ []) do
+
+  def start_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/start"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2218,13 +2289,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2234,17 +2313,9 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2259,27 +2330,25 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:project_name` (`t:string`) The name of the project which contains the
-    version of the model that you want to package.
+  version of the model that you want to package.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to StartModelPackagingJob completes only once. You choose the value
-    to pass. For example, An issue might prevent you from getting a response
-    from StartModelPackagingJob. In this case, safely retry your call to
-    StartModelPackagingJob by using the same ClientToken parameter value.
+  a call to StartModelPackagingJob completes only once. You choose the value
+  to pass. For example, An issue might prevent you from getting a response
+  from StartModelPackagingJob. In this case, safely retry your call to
+  StartModelPackagingJob by using the same ClientToken parameter value.
   """
-  @spec start_model_packaging_job(
-          AWS.Client.t(),
-          String.t(),
-          start_model_packaging_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_model_packaging_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_model_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_model_packaging_job_errors()}
-  def start_model_packaging_job(%Client{} = client, project_name, input, options \\ []) do
+
+  def start_model_packaging_job(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2288,13 +2357,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2304,17 +2381,9 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2327,23 +2396,26 @@ defmodule AWS.LookoutVision do
   ## Parameters:
   * `:model_version` (`t:string`) The version of the model that you want to stop.
   * `:project_name` (`t:string`) The name of the project that contains the model
-    that you want to stop.
+  that you want to stop.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to StopModel completes only once. You choose the value to pass. For
-    example, An issue might prevent you from getting a response from StopModel.
-    In this case, safely retry your call to StopModel by using the same
-    ClientToken parameter value.
+  a call to StopModel completes only once. You choose the value to pass. For
+  example, An issue might prevent you from getting a response from StopModel.
+  In this case, safely retry your call to StopModel by using the same
+  ClientToken parameter value.
   """
-  @spec stop_model(AWS.Client.t(), String.t(), String.t(), stop_model_request(), Keyword.t()) ::
+
+  @spec stop_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_model_errors()}
-  def stop_model(%Client{} = client, model_version, project_name, input, options \\ []) do
+
+  def stop_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/stop"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2352,13 +2424,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2368,17 +2448,9 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2390,33 +2462,44 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the model to
-    assign the tags.
+  assign the tags.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2428,28 +2511,45 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the model from
-    which you want to remove tags.
+  which you want to remove tags.
   * `:tag_keys` (`t:list[com.amazonaws.lookoutvision#TagKey]`) A list of the keys
-    of the tags that you want to remove.
+  of the tags that you want to remove.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2458,7 +2558,7 @@ defmodule AWS.LookoutVision do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2476,32 +2576,29 @@ defmodule AWS.LookoutVision do
 
   ## Parameters:
   * `:dataset_type` (`t:string`) The type of the dataset that you want to update.
-    Specify train to update the training dataset. Specify test to update the
-    test dataset. If you have a single dataset project, specify train.
+  Specify train to update the training dataset. Specify test to update the
+  test dataset. If you have a single dataset project, specify train.
   * `:project_name` (`t:string`) The name of the project that contains the dataset
-    that you want to update.
+  that you want to update.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures
-    a call to UpdateDatasetEntries completes only once. You choose the value to
-    pass. For example, An issue might prevent you from getting a response from
-    UpdateDatasetEntries. In this case, safely retry your call to
-    UpdateDatasetEntries by using the same ClientToken parameter value.
+  a call to UpdateDatasetEntries completes only once. You choose the value to
+  pass. For example, An issue might prevent you from getting a response from
+  UpdateDatasetEntries. In this case, safely retry your call to
+  UpdateDatasetEntries by using the same ClientToken parameter value.
   """
-  @spec update_dataset_entries(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_dataset_entries_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_dataset_entries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_entries_errors()}
-  def update_dataset_entries(%Client{} = client, dataset_type, project_name, input, options \\ []) do
+
+  def update_dataset_entries(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}/entries"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2510,13 +2607,21 @@ defmodule AWS.LookoutVision do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientToken", "X-Amzn-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amzn-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2526,6 +2631,8 @@ defmodule AWS.LookoutVision do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2533,7 +2640,7 @@ defmodule AWS.LookoutVision do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )

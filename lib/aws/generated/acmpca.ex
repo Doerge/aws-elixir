@@ -1193,16 +1193,28 @@ defmodule AWS.ACMPCA do
   the Amazon S3 bucket that will contain the CRL, and a CNAME alias for the S3
   bucket that is included in certificates issued by the CA. If successful, this
   action returns the Amazon Resource Name (ARN) of the CA.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20CreateCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_certificate_authority_request`)
+    %{
+      optional("IdempotencyToken") => String.t(),
+      optional("KeyStorageSecurityStandard") => list(any()),
+      optional("RevocationConfiguration") => revocation_configuration(),
+      optional("Tags") => list(tag()()),
+      optional("UsageMode") => list(any()),
+      required("CertificateAuthorityConfiguration") => certificate_authority_configuration(),
+      required("CertificateAuthorityType") => list(any())
+    }
   """
-  @spec create_certificate_authority(
-          AWS.Client.t(),
-          create_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_certificate_authority_errors()}
-  def create_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def create_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1224,16 +1236,25 @@ defmodule AWS.ACMPCA do
   Amazon Web Services Private CA assets that are stored in Amazon S3 can be
   protected with encryption. For more information, see [Encrypting Your Audit
   Reports](https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20CreateCertificateAuthorityAuditReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_certificate_authority_audit_report_request`)
+    %{
+      required("AuditReportResponseFormat") => list(any()),
+      required("CertificateAuthorityArn") => String.t(),
+      required("S3BucketName") => String.t()
+    }
   """
-  @spec create_certificate_authority_audit_report(
-          AWS.Client.t(),
-          create_certificate_authority_audit_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_certificate_authority_audit_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_certificate_authority_audit_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_certificate_authority_audit_report_errors()}
-  def create_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
+
+  def create_certificate_authority_audit_report(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1249,12 +1270,25 @@ defmodule AWS.ACMPCA do
   action and revoke them with the
   [DeletePermission](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html)
   action. **About Permissions**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20CreatePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_permission_request`)
+    %{
+      optional("SourceAccount") => String.t(),
+      required("Actions") => list(list(any())()),
+      required("CertificateAuthorityArn") => String.t(),
+      required("Principal") => String.t()
+    }
   """
-  @spec create_permission(AWS.Client.t(), create_permission_request(), Keyword.t()) ::
+
+  @spec create_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_errors()}
-  def create_permission(%Client{} = client, input, options \\ []) do
+
+  def create_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1271,16 +1305,23 @@ defmodule AWS.ACMPCA do
   activated, you must disable it. To do this, call the
   [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html)
   action and set the **CertificateAuthorityStatus** parameter to `DISABLED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20DeleteCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_certificate_authority_request`)
+    %{
+      optional("PermanentDeletionTimeInDays") => integer(),
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec delete_certificate_authority(
-          AWS.Client.t(),
-          delete_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_authority_errors()}
-  def delete_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def delete_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1293,12 +1334,24 @@ defmodule AWS.ACMPCA do
   and renew ACM certificates that reside in the same Amazon Web Services account
   as the CA. If you revoke these permissions, ACM will no longer renew the
   affected certificates automatically.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20DeletePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_permission_request`)
+    %{
+      optional("SourceAccount") => String.t(),
+      required("CertificateAuthorityArn") => String.t(),
+      required("Principal") => String.t()
+    }
   """
-  @spec delete_permission(AWS.Client.t(), delete_permission_request(), Keyword.t()) ::
+
+  @spec delete_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_errors()}
-  def delete_permission(%Client{} = client, input, options \\ []) do
+
+  def delete_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1311,12 +1364,22 @@ defmodule AWS.ACMPCA do
   private CA, this action will return successful. If you delete a policy that
   was applied through Amazon Web Services Resource Access Manager (RAM), the CA
   will be removed from all shares in which it was included.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20DeletePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_policy(AWS.Client.t(), delete_policy_request(), Keyword.t()) ::
+
+  @spec delete_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-  def delete_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1328,16 +1391,23 @@ defmodule AWS.ACMPCA do
   been shared with you. You specify the private CA on input by its ARN (Amazon
   Resource Name). The output contains the status of your CA. This can be any of
   the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20DescribeCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_certificate_authority_request`)
+    %{
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec describe_certificate_authority(
-          AWS.Client.t(),
-          describe_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_authority_errors()}
-  def describe_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def describe_certificate_authority(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1353,16 +1423,24 @@ defmodule AWS.ACMPCA do
   action or the
   [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html)
   action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20DescribeCertificateAuthorityAuditReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_certificate_authority_audit_report_request`)
+    %{
+      required("AuditReportId") => String.t(),
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec describe_certificate_authority_audit_report(
-          AWS.Client.t(),
-          describe_certificate_authority_audit_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_certificate_authority_audit_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificate_authority_audit_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_authority_audit_report_errors()}
-  def describe_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
+
+  def describe_certificate_authority_audit_report(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1379,12 +1457,23 @@ defmodule AWS.ACMPCA do
   [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html)
   action to create a report that contains information about all of the
   certificates issued and revoked by your private CA.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20GetCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_certificate_request`)
+    %{
+      required("CertificateArn") => String.t(),
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec get_certificate(AWS.Client.t(), get_certificate_request(), Keyword.t()) ::
+
+  @spec get_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificate_errors()}
-  def get_certificate(%Client{} = client, input, options \\ []) do
+
+  def get_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1396,16 +1485,23 @@ defmodule AWS.ACMPCA do
   authority (CA) or one that has been shared with you. Both the certificate and
   the chain are base64 PEM-encoded. The chain does not include the CA
   certificate. Each certificate in the chain signs the one before it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20GetCertificateAuthorityCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_certificate_authority_certificate_request`)
+    %{
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec get_certificate_authority_certificate(
-          AWS.Client.t(),
-          get_certificate_authority_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_certificate_authority_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificate_authority_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificate_authority_certificate_errors()}
-  def get_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
+
+  def get_certificate_authority_certificate(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1421,16 +1517,23 @@ defmodule AWS.ACMPCA do
   into Amazon Web Services Private CA by calling the
   [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
   action. The CSR is returned as a base64 PEM-encoded string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20GetCertificateAuthorityCsr&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_certificate_authority_csr_request`)
+    %{
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec get_certificate_authority_csr(
-          AWS.Client.t(),
-          get_certificate_authority_csr_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_certificate_authority_csr(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificate_authority_csr_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificate_authority_csr_errors()}
-  def get_certificate_authority_csr(%Client{} = client, input, options \\ []) do
+
+  def get_certificate_authority_csr(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1445,12 +1548,22 @@ defmodule AWS.ACMPCA do
   and removed with
   [DeletePolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html).
   **About Policies**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_policy(AWS.Client.t(), get_policy_request(), Keyword.t()) ::
+
+  @spec get_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-  def get_policy(%Client{} = client, input, options \\ []) do
+
+  def get_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1462,16 +1575,25 @@ defmodule AWS.ACMPCA do
   This action is used when you are using a chain of trust whose root is located
   outside Amazon Web Services Private CA. Before you can call this action, the
   following preparations must in place:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20ImportCertificateAuthorityCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_certificate_authority_certificate_request`)
+    %{
+      optional("CertificateChain") => binary(),
+      required("Certificate") => binary(),
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec import_certificate_authority_certificate(
-          AWS.Client.t(),
-          import_certificate_authority_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec import_certificate_authority_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_certificate_authority_certificate_errors()}
-  def import_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
+
+  def import_certificate_authority_certificate(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1484,12 +1606,29 @@ defmodule AWS.ACMPCA do
   Name (ARN) of the certificate. You can retrieve the certificate by calling the
   [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html)
   action and specifying the ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20IssueCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:issue_certificate_request`)
+    %{
+      optional("ApiPassthrough") => api_passthrough(),
+      optional("IdempotencyToken") => String.t(),
+      optional("TemplateArn") => String.t(),
+      optional("ValidityNotBefore") => validity(),
+      required("CertificateAuthorityArn") => String.t(),
+      required("Csr") => binary(),
+      required("SigningAlgorithm") => list(any()),
+      required("Validity") => validity()
+    }
   """
-  @spec issue_certificate(AWS.Client.t(), issue_certificate_request(), Keyword.t()) ::
+
+  @spec issue_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, issue_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, issue_certificate_errors()}
-  def issue_certificate(%Client{} = client, input, options \\ []) do
+
+  def issue_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1500,16 +1639,24 @@ defmodule AWS.ACMPCA do
   Lists the private certificate authorities that you created by using the
   [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
   action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20ListCertificateAuthorities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_certificate_authorities_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceOwner") => list(any())
+    }
   """
-  @spec list_certificate_authorities(
-          AWS.Client.t(),
-          list_certificate_authorities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_certificate_authorities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificate_authorities_errors()}
-  def list_certificate_authorities(%Client{} = client, input, options \\ []) do
+
+  def list_certificate_authorities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1521,12 +1668,24 @@ defmodule AWS.ACMPCA do
   (ACM) service principal (acm.amazonaws.com). These permissions allow ACM to
   issue and renew ACM certificates that reside in the same Amazon Web Services
   account as the CA.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20ListPermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_permissions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec list_permissions(AWS.Client.t(), list_permissions_request(), Keyword.t()) ::
+
+  @spec list_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
-  def list_permissions(%Client{} = client, input, options \\ []) do
+
+  def list_permissions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1541,12 +1700,24 @@ defmodule AWS.ACMPCA do
   action to add one or more tags to your CA. Call the
   [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html)
   action to remove tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
+
+  @spec list_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-  def list_tags(%Client{} = client, input, options \\ []) do
+
+  def list_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1563,12 +1734,23 @@ defmodule AWS.ACMPCA do
   and removed with
   [DeletePolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html).
   **About Policies**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20PutPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_policy_request`)
+    %{
+      required("Policy") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec put_policy(AWS.Client.t(), put_policy_request(), Keyword.t()) ::
+
+  @spec put_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
-  def put_policy(%Client{} = client, input, options \\ []) do
+
+  def put_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1596,16 +1778,23 @@ defmodule AWS.ACMPCA do
   [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
   action to import a certificate authority into the private CA before it can be
   activated. You cannot restore a CA after the restoration period has ended.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20RestoreCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_certificate_authority_request`)
+    %{
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec restore_certificate_authority(
-          AWS.Client.t(),
-          restore_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_certificate_authority_errors()}
-  def restore_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def restore_certificate_authority(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1631,12 +1820,24 @@ defmodule AWS.ACMPCA do
   Amazon Web Services Private CA also writes revocation information to the audit
   report. For more information, see
   [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20RevokeCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:revoke_certificate_request`)
+    %{
+      required("CertificateAuthorityArn") => String.t(),
+      required("CertificateSerial") => String.t(),
+      required("RevocationReason") => list(any())
+    }
   """
-  @spec revoke_certificate(AWS.Client.t(), revoke_certificate_request(), Keyword.t()) ::
+
+  @spec revoke_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_certificate_errors()}
-  def revoke_certificate(%Client{} = client, input, options \\ []) do
+
+  def revoke_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1661,16 +1862,23 @@ defmodule AWS.ACMPCA do
   and explicitly allow tagging. For more information, see [Attaching tags to a
   CA at the time of
   creation](https://docs.aws.amazon.com/privateca/latest/userguide/auth-InlinePolicies.html#policy-tag-ca).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20TagCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_certificate_authority_request`)
+    %{
+      required("CertificateAuthorityArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_certificate_authority(
-          AWS.Client.t(),
-          tag_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec tag_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_certificate_authority_errors()}
-  def tag_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def tag_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1687,16 +1895,23 @@ defmodule AWS.ACMPCA do
   Call the
   [ListTags](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html)
   action to see what tags are associated with your CA.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20UntagCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_certificate_authority_request`)
+    %{
+      required("CertificateAuthorityArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec untag_certificate_authority(
-          AWS.Client.t(),
-          untag_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec untag_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_certificate_authority_errors()}
-  def untag_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def untag_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1708,16 +1923,24 @@ defmodule AWS.ACMPCA do
   Your private CA must be in the `ACTIVE` or `DISABLED` state before you can
   update it. You can disable a private CA that is in the `ACTIVE` state or make
   a CA that is in the `DISABLED` state active again.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acmpca%20UpdateCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_certificate_authority_request`)
+    %{
+      optional("RevocationConfiguration") => revocation_configuration(),
+      optional("Status") => list(any()),
+      required("CertificateAuthorityArn") => String.t()
+    }
   """
-  @spec update_certificate_authority(
-          AWS.Client.t(),
-          update_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_certificate_authority(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_certificate_authority_errors()}
-  def update_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def update_certificate_authority(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

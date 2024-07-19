@@ -2226,12 +2226,23 @@ defmodule AWS.SFN do
   machine and when polling from the activity. This operation is eventually
   consistent. The results are best effort and may not reflect very recent
   updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20CreateActivity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_activity_input`)
+    %{
+      optional("tags") => list(tag()()),
+      required("name") => String.t()
+    }
   """
-  @spec create_activity(AWS.Client.t(), create_activity_input(), Keyword.t()) ::
+
+  @spec create_activity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_activity_errors()}
-  def create_activity(%Client{} = client, input, options \\ []) do
+
+  def create_activity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2248,12 +2259,30 @@ defmodule AWS.SFN do
   in the Step Functions User Guide. If you set the `publish` parameter of this
   API action to `true`, it publishes version `1` as the first revision of the
   state machine.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20CreateStateMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_state_machine_input`)
+    %{
+      optional("loggingConfiguration") => logging_configuration(),
+      optional("publish") => boolean(),
+      optional("tags") => list(tag()()),
+      optional("tracingConfiguration") => tracing_configuration(),
+      optional("type") => list(any()),
+      optional("versionDescription") => String.t(),
+      required("definition") => String.t(),
+      required("name") => String.t(),
+      required("roleArn") => String.t()
+    }
   """
-  @spec create_state_machine(AWS.Client.t(), create_state_machine_input(), Keyword.t()) ::
+
+  @spec create_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_state_machine_errors()}
-  def create_state_machine(%Client{} = client, input, options \\ []) do
+
+  def create_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2274,16 +2303,24 @@ defmodule AWS.SFN do
   should receive in both `RoutingConfig` objects. Step Functions randomly
   chooses which version runs a given execution based on the percentage you
   specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20CreateStateMachineAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_state_machine_alias_input`)
+    %{
+      optional("description") => String.t(),
+      required("name") => String.t(),
+      required("routingConfiguration") => list(routing_configuration_list_item()())
+    }
   """
-  @spec create_state_machine_alias(
-          AWS.Client.t(),
-          create_state_machine_alias_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_state_machine_alias_errors()}
-  def create_state_machine_alias(%Client{} = client, input, options \\ []) do
+
+  def create_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2292,12 +2329,22 @@ defmodule AWS.SFN do
 
   @doc """
   Deletes an activity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DeleteActivity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_activity_input`)
+    %{
+      required("activityArn") => String.t()
+    }
   """
-  @spec delete_activity(AWS.Client.t(), delete_activity_input(), Keyword.t()) ::
+
+  @spec delete_activity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_activity_errors()}
-  def delete_activity(%Client{} = client, input, options \\ []) do
+
+  def delete_activity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2311,12 +2358,22 @@ defmodule AWS.SFN do
   state transition, the state machine's executions are terminated. A qualified
   state machine ARN can either refer to a *Distributed Map state* defined within
   a state machine, a version ARN, or an alias ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DeleteStateMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_state_machine_input`)
+    %{
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec delete_state_machine(AWS.Client.t(), delete_state_machine_input(), Keyword.t()) ::
+
+  @spec delete_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_state_machine_errors()}
-  def delete_state_machine(%Client{} = client, input, options \\ []) do
+
+  def delete_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2329,16 +2386,22 @@ defmodule AWS.SFN do
   After you delete a state machine alias, you can't use it to start executions.
   When you delete a state machine alias, Step Functions doesn't delete the state
   machine versions that alias references.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DeleteStateMachineAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_state_machine_alias_input`)
+    %{
+      required("stateMachineAliasArn") => String.t()
+    }
   """
-  @spec delete_state_machine_alias(
-          AWS.Client.t(),
-          delete_state_machine_alias_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_state_machine_alias_errors()}
-  def delete_state_machine_alias(%Client{} = client, input, options \\ []) do
+
+  def delete_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2352,16 +2415,22 @@ defmodule AWS.SFN do
   version's ARN or use the version with a state machine
   [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
   Deleting a state machine version won't terminate its in-progress executions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DeleteStateMachineVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_state_machine_version_input`)
+    %{
+      required("stateMachineVersionArn") => String.t()
+    }
   """
-  @spec delete_state_machine_version(
-          AWS.Client.t(),
-          delete_state_machine_version_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_state_machine_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_state_machine_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_state_machine_version_errors()}
-  def delete_state_machine_version(%Client{} = client, input, options \\ []) do
+
+  def delete_state_machine_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2370,12 +2439,22 @@ defmodule AWS.SFN do
 
   @doc """
   Describes an activity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DescribeActivity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_activity_input`)
+    %{
+      required("activityArn") => String.t()
+    }
   """
-  @spec describe_activity(AWS.Client.t(), describe_activity_input(), Keyword.t()) ::
+
+  @spec describe_activity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_activity_errors()}
-  def describe_activity(%Client{} = client, input, options \\ []) do
+
+  def describe_activity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2392,12 +2471,22 @@ defmodule AWS.SFN do
   the Map Run Amazon Resource Name (ARN) if the execution was dispatched by a
   Map Run. If you specify a version or alias ARN when you call the
   `StartExecution` API action, `DescribeExecution` returns that ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DescribeExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_execution_input`)
+    %{
+      required("executionArn") => String.t()
+    }
   """
-  @spec describe_execution(AWS.Client.t(), describe_execution_input(), Keyword.t()) ::
+
+  @spec describe_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_execution_errors()}
-  def describe_execution(%Client{} = client, input, options \\ []) do
+
+  def describe_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2412,12 +2501,22 @@ defmodule AWS.SFN do
   Map Run. For more information, see [Examining Map
   Run](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html)
   in the *Step Functions Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DescribeMapRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_map_run_input`)
+    %{
+      required("mapRunArn") => String.t()
+    }
   """
-  @spec describe_map_run(AWS.Client.t(), describe_map_run_input(), Keyword.t()) ::
+
+  @spec describe_map_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_map_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_map_run_errors()}
-  def describe_map_run(%Client{} = client, input, options \\ []) do
+
+  def describe_map_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2429,12 +2528,22 @@ defmodule AWS.SFN do
   Resource Name (ARN), and configuration. A qualified state machine ARN can
   either refer to a *Distributed Map state* defined within a state machine, a
   version ARN, or an alias ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DescribeStateMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_state_machine_input`)
+    %{
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec describe_state_machine(AWS.Client.t(), describe_state_machine_input(), Keyword.t()) ::
+
+  @spec describe_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_state_machine_errors()}
-  def describe_state_machine(%Client{} = client, input, options \\ []) do
+
+  def describe_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2445,16 +2554,22 @@ defmodule AWS.SFN do
   Returns details about a state machine
   [alias](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html).
   **Related operations:**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DescribeStateMachineAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_state_machine_alias_input`)
+    %{
+      required("stateMachineAliasArn") => String.t()
+    }
   """
-  @spec describe_state_machine_alias(
-          AWS.Client.t(),
-          describe_state_machine_alias_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_state_machine_alias_errors()}
-  def describe_state_machine_alias(%Client{} = client, input, options \\ []) do
+
+  def describe_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2468,16 +2583,23 @@ defmodule AWS.SFN do
   returned is the state machine associated with the Map Run. This operation is
   eventually consistent. The results are best effort and may not reflect very
   recent updates and changes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20DescribeStateMachineForExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_state_machine_for_execution_input`)
+    %{
+      required("executionArn") => String.t()
+    }
   """
-  @spec describe_state_machine_for_execution(
-          AWS.Client.t(),
-          describe_state_machine_for_execution_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_state_machine_for_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_state_machine_for_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_state_machine_for_execution_errors()}
-  def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
+
+  def describe_state_machine_for_execution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2492,12 +2614,23 @@ defmodule AWS.SFN do
   The maximum time the service holds on to the request before responding is 60
   seconds. If no task is available within 60 seconds, the poll returns a
   `taskToken` with a null string. This API action isn't logged in CloudTrail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20GetActivityTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_activity_task_input`)
+    %{
+      optional("workerName") => String.t(),
+      required("activityArn") => String.t()
+    }
   """
-  @spec get_activity_task(AWS.Client.t(), get_activity_task_input(), Keyword.t()) ::
+
+  @spec get_activity_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_activity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_activity_task_errors()}
-  def get_activity_task(%Client{} = client, input, options \\ []) do
+
+  def get_activity_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2513,12 +2646,26 @@ defmodule AWS.SFN do
   using the returned token to retrieve the next page. Keep all other arguments
   unchanged. Each pagination token expires after 24 hours. Using an expired
   pagination token will return an *HTTP 400 InvalidToken* error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20GetExecutionHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_execution_history_input`)
+    %{
+      optional("includeExecutionData") => boolean(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("reverseOrder") => boolean(),
+      required("executionArn") => String.t()
+    }
   """
-  @spec get_execution_history(AWS.Client.t(), get_execution_history_input(), Keyword.t()) ::
+
+  @spec get_execution_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_execution_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_execution_history_errors()}
-  def get_execution_history(%Client{} = client, input, options \\ []) do
+
+  def get_execution_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2532,12 +2679,23 @@ defmodule AWS.SFN do
   page. Keep all other arguments unchanged. Each pagination token expires after
   24 hours. Using an expired pagination token will return an *HTTP 400
   InvalidToken* error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_activities_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_activities(AWS.Client.t(), list_activities_input(), Keyword.t()) ::
+
+  @spec list_activities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_activities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_activities_errors()}
-  def list_activities(%Client{} = client, input, options \\ []) do
+
+  def list_activities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2556,12 +2714,27 @@ defmodule AWS.SFN do
   [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
   ARN to list the executions associated with a specific alias or version.
   Results are sorted by time, with the most recent execution first.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_executions_input`)
+    %{
+      optional("mapRunArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("redriveFilter") => list(any()),
+      optional("stateMachineArn") => String.t(),
+      optional("statusFilter") => list(any())
+    }
   """
-  @spec list_executions(AWS.Client.t(), list_executions_input(), Keyword.t()) ::
+
+  @spec list_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_executions_errors()}
-  def list_executions(%Client{} = client, input, options \\ []) do
+
+  def list_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2572,12 +2745,24 @@ defmodule AWS.SFN do
   Lists all Map Runs that were started by a given state machine execution. Use
   this API action to obtain Map Run ARNs, and then call `DescribeMapRun` to
   obtain more information, if needed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListMapRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_map_runs_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("executionArn") => String.t()
+    }
   """
-  @spec list_map_runs(AWS.Client.t(), list_map_runs_input(), Keyword.t()) ::
+
+  @spec list_map_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_map_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_map_runs_errors()}
-  def list_map_runs(%Client{} = client, input, options \\ []) do
+
+  def list_map_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2597,16 +2782,24 @@ defmodule AWS.SFN do
   using the returned token to retrieve the next page. Keep all other arguments
   unchanged. Each pagination token expires after 24 hours. Using an expired
   pagination token will return an *HTTP 400 InvalidToken* error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListStateMachineAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_state_machine_aliases_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec list_state_machine_aliases(
-          AWS.Client.t(),
-          list_state_machine_aliases_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_state_machine_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_state_machine_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_state_machine_aliases_errors()}
-  def list_state_machine_aliases(%Client{} = client, input, options \\ []) do
+
+  def list_state_machine_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2618,16 +2811,24 @@ defmodule AWS.SFN do
   [versions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html)
   for the specified state machine Amazon Resource Name (ARN). The results are
   sorted in descending order of the version creation time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListStateMachineVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_state_machine_versions_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec list_state_machine_versions(
-          AWS.Client.t(),
-          list_state_machine_versions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_state_machine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_state_machine_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_state_machine_versions_errors()}
-  def list_state_machine_versions(%Client{} = client, input, options \\ []) do
+
+  def list_state_machine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2641,12 +2842,23 @@ defmodule AWS.SFN do
   page. Keep all other arguments unchanged. Each pagination token expires after
   24 hours. Using an expired pagination token will return an *HTTP 400
   InvalidToken* error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListStateMachines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_state_machines_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_state_machines(AWS.Client.t(), list_state_machines_input(), Keyword.t()) ::
+
+  @spec list_state_machines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_state_machines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_state_machines_errors()}
-  def list_state_machines(%Client{} = client, input, options \\ []) do
+
+  def list_state_machines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2655,12 +2867,22 @@ defmodule AWS.SFN do
 
   @doc """
   List tags for a given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2675,16 +2897,25 @@ defmodule AWS.SFN do
   directly or with an alias. To create an alias, use `CreateStateMachineAlias`.
   You can publish up to 1000 versions for each state machine. You must manually
   delete unused versions using the `DeleteStateMachineVersion` API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20PublishStateMachineVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:publish_state_machine_version_input`)
+    %{
+      optional("description") => String.t(),
+      optional("revisionId") => String.t(),
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec publish_state_machine_version(
-          AWS.Client.t(),
-          publish_state_machine_version_input(),
-          Keyword.t()
-        ) ::
+
+  @spec publish_state_machine_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, publish_state_machine_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_state_machine_version_errors()}
-  def publish_state_machine_version(%Client{} = client, input, options \\ []) do
+
+  def publish_state_machine_version(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2721,12 +2952,23 @@ defmodule AWS.SFN do
   Runs](https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html).
   You can redrive executions if your original execution meets the following
   conditions:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20RedriveExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:redrive_execution_input`)
+    %{
+      optional("clientToken") => String.t(),
+      required("executionArn") => String.t()
+    }
   """
-  @spec redrive_execution(AWS.Client.t(), redrive_execution_input(), Keyword.t()) ::
+
+  @spec redrive_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, redrive_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redrive_execution_errors()}
-  def redrive_execution(%Client{} = client, input, options \\ []) do
+
+  def redrive_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2739,12 +2981,24 @@ defmodule AWS.SFN do
   pattern, and optionally Task states using the [job
   run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
   pattern to report that the task identified by the `taskToken` failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20SendTaskFailure&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_task_failure_input`)
+    %{
+      optional("cause") => String.t(),
+      optional("error") => String.t(),
+      required("taskToken") => String.t()
+    }
   """
-  @spec send_task_failure(AWS.Client.t(), send_task_failure_input(), Keyword.t()) ::
+
+  @spec send_task_failure(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_task_failure_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_task_failure_errors()}
-  def send_task_failure(%Client{} = client, input, options \\ []) do
+
+  def send_task_failure(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2767,12 +3021,22 @@ defmodule AWS.SFN do
   or
   [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
   pattern.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20SendTaskHeartbeat&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_task_heartbeat_input`)
+    %{
+      required("taskToken") => String.t()
+    }
   """
-  @spec send_task_heartbeat(AWS.Client.t(), send_task_heartbeat_input(), Keyword.t()) ::
+
+  @spec send_task_heartbeat(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_task_heartbeat_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_task_heartbeat_errors()}
-  def send_task_heartbeat(%Client{} = client, input, options \\ []) do
+
+  def send_task_heartbeat(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2786,12 +3050,23 @@ defmodule AWS.SFN do
   run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
   pattern to report that the task identified by the `taskToken` completed
   successfully.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20SendTaskSuccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_task_success_input`)
+    %{
+      required("output") => String.t(),
+      required("taskToken") => String.t()
+    }
   """
-  @spec send_task_success(AWS.Client.t(), send_task_success_input(), Keyword.t()) ::
+
+  @spec send_task_success(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_task_success_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_task_success_errors()}
-  def send_task_success(%Client{} = client, input, options \\ []) do
+
+  def send_task_success(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2802,12 +3077,25 @@ defmodule AWS.SFN do
   Starts a state machine execution. A qualified state machine ARN can either refer
   to a *Distributed Map state* defined within a state machine, a version ARN, or
   an alias ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20StartExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_execution_input`)
+    %{
+      optional("input") => String.t(),
+      optional("name") => String.t(),
+      optional("traceHeader") => String.t(),
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec start_execution(AWS.Client.t(), start_execution_input(), Keyword.t()) ::
+
+  @spec start_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_execution_errors()}
-  def start_execution(%Client{} = client, input, options \\ []) do
+
+  def start_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2821,12 +3109,25 @@ defmodule AWS.SFN do
   the API response doesn't reflect function errors. Error codes are reserved for
   errors that prevent your execution from running, such as permissions errors,
   limit errors, or issues with your state machine code and configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20StartSyncExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_sync_execution_input`)
+    %{
+      optional("input") => String.t(),
+      optional("name") => String.t(),
+      optional("traceHeader") => String.t(),
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec start_sync_execution(AWS.Client.t(), start_sync_execution_input(), Keyword.t()) ::
+
+  @spec start_sync_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_sync_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_sync_execution_errors()}
-  def start_sync_execution(%Client{} = client, input, options \\ []) do
+
+  def start_sync_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "sync-")
 
@@ -2835,12 +3136,24 @@ defmodule AWS.SFN do
 
   @doc """
   Stops an execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20StopExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_execution_input`)
+    %{
+      optional("cause") => String.t(),
+      optional("error") => String.t(),
+      required("executionArn") => String.t()
+    }
   """
-  @spec stop_execution(AWS.Client.t(), stop_execution_input(), Keyword.t()) ::
+
+  @spec stop_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_execution_errors()}
-  def stop_execution(%Client{} = client, input, options \\ []) do
+
+  def stop_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2854,12 +3167,23 @@ defmodule AWS.SFN do
   in the *Amazon Web Services Billing and Cost Management User Guide*, and
   [Controlling Access Using IAM
   Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2870,12 +3194,26 @@ defmodule AWS.SFN do
   Accepts the definition of a single state and executes it. You can test a state
   without creating a state machine or updating an existing state machine. Using
   this API, you can test the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20TestState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_state_input`)
+    %{
+      optional("input") => String.t(),
+      optional("inspectionLevel") => list(any()),
+      optional("revealSecrets") => boolean(),
+      required("definition") => String.t(),
+      required("roleArn") => String.t()
+    }
   """
-  @spec test_state(AWS.Client.t(), test_state_input(), Keyword.t()) ::
+
+  @spec test_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_state_errors()}
-  def test_state(%Client{} = client, input, options \\ []) do
+
+  def test_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "sync-")
 
@@ -2884,12 +3222,23 @@ defmodule AWS.SFN do
 
   @doc """
   Remove a tag from a Step Functions resource
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2899,12 +3248,25 @@ defmodule AWS.SFN do
   @doc """
   Updates an in-progress Map Run's configuration to include changes to the
   settings that control maximum concurrency and Map Run failure.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20UpdateMapRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_map_run_input`)
+    %{
+      optional("maxConcurrency") => integer(),
+      optional("toleratedFailureCount") => float(),
+      optional("toleratedFailurePercentage") => float(),
+      required("mapRunArn") => String.t()
+    }
   """
-  @spec update_map_run(AWS.Client.t(), update_map_run_input(), Keyword.t()) ::
+
+  @spec update_map_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_map_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_map_run_errors()}
-  def update_map_run(%Client{} = client, input, options \\ []) do
+
+  def update_map_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2921,12 +3283,28 @@ defmodule AWS.SFN do
   `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
   refers to a *Distributed Map state* with a label `mapStateLabel` in the state
   machine named `stateMachineName`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20UpdateStateMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_state_machine_input`)
+    %{
+      optional("definition") => String.t(),
+      optional("loggingConfiguration") => logging_configuration(),
+      optional("publish") => boolean(),
+      optional("roleArn") => String.t(),
+      optional("tracingConfiguration") => tracing_configuration(),
+      optional("versionDescription") => String.t(),
+      required("stateMachineArn") => String.t()
+    }
   """
-  @spec update_state_machine(AWS.Client.t(), update_state_machine_input(), Keyword.t()) ::
+
+  @spec update_state_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_state_machine_errors()}
-  def update_state_machine(%Client{} = client, input, options \\ []) do
+
+  def update_state_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2939,16 +3317,24 @@ defmodule AWS.SFN do
   by modifying its `description` or `routingConfiguration`. You must specify at
   least one of the `description` or `routingConfiguration` parameters to update
   a state machine alias.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20UpdateStateMachineAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_state_machine_alias_input`)
+    %{
+      optional("description") => String.t(),
+      optional("routingConfiguration") => list(routing_configuration_list_item()()),
+      required("stateMachineAliasArn") => String.t()
+    }
   """
-  @spec update_state_machine_alias(
-          AWS.Client.t(),
-          update_state_machine_alias_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_state_machine_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_state_machine_alias_errors()}
-  def update_state_machine_alias(%Client{} = client, input, options \\ []) do
+
+  def update_state_machine_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2964,16 +3350,24 @@ defmodule AWS.SFN do
   Amazon States Language see [Amazon States
   Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html)
   (ASL).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20ValidateStateMachineDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:validate_state_machine_definition_input`)
+    %{
+      optional("type") => list(any()),
+      required("definition") => String.t()
+    }
   """
-  @spec validate_state_machine_definition(
-          AWS.Client.t(),
-          validate_state_machine_definition_input(),
-          Keyword.t()
-        ) ::
+
+  @spec validate_state_machine_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, validate_state_machine_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_state_machine_definition_errors()}
-  def validate_state_machine_definition(%Client{} = client, input, options \\ []) do
+
+  def validate_state_machine_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 

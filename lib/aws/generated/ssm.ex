@@ -8469,12 +8469,24 @@ defmodule AWS.SSM do
   value, both of which you define. For example, you could define a set of tags
   for your account's managed nodes that helps you track each node's owner and
   stack level. For example:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20AddTagsToResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_resource_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("ResourceType") => list(any()),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_request(), Keyword.t()) ::
+
+  @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_to_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-  def add_tags_to_resource(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8486,16 +8498,26 @@ defmodule AWS.SSM do
   you can associate an Incident Manager incident or analysis with an OpsItem.
   Incident Manager and OpsCenter are capabilities of Amazon Web Services Systems
   Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20AssociateOpsItemRelatedItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_ops_item_related_item_request`)
+    %{
+      required("AssociationType") => String.t(),
+      required("OpsItemId") => String.t(),
+      required("ResourceType") => String.t(),
+      required("ResourceUri") => String.t()
+    }
   """
-  @spec associate_ops_item_related_item(
-          AWS.Client.t(),
-          associate_ops_item_related_item_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_ops_item_related_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_ops_item_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_ops_item_related_item_errors()}
-  def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
+
+  def associate_ops_item_related_item(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8506,12 +8528,23 @@ defmodule AWS.SSM do
   Attempts to cancel the command specified by the Command ID. There is no
   guarantee that the command will be terminated and the underlying process
   stopped.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CancelCommand&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_command_request`)
+    %{
+      optional("InstanceIds") => list(String.t()()),
+      required("CommandId") => String.t()
+    }
   """
-  @spec cancel_command(AWS.Client.t(), cancel_command_request(), Keyword.t()) ::
+
+  @spec cancel_command(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_command_errors()}
-  def cancel_command(%Client{} = client, input, options \\ []) do
+
+  def cancel_command(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8522,16 +8555,23 @@ defmodule AWS.SSM do
   Stops a maintenance window execution that is already in progress and cancels any
   tasks in the window that haven't already starting running. Tasks already in
   progress will continue to completion.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CancelMaintenanceWindowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_maintenance_window_execution_request`)
+    %{
+      required("WindowExecutionId") => String.t()
+    }
   """
-  @spec cancel_maintenance_window_execution(
-          AWS.Client.t(),
-          cancel_maintenance_window_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_maintenance_window_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_maintenance_window_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_maintenance_window_execution_errors()}
-  def cancel_maintenance_window_execution(%Client{} = client, input, options \\ []) do
+
+  def cancel_maintenance_window_execution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8549,12 +8589,28 @@ defmodule AWS.SSM do
   Services Systems Manager for hybrid and multicloud
   environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateActivation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_activation_request`)
+    %{
+      optional("DefaultInstanceName") => String.t(),
+      optional("Description") => String.t(),
+      optional("ExpirationDate") => non_neg_integer(),
+      optional("RegistrationLimit") => integer(),
+      optional("RegistrationMetadata") => list(registration_metadata_item()()),
+      optional("Tags") => list(tag()()),
+      required("IamRole") => String.t()
+    }
   """
-  @spec create_activation(AWS.Client.t(), create_activation_request(), Keyword.t()) ::
+
+  @spec create_activation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_activation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_activation_errors()}
-  def create_activation(%Client{} = client, input, options \\ []) do
+
+  def create_activation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8575,12 +8631,42 @@ defmodule AWS.SSM do
   the software isn't installed, then State Manager installs it. If the software
   is installed, but the service isn't running, then the association might
   instruct State Manager to start the service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_association_request`)
+    %{
+      optional("AlarmConfiguration") => alarm_configuration(),
+      optional("ApplyOnlyAtCronInterval") => boolean(),
+      optional("AssociationName") => String.t(),
+      optional("AutomationTargetParameterName") => String.t(),
+      optional("CalendarNames") => list(String.t()()),
+      optional("ComplianceSeverity") => list(any()),
+      optional("DocumentVersion") => String.t(),
+      optional("Duration") => integer(),
+      optional("InstanceId") => String.t(),
+      optional("MaxConcurrency") => String.t(),
+      optional("MaxErrors") => String.t(),
+      optional("OutputLocation") => instance_association_output_location(),
+      optional("Parameters") => map(),
+      optional("ScheduleExpression") => String.t(),
+      optional("ScheduleOffset") => integer(),
+      optional("SyncCompliance") => list(any()),
+      optional("Tags") => list(tag()()),
+      optional("TargetLocations") => list(target_location()()),
+      optional("TargetMaps") => list(map()()),
+      optional("Targets") => list(target()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_association(AWS.Client.t(), create_association_request(), Keyword.t()) ::
+
+  @spec create_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_association_errors()}
-  def create_association(%Client{} = client, input, options \\ []) do
+
+  def create_association(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8593,12 +8679,22 @@ defmodule AWS.SSM do
   document with one or more managed nodes using IDs or tags, Amazon Web Services
   Systems Manager Agent (SSM Agent) running on the managed node processes the
   document and configures the node as specified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateAssociationBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_association_batch_request`)
+    %{
+      required("Entries") => list(create_association_batch_request_entry()())
+    }
   """
-  @spec create_association_batch(AWS.Client.t(), create_association_batch_request(), Keyword.t()) ::
+
+  @spec create_association_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_association_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_association_batch_errors()}
-  def create_association_batch(%Client{} = client, input, options \\ []) do
+
+  def create_association_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8612,12 +8708,31 @@ defmodule AWS.SSM do
   schemas, features, and syntax, see [Amazon Web Services Systems Manager
   Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_document_request`)
+    %{
+      optional("Attachments") => list(attachments_source()()),
+      optional("DisplayName") => String.t(),
+      optional("DocumentFormat") => list(any()),
+      optional("DocumentType") => list(any()),
+      optional("Requires") => list(document_requires()()),
+      optional("Tags") => list(tag()()),
+      optional("TargetType") => String.t(),
+      optional("VersionName") => String.t(),
+      required("Content") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_document(AWS.Client.t(), create_document_request(), Keyword.t()) ::
+
+  @spec create_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_document_errors()}
-  def create_document(%Client{} = client, input, options \\ []) do
+
+  def create_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8626,16 +8741,33 @@ defmodule AWS.SSM do
 
   @doc """
   Creates a new maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_maintenance_window_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("EndDate") => String.t(),
+      optional("ScheduleOffset") => integer(),
+      optional("ScheduleTimezone") => String.t(),
+      optional("StartDate") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("AllowUnassociatedTargets") => boolean(),
+      required("Cutoff") => integer(),
+      required("Duration") => integer(),
+      required("Name") => String.t(),
+      required("Schedule") => String.t()
+    }
   """
-  @spec create_maintenance_window(
-          AWS.Client.t(),
-          create_maintenance_window_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_maintenance_window_errors()}
-  def create_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def create_maintenance_window(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8653,12 +8785,37 @@ defmodule AWS.SSM do
   [Amazon Web Services Systems Manager
   OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateOpsItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_ops_item_request`)
+    %{
+      optional("AccountId") => String.t(),
+      optional("ActualEndTime") => non_neg_integer(),
+      optional("ActualStartTime") => non_neg_integer(),
+      optional("Category") => String.t(),
+      optional("Notifications") => list(ops_item_notification()()),
+      optional("OperationalData") => map(),
+      optional("OpsItemType") => String.t(),
+      optional("PlannedEndTime") => non_neg_integer(),
+      optional("PlannedStartTime") => non_neg_integer(),
+      optional("Priority") => integer(),
+      optional("RelatedOpsItems") => list(related_ops_item()()),
+      optional("Severity") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Description") => String.t(),
+      required("Source") => String.t(),
+      required("Title") => String.t()
+    }
   """
-  @spec create_ops_item(AWS.Client.t(), create_ops_item_request(), Keyword.t()) ::
+
+  @spec create_ops_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ops_item_errors()}
-  def create_ops_item(%Client{} = client, input, options \\ []) do
+
+  def create_ops_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8669,12 +8826,24 @@ defmodule AWS.SSM do
   If you create a new application in Application Manager, Amazon Web Services
   Systems Manager calls this API operation to specify information about the new
   application, including the application type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateOpsMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_ops_metadata_request`)
+    %{
+      optional("Metadata") => map(),
+      optional("Tags") => list(tag()()),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec create_ops_metadata(AWS.Client.t(), create_ops_metadata_request(), Keyword.t()) ::
+
+  @spec create_ops_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ops_metadata_errors()}
-  def create_ops_metadata(%Client{} = client, input, options \\ []) do
+
+  def create_ops_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8683,12 +8852,34 @@ defmodule AWS.SSM do
 
   @doc """
   Creates a patch baseline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreatePatchBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_patch_baseline_request`)
+    %{
+      optional("ApprovalRules") => patch_rule_group(),
+      optional("ApprovedPatches") => list(String.t()()),
+      optional("ApprovedPatchesComplianceLevel") => list(any()),
+      optional("ApprovedPatchesEnableNonSecurity") => boolean(),
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("GlobalFilters") => patch_filter_group(),
+      optional("OperatingSystem") => list(any()),
+      optional("RejectedPatches") => list(String.t()()),
+      optional("RejectedPatchesAction") => list(any()),
+      optional("Sources") => list(patch_source()()),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_patch_baseline(AWS.Client.t(), create_patch_baseline_request(), Keyword.t()) ::
+
+  @spec create_patch_baseline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_patch_baseline_errors()}
-  def create_patch_baseline(%Client{} = client, input, options \\ []) do
+
+  def create_patch_baseline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8714,16 +8905,25 @@ defmodule AWS.SSM do
   to display data from multiple accounts and
   Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20CreateResourceDataSync&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_resource_data_sync_request`)
+    %{
+      optional("S3Destination") => resource_data_sync_s3_destination(),
+      optional("SyncSource") => resource_data_sync_source(),
+      optional("SyncType") => String.t(),
+      required("SyncName") => String.t()
+    }
   """
-  @spec create_resource_data_sync(
-          AWS.Client.t(),
-          create_resource_data_sync_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_resource_data_sync(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_data_sync_errors()}
-  def create_resource_data_sync(%Client{} = client, input, options \\ []) do
+
+  def create_resource_data_sync(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8735,12 +8935,22 @@ defmodule AWS.SSM do
   delete an activation, you can no longer use it to register additional managed
   nodes. Deleting an activation doesn't de-register managed nodes. You must
   manually de-register managed nodes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteActivation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_activation_request`)
+    %{
+      required("ActivationId") => String.t()
+    }
   """
-  @spec delete_activation(AWS.Client.t(), delete_activation_request(), Keyword.t()) ::
+
+  @spec delete_activation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_activation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_activation_errors()}
-  def delete_activation(%Client{} = client, input, options \\ []) do
+
+  def delete_activation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8752,12 +8962,24 @@ defmodule AWS.SSM do
   document) from the specified managed node. If you created the association by
   using the `Targets` parameter, then you must delete the association by using
   the association ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_association_request`)
+    %{
+      optional("AssociationId") => String.t(),
+      optional("InstanceId") => String.t(),
+      optional("Name") => String.t()
+    }
   """
-  @spec delete_association(AWS.Client.t(), delete_association_request(), Keyword.t()) ::
+
+  @spec delete_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_association_errors()}
-  def delete_association(%Client{} = client, input, options \\ []) do
+
+  def delete_association(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8767,12 +8989,25 @@ defmodule AWS.SSM do
   @doc """
   Deletes the Amazon Web Services Systems Manager document (SSM document) and all
   managed node associations to the document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_document_request`)
+    %{
+      optional("DocumentVersion") => String.t(),
+      optional("Force") => boolean(),
+      optional("VersionName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec delete_document(AWS.Client.t(), delete_document_request(), Keyword.t()) ::
+
+  @spec delete_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_document_errors()}
-  def delete_document(%Client{} = client, input, options \\ []) do
+
+  def delete_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8783,12 +9018,25 @@ defmodule AWS.SSM do
   Delete a custom inventory type or the data associated with a custom Inventory
   type. Deleting a custom inventory type is also referred to as deleting a
   custom inventory schema.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteInventory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_inventory_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("DryRun") => boolean(),
+      optional("SchemaDeleteOption") => list(any()),
+      required("TypeName") => String.t()
+    }
   """
-  @spec delete_inventory(AWS.Client.t(), delete_inventory_request(), Keyword.t()) ::
+
+  @spec delete_inventory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inventory_errors()}
-  def delete_inventory(%Client{} = client, input, options \\ []) do
+
+  def delete_inventory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8797,16 +9045,22 @@ defmodule AWS.SSM do
 
   @doc """
   Deletes a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_maintenance_window_request`)
+    %{
+      required("WindowId") => String.t()
+    }
   """
-  @spec delete_maintenance_window(
-          AWS.Client.t(),
-          delete_maintenance_window_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_maintenance_window_errors()}
-  def delete_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def delete_maintenance_window(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8816,12 +9070,22 @@ defmodule AWS.SSM do
   @doc """
   Delete an OpsItem. You must have permission in Identity and Access Management
   (IAM) to delete an OpsItem.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteOpsItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ops_item_request`)
+    %{
+      required("OpsItemId") => String.t()
+    }
   """
-  @spec delete_ops_item(AWS.Client.t(), delete_ops_item_request(), Keyword.t()) ::
+
+  @spec delete_ops_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ops_item_errors()}
-  def delete_ops_item(%Client{} = client, input, options \\ []) do
+
+  def delete_ops_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8830,12 +9094,22 @@ defmodule AWS.SSM do
 
   @doc """
   Delete OpsMetadata related to an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteOpsMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ops_metadata_request`)
+    %{
+      required("OpsMetadataArn") => String.t()
+    }
   """
-  @spec delete_ops_metadata(AWS.Client.t(), delete_ops_metadata_request(), Keyword.t()) ::
+
+  @spec delete_ops_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ops_metadata_errors()}
-  def delete_ops_metadata(%Client{} = client, input, options \\ []) do
+
+  def delete_ops_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8845,12 +9119,22 @@ defmodule AWS.SSM do
   @doc """
   Delete a parameter from the system. After deleting a parameter, wait for at
   least 30 seconds to create a parameter with the same name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteParameter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_parameter_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_parameter(AWS.Client.t(), delete_parameter_request(), Keyword.t()) ::
+
+  @spec delete_parameter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_parameter_errors()}
-  def delete_parameter(%Client{} = client, input, options \\ []) do
+
+  def delete_parameter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8860,12 +9144,22 @@ defmodule AWS.SSM do
   @doc """
   Delete a list of parameters. After deleting a parameter, wait for at least 30
   seconds to create a parameter with the same name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_parameters_request`)
+    %{
+      required("Names") => list(String.t()())
+    }
   """
-  @spec delete_parameters(AWS.Client.t(), delete_parameters_request(), Keyword.t()) ::
+
+  @spec delete_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_parameters_errors()}
-  def delete_parameters(%Client{} = client, input, options \\ []) do
+
+  def delete_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8874,12 +9168,22 @@ defmodule AWS.SSM do
 
   @doc """
   Deletes a patch baseline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeletePatchBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_patch_baseline_request`)
+    %{
+      required("BaselineId") => String.t()
+    }
   """
-  @spec delete_patch_baseline(AWS.Client.t(), delete_patch_baseline_request(), Keyword.t()) ::
+
+  @spec delete_patch_baseline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_patch_baseline_errors()}
-  def delete_patch_baseline(%Client{} = client, input, options \\ []) do
+
+  def delete_patch_baseline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8890,16 +9194,23 @@ defmodule AWS.SSM do
   Deletes a resource data sync configuration. After the configuration is deleted,
   changes to data on managed nodes are no longer synced to or from the target.
   Deleting a sync configuration doesn't delete data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteResourceDataSync&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_data_sync_request`)
+    %{
+      optional("SyncType") => String.t(),
+      required("SyncName") => String.t()
+    }
   """
-  @spec delete_resource_data_sync(
-          AWS.Client.t(),
-          delete_resource_data_sync_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_resource_data_sync(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_data_sync_errors()}
-  def delete_resource_data_sync(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_data_sync(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8911,12 +9222,24 @@ defmodule AWS.SSM do
   the IAM entity (for example, an Amazon Web Services account) that can manage
   your Systems Manager resources. The following resources support Systems
   Manager resource policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_policy_request`)
+    %{
+      required("PolicyHash") => String.t(),
+      required("PolicyId") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8927,16 +9250,22 @@ defmodule AWS.SSM do
   Removes the server or virtual machine from the list of registered servers. You
   can reregister the node again at any time. If you don't plan to use Run
   Command on the server, we suggest uninstalling SSM Agent first.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeregisterManagedInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_managed_instance_request`)
+    %{
+      required("InstanceId") => String.t()
+    }
   """
-  @spec deregister_managed_instance(
-          AWS.Client.t(),
-          deregister_managed_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_managed_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_managed_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_managed_instance_errors()}
-  def deregister_managed_instance(%Client{} = client, input, options \\ []) do
+
+  def deregister_managed_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8945,16 +9274,24 @@ defmodule AWS.SSM do
 
   @doc """
   Removes a patch group from a patch baseline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeregisterPatchBaselineForPatchGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_patch_baseline_for_patch_group_request`)
+    %{
+      required("BaselineId") => String.t(),
+      required("PatchGroup") => String.t()
+    }
   """
-  @spec deregister_patch_baseline_for_patch_group(
-          AWS.Client.t(),
-          deregister_patch_baseline_for_patch_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_patch_baseline_for_patch_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_patch_baseline_for_patch_group_errors()}
-  def deregister_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
+
+  def deregister_patch_baseline_for_patch_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8963,16 +9300,25 @@ defmodule AWS.SSM do
 
   @doc """
   Removes a target from a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeregisterTargetFromMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_target_from_maintenance_window_request`)
+    %{
+      optional("Safe") => boolean(),
+      required("WindowId") => String.t(),
+      required("WindowTargetId") => String.t()
+    }
   """
-  @spec deregister_target_from_maintenance_window(
-          AWS.Client.t(),
-          deregister_target_from_maintenance_window_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_target_from_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_target_from_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_target_from_maintenance_window_errors()}
-  def deregister_target_from_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def deregister_target_from_maintenance_window(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8981,16 +9327,24 @@ defmodule AWS.SSM do
 
   @doc """
   Removes a task from a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DeregisterTaskFromMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_task_from_maintenance_window_request`)
+    %{
+      required("WindowId") => String.t(),
+      required("WindowTaskId") => String.t()
+    }
   """
-  @spec deregister_task_from_maintenance_window(
-          AWS.Client.t(),
-          deregister_task_from_maintenance_window_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_task_from_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_task_from_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_task_from_maintenance_window_errors()}
-  def deregister_task_from_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def deregister_task_from_maintenance_window(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9002,12 +9356,24 @@ defmodule AWS.SSM do
   was created, its expiration date, the Identity and Access Management (IAM)
   role assigned to the managed nodes in the activation, and the number of nodes
   registered by using this activation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeActivations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_activations_request`)
+    %{
+      optional("Filters") => list(describe_activations_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_activations(AWS.Client.t(), describe_activations_request(), Keyword.t()) ::
+
+  @spec describe_activations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_activations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_activations_errors()}
-  def describe_activations(%Client{} = client, input, options \\ []) do
+
+  def describe_activations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9018,12 +9384,25 @@ defmodule AWS.SSM do
   Describes the association for the specified target or managed node. If you
   created the association by using the `Targets` parameter, then you must
   retrieve the association by using the association ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_association_request`)
+    %{
+      optional("AssociationId") => String.t(),
+      optional("AssociationVersion") => String.t(),
+      optional("InstanceId") => String.t(),
+      optional("Name") => String.t()
+    }
   """
-  @spec describe_association(AWS.Client.t(), describe_association_request(), Keyword.t()) ::
+
+  @spec describe_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_association_errors()}
-  def describe_association(%Client{} = client, input, options \\ []) do
+
+  def describe_association(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9032,16 +9411,27 @@ defmodule AWS.SSM do
 
   @doc """
   Views information about a specific execution of a specific association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeAssociationExecutionTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_association_execution_targets_request`)
+    %{
+      optional("Filters") => list(association_execution_targets_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AssociationId") => String.t(),
+      required("ExecutionId") => String.t()
+    }
   """
-  @spec describe_association_execution_targets(
-          AWS.Client.t(),
-          describe_association_execution_targets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_association_execution_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_association_execution_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_association_execution_targets_errors()}
-  def describe_association_execution_targets(%Client{} = client, input, options \\ []) do
+
+  def describe_association_execution_targets(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9050,16 +9440,26 @@ defmodule AWS.SSM do
 
   @doc """
   Views all executions for a specific association ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeAssociationExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_association_executions_request`)
+    %{
+      optional("Filters") => list(association_execution_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AssociationId") => String.t()
+    }
   """
-  @spec describe_association_executions(
-          AWS.Client.t(),
-          describe_association_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_association_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_association_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_association_executions_errors()}
-  def describe_association_executions(%Client{} = client, input, options \\ []) do
+
+  def describe_association_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9068,16 +9468,25 @@ defmodule AWS.SSM do
 
   @doc """
   Provides details about all active and terminated Automation executions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeAutomationExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_automation_executions_request`)
+    %{
+      optional("Filters") => list(automation_execution_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_automation_executions(
-          AWS.Client.t(),
-          describe_automation_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_automation_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_automation_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_automation_executions_errors()}
-  def describe_automation_executions(%Client{} = client, input, options \\ []) do
+
+  def describe_automation_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9087,16 +9496,27 @@ defmodule AWS.SSM do
   @doc """
   Information about all active and terminated step executions in an Automation
   workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeAutomationStepExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_automation_step_executions_request`)
+    %{
+      optional("Filters") => list(step_execution_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ReverseOrder") => boolean(),
+      required("AutomationExecutionId") => String.t()
+    }
   """
-  @spec describe_automation_step_executions(
-          AWS.Client.t(),
-          describe_automation_step_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_automation_step_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_automation_step_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_automation_step_executions_errors()}
-  def describe_automation_step_executions(%Client{} = client, input, options \\ []) do
+
+  def describe_automation_step_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9105,16 +9525,24 @@ defmodule AWS.SSM do
 
   @doc """
   Lists all patches eligible to be included in a patch baseline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeAvailablePatches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_available_patches_request`)
+    %{
+      optional("Filters") => list(patch_orchestrator_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_available_patches(
-          AWS.Client.t(),
-          describe_available_patches_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_available_patches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_available_patches_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_available_patches_errors()}
-  def describe_available_patches(%Client{} = client, input, options \\ []) do
+
+  def describe_available_patches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9124,12 +9552,24 @@ defmodule AWS.SSM do
   @doc """
   Describes the specified Amazon Web Services Systems Manager document (SSM
   document).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_document_request`)
+    %{
+      optional("DocumentVersion") => String.t(),
+      optional("VersionName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec describe_document(AWS.Client.t(), describe_document_request(), Keyword.t()) ::
+
+  @spec describe_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_document_errors()}
-  def describe_document(%Client{} = client, input, options \\ []) do
+
+  def describe_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9141,16 +9581,25 @@ defmodule AWS.SSM do
   (SSM document). If you created the document, you are the owner. If a document
   is shared, it can either be shared privately (by specifying a user's Amazon
   Web Services account ID) or publicly (*All*).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeDocumentPermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_document_permission_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Name") => String.t(),
+      required("PermissionType") => list(any())
+    }
   """
-  @spec describe_document_permission(
-          AWS.Client.t(),
-          describe_document_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_document_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_document_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_document_permission_errors()}
-  def describe_document_permission(%Client{} = client, input, options \\ []) do
+
+  def describe_document_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9159,16 +9608,25 @@ defmodule AWS.SSM do
 
   @doc """
   All associations for the managed nodes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeEffectiveInstanceAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_effective_instance_associations_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceId") => String.t()
+    }
   """
-  @spec describe_effective_instance_associations(
-          AWS.Client.t(),
-          describe_effective_instance_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_effective_instance_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_effective_instance_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_effective_instance_associations_errors()}
-  def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_effective_instance_associations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9178,16 +9636,25 @@ defmodule AWS.SSM do
   @doc """
   Retrieves the current effective patches (the patch and the approval state) for
   the specified patch baseline. Applies to patch baselines for Windows only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeEffectivePatchesForPatchBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_effective_patches_for_patch_baseline_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("BaselineId") => String.t()
+    }
   """
-  @spec describe_effective_patches_for_patch_baseline(
-          AWS.Client.t(),
-          describe_effective_patches_for_patch_baseline_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_effective_patches_for_patch_baseline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_effective_patches_for_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_effective_patches_for_patch_baseline_errors()}
-  def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ []) do
+
+  def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9196,16 +9663,25 @@ defmodule AWS.SSM do
 
   @doc """
   The status of the associations for the managed nodes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeInstanceAssociationsStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_associations_status_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceId") => String.t()
+    }
   """
-  @spec describe_instance_associations_status(
-          AWS.Client.t(),
-          describe_instance_associations_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_instance_associations_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_associations_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_associations_status_errors()}
-  def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
+
+  def describe_instance_associations_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9220,16 +9696,26 @@ defmodule AWS.SSM do
   returns information for those managed nodes. If you don't specify node IDs, it
   returns information for all your managed nodes. If you specify a node ID that
   isn't valid or a node that you don't own, you receive an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeInstanceInformation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_information_request`)
+    %{
+      optional("Filters") => list(instance_information_string_filter()()),
+      optional("InstanceInformationFilterList") => list(instance_information_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_instance_information(
-          AWS.Client.t(),
-          describe_instance_information_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_instance_information(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_information_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_information_errors()}
-  def describe_instance_information(%Client{} = client, input, options \\ []) do
+
+  def describe_instance_information(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9238,16 +9724,25 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves the high-level patch state of one or more managed nodes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeInstancePatchStates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_patch_states_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceIds") => list(String.t()())
+    }
   """
-  @spec describe_instance_patch_states(
-          AWS.Client.t(),
-          describe_instance_patch_states_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_instance_patch_states(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_patch_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_patch_states_errors()}
-  def describe_instance_patch_states(%Client{} = client, input, options \\ []) do
+
+  def describe_instance_patch_states(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9257,16 +9752,30 @@ defmodule AWS.SSM do
   @doc """
   Retrieves the high-level patch state for the managed nodes in the specified
   patch group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeInstancePatchStatesForPatchGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_patch_states_for_patch_group_request`)
+    %{
+      optional("Filters") => list(instance_patch_state_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("PatchGroup") => String.t()
+    }
   """
+
   @spec describe_instance_patch_states_for_patch_group(
           AWS.Client.t(),
-          describe_instance_patch_states_for_patch_group_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, describe_instance_patch_states_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_patch_states_for_patch_group_errors()}
-  def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ []) do
+
+  def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9276,16 +9785,25 @@ defmodule AWS.SSM do
   @doc """
   Retrieves information about the patches on the specified managed node and their
   state relative to the patch baseline being used for the node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeInstancePatches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_patches_request`)
+    %{
+      optional("Filters") => list(patch_orchestrator_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceId") => String.t()
+    }
   """
-  @spec describe_instance_patches(
-          AWS.Client.t(),
-          describe_instance_patches_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_instance_patches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_patches_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_patches_errors()}
-  def describe_instance_patches(%Client{} = client, input, options \\ []) do
+
+  def describe_instance_patches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9295,16 +9813,25 @@ defmodule AWS.SSM do
   @doc """
   An API operation used by the Systems Manager console to display information
   about Systems Manager managed nodes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeInstanceProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_instance_properties_request`)
+    %{
+      optional("FiltersWithOperator") => list(instance_property_string_filter()()),
+      optional("InstancePropertyFilterList") => list(instance_property_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_instance_properties(
-          AWS.Client.t(),
-          describe_instance_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_instance_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_instance_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_properties_errors()}
-  def describe_instance_properties(%Client{} = client, input, options \\ []) do
+
+  def describe_instance_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9313,16 +9840,24 @@ defmodule AWS.SSM do
 
   @doc """
   Describes a specific delete inventory operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeInventoryDeletions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_inventory_deletions_request`)
+    %{
+      optional("DeletionId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_inventory_deletions(
-          AWS.Client.t(),
-          describe_inventory_deletions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_inventory_deletions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_inventory_deletions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inventory_deletions_errors()}
-  def describe_inventory_deletions(%Client{} = client, input, options \\ []) do
+
+  def describe_inventory_deletions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9332,20 +9867,35 @@ defmodule AWS.SSM do
   @doc """
   Retrieves the individual task executions (one per target) for a particular task
   run as part of a maintenance window execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindowExecutionTaskInvocations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_window_execution_task_invocations_request`)
+    %{
+      optional("Filters") => list(maintenance_window_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("TaskId") => String.t(),
+      required("WindowExecutionId") => String.t()
+    }
   """
+
   @spec describe_maintenance_window_execution_task_invocations(
           AWS.Client.t(),
-          describe_maintenance_window_execution_task_invocations_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, describe_maintenance_window_execution_task_invocations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_window_execution_task_invocations_errors()}
+
   def describe_maintenance_window_execution_task_invocations(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9360,16 +9910,26 @@ defmodule AWS.SSM do
 
   @doc """
   For a given maintenance window execution, lists the tasks that were run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindowExecutionTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_window_execution_tasks_request`)
+    %{
+      optional("Filters") => list(maintenance_window_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("WindowExecutionId") => String.t()
+    }
   """
-  @spec describe_maintenance_window_execution_tasks(
-          AWS.Client.t(),
-          describe_maintenance_window_execution_tasks_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_maintenance_window_execution_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_window_execution_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_window_execution_tasks_errors()}
-  def describe_maintenance_window_execution_tasks(%Client{} = client, input, options \\ []) do
+
+  def describe_maintenance_window_execution_tasks(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9380,16 +9940,26 @@ defmodule AWS.SSM do
   Lists the executions of a maintenance window. This includes information about
   when the maintenance window was scheduled to be active, and information about
   tasks registered and run with the maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindowExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_window_executions_request`)
+    %{
+      optional("Filters") => list(maintenance_window_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("WindowId") => String.t()
+    }
   """
-  @spec describe_maintenance_window_executions(
-          AWS.Client.t(),
-          describe_maintenance_window_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_maintenance_window_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_window_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_window_executions_errors()}
-  def describe_maintenance_window_executions(%Client{} = client, input, options \\ []) do
+
+  def describe_maintenance_window_executions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9398,16 +9968,28 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves information about upcoming executions of a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindowSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_window_schedule_request`)
+    %{
+      optional("Filters") => list(patch_orchestrator_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceType") => list(any()),
+      optional("Targets") => list(target()()),
+      optional("WindowId") => String.t()
+    }
   """
-  @spec describe_maintenance_window_schedule(
-          AWS.Client.t(),
-          describe_maintenance_window_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_maintenance_window_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_window_schedule_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_window_schedule_errors()}
-  def describe_maintenance_window_schedule(%Client{} = client, input, options \\ []) do
+
+  def describe_maintenance_window_schedule(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9416,16 +9998,26 @@ defmodule AWS.SSM do
 
   @doc """
   Lists the targets registered with the maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindowTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_window_targets_request`)
+    %{
+      optional("Filters") => list(maintenance_window_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("WindowId") => String.t()
+    }
   """
-  @spec describe_maintenance_window_targets(
-          AWS.Client.t(),
-          describe_maintenance_window_targets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_maintenance_window_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_window_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_window_targets_errors()}
-  def describe_maintenance_window_targets(%Client{} = client, input, options \\ []) do
+
+  def describe_maintenance_window_targets(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9434,16 +10026,26 @@ defmodule AWS.SSM do
 
   @doc """
   Lists the tasks in a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindowTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_window_tasks_request`)
+    %{
+      optional("Filters") => list(maintenance_window_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("WindowId") => String.t()
+    }
   """
-  @spec describe_maintenance_window_tasks(
-          AWS.Client.t(),
-          describe_maintenance_window_tasks_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_maintenance_window_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_window_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_window_tasks_errors()}
-  def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
+
+  def describe_maintenance_window_tasks(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9452,16 +10054,24 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves the maintenance windows in an Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_windows_request`)
+    %{
+      optional("Filters") => list(maintenance_window_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_maintenance_windows(
-          AWS.Client.t(),
-          describe_maintenance_windows_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_maintenance_windows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_windows_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_windows_errors()}
-  def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
+
+  def describe_maintenance_windows(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9471,16 +10081,26 @@ defmodule AWS.SSM do
   @doc """
   Retrieves information about the maintenance window targets or tasks that a
   managed node is associated with.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeMaintenanceWindowsForTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_maintenance_windows_for_target_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceType") => list(any()),
+      required("Targets") => list(target()())
+    }
   """
-  @spec describe_maintenance_windows_for_target(
-          AWS.Client.t(),
-          describe_maintenance_windows_for_target_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_maintenance_windows_for_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_maintenance_windows_for_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_maintenance_windows_for_target_errors()}
-  def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ []) do
+
+  def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9499,12 +10119,24 @@ defmodule AWS.SSM do
   [Amazon Web Services Systems Manager
   OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeOpsItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_ops_items_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("OpsItemFilters") => list(ops_item_filter()())
+    }
   """
-  @spec describe_ops_items(AWS.Client.t(), describe_ops_items_request(), Keyword.t()) ::
+
+  @spec describe_ops_items(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ops_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ops_items_errors()}
-  def describe_ops_items(%Client{} = client, input, options \\ []) do
+
+  def describe_ops_items(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9522,12 +10154,26 @@ defmodule AWS.SSM do
   processing the results, it stops the operation and returns the matching values
   up to that point and a `NextToken`. You can specify the `NextToken` in a
   subsequent call to get the next set of results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_parameters_request`)
+    %{
+      optional("Filters") => list(parameters_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ParameterFilters") => list(parameter_string_filter()()),
+      optional("Shared") => boolean()
+    }
   """
-  @spec describe_parameters(AWS.Client.t(), describe_parameters_request(), Keyword.t()) ::
+
+  @spec describe_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_parameters_errors()}
-  def describe_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9536,12 +10182,24 @@ defmodule AWS.SSM do
 
   @doc """
   Lists the patch baselines in your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribePatchBaselines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_patch_baselines_request`)
+    %{
+      optional("Filters") => list(patch_orchestrator_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_patch_baselines(AWS.Client.t(), describe_patch_baselines_request(), Keyword.t()) ::
+
+  @spec describe_patch_baselines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_patch_baselines_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_patch_baselines_errors()}
-  def describe_patch_baselines(%Client{} = client, input, options \\ []) do
+
+  def describe_patch_baselines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9551,16 +10209,22 @@ defmodule AWS.SSM do
   @doc """
   Returns high-level aggregated patch compliance state information for a patch
   group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribePatchGroupState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_patch_group_state_request`)
+    %{
+      required("PatchGroup") => String.t()
+    }
   """
-  @spec describe_patch_group_state(
-          AWS.Client.t(),
-          describe_patch_group_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_patch_group_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_patch_group_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_patch_group_state_errors()}
-  def describe_patch_group_state(%Client{} = client, input, options \\ []) do
+
+  def describe_patch_group_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9569,12 +10233,24 @@ defmodule AWS.SSM do
 
   @doc """
   Lists all patch groups that have been registered with patch baselines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribePatchGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_patch_groups_request`)
+    %{
+      optional("Filters") => list(patch_orchestrator_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_patch_groups(AWS.Client.t(), describe_patch_groups_request(), Keyword.t()) ::
+
+  @spec describe_patch_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_patch_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_patch_groups_errors()}
-  def describe_patch_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_patch_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9589,16 +10265,26 @@ defmodule AWS.SSM do
   `DescribeAvailablePatches`, and `DescribePatchBaselines`. The following
   section lists the properties that can be used in filters for each major
   operating system type:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribePatchProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_patch_properties_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PatchSet") => list(any()),
+      required("OperatingSystem") => list(any()),
+      required("Property") => list(any())
+    }
   """
-  @spec describe_patch_properties(
-          AWS.Client.t(),
-          describe_patch_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_patch_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_patch_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_patch_properties_errors()}
-  def describe_patch_properties(%Client{} = client, input, options \\ []) do
+
+  def describe_patch_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9608,12 +10294,25 @@ defmodule AWS.SSM do
   @doc """
   Retrieves a list of all active sessions (both connected and disconnected) or
   terminated sessions from the past 30 days.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DescribeSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_sessions_request`)
+    %{
+      optional("Filters") => list(session_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("State") => list(any())
+    }
   """
-  @spec describe_sessions(AWS.Client.t(), describe_sessions_request(), Keyword.t()) ::
+
+  @spec describe_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_sessions_errors()}
-  def describe_sessions(%Client{} = client, input, options \\ []) do
+
+  def describe_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9624,16 +10323,24 @@ defmodule AWS.SSM do
   Deletes the association between an OpsItem and a related item. For example, this
   API operation can delete an Incident Manager incident from an OpsItem.
   Incident Manager is a capability of Amazon Web Services Systems Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20DisassociateOpsItemRelatedItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_ops_item_related_item_request`)
+    %{
+      required("AssociationId") => String.t(),
+      required("OpsItemId") => String.t()
+    }
   """
-  @spec disassociate_ops_item_related_item(
-          AWS.Client.t(),
-          disassociate_ops_item_related_item_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_ops_item_related_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_ops_item_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_ops_item_related_item_errors()}
-  def disassociate_ops_item_related_item(%Client{} = client, input, options \\ []) do
+
+  def disassociate_ops_item_related_item(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9642,12 +10349,22 @@ defmodule AWS.SSM do
 
   @doc """
   Get detailed information about a particular Automation execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetAutomationExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_automation_execution_request`)
+    %{
+      required("AutomationExecutionId") => String.t()
+    }
   """
-  @spec get_automation_execution(AWS.Client.t(), get_automation_execution_request(), Keyword.t()) ::
+
+  @spec get_automation_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_automation_execution_errors()}
-  def get_automation_execution(%Client{} = client, input, options \\ []) do
+
+  def get_automation_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9664,12 +10381,23 @@ defmodule AWS.SSM do
   in a request, the command returns the status of `OPEN` only if all calendars
   in the request are open. If one or more calendars in the request are closed,
   the status returned is `CLOSED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetCalendarState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_calendar_state_request`)
+    %{
+      optional("AtTime") => String.t(),
+      required("CalendarNames") => list(String.t()())
+    }
   """
-  @spec get_calendar_state(AWS.Client.t(), get_calendar_state_request(), Keyword.t()) ::
+
+  @spec get_calendar_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_calendar_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_calendar_state_errors()}
-  def get_calendar_state(%Client{} = client, input, options \\ []) do
+
+  def get_calendar_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9679,12 +10407,24 @@ defmodule AWS.SSM do
   @doc """
   Returns detailed information about command execution for an invocation or
   plugin.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetCommandInvocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_command_invocation_request`)
+    %{
+      optional("PluginName") => String.t(),
+      required("CommandId") => String.t(),
+      required("InstanceId") => String.t()
+    }
   """
-  @spec get_command_invocation(AWS.Client.t(), get_command_invocation_request(), Keyword.t()) ::
+
+  @spec get_command_invocation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_command_invocation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_command_invocation_errors()}
-  def get_command_invocation(%Client{} = client, input, options \\ []) do
+
+  def get_command_invocation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9694,12 +10434,22 @@ defmodule AWS.SSM do
   @doc """
   Retrieves the Session Manager connection status for a managed node to determine
   whether it is running and ready to receive Session Manager connections.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetConnectionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_connection_status_request`)
+    %{
+      required("Target") => String.t()
+    }
   """
-  @spec get_connection_status(AWS.Client.t(), get_connection_status_request(), Keyword.t()) ::
+
+  @spec get_connection_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_connection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_status_errors()}
-  def get_connection_status(%Client{} = client, input, options \\ []) do
+
+  def get_connection_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9710,16 +10460,22 @@ defmodule AWS.SSM do
   Retrieves the default patch baseline. Amazon Web Services Systems Manager
   supports creating multiple default patch baselines. For example, you can
   create a default patch baseline for each operating system.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetDefaultPatchBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_default_patch_baseline_request`)
+    %{
+      optional("OperatingSystem") => list(any())
+    }
   """
-  @spec get_default_patch_baseline(
-          AWS.Client.t(),
-          get_default_patch_baseline_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_default_patch_baseline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_default_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_default_patch_baseline_errors()}
-  def get_default_patch_baseline(%Client{} = client, input, options \\ []) do
+
+  def get_default_patch_baseline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9730,16 +10486,25 @@ defmodule AWS.SSM do
   Retrieves the current snapshot for the patch baseline the managed node uses.
   This API is primarily used by the `AWS-RunPatchBaseline` Systems Manager
   document (SSM document).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetDeployablePatchSnapshotForInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_deployable_patch_snapshot_for_instance_request`)
+    %{
+      optional("BaselineOverride") => baseline_override(),
+      required("InstanceId") => String.t(),
+      required("SnapshotId") => String.t()
+    }
   """
-  @spec get_deployable_patch_snapshot_for_instance(
-          AWS.Client.t(),
-          get_deployable_patch_snapshot_for_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_deployable_patch_snapshot_for_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_deployable_patch_snapshot_for_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployable_patch_snapshot_for_instance_errors()}
-  def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
+
+  def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9749,12 +10514,25 @@ defmodule AWS.SSM do
   @doc """
   Gets the contents of the specified Amazon Web Services Systems Manager document
   (SSM document).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_document_request`)
+    %{
+      optional("DocumentFormat") => list(any()),
+      optional("DocumentVersion") => String.t(),
+      optional("VersionName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_document(AWS.Client.t(), get_document_request(), Keyword.t()) ::
+
+  @spec get_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_errors()}
-  def get_document(%Client{} = client, input, options \\ []) do
+
+  def get_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9764,12 +10542,26 @@ defmodule AWS.SSM do
   @doc """
   Query inventory information. This includes managed node status, such as
   `Stopped` or `Terminated`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetInventory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_inventory_request`)
+    %{
+      optional("Aggregators") => list(inventory_aggregator()()),
+      optional("Filters") => list(inventory_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResultAttributes") => list(result_attribute()())
+    }
   """
-  @spec get_inventory(AWS.Client.t(), get_inventory_request(), Keyword.t()) ::
+
+  @spec get_inventory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_inventory_errors()}
-  def get_inventory(%Client{} = client, input, options \\ []) do
+
+  def get_inventory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9779,12 +10571,26 @@ defmodule AWS.SSM do
   @doc """
   Return a list of inventory type names for the account, or return a list of
   attribute names for a specific Inventory item type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetInventorySchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_inventory_schema_request`)
+    %{
+      optional("Aggregator") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SubType") => boolean(),
+      optional("TypeName") => String.t()
+    }
   """
-  @spec get_inventory_schema(AWS.Client.t(), get_inventory_schema_request(), Keyword.t()) ::
+
+  @spec get_inventory_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_inventory_schema_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_inventory_schema_errors()}
-  def get_inventory_schema(%Client{} = client, input, options \\ []) do
+
+  def get_inventory_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9793,12 +10599,22 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_maintenance_window_request`)
+    %{
+      required("WindowId") => String.t()
+    }
   """
-  @spec get_maintenance_window(AWS.Client.t(), get_maintenance_window_request(), Keyword.t()) ::
+
+  @spec get_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_maintenance_window_errors()}
-  def get_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def get_maintenance_window(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9807,16 +10623,23 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves details about a specific a maintenance window execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetMaintenanceWindowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_maintenance_window_execution_request`)
+    %{
+      required("WindowExecutionId") => String.t()
+    }
   """
-  @spec get_maintenance_window_execution(
-          AWS.Client.t(),
-          get_maintenance_window_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_maintenance_window_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_maintenance_window_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_maintenance_window_execution_errors()}
-  def get_maintenance_window_execution(%Client{} = client, input, options \\ []) do
+
+  def get_maintenance_window_execution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9826,16 +10649,24 @@ defmodule AWS.SSM do
   @doc """
   Retrieves the details about a specific task run as part of a maintenance window
   execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetMaintenanceWindowExecutionTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_maintenance_window_execution_task_request`)
+    %{
+      required("TaskId") => String.t(),
+      required("WindowExecutionId") => String.t()
+    }
   """
-  @spec get_maintenance_window_execution_task(
-          AWS.Client.t(),
-          get_maintenance_window_execution_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_maintenance_window_execution_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_maintenance_window_execution_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_maintenance_window_execution_task_errors()}
-  def get_maintenance_window_execution_task(%Client{} = client, input, options \\ []) do
+
+  def get_maintenance_window_execution_task(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9844,16 +10675,29 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves information about a specific task running on a specific target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetMaintenanceWindowExecutionTaskInvocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_maintenance_window_execution_task_invocation_request`)
+    %{
+      required("InvocationId") => String.t(),
+      required("TaskId") => String.t(),
+      required("WindowExecutionId") => String.t()
+    }
   """
+
   @spec get_maintenance_window_execution_task_invocation(
           AWS.Client.t(),
-          get_maintenance_window_execution_task_invocation_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, get_maintenance_window_execution_task_invocation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_maintenance_window_execution_task_invocation_errors()}
-  def get_maintenance_window_execution_task_invocation(%Client{} = client, input, options \\ []) do
+
+  def get_maintenance_window_execution_task_invocation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9872,16 +10716,23 @@ defmodule AWS.SSM do
   `--max-concurrency`. Instead, the system inserts a placeholder value of `1`,
   which may be reported in the response to this command. These values don't
   affect the running of your task and can be ignored.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetMaintenanceWindowTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_maintenance_window_task_request`)
+    %{
+      required("WindowId") => String.t(),
+      required("WindowTaskId") => String.t()
+    }
   """
-  @spec get_maintenance_window_task(
-          AWS.Client.t(),
-          get_maintenance_window_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_maintenance_window_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_maintenance_window_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_maintenance_window_task_errors()}
-  def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
+
+  def get_maintenance_window_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9900,12 +10751,23 @@ defmodule AWS.SSM do
   [Amazon Web Services Systems Manager
   OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetOpsItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ops_item_request`)
+    %{
+      optional("OpsItemArn") => String.t(),
+      required("OpsItemId") => String.t()
+    }
   """
-  @spec get_ops_item(AWS.Client.t(), get_ops_item_request(), Keyword.t()) ::
+
+  @spec get_ops_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ops_item_errors()}
-  def get_ops_item(%Client{} = client, input, options \\ []) do
+
+  def get_ops_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9914,12 +10776,24 @@ defmodule AWS.SSM do
 
   @doc """
   View operational metadata related to an application in Application Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetOpsMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ops_metadata_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("OpsMetadataArn") => String.t()
+    }
   """
-  @spec get_ops_metadata(AWS.Client.t(), get_ops_metadata_request(), Keyword.t()) ::
+
+  @spec get_ops_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ops_metadata_errors()}
-  def get_ops_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_ops_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9932,12 +10806,27 @@ defmodule AWS.SSM do
   Manager OpsCenter operational workitems (OpsItems) as well as information
   about any Amazon Web Services resource or service configured to report OpsData
   to Amazon Web Services Systems Manager Explorer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetOpsSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ops_summary_request`)
+    %{
+      optional("Aggregators") => list(ops_aggregator()()),
+      optional("Filters") => list(ops_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResultAttributes") => list(ops_result_attribute()()),
+      optional("SyncName") => String.t()
+    }
   """
-  @spec get_ops_summary(AWS.Client.t(), get_ops_summary_request(), Keyword.t()) ::
+
+  @spec get_ops_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ops_summary_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ops_summary_errors()}
-  def get_ops_summary(%Client{} = client, input, options \\ []) do
+
+  def get_ops_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9946,12 +10835,23 @@ defmodule AWS.SSM do
 
   @doc """
   Get information about a single parameter by specifying the parameter name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetParameter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_parameter_request`)
+    %{
+      optional("WithDecryption") => boolean(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_parameter(AWS.Client.t(), get_parameter_request(), Keyword.t()) ::
+
+  @spec get_parameter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameter_errors()}
-  def get_parameter(%Client{} = client, input, options \\ []) do
+
+  def get_parameter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9960,12 +10860,25 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves the history of all changes to a parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetParameterHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_parameter_history_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("WithDecryption") => boolean(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_parameter_history(AWS.Client.t(), get_parameter_history_request(), Keyword.t()) ::
+
+  @spec get_parameter_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameter_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameter_history_errors()}
-  def get_parameter_history(%Client{} = client, input, options \\ []) do
+
+  def get_parameter_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9975,12 +10888,23 @@ defmodule AWS.SSM do
   @doc """
   Get information about one or more parameters by specifying multiple parameter
   names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_parameters_request`)
+    %{
+      optional("WithDecryption") => boolean(),
+      required("Names") => list(String.t()())
+    }
   """
-  @spec get_parameters(AWS.Client.t(), get_parameters_request(), Keyword.t()) ::
+
+  @spec get_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_errors()}
-  def get_parameters(%Client{} = client, input, options \\ []) do
+
+  def get_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9989,12 +10913,27 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieve information about one or more parameters in a specific hierarchy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetParametersByPath&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_parameters_by_path_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ParameterFilters") => list(parameter_string_filter()()),
+      optional("Recursive") => boolean(),
+      optional("WithDecryption") => boolean(),
+      required("Path") => String.t()
+    }
   """
-  @spec get_parameters_by_path(AWS.Client.t(), get_parameters_by_path_request(), Keyword.t()) ::
+
+  @spec get_parameters_by_path(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_by_path_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_by_path_errors()}
-  def get_parameters_by_path(%Client{} = client, input, options \\ []) do
+
+  def get_parameters_by_path(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10003,12 +10942,22 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves information about a patch baseline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetPatchBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_patch_baseline_request`)
+    %{
+      required("BaselineId") => String.t()
+    }
   """
-  @spec get_patch_baseline(AWS.Client.t(), get_patch_baseline_request(), Keyword.t()) ::
+
+  @spec get_patch_baseline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_patch_baseline_errors()}
-  def get_patch_baseline(%Client{} = client, input, options \\ []) do
+
+  def get_patch_baseline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10017,16 +10966,24 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves the patch baseline that should be used for the specified patch group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetPatchBaselineForPatchGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_patch_baseline_for_patch_group_request`)
+    %{
+      optional("OperatingSystem") => list(any()),
+      required("PatchGroup") => String.t()
+    }
   """
-  @spec get_patch_baseline_for_patch_group(
-          AWS.Client.t(),
-          get_patch_baseline_for_patch_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_patch_baseline_for_patch_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_patch_baseline_for_patch_group_errors()}
-  def get_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
+
+  def get_patch_baseline_for_patch_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10035,12 +10992,24 @@ defmodule AWS.SSM do
 
   @doc """
   Returns an array of the `Policy` object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetResourcePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_policies_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_resource_policies(AWS.Client.t(), get_resource_policies_request(), Keyword.t()) ::
+
+  @spec get_resource_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
-  def get_resource_policies(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10061,12 +11030,22 @@ defmodule AWS.SSM do
   the setting. Use the `UpdateServiceSetting` API operation to change the
   default setting. Or use the `ResetServiceSetting` to change the value back to
   the original value defined by the Amazon Web Services service team.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20GetServiceSetting&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_service_setting_request`)
+    %{
+      required("SettingId") => String.t()
+    }
   """
-  @spec get_service_setting(AWS.Client.t(), get_service_setting_request(), Keyword.t()) ::
+
+  @spec get_service_setting(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_setting_errors()}
-  def get_service_setting(%Client{} = client, input, options \\ []) do
+
+  def get_service_setting(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10080,12 +11059,24 @@ defmodule AWS.SSM do
   one. A label can help you remember the purpose of a parameter when there are
   multiple versions. Parameter labels have the following requirements and
   restrictions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20LabelParameterVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:label_parameter_version_request`)
+    %{
+      optional("ParameterVersion") => float(),
+      required("Labels") => list(String.t()()),
+      required("Name") => String.t()
+    }
   """
-  @spec label_parameter_version(AWS.Client.t(), label_parameter_version_request(), Keyword.t()) ::
+
+  @spec label_parameter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, label_parameter_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, label_parameter_version_errors()}
-  def label_parameter_version(%Client{} = client, input, options \\ []) do
+
+  def label_parameter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10094,16 +11085,24 @@ defmodule AWS.SSM do
 
   @doc """
   Retrieves all versions of an association for a specific association ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListAssociationVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_association_versions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AssociationId") => String.t()
+    }
   """
-  @spec list_association_versions(
-          AWS.Client.t(),
-          list_association_versions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_association_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_association_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_association_versions_errors()}
-  def list_association_versions(%Client{} = client, input, options \\ []) do
+
+  def list_association_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10115,12 +11114,24 @@ defmodule AWS.SSM do
   account and Amazon Web Services Region. You can limit the results to a
   specific State Manager association document or managed node by specifying a
   filter. State Manager is a capability of Amazon Web Services Systems Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_associations_request`)
+    %{
+      optional("AssociationFilterList") => list(association_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_associations(AWS.Client.t(), list_associations_request(), Keyword.t()) ::
+
+  @spec list_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associations_errors()}
-  def list_associations(%Client{} = client, input, options \\ []) do
+
+  def list_associations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10133,12 +11144,27 @@ defmodule AWS.SSM do
   managed node. For example, if a user runs `SendCommand` against three managed
   nodes, then a command invocation is created for each requested managed node
   ID. `ListCommandInvocations` provide status about command execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListCommandInvocations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_command_invocations_request`)
+    %{
+      optional("CommandId") => String.t(),
+      optional("Details") => boolean(),
+      optional("Filters") => list(command_filter()()),
+      optional("InstanceId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_command_invocations(AWS.Client.t(), list_command_invocations_request(), Keyword.t()) ::
+
+  @spec list_command_invocations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_command_invocations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_command_invocations_errors()}
-  def list_command_invocations(%Client{} = client, input, options \\ []) do
+
+  def list_command_invocations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10147,12 +11173,26 @@ defmodule AWS.SSM do
 
   @doc """
   Lists the commands requested by users of the Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListCommands&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_commands_request`)
+    %{
+      optional("CommandId") => String.t(),
+      optional("Filters") => list(command_filter()()),
+      optional("InstanceId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_commands(AWS.Client.t(), list_commands_request(), Keyword.t()) ::
+
+  @spec list_commands(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_commands_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_commands_errors()}
-  def list_commands(%Client{} = client, input, options \\ []) do
+
+  def list_commands(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10164,12 +11204,26 @@ defmodule AWS.SSM do
   statuses for different resource types. Currently, you can only specify one
   resource ID per call. List results depend on the criteria specified in the
   filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListComplianceItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_compliance_items_request`)
+    %{
+      optional("Filters") => list(compliance_string_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceIds") => list(String.t()()),
+      optional("ResourceTypes") => list(String.t()())
+    }
   """
-  @spec list_compliance_items(AWS.Client.t(), list_compliance_items_request(), Keyword.t()) ::
+
+  @spec list_compliance_items(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_compliance_items_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_compliance_items_errors()}
-  def list_compliance_items(%Client{} = client, input, options \\ []) do
+
+  def list_compliance_items(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10181,16 +11235,24 @@ defmodule AWS.SSM do
   compliance type. For example, this call can return State Manager associations,
   patches, or custom compliance types according to the filter criteria that you
   specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListComplianceSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_compliance_summaries_request`)
+    %{
+      optional("Filters") => list(compliance_string_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_compliance_summaries(
-          AWS.Client.t(),
-          list_compliance_summaries_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_compliance_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_compliance_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_compliance_summaries_errors()}
-  def list_compliance_summaries(%Client{} = client, input, options \\ []) do
+
+  def list_compliance_summaries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10200,16 +11262,27 @@ defmodule AWS.SSM do
   @doc """
   Information about approval reviews for a version of a change template in Change
   Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListDocumentMetadataHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_document_metadata_history_request`)
+    %{
+      optional("DocumentVersion") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Metadata") => list(any()),
+      required("Name") => String.t()
+    }
   """
-  @spec list_document_metadata_history(
-          AWS.Client.t(),
-          list_document_metadata_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_document_metadata_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_document_metadata_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_document_metadata_history_errors()}
-  def list_document_metadata_history(%Client{} = client, input, options \\ []) do
+
+  def list_document_metadata_history(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10218,12 +11291,24 @@ defmodule AWS.SSM do
 
   @doc """
   List all versions for a document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListDocumentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_document_versions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec list_document_versions(AWS.Client.t(), list_document_versions_request(), Keyword.t()) ::
+
+  @spec list_document_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_document_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_document_versions_errors()}
-  def list_document_versions(%Client{} = client, input, options \\ []) do
+
+  def list_document_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10234,12 +11319,25 @@ defmodule AWS.SSM do
   Returns all Systems Manager (SSM) documents in the current Amazon Web Services
   account and Amazon Web Services Region. You can limit the results of this
   request by using a filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListDocuments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_documents_request`)
+    %{
+      optional("DocumentFilterList") => list(document_filter()()),
+      optional("Filters") => list(document_key_values_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_documents(AWS.Client.t(), list_documents_request(), Keyword.t()) ::
+
+  @spec list_documents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_documents_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_documents_errors()}
-  def list_documents(%Client{} = client, input, options \\ []) do
+
+  def list_documents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10248,12 +11346,26 @@ defmodule AWS.SSM do
 
   @doc """
   A list of inventory items returned by the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListInventoryEntries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inventory_entries_request`)
+    %{
+      optional("Filters") => list(inventory_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InstanceId") => String.t(),
+      required("TypeName") => String.t()
+    }
   """
-  @spec list_inventory_entries(AWS.Client.t(), list_inventory_entries_request(), Keyword.t()) ::
+
+  @spec list_inventory_entries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inventory_entries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inventory_entries_errors()}
-  def list_inventory_entries(%Client{} = client, input, options \\ []) do
+
+  def list_inventory_entries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10264,12 +11376,24 @@ defmodule AWS.SSM do
   Returns a list of all OpsItem events in the current Amazon Web Services Region
   and Amazon Web Services account. You can limit the results to events
   associated with specific OpsItems by specifying a filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListOpsItemEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ops_item_events_request`)
+    %{
+      optional("Filters") => list(ops_item_event_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_ops_item_events(AWS.Client.t(), list_ops_item_events_request(), Keyword.t()) ::
+
+  @spec list_ops_item_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ops_item_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ops_item_events_errors()}
-  def list_ops_item_events(%Client{} = client, input, options \\ []) do
+
+  def list_ops_item_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10279,16 +11403,25 @@ defmodule AWS.SSM do
   @doc """
   Lists all related-item resources associated with a Systems Manager OpsCenter
   OpsItem. OpsCenter is a capability of Amazon Web Services Systems Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListOpsItemRelatedItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ops_item_related_items_request`)
+    %{
+      optional("Filters") => list(ops_item_related_items_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("OpsItemId") => String.t()
+    }
   """
-  @spec list_ops_item_related_items(
-          AWS.Client.t(),
-          list_ops_item_related_items_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_ops_item_related_items(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ops_item_related_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ops_item_related_items_errors()}
-  def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
+
+  def list_ops_item_related_items(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10298,12 +11431,24 @@ defmodule AWS.SSM do
   @doc """
   Amazon Web Services Systems Manager calls this API operation when displaying all
   Application Manager OpsMetadata objects or blobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListOpsMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ops_metadata_request`)
+    %{
+      optional("Filters") => list(ops_metadata_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_ops_metadata(AWS.Client.t(), list_ops_metadata_request(), Keyword.t()) ::
+
+  @spec list_ops_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ops_metadata_errors()}
-  def list_ops_metadata(%Client{} = client, input, options \\ []) do
+
+  def list_ops_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10314,16 +11459,25 @@ defmodule AWS.SSM do
   Returns a resource-level summary count. The summary includes information about
   compliant and non-compliant statuses and detailed compliance-item severity
   counts, according to the filter criteria you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListResourceComplianceSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_compliance_summaries_request`)
+    %{
+      optional("Filters") => list(compliance_string_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_resource_compliance_summaries(
-          AWS.Client.t(),
-          list_resource_compliance_summaries_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_resource_compliance_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_compliance_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_compliance_summaries_errors()}
-  def list_resource_compliance_summaries(%Client{} = client, input, options \\ []) do
+
+  def list_resource_compliance_summaries(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10334,12 +11488,24 @@ defmodule AWS.SSM do
   Lists your resource data sync configurations. Includes information about the
   last time a sync attempted to start, the last sync status, and the last time a
   sync successfully completed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListResourceDataSync&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_data_sync_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SyncType") => String.t()
+    }
   """
-  @spec list_resource_data_sync(AWS.Client.t(), list_resource_data_sync_request(), Keyword.t()) ::
+
+  @spec list_resource_data_sync(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_data_sync_errors()}
-  def list_resource_data_sync(%Client{} = client, input, options \\ []) do
+
+  def list_resource_data_sync(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10348,12 +11514,23 @@ defmodule AWS.SSM do
 
   @doc """
   Returns a list of the tags assigned to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("ResourceType") => list(any())
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10365,16 +11542,26 @@ defmodule AWS.SSM do
   privately. If you share a document privately, you must specify the Amazon Web
   Services user IDs for those people who can use the document. If you share a
   document publicly, you must specify *All* as the account ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ModifyDocumentPermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_document_permission_request`)
+    %{
+      optional("AccountIdsToAdd") => list(String.t()()),
+      optional("AccountIdsToRemove") => list(String.t()()),
+      optional("SharedDocumentVersion") => String.t(),
+      required("Name") => String.t(),
+      required("PermissionType") => list(any())
+    }
   """
-  @spec modify_document_permission(
-          AWS.Client.t(),
-          modify_document_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_document_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_document_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_document_permission_errors()}
-  def modify_document_permission(%Client{} = client, input, options \\ []) do
+
+  def modify_document_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10387,12 +11574,28 @@ defmodule AWS.SSM do
   resource. This call overwrites existing compliance information on the
   resource, so you must provide a full list of compliance items each time that
   you send the request. ComplianceType can be one of the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20PutComplianceItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_compliance_items_request`)
+    %{
+      optional("ItemContentHash") => String.t(),
+      optional("UploadType") => list(any()),
+      required("ComplianceType") => String.t(),
+      required("ExecutionSummary") => compliance_execution_summary(),
+      required("Items") => list(compliance_item_entry()()),
+      required("ResourceId") => String.t(),
+      required("ResourceType") => String.t()
+    }
   """
-  @spec put_compliance_items(AWS.Client.t(), put_compliance_items_request(), Keyword.t()) ::
+
+  @spec put_compliance_items(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_compliance_items_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_compliance_items_errors()}
-  def put_compliance_items(%Client{} = client, input, options \\ []) do
+
+  def put_compliance_items(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10403,12 +11606,23 @@ defmodule AWS.SSM do
   Bulk update custom inventory items on one or more managed nodes. The request
   adds an inventory item, if it doesn't already exist, or updates an inventory
   item, if it does exist.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20PutInventory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_inventory_request`)
+    %{
+      required("InstanceId") => String.t(),
+      required("Items") => list(inventory_item()())
+    }
   """
-  @spec put_inventory(AWS.Client.t(), put_inventory_request(), Keyword.t()) ::
+
+  @spec put_inventory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_inventory_errors()}
-  def put_inventory(%Client{} = client, input, options \\ []) do
+
+  def put_inventory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10417,12 +11631,32 @@ defmodule AWS.SSM do
 
   @doc """
   Add a parameter to the system.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20PutParameter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_parameter_request`)
+    %{
+      optional("AllowedPattern") => String.t(),
+      optional("DataType") => String.t(),
+      optional("Description") => String.t(),
+      optional("KeyId") => String.t(),
+      optional("Overwrite") => boolean(),
+      optional("Policies") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("Tier") => list(any()),
+      optional("Type") => list(any()),
+      required("Name") => String.t(),
+      required("Value") => String.t()
+    }
   """
-  @spec put_parameter(AWS.Client.t(), put_parameter_request(), Keyword.t()) ::
+
+  @spec put_parameter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_parameter_errors()}
-  def put_parameter(%Client{} = client, input, options \\ []) do
+
+  def put_parameter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10434,12 +11668,25 @@ defmodule AWS.SSM do
   you to define the IAM entity (for example, an Amazon Web Services account)
   that can manage your Systems Manager resources. The following resources
   support Systems Manager resource policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_policy_request`)
+    %{
+      optional("PolicyHash") => String.t(),
+      optional("PolicyId") => String.t(),
+      required("Policy") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10448,16 +11695,23 @@ defmodule AWS.SSM do
 
   @doc """
   Defines the default patch baseline for the relevant operating system.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20RegisterDefaultPatchBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_default_patch_baseline_request`)
+    %{
+      required("BaselineId") => String.t()
+    }
   """
-  @spec register_default_patch_baseline(
-          AWS.Client.t(),
-          register_default_patch_baseline_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_default_patch_baseline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_default_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_default_patch_baseline_errors()}
-  def register_default_patch_baseline(%Client{} = client, input, options \\ []) do
+
+  def register_default_patch_baseline(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10466,16 +11720,24 @@ defmodule AWS.SSM do
 
   @doc """
   Registers a patch baseline for a patch group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20RegisterPatchBaselineForPatchGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_patch_baseline_for_patch_group_request`)
+    %{
+      required("BaselineId") => String.t(),
+      required("PatchGroup") => String.t()
+    }
   """
-  @spec register_patch_baseline_for_patch_group(
-          AWS.Client.t(),
-          register_patch_baseline_for_patch_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_patch_baseline_for_patch_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_patch_baseline_for_patch_group_errors()}
-  def register_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
+
+  def register_patch_baseline_for_patch_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10484,16 +11746,29 @@ defmodule AWS.SSM do
 
   @doc """
   Registers a target with a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20RegisterTargetWithMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_target_with_maintenance_window_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("Name") => String.t(),
+      optional("OwnerInformation") => String.t(),
+      required("ResourceType") => list(any()),
+      required("Targets") => list(target()()),
+      required("WindowId") => String.t()
+    }
   """
-  @spec register_target_with_maintenance_window(
-          AWS.Client.t(),
-          register_target_with_maintenance_window_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_target_with_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_target_with_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_target_with_maintenance_window_errors()}
-  def register_target_with_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def register_target_with_maintenance_window(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10502,16 +11777,38 @@ defmodule AWS.SSM do
 
   @doc """
   Adds a new task to a maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20RegisterTaskWithMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_task_with_maintenance_window_request`)
+    %{
+      optional("AlarmConfiguration") => alarm_configuration(),
+      optional("ClientToken") => String.t(),
+      optional("CutoffBehavior") => list(any()),
+      optional("Description") => String.t(),
+      optional("LoggingInfo") => logging_info(),
+      optional("MaxConcurrency") => String.t(),
+      optional("MaxErrors") => String.t(),
+      optional("Name") => String.t(),
+      optional("Priority") => integer(),
+      optional("ServiceRoleArn") => String.t(),
+      optional("Targets") => list(target()()),
+      optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
+      optional("TaskParameters") => map(),
+      required("TaskArn") => String.t(),
+      required("TaskType") => list(any()),
+      required("WindowId") => String.t()
+    }
   """
-  @spec register_task_with_maintenance_window(
-          AWS.Client.t(),
-          register_task_with_maintenance_window_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_task_with_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_task_with_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_task_with_maintenance_window_errors()}
-  def register_task_with_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def register_task_with_maintenance_window(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10520,16 +11817,24 @@ defmodule AWS.SSM do
 
   @doc """
   Removes tag keys from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20RemoveTagsFromResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_resource_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("ResourceType") => list(any()),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec remove_tags_from_resource(
-          AWS.Client.t(),
-          remove_tags_from_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_from_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-  def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10550,12 +11855,22 @@ defmodule AWS.SSM do
   the setting. Use the `GetServiceSetting` API operation to view the current
   value. Use the `UpdateServiceSetting` API operation to change the default
   setting.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ResetServiceSetting&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_service_setting_request`)
+    %{
+      required("SettingId") => String.t()
+    }
   """
-  @spec reset_service_setting(AWS.Client.t(), reset_service_setting_request(), Keyword.t()) ::
+
+  @spec reset_service_setting(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_service_setting_errors()}
-  def reset_service_setting(%Client{} = client, input, options \\ []) do
+
+  def reset_service_setting(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10566,12 +11881,22 @@ defmodule AWS.SSM do
   Reconnects a session to a managed node after it has been disconnected.
   Connections can be resumed for disconnected sessions, but not terminated
   sessions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20ResumeSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:resume_session_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec resume_session(AWS.Client.t(), resume_session_request(), Keyword.t()) ::
+
+  @spec resume_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resume_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_session_errors()}
-  def resume_session(%Client{} = client, input, options \\ []) do
+
+  def resume_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10581,12 +11906,24 @@ defmodule AWS.SSM do
   @doc """
   Sends a signal to an Automation execution to change the current behavior or
   status of the execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20SendAutomationSignal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_automation_signal_request`)
+    %{
+      optional("Payload") => map(),
+      required("AutomationExecutionId") => String.t(),
+      required("SignalType") => list(any())
+    }
   """
-  @spec send_automation_signal(AWS.Client.t(), send_automation_signal_request(), Keyword.t()) ::
+
+  @spec send_automation_signal(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_automation_signal_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_automation_signal_errors()}
-  def send_automation_signal(%Client{} = client, input, options \\ []) do
+
+  def send_automation_signal(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10595,12 +11932,39 @@ defmodule AWS.SSM do
 
   @doc """
   Runs commands on one or more managed nodes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20SendCommand&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_command_request`)
+    %{
+      optional("AlarmConfiguration") => alarm_configuration(),
+      optional("CloudWatchOutputConfig") => cloud_watch_output_config(),
+      optional("Comment") => String.t(),
+      optional("DocumentHash") => String.t(),
+      optional("DocumentHashType") => list(any()),
+      optional("DocumentVersion") => String.t(),
+      optional("InstanceIds") => list(String.t()()),
+      optional("MaxConcurrency") => String.t(),
+      optional("MaxErrors") => String.t(),
+      optional("NotificationConfig") => notification_config(),
+      optional("OutputS3BucketName") => String.t(),
+      optional("OutputS3KeyPrefix") => String.t(),
+      optional("OutputS3Region") => String.t(),
+      optional("Parameters") => map(),
+      optional("ServiceRoleArn") => String.t(),
+      optional("Targets") => list(target()()),
+      optional("TimeoutSeconds") => integer(),
+      required("DocumentName") => String.t()
+    }
   """
-  @spec send_command(AWS.Client.t(), send_command_request(), Keyword.t()) ::
+
+  @spec send_command(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_command_errors()}
-  def send_command(%Client{} = client, input, options \\ []) do
+
+  def send_command(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10610,12 +11974,22 @@ defmodule AWS.SSM do
   @doc """
   Runs an association immediately and only one time. This operation can be helpful
   when troubleshooting associations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20StartAssociationsOnce&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_associations_once_request`)
+    %{
+      required("AssociationIds") => list(String.t()())
+    }
   """
-  @spec start_associations_once(AWS.Client.t(), start_associations_once_request(), Keyword.t()) ::
+
+  @spec start_associations_once(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_associations_once_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_associations_once_errors()}
-  def start_associations_once(%Client{} = client, input, options \\ []) do
+
+  def start_associations_once(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10624,16 +11998,34 @@ defmodule AWS.SSM do
 
   @doc """
   Initiates execution of an Automation runbook.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20StartAutomationExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_automation_execution_request`)
+    %{
+      optional("AlarmConfiguration") => alarm_configuration(),
+      optional("ClientToken") => String.t(),
+      optional("DocumentVersion") => String.t(),
+      optional("MaxConcurrency") => String.t(),
+      optional("MaxErrors") => String.t(),
+      optional("Mode") => list(any()),
+      optional("Parameters") => map(),
+      optional("Tags") => list(tag()()),
+      optional("TargetLocations") => list(target_location()()),
+      optional("TargetMaps") => list(map()()),
+      optional("TargetParameterName") => String.t(),
+      optional("Targets") => list(target()()),
+      required("DocumentName") => String.t()
+    }
   """
-  @spec start_automation_execution(
-          AWS.Client.t(),
-          start_automation_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_automation_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_automation_execution_errors()}
-  def start_automation_execution(%Client{} = client, input, options \\ []) do
+
+  def start_automation_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10644,16 +12036,33 @@ defmodule AWS.SSM do
   Creates a change request for Change Manager. The Automation runbooks specified
   in the change request run only after all required approvals for the change
   request have been received.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20StartChangeRequestExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_change_request_execution_request`)
+    %{
+      optional("AutoApprove") => boolean(),
+      optional("ChangeDetails") => String.t(),
+      optional("ChangeRequestName") => String.t(),
+      optional("ClientToken") => String.t(),
+      optional("DocumentVersion") => String.t(),
+      optional("Parameters") => map(),
+      optional("ScheduledEndTime") => non_neg_integer(),
+      optional("ScheduledTime") => non_neg_integer(),
+      optional("Tags") => list(tag()()),
+      required("DocumentName") => String.t(),
+      required("Runbooks") => list(runbook()())
+    }
   """
-  @spec start_change_request_execution(
-          AWS.Client.t(),
-          start_change_request_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_change_request_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_change_request_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_change_request_execution_errors()}
-  def start_change_request_execution(%Client{} = client, input, options \\ []) do
+
+  def start_change_request_execution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10664,12 +12073,25 @@ defmodule AWS.SSM do
   Initiates a connection to a target (for example, a managed node) for a Session
   Manager session. Returns a URL and token that can be used to open a WebSocket
   connection for sending input and receiving outputs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20StartSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_session_request`)
+    %{
+      optional("DocumentName") => String.t(),
+      optional("Parameters") => map(),
+      optional("Reason") => String.t(),
+      required("Target") => String.t()
+    }
   """
-  @spec start_session(AWS.Client.t(), start_session_request(), Keyword.t()) ::
+
+  @spec start_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_session_errors()}
-  def start_session(%Client{} = client, input, options \\ []) do
+
+  def start_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10678,16 +12100,23 @@ defmodule AWS.SSM do
 
   @doc """
   Stop an Automation that is currently running.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20StopAutomationExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_automation_execution_request`)
+    %{
+      optional("Type") => list(any()),
+      required("AutomationExecutionId") => String.t()
+    }
   """
-  @spec stop_automation_execution(
-          AWS.Client.t(),
-          stop_automation_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_automation_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_automation_execution_errors()}
-  def stop_automation_execution(%Client{} = client, input, options \\ []) do
+
+  def stop_automation_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10698,12 +12127,22 @@ defmodule AWS.SSM do
   Permanently ends a session and closes the data connection between the Session
   Manager client and SSM Agent on the managed node. A terminated session can't
   be resumed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20TerminateSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:terminate_session_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec terminate_session(AWS.Client.t(), terminate_session_request(), Keyword.t()) ::
+
+  @spec terminate_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_session_errors()}
-  def terminate_session(%Client{} = client, input, options \\ []) do
+
+  def terminate_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10712,16 +12151,24 @@ defmodule AWS.SSM do
 
   @doc """
   Remove a label or labels from a parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UnlabelParameterVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:unlabel_parameter_version_request`)
+    %{
+      required("Labels") => list(String.t()()),
+      required("Name") => String.t(),
+      required("ParameterVersion") => float()
+    }
   """
-  @spec unlabel_parameter_version(
-          AWS.Client.t(),
-          unlabel_parameter_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec unlabel_parameter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, unlabel_parameter_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unlabel_parameter_version_errors()}
-  def unlabel_parameter_version(%Client{} = client, input, options \\ []) do
+
+  def unlabel_parameter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10743,12 +12190,42 @@ defmodule AWS.SSM do
   call `DescribeAssociation`, then you receive the following error: ``` An error
   occurred (AccessDeniedException) when calling the UpdateAssociation operation:
   User: isn't authorized to perform: ssm:DescribeAssociation on resource: ```
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_association_request`)
+    %{
+      optional("AlarmConfiguration") => alarm_configuration(),
+      optional("ApplyOnlyAtCronInterval") => boolean(),
+      optional("AssociationName") => String.t(),
+      optional("AssociationVersion") => String.t(),
+      optional("AutomationTargetParameterName") => String.t(),
+      optional("CalendarNames") => list(String.t()()),
+      optional("ComplianceSeverity") => list(any()),
+      optional("DocumentVersion") => String.t(),
+      optional("Duration") => integer(),
+      optional("MaxConcurrency") => String.t(),
+      optional("MaxErrors") => String.t(),
+      optional("Name") => String.t(),
+      optional("OutputLocation") => instance_association_output_location(),
+      optional("Parameters") => map(),
+      optional("ScheduleExpression") => String.t(),
+      optional("ScheduleOffset") => integer(),
+      optional("SyncCompliance") => list(any()),
+      optional("TargetLocations") => list(target_location()()),
+      optional("TargetMaps") => list(map()()),
+      optional("Targets") => list(target()()),
+      required("AssociationId") => String.t()
+    }
   """
-  @spec update_association(AWS.Client.t(), update_association_request(), Keyword.t()) ::
+
+  @spec update_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_association_errors()}
-  def update_association(%Client{} = client, input, options \\ []) do
+
+  def update_association(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10758,16 +12235,24 @@ defmodule AWS.SSM do
   @doc """
   Updates the status of the Amazon Web Services Systems Manager document (SSM
   document) associated with the specified managed node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateAssociationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_association_status_request`)
+    %{
+      required("AssociationStatus") => association_status(),
+      required("InstanceId") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_association_status(
-          AWS.Client.t(),
-          update_association_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_association_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_association_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_association_status_errors()}
-  def update_association_status(%Client{} = client, input, options \\ []) do
+
+  def update_association_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10776,12 +12261,29 @@ defmodule AWS.SSM do
 
   @doc """
   Updates one or more values for an SSM document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_document_request`)
+    %{
+      optional("Attachments") => list(attachments_source()()),
+      optional("DisplayName") => String.t(),
+      optional("DocumentFormat") => list(any()),
+      optional("DocumentVersion") => String.t(),
+      optional("TargetType") => String.t(),
+      optional("VersionName") => String.t(),
+      required("Content") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_document(AWS.Client.t(), update_document_request(), Keyword.t()) ::
+
+  @spec update_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_document_errors()}
-  def update_document(%Client{} = client, input, options \\ []) do
+
+  def update_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10790,16 +12292,24 @@ defmodule AWS.SSM do
 
   @doc """
   Set the default version of a document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateDocumentDefaultVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_document_default_version_request`)
+    %{
+      required("DocumentVersion") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_document_default_version(
-          AWS.Client.t(),
-          update_document_default_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_document_default_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_document_default_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_document_default_version_errors()}
-  def update_document_default_version(%Client{} = client, input, options \\ []) do
+
+  def update_document_default_version(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10809,12 +12319,24 @@ defmodule AWS.SSM do
   @doc """
   Updates information related to approval reviews for a specific version of a
   change template in Change Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateDocumentMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_document_metadata_request`)
+    %{
+      optional("DocumentVersion") => String.t(),
+      required("DocumentReviews") => document_reviews(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_document_metadata(AWS.Client.t(), update_document_metadata_request(), Keyword.t()) ::
+
+  @spec update_document_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_document_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_document_metadata_errors()}
-  def update_document_metadata(%Client{} = client, input, options \\ []) do
+
+  def update_document_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10823,16 +12345,34 @@ defmodule AWS.SSM do
 
   @doc """
   Updates an existing maintenance window. Only specified parameters are modified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_maintenance_window_request`)
+    %{
+      optional("AllowUnassociatedTargets") => boolean(),
+      optional("Cutoff") => integer(),
+      optional("Description") => String.t(),
+      optional("Duration") => integer(),
+      optional("Enabled") => boolean(),
+      optional("EndDate") => String.t(),
+      optional("Name") => String.t(),
+      optional("Replace") => boolean(),
+      optional("Schedule") => String.t(),
+      optional("ScheduleOffset") => integer(),
+      optional("ScheduleTimezone") => String.t(),
+      optional("StartDate") => String.t(),
+      required("WindowId") => String.t()
+    }
   """
-  @spec update_maintenance_window(
-          AWS.Client.t(),
-          update_maintenance_window_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_maintenance_window(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_maintenance_window_errors()}
-  def update_maintenance_window(%Client{} = client, input, options \\ []) do
+
+  def update_maintenance_window(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10842,16 +12382,29 @@ defmodule AWS.SSM do
   @doc """
   Modifies the target of an existing maintenance window. You can change the
   following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateMaintenanceWindowTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_maintenance_window_target_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Name") => String.t(),
+      optional("OwnerInformation") => String.t(),
+      optional("Replace") => boolean(),
+      optional("Targets") => list(target()()),
+      required("WindowId") => String.t(),
+      required("WindowTargetId") => String.t()
+    }
   """
-  @spec update_maintenance_window_target(
-          AWS.Client.t(),
-          update_maintenance_window_target_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_maintenance_window_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_maintenance_window_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_maintenance_window_target_errors()}
-  def update_maintenance_window_target(%Client{} = client, input, options \\ []) do
+
+  def update_maintenance_window_target(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10861,16 +12414,38 @@ defmodule AWS.SSM do
   @doc """
   Modifies a task assigned to a maintenance window. You can't change the task
   type, but you can change the following values:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateMaintenanceWindowTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_maintenance_window_task_request`)
+    %{
+      optional("AlarmConfiguration") => alarm_configuration(),
+      optional("CutoffBehavior") => list(any()),
+      optional("Description") => String.t(),
+      optional("LoggingInfo") => logging_info(),
+      optional("MaxConcurrency") => String.t(),
+      optional("MaxErrors") => String.t(),
+      optional("Name") => String.t(),
+      optional("Priority") => integer(),
+      optional("Replace") => boolean(),
+      optional("ServiceRoleArn") => String.t(),
+      optional("Targets") => list(target()()),
+      optional("TaskArn") => String.t(),
+      optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
+      optional("TaskParameters") => map(),
+      required("WindowId") => String.t(),
+      required("WindowTaskId") => String.t()
+    }
   """
-  @spec update_maintenance_window_task(
-          AWS.Client.t(),
-          update_maintenance_window_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_maintenance_window_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_maintenance_window_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_maintenance_window_task_errors()}
-  def update_maintenance_window_task(%Client{} = client, input, options \\ []) do
+
+  def update_maintenance_window_task(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -10882,16 +12457,23 @@ defmodule AWS.SSM do
   on-premises server, edge device, or virtual machines (VM). IAM roles are first
   assigned to these hybrid nodes during the activation process. For more
   information, see `CreateActivation`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateManagedInstanceRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_managed_instance_role_request`)
+    %{
+      required("IamRole") => String.t(),
+      required("InstanceId") => String.t()
+    }
   """
-  @spec update_managed_instance_role(
-          AWS.Client.t(),
-          update_managed_instance_role_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_managed_instance_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_managed_instance_role_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_managed_instance_role_errors()}
-  def update_managed_instance_role(%Client{} = client, input, options \\ []) do
+
+  def update_managed_instance_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10909,12 +12491,37 @@ defmodule AWS.SSM do
   [Amazon Web Services Systems Manager
   OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)
   in the *Amazon Web Services Systems Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateOpsItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_ops_item_request`)
+    %{
+      optional("ActualEndTime") => non_neg_integer(),
+      optional("ActualStartTime") => non_neg_integer(),
+      optional("Category") => String.t(),
+      optional("Description") => String.t(),
+      optional("Notifications") => list(ops_item_notification()()),
+      optional("OperationalData") => map(),
+      optional("OperationalDataToDelete") => list(String.t()()),
+      optional("OpsItemArn") => String.t(),
+      optional("PlannedEndTime") => non_neg_integer(),
+      optional("PlannedStartTime") => non_neg_integer(),
+      optional("Priority") => integer(),
+      optional("RelatedOpsItems") => list(related_ops_item()()),
+      optional("Severity") => String.t(),
+      optional("Status") => list(any()),
+      optional("Title") => String.t(),
+      required("OpsItemId") => String.t()
+    }
   """
-  @spec update_ops_item(AWS.Client.t(), update_ops_item_request(), Keyword.t()) ::
+
+  @spec update_ops_item(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ops_item_errors()}
-  def update_ops_item(%Client{} = client, input, options \\ []) do
+
+  def update_ops_item(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10924,12 +12531,24 @@ defmodule AWS.SSM do
   @doc """
   Amazon Web Services Systems Manager calls this API operation when you edit
   OpsMetadata in Application Manager.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateOpsMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_ops_metadata_request`)
+    %{
+      optional("KeysToDelete") => list(String.t()()),
+      optional("MetadataToUpdate") => map(),
+      required("OpsMetadataArn") => String.t()
+    }
   """
-  @spec update_ops_metadata(AWS.Client.t(), update_ops_metadata_request(), Keyword.t()) ::
+
+  @spec update_ops_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ops_metadata_errors()}
-  def update_ops_metadata(%Client{} = client, input, options \\ []) do
+
+  def update_ops_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10939,12 +12558,33 @@ defmodule AWS.SSM do
   @doc """
   Modifies an existing patch baseline. Fields not specified in the request are
   left unchanged.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdatePatchBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_patch_baseline_request`)
+    %{
+      optional("ApprovalRules") => patch_rule_group(),
+      optional("ApprovedPatches") => list(String.t()()),
+      optional("ApprovedPatchesComplianceLevel") => list(any()),
+      optional("ApprovedPatchesEnableNonSecurity") => boolean(),
+      optional("Description") => String.t(),
+      optional("GlobalFilters") => patch_filter_group(),
+      optional("Name") => String.t(),
+      optional("RejectedPatches") => list(String.t()()),
+      optional("RejectedPatchesAction") => list(any()),
+      optional("Replace") => boolean(),
+      optional("Sources") => list(patch_source()()),
+      required("BaselineId") => String.t()
+    }
   """
-  @spec update_patch_baseline(AWS.Client.t(), update_patch_baseline_request(), Keyword.t()) ::
+
+  @spec update_patch_baseline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_patch_baseline_errors()}
-  def update_patch_baseline(%Client{} = client, input, options \\ []) do
+
+  def update_patch_baseline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10958,16 +12598,24 @@ defmodule AWS.SSM do
   current account` option, you can't edit that sync later and choose the ```
   Include all accounts from my Organizations configuration ``` option. Instead,
   you must delete the first resource data sync, and create a new one.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateResourceDataSync&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_resource_data_sync_request`)
+    %{
+      required("SyncName") => String.t(),
+      required("SyncSource") => resource_data_sync_source(),
+      required("SyncType") => String.t()
+    }
   """
-  @spec update_resource_data_sync(
-          AWS.Client.t(),
-          update_resource_data_sync_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_resource_data_sync(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_data_sync_errors()}
-  def update_resource_data_sync(%Client{} = client, input, options \\ []) do
+
+  def update_resource_data_sync(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -10988,12 +12636,23 @@ defmodule AWS.SSM do
   the setting. Use the `GetServiceSetting` API operation to view the current
   value. Or, use the `ResetServiceSetting` to change the value back to the
   original value defined by the Amazon Web Services service team.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssm%20UpdateServiceSetting&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_service_setting_request`)
+    %{
+      required("SettingId") => String.t(),
+      required("SettingValue") => String.t()
+    }
   """
-  @spec update_service_setting(AWS.Client.t(), update_service_setting_request(), Keyword.t()) ::
+
+  @spec update_service_setting(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_setting_errors()}
-  def update_service_setting(%Client{} = client, input, options \\ []) do
+
+  def update_service_setting(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

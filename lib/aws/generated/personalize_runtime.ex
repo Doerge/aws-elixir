@@ -8,7 +8,7 @@ defmodule AWS.PersonalizeRuntime do
   @typedoc """
 
   ## Example:
-
+      
       get_action_recommendations_request() :: %{
         optional("campaignArn") => String.t(),
         optional("filterArn") => String.t(),
@@ -16,26 +16,26 @@ defmodule AWS.PersonalizeRuntime do
         optional("numResults") => integer(),
         optional("userId") => String.t()
       }
-
+      
   """
   @type get_action_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_action_recommendations_response() :: %{
         "actionList" => list(predicted_action()()),
         "recommendationId" => String.t()
       }
-
+      
   """
   @type get_action_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_personalized_ranking_request() :: %{
         optional("context") => map(),
         optional("filterArn") => String.t(),
@@ -45,26 +45,26 @@ defmodule AWS.PersonalizeRuntime do
         required("inputList") => list(String.t()()),
         required("userId") => String.t()
       }
-
+      
   """
   @type get_personalized_ranking_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_personalized_ranking_response() :: %{
         "personalizedRanking" => list(predicted_item()()),
         "recommendationId" => String.t()
       }
-
+      
   """
   @type get_personalized_ranking_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommendations_request() :: %{
         optional("campaignArn") => String.t(),
         optional("context") => map(),
@@ -77,49 +77,49 @@ defmodule AWS.PersonalizeRuntime do
         optional("recommenderArn") => String.t(),
         optional("userId") => String.t()
       }
-
+      
   """
   @type get_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommendations_response() :: %{
         "itemList" => list(predicted_item()()),
         "recommendationId" => String.t()
       }
-
+      
   """
   @type get_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_input_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_input_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       predicted_action() :: %{
         "actionId" => String.t(),
         "score" => float()
       }
-
+      
   """
   @type predicted_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       predicted_item() :: %{
         "itemId" => String.t(),
         "metadata" => map(),
@@ -127,32 +127,32 @@ defmodule AWS.PersonalizeRuntime do
         "reason" => list(String.t()()),
         "score" => float()
       }
-
+      
   """
   @type predicted_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       promotion() :: %{
         "filterArn" => String.t(),
         "filterValues" => map(),
         "name" => String.t(),
         "percentPromotedItems" => integer()
       }
-
+      
   """
   @type promotion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
@@ -192,33 +192,40 @@ defmodule AWS.PersonalizeRuntime do
 
   ## Optional parameters:
   """
-  @spec get_action_recommendations(
-          AWS.Client.t(),
-          get_action_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_action_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_action_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_action_recommendations_errors()}
-  def get_action_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_action_recommendations(%Client{} = client, options \\ []) do
     url_path = "/action-recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -231,29 +238,40 @@ defmodule AWS.PersonalizeRuntime do
 
   ## Optional parameters:
   """
-  @spec get_personalized_ranking(AWS.Client.t(), get_personalized_ranking_request(), Keyword.t()) ::
+
+  @spec get_personalized_ranking(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_personalized_ranking_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_personalized_ranking_errors()}
-  def get_personalized_ranking(%Client{} = client, input, options \\ []) do
+
+  def get_personalized_ranking(%Client{} = client, options \\ []) do
     url_path = "/personalize-ranking"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -268,28 +286,39 @@ defmodule AWS.PersonalizeRuntime do
 
   ## Optional parameters:
   """
-  @spec get_recommendations(AWS.Client.t(), get_recommendations_request(), Keyword.t()) ::
+
+  @spec get_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendations_errors()}
-  def get_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_recommendations(%Client{} = client, options \\ []) do
     url_path = "/recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

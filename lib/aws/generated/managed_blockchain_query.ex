@@ -20,105 +20,105 @@ defmodule AWS.ManagedBlockchainQuery do
   @typedoc """
 
   ## Example:
-
+      
       get_asset_contract_input() :: %{
         required("contractIdentifier") => contract_identifier()
       }
-
+      
   """
   @type get_asset_contract_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_contracts_output() :: %{
         "contracts" => list(asset_contract()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_asset_contracts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_token_balance_input_item() :: %{
         "atBlockchainInstant" => blockchain_instant(),
         "ownerIdentifier" => owner_identifier(),
         "tokenIdentifier" => token_identifier()
       }
-
+      
   """
   @type batch_get_token_balance_input_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_asset_contract_output() :: %{
         "contractIdentifier" => contract_identifier(),
         "deployerAddress" => String.t(),
         "metadata" => contract_metadata(),
         "tokenStandard" => String.t()
       }
-
+      
   """
   @type get_asset_contract_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contract_filter() :: %{
         "deployerAddress" => String.t(),
         "network" => String.t(),
         "tokenStandard" => String.t()
       }
-
+      
   """
   @type contract_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       owner_filter() :: %{
         "address" => String.t()
       }
-
+      
   """
   @type owner_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       blockchain_instant() :: %{
         "time" => [non_neg_integer()]
       }
-
+      
   """
   @type blockchain_instant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_token_balance_output_item() :: %{
         "atBlockchainInstant" => blockchain_instant(),
         "balance" => [String.t()],
@@ -126,28 +126,28 @@ defmodule AWS.ManagedBlockchainQuery do
         "ownerIdentifier" => owner_identifier(),
         "tokenIdentifier" => token_identifier()
       }
-
+      
   """
   @type batch_get_token_balance_output_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_token_balances_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         optional("ownerFilter") => owner_filter(),
         required("tokenFilter") => token_filter()
       }
-
+      
   """
   @type list_token_balances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_transactions_input() :: %{
         optional("confirmationStatusFilter") => confirmation_status_filter(),
         optional("fromBlockchainInstant") => blockchain_instant(),
@@ -158,26 +158,26 @@ defmodule AWS.ManagedBlockchainQuery do
         required("address") => String.t(),
         required("network") => String.t()
       }
-
+      
   """
   @type list_transactions_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_filter() :: %{
         "from" => blockchain_instant(),
         "to" => blockchain_instant()
       }
-
+      
   """
   @type time_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t(),
         "quotaCode" => String.t(),
@@ -185,14 +185,14 @@ defmodule AWS.ManagedBlockchainQuery do
         "resourceType" => String.t(),
         "serviceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transaction_output_item() :: %{
         "confirmationStatus" => String.t(),
         "network" => String.t(),
@@ -200,63 +200,63 @@ defmodule AWS.ManagedBlockchainQuery do
         "transactionId" => String.t(),
         "transactionTimestamp" => [non_neg_integer()]
       }
-
+      
   """
   @type transaction_output_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_contract() :: %{
         "contractIdentifier" => contract_identifier(),
         "deployerAddress" => String.t(),
         "tokenStandard" => String.t()
       }
-
+      
   """
   @type asset_contract() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_token_balance_output() :: %{
         "errors" => list(batch_get_token_balance_error_item()()),
         "tokenBalances" => list(batch_get_token_balance_output_item()())
       }
-
+      
   """
   @type batch_get_token_balance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_filtered_transaction_events_input() :: %{
         optional("confirmationStatusFilter") => confirmation_status_filter(),
         optional("maxResults") => [integer()],
@@ -267,14 +267,14 @@ defmodule AWS.ManagedBlockchainQuery do
         required("addressIdentifierFilter") => address_identifier_filter(),
         required("network") => [String.t()]
       }
-
+      
   """
   @type list_filtered_transaction_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_token_balance_output() :: %{
         "atBlockchainInstant" => blockchain_instant(),
         "balance" => [String.t()],
@@ -282,27 +282,27 @@ defmodule AWS.ManagedBlockchainQuery do
         "ownerIdentifier" => owner_identifier(),
         "tokenIdentifier" => token_identifier()
       }
-
+      
   """
   @type get_token_balance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contract_metadata() :: %{
         "decimals" => [integer()],
         "name" => [String.t()],
         "symbol" => [String.t()]
       }
-
+      
   """
   @type contract_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_token_balance_error_item() :: %{
         "atBlockchainInstant" => blockchain_instant(),
         "errorCode" => [String.t()],
@@ -311,96 +311,96 @@ defmodule AWS.ManagedBlockchainQuery do
         "ownerIdentifier" => owner_identifier(),
         "tokenIdentifier" => token_identifier()
       }
-
+      
   """
   @type batch_get_token_balance_error_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vout_filter() :: %{
         "voutSpent" => [boolean()]
       }
-
+      
   """
   @type vout_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_transaction_output() :: %{
         "transaction" => transaction()
       }
-
+      
   """
   @type get_transaction_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_transactions_sort() :: %{
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
-
+      
   """
   @type list_transactions_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_transaction_input() :: %{
         optional("transactionHash") => String.t(),
         optional("transactionId") => String.t(),
         required("network") => String.t()
       }
-
+      
   """
   @type get_transaction_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       token_identifier() :: %{
         "contractAddress" => String.t(),
         "network" => String.t(),
         "tokenId" => String.t()
       }
-
+      
   """
   @type token_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_token_balance_input() :: %{
         optional("getTokenBalanceInputs") => list(batch_get_token_balance_input_item()())
       }
-
+      
   """
   @type batch_get_token_balance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_transaction_events_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
@@ -408,64 +408,64 @@ defmodule AWS.ManagedBlockchainQuery do
         optional("transactionId") => String.t(),
         required("network") => String.t()
       }
-
+      
   """
   @type list_transaction_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => String.t(),
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_filtered_transaction_events_sort() :: %{
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
-
+      
   """
   @type list_filtered_transaction_events_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       confirmation_status_filter() :: %{
         "include" => list(String.t()())
       }
-
+      
   """
   @type confirmation_status_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "quotaCode" => String.t(),
         "retryAfterSeconds" => [integer()],
         "serviceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       token_balance() :: %{
         "atBlockchainInstant" => blockchain_instant(),
         "balance" => [String.t()],
@@ -473,99 +473,99 @@ defmodule AWS.ManagedBlockchainQuery do
         "ownerIdentifier" => owner_identifier(),
         "tokenIdentifier" => token_identifier()
       }
-
+      
   """
   @type token_balance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_contracts_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         required("contractFilter") => contract_filter()
       }
-
+      
   """
   @type list_asset_contracts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       owner_identifier() :: %{
         "address" => String.t()
       }
-
+      
   """
   @type owner_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contract_identifier() :: %{
         "contractAddress" => String.t(),
         "network" => String.t()
       }
-
+      
   """
   @type contract_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_filtered_transaction_events_output() :: %{
         "events" => list(transaction_event()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_filtered_transaction_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_token_balance_input() :: %{
         optional("atBlockchainInstant") => blockchain_instant(),
         required("ownerIdentifier") => owner_identifier(),
         required("tokenIdentifier") => token_identifier()
       }
-
+      
   """
   @type get_token_balance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_token_balances_output() :: %{
         "nextToken" => String.t(),
         "tokenBalances" => list(token_balance()())
       }
-
+      
   """
   @type list_token_balances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_transaction_events_output() :: %{
         "events" => list(transaction_event()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_transaction_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transaction_event() :: %{
         "blockchainInstant" => blockchain_instant(),
         "confirmationStatus" => String.t(),
@@ -584,25 +584,25 @@ defmodule AWS.ManagedBlockchainQuery do
         "voutIndex" => [integer()],
         "voutSpent" => [boolean()]
       }
-
+      
   """
   @type transaction_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       address_identifier_filter() :: %{
         "transactionEventToAddress" => list(String.t()())
       }
-
+      
   """
   @type address_identifier_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transaction() :: %{
         "blockHash" => String.t(),
         "blockNumber" => [String.t()],
@@ -625,32 +625,32 @@ defmodule AWS.ManagedBlockchainQuery do
         "transactionIndex" => [float()],
         "transactionTimestamp" => [non_neg_integer()]
       }
-
+      
   """
   @type transaction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_transactions_output() :: %{
         "nextToken" => String.t(),
         "transactions" => list(transaction_output_item()())
       }
-
+      
   """
   @type list_transactions_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       token_filter() :: %{
         "contractAddress" => String.t(),
         "network" => String.t(),
         "tokenId" => String.t()
       }
-
+      
   """
   @type token_filter() :: %{String.t() => any()}
 
@@ -747,29 +747,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec batch_get_token_balance(AWS.Client.t(), batch_get_token_balance_input(), Keyword.t()) ::
+
+  @spec batch_get_token_balance(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_token_balance_errors()}
-  def batch_get_token_balance(%Client{} = client, input, options \\ []) do
+
+  def batch_get_token_balance(%Client{} = client, options \\ []) do
     url_path = "/batch-get-token-balance"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -781,29 +792,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec get_asset_contract(AWS.Client.t(), get_asset_contract_input(), Keyword.t()) ::
+
+  @spec get_asset_contract(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_contract_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_contract_errors()}
-  def get_asset_contract(%Client{} = client, input, options \\ []) do
+
+  def get_asset_contract(%Client{} = client, options \\ []) do
     url_path = "/get-asset-contract"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -816,29 +838,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec get_token_balance(AWS.Client.t(), get_token_balance_input(), Keyword.t()) ::
+
+  @spec get_token_balance(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_token_balance_errors()}
-  def get_token_balance(%Client{} = client, input, options \\ []) do
+
+  def get_token_balance(%Client{} = client, options \\ []) do
     url_path = "/get-token-balance"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -850,29 +883,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec get_transaction(AWS.Client.t(), get_transaction_input(), Keyword.t()) ::
+
+  @spec get_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_transaction_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transaction_errors()}
-  def get_transaction(%Client{} = client, input, options \\ []) do
+
+  def get_transaction(%Client{} = client, options \\ []) do
     url_path = "/get-transaction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -885,29 +929,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec list_asset_contracts(AWS.Client.t(), list_asset_contracts_input(), Keyword.t()) ::
+
+  @spec list_asset_contracts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_asset_contracts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_contracts_errors()}
-  def list_asset_contracts(%Client{} = client, input, options \\ []) do
+
+  def list_asset_contracts(%Client{} = client, options \\ []) do
     url_path = "/list-asset-contracts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -919,33 +974,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec list_filtered_transaction_events(
-          AWS.Client.t(),
-          list_filtered_transaction_events_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_filtered_transaction_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_filtered_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filtered_transaction_events_errors()}
-  def list_filtered_transaction_events(%Client{} = client, input, options \\ []) do
+
+  def list_filtered_transaction_events(%Client{} = client, options \\ []) do
     url_path = "/list-filtered-transaction-events"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -957,29 +1019,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec list_token_balances(AWS.Client.t(), list_token_balances_input(), Keyword.t()) ::
+
+  @spec list_token_balances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_token_balances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_token_balances_errors()}
-  def list_token_balances(%Client{} = client, input, options \\ []) do
+
+  def list_token_balances(%Client{} = client, options \\ []) do
     url_path = "/list-token-balances"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -991,29 +1064,40 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec list_transaction_events(AWS.Client.t(), list_transaction_events_input(), Keyword.t()) ::
+
+  @spec list_transaction_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transaction_events_errors()}
-  def list_transaction_events(%Client{} = client, input, options \\ []) do
+
+  def list_transaction_events(%Client{} = client, options \\ []) do
     url_path = "/list-transaction-events"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1025,28 +1109,39 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Optional parameters:
   """
-  @spec list_transactions(AWS.Client.t(), list_transactions_input(), Keyword.t()) ::
+
+  @spec list_transactions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_transactions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transactions_errors()}
-  def list_transactions(%Client{} = client, input, options \\ []) do
+
+  def list_transactions(%Client{} = client, options \\ []) do
     url_path = "/list-transactions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

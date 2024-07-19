@@ -13,73 +13,73 @@ defmodule AWS.CloudFrontKeyValueStore do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_key_request() :: %{
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type delete_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_key_request_list_item() :: %{
         "Key" => String.t()
       }
-
+      
   """
   @type delete_key_request_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_key_response() :: %{
         "ETag" => String.t(),
         "ItemCount" => [integer()],
         "TotalSizeInBytes" => [float()]
       }
-
+      
   """
   @type delete_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_value_store_request() :: %{}
-
+      
   """
   @type describe_key_value_store_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_value_store_response() :: %{
         "Created" => [non_neg_integer()],
         "ETag" => String.t(),
@@ -90,173 +90,173 @@ defmodule AWS.CloudFrontKeyValueStore do
         "Status" => [String.t()],
         "TotalSizeInBytes" => [float()]
       }
-
+      
   """
   @type describe_key_value_store_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_key_request() :: %{}
-
+      
   """
   @type get_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_key_response() :: %{
         "ItemCount" => [integer()],
         "Key" => String.t(),
         "TotalSizeInBytes" => [float()],
         "Value" => String.t()
       }
-
+      
   """
   @type get_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_keys_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()]
       }
-
+      
   """
   @type list_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_keys_response() :: %{
         "Items" => list(list_keys_response_list_item()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type list_keys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_keys_response_list_item() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type list_keys_response_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_key_request() :: %{
         required("IfMatch") => String.t(),
         required("Value") => String.t()
       }
-
+      
   """
   @type put_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_key_request_list_item() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type put_key_request_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_key_response() :: %{
         "ETag" => String.t(),
         "ItemCount" => [integer()],
         "TotalSizeInBytes" => [float()]
       }
-
+      
   """
   @type put_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_keys_request() :: %{
         optional("Deletes") => list(delete_key_request_list_item()()),
         optional("Puts") => list(put_key_request_list_item()()),
         required("IfMatch") => String.t()
       }
-
+      
   """
   @type update_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_keys_response() :: %{
         "ETag" => String.t(),
         "ItemCount" => [integer()],
         "TotalSizeInBytes" => [float()]
       }
-
+      
   """
   @type update_keys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
@@ -328,20 +328,24 @@ defmodule AWS.CloudFrontKeyValueStore do
   * `:key` (`t:string`) The key to delete.
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
   * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
-    that you are deleting keys from, which you can get using
-    DescribeKeyValueStore.
+  that you are deleting keys from, which you can get using
+  DescribeKeyValueStore.
 
   ## Optional parameters:
   """
-  @spec delete_key(AWS.Client.t(), String.t(), String.t(), delete_key_request(), Keyword.t()) ::
+
+  @spec delete_key(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_errors()}
-  def delete_key(%Client{} = client, key, kvs_arn, input, options \\ []) do
+
+  def delete_key(%Client{} = client, key, kvs_arn, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -349,13 +353,21 @@ defmodule AWS.CloudFrontKeyValueStore do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -367,6 +379,8 @@ defmodule AWS.CloudFrontKeyValueStore do
     meta =
       metadata()
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -374,7 +388,7 @@ defmodule AWS.CloudFrontKeyValueStore do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -390,10 +404,12 @@ defmodule AWS.CloudFrontKeyValueStore do
 
   ## Optional parameters:
   """
+
   @spec describe_key_value_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_value_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_value_store_errors()}
+
   def describe_key_value_store(%Client{} = client, kvs_arn, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}"
 
@@ -439,10 +455,12 @@ defmodule AWS.CloudFrontKeyValueStore do
 
   ## Optional parameters:
   """
+
   @spec get_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_errors()}
+
   def get_key(%Client{} = client, key, kvs_arn, options \\ []) do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
@@ -481,16 +499,18 @@ defmodule AWS.CloudFrontKeyValueStore do
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) Maximum number of results that are returned per call.
-    The default is 10 and maximum allowed page is 50.
-  * `:next_token` (`t:`) If nextToken is returned in the response, there are more
-    results available. Make the next call using the returned token to retrieve
-    the next page.
+  * `:max_results` (`t:string`) Maximum number of results that are returned per
+  call. The default is 10 and maximum allowed page is 50.
+  * `:next_token` (`t:string`) If nextToken is returned in the response, there are
+  more results available. Make the next call using the returned token to
+  retrieve the next page.
   """
+
   @spec list_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
+
   def list_keys(%Client{} = client, kvs_arn, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"
 
@@ -546,20 +566,24 @@ defmodule AWS.CloudFrontKeyValueStore do
   * `:key` (`t:string`) The key to put.
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
   * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
-    that you are putting keys into, which you can get using
-    DescribeKeyValueStore.
+  that you are putting keys into, which you can get using
+  DescribeKeyValueStore.
 
   ## Optional parameters:
   """
-  @spec put_key(AWS.Client.t(), String.t(), String.t(), put_key_request(), Keyword.t()) ::
+
+  @spec put_key(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_key_errors()}
-  def put_key(%Client{} = client, key, kvs_arn, input, options \\ []) do
+
+  def put_key(%Client{} = client, key, kvs_arn, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path =
       "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys/#{AWS.Util.encode_uri(key)}"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -567,13 +591,21 @@ defmodule AWS.CloudFrontKeyValueStore do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -585,7 +617,9 @@ defmodule AWS.CloudFrontKeyValueStore do
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -596,19 +630,23 @@ defmodule AWS.CloudFrontKeyValueStore do
   ## Parameters:
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
   * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
-    that you are updating keys of, which you can get using
-    DescribeKeyValueStore.
+  that you are updating keys of, which you can get using
+  DescribeKeyValueStore.
 
   ## Optional parameters:
   """
-  @spec update_keys(AWS.Client.t(), String.t(), update_keys_request(), Keyword.t()) ::
+
+  @spec update_keys(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_keys_errors()}
-  def update_keys(%Client{} = client, kvs_arn, input, options \\ []) do
+
+  def update_keys(%Client{} = client, kvs_arn, if_match, options \\ [])
+      when is_binary(if_match) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"
 
-    optional_params = [if_match: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -616,13 +654,21 @@ defmodule AWS.CloudFrontKeyValueStore do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"IfMatch", "If-Match"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"If-Match", if_match}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     options =
       Keyword.put(
@@ -634,16 +680,8 @@ defmodule AWS.CloudFrontKeyValueStore do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

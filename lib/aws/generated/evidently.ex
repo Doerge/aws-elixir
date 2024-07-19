@@ -16,91 +16,91 @@ defmodule AWS.Evidently do
   @typedoc """
 
   ## Example:
-
+      
       evaluation_request() :: %{
         "entityId" => String.t(),
         "evaluationContext" => String.t(),
         "feature" => String.t()
       }
-
+      
   """
   @type evaluation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_experiments_response() :: %{
         optional("experiments") => list(experiment()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_experiments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_experiment_response() :: %{}
-
+      
   """
   @type delete_experiment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       treatment_config() :: %{
         "description" => String.t(),
         "feature" => String.t(),
         "name" => String.t(),
         "variation" => String.t()
       }
-
+      
   """
   @type treatment_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_group() :: %{
         "description" => String.t(),
         "featureVariations" => map(),
         "name" => String.t()
       }
-
+      
   """
   @type launch_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launches_response() :: %{
         optional("launches") => list(launch()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_launches_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_feature_request() :: %{
         optional("defaultVariation") => String.t(),
         optional("description") => String.t(),
@@ -110,59 +110,59 @@ defmodule AWS.Evidently do
         required("name") => String.t(),
         required("variations") => list(variation_config()())
       }
-
+      
   """
   @type create_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_feature_response() :: %{
         optional("feature") => feature()
       }
-
+      
   """
   @type create_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_data_delivery_response() :: %{
         required("project") => project()
       }
-
+      
   """
   @type update_project_data_delivery_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_experiment_response() :: %{
         optional("experiment") => experiment()
       }
-
+      
   """
   @type get_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_segment_pattern_request() :: %{
         required("pattern") => String.t(),
         required("payload") => String.t()
       }
-
+      
   """
   @type test_segment_pattern_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       feature() :: %{
         "arn" => String.t(),
         "createdTime" => [non_neg_integer()],
@@ -179,37 +179,37 @@ defmodule AWS.Evidently do
         "valueType" => String.t(),
         "variations" => list(variation()())
       }
-
+      
   """
   @type feature() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       online_ab_definition() :: %{
         "controlTreatmentName" => String.t(),
         "treatmentWeights" => map()
       }
-
+      
   """
   @type online_ab_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scheduled_splits_launch_definition() :: %{
         "steps" => list(scheduled_split()())
       }
-
+      
   """
   @type scheduled_splits_launch_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_summary() :: %{
         "activeExperimentCount" => [float()],
         "activeLaunchCount" => [float()],
@@ -224,135 +224,135 @@ defmodule AWS.Evidently do
         "status" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type project_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_response() :: %{
         optional("launch") => launch()
       }
-
+      
   """
   @type get_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_request() :: %{}
-
+      
   """
   @type get_segment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_project_events_response() :: %{
         optional("eventResults") => list(put_project_events_result_entry()()),
         optional("failedEventCount") => [integer()]
       }
-
+      
   """
   @type put_project_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       variation_config() :: %{
         "name" => String.t(),
         "value" => list()
       }
-
+      
   """
   @type variation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_segment_pattern_response() :: %{
         required("match") => [boolean()]
       }
-
+      
   """
   @type test_segment_pattern_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_project_request() :: %{}
-
+      
   """
   @type get_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_segment_references_response() :: %{
         optional("nextToken") => String.t(),
         optional("referencedBy") => list(ref_resource()())
       }
-
+      
   """
   @type list_segment_references_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logs_destination() :: %{
         "logGroup" => String.t()
       }
-
+      
   """
   @type cloud_watch_logs_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_project_events_result_entry() :: %{
         "errorCode" => String.t(),
         "errorMessage" => String.t(),
         "eventId" => String.t()
       }
-
+      
   """
   @type put_project_events_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_features_response() :: %{
         optional("features") => list(feature_summary()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_features_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_definition_config() :: %{
         "entityIdKey" => String.t(),
         "eventPattern" => String.t(),
@@ -360,72 +360,72 @@ defmodule AWS.Evidently do
         "unitLabel" => String.t(),
         "valueKey" => String.t()
       }
-
+      
   """
   @type metric_definition_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_experiment_response() :: %{
         required("experiment") => experiment()
       }
-
+      
   """
   @type create_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_override() :: %{
         "evaluationOrder" => [float()],
         "segment" => String.t(),
         "weights" => map()
       }
-
+      
   """
   @type segment_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launches_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type list_launches_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_response() :: %{}
-
+      
   """
   @type delete_launch_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_features_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_features_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_definition() :: %{
         "entityIdKey" => String.t(),
         "eventPattern" => String.t(),
@@ -433,14 +433,14 @@ defmodule AWS.Evidently do
         "unitLabel" => String.t(),
         "valueKey" => String.t()
       }
-
+      
   """
   @type metric_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_launch_request() :: %{
         optional("description") => String.t(),
         optional("metricMonitors") => list(metric_monitor_config()()),
@@ -450,74 +450,74 @@ defmodule AWS.Evidently do
         required("groups") => list(launch_group_config()()),
         required("name") => String.t()
       }
-
+      
   """
   @type create_launch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_data_delivery_request() :: %{
         optional("cloudWatchLogs") => cloud_watch_logs_destination_config(),
         optional("s3Destination") => s3_destination_config()
       }
-
+      
   """
   @type update_project_data_delivery_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       variation() :: %{
         "name" => String.t(),
         "value" => list()
       }
-
+      
   """
   @type variation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_response() :: %{
         required("project") => project()
       }
-
+      
   """
   @type update_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluate_feature_response() :: %{
         optional("details") => String.t(),
         optional("reason") => [String.t()],
         optional("value") => list(),
         optional("variation") => [String.t()]
       }
-
+      
   """
   @type evaluate_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_feature_request() :: %{
         optional("addOrUpdateVariations") => list(variation_config()()),
         optional("defaultVariation") => String.t(),
@@ -526,14 +526,14 @@ defmodule AWS.Evidently do
         optional("evaluationStrategy") => String.t(),
         optional("removeVariations") => list(String.t()())
       }
-
+      
   """
   @type update_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment() :: %{
         "arn" => String.t(),
         "createdTime" => [non_neg_integer()],
@@ -545,153 +545,153 @@ defmodule AWS.Evidently do
         "pattern" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_project_events_request() :: %{
         required("events") => list(event()())
       }
-
+      
   """
   @type put_project_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_data_delivery_config() :: %{
         "cloudWatchLogs" => cloud_watch_logs_destination_config(),
         "s3Destination" => s3_destination_config()
       }
-
+      
   """
   @type project_data_delivery_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_segment_response() :: %{
         required("segment") => segment()
       }
-
+      
   """
   @type create_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_app_config_resource() :: %{
         "applicationId" => String.t(),
         "configurationProfileId" => String.t(),
         "environmentId" => String.t()
       }
-
+      
   """
   @type project_app_config_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_segments_response() :: %{
         optional("nextToken") => String.t(),
         optional("segments") => list(segment()())
       }
-
+      
   """
   @type list_segments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluate_feature_request() :: %{
         optional("evaluationContext") => String.t(),
         required("entityId") => String.t()
       }
-
+      
   """
   @type evaluate_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scheduled_split_config() :: %{
         "groupWeights" => map(),
         "segmentOverrides" => list(segment_override()()),
         "startTime" => [non_neg_integer()]
       }
-
+      
   """
   @type scheduled_split_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_response() :: %{
         required("project") => project()
       }
-
+      
   """
   @type create_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_experiment_request() :: %{}
-
+      
   """
   @type delete_experiment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_experiment_request() :: %{}
-
+      
   """
   @type get_experiment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       project() :: %{
         "activeExperimentCount" => [float()],
         "activeLaunchCount" => [float()],
@@ -708,39 +708,39 @@ defmodule AWS.Evidently do
         "status" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type project() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_group_config() :: %{
         "description" => String.t(),
         "feature" => String.t(),
         "name" => String.t(),
         "variation" => String.t()
       }
-
+      
   """
   @type launch_group_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_monitor() :: %{
         "metricDefinition" => metric_definition()
       }
-
+      
   """
   @type metric_monitor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -748,71 +748,71 @@ defmodule AWS.Evidently do
         "resourceType" => [String.t()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_feature_response() :: %{
         required("feature") => feature()
       }
-
+      
   """
   @type update_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_goal_config() :: %{
         "desiredChange" => String.t(),
         "metricDefinition" => metric_definition_config()
       }
-
+      
   """
   @type metric_goal_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_response() :: %{
         optional("nextToken") => String.t(),
         optional("projects") => list(project_summary()())
       }
-
+      
   """
   @type list_projects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_project_response() :: %{
         required("project") => project()
       }
-
+      
   """
   @type get_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       feature_summary() :: %{
         "arn" => String.t(),
         "createdTime" => [non_neg_integer()],
@@ -825,73 +825,73 @@ defmodule AWS.Evidently do
         "status" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type feature_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       experiment_report() :: %{
         "content" => String.t(),
         "metricName" => String.t(),
         "reportName" => String.t(),
         "treatmentName" => String.t()
       }
-
+      
   """
   @type experiment_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_evaluate_feature_response() :: %{
         optional("results") => list(evaluation_result()())
       }
-
+      
   """
   @type batch_evaluate_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_response() :: %{
         required("segment") => segment()
       }
-
+      
   """
   @type get_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ref_resource() :: %{
         "arn" => [String.t()],
         "endTime" => [String.t()],
@@ -901,62 +901,62 @@ defmodule AWS.Evidently do
         "status" => [String.t()],
         "type" => [String.t()]
       }
-
+      
   """
   @type ref_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scheduled_splits_launch_config() :: %{
         "steps" => list(scheduled_split_config()())
       }
-
+      
   """
   @type scheduled_splits_launch_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_segment_request() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t(),
         required("pattern") => String.t()
       }
-
+      
   """
   @type create_segment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logs_destination_config() :: %{
         "logGroup" => String.t()
       }
-
+      
   """
   @type cloud_watch_logs_destination_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_destination() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
       }
-
+      
   """
   @type s3_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_experiment_request() :: %{
         optional("description") => String.t(),
         optional("metricGoals") => list(metric_goal_config()()),
@@ -967,14 +967,14 @@ defmodule AWS.Evidently do
         optional("segment") => String.t(),
         optional("treatments") => list(treatment_config()())
       }
-
+      
   """
   @type update_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_experiment_request() :: %{
         optional("description") => String.t(),
         optional("onlineAbConfig") => online_ab_config(),
@@ -986,267 +986,267 @@ defmodule AWS.Evidently do
         required("name") => String.t(),
         required("treatments") => list(treatment_config()())
       }
-
+      
   """
   @type create_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_segment_response() :: %{}
-
+      
   """
   @type delete_segment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       experiment_results_data() :: %{
         "metricName" => String.t(),
         "resultStat" => String.t(),
         "treatmentName" => String.t(),
         "values" => list([float()]())
       }
-
+      
   """
   @type experiment_results_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       experiment_schedule() :: %{
         "analysisCompleteTime" => [non_neg_integer()]
       }
-
+      
   """
   @type experiment_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_rule() :: %{
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type evaluation_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       experiment_execution() :: %{
         "endedTime" => [non_neg_integer()],
         "startedTime" => [non_neg_integer()]
       }
-
+      
   """
   @type experiment_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_experiment_request() :: %{
         optional("desiredState") => String.t(),
         optional("reason") => String.t()
       }
-
+      
   """
   @type stop_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_response() :: %{}
-
+      
   """
   @type delete_project_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_request() :: %{
         optional("appConfigResource") => project_app_config_resource_config(),
         optional("description") => String.t()
       }
-
+      
   """
   @type update_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event() :: %{
         "data" => String.t(),
         "timestamp" => [non_neg_integer()],
         "type" => String.t()
       }
-
+      
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       online_ab_config() :: %{
         "controlTreatmentName" => String.t(),
         "treatmentWeights" => map()
       }
-
+      
   """
   @type online_ab_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       treatment() :: %{
         "description" => String.t(),
         "featureVariations" => map(),
         "name" => String.t()
       }
-
+      
   """
   @type treatment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_experiment_response() :: %{
         optional("startedTime") => [non_neg_integer()]
       }
-
+      
   """
   @type start_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_response() :: %{
         required("launch") => launch()
       }
-
+      
   """
   @type update_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_data_delivery() :: %{
         "cloudWatchLogs" => cloud_watch_logs_destination(),
         "s3Destination" => s3_destination()
       }
-
+      
   """
   @type project_data_delivery() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_evaluate_feature_request() :: %{
         required("requests") => list(evaluation_request()())
       }
-
+      
   """
   @type batch_evaluate_feature_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_experiments_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type list_experiments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_request() :: %{
         optional("appConfigResource") => project_app_config_resource_config(),
         optional("dataDelivery") => project_data_delivery_config(),
@@ -1254,118 +1254,118 @@ defmodule AWS.Evidently do
         optional("tags") => map(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_experiment_request() :: %{
         required("analysisCompleteTime") => [non_neg_integer()]
       }
-
+      
   """
   @type start_experiment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_projects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_segments_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_segments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_segment_references_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("type") => String.t()
       }
-
+      
   """
   @type list_segment_references_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_goal() :: %{
         "desiredChange" => String.t(),
         "metricDefinition" => metric_definition()
       }
-
+      
   """
   @type metric_goal() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_execution() :: %{
         "endedTime" => [non_neg_integer()],
         "startedTime" => [non_neg_integer()]
       }
-
+      
   """
   @type launch_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_segment_request() :: %{}
-
+      
   """
   @type delete_segment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_monitor_config() :: %{
         "metricDefinition" => metric_definition_config()
       }
-
+      
   """
   @type metric_monitor_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_app_config_resource_config() :: %{
         "applicationId" => String.t(),
         "environmentId" => String.t()
       }
-
+      
   """
   @type project_app_config_resource_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_result() :: %{
         "details" => String.t(),
         "entityId" => String.t(),
@@ -1375,77 +1375,77 @@ defmodule AWS.Evidently do
         "value" => list(),
         "variation" => [String.t()]
       }
-
+      
   """
   @type evaluation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_experiment_response() :: %{
         optional("endedTime") => [non_neg_integer()]
       }
-
+      
   """
   @type stop_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_launch_request() :: %{
         optional("desiredState") => String.t(),
         optional("reason") => String.t()
       }
-
+      
   """
   @type stop_launch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_feature_response() :: %{}
-
+      
   """
   @type delete_feature_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_launch_response() :: %{
         required("launch") => launch()
       }
-
+      
   """
   @type start_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_feature_response() :: %{
         required("feature") => feature()
       }
-
+      
   """
   @type get_feature_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_launch_request() :: %{}
-
+      
   """
   @type start_launch_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       launch() :: %{
         "arn" => String.t(),
         "createdTime" => [non_neg_integer()],
@@ -1463,41 +1463,41 @@ defmodule AWS.Evidently do
         "tags" => map(),
         "type" => String.t()
       }
-
+      
   """
   @type launch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_experiment_results_response() :: %{
         optional("details") => [String.t()],
         optional("reports") => list(experiment_report()()),
         optional("resultsData") => list(experiment_results_data()()),
         optional("timestamps") => list([non_neg_integer()]())
       }
-
+      
   """
   @type get_experiment_results_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scheduled_split() :: %{
         "groupWeights" => map(),
         "segmentOverrides" => list(segment_override()()),
         "startTime" => [non_neg_integer()]
       }
-
+      
   """
   @type scheduled_split() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       experiment() :: %{
         "arn" => String.t(),
         "createdTime" => [non_neg_integer()],
@@ -1518,66 +1518,66 @@ defmodule AWS.Evidently do
         "treatments" => list(treatment()()),
         "type" => String.t()
       }
-
+      
   """
   @type experiment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_request() :: %{}
-
+      
   """
   @type delete_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_launch_response() :: %{
         optional("endedTime") => [non_neg_integer()]
       }
-
+      
   """
   @type stop_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_experiment_response() :: %{
         required("experiment") => experiment()
       }
-
+      
   """
   @type update_experiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_request() :: %{}
-
+      
   """
   @type get_launch_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_destination_config() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
       }
-
+      
   """
   @type s3_destination_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_experiment_results_request() :: %{
         optional("baseStat") => String.t(),
         optional("endTime") => [non_neg_integer()],
@@ -1588,52 +1588,52 @@ defmodule AWS.Evidently do
         required("metricNames") => list(String.t()()),
         required("treatmentNames") => list(String.t()())
       }
-
+      
   """
   @type get_experiment_results_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_feature_request() :: %{}
-
+      
   """
   @type delete_feature_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_request() :: %{}
-
+      
   """
   @type delete_launch_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_feature_request() :: %{}
-
+      
   """
   @type get_feature_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_launch_response() :: %{
         required("launch") => launch()
       }
-
+      
   """
   @type create_launch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_request() :: %{
         optional("description") => String.t(),
         optional("groups") => list(launch_group_config()()),
@@ -1641,7 +1641,7 @@ defmodule AWS.Evidently do
         optional("randomizationSalt") => String.t(),
         optional("scheduledSplitsConfig") => scheduled_splits_launch_config()
       }
-
+      
   """
   @type update_launch_request() :: %{String.t() => any()}
 
@@ -1895,38 +1895,44 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    feature being evaluated.
+  feature being evaluated.
 
   ## Optional parameters:
   """
-  @spec batch_evaluate_feature(
-          AWS.Client.t(),
-          String.t(),
-          batch_evaluate_feature_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_evaluate_feature(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_evaluate_feature_errors()}
-  def batch_evaluate_feature(%Client{} = client, project, input, options \\ []) do
+
+  def batch_evaluate_feature(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/evaluations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1941,33 +1947,44 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project that you want to create
-    the new experiment in.
+  the new experiment in.
 
   ## Optional parameters:
   """
-  @spec create_experiment(AWS.Client.t(), String.t(), create_experiment_request(), Keyword.t()) ::
+
+  @spec create_experiment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experiment_errors()}
-  def create_experiment(%Client{} = client, project, input, options \\ []) do
+
+  def create_experiment(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1983,33 +2000,44 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project that is to contain the
-    new feature.
+  new feature.
 
   ## Optional parameters:
   """
-  @spec create_feature(AWS.Client.t(), String.t(), create_feature_request(), Keyword.t()) ::
+
+  @spec create_feature(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_feature_errors()}
-  def create_feature(%Client{} = client, project, input, options \\ []) do
+
+  def create_feature(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2025,33 +2053,44 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project that you want to create
-    the launch in.
+  the launch in.
 
   ## Optional parameters:
   """
-  @spec create_launch(AWS.Client.t(), String.t(), create_launch_request(), Keyword.t()) ::
+
+  @spec create_launch(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_errors()}
-  def create_launch(%Client{} = client, project, input, options \\ []) do
+
+  def create_launch(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2065,29 +2104,40 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
-  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+
+  @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-  def create_project(%Client{} = client, input, options \\ []) do
+
+  def create_project(%Client{} = client, options \\ []) do
     url_path = "/projects"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2106,29 +2156,40 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
-  @spec create_segment(AWS.Client.t(), create_segment_request(), Keyword.t()) ::
+
+  @spec create_segment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_segment_errors()}
-  def create_segment(%Client{} = client, input, options \\ []) do
+
+  def create_segment(%Client{} = client, options \\ []) do
     url_path = "/segments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2140,29 +2201,43 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string`) The name of the experiment to delete.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    experiment to delete.
+  experiment to delete.
 
   ## Optional parameters:
   """
-  @spec delete_experiment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experiment_errors()}
-  def delete_experiment(%Client{} = client, experiment, project, input, options \\ []) do
+
+  def delete_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2171,7 +2246,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2185,29 +2260,43 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:feature` (`t:string`) The name of the feature to delete.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    feature to delete.
+  feature to delete.
 
   ## Optional parameters:
   """
-  @spec delete_feature(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_feature_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_feature_errors()}
-  def delete_feature(%Client{} = client, feature, project, input, options \\ []) do
+
+  def delete_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2216,7 +2305,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2230,27 +2319,42 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string`) The name of the launch to delete.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    launch to delete.
+  launch to delete.
 
   ## Optional parameters:
   """
-  @spec delete_launch(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_launch_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_errors()}
-  def delete_launch(%Client{} = client, launch, project, input, options \\ []) do
+
+  def delete_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2259,7 +2363,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2277,17 +2381,38 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
-  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
+
+  @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-  def delete_project(%Client{} = client, project, input, options \\ []) do
+
+  def delete_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2296,7 +2421,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2313,17 +2438,38 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
-  @spec delete_segment(AWS.Client.t(), String.t(), delete_segment_request(), Keyword.t()) ::
+
+  @spec delete_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_segment_errors()}
-  def delete_segment(%Client{} = client, segment, input, options \\ []) do
+
+  def delete_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2332,7 +2478,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2350,41 +2496,45 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:feature` (`t:string`) The name of the feature being evaluated.
   * `:project` (`t:string`) The name or ARN of the project that contains this
-    feature.
+  feature.
 
   ## Optional parameters:
   """
-  @spec evaluate_feature(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          evaluate_feature_request(),
-          Keyword.t()
-        ) ::
+
+  @spec evaluate_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, evaluate_feature_errors()}
-  def evaluate_feature(%Client{} = client, feature, project, input, options \\ []) do
+
+  def evaluate_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/evaluations/#{AWS.Util.encode_uri(feature)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2396,16 +2546,18 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:experiment` (`t:string`) The name of the experiment that you want to see the
-    details of.
+  details of.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    experiment.
+  experiment.
 
   ## Optional parameters:
   """
+
   @spec get_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_errors()}
+
   def get_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -2448,43 +2600,47 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:experiment` (`t:string`) The name of the experiment to retrieve the results
-    of.
+  of.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    experiment that you want to see the results of.
+  experiment that you want to see the results of.
 
   ## Optional parameters:
   """
-  @spec get_experiment_results(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          get_experiment_results_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_experiment_results(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_experiment_results_errors()}
-  def get_experiment_results(%Client{} = client, experiment, project, input, options \\ []) do
+
+  def get_experiment_results(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/results"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2496,16 +2652,18 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:feature` (`t:string`) The name of the feature that you want to retrieve
-    information for.
+  information for.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    feature.
+  feature.
 
   ## Optional parameters:
   """
+
   @spec get_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_feature_errors()}
+
   def get_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -2544,16 +2702,18 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:launch` (`t:string`) The name of the launch that you want to see the details
-    of.
+  of.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    launch.
+  launch.
 
   ## Optional parameters:
   """
+
   @spec get_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_errors()}
+
   def get_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
 
@@ -2591,14 +2751,16 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project that you want to see
-    the details of.
+  the details of.
 
   ## Optional parameters:
   """
+
   @spec get_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_project_errors()}
+
   def get_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
 
@@ -2638,10 +2800,12 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
+
   @spec get_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_errors()}
+
   def get_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
 
@@ -2678,20 +2842,22 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project to return the
-    experiment list from.
+  experiment list from.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You received this token from a previous ListExperiments operation.
+  results. You received this token from a previous ListExperiments operation.
   * `:status` (`t:string`) Use this optional parameter to limit the returned
-    results to only the experiments with the status that you specify here.
+  results to only the experiments with the status that you specify here.
   """
+
   @spec list_experiments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_experiments_errors()}
+
   def list_experiments(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
 
@@ -2752,18 +2918,20 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project to return the feature
-    list from.
+  list from.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You received this token from a previous ListFeatures operation.
+  results. You received this token from a previous ListFeatures operation.
   """
+
   @spec list_features(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_features_errors()}
+
   def list_features(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
 
@@ -2817,20 +2985,22 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project to return the launch
-    list from.
+  list from.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You received this token from a previous ListLaunches operation.
+  results. You received this token from a previous ListLaunches operation.
   * `:status` (`t:string`) Use this optional parameter to limit the returned
-    results to only the launches with the status that you specify here.
+  results to only the launches with the status that you specify here.
   """
+
   @spec list_launches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launches_errors()}
+
   def list_launches(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
 
@@ -2894,14 +3064,16 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You received this token from a previous ListProjects operation.
+  results. You received this token from a previous ListProjects operation.
   """
+
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
+
   def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -2956,22 +3128,25 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:segment` (`t:string`) The ARN of the segment that you want to view
-    information for.
+  information for.
   * `:type` (`t:string`) Specifies whether to return information about launches or
-    experiments that use this segment.
+  experiments that use this segment.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-    response. If you omit this, the default of 50 is used.
+  response. If you omit this, the default of 50 is used.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You received this token from a previous ListSegmentReferences
-    operation.
+  results. You received this token from a previous ListSegmentReferences
+  operation.
   """
+
   @spec list_segment_references(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_segment_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_segment_references_errors()}
-  def list_segment_references(%Client{} = client, segment, type, options \\ []) do
+
+  def list_segment_references(%Client{} = client, segment, type, options \\ [])
+      when is_binary(type) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}/references"
 
     # Validate optional parameters
@@ -3027,14 +3202,16 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-    response. If you omit this, the default of 50 is used.
+  response. If you omit this, the default of 50 is used.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You received this token from a previous ListSegments operation.
+  results. You received this token from a previous ListSegments operation.
   """
+
   @spec list_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_segments_errors()}
+
   def list_segments(%Client{} = client, options \\ []) do
     url_path = "/segments"
 
@@ -3088,14 +3265,16 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource that you want to see the
-    tags of.
+  tags of.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3135,29 +3314,40 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
-  @spec put_project_events(AWS.Client.t(), String.t(), put_project_events_request(), Keyword.t()) ::
+
+  @spec put_project_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_project_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_project_events_errors()}
-  def put_project_events(%Client{} = client, project, input, options \\ []) do
+
+  def put_project_events(%Client{} = client, project, options \\ []) do
     url_path = "/events/projects/#{AWS.Util.encode_uri(project)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3169,41 +3359,45 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string`) The name of the experiment to start.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    experiment to start.
+  experiment to start.
 
   ## Optional parameters:
   """
-  @spec start_experiment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          start_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_experiment_errors()}
-  def start_experiment(%Client{} = client, experiment, project, input, options \\ []) do
+
+  def start_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/start"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3215,35 +3409,45 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string`) The name of the launch to start.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    launch to start.
+  launch to start.
 
   ## Optional parameters:
   """
-  @spec start_launch(AWS.Client.t(), String.t(), String.t(), start_launch_request(), Keyword.t()) ::
+
+  @spec start_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_launch_errors()}
-  def start_launch(%Client{} = client, launch, project, input, options \\ []) do
+
+  def start_launch(%Client{} = client, launch, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/start"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3255,41 +3459,45 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string`) The name of the experiment to stop.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    experiment to stop.
+  experiment to stop.
 
   ## Optional parameters:
   """
-  @spec stop_experiment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          stop_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_experiment_errors()}
-  def stop_experiment(%Client{} = client, experiment, project, input, options \\ []) do
+
+  def stop_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/cancel"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3304,35 +3512,45 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string`) The name of the launch to stop.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    launch that you want to stop.
+  launch that you want to stop.
 
   ## Optional parameters:
   """
-  @spec stop_launch(AWS.Client.t(), String.t(), String.t(), stop_launch_request(), Keyword.t()) ::
+
+  @spec stop_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_launch_errors()}
-  def stop_launch(%Client{} = client, launch, project, input, options \\ []) do
+
+  def stop_launch(%Client{} = client, launch, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/cancel"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3346,33 +3564,44 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that
-    you're adding tags to.
+  you're adding tags to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3386,29 +3615,40 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
-  @spec test_segment_pattern(AWS.Client.t(), test_segment_pattern_request(), Keyword.t()) ::
+
+  @spec test_segment_pattern(AWS.Client.t(), Keyword.t()) ::
           {:ok, test_segment_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_segment_pattern_errors()}
-  def test_segment_pattern(%Client{} = client, input, options \\ []) do
+
+  def test_segment_pattern(%Client{} = client, options \\ []) do
     url_path = "/test-segment-pattern"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3418,28 +3658,45 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that
-    you're removing tags from.
+  you're removing tags from.
   * `:tag_keys` (`t:list[com.amazonaws.evidently#TagKey]`) The list of tag keys to
-    remove from the resource.
+  remove from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3448,7 +3705,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3462,29 +3719,43 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string`) The name of the experiment to update.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    experiment that you want to update.
+  experiment that you want to update.
 
   ## Optional parameters:
   """
-  @spec update_experiment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experiment_errors()}
-  def update_experiment(%Client{} = client, experiment, project, input, options \\ []) do
+
+  def update_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3493,7 +3764,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3507,29 +3778,43 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:feature` (`t:string`) The name of the feature to be updated.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    feature to be updated.
+  feature to be updated.
 
   ## Optional parameters:
   """
-  @spec update_feature(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_feature_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_feature_errors()}
-  def update_feature(%Client{} = client, feature, project, input, options \\ []) do
+
+  def update_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3538,7 +3823,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3552,27 +3837,42 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string`) The name of the launch that is to be updated.
   * `:project` (`t:string`) The name or ARN of the project that contains the
-    launch that you want to update.
+  launch that you want to update.
 
   ## Optional parameters:
   """
-  @spec update_launch(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_launch_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_errors()}
-  def update_launch(%Client{} = client, launch, project, input, options \\ []) do
+
+  def update_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3581,7 +3881,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3601,17 +3901,38 @@ defmodule AWS.Evidently do
 
   ## Optional parameters:
   """
-  @spec update_project(AWS.Client.t(), String.t(), update_project_request(), Keyword.t()) ::
+
+  @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-  def update_project(%Client{} = client, project, input, options \\ []) do
+
+  def update_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3620,7 +3941,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3636,26 +3957,42 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string`) The name or ARN of the project that you want to modify
-    the data storage options for.
+  the data storage options for.
 
   ## Optional parameters:
   """
-  @spec update_project_data_delivery(
-          AWS.Client.t(),
-          String.t(),
-          update_project_data_delivery_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_project_data_delivery(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_data_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_data_delivery_errors()}
-  def update_project_data_delivery(%Client{} = client, project, input, options \\ []) do
+
+  def update_project_data_delivery(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/data-delivery"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3664,7 +4001,7 @@ defmodule AWS.Evidently do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

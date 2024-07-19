@@ -12,27 +12,27 @@ defmodule AWS.Kafka do
   @typedoc """
 
   ## Example:
-
+      
       amazon_msk_cluster() :: %{
         "MskClusterArn" => String.t()
       }
-
+      
   """
   @type amazon_msk_cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_request() :: %{}
-
+      
   """
   @type describe_cluster_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vpc_connection_response() :: %{
         "Authentication" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -44,46 +44,46 @@ defmodule AWS.Kafka do
         "VpcConnectionArn" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type describe_vpc_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_client_vpc_connections_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_client_vpc_connections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_v2_request() :: %{}
-
+      
   """
   @type describe_cluster_v2_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       provisioned_request() :: %{
         "BrokerNodeGroupInfo" => broker_node_group_info(),
         "ClientAuthentication" => client_authentication(),
@@ -96,37 +96,37 @@ defmodule AWS.Kafka do
         "OpenMonitoring" => open_monitoring_info(),
         "StorageMode" => list(any())
       }
-
+      
   """
   @type provisioned_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compatible_kafka_version() :: %{
         "SourceVersion" => String.t(),
         "TargetVersions" => list(String.t()())
       }
-
+      
   """
   @type compatible_kafka_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_compatible_kafka_versions_response() :: %{
         "CompatibleKafkaVersions" => list(compatible_kafka_version()())
       }
-
+      
   """
   @type get_compatible_kafka_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_replication_update() :: %{
         "CopyAccessControlListsForTopics" => boolean(),
         "CopyTopicConfigurations" => boolean(),
@@ -134,14 +134,14 @@ defmodule AWS.Kafka do
         "TopicsToExclude" => list(String.t()()),
         "TopicsToReplicate" => list(String.t()())
       }
-
+      
   """
   @type topic_replication_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_vpc_connection_response() :: %{
         "Authentication" => String.t(),
         "ClientSubnets" => list(String.t()()),
@@ -152,133 +152,133 @@ defmodule AWS.Kafka do
         "VpcConnectionArn" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type create_vpc_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_storage_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_broker_storage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_type_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_broker_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_storage_request() :: %{
         optional("ProvisionedThroughput") => provisioned_throughput(),
         optional("StorageMode") => list(any()),
         optional("VolumeSizeGB") => integer(),
         required("CurrentVersion") => String.t()
       }
-
+      
   """
   @type update_storage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_vpc_connections_response() :: %{
         "NextToken" => String.t(),
         "VpcConnections" => list(vpc_connection()())
       }
-
+      
   """
   @type list_vpc_connections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_request() :: %{
         optional("Description") => String.t(),
         required("ServerProperties") => binary()
       }
-
+      
   """
   @type update_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prometheus() :: %{
         "JmxExporter" => jmx_exporter(),
         "NodeExporter" => node_exporter()
       }
-
+      
   """
   @type prometheus() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_response() :: %{
         "ClusterInfo" => cluster_info()
       }
-
+      
   """
   @type describe_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       serverless_client_authentication() :: %{
         "Sasl" => serverless_sasl()
       }
-
+      
   """
   @type serverless_client_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       open_monitoring() :: %{
         "Prometheus" => prometheus()
       }
-
+      
   """
   @type open_monitoring() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_info() :: %{
         "ActiveOperationArn" => String.t(),
         "BrokerNodeGroupInfo" => broker_node_group_info(),
@@ -301,39 +301,39 @@ defmodule AWS.Kafka do
         "ZookeeperConnectString" => String.t(),
         "ZookeeperConnectStringTls" => String.t()
       }
-
+      
   """
   @type cluster_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_operation_step() :: %{
         "StepInfo" => cluster_operation_step_info(),
         "StepName" => String.t()
       }
-
+      
   """
   @type cluster_operation_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterName" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type create_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_operation_v2_summary() :: %{
         "ClusterArn" => String.t(),
         "ClusterType" => list(any()),
@@ -343,14 +343,14 @@ defmodule AWS.Kafka do
         "OperationType" => String.t(),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type cluster_operation_v2_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_info_request() :: %{
         optional("ConsumerGroupReplication") => consumer_group_replication_update(),
         optional("TopicReplication") => topic_replication_update(),
@@ -358,170 +358,170 @@ defmodule AWS.Kafka do
         required("SourceKafkaClusterArn") => String.t(),
         required("TargetKafkaClusterArn") => String.t()
       }
-
+      
   """
   @type update_replication_info_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_info() :: %{
         required("BrokerLogs") => broker_logs()
       }
-
+      
   """
   @type logging_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configurations_response() :: %{
         "Configurations" => list(configuration()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_client_vpc_connections_response() :: %{
         "ClientVpcConnections" => list(client_vpc_connection()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_client_vpc_connections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_security_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_security_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reboot_broker_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type reboot_broker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_connectivity_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_connectivity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cluster_operations_v2_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_cluster_operations_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kafka_cluster_summary() :: %{
         "AmazonMskCluster" => amazon_msk_cluster(),
         "KafkaClusterAlias" => String.t()
       }
-
+      
   """
   @type kafka_cluster_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_logs() :: %{
         optional("CloudWatchLogs") => cloud_watch_logs(),
         optional("Firehose") => firehose(),
         optional("S3") => s3()
       }
-
+      
   """
   @type broker_logs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cluster_configuration_request() :: %{
         required("ConfigurationInfo") => configuration_info(),
         required("CurrentVersion") => String.t()
       }
-
+      
   """
   @type update_cluster_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_storage_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_storage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kafka_cluster_client_vpc_config() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()())
       }
-
+      
   """
   @type kafka_cluster_client_vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -531,27 +531,27 @@ defmodule AWS.Kafka do
         "Name" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_replicator_response() :: %{
         "ReplicatorArn" => String.t(),
         "ReplicatorName" => String.t(),
         "ReplicatorState" => list(any())
       }
-
+      
   """
   @type create_replicator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       client_vpc_connection() :: %{
         "Authentication" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -559,119 +559,119 @@ defmodule AWS.Kafka do
         "State" => list(any()),
         "VpcConnectionArn" => String.t()
       }
-
+      
   """
   @type client_vpc_connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_identity() :: %{
         "PrincipalId" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type user_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_v2_request() :: %{
         optional("ClusterNameFilter") => String.t(),
         optional("ClusterTypeFilter") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_clusters_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_info_response() :: %{
         "ReplicatorArn" => String.t(),
         "ReplicatorState" => list(any())
       }
-
+      
   """
   @type update_replication_info_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_state_info() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type replication_state_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_access() :: %{
         "Type" => String.t()
       }
-
+      
   """
   @type public_access() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_info() :: %{
         "Arn" => String.t(),
         "Revision" => float()
       }
-
+      
   """
   @type configuration_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_info() :: %{
         "ErrorCode" => String.t(),
         "ErrorString" => String.t()
       }
-
+      
   """
   @type error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_policy_response() :: %{}
-
+      
   """
   @type delete_cluster_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connection() :: %{
         "Authentication" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -680,26 +680,26 @@ defmodule AWS.Kafka do
         "VpcConnectionArn" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type vpc_connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_info_summary() :: %{
         "SourceKafkaClusterAlias" => String.t(),
         "TargetKafkaClusterAlias" => String.t()
       }
-
+      
   """
   @type replication_info_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_vpc_connection_request() :: %{
         optional("Tags") => map(),
         required("Authentication") => String.t(),
@@ -708,70 +708,70 @@ defmodule AWS.Kafka do
         required("TargetClusterArn") => String.t(),
         required("VpcId") => String.t()
       }
-
+      
   """
   @type create_vpc_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       serverless_sasl() :: %{
         "Iam" => iam()
       }
-
+      
   """
   @type serverless_sasl() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_exporter_info() :: %{
         "EnabledInBroker" => boolean()
       }
-
+      
   """
   @type node_exporter_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replicator_request() :: %{
         optional("CurrentVersion") => String.t()
       }
-
+      
   """
   @type delete_replicator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_scram_secret_request() :: %{
         required("SecretArnList") => list(String.t()())
       }
-
+      
   """
   @type batch_associate_scram_secret_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_replicator_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
@@ -780,61 +780,61 @@ defmodule AWS.Kafka do
         required("ReplicatorName") => String.t(),
         required("ServiceExecutionRoleArn") => String.t()
       }
-
+      
   """
   @type create_replicator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replicator_request() :: %{}
-
+      
   """
   @type describe_replicator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cluster_operations_response() :: %{
         "ClusterOperationInfoList" => list(cluster_operation_info()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_cluster_operations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configurations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       consumer_group_replication() :: %{
         "ConsumerGroupsToExclude" => list(String.t()()),
         "ConsumerGroupsToReplicate" => list(String.t()()),
         "DetectAndCopyNewConsumerGroups" => boolean(),
         "SynchroniseConsumerGroupOffsets" => boolean()
       }
-
+      
   """
   @type consumer_group_replication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_info_description() :: %{
         "ConsumerGroupReplication" => consumer_group_replication(),
         "SourceKafkaClusterAlias" => String.t(),
@@ -842,14 +842,14 @@ defmodule AWS.Kafka do
         "TargetKafkaClusterAlias" => String.t(),
         "TopicReplication" => topic_replication()
       }
-
+      
   """
   @type replication_info_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_info() :: %{
         "AddedToClusterTime" => String.t(),
         "BrokerNodeInfo" => broker_node_info(),
@@ -859,62 +859,62 @@ defmodule AWS.Kafka do
         "NodeType" => list(any()),
         "ZookeeperNodeInfo" => zookeeper_node_info()
       }
-
+      
   """
   @type node_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kafka_cluster() :: %{
         "AmazonMskCluster" => amazon_msk_cluster(),
         "VpcConfig" => kafka_cluster_client_vpc_config()
       }
-
+      
   """
   @type kafka_cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_count_request() :: %{
         required("CurrentVersion") => String.t(),
         required("TargetNumberOfBrokerNodes") => integer()
       }
-
+      
   """
   @type update_broker_count_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_response() :: %{
         "Arn" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type delete_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cluster_configuration_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_cluster_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_replication() :: %{
         "CopyAccessControlListsForTopics" => boolean(),
         "CopyTopicConfigurations" => boolean(),
@@ -923,132 +923,132 @@ defmodule AWS.Kafka do
         "TopicsToExclude" => list(String.t()()),
         "TopicsToReplicate" => list(String.t()())
       }
-
+      
   """
   @type topic_replication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vpc_connection_request() :: %{}
-
+      
   """
   @type delete_vpc_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cluster_kafka_version_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_cluster_kafka_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_vpc_connections_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_vpc_connections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_operation_v2_provisioned() :: %{
         "OperationSteps" => list(cluster_operation_step()()),
         "SourceClusterInfo" => mutable_cluster_info(),
         "TargetClusterInfo" => mutable_cluster_info(),
         "VpcConnectionInfo" => vpc_connection_info()
       }
-
+      
   """
   @type cluster_operation_v2_provisioned() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_starting_position() :: %{
         "Type" => list(any())
       }
-
+      
   """
   @type replication_starting_position() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_v2_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterName" => String.t(),
         "ClusterType" => list(any()),
         "State" => list(any())
       }
-
+      
   """
   @type create_cluster_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_exporter() :: %{
         "EnabledInBroker" => boolean()
       }
-
+      
   """
   @type node_exporter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       jmx_exporter() :: %{
         "EnabledInBroker" => boolean()
       }
-
+      
   """
   @type jmx_exporter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connectivity_info() :: %{
         "PublicAccess" => public_access(),
         "VpcConnectivity" => vpc_connectivity()
       }
-
+      
   """
   @type connectivity_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tls() :: %{
         "CertificateAuthorityArnList" => list(String.t()()),
         "Enabled" => boolean()
       }
-
+      
   """
   @type tls() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_node_group_info() :: %{
         "BrokerAZDistribution" => list(any()),
         "ClientSubnets" => list(String.t()()),
@@ -1058,25 +1058,25 @@ defmodule AWS.Kafka do
         "StorageInfo" => storage_info(),
         "ZoneIds" => list(String.t()())
       }
-
+      
   """
   @type broker_node_group_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       controller_node_info() :: %{
         "Endpoints" => list(String.t()())
       }
-
+      
   """
   @type controller_node_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_request() :: %{
         optional("ClientAuthentication") => client_authentication(),
         optional("ConfigurationInfo") => configuration_info(),
@@ -1091,66 +1091,66 @@ defmodule AWS.Kafka do
         required("KafkaVersion") => String.t(),
         required("NumberOfBrokerNodes") => integer()
       }
-
+      
   """
   @type create_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_request() :: %{}
-
+      
   """
   @type delete_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_operation_v2_response() :: %{
         "ClusterOperationInfo" => cluster_operation_v2()
       }
-
+      
   """
   @type describe_cluster_operation_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cluster_policy_request() :: %{}
-
+      
   """
   @type get_cluster_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       open_monitoring_info() :: %{
         "Prometheus" => prometheus_info()
       }
-
+      
   """
   @type open_monitoring_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster() :: %{
         "ActiveOperationArn" => String.t(),
         "ClusterArn" => String.t(),
@@ -1164,73 +1164,73 @@ defmodule AWS.Kafka do
         "StateInfo" => state_info(),
         "Tags" => map()
       }
-
+      
   """
   @type cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connection_info_serverless() :: %{
         "CreationTime" => non_neg_integer(),
         "Owner" => String.t(),
         "UserIdentity" => user_identity(),
         "VpcConnectionArn" => String.t()
       }
-
+      
   """
   @type vpc_connection_info_serverless() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connectivity_scram() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type vpc_connectivity_scram() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reboot_broker_request() :: %{
         required("BrokerIds") => list(String.t()())
       }
-
+      
   """
   @type reboot_broker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_in_transit() :: %{
         "ClientBroker" => list(any()),
         "InCluster" => boolean()
       }
-
+      
   """
   @type encryption_in_transit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_compatible_kafka_versions_request() :: %{
         optional("ClusterArn") => String.t()
       }
-
+      
   """
   @type get_compatible_kafka_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bootstrap_brokers_response() :: %{
         "BootstrapBrokerString" => String.t(),
         "BootstrapBrokerStringPublicSaslIam" => String.t(),
@@ -1243,307 +1243,307 @@ defmodule AWS.Kafka do
         "BootstrapBrokerStringVpcConnectivitySaslScram" => String.t(),
         "BootstrapBrokerStringVpcConnectivityTls" => String.t()
       }
-
+      
   """
   @type get_bootstrap_brokers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       jmx_exporter_info() :: %{
         "EnabledInBroker" => boolean()
       }
-
+      
   """
   @type jmx_exporter_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_revision_request() :: %{}
-
+      
   """
   @type describe_configuration_revision_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connectivity_iam() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type vpc_connectivity_iam() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_storage_request() :: %{
         required("CurrentVersion") => String.t(),
         required("TargetBrokerEBSVolumeInfo") => list(broker_ebs_volume_info()())
       }
-
+      
   """
   @type update_broker_storage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_kafka_versions_response() :: %{
         "KafkaVersions" => list(kafka_version()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_kafka_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replicator_response() :: %{
         "ReplicatorArn" => String.t(),
         "ReplicatorState" => list(any())
       }
-
+      
   """
   @type delete_replicator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_cluster_kafka_version_request() :: %{
         optional("ConfigurationInfo") => configuration_info(),
         required("CurrentVersion") => String.t(),
         required("TargetKafkaVersion") => String.t()
       }
-
+      
   """
   @type update_cluster_kafka_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_config() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()())
       }
-
+      
   """
   @type vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_nodes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_nodes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_v2_response() :: %{
         "ClusterInfoList" => list(cluster()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_clusters_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_security_request() :: %{
         optional("ClientAuthentication") => client_authentication(),
         optional("EncryptionInfo") => encryption_info(),
         required("CurrentVersion") => String.t()
       }
-
+      
   """
   @type update_security_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_request() :: %{
         optional("Description") => String.t(),
         optional("KafkaVersions") => list(String.t()()),
         required("Name") => String.t(),
         required("ServerProperties") => binary()
       }
-
+      
   """
   @type create_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connectivity_client_authentication() :: %{
         "Sasl" => vpc_connectivity_sasl(),
         "Tls" => vpc_connectivity_tls()
       }
-
+      
   """
   @type vpc_connectivity_client_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       serverless_request() :: %{
         "ClientAuthentication" => serverless_client_authentication(),
         "VpcConfigs" => list(vpc_config()())
       }
-
+      
   """
   @type serverless_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_policy_request() :: %{}
-
+      
   """
   @type delete_cluster_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_replicators_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ReplicatorNameFilter") => String.t()
       }
-
+      
   """
   @type list_replicators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connectivity_tls() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type vpc_connectivity_tls() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_response() :: %{
         "ClusterInfoList" => list(cluster_info()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_clusters_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_cluster_policy_response() :: %{
         "CurrentVersion" => String.t()
       }
-
+      
   """
   @type put_cluster_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_response() :: %{
         "ClusterArn" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type delete_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_revisions_response() :: %{
         "NextToken" => String.t(),
         "Revisions" => list(configuration_revision()())
       }
-
+      
   """
   @type list_configuration_revisions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_info() :: %{
         "EbsStorageInfo" => ebs_storage_info()
       }
-
+      
   """
   @type storage_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_response() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -1551,168 +1551,168 @@ defmodule AWS.Kafka do
         "Name" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type create_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_kafka_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_kafka_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_monitoring_request() :: %{
         optional("EnhancedMonitoring") => list(any()),
         optional("LoggingInfo") => logging_info(),
         optional("OpenMonitoring") => open_monitoring_info(),
         required("CurrentVersion") => String.t()
       }
-
+      
   """
   @type update_monitoring_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       iam() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type iam() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_operation_response() :: %{
         "ClusterOperationInfo" => cluster_operation_info()
       }
-
+      
   """
   @type describe_cluster_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cluster_policy_response() :: %{
         "CurrentVersion" => String.t(),
         "Policy" => String.t()
       }
-
+      
   """
   @type get_cluster_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       consumer_group_replication_update() :: %{
         "ConsumerGroupsToExclude" => list(String.t()()),
         "ConsumerGroupsToReplicate" => list(String.t()()),
         "DetectAndCopyNewConsumerGroups" => boolean(),
         "SynchroniseConsumerGroupOffsets" => boolean()
       }
-
+      
   """
   @type consumer_group_replication_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reject_client_vpc_connection_request() :: %{
         required("VpcConnectionArn") => String.t()
       }
-
+      
   """
   @type reject_client_vpc_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthenticated() :: %{
         optional("Enabled") => boolean()
       }
-
+      
   """
   @type unauthenticated() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       firehose() :: %{
         optional("DeliveryStream") => String.t(),
         required("Enabled") => boolean()
       }
-
+      
   """
   @type firehose() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_operation_request() :: %{}
-
+      
   """
   @type describe_cluster_operation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_clusters_request() :: %{
         optional("ClusterNameFilter") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_clusters_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_response() :: %{
         "Arn" => String.t(),
         "LatestRevision" => configuration_revision()
       }
-
+      
   """
   @type update_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logs() :: %{
         optional("LogGroup") => String.t(),
         required("Enabled") => boolean()
       }
-
+      
   """
   @type cloud_watch_logs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_revision_response() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -1720,49 +1720,49 @@ defmodule AWS.Kafka do
         "Revision" => float(),
         "ServerProperties" => binary()
       }
-
+      
   """
   @type describe_configuration_revision_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connection_info() :: %{
         "CreationTime" => non_neg_integer(),
         "Owner" => String.t(),
         "UserIdentity" => user_identity(),
         "VpcConnectionArn" => String.t()
       }
-
+      
   """
   @type vpc_connection_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_connectivity_request() :: %{
         required("ConnectivityInfo") => connectivity_info(),
         required("CurrentVersion") => String.t()
       }
-
+      
   """
   @type update_connectivity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vpc_connection_request() :: %{}
-
+      
   """
   @type describe_vpc_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_node_info() :: %{
         "AttachedENIId" => String.t(),
         "BrokerId" => float(),
@@ -1771,14 +1771,14 @@ defmodule AWS.Kafka do
         "CurrentBrokerSoftwareInfo" => broker_software_info(),
         "Endpoints" => list(String.t()())
       }
-
+      
   """
   @type broker_node_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       zookeeper_node_info() :: %{
         "AttachedENIId" => String.t(),
         "ClientVpcIpAddress" => String.t(),
@@ -1786,84 +1786,84 @@ defmodule AWS.Kafka do
         "ZookeeperId" => float(),
         "ZookeeperVersion" => String.t()
       }
-
+      
   """
   @type zookeeper_node_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ebs_storage_info() :: %{
         "ProvisionedThroughput" => provisioned_throughput(),
         "VolumeSize" => integer()
       }
-
+      
   """
   @type ebs_storage_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_cluster_request() :: %{
         optional("CurrentVersion") => String.t()
       }
-
+      
   """
   @type delete_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       provisioned_throughput() :: %{
         "Enabled" => boolean(),
         "VolumeThroughput" => integer()
       }
-
+      
   """
   @type provisioned_throughput() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_at_rest() :: %{
         "DataVolumeKMSKeyId" => String.t()
       }
-
+      
   """
   @type encryption_at_rest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_count_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_broker_count_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_cluster_policy_request() :: %{
         optional("CurrentVersion") => String.t(),
         required("Policy") => String.t()
       }
-
+      
   """
   @type put_cluster_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_response() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -1873,27 +1873,27 @@ defmodule AWS.Kafka do
         "Name" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type describe_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       client_authentication() :: %{
         "Sasl" => sasl(),
         "Tls" => tls(),
         "Unauthenticated" => unauthenticated()
       }
-
+      
   """
   @type client_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       provisioned() :: %{
         "BrokerNodeGroupInfo" => broker_node_group_info(),
         "ClientAuthentication" => client_authentication(),
@@ -1908,96 +1908,96 @@ defmodule AWS.Kafka do
         "ZookeeperConnectString" => String.t(),
         "ZookeeperConnectStringTls" => String.t()
       }
-
+      
   """
   @type provisioned() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sasl() :: %{
         "Iam" => iam(),
         "Scram" => scram()
       }
-
+      
   """
   @type sasl() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3() :: %{
         optional("Bucket") => String.t(),
         optional("Prefix") => String.t(),
         required("Enabled") => boolean()
       }
-
+      
   """
   @type s3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cluster_operations_v2_response() :: %{
         "ClusterOperationInfoList" => list(cluster_operation_v2_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_cluster_operations_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_replicators_response() :: %{
         "NextToken" => String.t(),
         "Replicators" => list(replicator_summary()())
       }
-
+      
   """
   @type list_replicators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cluster_operations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_cluster_operations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replicator_response() :: %{
         "CreationTime" => non_neg_integer(),
         "CurrentVersion" => String.t(),
@@ -2013,72 +2013,72 @@ defmodule AWS.Kafka do
         "StateInfo" => replication_state_info(),
         "Tags" => map()
       }
-
+      
   """
   @type describe_replicator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kafka_cluster_description() :: %{
         "AmazonMskCluster" => amazon_msk_cluster(),
         "KafkaClusterAlias" => String.t(),
         "VpcConfig" => kafka_cluster_client_vpc_config()
       }
-
+      
   """
   @type kafka_cluster_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kafka_version() :: %{
         optional("Status") => list(any()),
         optional("Version") => String.t()
       }
-
+      
   """
   @type kafka_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vpc_connection_response() :: %{
         "State" => list(any()),
         "VpcConnectionArn" => String.t()
       }
-
+      
   """
   @type delete_vpc_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_info() :: %{
         "EncryptionAtRest" => encryption_at_rest(),
         "EncryptionInTransit" => encryption_in_transit()
       }
-
+      
   """
   @type encryption_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_configuration_request() :: %{}
-
+      
   """
   @type describe_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_operation_info() :: %{
         "ClientRequestId" => String.t(),
         "ClusterArn" => String.t(),
@@ -2093,103 +2093,103 @@ defmodule AWS.Kafka do
         "TargetClusterInfo" => mutable_cluster_info(),
         "VpcConnectionInfo" => vpc_connection_info()
       }
-
+      
   """
   @type cluster_operation_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "InvalidParameter" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bootstrap_brokers_request() :: %{}
-
+      
   """
   @type get_bootstrap_brokers_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_scram_secret_response() :: %{
         "ClusterArn" => String.t(),
         "UnprocessedScramSecrets" => list(unprocessed_scram_secret()())
       }
-
+      
   """
   @type batch_disassociate_scram_secret_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_v2_response() :: %{
         "ClusterInfo" => cluster()
       }
-
+      
   """
   @type describe_cluster_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prometheus_info() :: %{
         "JmxExporter" => jmx_exporter_info(),
         "NodeExporter" => node_exporter_info()
       }
-
+      
   """
   @type prometheus_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_cluster_operation_v2_request() :: %{}
-
+      
   """
   @type describe_cluster_operation_v2_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_revision() :: %{
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
         "Revision" => float()
       }
-
+      
   """
   @type configuration_revision() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scram() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type scram() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mutable_cluster_info() :: %{
         "BrokerCountUpdateInfo" => broker_count_update_info(),
         "BrokerEBSVolumeInfo" => list(broker_ebs_volume_info()()),
@@ -2205,83 +2205,83 @@ defmodule AWS.Kafka do
         "OpenMonitoring" => open_monitoring(),
         "StorageMode" => list(any())
       }
-
+      
   """
   @type mutable_cluster_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_ebs_volume_info() :: %{
         "KafkaBrokerNodeId" => String.t(),
         "ProvisionedThroughput" => provisioned_throughput(),
         "VolumeSizeGB" => integer()
       }
-
+      
   """
   @type broker_ebs_volume_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scram_secrets_response() :: %{
         "NextToken" => String.t(),
         "SecretArnList" => list(String.t()())
       }
-
+      
   """
   @type list_scram_secrets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_scram_secret_response() :: %{
         "ClusterArn" => String.t(),
         "UnprocessedScramSecrets" => list(unprocessed_scram_secret()())
       }
-
+      
   """
   @type batch_associate_scram_secret_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_monitoring_response() :: %{
         "ClusterArn" => String.t(),
         "ClusterOperationArn" => String.t()
       }
-
+      
   """
   @type update_monitoring_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connectivity() :: %{
         "ClientAuthentication" => vpc_connectivity_client_authentication()
       }
-
+      
   """
   @type vpc_connectivity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reject_client_vpc_connection_response() :: %{}
-
+      
   """
   @type reject_client_vpc_connection_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       replicator_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "CurrentVersion" => String.t(),
@@ -2293,86 +2293,86 @@ defmodule AWS.Kafka do
         "ReplicatorResourceArn" => String.t(),
         "ReplicatorState" => list(any())
       }
-
+      
   """
   @type replicator_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       state_info() :: %{
         optional("Code") => String.t(),
         optional("Message") => String.t()
       }
-
+      
   """
   @type state_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scram_secrets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_scram_secrets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_scram_secret_request() :: %{
         required("SecretArnList") => list(String.t()())
       }
-
+      
   """
   @type batch_disassociate_scram_secret_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_broker_type_request() :: %{
         required("CurrentVersion") => String.t(),
         required("TargetInstanceType") => String.t()
       }
-
+      
   """
   @type update_broker_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_scram_secret() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "SecretArn" => String.t()
       }
-
+      
   """
   @type unprocessed_scram_secret() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connectivity_sasl() :: %{
         "Iam" => vpc_connectivity_iam(),
         "Scram" => vpc_connectivity_scram()
       }
-
+      
   """
   @type vpc_connectivity_sasl() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_info() :: %{
         "ConsumerGroupReplication" => consumer_group_replication(),
         "SourceKafkaClusterArn" => String.t(),
@@ -2380,14 +2380,14 @@ defmodule AWS.Kafka do
         "TargetKafkaClusterArn" => String.t(),
         "TopicReplication" => topic_replication()
       }
-
+      
   """
   @type replication_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_operation_v2() :: %{
         "ClusterArn" => String.t(),
         "ClusterType" => list(any()),
@@ -2400,104 +2400,104 @@ defmodule AWS.Kafka do
         "Serverless" => cluster_operation_v2_serverless(),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type cluster_operation_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_count_update_info() :: %{
         "CreatedBrokerIds" => list(float()()),
         "DeletedBrokerIds" => list(float()())
       }
-
+      
   """
   @type broker_count_update_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_nodes_response() :: %{
         "NextToken" => String.t(),
         "NodeInfoList" => list(node_info()())
       }
-
+      
   """
   @type list_nodes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_revisions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_configuration_revisions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_operation_v2_serverless() :: %{
         "VpcConnectionInfo" => vpc_connection_info_serverless()
       }
-
+      
   """
   @type cluster_operation_v2_serverless() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cluster_v2_request() :: %{
         optional("Provisioned") => provisioned_request(),
         optional("Serverless") => serverless_request(),
         optional("Tags") => map(),
         required("ClusterName") => String.t()
       }
-
+      
   """
   @type create_cluster_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_operation_step_info() :: %{
         "StepStatus" => String.t()
       }
-
+      
   """
   @type cluster_operation_step_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       serverless() :: %{
         "ClientAuthentication" => serverless_client_authentication(),
         "VpcConfigs" => list(vpc_config()())
       }
-
+      
   """
   @type serverless() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       broker_software_info() :: %{
         "ConfigurationArn" => String.t(),
         "ConfigurationRevision" => float(),
         "KafkaVersion" => String.t()
       }
-
+      
   """
   @type broker_software_info() :: %{String.t() => any()}
 
@@ -2909,38 +2909,48 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-    be updated.
+  be updated.
+  * `:input` (`t:map`):
+    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]`) List of AWS
+  Secrets Manager secret ARNs.
 
   ## Optional parameters:
   """
-  @spec batch_associate_scram_secret(
-          AWS.Client.t(),
-          String.t(),
-          batch_associate_scram_secret_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_associate_scram_secret(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_associate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_scram_secret_errors()}
-  def batch_associate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def batch_associate_scram_secret(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2950,26 +2960,46 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-    be updated.
+  be updated.
+  * `:input` (`t:map`):
+    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]`) List of AWS
+  Secrets Manager secret ARNs.
 
   ## Optional parameters:
   """
-  @spec batch_disassociate_scram_secret(
-          AWS.Client.t(),
-          String.t(),
-          batch_disassociate_scram_secret_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_disassociate_scram_secret(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_disassociate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_scram_secret_errors()}
-  def batch_disassociate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def batch_disassociate_scram_secret(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = input
 
     Request.request_rest(
       client,
@@ -2978,7 +3008,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2990,32 +3020,65 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:broker_node_group_info` (`t:structure`) Information about the broker nodes
+  in the cluster.
+    * `:cluster_name` (`t:string`) The name of the cluster.
+    * `:kafka_version` (`t:string`) The version of Apache Kafka.
+    * `:number_of_broker_nodes` (`t:integer`) The number of broker nodes in the
+  cluster.
+    * `:client_authentication` (`t:structure`) Includes all client authentication
+  related information.
+    * `:configuration_info` (`t:structure`) Represents the configuration that you
+  want MSK to use for the brokers in a cluster.
+    * `:encryption_info` (`t:structure`) Includes all encryption-related
+  information.
+    * `:enhanced_monitoring`
+  (`t:enum["DEFAULT|PER_BROKER|PER_TOPIC_PER_BROKER|PER_TOPIC_PER_PARTITION"]`)
+  Specifies the level of monitoring for the MSK cluster. The possible values
+  are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.
+    * `:logging_info` (`t:structure`)
+    * `:open_monitoring` (`t:structure`) The settings for open monitoring.
+    * `:storage_mode` (`t:enum["LOCAL|TIERED"]`) This controls storage mode for
+  supported storage tiers.
+    * `:tags` (`t:map`) Create tags when creating the cluster.
 
   ## Optional parameters:
   """
-  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
+
+  @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-  def create_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3024,32 +3087,48 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateClusterV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:cluster_name` (`t:string`) The name of the cluster.
+    * `:provisioned` (`t:structure`) Information about the provisioned cluster.
+    * `:serverless` (`t:structure`) Information about the serverless cluster.
+    * `:tags` (`t:map`) A map of tags that you want the cluster to have.
 
   ## Optional parameters:
   """
-  @spec create_cluster_v2(AWS.Client.t(), create_cluster_v2_request(), Keyword.t()) ::
+
+  @spec create_cluster_v2(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_v2_errors()}
-  def create_cluster_v2(%Client{} = client, input, options \\ []) do
+
+  def create_cluster_v2(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/api/v2/clusters"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3058,32 +3137,52 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:name` (`t:string`) The name of the configuration.
+    * `:server_properties` (`t:blob`) Contents of the server.properties file. When
+  using the API, you must ensure that the contents of the file are base64
+  encoded. When using the AWS Management Console, the SDK, or the AWS CLI, the
+  contents of server.properties can be in plaintext.
+    * `:description` (`t:string`) The description of the configuration.
+    * `:kafka_versions` (`t:list[com.amazonaws.kafka#__string]`) The versions of
+  Apache Kafka with which you can use this MSK configuration.
 
   ## Optional parameters:
   """
-  @spec create_configuration(AWS.Client.t(), create_configuration_request(), Keyword.t()) ::
+
+  @spec create_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_errors()}
-  def create_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3092,32 +3191,56 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateReplicator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:kafka_clusters` (`t:list[com.amazonaws.kafka#KafkaCluster]`) Kafka Clusters
+  to use in setting up sources / targets for replication.
+    * `:replication_info_list` (`t:list[com.amazonaws.kafka#ReplicationInfo]`) A
+  list of replication configurations, where each configuration targets a given
+  source cluster to target cluster replication flow.
+    * `:replicator_name` (`t:string`) The name of the replicator. Alpha-numeric
+  characters with '-' are allowed.
+    * `:service_execution_role_arn` (`t:string`) The ARN of the IAM role used by the
+  replicator to access resources in the customer's account (e.g source and
+  target clusters)
+    * `:description` (`t:string`) A summary description of the replicator.
+    * `:tags` (`t:map`) List of tags to attach to created Replicator.
 
   ## Optional parameters:
   """
-  @spec create_replicator(AWS.Client.t(), create_replicator_request(), Keyword.t()) ::
+
+  @spec create_replicator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replicator_errors()}
-  def create_replicator(%Client{} = client, input, options \\ []) do
+
+  def create_replicator(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/replication/v1/replicators"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3126,32 +3249,53 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20CreateVpcConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:authentication` (`t:string`) The authentication type of VPC connection.
+    * `:client_subnets` (`t:list[com.amazonaws.kafka#__string]`) The list of client
+  subnets.
+    * `:security_groups` (`t:list[com.amazonaws.kafka#__string]`) The list of
+  security groups.
+    * `:target_cluster_arn` (`t:string`) The cluster Amazon Resource Name (ARN) for
+  the VPC connection.
+    * `:vpc_id` (`t:string`) The VPC ID of VPC connection.
+    * `:tags` (`t:map`) A map of tags for the VPC connection.
 
   ## Optional parameters:
   """
-  @spec create_vpc_connection(AWS.Client.t(), create_vpc_connection_request(), Keyword.t()) ::
+
+  @spec create_vpc_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_connection_errors()}
-  def create_vpc_connection(%Client{} = client, input, options \\ []) do
+
+  def create_vpc_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/vpc-connection"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3162,24 +3306,44 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
 
   ## Optional parameters:
   * `:current_version` (`t:string`) The current version of the MSK cluster.
   """
-  @spec delete_cluster(AWS.Client.t(), String.t(), delete_cluster_request(), Keyword.t()) ::
+
+  @spec delete_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-  def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def delete_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
+
+    # Validate optional parameters
+    optional_params = [current_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"CurrentVersion", "currentVersion"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :current_version) do
+        [{"currentVersion", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -3189,6 +3353,8 @@ defmodule AWS.Kafka do
       options
       |> Keyword.drop([:current_version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3196,7 +3362,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3213,22 +3379,38 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   """
-  @spec delete_cluster_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_cluster_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_cluster_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_policy_errors()}
-  def delete_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def delete_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3237,7 +3419,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3250,26 +3432,42 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-    MSK configuration.
+  MSK configuration.
 
   ## Optional parameters:
   """
-  @spec delete_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_errors()}
-  def delete_configuration(%Client{} = client, arn, input, options \\ []) do
+
+  def delete_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3278,7 +3476,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3291,24 +3489,44 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    replicator to be deleted.
+  replicator to be deleted.
 
   ## Optional parameters:
   * `:current_version` (`t:string`) The current version of the replicator.
   """
-  @spec delete_replicator(AWS.Client.t(), String.t(), delete_replicator_request(), Keyword.t()) ::
+
+  @spec delete_replicator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replicator_errors()}
-  def delete_replicator(%Client{} = client, replicator_arn, input, options \\ []) do
+
+  def delete_replicator(%Client{} = client, replicator_arn, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
+
+    # Validate optional parameters
+    optional_params = [current_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"CurrentVersion", "currentVersion"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :current_version) do
+        [{"currentVersion", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -3318,6 +3536,8 @@ defmodule AWS.Kafka do
       options
       |> Keyword.drop([:current_version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3325,7 +3545,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3338,26 +3558,42 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-    MSK VPC connection.
+  MSK VPC connection.
 
   ## Optional parameters:
   """
-  @spec delete_vpc_connection(
-          AWS.Client.t(),
-          String.t(),
-          delete_vpc_connection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_connection_errors()}
-  def delete_vpc_connection(%Client{} = client, arn, input, options \\ []) do
+
+  def delete_vpc_connection(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3366,7 +3602,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3380,14 +3616,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
 
   ## Optional parameters:
   """
+
   @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
+
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -3423,14 +3661,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_operation_arn` (`t:string`) The Amazon Resource Name (ARN) that
-    uniquely identifies the MSK cluster operation.
+  uniquely identifies the MSK cluster operation.
 
   ## Optional parameters:
   """
+
   @spec describe_cluster_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_operation_errors()}
+
   def describe_cluster_operation(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/v1/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
 
@@ -3469,10 +3709,12 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   """
+
   @spec describe_cluster_operation_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_operation_v2_errors()}
+
   def describe_cluster_operation_v2(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/api/v2/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
 
@@ -3509,14 +3751,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
 
   ## Optional parameters:
   """
+
   @spec describe_cluster_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_v2_errors()}
+
   def describe_cluster_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
 
@@ -3552,14 +3796,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-    MSK configuration and all of its revisions.
+  MSK configuration and all of its revisions.
 
   ## Optional parameters:
   """
+
   @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_errors()}
+
   def describe_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
 
@@ -3595,16 +3841,18 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-    MSK configuration and all of its revisions.
+  MSK configuration and all of its revisions.
   * `:revision` (`t:long`) A string that uniquely identifies a revision of an MSK
-    configuration.
+  configuration.
 
   ## Optional parameters:
   """
+
   @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_revision_errors()}
+
   def describe_configuration_revision(%Client{} = client, arn, revision, options \\ []) do
     url_path =
       "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions/#{AWS.Util.encode_uri(revision)}"
@@ -3641,14 +3889,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    replicator to be described.
+  replicator to be described.
 
   ## Optional parameters:
   """
+
   @spec describe_replicator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replicator_errors()}
+
   def describe_replicator(%Client{} = client, replicator_arn, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
 
@@ -3684,14 +3934,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies a
-    MSK VPC connection.
+  MSK VPC connection.
 
   ## Optional parameters:
   """
+
   @spec describe_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_connection_errors()}
+
   def describe_vpc_connection(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
 
@@ -3727,14 +3979,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
 
   ## Optional parameters:
   """
+
   @spec get_bootstrap_brokers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bootstrap_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bootstrap_brokers_errors()}
+
   def get_bootstrap_brokers(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/bootstrap-brokers"
 
@@ -3774,10 +4028,12 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   """
+
   @spec get_cluster_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cluster_policy_errors()}
+
   def get_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
 
@@ -3815,12 +4071,14 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster
-    check.
+  check.
   """
+
   @spec get_compatible_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compatible_kafka_versions_errors()}
+
   def get_compatible_kafka_versions(%Client{} = client, options \\ []) do
     url_path = "/v1/compatible-kafka-versions"
 
@@ -3870,16 +4128,18 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_client_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_client_vpc_connections_errors()}
+
   def list_client_vpc_connections(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connections"
 
@@ -3934,20 +4194,22 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_cluster_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_operations_errors()}
+
   def list_cluster_operations(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
 
@@ -4007,10 +4269,12 @@ defmodule AWS.Kafka do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_cluster_operations_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_operations_v2_errors()}
+
   def list_cluster_operations_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}/operations"
 
@@ -4066,19 +4330,21 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:cluster_name_filter` (`t:string`) Specify a prefix of the name of the
-    clusters that you want to list. The service lists all the clusters whose
-    names start with this prefix.
+  clusters that you want to list. The service lists all the clusters whose
+  names start with this prefix.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
+
   def list_clusters(%Client{} = client, options \\ []) do
     url_path = "/v1/clusters"
 
@@ -4141,20 +4407,22 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:cluster_name_filter` (`t:string`) Specify a prefix of the names of the
-    clusters that you want to list. The service lists all the clusters whose
-    names start with this prefix.
+  clusters that you want to list. The service lists all the clusters whose
+  names start with this prefix.
   * `:cluster_type_filter` (`t:string`) Specify either PROVISIONED or SERVERLESS.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_clusters_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_v2_errors()}
+
   def list_clusters_v2(%Client{} = client, options \\ []) do
     url_path = "/api/v2/clusters"
 
@@ -4227,20 +4495,22 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an
-    MSK configuration and all of its revisions.
+  MSK configuration and all of its revisions.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_revisions_errors()}
+
   def list_configuration_revisions(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}/revisions"
 
@@ -4296,16 +4566,18 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configurations_errors()}
+
   def list_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/configurations"
 
@@ -4361,16 +4633,18 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_kafka_versions_errors()}
+
   def list_kafka_versions(%Client{} = client, options \\ []) do
     url_path = "/v1/kafka-versions"
 
@@ -4424,20 +4698,22 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_nodes_errors()}
+
   def list_nodes(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes"
 
@@ -4493,18 +4769,20 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) If the response of ListReplicators is truncated, it
-    returns a NextToken in the response. This NextToken should be sent in the
-    subsequent request to ListReplicators.
+  returns a NextToken in the response. This NextToken should be sent in the
+  subsequent request to ListReplicators.
   * `:replicator_name_filter` (`t:string`) Returns replicators starting with given
-    name.
+  name.
   """
+
   @spec list_replicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replicators_errors()}
+
   def list_replicators(%Client{} = client, options \\ []) do
     url_path = "/replication/v1/replicators"
 
@@ -4570,10 +4848,12 @@ defmodule AWS.Kafka do
   * `:max_results` (`t:integer`) The maxResults of the query.
   * `:next_token` (`t:string`) The nextToken of the query.
   """
+
   @spec list_scram_secrets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scram_secrets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scram_secrets_errors()}
+
   def list_scram_secrets(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
 
@@ -4627,14 +4907,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the resource that's associated with the tags.
+  identifies the resource that's associated with the tags.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4672,16 +4954,18 @@ defmodule AWS.Kafka do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response. If there are more results, the response includes a NextToken
-    parameter.
+  response. If there are more results, the response includes a NextToken
+  parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-    the operation is truncated, the call returns NextToken in the response. To
-    get the next batch, provide this token in your next request.
+  the operation is truncated, the call returns NextToken in the response. To
+  get the next batch, provide this token in your next request.
   """
+
   @spec list_vpc_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_connections_errors()}
+
   def list_vpc_connections(%Client{} = client, options \\ []) do
     url_path = "/v1/vpc-connections"
 
@@ -4736,22 +5020,47 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+  * `:input` (`t:map`):
+    * `:policy` (`t:string`) The policy.
+    * `:current_version` (`t:string`) The policy version.
 
   ## Optional parameters:
   """
-  @spec put_cluster_policy(AWS.Client.t(), String.t(), put_cluster_policy_request(), Keyword.t()) ::
+
+  @spec put_cluster_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_cluster_policy_errors()}
-  def put_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def put_cluster_policy(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4761,23 +5070,48 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-    be updated.
+  be updated.
+  * `:input` (`t:map`):
+    * `:broker_ids` (`t:list[com.amazonaws.kafka#__string]`) The list of broker IDs
+  to be rebooted. The reboot-broker operation supports rebooting one broker at
+  a time.
 
   ## Optional parameters:
   """
-  @spec reboot_broker(AWS.Client.t(), String.t(), reboot_broker_request(), Keyword.t()) ::
+
+  @spec reboot_broker(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_broker_errors()}
-  def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/reboot-broker"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4787,27 +5121,46 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
+  * `:input` (`t:map`):
+    * `:vpc_connection_arn` (`t:string`) The VPC connection ARN.
 
   ## Optional parameters:
   """
-  @spec reject_client_vpc_connection(
-          AWS.Client.t(),
-          String.t(),
-          reject_client_vpc_connection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reject_client_vpc_connection(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_client_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_client_vpc_connection_errors()}
-  def reject_client_vpc_connection(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def reject_client_vpc_connection(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connection"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4817,33 +5170,46 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the resource that's associated with the tags.
+  identifies the resource that's associated with the tags.
+  * `:input` (`t:map`):
+    * `:tags` (`t:map`) The key-value pair for the resource tag.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4853,28 +5219,45 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the resource that's associated with the tags.
+  identifies the resource that's associated with the tags.
   * `:tag_keys` (`t:list[com.amazonaws.kafka#__string]`) Tag keys must be unique
-    for a given cluster. In addition, the following restrictions apply:
+  for a given cluster. In addition, the following restrictions apply:
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4883,7 +5266,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4896,28 +5279,50 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) The version of cluster to update from. A
+  successful operation will then generate a new version.
+    * `:target_number_of_broker_nodes` (`t:integer`) The number of broker nodes that
+  you want the cluster to have after this operation completes successfully.
 
   ## Optional parameters:
   """
-  @spec update_broker_count(
-          AWS.Client.t(),
-          String.t(),
-          update_broker_count_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_broker_count(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_count_errors()}
-  def update_broker_count(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_broker_count(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/count"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4927,28 +5332,51 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) The version of cluster to update from. A
+  successful operation will then generate a new version.
+    * `:target_broker_ebs_volume_info`
+  (`t:list[com.amazonaws.kafka#BrokerEBSVolumeInfo]`) Describes the target
+  volume size and the ID of the broker to apply the update to.
 
   ## Optional parameters:
   """
-  @spec update_broker_storage(
-          AWS.Client.t(),
-          String.t(),
-          update_broker_storage_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_broker_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_storage_errors()}
-  def update_broker_storage(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_broker_storage(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/storage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4958,23 +5386,51 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) The cluster version that you want to change.
+  After this operation completes successfully, the cluster will have a new
+  version.
+    * `:target_instance_type` (`t:string`) The Amazon MSK broker type that you want
+  all of the brokers in this cluster to be.
 
   ## Optional parameters:
   """
-  @spec update_broker_type(AWS.Client.t(), String.t(), update_broker_type_request(), Keyword.t()) ::
+
+  @spec update_broker_type(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_broker_type_errors()}
-  def update_broker_type(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_broker_type(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/type"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4985,28 +5441,50 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
+  * `:input` (`t:map`):
+    * `:configuration_info` (`t:structure`) Represents the configuration that you
+  want MSK to use for the brokers in a cluster.
+    * `:current_version` (`t:string`) The version of the cluster that needs to be
+  updated.
 
   ## Optional parameters:
   """
-  @spec update_cluster_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_cluster_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_cluster_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_configuration_errors()}
-  def update_cluster_configuration(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_cluster_configuration(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5016,28 +5494,50 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-    be updated.
+  be updated.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) Current cluster version.
+    * `:target_kafka_version` (`t:string`) Target Kafka version.
+    * `:configuration_info` (`t:structure`) The custom configuration that should be
+  applied on the new version of cluster.
 
   ## Optional parameters:
   """
-  @spec update_cluster_kafka_version(
-          AWS.Client.t(),
-          String.t(),
-          update_cluster_kafka_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_cluster_kafka_version(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_kafka_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_kafka_version_errors()}
-  def update_cluster_kafka_version(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_cluster_kafka_version(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/version"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5047,27 +5547,49 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the configuration.
+  * `:input` (`t:map`):
+    * `:server_properties` (`t:blob`) Contents of the server.properties file. When
+  using the API, you must ensure that the contents of the file are base64
+  encoded. When using the AWS Management Console, the SDK, or the AWS CLI, the
+  contents of server.properties can be in plaintext.
+    * `:description` (`t:string`) The description of the configuration revision.
 
   ## Optional parameters:
   """
-  @spec update_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_errors()}
-  def update_configuration(%Client{} = client, arn, input, options \\ []) do
+
+  def update_configuration(%Client{} = client, arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5077,28 +5599,52 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    configuration.
+  configuration.
+  * `:input` (`t:map`):
+    * `:connectivity_info` (`t:structure`) Information about the broker access
+  configuration.
+    * `:current_version` (`t:string`) The version of the MSK cluster to update.
+  Cluster versions aren't simple numbers. You can describe an MSK cluster to
+  find its version. When this update operation is successful, it generates a
+  new cluster version.
 
   ## Optional parameters:
   """
-  @spec update_connectivity(
-          AWS.Client.t(),
-          String.t(),
-          update_connectivity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_connectivity(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connectivity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connectivity_errors()}
-  def update_connectivity(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_connectivity(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/connectivity"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5110,23 +5656,56 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) The version of the MSK cluster to update.
+  Cluster versions aren't simple numbers. You can describe an MSK cluster to
+  find its version. When this update operation is successful, it generates a
+  new cluster version.
+    * `:enhanced_monitoring`
+  (`t:enum["DEFAULT|PER_BROKER|PER_TOPIC_PER_BROKER|PER_TOPIC_PER_PARTITION"]`)
+  Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon
+  CloudWatch for this cluster.
+    * `:logging_info` (`t:structure`)
+    * `:open_monitoring` (`t:structure`) The settings for open monitoring.
 
   ## Optional parameters:
   """
-  @spec update_monitoring(AWS.Client.t(), String.t(), update_monitoring_request(), Keyword.t()) ::
+
+  @spec update_monitoring(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_monitoring_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitoring_errors()}
-  def update_monitoring(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_monitoring(%Client{} = client, cluster_arn, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/monitoring"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5136,30 +5715,53 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    replicator to be updated.
+  replicator to be updated.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) Current replicator version.
+    * `:source_kafka_cluster_arn` (`t:string`) The ARN of the source Kafka cluster.
+    * `:target_kafka_cluster_arn` (`t:string`) The ARN of the target Kafka cluster.
+    * `:consumer_group_replication` (`t:structure`) Updated consumer group
+  replication information.
+    * `:topic_replication` (`t:structure`) Updated topic replication information.
 
   ## Optional parameters:
   """
-  @spec update_replication_info(
-          AWS.Client.t(),
-          String.t(),
-          update_replication_info_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_replication_info(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_replication_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_info_errors()}
-  def update_replication_info(%Client{} = client, replicator_arn, input, options \\ []) do
+
+  def update_replication_info(%Client{} = client, replicator_arn, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}/replication-info"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5170,21 +5772,51 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely
-    identifies the cluster.
+  identifies the cluster.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) The version of the MSK cluster to update.
+  Cluster versions aren't simple numbers. You can describe an MSK cluster to
+  find its version. When this update operation is successful, it generates a
+  new cluster version.
+    * `:client_authentication` (`t:structure`) Includes all client authentication
+  related information.
+    * `:encryption_info` (`t:structure`) Includes all encryption-related
+  information.
 
   ## Optional parameters:
   """
-  @spec update_security(AWS.Client.t(), String.t(), update_security_request(), Keyword.t()) ::
+
+  @spec update_security(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_security_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_errors()}
-  def update_security(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_security(%Client{} = client, cluster_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/security"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = input
 
     Request.request_rest(
       client,
@@ -5193,7 +5825,7 @@ defmodule AWS.Kafka do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5206,22 +5838,51 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to
-    be updated.
+  be updated.
+  * `:input` (`t:map`):
+    * `:current_version` (`t:string`) The version of cluster to update from. A
+  successful operation will then generate a new version.
+    * `:provisioned_throughput` (`t:structure`) EBS volume provisioned throughput
+  information.
+    * `:storage_mode` (`t:enum["LOCAL|TIERED"]`) Controls storage mode for supported
+  storage tiers.
+    * `:volume_size_g_b` (`t:integer`) size of the EBS volume to update.
 
   ## Optional parameters:
   """
-  @spec update_storage(AWS.Client.t(), String.t(), update_storage_request(), Keyword.t()) ::
+
+  @spec update_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_storage_errors()}
-  def update_storage(%Client{} = client, cluster_arn, input, options \\ []) do
+
+  def update_storage(%Client{} = client, cluster_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/storage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

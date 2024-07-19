@@ -1545,12 +1545,24 @@ defmodule AWS.VerifiedPermissions do
   store that match the entities that you declare. The result of the decisions is
   a series of `Allow` or `Deny` responses, along with the IDs of the policies
   that produced each decision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20BatchIsAuthorized&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_is_authorized_input`)
+    %{
+      optional("entities") => list(),
+      required("policyStoreId") => String.t(),
+      required("requests") => list(batch_is_authorized_input_item()())
+    }
   """
-  @spec batch_is_authorized(AWS.Client.t(), batch_is_authorized_input(), Keyword.t()) ::
+
+  @spec batch_is_authorized(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_is_authorized_errors()}
-  def batch_is_authorized(%Client{} = client, input, options \\ []) do
+
+  def batch_is_authorized(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1568,16 +1580,27 @@ defmodule AWS.VerifiedPermissions do
   entities declaration and in the token. The result of the decisions is a series
   of `Allow` or `Deny` responses, along with the IDs of the policies that
   produced each decision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20BatchIsAuthorizedWithToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_is_authorized_with_token_input`)
+    %{
+      optional("accessToken") => String.t(),
+      optional("entities") => list(),
+      optional("identityToken") => String.t(),
+      required("policyStoreId") => String.t(),
+      required("requests") => list(batch_is_authorized_with_token_input_item()())
+    }
   """
-  @spec batch_is_authorized_with_token(
-          AWS.Client.t(),
-          batch_is_authorized_with_token_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_is_authorized_with_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_is_authorized_with_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_is_authorized_with_token_errors()}
-  def batch_is_authorized_with_token(%Client{} = client, input, options \\ []) do
+
+  def batch_is_authorized_with_token(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1600,12 +1623,25 @@ defmodule AWS.VerifiedPermissions do
   principal `Attributes`. Tokens from an identity source user continue to be
   usable until they expire. Token revocation and resource deletion have no
   effect on the validity of a token in your policy store
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20CreateIdentitySource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_identity_source_input`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("principalEntityType") => String.t(),
+      required("configuration") => list(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec create_identity_source(AWS.Client.t(), create_identity_source_input(), Keyword.t()) ::
+
+  @spec create_identity_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_identity_source_errors()}
-  def create_identity_source(%Client{} = client, input, options \\ []) do
+
+  def create_identity_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1615,12 +1651,24 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Creates a Cedar policy and saves it in the specified policy store. You can
   create either a static policy or a policy linked to a policy template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20CreatePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_policy_input`)
+    %{
+      optional("clientToken") => String.t(),
+      required("definition") => list(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec create_policy(AWS.Client.t(), create_policy_input(), Keyword.t()) ::
+
+  @spec create_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_errors()}
-  def create_policy(%Client{} = client, input, options \\ []) do
+
+  def create_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1629,12 +1677,24 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Creates a policy store. A policy store is a container for policy resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20CreatePolicyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_policy_store_input`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      required("validationSettings") => validation_settings()
+    }
   """
-  @spec create_policy_store(AWS.Client.t(), create_policy_store_input(), Keyword.t()) ::
+
+  @spec create_policy_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_store_errors()}
-  def create_policy_store(%Client{} = client, input, options \\ []) do
+
+  def create_policy_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1649,12 +1709,25 @@ defmodule AWS.VerifiedPermissions do
   instantiated policy works identically to any other policy, except that it is
   dynamically linked to the template. If the template changes, then any policies
   that are linked to that template are immediately updated as well.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20CreatePolicyTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_policy_template_input`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      required("policyStoreId") => String.t(),
+      required("statement") => String.t()
+    }
   """
-  @spec create_policy_template(AWS.Client.t(), create_policy_template_input(), Keyword.t()) ::
+
+  @spec create_policy_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_template_errors()}
-  def create_policy_template(%Client{} = client, input, options \\ []) do
+
+  def create_policy_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1668,12 +1741,23 @@ defmodule AWS.VerifiedPermissions do
   authorization queries made using
   [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html).
   operations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20DeleteIdentitySource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_identity_source_input`)
+    %{
+      required("identitySourceId") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec delete_identity_source(AWS.Client.t(), delete_identity_source_input(), Keyword.t()) ::
+
+  @spec delete_identity_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identity_source_errors()}
-  def delete_identity_source(%Client{} = client, input, options \\ []) do
+
+  def delete_identity_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1682,12 +1766,23 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Deletes the specified policy from the policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20DeletePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_policy_input`)
+    %{
+      required("policyId") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec delete_policy(AWS.Client.t(), delete_policy_input(), Keyword.t()) ::
+
+  @spec delete_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-  def delete_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1696,11 +1791,21 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Deletes the specified policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20DeletePolicyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_policy_store_input`)
+    %{
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec delete_policy_store(AWS.Client.t(), delete_policy_store_input(), Keyword.t()) ::
+
+  @spec delete_policy_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_policy_store(%Client{} = client, input, options \\ []) do
+
+  def delete_policy_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1709,12 +1814,23 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Deletes the specified policy template from the policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20DeletePolicyTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_policy_template_input`)
+    %{
+      required("policyStoreId") => String.t(),
+      required("policyTemplateId") => String.t()
+    }
   """
-  @spec delete_policy_template(AWS.Client.t(), delete_policy_template_input(), Keyword.t()) ::
+
+  @spec delete_policy_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_template_errors()}
-  def delete_policy_template(%Client{} = client, input, options \\ []) do
+
+  def delete_policy_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1723,12 +1839,23 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Retrieves the details about the specified identity source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20GetIdentitySource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_identity_source_input`)
+    %{
+      required("identitySourceId") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec get_identity_source(AWS.Client.t(), get_identity_source_input(), Keyword.t()) ::
+
+  @spec get_identity_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_source_errors()}
-  def get_identity_source(%Client{} = client, input, options \\ []) do
+
+  def get_identity_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1737,12 +1864,23 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Retrieves information about the specified policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policy_input`)
+    %{
+      required("policyId") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec get_policy(AWS.Client.t(), get_policy_input(), Keyword.t()) ::
+
+  @spec get_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-  def get_policy(%Client{} = client, input, options \\ []) do
+
+  def get_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1751,12 +1889,22 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Retrieves details about a policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20GetPolicyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policy_store_input`)
+    %{
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec get_policy_store(AWS.Client.t(), get_policy_store_input(), Keyword.t()) ::
+
+  @spec get_policy_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_store_errors()}
-  def get_policy_store(%Client{} = client, input, options \\ []) do
+
+  def get_policy_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1766,12 +1914,23 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Retrieve the details for the specified policy template in the specified policy
   store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20GetPolicyTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policy_template_input`)
+    %{
+      required("policyStoreId") => String.t(),
+      required("policyTemplateId") => String.t()
+    }
   """
-  @spec get_policy_template(AWS.Client.t(), get_policy_template_input(), Keyword.t()) ::
+
+  @spec get_policy_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_template_errors()}
-  def get_policy_template(%Client{} = client, input, options \\ []) do
+
+  def get_policy_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1780,12 +1939,22 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Retrieve the details for the specified schema in the specified policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20GetSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_schema_input`)
+    %{
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec get_schema(AWS.Client.t(), get_schema_input(), Keyword.t()) ::
+
+  @spec get_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_errors()}
-  def get_schema(%Client{} = client, input, options \\ []) do
+
+  def get_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1799,12 +1968,27 @@ defmodule AWS.VerifiedPermissions do
   is evaluated against all matching policies in the specified policy store. The
   result of the decision is either `Allow` or `Deny`, along with a list of the
   policies that resulted in the decision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20IsAuthorized&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:is_authorized_input`)
+    %{
+      optional("action") => action_identifier(),
+      optional("context") => list(),
+      optional("entities") => list(),
+      optional("principal") => entity_identifier(),
+      optional("resource") => entity_identifier(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec is_authorized(AWS.Client.t(), is_authorized_input(), Keyword.t()) ::
+
+  @spec is_authorized(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, is_authorized_errors()}
-  def is_authorized(%Client{} = client, input, options \\ []) do
+
+  def is_authorized(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1822,12 +2006,28 @@ defmodule AWS.VerifiedPermissions do
   `Allow` or `Deny`, along with a list of the policies that resulted in the
   decision. At this time, Verified Permissions accepts tokens from only Amazon
   Cognito.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20IsAuthorizedWithToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:is_authorized_with_token_input`)
+    %{
+      optional("accessToken") => String.t(),
+      optional("action") => action_identifier(),
+      optional("context") => list(),
+      optional("entities") => list(),
+      optional("identityToken") => String.t(),
+      optional("resource") => entity_identifier(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec is_authorized_with_token(AWS.Client.t(), is_authorized_with_token_input(), Keyword.t()) ::
+
+  @spec is_authorized_with_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, is_authorized_with_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, is_authorized_with_token_errors()}
-  def is_authorized_with_token(%Client{} = client, input, options \\ []) do
+
+  def is_authorized_with_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1837,12 +2037,25 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Returns a paginated list of all of the identity sources defined in the specified
   policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20ListIdentitySources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_identity_sources_input`)
+    %{
+      optional("filters") => list(identity_source_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec list_identity_sources(AWS.Client.t(), list_identity_sources_input(), Keyword.t()) ::
+
+  @spec list_identity_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_identity_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_sources_errors()}
-  def list_identity_sources(%Client{} = client, input, options \\ []) do
+
+  def list_identity_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1851,12 +2064,25 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Returns a paginated list of all policies stored in the specified policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20ListPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policies_input`)
+    %{
+      optional("filter") => policy_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec list_policies(AWS.Client.t(), list_policies_input(), Keyword.t()) ::
+
+  @spec list_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_errors()}
-  def list_policies(%Client{} = client, input, options \\ []) do
+
+  def list_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1866,11 +2092,22 @@ defmodule AWS.VerifiedPermissions do
   @doc """
   Returns a paginated list of all policy stores in the calling Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20ListPolicyStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policy_stores_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_policy_stores(AWS.Client.t(), list_policy_stores_input(), Keyword.t()) ::
+
+  @spec list_policy_stores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policy_stores_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_policy_stores(%Client{} = client, input, options \\ []) do
+
+  def list_policy_stores(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1879,12 +2116,24 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Returns a paginated list of all policy templates in the specified policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20ListPolicyTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policy_templates_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec list_policy_templates(AWS.Client.t(), list_policy_templates_input(), Keyword.t()) ::
+
+  @spec list_policy_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policy_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_templates_errors()}
-  def list_policy_templates(%Client{} = client, input, options \\ []) do
+
+  def list_policy_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1898,12 +2147,23 @@ defmodule AWS.VerifiedPermissions do
   submitted after the schema change. Existing policies and templates are not
   re-evaluated against the changed schema. If you later update a policy, then it
   is evaluated against the new schema at that time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20PutSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_schema_input`)
+    %{
+      required("definition") => list(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec put_schema(AWS.Client.t(), put_schema_input(), Keyword.t()) ::
+
+  @spec put_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_schema_errors()}
-  def put_schema(%Client{} = client, input, options \\ []) do
+
+  def put_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1914,12 +2174,25 @@ defmodule AWS.VerifiedPermissions do
   Updates the specified identity source to use a new identity provider (IdP), or
   to change the mapping of identities from the IdP to a different principal
   entity type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20UpdateIdentitySource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_identity_source_input`)
+    %{
+      optional("principalEntityType") => String.t(),
+      required("identitySourceId") => String.t(),
+      required("policyStoreId") => String.t(),
+      required("updateConfiguration") => list()
+    }
   """
-  @spec update_identity_source(AWS.Client.t(), update_identity_source_input(), Keyword.t()) ::
+
+  @spec update_identity_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_source_errors()}
-  def update_identity_source(%Client{} = client, input, options \\ []) do
+
+  def update_identity_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1944,12 +2217,24 @@ defmodule AWS.VerifiedPermissions do
   forbid. The principal referenced by a static policy. The resource referenced
   by a static policy. To update a template-linked policy, you must update the
   template instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20UpdatePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_policy_input`)
+    %{
+      required("definition") => list(),
+      required("policyId") => String.t(),
+      required("policyStoreId") => String.t()
+    }
   """
-  @spec update_policy(AWS.Client.t(), update_policy_input(), Keyword.t()) ::
+
+  @spec update_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_policy_errors()}
-  def update_policy(%Client{} = client, input, options \\ []) do
+
+  def update_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1958,12 +2243,24 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Modifies the validation setting for a policy store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20UpdatePolicyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_policy_store_input`)
+    %{
+      optional("description") => String.t(),
+      required("policyStoreId") => String.t(),
+      required("validationSettings") => validation_settings()
+    }
   """
-  @spec update_policy_store(AWS.Client.t(), update_policy_store_input(), Keyword.t()) ::
+
+  @spec update_policy_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_policy_store_errors()}
-  def update_policy_store(%Client{} = client, input, options \\ []) do
+
+  def update_policy_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1977,12 +2274,25 @@ defmodule AWS.VerifiedPermissions do
   Changes you make to the policy template content are immediately (within the
   constraints of eventual consistency) reflected in authorization decisions that
   involve all template-linked policies instantiated from this template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=verifiedpermissions%20UpdatePolicyTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_policy_template_input`)
+    %{
+      optional("description") => String.t(),
+      required("policyStoreId") => String.t(),
+      required("policyTemplateId") => String.t(),
+      required("statement") => String.t()
+    }
   """
-  @spec update_policy_template(AWS.Client.t(), update_policy_template_input(), Keyword.t()) ::
+
+  @spec update_policy_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_policy_template_errors()}
-  def update_policy_template(%Client{} = client, input, options \\ []) do
+
+  def update_policy_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

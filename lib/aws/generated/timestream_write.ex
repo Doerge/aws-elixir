@@ -1127,12 +1127,28 @@ defmodule AWS.TimestreamWrite do
   apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
   For details, see [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-batch-load.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20CreateBatchLoadTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_batch_load_task_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("DataModelConfiguration") => data_model_configuration(),
+      optional("RecordVersion") => float(),
+      required("DataSourceConfiguration") => data_source_configuration(),
+      required("ReportConfiguration") => report_configuration(),
+      required("TargetDatabaseName") => String.t(),
+      required("TargetTableName") => String.t()
+    }
   """
-  @spec create_batch_load_task(AWS.Client.t(), create_batch_load_task_request(), Keyword.t()) ::
+
+  @spec create_batch_load_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_load_task_errors()}
-  def create_batch_load_task(%Client{} = client, input, options \\ []) do
+
+  def create_batch_load_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1148,12 +1164,24 @@ defmodule AWS.TimestreamWrite do
   apply](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html).
   For details, see [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20CreateDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_database_request`)
+    %{
+      optional("KmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("DatabaseName") => String.t()
+    }
   """
-  @spec create_database(AWS.Client.t(), create_database_request(), Keyword.t()) ::
+
+  @spec create_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_database_errors()}
-  def create_database(%Client{} = client, input, options \\ []) do
+
+  def create_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1171,12 +1199,27 @@ defmodule AWS.TimestreamWrite do
   See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20CreateTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_table_request`)
+    %{
+      optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
+      optional("RetentionProperties") => retention_properties(),
+      optional("Schema") => schema(),
+      optional("Tags") => list(tag()()),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec create_table(AWS.Client.t(), create_table_request(), Keyword.t()) ::
+
+  @spec create_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_table_errors()}
-  def create_table(%Client{} = client, input, options \\ []) do
+
+  def create_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1190,12 +1233,22 @@ defmodule AWS.TimestreamWrite do
   ValidationException error will be thrown. Due to the nature of distributed
   retries, the operation can return either success or a
   ResourceNotFoundException. Clients should consider them equivalent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20DeleteDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_database_request`)
+    %{
+      required("DatabaseName") => String.t()
+    }
   """
-  @spec delete_database(AWS.Client.t(), delete_database_request(), Keyword.t()) ::
+
+  @spec delete_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_database_errors()}
-  def delete_database(%Client{} = client, input, options \\ []) do
+
+  def delete_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1208,12 +1261,23 @@ defmodule AWS.TimestreamWrite do
   cannot be recovered. Due to the nature of distributed retries, the operation
   can return either success or a ResourceNotFoundException. Clients should
   consider them equivalent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20DeleteTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_table_request`)
+    %{
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec delete_table(AWS.Client.t(), delete_table_request(), Keyword.t()) ::
+
+  @spec delete_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_errors()}
-  def delete_table(%Client{} = client, input, options \\ []) do
+
+  def delete_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1227,12 +1291,22 @@ defmodule AWS.TimestreamWrite do
   See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-batch-load.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20DescribeBatchLoadTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_batch_load_task_request`)
+    %{
+      required("TaskId") => String.t()
+    }
   """
-  @spec describe_batch_load_task(AWS.Client.t(), describe_batch_load_task_request(), Keyword.t()) ::
+
+  @spec describe_batch_load_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_load_task_errors()}
-  def describe_batch_load_task(%Client{} = client, input, options \\ []) do
+
+  def describe_batch_load_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1247,12 +1321,22 @@ defmodule AWS.TimestreamWrite do
   See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-db.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20DescribeDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_database_request`)
+    %{
+      required("DatabaseName") => String.t()
+    }
   """
-  @spec describe_database(AWS.Client.t(), describe_database_request(), Keyword.t()) ::
+
+  @spec describe_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_database_errors()}
-  def describe_database(%Client{} = client, input, options \\ []) do
+
+  def describe_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1265,12 +1349,22 @@ defmodule AWS.TimestreamWrite do
   Timestream SDKs are designed to transparently work with the service’s
   architecture, including the management and mapping of the service endpoints,
   *we don't recommend that you use this API operation unless*:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20DescribeEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_endpoints_request`)
+    %{
+      
+    }
   """
-  @spec describe_endpoints(AWS.Client.t(), describe_endpoints_request(), Keyword.t()) ::
+
+  @spec describe_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoints_errors()}
-  def describe_endpoints(%Client{} = client, input, options \\ []) do
+
+  def describe_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1284,12 +1378,23 @@ defmodule AWS.TimestreamWrite do
   See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20DescribeTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_table_request`)
+    %{
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec describe_table(AWS.Client.t(), describe_table_request(), Keyword.t()) ::
+
+  @spec describe_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_errors()}
-  def describe_table(%Client{} = client, input, options \\ []) do
+
+  def describe_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1301,12 +1406,24 @@ defmodule AWS.TimestreamWrite do
   is resumable until, and other details. See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-batch-load-tasks.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20ListBatchLoadTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_batch_load_tasks_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("TaskStatus") => list(any())
+    }
   """
-  @spec list_batch_load_tasks(AWS.Client.t(), list_batch_load_tasks_request(), Keyword.t()) ::
+
+  @spec list_batch_load_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_batch_load_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_load_tasks_errors()}
-  def list_batch_load_tasks(%Client{} = client, input, options \\ []) do
+
+  def list_batch_load_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1319,12 +1436,23 @@ defmodule AWS.TimestreamWrite do
   See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20ListDatabases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_databases_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_databases(AWS.Client.t(), list_databases_request(), Keyword.t()) ::
+
+  @spec list_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_databases_errors()}
-  def list_databases(%Client{} = client, input, options \\ []) do
+
+  def list_databases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1336,12 +1464,24 @@ defmodule AWS.TimestreamWrite do
   of each table. See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20ListTables&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tables_request`)
+    %{
+      optional("DatabaseName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_tables(AWS.Client.t(), list_tables_request(), Keyword.t()) ::
+
+  @spec list_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tables_errors()}
-  def list_tables(%Client{} = client, input, options \\ []) do
+
+  def list_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1350,23 +1490,34 @@ defmodule AWS.TimestreamWrite do
 
   @doc """
   Lists all tags on a Timestream resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
-  @spec resume_batch_load_task(AWS.Client.t(), resume_batch_load_task_request(), Keyword.t()) ::
+  @spec resume_batch_load_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resume_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_batch_load_task_errors()}
-  def resume_batch_load_task(%Client{} = client, input, options \\ []) do
+
+  def resume_batch_load_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1377,12 +1528,23 @@ defmodule AWS.TimestreamWrite do
   Associates a set of tags with a Timestream resource. You can then activate these
   user-defined tags so that they appear on the Billing and Cost Management
   console for cost allocation tracking.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1391,12 +1553,23 @@ defmodule AWS.TimestreamWrite do
 
   @doc """
   Removes the association of tags from a Timestream resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1408,12 +1581,23 @@ defmodule AWS.TimestreamWrite do
   must specify the database name and the identifier of the new KMS key to be
   used (`KmsKeyId`). If there are any concurrent `UpdateDatabase` requests,
   first writer wins.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20UpdateDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_database_request`)
+    %{
+      required("DatabaseName") => String.t(),
+      required("KmsKeyId") => String.t()
+    }
   """
-  @spec update_database(AWS.Client.t(), update_database_request(), Keyword.t()) ::
+
+  @spec update_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_database_errors()}
-  def update_database(%Client{} = client, input, options \\ []) do
+
+  def update_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1428,12 +1612,26 @@ defmodule AWS.TimestreamWrite do
   be capable of holding 24 hours of data, but will be populated with 24 hours of
   data 22 hours after this change was made. Timestream does not retrieve data
   from the magnetic store to populate the memory store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20UpdateTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_table_request`)
+    %{
+      optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
+      optional("RetentionProperties") => retention_properties(),
+      optional("Schema") => schema(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec update_table(AWS.Client.t(), update_table_request(), Keyword.t()) ::
+
+  @spec update_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_errors()}
-  def update_table(%Client{} = client, input, options \\ []) do
+
+  def update_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1456,12 +1654,25 @@ defmodule AWS.TimestreamWrite do
   See [code
   sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.write.html)
   for details.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=timestreamwrite%20WriteRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:write_records_request`)
+    %{
+      optional("CommonAttributes") => record(),
+      required("DatabaseName") => String.t(),
+      required("Records") => list(record()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec write_records(AWS.Client.t(), write_records_request(), Keyword.t()) ::
+
+  @spec write_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, write_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, write_records_errors()}
-  def write_records(%Client{} = client, input, options \\ []) do
+
+  def write_records(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

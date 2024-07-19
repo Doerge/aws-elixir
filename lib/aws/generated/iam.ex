@@ -4762,16 +4762,24 @@ defmodule AWS.IAM do
   @doc """
   Adds a new client ID (also known as audience) to the list of client IDs already
   registered for the specified IAM OpenID Connect (OIDC) provider resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20AddClientIDToOpenIDConnectProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_client_id_to_open_id_connect_provider_request`)
+    %{
+      required("ClientID") => String.t(),
+      required("OpenIDConnectProviderArn") => String.t()
+    }
   """
-  @spec add_client_id_to_open_id_connect_provider(
-          AWS.Client.t(),
-          add_client_id_to_open_id_connect_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_client_id_to_open_id_connect_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_client_id_to_open_id_connect_provider_errors()}
-  def add_client_id_to_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+
+  def add_client_id_to_open_id_connect_provider(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4792,16 +4800,23 @@ defmodule AWS.IAM do
   or you can stop your instance and then restart it. The caller of this
   operation must be granted the `PassRole` permission on the IAM role by a
   permissions policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20AddRoleToInstanceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_role_to_instance_profile_request`)
+    %{
+      required("InstanceProfileName") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec add_role_to_instance_profile(
-          AWS.Client.t(),
-          add_role_to_instance_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_role_to_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_role_to_instance_profile_errors()}
-  def add_role_to_instance_profile(%Client{} = client, input, options \\ []) do
+
+  def add_role_to_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4810,12 +4825,23 @@ defmodule AWS.IAM do
 
   @doc """
   Adds the specified user to the specified group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20AddUserToGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_user_to_group_request`)
+    %{
+      required("GroupName") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec add_user_to_group(AWS.Client.t(), add_user_to_group_request(), Keyword.t()) ::
+
+  @spec add_user_to_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_user_to_group_errors()}
-  def add_user_to_group(%Client{} = client, input, options \\ []) do
+
+  def add_user_to_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4831,12 +4857,23 @@ defmodule AWS.IAM do
   [Validating IAM
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20AttachGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_group_policy_request`)
+    %{
+      required("GroupName") => String.t(),
+      required("PolicyArn") => String.t()
+    }
   """
-  @spec attach_group_policy(AWS.Client.t(), attach_group_policy_request(), Keyword.t()) ::
+
+  @spec attach_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_group_policy_errors()}
-  def attach_group_policy(%Client{} = client, input, options \\ []) do
+
+  def attach_group_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4847,12 +4884,23 @@ defmodule AWS.IAM do
   Attaches the specified managed policy to the specified IAM role. When you attach
   a managed policy to a role, the managed policy becomes part of the role's
   permission (access) policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20AttachRolePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_role_policy_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec attach_role_policy(AWS.Client.t(), attach_role_policy_request(), Keyword.t()) ::
+
+  @spec attach_role_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_role_policy_errors()}
-  def attach_role_policy(%Client{} = client, input, options \\ []) do
+
+  def attach_role_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4868,12 +4916,23 @@ defmodule AWS.IAM do
   [Validating IAM
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20AttachUserPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_user_policy_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec attach_user_policy(AWS.Client.t(), attach_user_policy_request(), Keyword.t()) ::
+
+  @spec attach_user_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_user_policy_errors()}
-  def attach_user_policy(%Client{} = client, input, options \\ []) do
+
+  def attach_user_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4886,12 +4945,23 @@ defmodule AWS.IAM do
   **My Security Credentials** page in the Amazon Web Services Management
   Console. The Amazon Web Services account root user password is not affected by
   this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ChangePassword&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:change_password_request`)
+    %{
+      required("NewPassword") => String.t(),
+      required("OldPassword") => String.t()
+    }
   """
-  @spec change_password(AWS.Client.t(), change_password_request(), Keyword.t()) ::
+
+  @spec change_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_password_errors()}
-  def change_password(%Client{} = client, input, options \\ []) do
+
+  def change_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4907,12 +4977,22 @@ defmodule AWS.IAM do
   Consequently, you can use this operation to manage Amazon Web Services account
   root user credentials. This is true even if the Amazon Web Services account
   has no associated users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateAccessKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_access_key_request`)
+    %{
+      optional("UserName") => String.t()
+    }
   """
-  @spec create_access_key(AWS.Client.t(), create_access_key_request(), Keyword.t()) ::
+
+  @spec create_access_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_access_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_key_errors()}
-  def create_access_key(%Client{} = client, input, options \\ []) do
+
+  def create_access_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4925,12 +5005,22 @@ defmodule AWS.IAM do
   listing an Amazon Web Services account
   alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
   in the *Amazon Web Services Sign-In User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateAccountAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_account_alias_request`)
+    %{
+      required("AccountAlias") => String.t()
+    }
   """
-  @spec create_account_alias(AWS.Client.t(), create_account_alias_request(), Keyword.t()) ::
+
+  @spec create_account_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_alias_errors()}
-  def create_account_alias(%Client{} = client, input, options \\ []) do
+
+  def create_account_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4939,12 +5029,23 @@ defmodule AWS.IAM do
 
   @doc """
   Creates a new group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_group_request`)
+    %{
+      optional("Path") => String.t(),
+      required("GroupName") => String.t()
+    }
   """
-  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
+
+  @spec create_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-  def create_group(%Client{} = client, input, options \\ []) do
+
+  def create_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4961,12 +5062,24 @@ defmodule AWS.IAM do
   profiles you can create, see [IAM object
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateInstanceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_instance_profile_request`)
+    %{
+      optional("Path") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("InstanceProfileName") => String.t()
+    }
   """
-  @spec create_instance_profile(AWS.Client.t(), create_instance_profile_request(), Keyword.t()) ::
+
+  @spec create_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_profile_errors()}
-  def create_instance_profile(%Client{} = client, input, options \\ []) do
+
+  def create_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4980,12 +5093,24 @@ defmodule AWS.IAM do
   page in the IAM console to create a password for any IAM user. Use
   `ChangePassword` to update your own existing password in the **My Security
   Credentials** page in the Amazon Web Services Management Console.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateLoginProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_login_profile_request`)
+    %{
+      optional("PasswordResetRequired") => boolean(),
+      required("Password") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec create_login_profile(AWS.Client.t(), create_login_profile_request(), Keyword.t()) ::
+
+  @spec create_login_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_login_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_login_profile_errors()}
-  def create_login_profile(%Client{} = client, input, options \\ []) do
+
+  def create_login_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5005,16 +5130,26 @@ defmodule AWS.IAM do
   see [Creating a role for web identity or OpenID connect
   federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateOpenIDConnectProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_open_id_connect_provider_request`)
+    %{
+      optional("ClientIDList") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("ThumbprintList") => list(String.t()()),
+      required("Url") => String.t()
+    }
   """
-  @spec create_open_id_connect_provider(
-          AWS.Client.t(),
-          create_open_id_connect_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_open_id_connect_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_open_id_connect_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_open_id_connect_provider_errors()}
-  def create_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+
+  def create_open_id_connect_provider(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5031,12 +5166,26 @@ defmodule AWS.IAM do
   policies. To learn more, see [Validating IAM
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreatePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_policy_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Path") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("PolicyDocument") => String.t(),
+      required("PolicyName") => String.t()
+    }
   """
-  @spec create_policy(AWS.Client.t(), create_policy_request(), Keyword.t()) ::
+
+  @spec create_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_errors()}
-  def create_policy(%Client{} = client, input, options \\ []) do
+
+  def create_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5051,12 +5200,24 @@ defmodule AWS.IAM do
   can set the new version as the policy's default version. The default version
   is the version that is in effect for the IAM users, groups, and roles to which
   the policy is attached.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreatePolicyVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_policy_version_request`)
+    %{
+      optional("SetAsDefault") => boolean(),
+      required("PolicyArn") => String.t(),
+      required("PolicyDocument") => String.t()
+    }
   """
-  @spec create_policy_version(AWS.Client.t(), create_policy_version_request(), Keyword.t()) ::
+
+  @spec create_policy_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_policy_version_errors()}
-  def create_policy_version(%Client{} = client, input, options \\ []) do
+
+  def create_policy_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5065,12 +5226,28 @@ defmodule AWS.IAM do
 
   @doc """
   Creates a new role for your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_role_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("MaxSessionDuration") => integer(),
+      optional("Path") => String.t(),
+      optional("PermissionsBoundary") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("AssumeRolePolicyDocument") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec create_role(AWS.Client.t(), create_role_request(), Keyword.t()) ::
+
+  @spec create_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_role_errors()}
-  def create_role(%Client{} = client, input, options \\ []) do
+
+  def create_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5085,12 +5262,24 @@ defmodule AWS.IAM do
   create an IAM role that supports Web-based single sign-on (SSO) to the Amazon
   Web Services Management Console or one that supports API access to Amazon Web
   Services.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateSAMLProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_saml_provider_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("SAMLMetadataDocument") => String.t()
+    }
   """
-  @spec create_saml_provider(AWS.Client.t(), create_saml_provider_request(), Keyword.t()) ::
+
+  @spec create_saml_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_saml_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_saml_provider_errors()}
-  def create_saml_provider(%Client{} = client, input, options \\ []) do
+
+  def create_saml_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5107,16 +5296,24 @@ defmodule AWS.IAM do
   For more information, see [Using service-linked
   roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateServiceLinkedRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_service_linked_role_request`)
+    %{
+      optional("CustomSuffix") => String.t(),
+      optional("Description") => String.t(),
+      required("AWSServiceName") => String.t()
+    }
   """
-  @spec create_service_linked_role(
-          AWS.Client.t(),
-          create_service_linked_role_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_service_linked_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_linked_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_linked_role_errors()}
-  def create_service_linked_role(%Client{} = client, input, options \\ []) do
+
+  def create_service_linked_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5129,16 +5326,24 @@ defmodule AWS.IAM do
   generated by IAM, and can be used only for the specified service. You can have
   a maximum of two sets of service-specific credentials for each supported
   service per user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateServiceSpecificCredential&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_service_specific_credential_request`)
+    %{
+      required("ServiceName") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec create_service_specific_credential(
-          AWS.Client.t(),
-          create_service_specific_credential_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_service_specific_credential(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_specific_credential_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_specific_credential_errors()}
-  def create_service_specific_credential(%Client{} = client, input, options \\ []) do
+
+  def create_service_specific_credential(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5147,12 +5352,25 @@ defmodule AWS.IAM do
 
   @doc """
   Creates a new IAM user for your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_request`)
+    %{
+      optional("Path") => String.t(),
+      optional("PermissionsBoundary") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("UserName") => String.t()
+    }
   """
-  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, input, options \\ []) do
+
+  def create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5169,16 +5387,24 @@ defmodule AWS.IAM do
   devices you can create, see [IAM and STS
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20CreateVirtualMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_virtual_mfa_device_request`)
+    %{
+      optional("Path") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("VirtualMFADeviceName") => String.t()
+    }
   """
-  @spec create_virtual_mfa_device(
-          AWS.Client.t(),
-          create_virtual_mfa_device_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_virtual_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_virtual_mfa_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_virtual_mfa_device_errors()}
-  def create_virtual_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def create_virtual_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5188,12 +5414,23 @@ defmodule AWS.IAM do
   @doc """
   Deactivates the specified MFA device and removes it from association with the
   user name for which it was originally enabled.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeactivateMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deactivate_mfa_device_request`)
+    %{
+      required("SerialNumber") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec deactivate_mfa_device(AWS.Client.t(), deactivate_mfa_device_request(), Keyword.t()) ::
+
+  @spec deactivate_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_mfa_device_errors()}
-  def deactivate_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def deactivate_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5202,12 +5439,23 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the access key pair associated with the specified IAM user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteAccessKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_access_key_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("AccessKeyId") => String.t()
+    }
   """
-  @spec delete_access_key(AWS.Client.t(), delete_access_key_request(), Keyword.t()) ::
+
+  @spec delete_access_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_key_errors()}
-  def delete_access_key(%Client{} = client, input, options \\ []) do
+
+  def delete_access_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5220,12 +5468,22 @@ defmodule AWS.IAM do
   listing an Amazon Web Services account
   alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
   in the *Amazon Web Services Sign-In User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteAccountAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_account_alias_request`)
+    %{
+      required("AccountAlias") => String.t()
+    }
   """
-  @spec delete_account_alias(AWS.Client.t(), delete_account_alias_request(), Keyword.t()) ::
+
+  @spec delete_account_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_alias_errors()}
-  def delete_account_alias(%Client{} = client, input, options \\ []) do
+
+  def delete_account_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5235,12 +5493,20 @@ defmodule AWS.IAM do
   @doc """
   Deletes the password policy for the Amazon Web Services account. There are no
   parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteAccountPasswordPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec delete_account_password_policy(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec delete_account_password_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_password_policy_errors()}
-  def delete_account_password_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_account_password_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5250,12 +5516,22 @@ defmodule AWS.IAM do
   @doc """
   Deletes the specified IAM group. The group must not contain any users or have
   any attached policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_group_request`)
+    %{
+      required("GroupName") => String.t()
+    }
   """
-  @spec delete_group(AWS.Client.t(), delete_group_request(), Keyword.t()) ::
+
+  @spec delete_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-  def delete_group(%Client{} = client, input, options \\ []) do
+
+  def delete_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5264,12 +5540,23 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the specified inline policy that is embedded in the specified IAM group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_group_policy_request`)
+    %{
+      required("GroupName") => String.t(),
+      required("PolicyName") => String.t()
+    }
   """
-  @spec delete_group_policy(AWS.Client.t(), delete_group_policy_request(), Keyword.t()) ::
+
+  @spec delete_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_policy_errors()}
-  def delete_group_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_group_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5282,12 +5569,22 @@ defmodule AWS.IAM do
   running with the instance profile you are about to delete. Deleting a role or
   instance profile that is associated with a running instance will break any
   applications running on the instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteInstanceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_instance_profile_request`)
+    %{
+      required("InstanceProfileName") => String.t()
+    }
   """
-  @spec delete_instance_profile(AWS.Client.t(), delete_instance_profile_request(), Keyword.t()) ::
+
+  @spec delete_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_profile_errors()}
-  def delete_instance_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5302,12 +5599,22 @@ defmodule AWS.IAM do
   IAM console to delete a password for any IAM user. You can use
   `ChangePassword` to update, but not delete, your own password in the **My
   Security Credentials** page in the Amazon Web Services Management Console.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteLoginProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_login_profile_request`)
+    %{
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_login_profile(AWS.Client.t(), delete_login_profile_request(), Keyword.t()) ::
+
+  @spec delete_login_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_login_profile_errors()}
-  def delete_login_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_login_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5319,16 +5626,23 @@ defmodule AWS.IAM do
   Deleting an IAM OIDC provider resource does not update any roles that
   reference the provider as a principal in their trust policies. Any attempt to
   assume a role that references a deleted provider fails.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteOpenIDConnectProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_open_id_connect_provider_request`)
+    %{
+      required("OpenIDConnectProviderArn") => String.t()
+    }
   """
-  @spec delete_open_id_connect_provider(
-          AWS.Client.t(),
-          delete_open_id_connect_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_open_id_connect_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_open_id_connect_provider_errors()}
-  def delete_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+
+  def delete_open_id_connect_provider(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5340,12 +5654,22 @@ defmodule AWS.IAM do
   you must first detach the policy from all users, groups, and roles that it is
   attached to. In addition, you must delete all the policy's versions. The
   following steps describe the process for deleting a managed policy:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeletePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_policy_request`)
+    %{
+      required("PolicyArn") => String.t()
+    }
   """
-  @spec delete_policy(AWS.Client.t(), delete_policy_request(), Keyword.t()) ::
+
+  @spec delete_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-  def delete_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5357,12 +5681,23 @@ defmodule AWS.IAM do
   delete the default version from a policy using this operation. To delete the
   default version from a policy, use `DeletePolicy`. To find out which version
   of a policy is marked as the default version, use `ListPolicyVersions`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeletePolicyVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_policy_version_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("VersionId") => String.t()
+    }
   """
-  @spec delete_policy_version(AWS.Client.t(), delete_policy_version_request(), Keyword.t()) ::
+
+  @spec delete_policy_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_version_errors()}
-  def delete_policy_version(%Client{} = client, input, options \\ []) do
+
+  def delete_policy_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5376,12 +5711,22 @@ defmodule AWS.IAM do
   an IAM
   role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli).
   Before attempting to delete a role, remove the following attached items:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_role_request`)
+    %{
+      required("RoleName") => String.t()
+    }
   """
-  @spec delete_role(AWS.Client.t(), delete_role_request(), Keyword.t()) ::
+
+  @spec delete_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_errors()}
-  def delete_role(%Client{} = client, input, options \\ []) do
+
+  def delete_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5391,16 +5736,23 @@ defmodule AWS.IAM do
   @doc """
   Deletes the permissions boundary for the specified IAM role. You cannot set the
   boundary for a service-linked role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteRolePermissionsBoundary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_role_permissions_boundary_request`)
+    %{
+      required("RoleName") => String.t()
+    }
   """
-  @spec delete_role_permissions_boundary(
-          AWS.Client.t(),
-          delete_role_permissions_boundary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_role_permissions_boundary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_permissions_boundary_errors()}
-  def delete_role_permissions_boundary(%Client{} = client, input, options \\ []) do
+
+  def delete_role_permissions_boundary(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5409,12 +5761,23 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the specified inline policy that is embedded in the specified IAM role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteRolePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_role_policy_request`)
+    %{
+      required("PolicyName") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec delete_role_policy(AWS.Client.t(), delete_role_policy_request(), Keyword.t()) ::
+
+  @spec delete_role_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_policy_errors()}
-  def delete_role_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_role_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5426,12 +5789,22 @@ defmodule AWS.IAM do
   does not update any roles that reference the SAML provider resource's ARN as a
   principal in their trust policies. Any attempt to assume a role that
   references a non-existent provider resource ARN fails.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteSAMLProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_saml_provider_request`)
+    %{
+      required("SAMLProviderArn") => String.t()
+    }
   """
-  @spec delete_saml_provider(AWS.Client.t(), delete_saml_provider_request(), Keyword.t()) ::
+
+  @spec delete_saml_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_saml_provider_errors()}
-  def delete_saml_provider(%Client{} = client, input, options \\ []) do
+
+  def delete_saml_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5440,16 +5813,22 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the specified server certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteServerCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_server_certificate_request`)
+    %{
+      required("ServerCertificateName") => String.t()
+    }
   """
-  @spec delete_server_certificate(
-          AWS.Client.t(),
-          delete_server_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_server_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_server_certificate_errors()}
-  def delete_server_certificate(%Client{} = client, input, options \\ []) do
+
+  def delete_server_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5463,16 +5842,22 @@ defmodule AWS.IAM do
   used by the role in the linked service are deleted. If you call this operation
   more than once for the same service-linked role and an earlier deletion task
   is not complete, then the `DeletionTaskId` of the earlier request is returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteServiceLinkedRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_service_linked_role_request`)
+    %{
+      required("RoleName") => String.t()
+    }
   """
-  @spec delete_service_linked_role(
-          AWS.Client.t(),
-          delete_service_linked_role_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_service_linked_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_linked_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_linked_role_errors()}
-  def delete_service_linked_role(%Client{} = client, input, options \\ []) do
+
+  def delete_service_linked_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5481,16 +5866,24 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the specified service-specific credential.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteServiceSpecificCredential&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_service_specific_credential_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("ServiceSpecificCredentialId") => String.t()
+    }
   """
-  @spec delete_service_specific_credential(
-          AWS.Client.t(),
-          delete_service_specific_credential_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_service_specific_credential(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_specific_credential_errors()}
-  def delete_service_specific_credential(%Client{} = client, input, options \\ []) do
+
+  def delete_service_specific_credential(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5499,16 +5892,23 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes a signing certificate associated with the specified IAM user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteSigningCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_signing_certificate_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("CertificateId") => String.t()
+    }
   """
-  @spec delete_signing_certificate(
-          AWS.Client.t(),
-          delete_signing_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_signing_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_signing_certificate_errors()}
-  def delete_signing_certificate(%Client{} = client, input, options \\ []) do
+
+  def delete_signing_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5517,12 +5917,23 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the specified SSH public key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteSSHPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ssh_public_key_request`)
+    %{
+      required("SSHPublicKeyId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_ssh_public_key(AWS.Client.t(), delete_ssh_public_key_request(), Keyword.t()) ::
+
+  @spec delete_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ssh_public_key_errors()}
-  def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def delete_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5536,12 +5947,22 @@ defmodule AWS.IAM do
   see [Deleting an IAM
   user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli).
   Before attempting to delete a user, remove the following items:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_request`)
+    %{
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, input, options \\ []) do
+
+  def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5550,16 +5971,23 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the permissions boundary for the specified IAM user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteUserPermissionsBoundary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_permissions_boundary_request`)
+    %{
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_user_permissions_boundary(
-          AWS.Client.t(),
-          delete_user_permissions_boundary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_user_permissions_boundary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_permissions_boundary_errors()}
-  def delete_user_permissions_boundary(%Client{} = client, input, options \\ []) do
+
+  def delete_user_permissions_boundary(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5568,12 +5996,23 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes the specified inline policy that is embedded in the specified IAM user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteUserPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_policy_request`)
+    %{
+      required("PolicyName") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_user_policy(AWS.Client.t(), delete_user_policy_request(), Keyword.t()) ::
+
+  @spec delete_user_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_policy_errors()}
-  def delete_user_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_user_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5582,16 +6021,22 @@ defmodule AWS.IAM do
 
   @doc """
   Deletes a virtual MFA device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DeleteVirtualMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_virtual_mfa_device_request`)
+    %{
+      required("SerialNumber") => String.t()
+    }
   """
-  @spec delete_virtual_mfa_device(
-          AWS.Client.t(),
-          delete_virtual_mfa_device_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_virtual_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_mfa_device_errors()}
-  def delete_virtual_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def delete_virtual_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5600,12 +6045,23 @@ defmodule AWS.IAM do
 
   @doc """
   Removes the specified managed policy from the specified IAM group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DetachGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_group_policy_request`)
+    %{
+      required("GroupName") => String.t(),
+      required("PolicyArn") => String.t()
+    }
   """
-  @spec detach_group_policy(AWS.Client.t(), detach_group_policy_request(), Keyword.t()) ::
+
+  @spec detach_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_group_policy_errors()}
-  def detach_group_policy(%Client{} = client, input, options \\ []) do
+
+  def detach_group_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5614,12 +6070,23 @@ defmodule AWS.IAM do
 
   @doc """
   Removes the specified managed policy from the specified role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DetachRolePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_role_policy_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec detach_role_policy(AWS.Client.t(), detach_role_policy_request(), Keyword.t()) ::
+
+  @spec detach_role_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_role_policy_errors()}
-  def detach_role_policy(%Client{} = client, input, options \\ []) do
+
+  def detach_role_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5628,12 +6095,23 @@ defmodule AWS.IAM do
 
   @doc """
   Removes the specified managed policy from the specified user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20DetachUserPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_user_policy_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec detach_user_policy(AWS.Client.t(), detach_user_policy_request(), Keyword.t()) ::
+
+  @spec detach_user_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_user_policy_errors()}
-  def detach_user_policy(%Client{} = client, input, options \\ []) do
+
+  def detach_user_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5644,12 +6122,25 @@ defmodule AWS.IAM do
   Enables the specified MFA device and associates it with the specified IAM user.
   When enabled, the MFA device is required for every subsequent login by the IAM
   user associated with the device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20EnableMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_mfa_device_request`)
+    %{
+      required("AuthenticationCode1") => String.t(),
+      required("AuthenticationCode2") => String.t(),
+      required("SerialNumber") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec enable_mfa_device(AWS.Client.t(), enable_mfa_device_request(), Keyword.t()) ::
+
+  @spec enable_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_mfa_device_errors()}
-  def enable_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def enable_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5661,12 +6152,19 @@ defmodule AWS.IAM do
   information about the credential report, see [Getting credential
   reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GenerateCredentialReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec generate_credential_report(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec generate_credential_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_credential_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_credential_report_errors()}
-  def generate_credential_report(%Client{} = client, input, options \\ []) do
+
+  def generate_credential_report(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5687,16 +6185,24 @@ defmodule AWS.IAM do
   for entities by specifying only the entity's path. This data includes a list
   of services that are allowed by any service control policies (SCPs) that apply
   to the entity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GenerateOrganizationsAccessReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_organizations_access_report_request`)
+    %{
+      optional("OrganizationsPolicyId") => String.t(),
+      required("EntityPath") => String.t()
+    }
   """
-  @spec generate_organizations_access_report(
-          AWS.Client.t(),
-          generate_organizations_access_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_organizations_access_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_organizations_access_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_organizations_access_report_errors()}
-  def generate_organizations_access_report(%Client{} = client, input, options \\ []) do
+
+  def generate_organizations_access_report(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5728,16 +6234,24 @@ defmodule AWS.IAM do
   in the *IAM User Guide*. The `GenerateServiceLastAccessedDetails` operation
   returns a `JobId`. Use this parameter in the following operations to retrieve
   the following details from your report:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GenerateServiceLastAccessedDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_service_last_accessed_details_request`)
+    %{
+      optional("Granularity") => list(any()),
+      required("Arn") => String.t()
+    }
   """
-  @spec generate_service_last_accessed_details(
-          AWS.Client.t(),
-          generate_service_last_accessed_details_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_service_last_accessed_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_service_last_accessed_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_service_last_accessed_details_errors()}
-  def generate_service_last_accessed_details(%Client{} = client, input, options \\ []) do
+
+  def generate_service_last_accessed_details(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5749,11 +6263,21 @@ defmodule AWS.IAM do
   information includes the date and time of last use, along with the Amazon Web
   Services service and Region that were specified in the last request made with
   that key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetAccessKeyLastUsed&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_access_key_last_used_request`)
+    %{
+      required("AccessKeyId") => String.t()
+    }
   """
-  @spec get_access_key_last_used(AWS.Client.t(), get_access_key_last_used_request(), Keyword.t()) ::
+
+  @spec get_access_key_last_used(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_access_key_last_used_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_key_last_used(%Client{} = client, input, options \\ []) do
+
+  def get_access_key_last_used(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5770,16 +6294,25 @@ defmodule AWS.IAM do
   to convert the policy back to plain JSON text. For example, if you use Java,
   you can use the `decode` method of the `java.net.URLDecoder` utility class in
   the Java SDK. Other languages and SDKs provide similar functionality.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetAccountAuthorizationDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_account_authorization_details_request`)
+    %{
+      optional("Filter") => list(list(any())()),
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer()
+    }
   """
-  @spec get_account_authorization_details(
-          AWS.Client.t(),
-          get_account_authorization_details_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_account_authorization_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_authorization_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_authorization_details_errors()}
-  def get_account_authorization_details(%Client{} = client, input, options \\ []) do
+
+  def get_account_authorization_details(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5792,12 +6325,19 @@ defmodule AWS.IAM do
   user passwords in your account. For more information about using a password
   policy, see [Managing an IAM password
   policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetAccountPasswordPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec get_account_password_policy(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_account_password_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_password_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_password_policy_errors()}
-  def get_account_password_policy(%Client{} = client, input, options \\ []) do
+
+  def get_account_password_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5807,12 +6347,19 @@ defmodule AWS.IAM do
   @doc """
   Retrieves information about IAM entity usage and IAM quotas in the Amazon Web
   Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetAccountSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec get_account_summary(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_account_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_summary_errors()}
-  def get_account_summary(%Client{} = client, input, options \\ []) do
+
+  def get_account_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5824,16 +6371,23 @@ defmodule AWS.IAM do
   policies are supplied as a list of one or more strings. To get the context
   keys from policies associated with an IAM user, group, or role, use
   `GetContextKeysForPrincipalPolicy`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetContextKeysForCustomPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_context_keys_for_custom_policy_request`)
+    %{
+      required("PolicyInputList") => list(String.t()())
+    }
   """
-  @spec get_context_keys_for_custom_policy(
-          AWS.Client.t(),
-          get_context_keys_for_custom_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_context_keys_for_custom_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_context_keys_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_context_keys_for_custom_policy_errors()}
-  def get_context_keys_for_custom_policy(%Client{} = client, input, options \\ []) do
+
+  def get_context_keys_for_custom_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5848,16 +6402,24 @@ defmodule AWS.IAM do
   optionally include a list of one or more additional policies, specified as
   strings. If you want to include *only* a list of policies by string, use
   `GetContextKeysForCustomPolicy` instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetContextKeysForPrincipalPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_context_keys_for_principal_policy_request`)
+    %{
+      optional("PolicyInputList") => list(String.t()()),
+      required("PolicySourceArn") => String.t()
+    }
   """
-  @spec get_context_keys_for_principal_policy(
-          AWS.Client.t(),
-          get_context_keys_for_principal_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_context_keys_for_principal_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_context_keys_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_context_keys_for_principal_policy_errors()}
-  def get_context_keys_for_principal_policy(%Client{} = client, input, options \\ []) do
+
+  def get_context_keys_for_principal_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5869,12 +6431,19 @@ defmodule AWS.IAM do
   information about the credential report, see [Getting credential
   reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetCredentialReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec get_credential_report(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_credential_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_credential_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_credential_report_errors()}
-  def get_credential_report(%Client{} = client, input, options \\ []) do
+
+  def get_credential_report(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5884,12 +6453,24 @@ defmodule AWS.IAM do
   @doc """
   Returns a list of IAM users that are in the specified IAM group. You can
   paginate the results using the `MaxItems` and `Marker` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_group_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("GroupName") => String.t()
+    }
   """
-  @spec get_group(AWS.Client.t(), get_group_request(), Keyword.t()) ::
+
+  @spec get_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_errors()}
-  def get_group(%Client{} = client, input, options \\ []) do
+
+  def get_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5907,12 +6488,23 @@ defmodule AWS.IAM do
   managed policy document that is attached to a group, use `GetPolicy` to
   determine the policy's default version, then use `GetPolicyVersion` to
   retrieve the policy document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_group_policy_request`)
+    %{
+      required("GroupName") => String.t(),
+      required("PolicyName") => String.t()
+    }
   """
-  @spec get_group_policy(AWS.Client.t(), get_group_policy_request(), Keyword.t()) ::
+
+  @spec get_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_policy_errors()}
-  def get_group_policy(%Client{} = client, input, options \\ []) do
+
+  def get_group_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5925,12 +6517,22 @@ defmodule AWS.IAM do
   instance profiles, see [Using instance
   profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetInstanceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_profile_request`)
+    %{
+      required("InstanceProfileName") => String.t()
+    }
   """
-  @spec get_instance_profile(AWS.Client.t(), get_instance_profile_request(), Keyword.t()) ::
+
+  @spec get_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_profile_errors()}
-  def get_instance_profile(%Client{} = client, input, options \\ []) do
+
+  def get_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5944,12 +6546,22 @@ defmodule AWS.IAM do
   the operation returns a 404 (`NoSuchEntity`) error. If you create an IAM user
   with access to the console, the `CreateDate` reflects the date you created the
   initial password for the user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetLoginProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_login_profile_request`)
+    %{
+      required("UserName") => String.t()
+    }
   """
-  @spec get_login_profile(AWS.Client.t(), get_login_profile_request(), Keyword.t()) ::
+
+  @spec get_login_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_login_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_login_profile_errors()}
-  def get_login_profile(%Client{} = client, input, options \\ []) do
+
+  def get_login_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5958,12 +6570,23 @@ defmodule AWS.IAM do
 
   @doc """
   Retrieves information about an MFA device for a specified user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_mfa_device_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("SerialNumber") => String.t()
+    }
   """
-  @spec get_mfa_device(AWS.Client.t(), get_mfa_device_request(), Keyword.t()) ::
+
+  @spec get_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_mfa_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mfa_device_errors()}
-  def get_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def get_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5973,16 +6596,22 @@ defmodule AWS.IAM do
   @doc """
   Returns information about the specified OpenID Connect (OIDC) provider resource
   object in IAM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetOpenIDConnectProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_open_id_connect_provider_request`)
+    %{
+      required("OpenIDConnectProviderArn") => String.t()
+    }
   """
-  @spec get_open_id_connect_provider(
-          AWS.Client.t(),
-          get_open_id_connect_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_open_id_connect_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_open_id_connect_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_open_id_connect_provider_errors()}
-  def get_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+
+  def get_open_id_connect_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5996,16 +6625,26 @@ defmodule AWS.IAM do
   report contents. Depending on the parameters that you passed when you
   generated the report, the data returned could include different information.
   For details, see `GenerateOrganizationsAccessReport`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetOrganizationsAccessReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_organizations_access_report_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("SortKey") => list(any()),
+      required("JobId") => String.t()
+    }
   """
-  @spec get_organizations_access_report(
-          AWS.Client.t(),
-          get_organizations_access_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_organizations_access_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_organizations_access_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_organizations_access_report_errors()}
-  def get_organizations_access_report(%Client{} = client, input, options \\ []) do
+
+  def get_organizations_access_report(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6022,12 +6661,22 @@ defmodule AWS.IAM do
   operation retrieves information about managed policies. To retrieve
   information about an inline policy that is embedded with an IAM user, group,
   or role, use `GetUserPolicy`, `GetGroupPolicy`, or `GetRolePolicy`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policy_request`)
+    %{
+      required("PolicyArn") => String.t()
+    }
   """
-  @spec get_policy(AWS.Client.t(), get_policy_request(), Keyword.t()) ::
+
+  @spec get_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-  def get_policy(%Client{} = client, input, options \\ []) do
+
+  def get_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6043,12 +6692,23 @@ defmodule AWS.IAM do
   `java.net.URLDecoder` utility class in the Java SDK. Other languages and SDKs
   provide similar functionality. To list the available versions for a policy,
   use `ListPolicyVersions`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetPolicyVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policy_version_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("VersionId") => String.t()
+    }
   """
-  @spec get_policy_version(AWS.Client.t(), get_policy_version_request(), Keyword.t()) ::
+
+  @spec get_policy_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_version_errors()}
-  def get_policy_version(%Client{} = client, input, options \\ []) do
+
+  def get_policy_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6066,12 +6726,22 @@ defmodule AWS.IAM do
   example, if you use Java, you can use the `decode` method of the
   `java.net.URLDecoder` utility class in the Java SDK. Other languages and SDKs
   provide similar functionality.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_role_request`)
+    %{
+      required("RoleName") => String.t()
+    }
   """
-  @spec get_role(AWS.Client.t(), get_role_request(), Keyword.t()) ::
+
+  @spec get_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_role_errors()}
-  def get_role(%Client{} = client, input, options \\ []) do
+
+  def get_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6089,12 +6759,23 @@ defmodule AWS.IAM do
   attached to it. To retrieve a managed policy document that is attached to a
   role, use `GetPolicy` to determine the policy's default version, then use
   `GetPolicyVersion` to retrieve the policy document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetRolePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_role_policy_request`)
+    %{
+      required("PolicyName") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec get_role_policy(AWS.Client.t(), get_role_policy_request(), Keyword.t()) ::
+
+  @spec get_role_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_role_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_role_policy_errors()}
-  def get_role_policy(%Client{} = client, input, options \\ []) do
+
+  def get_role_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6104,12 +6785,22 @@ defmodule AWS.IAM do
   @doc """
   Returns the SAML provider metadocument that was uploaded when the IAM SAML
   provider resource object was created or updated.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetSAMLProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_saml_provider_request`)
+    %{
+      required("SAMLProviderArn") => String.t()
+    }
   """
-  @spec get_saml_provider(AWS.Client.t(), get_saml_provider_request(), Keyword.t()) ::
+
+  @spec get_saml_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_saml_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_saml_provider_errors()}
-  def get_saml_provider(%Client{} = client, input, options \\ []) do
+
+  def get_saml_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6118,12 +6809,22 @@ defmodule AWS.IAM do
 
   @doc """
   Retrieves information about the specified server certificate stored in IAM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetServerCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_server_certificate_request`)
+    %{
+      required("ServerCertificateName") => String.t()
+    }
   """
-  @spec get_server_certificate(AWS.Client.t(), get_server_certificate_request(), Keyword.t()) ::
+
+  @spec get_server_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_server_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_server_certificate_errors()}
-  def get_server_certificate(%Client{} = client, input, options \\ []) do
+
+  def get_server_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6150,16 +6851,25 @@ defmodule AWS.IAM do
   about the most recent attempt to access the service. If the operation fails,
   the `GetServiceLastAccessedDetails` operation returns the reason that it
   failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetServiceLastAccessedDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_service_last_accessed_details_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("JobId") => String.t()
+    }
   """
-  @spec get_service_last_accessed_details(
-          AWS.Client.t(),
-          get_service_last_accessed_details_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_service_last_accessed_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_last_accessed_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_last_accessed_details_errors()}
-  def get_service_last_accessed_details(%Client{} = client, input, options \\ []) do
+
+  def get_service_last_accessed_details(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6172,16 +6882,30 @@ defmodule AWS.IAM do
   parameter in `GetServiceLastAccessedDetailsWithEntities`. This operation
   retrieves the status of your report job and a list of entities that could have
   used group or policy permissions to access the specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetServiceLastAccessedDetailsWithEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_service_last_accessed_details_with_entities_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("JobId") => String.t(),
+      required("ServiceNamespace") => String.t()
+    }
   """
+
   @spec get_service_last_accessed_details_with_entities(
           AWS.Client.t(),
-          get_service_last_accessed_details_with_entities_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, get_service_last_accessed_details_with_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_last_accessed_details_with_entities_errors()}
-  def get_service_last_accessed_details_with_entities(%Client{} = client, input, options \\ []) do
+
+  def get_service_last_accessed_details_with_entities(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6201,16 +6925,23 @@ defmodule AWS.IAM do
   to check the status of the deletion. If the deletion fails, this operation
   returns the reason that it failed, if that information is returned by the
   service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetServiceLinkedRoleDeletionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_service_linked_role_deletion_status_request`)
+    %{
+      required("DeletionTaskId") => String.t()
+    }
   """
-  @spec get_service_linked_role_deletion_status(
-          AWS.Client.t(),
-          get_service_linked_role_deletion_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_service_linked_role_deletion_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_linked_role_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_linked_role_deletion_status_errors()}
-  def get_service_linked_role_deletion_status(%Client{} = client, input, options \\ []) do
+
+  def get_service_linked_role_deletion_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6219,12 +6950,24 @@ defmodule AWS.IAM do
 
   @doc """
   Retrieves the specified SSH public key, including metadata about the key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetSSHPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ssh_public_key_request`)
+    %{
+      required("Encoding") => list(any()),
+      required("SSHPublicKeyId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec get_ssh_public_key(AWS.Client.t(), get_ssh_public_key_request(), Keyword.t()) ::
+
+  @spec get_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ssh_public_key_errors()}
-  def get_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def get_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6234,12 +6977,22 @@ defmodule AWS.IAM do
   @doc """
   Retrieves information about the specified IAM user, including the user's
   creation date, path, unique ID, and ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_user_request`)
+    %{
+      optional("UserName") => String.t()
+    }
   """
-  @spec get_user(AWS.Client.t(), get_user_request(), Keyword.t()) ::
+
+  @spec get_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
-  def get_user(%Client{} = client, input, options \\ []) do
+
+  def get_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6257,12 +7010,23 @@ defmodule AWS.IAM do
   managed policy document that is attached to a user, use `GetPolicy` to
   determine the policy's default version. Then use `GetPolicyVersion` to
   retrieve the policy document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20GetUserPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_user_policy_request`)
+    %{
+      required("PolicyName") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec get_user_policy(AWS.Client.t(), get_user_policy_request(), Keyword.t()) ::
+
+  @spec get_user_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_policy_errors()}
-  def get_user_policy(%Client{} = client, input, options \\ []) do
+
+  def get_user_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6274,12 +7038,24 @@ defmodule AWS.IAM do
   user. If there is none, the operation returns an empty list. Although each
   user is limited to a small number of keys, you can still paginate the results
   using the `MaxItems` and `Marker` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListAccessKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_access_keys_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("UserName") => String.t()
+    }
   """
-  @spec list_access_keys(AWS.Client.t(), list_access_keys_request(), Keyword.t()) ::
+
+  @spec list_access_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_access_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_keys_errors()}
-  def list_access_keys(%Client{} = client, input, options \\ []) do
+
+  def list_access_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6293,12 +7069,23 @@ defmodule AWS.IAM do
   account
   alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
   in the *Amazon Web Services Sign-In User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListAccountAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_account_aliases_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer()
+    }
   """
-  @spec list_account_aliases(AWS.Client.t(), list_account_aliases_request(), Keyword.t()) ::
+
+  @spec list_account_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_account_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_aliases_errors()}
-  def list_account_aliases(%Client{} = client, input, options \\ []) do
+
+  def list_account_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6312,16 +7099,25 @@ defmodule AWS.IAM do
   see [Managed policies and inline
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListAttachedGroupPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_attached_group_policies_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t(),
+      required("GroupName") => String.t()
+    }
   """
-  @spec list_attached_group_policies(
-          AWS.Client.t(),
-          list_attached_group_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_attached_group_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_attached_group_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_group_policies_errors()}
-  def list_attached_group_policies(%Client{} = client, input, options \\ []) do
+
+  def list_attached_group_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6335,16 +7131,25 @@ defmodule AWS.IAM do
   see [Managed policies and inline
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListAttachedRolePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_attached_role_policies_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec list_attached_role_policies(
-          AWS.Client.t(),
-          list_attached_role_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_attached_role_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_attached_role_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_role_policies_errors()}
-  def list_attached_role_policies(%Client{} = client, input, options \\ []) do
+
+  def list_attached_role_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6358,16 +7163,25 @@ defmodule AWS.IAM do
   see [Managed policies and inline
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListAttachedUserPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_attached_user_policies_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec list_attached_user_policies(
-          AWS.Client.t(),
-          list_attached_user_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_attached_user_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_attached_user_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_user_policies_errors()}
-  def list_attached_user_policies(%Client{} = client, input, options \\ []) do
+
+  def list_attached_user_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6380,12 +7194,27 @@ defmodule AWS.IAM do
   results to a particular type of entity (users, groups, or roles). For example,
   to list only the roles that are attached to the specified policy, set
   `EntityFilter` to `Role`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListEntitiesForPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_entities_for_policy_request`)
+    %{
+      optional("EntityFilter") => list(any()),
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t(),
+      optional("PolicyUsageFilter") => list(any()),
+      required("PolicyArn") => String.t()
+    }
   """
-  @spec list_entities_for_policy(AWS.Client.t(), list_entities_for_policy_request(), Keyword.t()) ::
+
+  @spec list_entities_for_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entities_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_for_policy_errors()}
-  def list_entities_for_policy(%Client{} = client, input, options \\ []) do
+
+  def list_entities_for_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6400,12 +7229,24 @@ defmodule AWS.IAM do
   policies and inline
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListGroupPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_group_policies_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("GroupName") => String.t()
+    }
   """
-  @spec list_group_policies(AWS.Client.t(), list_group_policies_request(), Keyword.t()) ::
+
+  @spec list_group_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_group_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_policies_errors()}
-  def list_group_policies(%Client{} = client, input, options \\ []) do
+
+  def list_group_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6414,12 +7255,24 @@ defmodule AWS.IAM do
 
   @doc """
   Lists the IAM groups that have the specified path prefix.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_groups_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t()
+    }
   """
-  @spec list_groups(AWS.Client.t(), list_groups_request(), Keyword.t()) ::
+
+  @spec list_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-  def list_groups(%Client{} = client, input, options \\ []) do
+
+  def list_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6428,12 +7281,24 @@ defmodule AWS.IAM do
 
   @doc """
   Lists the IAM groups that the specified IAM user belongs to.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListGroupsForUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_groups_for_user_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("UserName") => String.t()
+    }
   """
-  @spec list_groups_for_user(AWS.Client.t(), list_groups_for_user_request(), Keyword.t()) ::
+
+  @spec list_groups_for_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_groups_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_for_user_errors()}
-  def list_groups_for_user(%Client{} = client, input, options \\ []) do
+
+  def list_groups_for_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6446,16 +7311,24 @@ defmodule AWS.IAM do
   tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListInstanceProfileTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_instance_profile_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("InstanceProfileName") => String.t()
+    }
   """
-  @spec list_instance_profile_tags(
-          AWS.Client.t(),
-          list_instance_profile_tags_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_instance_profile_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instance_profile_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_profile_tags_errors()}
-  def list_instance_profile_tags(%Client{} = client, input, options \\ []) do
+
+  def list_instance_profile_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6471,12 +7344,24 @@ defmodule AWS.IAM do
   the available attributes for the resource. For example, this operation does
   not return tags, even though they are an attribute of the returned object. To
   view all of the information for an instance profile, see `GetInstanceProfile`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListInstanceProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_instance_profiles_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t()
+    }
   """
-  @spec list_instance_profiles(AWS.Client.t(), list_instance_profiles_request(), Keyword.t()) ::
+
+  @spec list_instance_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instance_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_profiles_errors()}
-  def list_instance_profiles(%Client{} = client, input, options \\ []) do
+
+  def list_instance_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6489,16 +7374,25 @@ defmodule AWS.IAM do
   about instance profiles, go to [Using instance
   profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListInstanceProfilesForRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_instance_profiles_for_role_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec list_instance_profiles_for_role(
-          AWS.Client.t(),
-          list_instance_profiles_for_role_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_instance_profiles_for_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instance_profiles_for_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_profiles_for_role_errors()}
-  def list_instance_profiles_for_role(%Client{} = client, input, options \\ []) do
+
+  def list_instance_profiles_for_role(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6511,12 +7405,24 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListMFADeviceTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_mfa_device_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("SerialNumber") => String.t()
+    }
   """
-  @spec list_mfa_device_tags(AWS.Client.t(), list_mfa_device_tags_request(), Keyword.t()) ::
+
+  @spec list_mfa_device_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_mfa_device_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mfa_device_tags_errors()}
-  def list_mfa_device_tags(%Client{} = client, input, options \\ []) do
+
+  def list_mfa_device_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6529,12 +7435,24 @@ defmodule AWS.IAM do
   user. If you do not specify a user name, IAM determines the user name
   implicitly based on the Amazon Web Services access key ID signing the request
   for this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListMFADevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_mfa_devices_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("UserName") => String.t()
+    }
   """
-  @spec list_mfa_devices(AWS.Client.t(), list_mfa_devices_request(), Keyword.t()) ::
+
+  @spec list_mfa_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_mfa_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mfa_devices_errors()}
-  def list_mfa_devices(%Client{} = client, input, options \\ []) do
+
+  def list_mfa_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6549,16 +7467,25 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListOpenIDConnectProviderTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_open_id_connect_provider_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("OpenIDConnectProviderArn") => String.t()
+    }
   """
-  @spec list_open_id_connect_provider_tags(
-          AWS.Client.t(),
-          list_open_id_connect_provider_tags_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_open_id_connect_provider_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_open_id_connect_provider_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_open_id_connect_provider_tags_errors()}
-  def list_open_id_connect_provider_tags(%Client{} = client, input, options \\ []) do
+
+  def list_open_id_connect_provider_tags(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6568,16 +7495,23 @@ defmodule AWS.IAM do
   @doc """
   Lists information about the IAM OpenID Connect (OIDC) provider resource objects
   defined in the Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListOpenIDConnectProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_open_id_connect_providers_request`)
+    %{
+      
+    }
   """
-  @spec list_open_id_connect_providers(
-          AWS.Client.t(),
-          list_open_id_connect_providers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_open_id_connect_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_open_id_connect_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_open_id_connect_providers_errors()}
-  def list_open_id_connect_providers(%Client{} = client, input, options \\ []) do
+
+  def list_open_id_connect_providers(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6592,12 +7526,27 @@ defmodule AWS.IAM do
   parameters. For example, to list only the customer managed policies in your
   Amazon Web Services account, set `Scope` to `Local`. To list only Amazon Web
   Services managed policies, set `Scope` to `AWS`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policies_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("OnlyAttached") => boolean(),
+      optional("PathPrefix") => String.t(),
+      optional("PolicyUsageFilter") => list(any()),
+      optional("Scope") => list(any())
+    }
   """
-  @spec list_policies(AWS.Client.t(), list_policies_request(), Keyword.t()) ::
+
+  @spec list_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_errors()}
-  def list_policies(%Client{} = client, input, options \\ []) do
+
+  def list_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6615,16 +7564,25 @@ defmodule AWS.IAM do
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics)
   in the *IAM User Guide*. The list of policies returned by the operation
   depends on the ARN of the identity that you provide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListPoliciesGrantingServiceAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policies_granting_service_access_request`)
+    %{
+      optional("Marker") => String.t(),
+      required("Arn") => String.t(),
+      required("ServiceNamespaces") => list(String.t()())
+    }
   """
-  @spec list_policies_granting_service_access(
-          AWS.Client.t(),
-          list_policies_granting_service_access_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_policies_granting_service_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policies_granting_service_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_granting_service_access_errors()}
-  def list_policies_granting_service_access(%Client{} = client, input, options \\ []) do
+
+  def list_policies_granting_service_access(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6637,12 +7595,24 @@ defmodule AWS.IAM do
   tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListPolicyTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policy_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("PolicyArn") => String.t()
+    }
   """
-  @spec list_policy_tags(AWS.Client.t(), list_policy_tags_request(), Keyword.t()) ::
+
+  @spec list_policy_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policy_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_tags_errors()}
-  def list_policy_tags(%Client{} = client, input, options \\ []) do
+
+  def list_policy_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6652,12 +7622,24 @@ defmodule AWS.IAM do
   @doc """
   Lists information about the versions of the specified managed policy, including
   the version that is currently set as the policy's default version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListPolicyVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policy_versions_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("PolicyArn") => String.t()
+    }
   """
-  @spec list_policy_versions(AWS.Client.t(), list_policy_versions_request(), Keyword.t()) ::
+
+  @spec list_policy_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policy_versions_errors()}
-  def list_policy_versions(%Client{} = client, input, options \\ []) do
+
+  def list_policy_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6671,12 +7653,24 @@ defmodule AWS.IAM do
   For more information about policies, see [Managed policies and inline
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListRolePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_role_policies_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec list_role_policies(AWS.Client.t(), list_role_policies_request(), Keyword.t()) ::
+
+  @spec list_role_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_role_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_role_policies_errors()}
-  def list_role_policies(%Client{} = client, input, options \\ []) do
+
+  def list_role_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6688,12 +7682,24 @@ defmodule AWS.IAM do
   tags is sorted by tag key. For more information about tagging, see [Tagging
   IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListRoleTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_role_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec list_role_tags(AWS.Client.t(), list_role_tags_request(), Keyword.t()) ::
+
+  @spec list_role_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_role_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_role_tags_errors()}
-  def list_role_tags(%Client{} = client, input, options \\ []) do
+
+  def list_role_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6709,12 +7715,24 @@ defmodule AWS.IAM do
   following attributes, even though they are an attribute of the returned
   object: PermissionsBoundary RoleLastUsed Tags To view all of the information
   for a role, see `GetRole`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListRoles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_roles_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t()
+    }
   """
-  @spec list_roles(AWS.Client.t(), list_roles_request(), Keyword.t()) ::
+
+  @spec list_roles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_roles_errors()}
-  def list_roles(%Client{} = client, input, options \\ []) do
+
+  def list_roles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6729,12 +7747,24 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListSAMLProviderTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_saml_provider_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("SAMLProviderArn") => String.t()
+    }
   """
-  @spec list_saml_provider_tags(AWS.Client.t(), list_saml_provider_tags_request(), Keyword.t()) ::
+
+  @spec list_saml_provider_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_saml_provider_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_saml_provider_tags_errors()}
-  def list_saml_provider_tags(%Client{} = client, input, options \\ []) do
+
+  def list_saml_provider_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6747,12 +7777,22 @@ defmodule AWS.IAM do
   the resource. For example, this operation does not return tags, even though
   they are an attribute of the returned object. To view all of the information
   for a SAML provider, see `GetSAMLProvider`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListSAMLProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_saml_providers_request`)
+    %{
+      
+    }
   """
-  @spec list_saml_providers(AWS.Client.t(), list_saml_providers_request(), Keyword.t()) ::
+
+  @spec list_saml_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_saml_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_saml_providers_errors()}
-  def list_saml_providers(%Client{} = client, input, options \\ []) do
+
+  def list_saml_providers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6770,16 +7810,24 @@ defmodule AWS.IAM do
   For more information about IAM server certificates, [Working with server
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListServerCertificateTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_server_certificate_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("ServerCertificateName") => String.t()
+    }
   """
-  @spec list_server_certificate_tags(
-          AWS.Client.t(),
-          list_server_certificate_tags_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_server_certificate_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_server_certificate_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_server_certificate_tags_errors()}
-  def list_server_certificate_tags(%Client{} = client, input, options \\ []) do
+
+  def list_server_certificate_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6790,12 +7838,24 @@ defmodule AWS.IAM do
   Lists the server certificates stored in IAM that have the specified path prefix.
   If none exist, the operation returns an empty list. You can paginate the
   results using the `MaxItems` and `Marker` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListServerCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_server_certificates_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t()
+    }
   """
-  @spec list_server_certificates(AWS.Client.t(), list_server_certificates_request(), Keyword.t()) ::
+
+  @spec list_server_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_server_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_server_certificates_errors()}
-  def list_server_certificates(%Client{} = client, input, options \\ []) do
+
+  def list_server_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6811,16 +7871,24 @@ defmodule AWS.IAM do
   service, see [Set up service-specific
   credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html)
   in the CodeCommit User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListServiceSpecificCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_service_specific_credentials_request`)
+    %{
+      optional("ServiceName") => String.t(),
+      optional("UserName") => String.t()
+    }
   """
-  @spec list_service_specific_credentials(
-          AWS.Client.t(),
-          list_service_specific_credentials_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_service_specific_credentials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_specific_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_specific_credentials_errors()}
-  def list_service_specific_credentials(%Client{} = client, input, options \\ []) do
+
+  def list_service_specific_credentials(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -6832,16 +7900,24 @@ defmodule AWS.IAM do
   IAM user. If none exists, the operation returns an empty list. Although each
   user is limited to a small number of signing certificates, you can still
   paginate the results using the `MaxItems` and `Marker` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListSigningCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_signing_certificates_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("UserName") => String.t()
+    }
   """
-  @spec list_signing_certificates(
-          AWS.Client.t(),
-          list_signing_certificates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_signing_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_signing_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signing_certificates_errors()}
-  def list_signing_certificates(%Client{} = client, input, options \\ []) do
+
+  def list_signing_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6856,12 +7932,24 @@ defmodule AWS.IAM do
   authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH
   connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html)
   in the *CodeCommit User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListSSHPublicKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ssh_public_keys_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("UserName") => String.t()
+    }
   """
-  @spec list_ssh_public_keys(AWS.Client.t(), list_ssh_public_keys_request(), Keyword.t()) ::
+
+  @spec list_ssh_public_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ssh_public_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ssh_public_keys_errors()}
-  def list_ssh_public_keys(%Client{} = client, input, options \\ []) do
+
+  def list_ssh_public_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6875,12 +7963,24 @@ defmodule AWS.IAM do
   information about policies, see [Managed policies and inline
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListUserPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_user_policies_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("UserName") => String.t()
+    }
   """
-  @spec list_user_policies(AWS.Client.t(), list_user_policies_request(), Keyword.t()) ::
+
+  @spec list_user_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_user_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_policies_errors()}
-  def list_user_policies(%Client{} = client, input, options \\ []) do
+
+  def list_user_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6892,12 +7992,24 @@ defmodule AWS.IAM do
   tags is sorted by tag key. For more information about tagging, see [Tagging
   IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListUserTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_user_tags_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      required("UserName") => String.t()
+    }
   """
-  @spec list_user_tags(AWS.Client.t(), list_user_tags_request(), Keyword.t()) ::
+
+  @spec list_user_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_user_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_tags_errors()}
-  def list_user_tags(%Client{} = client, input, options \\ []) do
+
+  def list_user_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6912,12 +8024,24 @@ defmodule AWS.IAM do
   operation does not return the following attributes, even though they are an
   attribute of the returned object: PermissionsBoundary Tags To view all of the
   information for a user, see `GetUser`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_users_request`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PathPrefix") => String.t()
+    }
   """
-  @spec list_users(AWS.Client.t(), list_users_request(), Keyword.t()) ::
+
+  @spec list_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-  def list_users(%Client{} = client, input, options \\ []) do
+
+  def list_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6933,11 +8057,23 @@ defmodule AWS.IAM do
   operation does not return tags, even though they are an attribute of the
   returned object. To view tag information for a virtual MFA device, see
   `ListMFADeviceTags`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ListVirtualMFADevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_virtual_mfa_devices_request`)
+    %{
+      optional("AssignmentStatus") => list(any()),
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer()
+    }
   """
-  @spec list_virtual_mfa_devices(AWS.Client.t(), list_virtual_mfa_devices_request(), Keyword.t()) ::
+
+  @spec list_virtual_mfa_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_virtual_mfa_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_virtual_mfa_devices(%Client{} = client, input, options \\ []) do
+
+  def list_virtual_mfa_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6957,12 +8093,24 @@ defmodule AWS.IAM do
   policies that you can embed in a group, see [IAM and STS
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20PutGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_group_policy_request`)
+    %{
+      required("GroupName") => String.t(),
+      required("PolicyDocument") => String.t(),
+      required("PolicyName") => String.t()
+    }
   """
-  @spec put_group_policy(AWS.Client.t(), put_group_policy_request(), Keyword.t()) ::
+
+  @spec put_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_group_policy_errors()}
-  def put_group_policy(%Client{} = client, input, options \\ []) do
+
+  def put_group_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -6976,16 +8124,24 @@ defmodule AWS.IAM do
   maximum permissions that the role can have. Setting a permissions boundary is
   an advanced feature that can affect the permissions for the role. You cannot
   set the boundary for a service-linked role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20PutRolePermissionsBoundary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_role_permissions_boundary_request`)
+    %{
+      required("PermissionsBoundary") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec put_role_permissions_boundary(
-          AWS.Client.t(),
-          put_role_permissions_boundary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_role_permissions_boundary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_role_permissions_boundary_errors()}
-  def put_role_permissions_boundary(%Client{} = client, input, options \\ []) do
+
+  def put_role_permissions_boundary(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7013,12 +8169,24 @@ defmodule AWS.IAM do
   policies that you can embed with a role, see [IAM and STS
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20PutRolePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_role_policy_request`)
+    %{
+      required("PolicyDocument") => String.t(),
+      required("PolicyName") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec put_role_policy(AWS.Client.t(), put_role_policy_request(), Keyword.t()) ::
+
+  @spec put_role_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_role_policy_errors()}
-  def put_role_policy(%Client{} = client, input, options \\ []) do
+
+  def put_role_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7031,16 +8199,24 @@ defmodule AWS.IAM do
   managed policy to set the boundary for a user. Use the boundary to control the
   maximum permissions that the user can have. Setting a permissions boundary is
   an advanced feature that can affect the permissions for the user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20PutUserPermissionsBoundary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_user_permissions_boundary_request`)
+    %{
+      required("PermissionsBoundary") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec put_user_permissions_boundary(
-          AWS.Client.t(),
-          put_user_permissions_boundary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_user_permissions_boundary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_user_permissions_boundary_errors()}
-  def put_user_permissions_boundary(%Client{} = client, input, options \\ []) do
+
+  def put_user_permissions_boundary(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7060,12 +8236,24 @@ defmodule AWS.IAM do
   policies that you can embed in a user, see [IAM and STS
   quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20PutUserPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_user_policy_request`)
+    %{
+      required("PolicyDocument") => String.t(),
+      required("PolicyName") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec put_user_policy(AWS.Client.t(), put_user_policy_request(), Keyword.t()) ::
+
+  @spec put_user_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_user_policy_errors()}
-  def put_user_policy(%Client{} = client, input, options \\ []) do
+
+  def put_user_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7076,16 +8264,28 @@ defmodule AWS.IAM do
   Removes the specified client ID (also known as audience) from the list of client
   IDs registered for the specified IAM OpenID Connect (OIDC) provider resource
   object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20RemoveClientIDFromOpenIDConnectProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_client_id_from_open_id_connect_provider_request`)
+    %{
+      required("ClientID") => String.t(),
+      required("OpenIDConnectProviderArn") => String.t()
+    }
   """
+
   @spec remove_client_id_from_open_id_connect_provider(
           AWS.Client.t(),
-          remove_client_id_from_open_id_connect_provider_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_client_id_from_open_id_connect_provider_errors()}
-  def remove_client_id_from_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+
+  def remove_client_id_from_open_id_connect_provider(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7098,16 +8298,24 @@ defmodule AWS.IAM do
   you are about to remove from the instance profile. Removing a role from an
   instance profile that is associated with a running instance might break any
   applications running on the instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20RemoveRoleFromInstanceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_role_from_instance_profile_request`)
+    %{
+      required("InstanceProfileName") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec remove_role_from_instance_profile(
-          AWS.Client.t(),
-          remove_role_from_instance_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_role_from_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_role_from_instance_profile_errors()}
-  def remove_role_from_instance_profile(%Client{} = client, input, options \\ []) do
+
+  def remove_role_from_instance_profile(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7116,12 +8324,23 @@ defmodule AWS.IAM do
 
   @doc """
   Removes the specified user from the specified group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20RemoveUserFromGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_user_from_group_request`)
+    %{
+      required("GroupName") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec remove_user_from_group(AWS.Client.t(), remove_user_from_group_request(), Keyword.t()) ::
+
+  @spec remove_user_from_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_user_from_group_errors()}
-  def remove_user_from_group(%Client{} = client, input, options \\ []) do
+
+  def remove_user_from_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7133,16 +8352,24 @@ defmodule AWS.IAM do
   Amazon Web Services generated and cryptographically strong. It cannot be
   configured by the user. Resetting the password immediately invalidates the
   previous password associated with this user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ResetServiceSpecificCredential&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_service_specific_credential_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("ServiceSpecificCredentialId") => String.t()
+    }
   """
-  @spec reset_service_specific_credential(
-          AWS.Client.t(),
-          reset_service_specific_credential_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reset_service_specific_credential(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_service_specific_credential_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_service_specific_credential_errors()}
-  def reset_service_specific_credential(%Client{} = client, input, options \\ []) do
+
+  def reset_service_specific_credential(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7152,12 +8379,25 @@ defmodule AWS.IAM do
   @doc """
   Synchronizes the specified MFA device with its IAM resource object on the Amazon
   Web Services servers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20ResyncMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:resync_mfa_device_request`)
+    %{
+      required("AuthenticationCode1") => String.t(),
+      required("AuthenticationCode2") => String.t(),
+      required("SerialNumber") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec resync_mfa_device(AWS.Client.t(), resync_mfa_device_request(), Keyword.t()) ::
+
+  @spec resync_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resync_mfa_device_errors()}
-  def resync_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def resync_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7169,16 +8409,23 @@ defmodule AWS.IAM do
   (operative) version. This operation affects all users, groups, and roles that
   the policy is attached to. To list the users, groups, and roles that the
   policy is attached to, use `ListEntitiesForPolicy`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20SetDefaultPolicyVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_default_policy_version_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("VersionId") => String.t()
+    }
   """
-  @spec set_default_policy_version(
-          AWS.Client.t(),
-          set_default_policy_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_default_policy_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_default_policy_version_errors()}
-  def set_default_policy_version(%Client{} = client, input, options \\ []) do
+
+  def set_default_policy_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7205,16 +8452,23 @@ defmodule AWS.IAM do
   Amazon Web Services
   Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20SetSecurityTokenServicePreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_security_token_service_preferences_request`)
+    %{
+      required("GlobalEndpointTokenVersion") => list(any())
+    }
   """
-  @spec set_security_token_service_preferences(
-          AWS.Client.t(),
-          set_security_token_service_preferences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_security_token_service_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_security_token_service_preferences_errors()}
-  def set_security_token_service_preferences(%Client{} = client, input, options \\ []) do
+
+  def set_security_token_service_preferences(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7228,12 +8482,32 @@ defmodule AWS.IAM do
   simulation does not perform the API operations; it only checks the
   authorization to determine if the simulated policies allow or deny the
   operations. You can simulate resources that don't exist in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20SimulateCustomPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:simulate_custom_policy_request`)
+    %{
+      optional("CallerArn") => String.t(),
+      optional("ContextEntries") => list(context_entry()()),
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PermissionsBoundaryPolicyInputList") => list(String.t()()),
+      optional("ResourceArns") => list(String.t()()),
+      optional("ResourceHandlingOption") => String.t(),
+      optional("ResourceOwner") => String.t(),
+      optional("ResourcePolicy") => String.t(),
+      required("ActionNames") => list(String.t()()),
+      required("PolicyInputList") => list(String.t()())
+    }
   """
-  @spec simulate_custom_policy(AWS.Client.t(), simulate_custom_policy_request(), Keyword.t()) ::
+
+  @spec simulate_custom_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, simulate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, simulate_custom_policy_errors()}
-  def simulate_custom_policy(%Client{} = client, input, options \\ []) do
+
+  def simulate_custom_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7250,16 +8524,33 @@ defmodule AWS.IAM do
   additional policies specified as strings to include in the simulation. If you
   want to simulate only policies specified as strings, use
   `SimulateCustomPolicy` instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20SimulatePrincipalPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:simulate_principal_policy_request`)
+    %{
+      optional("CallerArn") => String.t(),
+      optional("ContextEntries") => list(context_entry()()),
+      optional("Marker") => String.t(),
+      optional("MaxItems") => integer(),
+      optional("PermissionsBoundaryPolicyInputList") => list(String.t()()),
+      optional("PolicyInputList") => list(String.t()()),
+      optional("ResourceArns") => list(String.t()()),
+      optional("ResourceHandlingOption") => String.t(),
+      optional("ResourceOwner") => String.t(),
+      optional("ResourcePolicy") => String.t(),
+      required("ActionNames") => list(String.t()()),
+      required("PolicySourceArn") => String.t()
+    }
   """
-  @spec simulate_principal_policy(
-          AWS.Client.t(),
-          simulate_principal_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec simulate_principal_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, simulate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, simulate_principal_policy_errors()}
-  def simulate_principal_policy(%Client{} = client, input, options \\ []) do
+
+  def simulate_principal_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7271,12 +8562,23 @@ defmodule AWS.IAM do
   name already exists, then that tag is overwritten with the new value. Each tag
   consists of a key name and an associated value. By assigning tags to your
   resources, you can do the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagInstanceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_instance_profile_request`)
+    %{
+      required("InstanceProfileName") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_instance_profile(AWS.Client.t(), tag_instance_profile_request(), Keyword.t()) ::
+
+  @spec tag_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_instance_profile_errors()}
-  def tag_instance_profile(%Client{} = client, input, options \\ []) do
+
+  def tag_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7288,12 +8590,23 @@ defmodule AWS.IAM do
   device. If a tag with the same key name already exists, then that tag is
   overwritten with the new value. A tag consists of a key name and an associated
   value. By assigning tags to your resources, you can do the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_mfa_device_request`)
+    %{
+      required("SerialNumber") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_mfa_device(AWS.Client.t(), tag_mfa_device_request(), Keyword.t()) ::
+
+  @spec tag_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_mfa_device_errors()}
-  def tag_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def tag_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7307,16 +8620,23 @@ defmodule AWS.IAM do
   If a tag with the same key name already exists, then that tag is overwritten
   with the new value. A tag consists of a key name and an associated value. By
   assigning tags to your resources, you can do the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagOpenIDConnectProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_open_id_connect_provider_request`)
+    %{
+      required("OpenIDConnectProviderArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_open_id_connect_provider(
-          AWS.Client.t(),
-          tag_open_id_connect_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec tag_open_id_connect_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_open_id_connect_provider_errors()}
-  def tag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+
+  def tag_open_id_connect_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7328,12 +8648,23 @@ defmodule AWS.IAM do
   key name already exists, then that tag is overwritten with the new value. A
   tag consists of a key name and an associated value. By assigning tags to your
   resources, you can do the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_policy_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_policy(AWS.Client.t(), tag_policy_request(), Keyword.t()) ::
+
+  @spec tag_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_policy_errors()}
-  def tag_policy(%Client{} = client, input, options \\ []) do
+
+  def tag_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7346,12 +8677,23 @@ defmodule AWS.IAM do
   tag is overwritten with the new value. A tag consists of a key name and an
   associated value. By assigning tags to your resources, you can do the
   following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_role_request`)
+    %{
+      required("RoleName") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_role(AWS.Client.t(), tag_role_request(), Keyword.t()) ::
+
+  @spec tag_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_role_errors()}
-  def tag_role(%Client{} = client, input, options \\ []) do
+
+  def tag_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7366,12 +8708,23 @@ defmodule AWS.IAM do
   If a tag with the same key name already exists, then that tag is overwritten
   with the new value. A tag consists of a key name and an associated value. By
   assigning tags to your resources, you can do the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagSAMLProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_saml_provider_request`)
+    %{
+      required("SAMLProviderArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_saml_provider(AWS.Client.t(), tag_saml_provider_request(), Keyword.t()) ::
+
+  @spec tag_saml_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_saml_provider_errors()}
-  def tag_saml_provider(%Client{} = client, input, options \\ []) do
+
+  def tag_saml_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7388,12 +8741,23 @@ defmodule AWS.IAM do
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*. A tag consists of a key name and an associated value.
   By assigning tags to your resources, you can do the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagServerCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_server_certificate_request`)
+    %{
+      required("ServerCertificateName") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_server_certificate(AWS.Client.t(), tag_server_certificate_request(), Keyword.t()) ::
+
+  @spec tag_server_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_server_certificate_errors()}
-  def tag_server_certificate(%Client{} = client, input, options \\ []) do
+
+  def tag_server_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7405,12 +8769,23 @@ defmodule AWS.IAM do
   exists, then that tag is overwritten with the new value. A tag consists of a
   key name and an associated value. By assigning tags to your resources, you can
   do the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20TagUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_user_request`)
+    %{
+      required("Tags") => list(tag()()),
+      required("UserName") => String.t()
+    }
   """
-  @spec tag_user(AWS.Client.t(), tag_user_request(), Keyword.t()) ::
+
+  @spec tag_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_user_errors()}
-  def tag_user(%Client{} = client, input, options \\ []) do
+
+  def tag_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7422,12 +8797,23 @@ defmodule AWS.IAM do
   about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagInstanceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_instance_profile_request`)
+    %{
+      required("InstanceProfileName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_instance_profile(AWS.Client.t(), untag_instance_profile_request(), Keyword.t()) ::
+
+  @spec untag_instance_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_instance_profile_errors()}
-  def untag_instance_profile(%Client{} = client, input, options \\ []) do
+
+  def untag_instance_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7439,12 +8825,23 @@ defmodule AWS.IAM do
   (MFA) device. For more information about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagMFADevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_mfa_device_request`)
+    %{
+      required("SerialNumber") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_mfa_device(AWS.Client.t(), untag_mfa_device_request(), Keyword.t()) ::
+
+  @spec untag_mfa_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_mfa_device_errors()}
-  def untag_mfa_device(%Client{} = client, input, options \\ []) do
+
+  def untag_mfa_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7459,16 +8856,24 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagOpenIDConnectProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_open_id_connect_provider_request`)
+    %{
+      required("OpenIDConnectProviderArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_open_id_connect_provider(
-          AWS.Client.t(),
-          untag_open_id_connect_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec untag_open_id_connect_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_open_id_connect_provider_errors()}
-  def untag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+
+  def untag_open_id_connect_provider(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7480,12 +8885,23 @@ defmodule AWS.IAM do
   information about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_policy_request`)
+    %{
+      required("PolicyArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_policy(AWS.Client.t(), untag_policy_request(), Keyword.t()) ::
+
+  @spec untag_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_policy_errors()}
-  def untag_policy(%Client{} = client, input, options \\ []) do
+
+  def untag_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7497,12 +8913,23 @@ defmodule AWS.IAM do
   see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_role_request`)
+    %{
+      required("RoleName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_role(AWS.Client.t(), untag_role_request(), Keyword.t()) ::
+
+  @spec untag_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_role_errors()}
-  def untag_role(%Client{} = client, input, options \\ []) do
+
+  def untag_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7517,12 +8944,23 @@ defmodule AWS.IAM do
   For more information about tagging, see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagSAMLProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_saml_provider_request`)
+    %{
+      required("SAMLProviderArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_saml_provider(AWS.Client.t(), untag_saml_provider_request(), Keyword.t()) ::
+
+  @spec untag_saml_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_saml_provider_errors()}
-  def untag_saml_provider(%Client{} = client, input, options \\ []) do
+
+  def untag_saml_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7539,12 +8977,23 @@ defmodule AWS.IAM do
   For more information about IAM server certificates, [Working with server
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagServerCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_server_certificate_request`)
+    %{
+      required("ServerCertificateName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_server_certificate(AWS.Client.t(), untag_server_certificate_request(), Keyword.t()) ::
+
+  @spec untag_server_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_server_certificate_errors()}
-  def untag_server_certificate(%Client{} = client, input, options \\ []) do
+
+  def untag_server_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7556,12 +9005,23 @@ defmodule AWS.IAM do
   see [Tagging IAM
   resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in
   the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UntagUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_user_request`)
+    %{
+      required("TagKeys") => list(String.t()()),
+      required("UserName") => String.t()
+    }
   """
-  @spec untag_user(AWS.Client.t(), untag_user_request(), Keyword.t()) ::
+
+  @spec untag_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_user_errors()}
-  def untag_user(%Client{} = client, input, options \\ []) do
+
+  def untag_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7579,12 +9039,24 @@ defmodule AWS.IAM do
   account. Consequently, you can use this operation to manage Amazon Web
   Services account root user credentials even if the Amazon Web Services account
   has no associated users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateAccessKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_access_key_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("AccessKeyId") => String.t(),
+      required("Status") => list(any())
+    }
   """
-  @spec update_access_key(AWS.Client.t(), update_access_key_request(), Keyword.t()) ::
+
+  @spec update_access_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_key_errors()}
-  def update_access_key(%Client{} = client, input, options \\ []) do
+
+  def update_access_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7599,16 +9071,31 @@ defmodule AWS.IAM do
   value. Also note that some parameters do not allow the default parameter to be
   explicitly set. Instead, to invoke the default value, do not include that
   parameter when you invoke the operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateAccountPasswordPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_account_password_policy_request`)
+    %{
+      optional("AllowUsersToChangePassword") => boolean(),
+      optional("HardExpiry") => boolean(),
+      optional("MaxPasswordAge") => integer(),
+      optional("MinimumPasswordLength") => integer(),
+      optional("PasswordReusePrevention") => integer(),
+      optional("RequireLowercaseCharacters") => boolean(),
+      optional("RequireNumbers") => boolean(),
+      optional("RequireSymbols") => boolean(),
+      optional("RequireUppercaseCharacters") => boolean()
+    }
   """
-  @spec update_account_password_policy(
-          AWS.Client.t(),
-          update_account_password_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_account_password_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_password_policy_errors()}
-  def update_account_password_policy(%Client{} = client, input, options \\ []) do
+
+  def update_account_password_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7620,16 +9107,23 @@ defmodule AWS.IAM do
   is typically referred to as the "role trust policy". For more information
   about roles, see [Using roles to delegate permissions and federate
   identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateAssumeRolePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_assume_role_policy_request`)
+    %{
+      required("PolicyDocument") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec update_assume_role_policy(
-          AWS.Client.t(),
-          update_assume_role_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_assume_role_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assume_role_policy_errors()}
-  def update_assume_role_policy(%Client{} = client, input, options \\ []) do
+
+  def update_assume_role_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7638,12 +9132,24 @@ defmodule AWS.IAM do
 
   @doc """
   Updates the name and/or the path of the specified IAM group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_group_request`)
+    %{
+      optional("NewGroupName") => String.t(),
+      optional("NewPath") => String.t(),
+      required("GroupName") => String.t()
+    }
   """
-  @spec update_group(AWS.Client.t(), update_group_request(), Keyword.t()) ::
+
+  @spec update_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-  def update_group(%Client{} = client, input, options \\ []) do
+
+  def update_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7656,12 +9162,24 @@ defmodule AWS.IAM do
   password for any IAM user. Use `ChangePassword` to change your own password in
   the **My Security Credentials** page in the Amazon Web Services Management
   Console.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateLoginProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_login_profile_request`)
+    %{
+      optional("Password") => String.t(),
+      optional("PasswordResetRequired") => boolean(),
+      required("UserName") => String.t()
+    }
   """
-  @spec update_login_profile(AWS.Client.t(), update_login_profile_request(), Keyword.t()) ::
+
+  @spec update_login_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_login_profile_errors()}
-  def update_login_profile(%Client{} = client, input, options \\ []) do
+
+  def update_login_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7673,16 +9191,24 @@ defmodule AWS.IAM do
   OpenID Connect (OIDC) provider resource object with a new list of thumbprints.
   The list that you pass with this operation completely replaces the existing
   list of thumbprints. (The lists are not merged.)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateOpenIDConnectProviderThumbprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_open_id_connect_provider_thumbprint_request`)
+    %{
+      required("OpenIDConnectProviderArn") => String.t(),
+      required("ThumbprintList") => list(String.t()())
+    }
   """
-  @spec update_open_id_connect_provider_thumbprint(
-          AWS.Client.t(),
-          update_open_id_connect_provider_thumbprint_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_open_id_connect_provider_thumbprint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_open_id_connect_provider_thumbprint_errors()}
-  def update_open_id_connect_provider_thumbprint(%Client{} = client, input, options \\ []) do
+
+  def update_open_id_connect_provider_thumbprint(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7691,12 +9217,24 @@ defmodule AWS.IAM do
 
   @doc """
   Updates the description or maximum session duration setting of a role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_role_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("MaxSessionDuration") => integer(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec update_role(AWS.Client.t(), update_role_request(), Keyword.t()) ::
+
+  @spec update_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_role_errors()}
-  def update_role(%Client{} = client, input, options \\ []) do
+
+  def update_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7705,12 +9243,23 @@ defmodule AWS.IAM do
 
   @doc """
   Use `UpdateRole` instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateRoleDescription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_role_description_request`)
+    %{
+      required("Description") => String.t(),
+      required("RoleName") => String.t()
+    }
   """
-  @spec update_role_description(AWS.Client.t(), update_role_description_request(), Keyword.t()) ::
+
+  @spec update_role_description(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_role_description_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_role_description_errors()}
-  def update_role_description(%Client{} = client, input, options \\ []) do
+
+  def update_role_description(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7719,12 +9268,23 @@ defmodule AWS.IAM do
 
   @doc """
   Updates the metadata document for an existing SAML provider resource object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateSAMLProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_saml_provider_request`)
+    %{
+      required("SAMLMetadataDocument") => String.t(),
+      required("SAMLProviderArn") => String.t()
+    }
   """
-  @spec update_saml_provider(AWS.Client.t(), update_saml_provider_request(), Keyword.t()) ::
+
+  @spec update_saml_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_saml_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_saml_provider_errors()}
-  def update_saml_provider(%Client{} = client, input, options \\ []) do
+
+  def update_saml_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7742,16 +9302,24 @@ defmodule AWS.IAM do
   path or name. For more information, see [Renaming a server
   certificate](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateServerCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_server_certificate_request`)
+    %{
+      optional("NewPath") => String.t(),
+      optional("NewServerCertificateName") => String.t(),
+      required("ServerCertificateName") => String.t()
+    }
   """
-  @spec update_server_certificate(
-          AWS.Client.t(),
-          update_server_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_server_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_server_certificate_errors()}
-  def update_server_certificate(%Client{} = client, input, options \\ []) do
+
+  def update_server_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7763,16 +9331,25 @@ defmodule AWS.IAM do
   Service-specific credentials that are inactive cannot be used for
   authentication to the service. This operation can be used to disable a user's
   service-specific credential as part of a credential rotation work flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateServiceSpecificCredential&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_service_specific_credential_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("ServiceSpecificCredentialId") => String.t(),
+      required("Status") => list(any())
+    }
   """
-  @spec update_service_specific_credential(
-          AWS.Client.t(),
-          update_service_specific_credential_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_service_specific_credential(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_specific_credential_errors()}
-  def update_service_specific_credential(%Client{} = client, input, options \\ []) do
+
+  def update_service_specific_credential(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7783,16 +9360,24 @@ defmodule AWS.IAM do
   Changes the status of the specified user signing certificate from active to
   disabled, or vice versa. This operation can be used to disable an IAM user's
   signing certificate as part of a certificate rotation work flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateSigningCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_signing_certificate_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("CertificateId") => String.t(),
+      required("Status") => list(any())
+    }
   """
-  @spec update_signing_certificate(
-          AWS.Client.t(),
-          update_signing_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_signing_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_signing_certificate_errors()}
-  def update_signing_certificate(%Client{} = client, input, options \\ []) do
+
+  def update_signing_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7804,12 +9389,24 @@ defmodule AWS.IAM do
   public keys that are inactive cannot be used for authentication. This
   operation can be used to disable a user's SSH public key as part of a key
   rotation work flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateSSHPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_ssh_public_key_request`)
+    %{
+      required("SSHPublicKeyId") => String.t(),
+      required("Status") => list(any()),
+      required("UserName") => String.t()
+    }
   """
-  @spec update_ssh_public_key(AWS.Client.t(), update_ssh_public_key_request(), Keyword.t()) ::
+
+  @spec update_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ssh_public_key_errors()}
-  def update_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def update_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7818,12 +9415,24 @@ defmodule AWS.IAM do
 
   @doc """
   Updates the name and/or the path of the specified IAM user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_user_request`)
+    %{
+      optional("NewPath") => String.t(),
+      optional("NewUserName") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::
+
+  @spec update_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-  def update_user(%Client{} = client, input, options \\ []) do
+
+  def update_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7844,16 +9453,27 @@ defmodule AWS.IAM do
   certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)
   in the *IAM User Guide*. This topic includes a list of Amazon Web Services
   services that can use the server certificates that you manage with IAM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UploadServerCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:upload_server_certificate_request`)
+    %{
+      optional("CertificateChain") => String.t(),
+      optional("Path") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("CertificateBody") => String.t(),
+      required("PrivateKey") => String.t(),
+      required("ServerCertificateName") => String.t()
+    }
   """
-  @spec upload_server_certificate(
-          AWS.Client.t(),
-          upload_server_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec upload_server_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_server_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_server_certificate_errors()}
-  def upload_server_certificate(%Client{} = client, input, options \\ []) do
+
+  def upload_server_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7874,16 +9494,23 @@ defmodule AWS.IAM do
   Services account. Consequently, you can use this operation to manage Amazon
   Web Services account root user credentials even if the Amazon Web Services
   account has no associated users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UploadSigningCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:upload_signing_certificate_request`)
+    %{
+      optional("UserName") => String.t(),
+      required("CertificateBody") => String.t()
+    }
   """
-  @spec upload_signing_certificate(
-          AWS.Client.t(),
-          upload_signing_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec upload_signing_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_signing_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_signing_certificate_errors()}
-  def upload_signing_certificate(%Client{} = client, input, options \\ []) do
+
+  def upload_signing_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7892,12 +9519,23 @@ defmodule AWS.IAM do
 
   @doc """
   Uploads an SSH public key and associates it with the specified IAM user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iam%20UploadSSHPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:upload_ssh_public_key_request`)
+    %{
+      required("SSHPublicKeyBody") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec upload_ssh_public_key(AWS.Client.t(), upload_ssh_public_key_request(), Keyword.t()) ::
+
+  @spec upload_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_ssh_public_key_errors()}
-  def upload_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def upload_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

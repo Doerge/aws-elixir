@@ -314,16 +314,22 @@ defmodule AWS.Route53RecoveryCluster do
   control state to redirect traffic for your application. *You must specify
   Regional endpoints when you work with API cluster operations to get or update
   routing control states in Route 53 ARC.*
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycluster%20GetRoutingControlState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_routing_control_state_request`)
+    %{
+      required("RoutingControlArn") => String.t()
+    }
   """
-  @spec get_routing_control_state(
-          AWS.Client.t(),
-          get_routing_control_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_routing_control_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_routing_control_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_routing_control_state_errors()}
-  def get_routing_control_state(%Client{} = client, input, options \\ []) do
+
+  def get_routing_control_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -339,12 +345,24 @@ defmodule AWS.Route53RecoveryCluster do
   is a simple on/off switch in Route 53 ARC that you can use to route traffic to
   cells. When a routing control state is set to ON, traffic flows to a cell.
   When the state is set to OFF, traffic does not flow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycluster%20ListRoutingControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_routing_controls_request`)
+    %{
+      optional("ControlPanelArn") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_routing_controls(AWS.Client.t(), list_routing_controls_request(), Keyword.t()) ::
+
+  @spec list_routing_controls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_routing_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_controls_errors()}
-  def list_routing_controls(%Client{} = client, input, options \\ []) do
+
+  def list_routing_controls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -364,16 +382,24 @@ defmodule AWS.Route53RecoveryCluster do
   control state to reroute traffic. In a "break glass" scenario like this, you
   can override one or more safety rules to change a routing control state and
   fail over your application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycluster%20UpdateRoutingControlState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_routing_control_state_request`)
+    %{
+      optional("SafetyRulesToOverride") => list(String.t()()),
+      required("RoutingControlArn") => String.t(),
+      required("RoutingControlState") => list(any())
+    }
   """
-  @spec update_routing_control_state(
-          AWS.Client.t(),
-          update_routing_control_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_routing_control_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_routing_control_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_control_state_errors()}
-  def update_routing_control_state(%Client{} = client, input, options \\ []) do
+
+  def update_routing_control_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -393,16 +419,24 @@ defmodule AWS.Route53RecoveryCluster do
   state to reroute traffic. In a "break glass" scenario like this, you can
   override one or more safety rules to change a routing control state and fail
   over your application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycluster%20UpdateRoutingControlStates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_routing_control_states_request`)
+    %{
+      optional("SafetyRulesToOverride") => list(String.t()()),
+      required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry()())
+    }
   """
-  @spec update_routing_control_states(
-          AWS.Client.t(),
-          update_routing_control_states_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_routing_control_states(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_routing_control_states_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_control_states_errors()}
-  def update_routing_control_states(%Client{} = client, input, options \\ []) do
+
+  def update_routing_control_states(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 

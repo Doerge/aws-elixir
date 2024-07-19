@@ -812,12 +812,24 @@ defmodule AWS.DataPipeline do
   pipeline does not pass validation, activation fails. If you need to pause the
   pipeline to investigate an issue with a component, such as a data source or
   script, call `DeactivatePipeline`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20ActivatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:activate_pipeline_input`)
+    %{
+      optional("parameterValues") => list(parameter_value()()),
+      optional("startTimestamp") => non_neg_integer(),
+      required("pipelineId") => String.t()
+    }
   """
-  @spec activate_pipeline(AWS.Client.t(), activate_pipeline_input(), Keyword.t()) ::
+
+  @spec activate_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activate_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_pipeline_errors()}
-  def activate_pipeline(%Client{} = client, input, options \\ []) do
+
+  def activate_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -826,12 +838,23 @@ defmodule AWS.DataPipeline do
 
   @doc """
   Adds or modifies tags for the specified pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20AddTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_input`)
+    %{
+      required("pipelineId") => String.t(),
+      required("tags") => list(tag()())
+    }
   """
-  @spec add_tags(AWS.Client.t(), add_tags_input(), Keyword.t()) ::
+
+  @spec add_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-  def add_tags(%Client{} = client, input, options \\ []) do
+
+  def add_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -841,12 +864,25 @@ defmodule AWS.DataPipeline do
   @doc """
   Creates a new, empty pipeline. Use `PutPipelineDefinition` to populate the
   pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20CreatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_pipeline_input`)
+    %{
+      optional("description") => String.t(),
+      optional("tags") => list(tag()()),
+      required("name") => String.t(),
+      required("uniqueId") => String.t()
+    }
   """
-  @spec create_pipeline(AWS.Client.t(), create_pipeline_input(), Keyword.t()) ::
+
+  @spec create_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
-  def create_pipeline(%Client{} = client, input, options \\ []) do
+
+  def create_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -856,12 +892,23 @@ defmodule AWS.DataPipeline do
   @doc """
   Deactivates the specified running pipeline. The pipeline is set to the
   `DEACTIVATING` state until the deactivation process completes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20DeactivatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deactivate_pipeline_input`)
+    %{
+      optional("cancelActive") => boolean(),
+      required("pipelineId") => String.t()
+    }
   """
-  @spec deactivate_pipeline(AWS.Client.t(), deactivate_pipeline_input(), Keyword.t()) ::
+
+  @spec deactivate_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deactivate_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_pipeline_errors()}
-  def deactivate_pipeline(%Client{} = client, input, options \\ []) do
+
+  def deactivate_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -876,12 +923,22 @@ defmodule AWS.DataPipeline do
   pipeline instead of deleting it, call `SetStatus` with the status set to
   `PAUSE` on individual components. Components that are paused by `SetStatus`
   can be resumed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20DeletePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_pipeline_input`)
+    %{
+      required("pipelineId") => String.t()
+    }
   """
-  @spec delete_pipeline(AWS.Client.t(), delete_pipeline_input(), Keyword.t()) ::
+
+  @spec delete_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
-  def delete_pipeline(%Client{} = client, input, options \\ []) do
+
+  def delete_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -892,12 +949,25 @@ defmodule AWS.DataPipeline do
   Gets the object definitions for a set of objects associated with the pipeline.
   Object definitions are composed of a set of fields that define the properties
   of the object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20DescribeObjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_objects_input`)
+    %{
+      optional("evaluateExpressions") => boolean(),
+      optional("marker") => String.t(),
+      required("objectIds") => list(String.t()()),
+      required("pipelineId") => String.t()
+    }
   """
-  @spec describe_objects(AWS.Client.t(), describe_objects_input(), Keyword.t()) ::
+
+  @spec describe_objects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_objects_errors()}
-  def describe_objects(%Client{} = client, input, options \\ []) do
+
+  def describe_objects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -913,12 +983,22 @@ defmodule AWS.DataPipeline do
   those pipelines for which you have read permissions. To retrieve the full
   pipeline definition instead of metadata about the pipeline, call
   `GetPipelineDefinition`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20DescribePipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_pipelines_input`)
+    %{
+      required("pipelineIds") => list(String.t()())
+    }
   """
-  @spec describe_pipelines(AWS.Client.t(), describe_pipelines_input(), Keyword.t()) ::
+
+  @spec describe_pipelines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pipelines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipelines_errors()}
-  def describe_pipelines(%Client{} = client, input, options \\ []) do
+
+  def describe_pipelines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -929,12 +1009,24 @@ defmodule AWS.DataPipeline do
   Task runners call `EvaluateExpression` to evaluate a string in the context of
   the specified object. For example, a task runner can evaluate SQL queries
   stored in Amazon S3.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20EvaluateExpression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:evaluate_expression_input`)
+    %{
+      required("expression") => String.t(),
+      required("objectId") => String.t(),
+      required("pipelineId") => String.t()
+    }
   """
-  @spec evaluate_expression(AWS.Client.t(), evaluate_expression_input(), Keyword.t()) ::
+
+  @spec evaluate_expression(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, evaluate_expression_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, evaluate_expression_errors()}
-  def evaluate_expression(%Client{} = client, input, options \\ []) do
+
+  def evaluate_expression(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -945,12 +1037,23 @@ defmodule AWS.DataPipeline do
   Gets the definition of the specified pipeline. You can call
   `GetPipelineDefinition` to retrieve the pipeline definition that you provided
   using `PutPipelineDefinition`. <examples>
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20GetPipelineDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_pipeline_definition_input`)
+    %{
+      optional("version") => String.t(),
+      required("pipelineId") => String.t()
+    }
   """
-  @spec get_pipeline_definition(AWS.Client.t(), get_pipeline_definition_input(), Keyword.t()) ::
+
+  @spec get_pipeline_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_pipeline_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_definition_errors()}
-  def get_pipeline_definition(%Client{} = client, input, options \\ []) do
+
+  def get_pipeline_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -960,12 +1063,22 @@ defmodule AWS.DataPipeline do
   @doc """
   Lists the pipeline identifiers for all active pipelines that you have permission
   to access.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_pipelines_input`)
+    %{
+      optional("marker") => String.t()
+    }
   """
-  @spec list_pipelines(AWS.Client.t(), list_pipelines_input(), Keyword.t()) ::
+
+  @spec list_pipelines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pipelines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-  def list_pipelines(%Client{} = client, input, options \\ []) do
+
+  def list_pipelines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -985,12 +1098,24 @@ defmodule AWS.DataPipeline do
   accomodate this, set the socket timeout in your task runner to 90 seconds. The
   task runner should not call `PollForTask` again on the same `workerGroup`
   until it receives a response, and this can take up to 90 seconds.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20PollForTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:poll_for_task_input`)
+    %{
+      optional("hostname") => String.t(),
+      optional("instanceIdentity") => instance_identity(),
+      required("workerGroup") => String.t()
+    }
   """
-  @spec poll_for_task(AWS.Client.t(), poll_for_task_input(), Keyword.t()) ::
+
+  @spec poll_for_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, poll_for_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, poll_for_task_errors()}
-  def poll_for_task(%Client{} = client, input, options \\ []) do
+
+  def poll_for_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1003,12 +1128,25 @@ defmodule AWS.DataPipeline do
   also validates the configuration as it adds it to the pipeline. Changes to the
   pipeline are saved unless one of the following three validation errors exists
   in the pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20PutPipelineDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_pipeline_definition_input`)
+    %{
+      optional("parameterObjects") => list(parameter_object()()),
+      optional("parameterValues") => list(parameter_value()()),
+      required("pipelineId") => String.t(),
+      required("pipelineObjects") => list(pipeline_object()())
+    }
   """
-  @spec put_pipeline_definition(AWS.Client.t(), put_pipeline_definition_input(), Keyword.t()) ::
+
+  @spec put_pipeline_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_pipeline_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_pipeline_definition_errors()}
-  def put_pipeline_definition(%Client{} = client, input, options \\ []) do
+
+  def put_pipeline_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1018,12 +1156,26 @@ defmodule AWS.DataPipeline do
   @doc """
   Queries the specified pipeline for the names of objects that match the specified
   set of conditions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20QueryObjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:query_objects_input`)
+    %{
+      optional("limit") => integer(),
+      optional("marker") => String.t(),
+      optional("query") => query(),
+      required("pipelineId") => String.t(),
+      required("sphere") => String.t()
+    }
   """
-  @spec query_objects(AWS.Client.t(), query_objects_input(), Keyword.t()) ::
+
+  @spec query_objects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_objects_errors()}
-  def query_objects(%Client{} = client, input, options \\ []) do
+
+  def query_objects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1032,12 +1184,23 @@ defmodule AWS.DataPipeline do
 
   @doc """
   Removes existing tags from the specified pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20RemoveTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_input`)
+    %{
+      required("pipelineId") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec remove_tags(AWS.Client.t(), remove_tags_input(), Keyword.t()) ::
+
+  @spec remove_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
-  def remove_tags(%Client{} = client, input, options \\ []) do
+
+  def remove_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1056,12 +1219,23 @@ defmodule AWS.DataPipeline do
   runner is unable to process the task and reassigns the task in a subsequent
   response to `PollForTask`. Task runners should call `ReportTaskProgress` every
   60 seconds.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20ReportTaskProgress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:report_task_progress_input`)
+    %{
+      optional("fields") => list(field()()),
+      required("taskId") => String.t()
+    }
   """
-  @spec report_task_progress(AWS.Client.t(), report_task_progress_input(), Keyword.t()) ::
+
+  @spec report_task_progress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, report_task_progress_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, report_task_progress_errors()}
-  def report_task_progress(%Client{} = client, input, options \\ []) do
+
+  def report_task_progress(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1073,16 +1247,24 @@ defmodule AWS.DataPipeline do
   they are operational. If the AWS Data Pipeline Task Runner is launched on a
   resource managed by AWS Data Pipeline, the web service can use this call to
   detect when the task runner application has failed and restart a new instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20ReportTaskRunnerHeartbeat&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:report_task_runner_heartbeat_input`)
+    %{
+      optional("hostname") => String.t(),
+      optional("workerGroup") => String.t(),
+      required("taskrunnerId") => String.t()
+    }
   """
-  @spec report_task_runner_heartbeat(
-          AWS.Client.t(),
-          report_task_runner_heartbeat_input(),
-          Keyword.t()
-        ) ::
+
+  @spec report_task_runner_heartbeat(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, report_task_runner_heartbeat_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, report_task_runner_heartbeat_errors()}
-  def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) do
+
+  def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1096,12 +1278,24 @@ defmodule AWS.DataPipeline do
   of object (for example, DataNode or Activity). You cannot perform this
   operation on `FINISHED` pipelines and attempting to do so returns
   `InvalidRequestException`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20SetStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_status_input`)
+    %{
+      required("objectIds") => list(String.t()()),
+      required("pipelineId") => String.t(),
+      required("status") => String.t()
+    }
   """
-  @spec set_status(AWS.Client.t(), set_status_input(), Keyword.t()) ::
+
+  @spec set_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_status_errors()}
-  def set_status(%Client{} = client, input, options \\ []) do
+
+  def set_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1114,12 +1308,26 @@ defmodule AWS.DataPipeline do
   this call regardless of whether the task was sucessful. A task runner does not
   need to call `SetTaskStatus` for tasks that are canceled by the web service
   during a call to `ReportTaskProgress`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20SetTaskStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_task_status_input`)
+    %{
+      optional("errorId") => String.t(),
+      optional("errorMessage") => String.t(),
+      optional("errorStackTrace") => String.t(),
+      required("taskId") => String.t(),
+      required("taskStatus") => list(any())
+    }
   """
-  @spec set_task_status(AWS.Client.t(), set_task_status_input(), Keyword.t()) ::
+
+  @spec set_task_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_task_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_task_status_errors()}
-  def set_task_status(%Client{} = client, input, options \\ []) do
+
+  def set_task_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1129,16 +1337,25 @@ defmodule AWS.DataPipeline do
   @doc """
   Validates the specified pipeline definition to ensure that it is well formed and
   can be run without error. <examples>
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datapipeline%20ValidatePipelineDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:validate_pipeline_definition_input`)
+    %{
+      optional("parameterObjects") => list(parameter_object()()),
+      optional("parameterValues") => list(parameter_value()()),
+      required("pipelineId") => String.t(),
+      required("pipelineObjects") => list(pipeline_object()())
+    }
   """
-  @spec validate_pipeline_definition(
-          AWS.Client.t(),
-          validate_pipeline_definition_input(),
-          Keyword.t()
-        ) ::
+
+  @spec validate_pipeline_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, validate_pipeline_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_pipeline_definition_errors()}
-  def validate_pipeline_definition(%Client{} = client, input, options \\ []) do
+
+  def validate_pipeline_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

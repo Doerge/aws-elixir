@@ -15,7 +15,7 @@ defmodule AWS.Ivs do
   @typedoc """
 
   ## Example:
-
+      
       update_playback_restriction_policy_request() :: %{
         optional("allowedCountries") => list(String.t()()),
         optional("allowedOrigins") => list(String.t()()),
@@ -23,84 +23,84 @@ defmodule AWS.Ivs do
         optional("name") => String.t(),
         required("arn") => String.t()
       }
-
+      
   """
   @type update_playback_restriction_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_channel_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_stream_key_response() :: %{
         optional("streamKey") => stream_key()
       }
-
+      
   """
   @type create_stream_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ingest_configuration() :: %{
         "audio" => audio_configuration(),
         "video" => video_configuration()
       }
-
+      
   """
   @type ingest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_session_summary() :: %{
         "endTime" => non_neg_integer(),
         "hasErrorEvent" => boolean(),
         "startTime" => non_neg_integer(),
         "streamId" => String.t()
       }
-
+      
   """
   @type stream_session_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_channel_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recording_configuration() :: %{
         "arn" => String.t(),
         "destinationConfiguration" => destination_configuration(),
@@ -111,70 +111,70 @@ defmodule AWS.Ivs do
         "tags" => map(),
         "thumbnailConfiguration" => thumbnail_configuration()
       }
-
+      
   """
   @type recording_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_response() :: %{
         optional("channel") => channel(),
         optional("streamKey") => stream_key()
       }
-
+      
   """
   @type create_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_playback_key_pair_request() :: %{
         optional("name") => String.t(),
         optional("tags") => map(),
         required("publicKeyMaterial") => String.t()
       }
-
+      
   """
   @type import_playback_key_pair_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stream_response() :: %{
         optional("stream") => stream()
       }
-
+      
   """
   @type get_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stream_key_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_stream_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       playback_restriction_policy() :: %{
         "allowedCountries" => list(String.t()()),
         "allowedOrigins" => list(String.t()()),
@@ -183,84 +183,84 @@ defmodule AWS.Ivs do
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type playback_restriction_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_playback_restriction_policy_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_playback_restriction_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_stream_sessions_response() :: %{
         optional("nextToken") => String.t(),
         required("streamSessions") => list(stream_session_summary()())
       }
-
+      
   """
   @type list_stream_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       playback_key_pair_summary() :: %{
         "arn" => String.t(),
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type playback_key_pair_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_playback_key_pair_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_playback_key_pair_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_playback_restriction_policy_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_playback_restriction_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_playback_key_pairs_response() :: %{
         optional("nextToken") => String.t(),
         required("keyPairs") => list(playback_key_pair_summary()())
       }
-
+      
   """
   @type list_playback_key_pairs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recording_configuration_summary() :: %{
         "arn" => String.t(),
         "destinationConfiguration" => destination_configuration(),
@@ -268,141 +268,141 @@ defmodule AWS.Ivs do
         "state" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type recording_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_playback_restriction_policy_response() :: %{
         "playbackRestrictionPolicy" => playback_restriction_policy()
       }
-
+      
   """
   @type update_playback_restriction_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_channel_response() :: %{
         optional("channels") => list(channel()()),
         optional("errors") => list(batch_error()())
       }
-
+      
   """
   @type batch_get_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_recording_configuration_response() :: %{
         optional("recordingConfiguration") => recording_configuration()
       }
-
+      
   """
   @type create_recording_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_playback_key_pair_response() :: %{
         optional("keyPair") => playback_key_pair()
       }
-
+      
   """
   @type import_playback_key_pair_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_playback_key_pair_response() :: %{}
-
+      
   """
   @type delete_playback_key_pair_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_stream_keys_response() :: %{
         optional("nextToken") => String.t(),
         required("streamKeys") => list(stream_key_summary()())
       }
-
+      
   """
   @type list_stream_keys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streams_request() :: %{
         optional("filterBy") => stream_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_streams_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stream_session_request() :: %{
         optional("streamId") => String.t(),
         required("channelArn") => String.t()
       }
-
+      
   """
   @type get_stream_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_key() :: %{
         "arn" => String.t(),
         "channelArn" => String.t(),
         "tags" => map(),
         "value" => String.t()
       }
-
+      
   """
   @type stream_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_start_viewer_session_revocation_request() :: %{
         required("viewerSessions") => list(batch_start_viewer_session_revocation_viewer_session()())
       }
-
+      
   """
   @type batch_start_viewer_session_revocation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_recording_configuration_request() :: %{
         optional("name") => String.t(),
         optional("recordingReconnectWindowSeconds") => integer(),
@@ -411,51 +411,51 @@ defmodule AWS.Ivs do
         optional("thumbnailConfiguration") => thumbnail_configuration(),
         required("destinationConfiguration") => destination_configuration()
       }
-
+      
   """
   @type create_recording_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_stream_key_request() :: %{
         optional("tags") => map(),
         required("channelArn") => String.t()
       }
-
+      
   """
   @type create_stream_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       playback_key_pair() :: %{
         "arn" => String.t(),
         "fingerprint" => String.t(),
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type playback_key_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_stream_key_request() :: %{
         required("arns") => list(String.t()())
       }
-
+      
   """
   @type batch_get_stream_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       playback_restriction_policy_summary() :: %{
         "allowedCountries" => list(String.t()()),
         "allowedOrigins" => list(String.t()()),
@@ -464,14 +464,14 @@ defmodule AWS.Ivs do
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type playback_restriction_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_summary() :: %{
         "arn" => String.t(),
         "authorized" => boolean(),
@@ -484,93 +484,93 @@ defmodule AWS.Ivs do
         "tags" => map(),
         "type" => list(any())
       }
-
+      
   """
   @type channel_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_recording_configuration_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_recording_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streams_response() :: %{
         optional("nextToken") => String.t(),
         required("streams") => list(stream_summary()())
       }
-
+      
   """
   @type list_streams_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recording_configuration_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_recording_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_recording_configurations_response() :: %{
         optional("nextToken") => String.t(),
         required("recordingConfigurations") => list(recording_configuration_summary()())
       }
-
+      
   """
   @type list_recording_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_session() :: %{
         "channel" => channel(),
         "endTime" => non_neg_integer(),
@@ -580,58 +580,58 @@ defmodule AWS.Ivs do
         "streamId" => String.t(),
         "truncatedEvents" => list(stream_event()())
       }
-
+      
   """
   @type stream_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_channel_request() :: %{
         required("arns") => list(String.t()())
       }
-
+      
   """
   @type batch_get_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_stream_key_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_stream_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_destination_configuration() :: %{
         "bucketName" => String.t()
       }
-
+      
   """
   @type s3_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_playback_restriction_policy_response() :: %{
         "playbackRestrictionPolicy" => playback_restriction_policy()
       }
-
+      
   """
   @type get_playback_restriction_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_request() :: %{
         optional("authorized") => boolean(),
         optional("insecureIngest") => boolean(),
@@ -643,50 +643,50 @@ defmodule AWS.Ivs do
         optional("tags") => map(),
         optional("type") => list(any())
       }
-
+      
   """
   @type create_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_event() :: %{
         "eventTime" => non_neg_integer(),
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type stream_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channels_response() :: %{
         optional("nextToken") => String.t(),
         required("channels") => list(channel_summary()())
       }
-
+      
   """
   @type list_channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_request() :: %{
         optional("authorized") => boolean(),
         optional("insecureIngest") => boolean(),
@@ -698,277 +698,277 @@ defmodule AWS.Ivs do
         optional("type") => list(any()),
         required("arn") => String.t()
       }
-
+      
   """
   @type update_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_stream_response() :: %{}
-
+      
   """
   @type stop_stream_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_unavailable() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type stream_unavailable() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_playback_key_pair_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_playback_key_pair_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_playback_restriction_policy_response() :: %{
         "playbackRestrictionPolicy" => playback_restriction_policy()
       }
-
+      
   """
   @type create_playback_restriction_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_stream_sessions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("channelArn") => String.t()
       }
-
+      
   """
   @type list_stream_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_playback_restriction_policies_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_playback_restriction_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recording_configuration_response() :: %{
         optional("recordingConfiguration") => recording_configuration()
       }
-
+      
   """
   @type get_recording_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_playback_key_pair_response() :: %{
         optional("keyPair") => playback_key_pair()
       }
-
+      
   """
   @type get_playback_key_pair_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stream_request() :: %{
         required("channelArn") => String.t()
       }
-
+      
   """
   @type get_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_stream_keys_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("channelArn") => String.t()
       }
-
+      
   """
   @type list_stream_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audio_configuration() :: %{
         "channels" => float(),
         "codec" => String.t(),
         "sampleRate" => float(),
         "targetBitrate" => float()
       }
-
+      
   """
   @type audio_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_metadata_request() :: %{
         required("channelArn") => String.t(),
         required("metadata") => String.t()
       }
-
+      
   """
   @type put_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       thumbnail_configuration() :: %{
         "recordingMode" => String.t(),
         "resolution" => String.t(),
         "storage" => list(String.t()()),
         "targetIntervalSeconds" => float()
       }
-
+      
   """
   @type thumbnail_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_start_viewer_session_revocation_viewer_session() :: %{
         "channelArn" => String.t(),
         "viewerId" => String.t(),
         "viewerSessionVersionsLessThanOrEqualTo" => integer()
       }
-
+      
   """
   @type batch_start_viewer_session_revocation_viewer_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       rendition_configuration() :: %{
         "renditionSelection" => String.t(),
         "renditions" => list(String.t()())
       }
-
+      
   """
   @type rendition_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stream_key_response() :: %{
         optional("streamKey") => stream_key()
       }
-
+      
   """
   @type get_stream_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_playback_restriction_policies_response() :: %{
         "nextToken" => String.t(),
         "playbackRestrictionPolicies" => list(playback_restriction_policy_summary()())
       }
-
+      
   """
   @type list_playback_restriction_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel() :: %{
         "arn" => String.t(),
         "authorized" => boolean(),
@@ -984,14 +984,14 @@ defmodule AWS.Ivs do
         "tags" => map(),
         "type" => list(any())
       }
-
+      
   """
   @type channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_summary() :: %{
         "channelArn" => String.t(),
         "health" => String.t(),
@@ -1000,72 +1000,72 @@ defmodule AWS.Ivs do
         "streamId" => String.t(),
         "viewerCount" => float()
       }
-
+      
   """
   @type stream_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_start_viewer_session_revocation_response() :: %{
         optional("errors") => list(batch_start_viewer_session_revocation_error()())
       }
-
+      
   """
   @type batch_start_viewer_session_revocation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_start_viewer_session_revocation_error() :: %{
         "channelArn" => String.t(),
         "code" => String.t(),
         "message" => String.t(),
         "viewerId" => String.t()
       }
-
+      
   """
   @type batch_start_viewer_session_revocation_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_stream_request() :: %{
         required("channelArn") => String.t()
       }
-
+      
   """
   @type stop_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_channel_response() :: %{
         optional("channel") => channel()
       }
-
+      
   """
   @type get_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_filters() :: %{
         "health" => String.t()
       }
-
+      
   """
   @type stream_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream() :: %{
         "channelArn" => String.t(),
         "health" => String.t(),
@@ -1075,60 +1075,60 @@ defmodule AWS.Ivs do
         "streamId" => String.t(),
         "viewerCount" => float()
       }
-
+      
   """
   @type stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_viewer_session_revocation_request() :: %{
         optional("viewerSessionVersionsLessThanOrEqualTo") => integer(),
         required("channelArn") => String.t(),
         required("viewerId") => String.t()
       }
-
+      
   """
   @type start_viewer_session_revocation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_response() :: %{
         optional("channel") => channel()
       }
-
+      
   """
   @type update_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_error() :: %{
         "arn" => String.t(),
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type batch_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_viewer_session_revocation_response() :: %{}
-
+      
   """
   @type start_viewer_session_revocation_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       video_configuration() :: %{
         "avcLevel" => String.t(),
         "avcProfile" => String.t(),
@@ -1139,26 +1139,26 @@ defmodule AWS.Ivs do
         "videoHeight" => float(),
         "videoWidth" => float()
       }
-
+      
   """
   @type video_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_playback_key_pairs_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_playback_key_pairs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channels_request() :: %{
         optional("filterByName") => String.t(),
         optional("filterByPlaybackRestrictionPolicyArn") => String.t(),
@@ -1166,50 +1166,50 @@ defmodule AWS.Ivs do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_channels_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_stream_session_response() :: %{
         optional("streamSession") => stream_session()
       }
-
+      
   """
   @type get_stream_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_key_summary() :: %{
         "arn" => String.t(),
         "channelArn" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type stream_key_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       srt() :: %{
         "endpoint" => String.t(),
         "passphrase" => String.t()
       }
-
+      
   """
   @type srt() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_playback_restriction_policy_request() :: %{
         optional("allowedCountries") => list(String.t()()),
         optional("allowedOrigins") => list(String.t()()),
@@ -1217,64 +1217,64 @@ defmodule AWS.Ivs do
         optional("name") => String.t(),
         optional("tags") => map()
       }
-
+      
   """
   @type create_playback_restriction_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_recording_configurations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_recording_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pending_verification() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type pending_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_configuration() :: %{
         "s3" => s3_destination_configuration()
       }
-
+      
   """
   @type destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_stream_key_response() :: %{
         optional("errors") => list(batch_error()()),
         optional("streamKeys") => list(stream_key()())
       }
-
+      
   """
   @type batch_get_stream_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_not_broadcasting() :: %{
         "exceptionMessage" => String.t()
       }
-
+      
   """
   @type channel_not_broadcasting() :: %{String.t() => any()}
 
@@ -1475,28 +1475,39 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec batch_get_channel(AWS.Client.t(), batch_get_channel_request(), Keyword.t()) ::
+
+  @spec batch_get_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def batch_get_channel(%Client{} = client, input, options \\ []) do
+
+  def batch_get_channel(%Client{} = client, options \\ []) do
     url_path = "/BatchGetChannel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1508,28 +1519,39 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec batch_get_stream_key(AWS.Client.t(), batch_get_stream_key_request(), Keyword.t()) ::
+
+  @spec batch_get_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def batch_get_stream_key(%Client{} = client, input, options \\ []) do
+
+  def batch_get_stream_key(%Client{} = client, options \\ []) do
     url_path = "/BatchGetStreamKey"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1542,33 +1564,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec batch_start_viewer_session_revocation(
-          AWS.Client.t(),
-          batch_start_viewer_session_revocation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_start_viewer_session_revocation(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_start_viewer_session_revocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_start_viewer_session_revocation_errors()}
-  def batch_start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
+
+  def batch_start_viewer_session_revocation(%Client{} = client, options \\ []) do
     url_path = "/BatchStartViewerSessionRevocation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1580,29 +1609,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
+
+  @spec create_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-  def create_channel(%Client{} = client, input, options \\ []) do
+
+  def create_channel(%Client{} = client, options \\ []) do
     url_path = "/CreateChannel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1615,33 +1655,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec create_playback_restriction_policy(
-          AWS.Client.t(),
-          create_playback_restriction_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_playback_restriction_policy_errors()}
-  def create_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+
+  def create_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/CreatePlaybackRestrictionPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1658,33 +1705,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec create_recording_configuration(
-          AWS.Client.t(),
-          create_recording_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_recording_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recording_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recording_configuration_errors()}
-  def create_recording_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_recording_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateRecordingConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1696,29 +1750,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec create_stream_key(AWS.Client.t(), create_stream_key_request(), Keyword.t()) ::
+
+  @spec create_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stream_key_errors()}
-  def create_stream_key(%Client{} = client, input, options \\ []) do
+
+  def create_stream_key(%Client{} = client, options \\ []) do
     url_path = "/CreateStreamKey"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1730,29 +1795,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec delete_channel(AWS.Client.t(), delete_channel_request(), Keyword.t()) ::
+
+  @spec delete_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-  def delete_channel(%Client{} = client, input, options \\ []) do
+
+  def delete_channel(%Client{} = client, options \\ []) do
     url_path = "/DeleteChannel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1768,29 +1844,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec delete_playback_key_pair(AWS.Client.t(), delete_playback_key_pair_request(), Keyword.t()) ::
+
+  @spec delete_playback_key_pair(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_playback_key_pair_errors()}
-  def delete_playback_key_pair(%Client{} = client, input, options \\ []) do
+
+  def delete_playback_key_pair(%Client{} = client, options \\ []) do
     url_path = "/DeletePlaybackKeyPair"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1802,33 +1889,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec delete_playback_restriction_policy(
-          AWS.Client.t(),
-          delete_playback_restriction_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_playback_restriction_policy_errors()}
-  def delete_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/DeletePlaybackRestrictionPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1840,33 +1934,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec delete_recording_configuration(
-          AWS.Client.t(),
-          delete_recording_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_recording_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recording_configuration_errors()}
-  def delete_recording_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_recording_configuration(%Client{} = client, options \\ []) do
     url_path = "/DeleteRecordingConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1879,29 +1980,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec delete_stream_key(AWS.Client.t(), delete_stream_key_request(), Keyword.t()) ::
+
+  @spec delete_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stream_key_errors()}
-  def delete_stream_key(%Client{} = client, input, options \\ []) do
+
+  def delete_stream_key(%Client{} = client, options \\ []) do
     url_path = "/DeleteStreamKey"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1914,29 +2026,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec get_channel(AWS.Client.t(), get_channel_request(), Keyword.t()) ::
+
+  @spec get_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_errors()}
-  def get_channel(%Client{} = client, input, options \\ []) do
+
+  def get_channel(%Client{} = client, options \\ []) do
     url_path = "/GetChannel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1953,29 +2076,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec get_playback_key_pair(AWS.Client.t(), get_playback_key_pair_request(), Keyword.t()) ::
+
+  @spec get_playback_key_pair(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_playback_key_pair_errors()}
-  def get_playback_key_pair(%Client{} = client, input, options \\ []) do
+
+  def get_playback_key_pair(%Client{} = client, options \\ []) do
     url_path = "/GetPlaybackKeyPair"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1987,33 +2121,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec get_playback_restriction_policy(
-          AWS.Client.t(),
-          get_playback_restriction_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_playback_restriction_policy_errors()}
-  def get_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+
+  def get_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/GetPlaybackRestrictionPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2025,33 +2166,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec get_recording_configuration(
-          AWS.Client.t(),
-          get_recording_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_recording_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recording_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recording_configuration_errors()}
-  def get_recording_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_recording_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetRecordingConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2063,29 +2211,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec get_stream(AWS.Client.t(), get_stream_request(), Keyword.t()) ::
+
+  @spec get_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stream_errors()}
-  def get_stream(%Client{} = client, input, options \\ []) do
+
+  def get_stream(%Client{} = client, options \\ []) do
     url_path = "/GetStream"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2097,29 +2256,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec get_stream_key(AWS.Client.t(), get_stream_key_request(), Keyword.t()) ::
+
+  @spec get_stream_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stream_key_errors()}
-  def get_stream_key(%Client{} = client, input, options \\ []) do
+
+  def get_stream_key(%Client{} = client, options \\ []) do
     url_path = "/GetStreamKey"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2131,29 +2301,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec get_stream_session(AWS.Client.t(), get_stream_session_request(), Keyword.t()) ::
+
+  @spec get_stream_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stream_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_stream_session_errors()}
-  def get_stream_session(%Client{} = client, input, options \\ []) do
+
+  def get_stream_session(%Client{} = client, options \\ []) do
     url_path = "/GetStreamSession"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2170,29 +2351,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec import_playback_key_pair(AWS.Client.t(), import_playback_key_pair_request(), Keyword.t()) ::
+
+  @spec import_playback_key_pair(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_playback_key_pair_errors()}
-  def import_playback_key_pair(%Client{} = client, input, options \\ []) do
+
+  def import_playback_key_pair(%Client{} = client, options \\ []) do
     url_path = "/ImportPlaybackKeyPair"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2208,29 +2400,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec list_channels(AWS.Client.t(), list_channels_request(), Keyword.t()) ::
+
+  @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-  def list_channels(%Client{} = client, input, options \\ []) do
+
+  def list_channels(%Client{} = client, options \\ []) do
     url_path = "/ListChannels"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2245,29 +2448,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec list_playback_key_pairs(AWS.Client.t(), list_playback_key_pairs_request(), Keyword.t()) ::
+
+  @spec list_playback_key_pairs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_key_pairs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_playback_key_pairs_errors()}
-  def list_playback_key_pairs(%Client{} = client, input, options \\ []) do
+
+  def list_playback_key_pairs(%Client{} = client, options \\ []) do
     url_path = "/ListPlaybackKeyPairs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2279,33 +2493,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec list_playback_restriction_policies(
-          AWS.Client.t(),
-          list_playback_restriction_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_playback_restriction_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_restriction_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_playback_restriction_policies_errors()}
-  def list_playback_restriction_policies(%Client{} = client, input, options \\ []) do
+
+  def list_playback_restriction_policies(%Client{} = client, options \\ []) do
     url_path = "/ListPlaybackRestrictionPolicies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2318,33 +2539,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec list_recording_configurations(
-          AWS.Client.t(),
-          list_recording_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_recording_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recording_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recording_configurations_errors()}
-  def list_recording_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_recording_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListRecordingConfigurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2356,29 +2584,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec list_stream_keys(AWS.Client.t(), list_stream_keys_request(), Keyword.t()) ::
+
+  @spec list_stream_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_stream_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stream_keys_errors()}
-  def list_stream_keys(%Client{} = client, input, options \\ []) do
+
+  def list_stream_keys(%Client{} = client, options \\ []) do
     url_path = "/ListStreamKeys"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2391,29 +2630,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec list_stream_sessions(AWS.Client.t(), list_stream_sessions_request(), Keyword.t()) ::
+
+  @spec list_stream_sessions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_stream_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stream_sessions_errors()}
-  def list_stream_sessions(%Client{} = client, input, options \\ []) do
+
+  def list_stream_sessions(%Client{} = client, options \\ []) do
     url_path = "/ListStreamSessions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2426,29 +2676,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec list_streams(AWS.Client.t(), list_streams_request(), Keyword.t()) ::
+
+  @spec list_streams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streams_errors()}
-  def list_streams(%Client{} = client, input, options \\ []) do
+
+  def list_streams(%Client{} = client, options \\ []) do
     url_path = "/ListStreams"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2458,14 +2719,16 @@ defmodule AWS.Ivs do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN
-    must be URL-encoded.
+  must be URL-encoded.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2509,29 +2772,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec put_metadata(AWS.Client.t(), put_metadata_request(), Keyword.t()) ::
+
+  @spec put_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_metadata_errors()}
-  def put_metadata(%Client{} = client, input, options \\ []) do
+
+  def put_metadata(%Client{} = client, options \\ []) do
     url_path = "/PutMetadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2547,33 +2821,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec start_viewer_session_revocation(
-          AWS.Client.t(),
-          start_viewer_session_revocation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_viewer_session_revocation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_viewer_session_revocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_viewer_session_revocation_errors()}
-  def start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
+
+  def start_viewer_session_revocation(%Client{} = client, options \\ []) do
     url_path = "/StartViewerSessionRevocation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2586,29 +2867,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec stop_stream(AWS.Client.t(), stop_stream_request(), Keyword.t()) ::
+
+  @spec stop_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_stream_errors()}
-  def stop_stream(%Client{} = client, input, options \\ []) do
+
+  def stop_stream(%Client{} = client, options \\ []) do
     url_path = "/StopStream"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2619,33 +2911,44 @@ defmodule AWS.Ivs do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
-    added or updated. The ARN must be URL-encoded.
+  added or updated. The ARN must be URL-encoded.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2655,31 +2958,48 @@ defmodule AWS.Ivs do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
-    removed. The ARN must be URL-encoded.
+  removed. The ARN must be URL-encoded.
   * `:tag_keys` (`t:list[com.amazonaws.ivs#TagKey]`) Array of tags to be removed.
-    Array of maps, each of the form string:string (key:value). See Tagging
-    Amazon Web Services Resources for more information, including restrictions
-    that apply to tags and "Tag naming limits and requirements"; Amazon IVS has
-    no service-specific constraints beyond what is documented there.
+  Array of maps, each of the form string:string (key:value). See Tagging
+  Amazon Web Services Resources for more information, including restrictions
+  that apply to tags and "Tag naming limits and requirements"; Amazon IVS has
+  no service-specific constraints beyond what is documented there.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2688,7 +3008,7 @@ defmodule AWS.Ivs do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2705,29 +3025,40 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec update_channel(AWS.Client.t(), update_channel_request(), Keyword.t()) ::
+
+  @spec update_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-  def update_channel(%Client{} = client, input, options \\ []) do
+
+  def update_channel(%Client{} = client, options \\ []) do
     url_path = "/UpdateChannel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2739,32 +3070,39 @@ defmodule AWS.Ivs do
 
   ## Optional parameters:
   """
-  @spec update_playback_restriction_policy(
-          AWS.Client.t(),
-          update_playback_restriction_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_playback_restriction_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_playback_restriction_policy_errors()}
-  def update_playback_restriction_policy(%Client{} = client, input, options \\ []) do
+
+  def update_playback_restriction_policy(%Client{} = client, options \\ []) do
     url_path = "/UpdatePlaybackRestrictionPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

@@ -2499,12 +2499,22 @@ defmodule AWS.FMS do
   administrative scope that allows administration of all policy types, accounts,
   organizational units, and Regions. This account must be a member account of
   the organization in Organizations whose resources you want to protect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20AssociateAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_admin_account_request`)
+    %{
+      required("AdminAccount") => String.t()
+    }
   """
-  @spec associate_admin_account(AWS.Client.t(), associate_admin_account_request(), Keyword.t()) ::
+
+  @spec associate_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_admin_account_errors()}
-  def associate_admin_account(%Client{} = client, input, options \\ []) do
+
+  def associate_admin_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2516,16 +2526,23 @@ defmodule AWS.FMS do
   third-party firewall service. A tenant is an instance of the third-party
   firewall service that's associated with your Amazon Web Services customer
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20AssociateThirdPartyFirewall&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_third_party_firewall_request`)
+    %{
+      required("ThirdPartyFirewall") => list(any())
+    }
   """
-  @spec associate_third_party_firewall(
-          AWS.Client.t(),
-          associate_third_party_firewall_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_third_party_firewall(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_third_party_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_third_party_firewall_errors()}
-  def associate_third_party_firewall(%Client{} = client, input, options \\ []) do
+
+  def associate_third_party_firewall(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2534,12 +2551,23 @@ defmodule AWS.FMS do
 
   @doc """
   Associate resources to a Firewall Manager resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20BatchAssociateResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_associate_resource_request`)
+    %{
+      required("Items") => list(String.t()()),
+      required("ResourceSetIdentifier") => String.t()
+    }
   """
-  @spec batch_associate_resource(AWS.Client.t(), batch_associate_resource_request(), Keyword.t()) ::
+
+  @spec batch_associate_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_resource_errors()}
-  def batch_associate_resource(%Client{} = client, input, options \\ []) do
+
+  def batch_associate_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2548,16 +2576,23 @@ defmodule AWS.FMS do
 
   @doc """
   Disassociates resources from a Firewall Manager resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20BatchDisassociateResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_disassociate_resource_request`)
+    %{
+      required("Items") => list(String.t()()),
+      required("ResourceSetIdentifier") => String.t()
+    }
   """
-  @spec batch_disassociate_resource(
-          AWS.Client.t(),
-          batch_disassociate_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_disassociate_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_resource_errors()}
-  def batch_disassociate_resource(%Client{} = client, input, options \\ []) do
+
+  def batch_disassociate_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2566,12 +2601,22 @@ defmodule AWS.FMS do
 
   @doc """
   Permanently deletes an Firewall Manager applications list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20DeleteAppsList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_apps_list_request`)
+    %{
+      required("ListId") => String.t()
+    }
   """
-  @spec delete_apps_list(AWS.Client.t(), delete_apps_list_request(), Keyword.t()) ::
+
+  @spec delete_apps_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apps_list_errors()}
-  def delete_apps_list(%Client{} = client, input, options \\ []) do
+
+  def delete_apps_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2582,16 +2627,22 @@ defmodule AWS.FMS do
   Deletes an Firewall Manager association with the IAM role and the Amazon Simple
   Notification Service (SNS) topic that is used to record Firewall Manager SNS
   logs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20DeleteNotificationChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_notification_channel_request`)
+    %{
+      
+    }
   """
-  @spec delete_notification_channel(
-          AWS.Client.t(),
-          delete_notification_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_notification_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notification_channel_errors()}
-  def delete_notification_channel(%Client{} = client, input, options \\ []) do
+
+  def delete_notification_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2600,12 +2651,23 @@ defmodule AWS.FMS do
 
   @doc """
   Permanently deletes an Firewall Manager policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20DeletePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_policy_request`)
+    %{
+      optional("DeleteAllPolicyResources") => boolean(),
+      required("PolicyId") => String.t()
+    }
   """
-  @spec delete_policy(AWS.Client.t(), delete_policy_request(), Keyword.t()) ::
+
+  @spec delete_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_policy_errors()}
-  def delete_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2614,12 +2676,22 @@ defmodule AWS.FMS do
 
   @doc """
   Permanently deletes an Firewall Manager protocols list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20DeleteProtocolsList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_protocols_list_request`)
+    %{
+      required("ListId") => String.t()
+    }
   """
-  @spec delete_protocols_list(AWS.Client.t(), delete_protocols_list_request(), Keyword.t()) ::
+
+  @spec delete_protocols_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_protocols_list_errors()}
-  def delete_protocols_list(%Client{} = client, input, options \\ []) do
+
+  def delete_protocols_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2628,12 +2700,22 @@ defmodule AWS.FMS do
 
   @doc """
   Deletes the specified `ResourceSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20DeleteResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_set_request`)
+    %{
+      required("Identifier") => String.t()
+    }
   """
-  @spec delete_resource_set(AWS.Client.t(), delete_resource_set_request(), Keyword.t()) ::
+
+  @spec delete_resource_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_set_errors()}
-  def delete_resource_set(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2645,16 +2727,22 @@ defmodule AWS.FMS do
   account as an Firewall Manager administrator, submit a `PutAdminAccount`
   request. To set an account as a default administrator account, you must submit
   an `AssociateAdminAccount` request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20DisassociateAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_admin_account_request`)
+    %{
+      
+    }
   """
-  @spec disassociate_admin_account(
-          AWS.Client.t(),
-          disassociate_admin_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_admin_account_errors()}
-  def disassociate_admin_account(%Client{} = client, input, options \\ []) do
+
+  def disassociate_admin_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2666,16 +2754,23 @@ defmodule AWS.FMS do
   firewall tenant. When you call `DisassociateThirdPartyFirewall`, the
   third-party firewall vendor deletes all of the firewalls that are associated
   with the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20DisassociateThirdPartyFirewall&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_third_party_firewall_request`)
+    %{
+      required("ThirdPartyFirewall") => list(any())
+    }
   """
-  @spec disassociate_third_party_firewall(
-          AWS.Client.t(),
-          disassociate_third_party_firewall_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_third_party_firewall(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_third_party_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_third_party_firewall_errors()}
-  def disassociate_third_party_firewall(%Client{} = client, input, options \\ []) do
+
+  def disassociate_third_party_firewall(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2685,12 +2780,22 @@ defmodule AWS.FMS do
   @doc """
   Returns the Organizations account that is associated with Firewall Manager as
   the Firewall Manager default administrator.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_admin_account_request`)
+    %{
+      
+    }
   """
-  @spec get_admin_account(AWS.Client.t(), get_admin_account_request(), Keyword.t()) ::
+
+  @spec get_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_admin_account_errors()}
-  def get_admin_account(%Client{} = client, input, options \\ []) do
+
+  def get_admin_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2701,12 +2806,22 @@ defmodule AWS.FMS do
   Returns information about the specified account's administrative scope. The
   administrative scope defines the resources that an Firewall Manager
   administrator can manage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetAdminScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_admin_scope_request`)
+    %{
+      required("AdminAccount") => String.t()
+    }
   """
-  @spec get_admin_scope(AWS.Client.t(), get_admin_scope_request(), Keyword.t()) ::
+
+  @spec get_admin_scope(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_admin_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_admin_scope_errors()}
-  def get_admin_scope(%Client{} = client, input, options \\ []) do
+
+  def get_admin_scope(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2715,12 +2830,23 @@ defmodule AWS.FMS do
 
   @doc """
   Returns information about the specified Firewall Manager applications list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetAppsList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_apps_list_request`)
+    %{
+      optional("DefaultList") => boolean(),
+      required("ListId") => String.t()
+    }
   """
-  @spec get_apps_list(AWS.Client.t(), get_apps_list_request(), Keyword.t()) ::
+
+  @spec get_apps_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_apps_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apps_list_errors()}
-  def get_apps_list(%Client{} = client, input, options \\ []) do
+
+  def get_apps_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2731,12 +2857,23 @@ defmodule AWS.FMS do
   Returns detailed compliance information about the specified member account.
   Details include resources that are in and out of compliance with the specified
   policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetComplianceDetail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_compliance_detail_request`)
+    %{
+      required("MemberAccount") => String.t(),
+      required("PolicyId") => String.t()
+    }
   """
-  @spec get_compliance_detail(AWS.Client.t(), get_compliance_detail_request(), Keyword.t()) ::
+
+  @spec get_compliance_detail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compliance_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compliance_detail_errors()}
-  def get_compliance_detail(%Client{} = client, input, options \\ []) do
+
+  def get_compliance_detail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2746,12 +2883,22 @@ defmodule AWS.FMS do
   @doc """
   Information about the Amazon Simple Notification Service (SNS) topic that is
   used to record Firewall Manager SNS logs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetNotificationChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_notification_channel_request`)
+    %{
+      
+    }
   """
-  @spec get_notification_channel(AWS.Client.t(), get_notification_channel_request(), Keyword.t()) ::
+
+  @spec get_notification_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_notification_channel_errors()}
-  def get_notification_channel(%Client{} = client, input, options \\ []) do
+
+  def get_notification_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2760,12 +2907,22 @@ defmodule AWS.FMS do
 
   @doc """
   Returns information about the specified Firewall Manager policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policy_request`)
+    %{
+      required("PolicyId") => String.t()
+    }
   """
-  @spec get_policy(AWS.Client.t(), get_policy_request(), Keyword.t()) ::
+
+  @spec get_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
-  def get_policy(%Client{} = client, input, options \\ []) do
+
+  def get_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2776,12 +2933,27 @@ defmodule AWS.FMS do
   If you created a Shield Advanced policy, returns policy-level attack summary
   information in the event of a potential DDoS attack. Other policy types are
   currently unsupported.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetProtectionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_protection_status_request`)
+    %{
+      optional("EndTime") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("MemberAccountId") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("StartTime") => non_neg_integer(),
+      required("PolicyId") => String.t()
+    }
   """
-  @spec get_protection_status(AWS.Client.t(), get_protection_status_request(), Keyword.t()) ::
+
+  @spec get_protection_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_protection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_protection_status_errors()}
-  def get_protection_status(%Client{} = client, input, options \\ []) do
+
+  def get_protection_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2790,12 +2962,23 @@ defmodule AWS.FMS do
 
   @doc """
   Returns information about the specified Firewall Manager protocols list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetProtocolsList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_protocols_list_request`)
+    %{
+      optional("DefaultList") => boolean(),
+      required("ListId") => String.t()
+    }
   """
-  @spec get_protocols_list(AWS.Client.t(), get_protocols_list_request(), Keyword.t()) ::
+
+  @spec get_protocols_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_protocols_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_protocols_list_errors()}
-  def get_protocols_list(%Client{} = client, input, options \\ []) do
+
+  def get_protocols_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2804,12 +2987,22 @@ defmodule AWS.FMS do
 
   @doc """
   Gets information about a specific resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_set_request`)
+    %{
+      required("Identifier") => String.t()
+    }
   """
-  @spec get_resource_set(AWS.Client.t(), get_resource_set_request(), Keyword.t()) ::
+
+  @spec get_resource_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_set_errors()}
-  def get_resource_set(%Client{} = client, input, options \\ []) do
+
+  def get_resource_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2819,16 +3012,23 @@ defmodule AWS.FMS do
   @doc """
   The onboarding status of a Firewall Manager admin account to third-party
   firewall vendor tenant.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetThirdPartyFirewallAssociationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_third_party_firewall_association_status_request`)
+    %{
+      required("ThirdPartyFirewall") => list(any())
+    }
   """
-  @spec get_third_party_firewall_association_status(
-          AWS.Client.t(),
-          get_third_party_firewall_association_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_third_party_firewall_association_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_third_party_firewall_association_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_third_party_firewall_association_status_errors()}
-  def get_third_party_firewall_association_status(%Client{} = client, input, options \\ []) do
+
+  def get_third_party_firewall_association_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2838,12 +3038,25 @@ defmodule AWS.FMS do
   @doc """
   Retrieves violations for a resource based on the specified Firewall Manager
   policy and Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20GetViolationDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_violation_details_request`)
+    %{
+      required("MemberAccount") => String.t(),
+      required("PolicyId") => String.t(),
+      required("ResourceId") => String.t(),
+      required("ResourceType") => String.t()
+    }
   """
-  @spec get_violation_details(AWS.Client.t(), get_violation_details_request(), Keyword.t()) ::
+
+  @spec get_violation_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_violation_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_violation_details_errors()}
-  def get_violation_details(%Client{} = client, input, options \\ []) do
+
+  def get_violation_details(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2854,16 +3067,24 @@ defmodule AWS.FMS do
   Returns a `AdminAccounts` object that lists the Firewall Manager administrators
   within the organization that are onboarded to Firewall Manager by
   `AssociateAdminAccount`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListAdminAccountsForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_admin_accounts_for_organization_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_admin_accounts_for_organization(
-          AWS.Client.t(),
-          list_admin_accounts_for_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_admin_accounts_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_admin_accounts_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_admin_accounts_for_organization_errors()}
-  def list_admin_accounts_for_organization(%Client{} = client, input, options \\ []) do
+
+  def list_admin_accounts_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2875,16 +3096,23 @@ defmodule AWS.FMS do
   This is useful for any member account so that they can view the accounts who
   are managing their account. This operation only returns the managing
   administrators that have the requested account within their `AdminScope`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListAdminsManagingAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_admins_managing_account_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_admins_managing_account(
-          AWS.Client.t(),
-          list_admins_managing_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_admins_managing_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_admins_managing_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_admins_managing_account_errors()}
-  def list_admins_managing_account(%Client{} = client, input, options \\ []) do
+
+  def list_admins_managing_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2893,12 +3121,24 @@ defmodule AWS.FMS do
 
   @doc """
   Returns an array of `AppsListDataSummary` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListAppsLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_apps_lists_request`)
+    %{
+      optional("DefaultLists") => boolean(),
+      optional("NextToken") => String.t(),
+      required("MaxResults") => integer()
+    }
   """
-  @spec list_apps_lists(AWS.Client.t(), list_apps_lists_request(), Keyword.t()) ::
+
+  @spec list_apps_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_apps_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_lists_errors()}
-  def list_apps_lists(%Client{} = client, input, options \\ []) do
+
+  def list_apps_lists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2909,12 +3149,24 @@ defmodule AWS.FMS do
   Returns an array of `PolicyComplianceStatus` objects. Use
   `PolicyComplianceStatus` to get a summary of which member accounts are
   protected by the specified policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListComplianceStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_compliance_status_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("PolicyId") => String.t()
+    }
   """
-  @spec list_compliance_status(AWS.Client.t(), list_compliance_status_request(), Keyword.t()) ::
+
+  @spec list_compliance_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_compliance_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_compliance_status_errors()}
-  def list_compliance_status(%Client{} = client, input, options \\ []) do
+
+  def list_compliance_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2924,16 +3176,25 @@ defmodule AWS.FMS do
   @doc """
   Returns an array of resources in the organization's accounts that are available
   to be associated with a resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListDiscoveredResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_discovered_resources_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("MemberAccountIds") => list(String.t()()),
+      required("ResourceType") => String.t()
+    }
   """
-  @spec list_discovered_resources(
-          AWS.Client.t(),
-          list_discovered_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_discovered_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_discovered_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discovered_resources_errors()}
-  def list_discovered_resources(%Client{} = client, input, options \\ []) do
+
+  def list_discovered_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2943,12 +3204,23 @@ defmodule AWS.FMS do
   @doc """
   Returns a `MemberAccounts` object that lists the member accounts in the
   administrator's Amazon Web Services organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListMemberAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_member_accounts_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_member_accounts(AWS.Client.t(), list_member_accounts_request(), Keyword.t()) ::
+
+  @spec list_member_accounts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_member_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_member_accounts_errors()}
-  def list_member_accounts(%Client{} = client, input, options \\ []) do
+
+  def list_member_accounts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2957,12 +3229,23 @@ defmodule AWS.FMS do
 
   @doc """
   Returns an array of `PolicySummary` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_policies_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_policies(AWS.Client.t(), list_policies_request(), Keyword.t()) ::
+
+  @spec list_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_policies_errors()}
-  def list_policies(%Client{} = client, input, options \\ []) do
+
+  def list_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2971,12 +3254,24 @@ defmodule AWS.FMS do
 
   @doc """
   Returns an array of `ProtocolsListDataSummary` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListProtocolsLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_protocols_lists_request`)
+    %{
+      optional("DefaultLists") => boolean(),
+      optional("NextToken") => String.t(),
+      required("MaxResults") => integer()
+    }
   """
-  @spec list_protocols_lists(AWS.Client.t(), list_protocols_lists_request(), Keyword.t()) ::
+
+  @spec list_protocols_lists(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_protocols_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_protocols_lists_errors()}
-  def list_protocols_lists(%Client{} = client, input, options \\ []) do
+
+  def list_protocols_lists(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2985,16 +3280,24 @@ defmodule AWS.FMS do
 
   @doc """
   Returns an array of resources that are currently associated to a resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListResourceSetResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_set_resources_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Identifier") => String.t()
+    }
   """
-  @spec list_resource_set_resources(
-          AWS.Client.t(),
-          list_resource_set_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_resource_set_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_set_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_set_resources_errors()}
-  def list_resource_set_resources(%Client{} = client, input, options \\ []) do
+
+  def list_resource_set_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3003,12 +3306,23 @@ defmodule AWS.FMS do
 
   @doc """
   Returns an array of `ResourceSetSummary` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListResourceSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_sets_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_resource_sets(AWS.Client.t(), list_resource_sets_request(), Keyword.t()) ::
+
+  @spec list_resource_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_sets_errors()}
-  def list_resource_sets(%Client{} = client, input, options \\ []) do
+
+  def list_resource_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3017,12 +3331,22 @@ defmodule AWS.FMS do
 
   @doc """
   Retrieves the list of tags for the specified Amazon Web Services resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3032,16 +3356,25 @@ defmodule AWS.FMS do
   @doc """
   Retrieves a list of all of the third-party firewall policies that are associated
   with the third-party firewall administrator's account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20ListThirdPartyFirewallFirewallPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_third_party_firewall_firewall_policies_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("MaxResults") => integer(),
+      required("ThirdPartyFirewall") => list(any())
+    }
   """
-  @spec list_third_party_firewall_firewall_policies(
-          AWS.Client.t(),
-          list_third_party_firewall_firewall_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_third_party_firewall_firewall_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_third_party_firewall_firewall_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_third_party_firewall_firewall_policies_errors()}
-  def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ []) do
+
+  def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3059,12 +3392,23 @@ defmodule AWS.FMS do
   within Organizations. For more information about administrator accounts within
   Organizations, see [Managing the Amazon Web Services Accounts in Your
   Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20PutAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_admin_account_request`)
+    %{
+      optional("AdminScope") => admin_scope(),
+      required("AdminAccount") => String.t()
+    }
   """
-  @spec put_admin_account(AWS.Client.t(), put_admin_account_request(), Keyword.t()) ::
+
+  @spec put_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_admin_account_errors()}
-  def put_admin_account(%Client{} = client, input, options \\ []) do
+
+  def put_admin_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3073,12 +3417,23 @@ defmodule AWS.FMS do
 
   @doc """
   Creates an Firewall Manager applications list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20PutAppsList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_apps_list_request`)
+    %{
+      optional("TagList") => list(tag()()),
+      required("AppsList") => apps_list_data()
+    }
   """
-  @spec put_apps_list(AWS.Client.t(), put_apps_list_request(), Keyword.t()) ::
+
+  @spec put_apps_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_apps_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_apps_list_errors()}
-  def put_apps_list(%Client{} = client, input, options \\ []) do
+
+  def put_apps_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3088,12 +3443,23 @@ defmodule AWS.FMS do
   @doc """
   Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
   Firewall Manager uses to record SNS logs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20PutNotificationChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_notification_channel_request`)
+    %{
+      required("SnsRoleName") => String.t(),
+      required("SnsTopicArn") => String.t()
+    }
   """
-  @spec put_notification_channel(AWS.Client.t(), put_notification_channel_request(), Keyword.t()) ::
+
+  @spec put_notification_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_notification_channel_errors()}
-  def put_notification_channel(%Client{} = client, input, options \\ []) do
+
+  def put_notification_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3105,12 +3471,23 @@ defmodule AWS.FMS do
   individual policy type. If you want to enforce multiple policy types across
   accounts, you can create multiple policies. You can create more than one
   policy for each type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20PutPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_policy_request`)
+    %{
+      optional("TagList") => list(tag()()),
+      required("Policy") => policy()
+    }
   """
-  @spec put_policy(AWS.Client.t(), put_policy_request(), Keyword.t()) ::
+
+  @spec put_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_policy_errors()}
-  def put_policy(%Client{} = client, input, options \\ []) do
+
+  def put_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3119,12 +3496,23 @@ defmodule AWS.FMS do
 
   @doc """
   Creates an Firewall Manager protocols list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20PutProtocolsList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_protocols_list_request`)
+    %{
+      optional("TagList") => list(tag()()),
+      required("ProtocolsList") => protocols_list_data()
+    }
   """
-  @spec put_protocols_list(AWS.Client.t(), put_protocols_list_request(), Keyword.t()) ::
+
+  @spec put_protocols_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_protocols_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_protocols_list_errors()}
-  def put_protocols_list(%Client{} = client, input, options \\ []) do
+
+  def put_protocols_list(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3133,12 +3521,23 @@ defmodule AWS.FMS do
 
   @doc """
   Creates the resource set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20PutResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_set_request`)
+    %{
+      optional("TagList") => list(tag()()),
+      required("ResourceSet") => resource_set()
+    }
   """
-  @spec put_resource_set(AWS.Client.t(), put_resource_set_request(), Keyword.t()) ::
+
+  @spec put_resource_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_set_errors()}
-  def put_resource_set(%Client{} = client, input, options \\ []) do
+
+  def put_resource_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3147,12 +3546,23 @@ defmodule AWS.FMS do
 
   @doc """
   Adds one or more tags to an Amazon Web Services resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagList") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3161,12 +3571,23 @@ defmodule AWS.FMS do
 
   @doc """
   Removes one or more tags from an Amazon Web Services resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fms%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

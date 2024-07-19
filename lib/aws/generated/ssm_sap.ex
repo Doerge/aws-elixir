@@ -14,19 +14,19 @@ defmodule AWS.SsmSap do
   @typedoc """
 
   ## Example:
-
+      
       get_component_output() :: %{
         optional("Component") => component(),
         optional("Tags") => map()
       }
-
+      
   """
   @type get_component_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       operation() :: %{
         "EndTime" => [non_neg_integer()],
         "Id" => String.t(),
@@ -40,47 +40,47 @@ defmodule AWS.SsmSap do
         "StatusMessage" => [String.t()],
         "Type" => String.t()
       }
-
+      
   """
   @type operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_permission_output() :: %{
         optional("Policy") => [String.t()]
       }
-
+      
   """
   @type put_resource_permission_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_application_output() :: %{
         "OperationId" => String.t()
       }
-
+      
   """
   @type start_application_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database() :: %{
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
@@ -94,141 +94,141 @@ defmodule AWS.SsmSap do
         "SQLPort" => [integer()],
         "Status" => list(any())
       }
-
+      
   """
   @type database() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_application_output() :: %{
         "OperationId" => String.t()
       }
-
+      
   """
   @type stop_application_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       register_application_output() :: %{
         optional("Application") => application(),
         optional("OperationId") => String.t()
       }
-
+      
   """
   @type register_application_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_operations_output() :: %{
         optional("NextToken") => String.t(),
         optional("Operations") => list(operation()())
       }
-
+      
   """
   @type list_operations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database_connection() :: %{
         "ConnectionIp" => [String.t()],
         "DatabaseArn" => String.t(),
         "DatabaseConnectionMethod" => list(any())
       }
-
+      
   """
   @type database_connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ip_address_member() :: %{
         "AllocationType" => list(any()),
         "IpAddress" => [String.t()],
         "Primary" => [boolean()]
       }
-
+      
   """
   @type ip_address_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       backint_config() :: %{
         "BackintMode" => list(any()),
         "EnsureNoBackupInProcess" => [boolean()]
       }
-
+      
   """
   @type backint_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_permission_output() :: %{
         optional("Policy") => [String.t()]
       }
-
+      
   """
   @type delete_resource_permission_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_operation_events_output() :: %{
         "NextToken" => String.t(),
         "OperationEvents" => list(operation_event()())
       }
-
+      
   """
   @type list_operation_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_summary() :: %{
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
@@ -236,26 +236,26 @@ defmodule AWS.SsmSap do
         "ComponentType" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type component_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_components_output() :: %{
         optional("Components") => list(component_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_components_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resilience() :: %{
         "ClusterStatus" => list(any()),
         "EnqueueReplication" => [boolean()],
@@ -263,195 +263,195 @@ defmodule AWS.SsmSap do
         "HsrReplicationMode" => list(any()),
         "HsrTier" => [String.t()]
       }
-
+      
   """
   @type resilience() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_application_input() :: %{
         optional("IncludeEc2InstanceShutdown") => [boolean()],
         optional("StopConnectedEntity") => list(any()),
         required("ApplicationId") => String.t()
       }
-
+      
   """
   @type stop_application_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_databases_input() :: %{
         optional("ApplicationId") => String.t(),
         optional("ComponentId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_databases_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_operation_events_input() :: %{
         optional("Filters") => list(filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("OperationId") => String.t()
       }
-
+      
   """
   @type list_operation_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_output() :: %{
         optional("Applications") => list(application_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_applications_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_application_input() :: %{
         required("ApplicationId") => String.t()
       }
-
+      
   """
   @type deregister_application_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_operation_output() :: %{
         optional("Operation") => operation()
       }
-
+      
   """
   @type get_operation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_credential() :: %{
         "CredentialType" => list(any()),
         "DatabaseName" => String.t(),
         "SecretId" => String.t()
       }
-
+      
   """
   @type application_credential() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_application_refresh_input() :: %{
         required("ApplicationId") => String.t()
       }
-
+      
   """
   @type start_application_refresh_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_input() :: %{
         optional("Filters") => list(filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_applications_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_database_output() :: %{
         optional("Database") => database(),
         optional("Tags") => map()
       }
-
+      
   """
   @type get_database_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_operation_input() :: %{
         required("OperationId") => String.t()
       }
-
+      
   """
   @type get_operation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_settings_output() :: %{
         optional("Message") => [String.t()],
         optional("OperationIds") => list(String.t()())
       }
-
+      
   """
   @type update_application_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_databases_output() :: %{
         optional("Databases") => list(database_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_databases_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component() :: %{
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
@@ -474,27 +474,27 @@ defmodule AWS.SsmSap do
         "Status" => list(any()),
         "SystemNumber" => String.t()
       }
-
+      
   """
   @type component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_components_input() :: %{
         optional("ApplicationId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_components_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application() :: %{
         "AppRegistryArn" => String.t(),
         "Arn" => String.t(),
@@ -506,61 +506,61 @@ defmodule AWS.SsmSap do
         "StatusMessage" => [String.t()],
         "Type" => list(any())
       }
-
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_permission_input() :: %{
         optional("ActionType") => list(any()),
         optional("SourceResourceArn") => String.t(),
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type delete_resource_permission_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_application_output() :: %{}
-
+      
   """
   @type deregister_application_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_database_input() :: %{
         optional("ApplicationId") => String.t(),
         optional("ComponentId") => String.t(),
         optional("DatabaseArn") => String.t(),
         optional("DatabaseId") => String.t()
       }
-
+      
   """
   @type get_database_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       operation_event() :: %{
         "Description" => [String.t()],
         "Resource" => resource(),
@@ -568,27 +568,27 @@ defmodule AWS.SsmSap do
         "StatusMessage" => [String.t()],
         "Timestamp" => [non_neg_integer()]
       }
-
+      
   """
   @type operation_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter() :: %{
         "Name" => String.t(),
         "Operator" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       host() :: %{
         "EC2InstanceId" => [String.t()],
         "HostIp" => [String.t()],
@@ -597,74 +597,74 @@ defmodule AWS.SsmSap do
         "InstanceId" => [String.t()],
         "OsVersion" => [String.t()]
       }
-
+      
   """
   @type host() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_application_input() :: %{
         required("ApplicationId") => String.t()
       }
-
+      
   """
   @type start_application_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_output() :: %{
         optional("Application") => application(),
         optional("Tags") => map()
       }
-
+      
   """
   @type get_application_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_component_input() :: %{
         required("ApplicationId") => String.t(),
         required("ComponentId") => String.t()
       }
-
+      
   """
   @type get_component_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associated_host() :: %{
         "Ec2InstanceId" => [String.t()],
         "Hostname" => [String.t()],
         "IpAddresses" => list(ip_address_member()()),
         "OsVersion" => [String.t()]
       }
-
+      
   """
   @type associated_host() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_settings_input() :: %{
         optional("Backint") => backint_config(),
         optional("CredentialsToAddOrUpdate") => list(application_credential()()),
@@ -672,57 +672,57 @@ defmodule AWS.SsmSap do
         optional("DatabaseArn") => String.t(),
         required("ApplicationId") => String.t()
       }
-
+      
   """
   @type update_application_settings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_operations_input() :: %{
         optional("Filters") => list(filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ApplicationId") => String.t()
       }
-
+      
   """
   @type list_operations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database_summary() :: %{
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
@@ -731,37 +731,37 @@ defmodule AWS.SsmSap do
         "DatabaseType" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type database_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_permission_input() :: %{
         optional("ActionType") => list(any()),
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type get_resource_permission_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_application_refresh_output() :: %{
         "OperationId" => String.t()
       }
-
+      
   """
   @type start_application_refresh_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_summary() :: %{
         "Arn" => String.t(),
         "DiscoveryStatus" => list(any()),
@@ -769,51 +769,51 @@ defmodule AWS.SsmSap do
         "Tags" => map(),
         "Type" => list(any())
       }
-
+      
   """
   @type application_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_permission_input() :: %{
         required("ActionType") => list(any()),
         required("ResourceArn") => String.t(),
         required("SourceResourceArn") => String.t()
       }
-
+      
   """
   @type put_resource_permission_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_permission_output() :: %{
         optional("Policy") => [String.t()]
       }
-
+      
   """
   @type get_resource_permission_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_input() :: %{
         optional("AppRegistryArn") => String.t(),
         optional("ApplicationArn") => String.t(),
         optional("ApplicationId") => String.t()
       }
-
+      
   """
   @type get_application_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_application_input() :: %{
         optional("Credentials") => list(application_credential()()),
         optional("DatabaseArn") => String.t(),
@@ -824,19 +824,19 @@ defmodule AWS.SsmSap do
         required("ApplicationType") => list(any()),
         required("Instances") => list(String.t()())
       }
-
+      
   """
   @type register_application_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "ResourceArn" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
@@ -943,33 +943,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec delete_resource_permission(
-          AWS.Client.t(),
-          delete_resource_permission_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_permission_errors()}
-  def delete_resource_permission(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_permission(%Client{} = client, options \\ []) do
     url_path = "/delete-resource-permission"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -982,29 +989,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec deregister_application(AWS.Client.t(), deregister_application_input(), Keyword.t()) ::
+
+  @spec deregister_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_application_errors()}
-  def deregister_application(%Client{} = client, input, options \\ []) do
+
+  def deregister_application(%Client{} = client, options \\ []) do
     url_path = "/deregister-application"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1017,29 +1035,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec get_application(AWS.Client.t(), get_application_input(), Keyword.t()) ::
+
+  @spec get_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-  def get_application(%Client{} = client, input, options \\ []) do
+
+  def get_application(%Client{} = client, options \\ []) do
     url_path = "/get-application"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1052,29 +1081,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec get_component(AWS.Client.t(), get_component_input(), Keyword.t()) ::
+
+  @spec get_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
-  def get_component(%Client{} = client, input, options \\ []) do
+
+  def get_component(%Client{} = client, options \\ []) do
     url_path = "/get-component"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1087,29 +1127,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec get_database(AWS.Client.t(), get_database_input(), Keyword.t()) ::
+
+  @spec get_database(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_database_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_database_errors()}
-  def get_database(%Client{} = client, input, options \\ []) do
+
+  def get_database(%Client{} = client, options \\ []) do
     url_path = "/get-database"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1121,29 +1172,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec get_operation(AWS.Client.t(), get_operation_input(), Keyword.t()) ::
+
+  @spec get_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operation_errors()}
-  def get_operation(%Client{} = client, input, options \\ []) do
+
+  def get_operation(%Client{} = client, options \\ []) do
     url_path = "/get-operation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1155,29 +1217,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec get_resource_permission(AWS.Client.t(), get_resource_permission_input(), Keyword.t()) ::
+
+  @spec get_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_permission_errors()}
-  def get_resource_permission(%Client{} = client, input, options \\ []) do
+
+  def get_resource_permission(%Client{} = client, options \\ []) do
     url_path = "/get-resource-permission"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1189,29 +1262,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec list_applications(AWS.Client.t(), list_applications_input(), Keyword.t()) ::
+
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, input, options \\ []) do
+
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/list-applications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1223,29 +1307,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec list_components(AWS.Client.t(), list_components_input(), Keyword.t()) ::
+
+  @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-  def list_components(%Client{} = client, input, options \\ []) do
+
+  def list_components(%Client{} = client, options \\ []) do
     url_path = "/list-components"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1258,29 +1353,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec list_databases(AWS.Client.t(), list_databases_input(), Keyword.t()) ::
+
+  @spec list_databases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_databases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_databases_errors()}
-  def list_databases(%Client{} = client, input, options \\ []) do
+
+  def list_databases(%Client{} = client, options \\ []) do
     url_path = "/list-databases"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1292,29 +1398,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec list_operation_events(AWS.Client.t(), list_operation_events_input(), Keyword.t()) ::
+
+  @spec list_operation_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_operation_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operation_events_errors()}
-  def list_operation_events(%Client{} = client, input, options \\ []) do
+
+  def list_operation_events(%Client{} = client, options \\ []) do
     url_path = "/list-operation-events"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1326,29 +1443,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec list_operations(AWS.Client.t(), list_operations_input(), Keyword.t()) ::
+
+  @spec list_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operations_errors()}
-  def list_operations(%Client{} = client, input, options \\ []) do
+
+  def list_operations(%Client{} = client, options \\ []) do
     url_path = "/list-operations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1362,10 +1490,12 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1403,29 +1533,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec put_resource_permission(AWS.Client.t(), put_resource_permission_input(), Keyword.t()) ::
+
+  @spec put_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_permission_errors()}
-  def put_resource_permission(%Client{} = client, input, options \\ []) do
+
+  def put_resource_permission(%Client{} = client, options \\ []) do
     url_path = "/put-resource-permission"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1439,29 +1580,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec register_application(AWS.Client.t(), register_application_input(), Keyword.t()) ::
+
+  @spec register_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_application_errors()}
-  def register_application(%Client{} = client, input, options \\ []) do
+
+  def register_application(%Client{} = client, options \\ []) do
     url_path = "/register-application"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1473,29 +1625,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec start_application(AWS.Client.t(), start_application_input(), Keyword.t()) ::
+
+  @spec start_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
-  def start_application(%Client{} = client, input, options \\ []) do
+
+  def start_application(%Client{} = client, options \\ []) do
     url_path = "/start-application"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1507,29 +1670,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec start_application_refresh(AWS.Client.t(), start_application_refresh_input(), Keyword.t()) ::
+
+  @spec start_application_refresh(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_application_refresh_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_refresh_errors()}
-  def start_application_refresh(%Client{} = client, input, options \\ []) do
+
+  def start_application_refresh(%Client{} = client, options \\ []) do
     url_path = "/start-application-refresh"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1541,29 +1715,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec stop_application(AWS.Client.t(), stop_application_input(), Keyword.t()) ::
+
+  @spec stop_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
-  def stop_application(%Client{} = client, input, options \\ []) do
+
+  def stop_application(%Client{} = client, options \\ []) do
     url_path = "/stop-application"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1576,29 +1761,40 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1609,26 +1805,43 @@ defmodule AWS.SsmSap do
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.ssmsap#TagKey]`) Adds/updates or removes
-    credentials for applications registered with AWS Systems Manager for SAP.
+  credentials for applications registered with AWS Systems Manager for SAP.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1637,7 +1850,7 @@ defmodule AWS.SsmSap do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1653,32 +1866,39 @@ defmodule AWS.SsmSap do
 
   ## Optional parameters:
   """
-  @spec update_application_settings(
-          AWS.Client.t(),
-          update_application_settings_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_application_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_application_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_settings_errors()}
-  def update_application_settings(%Client{} = client, input, options \\ []) do
+
+  def update_application_settings(%Client{} = client, options \\ []) do
     url_path = "/update-application-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

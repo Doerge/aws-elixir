@@ -14,49 +14,49 @@ defmodule AWS.SageMakerMetrics do
   @typedoc """
 
   ## Example:
-
+      
       batch_put_metrics_error() :: %{
         "Code" => list(any()),
         "MetricIndex" => integer()
       }
-
+      
   """
   @type batch_put_metrics_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_metrics_request() :: %{
         required("MetricData") => list(raw_metric_data()()),
         required("TrialComponentName") => String.t()
       }
-
+      
   """
   @type batch_put_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_metrics_response() :: %{
         "Errors" => list(batch_put_metrics_error()())
       }
-
+      
   """
   @type batch_put_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       raw_metric_data() :: %{
         "MetricName" => String.t(),
         "Step" => integer(),
         "Timestamp" => non_neg_integer(),
         "Value" => float()
       }
-
+      
   """
   @type raw_metric_data() :: %{String.t() => any()}
 
@@ -86,17 +86,38 @@ defmodule AWS.SageMakerMetrics do
 
   ## Optional parameters:
   """
-  @spec batch_put_metrics(AWS.Client.t(), batch_put_metrics_request(), Keyword.t()) ::
+
+  @spec batch_put_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def batch_put_metrics(%Client{} = client, input, options \\ []) do
+
+  def batch_put_metrics(%Client{} = client, options \\ []) do
     url_path = "/BatchPutMetrics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

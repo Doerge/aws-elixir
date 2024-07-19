@@ -3676,12 +3676,24 @@ defmodule AWS.Neptune do
   @doc """
   Associates an Identity and Access Management (IAM) role with an Neptune DB
   cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20AddRoleToDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_role_to_db_cluster_message`)
+    %{
+      optional("FeatureName") => String.t(),
+      required("DBClusterIdentifier") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec add_role_to_db_cluster(AWS.Client.t(), add_role_to_db_cluster_message(), Keyword.t()) ::
+
+  @spec add_role_to_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_role_to_db_cluster_errors()}
-  def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def add_role_to_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3690,16 +3702,24 @@ defmodule AWS.Neptune do
 
   @doc """
   Adds a source identifier to an existing event notification subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20AddSourceIdentifierToSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_source_identifier_to_subscription_message`)
+    %{
+      required("SourceIdentifier") => String.t(),
+      required("SubscriptionName") => String.t()
+    }
   """
-  @spec add_source_identifier_to_subscription(
-          AWS.Client.t(),
-          add_source_identifier_to_subscription_message(),
-          Keyword.t()
-        ) ::
+
+  @spec add_source_identifier_to_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_source_identifier_to_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_source_identifier_to_subscription_errors()}
-  def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
+
+  def add_source_identifier_to_subscription(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3711,12 +3731,23 @@ defmodule AWS.Neptune do
   with cost allocation reporting to track cost associated with Amazon Neptune
   resources, or used in a Condition statement in an IAM policy for Amazon
   Neptune.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20AddTagsToResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_resource_message`)
+    %{
+      required("ResourceName") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_message(), Keyword.t()) ::
+
+  @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-  def add_tags_to_resource(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3726,16 +3757,25 @@ defmodule AWS.Neptune do
   @doc """
   Applies a pending maintenance action to a resource (for example, to a DB
   instance).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ApplyPendingMaintenanceAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:apply_pending_maintenance_action_message`)
+    %{
+      required("ApplyAction") => String.t(),
+      required("OptInType") => String.t(),
+      required("ResourceIdentifier") => String.t()
+    }
   """
-  @spec apply_pending_maintenance_action(
-          AWS.Client.t(),
-          apply_pending_maintenance_action_message(),
-          Keyword.t()
-        ) ::
+
+  @spec apply_pending_maintenance_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, apply_pending_maintenance_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, apply_pending_maintenance_action_errors()}
-  def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
+
+  def apply_pending_maintenance_action(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3744,16 +3784,26 @@ defmodule AWS.Neptune do
 
   @doc """
   Copies the specified DB cluster parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CopyDBClusterParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_db_cluster_parameter_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("SourceDBClusterParameterGroupIdentifier") => String.t(),
+      required("TargetDBClusterParameterGroupDescription") => String.t(),
+      required("TargetDBClusterParameterGroupIdentifier") => String.t()
+    }
   """
-  @spec copy_db_cluster_parameter_group(
-          AWS.Client.t(),
-          copy_db_cluster_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec copy_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_parameter_group_errors()}
-  def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3762,12 +3812,27 @@ defmodule AWS.Neptune do
 
   @doc """
   Copies a snapshot of a DB cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CopyDBClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_db_cluster_snapshot_message`)
+    %{
+      optional("CopyTags") => boolean(),
+      optional("KmsKeyId") => String.t(),
+      optional("PreSignedUrl") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("SourceDBClusterSnapshotIdentifier") => String.t(),
+      required("TargetDBClusterSnapshotIdentifier") => String.t()
+    }
   """
-  @spec copy_db_cluster_snapshot(AWS.Client.t(), copy_db_cluster_snapshot_message(), Keyword.t()) ::
+
+  @spec copy_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_cluster_snapshot_errors()}
-  def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
+
+  def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3776,12 +3841,25 @@ defmodule AWS.Neptune do
 
   @doc """
   Copies the specified DB parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CopyDBParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_db_parameter_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("SourceDBParameterGroupIdentifier") => String.t(),
+      required("TargetDBParameterGroupDescription") => String.t(),
+      required("TargetDBParameterGroupIdentifier") => String.t()
+    }
   """
-  @spec copy_db_parameter_group(AWS.Client.t(), copy_db_parameter_group_message(), Keyword.t()) ::
+
+  @spec copy_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_db_parameter_group_errors()}
-  def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def copy_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3792,12 +3870,49 @@ defmodule AWS.Neptune do
   Creates a new Amazon Neptune DB cluster. You can use the
   `ReplicationSourceIdentifier` parameter to create the DB cluster as a Read
   Replica of another DB cluster or Amazon Neptune DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_cluster_message`)
+    %{
+      optional("AvailabilityZones") => list(String.t()()),
+      optional("BackupRetentionPeriod") => integer(),
+      optional("CharacterSetName") => String.t(),
+      optional("CopyTagsToSnapshot") => boolean(),
+      optional("DBClusterParameterGroupName") => String.t(),
+      optional("DBSubnetGroupName") => String.t(),
+      optional("DatabaseName") => String.t(),
+      optional("DeletionProtection") => boolean(),
+      optional("EnableCloudwatchLogsExports") => list(String.t()()),
+      optional("EnableIAMDatabaseAuthentication") => boolean(),
+      optional("EngineVersion") => String.t(),
+      optional("GlobalClusterIdentifier") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("MasterUserPassword") => String.t(),
+      optional("MasterUsername") => String.t(),
+      optional("OptionGroupName") => String.t(),
+      optional("Port") => integer(),
+      optional("PreSignedUrl") => String.t(),
+      optional("PreferredBackupWindow") => String.t(),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      optional("ReplicationSourceIdentifier") => String.t(),
+      optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
+      optional("StorageEncrypted") => boolean(),
+      optional("StorageType") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VpcSecurityGroupIds") => list(String.t()()),
+      required("DBClusterIdentifier") => String.t(),
+      required("Engine") => String.t()
+    }
   """
-  @spec create_db_cluster(AWS.Client.t(), create_db_cluster_message(), Keyword.t()) ::
+
+  @spec create_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_errors()}
-  def create_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3807,16 +3922,27 @@ defmodule AWS.Neptune do
   @doc """
   Creates a new custom endpoint and associates it with an Amazon Neptune DB
   cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateDBClusterEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_cluster_endpoint_message`)
+    %{
+      optional("ExcludedMembers") => list(String.t()()),
+      optional("StaticMembers") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      required("DBClusterEndpointIdentifier") => String.t(),
+      required("DBClusterIdentifier") => String.t(),
+      required("EndpointType") => String.t()
+    }
   """
-  @spec create_db_cluster_endpoint(
-          AWS.Client.t(),
-          create_db_cluster_endpoint_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_db_cluster_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_endpoint_errors()}
-  def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
+
+  def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3826,16 +3952,26 @@ defmodule AWS.Neptune do
   @doc """
   Creates a new DB cluster parameter group. Parameters in a DB cluster parameter
   group apply to all of the instances in a DB cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateDBClusterParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_cluster_parameter_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("DBClusterParameterGroupName") => String.t(),
+      required("DBParameterGroupFamily") => String.t(),
+      required("Description") => String.t()
+    }
   """
-  @spec create_db_cluster_parameter_group(
-          AWS.Client.t(),
-          create_db_cluster_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_parameter_group_errors()}
-  def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def create_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3844,16 +3980,24 @@ defmodule AWS.Neptune do
 
   @doc """
   Creates a snapshot of a DB cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateDBClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_cluster_snapshot_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("DBClusterIdentifier") => String.t(),
+      required("DBClusterSnapshotIdentifier") => String.t()
+    }
   """
-  @spec create_db_cluster_snapshot(
-          AWS.Client.t(),
-          create_db_cluster_snapshot_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_cluster_snapshot_errors()}
-  def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3862,12 +4006,64 @@ defmodule AWS.Neptune do
 
   @doc """
   Creates a new DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateDBInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_instance_message`)
+    %{
+      optional("StorageType") => String.t(),
+      optional("Timezone") => String.t(),
+      optional("AllocatedStorage") => integer(),
+      optional("MasterUserPassword") => String.t(),
+      optional("PreferredBackupWindow") => String.t(),
+      optional("MonitoringInterval") => integer(),
+      optional("MasterUsername") => String.t(),
+      optional("DomainIAMRoleName") => String.t(),
+      optional("Domain") => String.t(),
+      optional("EnableIAMDatabaseAuthentication") => boolean(),
+      optional("CopyTagsToSnapshot") => boolean(),
+      optional("BackupRetentionPeriod") => integer(),
+      optional("AvailabilityZone") => String.t(),
+      optional("EnableCloudwatchLogsExports") => list(String.t()()),
+      optional("AutoMinorVersionUpgrade") => boolean(),
+      optional("PubliclyAccessible") => boolean(),
+      optional("EngineVersion") => String.t(),
+      optional("MonitoringRoleArn") => String.t(),
+      optional("LicenseModel") => String.t(),
+      optional("CharacterSetName") => String.t(),
+      required("DBInstanceIdentifier") => String.t(),
+      optional("Iops") => integer(),
+      required("DBClusterIdentifier") => String.t(),
+      optional("Port") => integer(),
+      optional("TdeCredentialPassword") => String.t(),
+      optional("DBSecurityGroups") => list(String.t()()),
+      optional("PerformanceInsightsKMSKeyId") => String.t(),
+      required("DBInstanceClass") => String.t(),
+      optional("EnablePerformanceInsights") => boolean(),
+      optional("StorageEncrypted") => boolean(),
+      optional("MultiAZ") => boolean(),
+      optional("DeletionProtection") => boolean(),
+      optional("VpcSecurityGroupIds") => list(String.t()()),
+      optional("DBParameterGroupName") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("OptionGroupName") => String.t(),
+      optional("DBName") => String.t(),
+      optional("PromotionTier") => integer(),
+      optional("DBSubnetGroupName") => String.t(),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      required("Engine") => String.t(),
+      optional("TdeCredentialArn") => String.t(),
+      optional("Tags") => list(tag()())
+    }
   """
-  @spec create_db_instance(AWS.Client.t(), create_db_instance_message(), Keyword.t()) ::
+
+  @spec create_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_instance_errors()}
-  def create_db_instance(%Client{} = client, input, options \\ []) do
+
+  def create_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3883,16 +4079,25 @@ defmodule AWS.Neptune do
   *ModifyDBInstance*. When you associate a new DB parameter group with a running
   DB instance, you need to reboot the DB instance without failover for the new
   DB parameter group and associated settings to take effect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateDBParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_parameter_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("DBParameterGroupFamily") => String.t(),
+      required("DBParameterGroupName") => String.t(),
+      required("Description") => String.t()
+    }
   """
-  @spec create_db_parameter_group(
-          AWS.Client.t(),
-          create_db_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_parameter_group_errors()}
-  def create_db_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def create_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3902,12 +4107,25 @@ defmodule AWS.Neptune do
   @doc """
   Creates a new DB subnet group. DB subnet groups must contain at least one subnet
   in at least two AZs in the Amazon Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateDBSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_db_subnet_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("DBSubnetGroupDescription") => String.t(),
+      required("DBSubnetGroupName") => String.t(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec create_db_subnet_group(AWS.Client.t(), create_db_subnet_group_message(), Keyword.t()) ::
+
+  @spec create_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_db_subnet_group_errors()}
-  def create_db_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def create_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3924,16 +4142,28 @@ defmodule AWS.Neptune do
   provide a list of event categories (EventCategories) for events you want to be
   notified of. For example, you can specify SourceType = db-instance, SourceIds
   = mydbinstance1, mydbinstance2 and EventCategories = Availability, Backup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateEventSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_event_subscription_message`)
+    %{
+      optional("Enabled") => boolean(),
+      optional("EventCategories") => list(String.t()()),
+      optional("SourceIds") => list(String.t()()),
+      optional("SourceType") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("SnsTopicArn") => String.t(),
+      required("SubscriptionName") => String.t()
+    }
   """
-  @spec create_event_subscription(
-          AWS.Client.t(),
-          create_event_subscription_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_subscription_errors()}
-  def create_event_subscription(%Client{} = client, input, options \\ []) do
+
+  def create_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3945,12 +4175,27 @@ defmodule AWS.Neptune do
   global database contains a single primary cluster with read-write capability,
   and read-only secondary clusters that receive data from the primary cluster
   through high-speed replication performed by the Neptune storage subsystem.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20CreateGlobalCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_global_cluster_message`)
+    %{
+      optional("DeletionProtection") => boolean(),
+      optional("Engine") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("SourceDBClusterIdentifier") => String.t(),
+      optional("StorageEncrypted") => boolean(),
+      required("GlobalClusterIdentifier") => String.t()
+    }
   """
-  @spec create_global_cluster(AWS.Client.t(), create_global_cluster_message(), Keyword.t()) ::
+
+  @spec create_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_cluster_errors()}
-  def create_global_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3962,12 +4207,24 @@ defmodule AWS.Neptune do
   delete a DB cluster, all automated backups for that DB cluster are deleted and
   can't be recovered. Manual DB cluster snapshots of the specified DB cluster
   are not deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_cluster_message`)
+    %{
+      optional("FinalDBSnapshotIdentifier") => String.t(),
+      optional("SkipFinalSnapshot") => boolean(),
+      required("DBClusterIdentifier") => String.t()
+    }
   """
-  @spec delete_db_cluster(AWS.Client.t(), delete_db_cluster_message(), Keyword.t()) ::
+
+  @spec delete_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_errors()}
-  def delete_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def delete_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3976,16 +4233,22 @@ defmodule AWS.Neptune do
 
   @doc """
   Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteDBClusterEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_cluster_endpoint_message`)
+    %{
+      required("DBClusterEndpointIdentifier") => String.t()
+    }
   """
-  @spec delete_db_cluster_endpoint(
-          AWS.Client.t(),
-          delete_db_cluster_endpoint_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_db_cluster_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_endpoint_errors()}
-  def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
+
+  def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3995,16 +4258,23 @@ defmodule AWS.Neptune do
   @doc """
   Deletes a specified DB cluster parameter group. The DB cluster parameter group
   to be deleted can't be associated with any DB clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteDBClusterParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_cluster_parameter_group_message`)
+    %{
+      required("DBClusterParameterGroupName") => String.t()
+    }
   """
-  @spec delete_db_cluster_parameter_group(
-          AWS.Client.t(),
-          delete_db_cluster_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_parameter_group_errors()}
-  def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4014,16 +4284,22 @@ defmodule AWS.Neptune do
   @doc """
   Deletes a DB cluster snapshot. If the snapshot is being copied, the copy
   operation is terminated.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteDBClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_cluster_snapshot_message`)
+    %{
+      required("DBClusterSnapshotIdentifier") => String.t()
+    }
   """
-  @spec delete_db_cluster_snapshot(
-          AWS.Client.t(),
-          delete_db_cluster_snapshot_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_db_cluster_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_cluster_snapshot_errors()}
-  def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4038,12 +4314,24 @@ defmodule AWS.Neptune do
   status of the Amazon Neptune DB instance is `deleting` until the DB snapshot
   is created. The API action `DescribeDBInstance` is used to monitor the status
   of this operation. The action can't be canceled or reverted once submitted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteDBInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_instance_message`)
+    %{
+      optional("FinalDBSnapshotIdentifier") => String.t(),
+      optional("SkipFinalSnapshot") => boolean(),
+      required("DBInstanceIdentifier") => String.t()
+    }
   """
-  @spec delete_db_instance(AWS.Client.t(), delete_db_instance_message(), Keyword.t()) ::
+
+  @spec delete_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_instance_errors()}
-  def delete_db_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4053,16 +4341,22 @@ defmodule AWS.Neptune do
   @doc """
   Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't
   be associated with any DB instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteDBParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_parameter_group_message`)
+    %{
+      required("DBParameterGroupName") => String.t()
+    }
   """
-  @spec delete_db_parameter_group(
-          AWS.Client.t(),
-          delete_db_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_parameter_group_errors()}
-  def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def delete_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4071,12 +4365,22 @@ defmodule AWS.Neptune do
 
   @doc """
   Deletes a DB subnet group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteDBSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_db_subnet_group_message`)
+    %{
+      required("DBSubnetGroupName") => String.t()
+    }
   """
-  @spec delete_db_subnet_group(AWS.Client.t(), delete_db_subnet_group_message(), Keyword.t()) ::
+
+  @spec delete_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_db_subnet_group_errors()}
-  def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def delete_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4085,16 +4389,22 @@ defmodule AWS.Neptune do
 
   @doc """
   Deletes an event notification subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteEventSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_event_subscription_message`)
+    %{
+      required("SubscriptionName") => String.t()
+    }
   """
-  @spec delete_event_subscription(
-          AWS.Client.t(),
-          delete_event_subscription_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_subscription_errors()}
-  def delete_event_subscription(%Client{} = client, input, options \\ []) do
+
+  def delete_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4104,12 +4414,22 @@ defmodule AWS.Neptune do
   @doc """
   Deletes a global database. The primary and all secondary clusters must already
   be detached or deleted first.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DeleteGlobalCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_global_cluster_message`)
+    %{
+      required("GlobalClusterIdentifier") => String.t()
+    }
   """
-  @spec delete_global_cluster(AWS.Client.t(), delete_global_cluster_message(), Keyword.t()) ::
+
+  @spec delete_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_global_cluster_errors()}
-  def delete_global_cluster(%Client{} = client, input, options \\ []) do
+
+  def delete_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4118,16 +4438,27 @@ defmodule AWS.Neptune do
 
   @doc """
   Returns information about endpoints for an Amazon Neptune DB cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBClusterEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_cluster_endpoints_message`)
+    %{
+      optional("DBClusterEndpointIdentifier") => String.t(),
+      optional("DBClusterIdentifier") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_db_cluster_endpoints(
-          AWS.Client.t(),
-          describe_db_cluster_endpoints_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_cluster_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_endpoint_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_endpoints_errors()}
-  def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
+
+  def describe_db_cluster_endpoints(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4138,16 +4469,26 @@ defmodule AWS.Neptune do
   Returns a list of `DBClusterParameterGroup` descriptions. If a
   `DBClusterParameterGroupName` parameter is specified, the list will contain
   only the description of the specified DB cluster parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBClusterParameterGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_cluster_parameter_groups_message`)
+    %{
+      optional("DBClusterParameterGroupName") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_db_cluster_parameter_groups(
-          AWS.Client.t(),
-          describe_db_cluster_parameter_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_cluster_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameter_groups_errors()}
-  def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4156,16 +4497,27 @@ defmodule AWS.Neptune do
 
   @doc """
   Returns the detailed parameter list for a particular DB cluster parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBClusterParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_cluster_parameters_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("Source") => String.t(),
+      required("DBClusterParameterGroupName") => String.t()
+    }
   """
-  @spec describe_db_cluster_parameters(
-          AWS.Client.t(),
-          describe_db_cluster_parameters_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_parameters_errors()}
-  def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_db_cluster_parameters(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4180,16 +4532,23 @@ defmodule AWS.Neptune do
   manual DB cluster snapshot. If `all` is included in the list of values for the
   `restore` attribute, then the manual DB cluster snapshot is public and can be
   copied or restored by all Amazon accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBClusterSnapshotAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_cluster_snapshot_attributes_message`)
+    %{
+      required("DBClusterSnapshotIdentifier") => String.t()
+    }
   """
-  @spec describe_db_cluster_snapshot_attributes(
-          AWS.Client.t(),
-          describe_db_cluster_snapshot_attributes_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_cluster_snapshot_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_db_cluster_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
-  def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
+
+  def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4199,16 +4558,30 @@ defmodule AWS.Neptune do
   @doc """
   Returns information about DB cluster snapshots. This API action supports
   pagination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBClusterSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_cluster_snapshots_message`)
+    %{
+      optional("DBClusterIdentifier") => String.t(),
+      optional("DBClusterSnapshotIdentifier") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("IncludePublic") => boolean(),
+      optional("IncludeShared") => boolean(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("SnapshotType") => String.t()
+    }
   """
-  @spec describe_db_cluster_snapshots(
-          AWS.Client.t(),
-          describe_db_cluster_snapshots_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_cluster_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_cluster_snapshots_errors()}
-  def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_db_cluster_snapshots(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4217,12 +4590,25 @@ defmodule AWS.Neptune do
 
   @doc """
   Returns information about provisioned DB clusters, and supports pagination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_clusters_message`)
+    %{
+      optional("DBClusterIdentifier") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_db_clusters(AWS.Client.t(), describe_db_clusters_message(), Keyword.t()) ::
+
+  @spec describe_db_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_clusters_errors()}
-  def describe_db_clusters(%Client{} = client, input, options \\ []) do
+
+  def describe_db_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4231,15 +4617,29 @@ defmodule AWS.Neptune do
 
   @doc """
   Returns a list of the available DB engines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBEngineVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_engine_versions_message`)
+    %{
+      optional("DBParameterGroupFamily") => String.t(),
+      optional("DefaultOnly") => boolean(),
+      optional("Engine") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("ListSupportedCharacterSets") => boolean(),
+      optional("ListSupportedTimezones") => boolean(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_db_engine_versions(
-          AWS.Client.t(),
-          describe_db_engine_versions_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_engine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
+
+  def describe_db_engine_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4248,12 +4648,25 @@ defmodule AWS.Neptune do
 
   @doc """
   Returns information about provisioned instances, and supports pagination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_instances_message`)
+    %{
+      optional("DBInstanceIdentifier") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_db_instances(AWS.Client.t(), describe_db_instances_message(), Keyword.t()) ::
+
+  @spec describe_db_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_instances_errors()}
-  def describe_db_instances(%Client{} = client, input, options \\ []) do
+
+  def describe_db_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4264,16 +4677,25 @@ defmodule AWS.Neptune do
   Returns a list of `DBParameterGroup` descriptions. If a `DBParameterGroupName`
   is specified, the list will contain only the description of the specified DB
   parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBParameterGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_parameter_groups_message`)
+    %{
+      optional("DBParameterGroupName") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_db_parameter_groups(
-          AWS.Client.t(),
-          describe_db_parameter_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_parameter_groups_errors()}
-  def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_db_parameter_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4282,12 +4704,26 @@ defmodule AWS.Neptune do
 
   @doc """
   Returns the detailed parameter list for a particular DB parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_parameters_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("Source") => String.t(),
+      required("DBParameterGroupName") => String.t()
+    }
   """
-  @spec describe_db_parameters(AWS.Client.t(), describe_db_parameters_message(), Keyword.t()) ::
+
+  @spec describe_db_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_parameters_errors()}
-  def describe_db_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_db_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4298,16 +4734,25 @@ defmodule AWS.Neptune do
   Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
   specified, the list will contain only the descriptions of the specified
   DBSubnetGroup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeDBSubnetGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_db_subnet_groups_message`)
+    %{
+      optional("DBSubnetGroupName") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_db_subnet_groups(
-          AWS.Client.t(),
-          describe_db_subnet_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_db_subnet_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_db_subnet_groups_errors()}
-  def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_db_subnet_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4317,15 +4762,25 @@ defmodule AWS.Neptune do
   @doc """
   Returns the default engine and system parameter information for the cluster
   database engine.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeEngineDefaultClusterParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_engine_default_cluster_parameters_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      required("DBParameterGroupFamily") => String.t()
+    }
   """
-  @spec describe_engine_default_cluster_parameters(
-          AWS.Client.t(),
-          describe_engine_default_cluster_parameters_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_engine_default_cluster_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4335,15 +4790,25 @@ defmodule AWS.Neptune do
   @doc """
   Returns the default engine and system parameter information for the specified
   database engine.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeEngineDefaultParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_engine_default_parameters_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      required("DBParameterGroupFamily") => String.t()
+    }
   """
-  @spec describe_engine_default_parameters(
-          AWS.Client.t(),
-          describe_engine_default_parameters_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_engine_default_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_default_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_engine_default_parameters(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4353,15 +4818,22 @@ defmodule AWS.Neptune do
   @doc """
   Displays a list of categories for all event source types, or, if specified, for
   a specified source type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeEventCategories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_categories_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("SourceType") => String.t()
+    }
   """
-  @spec describe_event_categories(
-          AWS.Client.t(),
-          describe_event_categories_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_event_categories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_event_categories(%Client{} = client, input, options \\ []) do
+
+  def describe_event_categories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4372,16 +4844,25 @@ defmodule AWS.Neptune do
   Lists all the subscription descriptions for a customer account. The description
   for a subscription includes SubscriptionName, SNSTopicARN, CustomerID,
   SourceType, SourceID, CreationTime, and Status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeEventSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_subscriptions_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("SubscriptionName") => String.t()
+    }
   """
-  @spec describe_event_subscriptions(
-          AWS.Client.t(),
-          describe_event_subscriptions_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_event_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_subscriptions_errors()}
-  def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
+
+  def describe_event_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4394,11 +4875,29 @@ defmodule AWS.Neptune do
   instance, DB security group, database snapshot, or DB parameter group can be
   obtained by providing the name as a parameter. By default, the past hour of
   events are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_events_message`)
+    %{
+      optional("Duration") => integer(),
+      optional("EndTime") => non_neg_integer(),
+      optional("EventCategories") => list(String.t()()),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("SourceIdentifier") => String.t(),
+      optional("SourceType") => list(any()),
+      optional("StartTime") => non_neg_integer()
+    }
   """
-  @spec describe_events(AWS.Client.t(), describe_events_message(), Keyword.t()) ::
+
+  @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_events(%Client{} = client, input, options \\ []) do
+
+  def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4408,12 +4907,24 @@ defmodule AWS.Neptune do
   @doc """
   Returns information about Neptune global database clusters. This API supports
   pagination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeGlobalClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_global_clusters_message`)
+    %{
+      optional("GlobalClusterIdentifier") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_global_clusters(AWS.Client.t(), describe_global_clusters_message(), Keyword.t()) ::
+
+  @spec describe_global_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, global_clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_clusters_errors()}
-  def describe_global_clusters(%Client{} = client, input, options \\ []) do
+
+  def describe_global_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4422,15 +4933,29 @@ defmodule AWS.Neptune do
 
   @doc """
   Returns a list of orderable DB instance options for the specified engine.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeOrderableDBInstanceOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_orderable_db_instance_options_message`)
+    %{
+      optional("DBInstanceClass") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("LicenseModel") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("Vpc") => boolean(),
+      required("Engine") => String.t()
+    }
   """
-  @spec describe_orderable_db_instance_options(
-          AWS.Client.t(),
-          describe_orderable_db_instance_options_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_orderable_db_instance_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, orderable_db_instance_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
+
+  def describe_orderable_db_instance_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4440,16 +4965,26 @@ defmodule AWS.Neptune do
   @doc """
   Returns a list of resources (for example, DB instances) that have at least one
   pending maintenance action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribePendingMaintenanceActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_pending_maintenance_actions_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("ResourceIdentifier") => String.t()
+    }
   """
-  @spec describe_pending_maintenance_actions(
-          AWS.Client.t(),
-          describe_pending_maintenance_actions_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_pending_maintenance_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, pending_maintenance_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pending_maintenance_actions_errors()}
-  def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
+
+  def describe_pending_maintenance_actions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4460,16 +4995,23 @@ defmodule AWS.Neptune do
   You can call `DescribeValidDBInstanceModifications` to learn what modifications
   you can make to your DB instance. You can use this information when you call
   `ModifyDBInstance`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20DescribeValidDBInstanceModifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_valid_db_instance_modifications_message`)
+    %{
+      required("DBInstanceIdentifier") => String.t()
+    }
   """
-  @spec describe_valid_db_instance_modifications(
-          AWS.Client.t(),
-          describe_valid_db_instance_modifications_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_valid_db_instance_modifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_valid_db_instance_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_valid_db_instance_modifications_errors()}
-  def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
+
+  def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4480,12 +5022,23 @@ defmodule AWS.Neptune do
   Forces a failover for a DB cluster. A failover for a DB cluster promotes one of
   the Read Replicas (read-only instances) in the DB cluster to be the primary
   instance (the cluster writer).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20FailoverDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:failover_db_cluster_message`)
+    %{
+      optional("DBClusterIdentifier") => String.t(),
+      optional("TargetDBInstanceIdentifier") => String.t()
+    }
   """
-  @spec failover_db_cluster(AWS.Client.t(), failover_db_cluster_message(), Keyword.t()) ::
+
+  @spec failover_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_db_cluster_errors()}
-  def failover_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def failover_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4500,12 +5053,23 @@ defmodule AWS.Neptune do
   cluster and the selected target secondary DB cluster are switched. The
   selected secondary DB cluster assumes full read/write capabilities for the
   Neptune global database.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20FailoverGlobalCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:failover_global_cluster_message`)
+    %{
+      required("GlobalClusterIdentifier") => String.t(),
+      required("TargetDbClusterIdentifier") => String.t()
+    }
   """
-  @spec failover_global_cluster(AWS.Client.t(), failover_global_cluster_message(), Keyword.t()) ::
+
+  @spec failover_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_global_cluster_errors()}
-  def failover_global_cluster(%Client{} = client, input, options \\ []) do
+
+  def failover_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4514,12 +5078,23 @@ defmodule AWS.Neptune do
 
   @doc """
   Lists all tags on an Amazon Neptune resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_message`)
+    %{
+      optional("Filters") => list(filter()()),
+      required("ResourceName") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_message(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4530,12 +5105,41 @@ defmodule AWS.Neptune do
   Modify a setting for a DB cluster. You can change one or more database
   configuration parameters by specifying these parameters and the new values in
   the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_db_cluster_message`)
+    %{
+      optional("AllowMajorVersionUpgrade") => boolean(),
+      optional("ApplyImmediately") => boolean(),
+      optional("BackupRetentionPeriod") => integer(),
+      optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
+      optional("CopyTagsToSnapshot") => boolean(),
+      optional("DBClusterParameterGroupName") => String.t(),
+      optional("DBInstanceParameterGroupName") => String.t(),
+      optional("DeletionProtection") => boolean(),
+      optional("EnableIAMDatabaseAuthentication") => boolean(),
+      optional("EngineVersion") => String.t(),
+      optional("MasterUserPassword") => String.t(),
+      optional("NewDBClusterIdentifier") => String.t(),
+      optional("OptionGroupName") => String.t(),
+      optional("Port") => integer(),
+      optional("PreferredBackupWindow") => String.t(),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
+      optional("StorageType") => String.t(),
+      optional("VpcSecurityGroupIds") => list(String.t()()),
+      required("DBClusterIdentifier") => String.t()
+    }
   """
-  @spec modify_db_cluster(AWS.Client.t(), modify_db_cluster_message(), Keyword.t()) ::
+
+  @spec modify_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_errors()}
-  def modify_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def modify_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4544,16 +5148,25 @@ defmodule AWS.Neptune do
 
   @doc """
   Modifies the properties of an endpoint in an Amazon Neptune DB cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyDBClusterEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_db_cluster_endpoint_message`)
+    %{
+      optional("EndpointType") => String.t(),
+      optional("ExcludedMembers") => list(String.t()()),
+      optional("StaticMembers") => list(String.t()()),
+      required("DBClusterEndpointIdentifier") => String.t()
+    }
   """
-  @spec modify_db_cluster_endpoint(
-          AWS.Client.t(),
-          modify_db_cluster_endpoint_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_db_cluster_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_cluster_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_endpoint_errors()}
-  def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
+
+  def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4567,16 +5180,24 @@ defmodule AWS.Neptune do
   request. Changes to dynamic parameters are applied immediately. Changes to
   static parameters require a reboot without failover to the DB cluster
   associated with the parameter group before the change can take effect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyDBClusterParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_db_cluster_parameter_group_message`)
+    %{
+      required("DBClusterParameterGroupName") => String.t(),
+      required("Parameters") => list(parameter()())
+    }
   """
-  @spec modify_db_cluster_parameter_group(
-          AWS.Client.t(),
-          modify_db_cluster_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_parameter_group_errors()}
-  def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4596,16 +5217,26 @@ defmodule AWS.Neptune do
   encrypted, it can be shared, but only by specifying a list of authorized
   Amazon account IDs for the `ValuesToAdd` parameter. You can't use `all` as a
   value for that parameter in this case.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyDBClusterSnapshotAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_db_cluster_snapshot_attribute_message`)
+    %{
+      optional("ValuesToAdd") => list(String.t()()),
+      optional("ValuesToRemove") => list(String.t()()),
+      required("AttributeName") => String.t(),
+      required("DBClusterSnapshotIdentifier") => String.t()
+    }
   """
-  @spec modify_db_cluster_snapshot_attribute(
-          AWS.Client.t(),
-          modify_db_cluster_snapshot_attribute_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_db_cluster_snapshot_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_cluster_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
-  def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
+
+  def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4618,12 +5249,58 @@ defmodule AWS.Neptune do
   the request. To learn what modifications you can make to your DB instance,
   call `DescribeValidDBInstanceModifications` before you call
   `ModifyDBInstance`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyDBInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_db_instance_message`)
+    %{
+      optional("StorageType") => String.t(),
+      optional("AllowMajorVersionUpgrade") => boolean(),
+      optional("AllocatedStorage") => integer(),
+      optional("MasterUserPassword") => String.t(),
+      optional("PreferredBackupWindow") => String.t(),
+      optional("MonitoringInterval") => integer(),
+      optional("DBPortNumber") => integer(),
+      optional("DomainIAMRoleName") => String.t(),
+      optional("Domain") => String.t(),
+      optional("EnableIAMDatabaseAuthentication") => boolean(),
+      optional("CopyTagsToSnapshot") => boolean(),
+      optional("BackupRetentionPeriod") => integer(),
+      optional("AutoMinorVersionUpgrade") => boolean(),
+      optional("PubliclyAccessible") => boolean(),
+      optional("EngineVersion") => String.t(),
+      optional("MonitoringRoleArn") => String.t(),
+      optional("DBInstanceClass") => String.t(),
+      optional("LicenseModel") => String.t(),
+      required("DBInstanceIdentifier") => String.t(),
+      optional("NewDBInstanceIdentifier") => String.t(),
+      optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
+      optional("Iops") => integer(),
+      optional("TdeCredentialPassword") => String.t(),
+      optional("DBSecurityGroups") => list(String.t()()),
+      optional("PerformanceInsightsKMSKeyId") => String.t(),
+      optional("EnablePerformanceInsights") => boolean(),
+      optional("MultiAZ") => boolean(),
+      optional("DeletionProtection") => boolean(),
+      optional("VpcSecurityGroupIds") => list(String.t()()),
+      optional("CACertificateIdentifier") => String.t(),
+      optional("ApplyImmediately") => boolean(),
+      optional("DBParameterGroupName") => String.t(),
+      optional("OptionGroupName") => String.t(),
+      optional("PromotionTier") => integer(),
+      optional("DBSubnetGroupName") => String.t(),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      optional("TdeCredentialArn") => String.t()
+    }
   """
-  @spec modify_db_instance(AWS.Client.t(), modify_db_instance_message(), Keyword.t()) ::
+
+  @spec modify_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_instance_errors()}
-  def modify_db_instance(%Client{} = client, input, options \\ []) do
+
+  def modify_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4637,16 +5314,23 @@ defmodule AWS.Neptune do
   request. Changes to dynamic parameters are applied immediately. Changes to
   static parameters require a reboot without failover to the DB instance
   associated with the parameter group before the change can take effect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyDBParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_db_parameter_group_message`)
+    %{
+      required("DBParameterGroupName") => String.t(),
+      required("Parameters") => list(parameter()())
+    }
   """
-  @spec modify_db_parameter_group(
-          AWS.Client.t(),
-          modify_db_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_parameter_group_errors()}
-  def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def modify_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4656,12 +5340,24 @@ defmodule AWS.Neptune do
   @doc """
   Modifies an existing DB subnet group. DB subnet groups must contain at least one
   subnet in at least two AZs in the Amazon Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyDBSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_db_subnet_group_message`)
+    %{
+      optional("DBSubnetGroupDescription") => String.t(),
+      required("DBSubnetGroupName") => String.t(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec modify_db_subnet_group(AWS.Client.t(), modify_db_subnet_group_message(), Keyword.t()) ::
+
+  @spec modify_db_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_db_subnet_group_errors()}
-  def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def modify_db_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4673,16 +5369,26 @@ defmodule AWS.Neptune do
   the source identifiers using this call; to change source identifiers for a
   subscription, use the `AddSourceIdentifierToSubscription` and
   `RemoveSourceIdentifierFromSubscription` calls.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyEventSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_event_subscription_message`)
+    %{
+      optional("Enabled") => boolean(),
+      optional("EventCategories") => list(String.t()()),
+      optional("SnsTopicArn") => String.t(),
+      optional("SourceType") => String.t(),
+      required("SubscriptionName") => String.t()
+    }
   """
-  @spec modify_event_subscription(
-          AWS.Client.t(),
-          modify_event_subscription_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_event_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_event_subscription_errors()}
-  def modify_event_subscription(%Client{} = client, input, options \\ []) do
+
+  def modify_event_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4693,12 +5399,26 @@ defmodule AWS.Neptune do
   Modify a setting for an Amazon Neptune global cluster. You can change one or
   more database configuration parameters by specifying these parameters and
   their new values in the request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ModifyGlobalCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_global_cluster_message`)
+    %{
+      optional("AllowMajorVersionUpgrade") => boolean(),
+      optional("DeletionProtection") => boolean(),
+      optional("EngineVersion") => String.t(),
+      optional("NewGlobalClusterIdentifier") => String.t(),
+      required("GlobalClusterIdentifier") => String.t()
+    }
   """
-  @spec modify_global_cluster(AWS.Client.t(), modify_global_cluster_message(), Keyword.t()) ::
+
+  @spec modify_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_global_cluster_errors()}
-  def modify_global_cluster(%Client{} = client, input, options \\ []) do
+
+  def modify_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4707,16 +5427,23 @@ defmodule AWS.Neptune do
 
   @doc """
   Not supported.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20PromoteReadReplicaDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:promote_read_replica_db_cluster_message`)
+    %{
+      required("DBClusterIdentifier") => String.t()
+    }
   """
-  @spec promote_read_replica_db_cluster(
-          AWS.Client.t(),
-          promote_read_replica_db_cluster_message(),
-          Keyword.t()
-        ) ::
+
+  @spec promote_read_replica_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, promote_read_replica_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_read_replica_db_cluster_errors()}
-  def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def promote_read_replica_db_cluster(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4728,12 +5455,23 @@ defmodule AWS.Neptune do
   example, if you make certain modifications, or if you change the DB parameter
   group associated with the DB instance, you must reboot the instance for the
   changes to take effect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20RebootDBInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reboot_db_instance_message`)
+    %{
+      optional("ForceFailover") => boolean(),
+      required("DBInstanceIdentifier") => String.t()
+    }
   """
-  @spec reboot_db_instance(AWS.Client.t(), reboot_db_instance_message(), Keyword.t()) ::
+
+  @spec reboot_db_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_db_instance_errors()}
-  def reboot_db_instance(%Client{} = client, input, options \\ []) do
+
+  def reboot_db_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4744,16 +5482,23 @@ defmodule AWS.Neptune do
   Detaches a Neptune DB cluster from a Neptune global database. A secondary
   cluster becomes a normal standalone cluster with read-write capability instead
   of being read-only, and no longer receives data from a the primary cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20RemoveFromGlobalCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_from_global_cluster_message`)
+    %{
+      required("DbClusterIdentifier") => String.t(),
+      required("GlobalClusterIdentifier") => String.t()
+    }
   """
-  @spec remove_from_global_cluster(
-          AWS.Client.t(),
-          remove_from_global_cluster_message(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_from_global_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_from_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_from_global_cluster_errors()}
-  def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
+
+  def remove_from_global_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4762,16 +5507,24 @@ defmodule AWS.Neptune do
 
   @doc """
   Disassociates an Identity and Access Management (IAM) role from a DB cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20RemoveRoleFromDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_role_from_db_cluster_message`)
+    %{
+      optional("FeatureName") => String.t(),
+      required("DBClusterIdentifier") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec remove_role_from_db_cluster(
-          AWS.Client.t(),
-          remove_role_from_db_cluster_message(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_role_from_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_role_from_db_cluster_errors()}
-  def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4780,16 +5533,24 @@ defmodule AWS.Neptune do
 
   @doc """
   Removes a source identifier from an existing event notification subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20RemoveSourceIdentifierFromSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_source_identifier_from_subscription_message`)
+    %{
+      required("SourceIdentifier") => String.t(),
+      required("SubscriptionName") => String.t()
+    }
   """
-  @spec remove_source_identifier_from_subscription(
-          AWS.Client.t(),
-          remove_source_identifier_from_subscription_message(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_source_identifier_from_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_source_identifier_from_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_source_identifier_from_subscription_errors()}
-  def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
+
+  def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4798,16 +5559,23 @@ defmodule AWS.Neptune do
 
   @doc """
   Removes metadata tags from an Amazon Neptune resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20RemoveTagsFromResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_resource_message`)
+    %{
+      required("ResourceName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec remove_tags_from_resource(
-          AWS.Client.t(),
-          remove_tags_from_resource_message(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-  def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4819,16 +5587,25 @@ defmodule AWS.Neptune do
   reset specific parameters submit a list of the following: `ParameterName` and
   `ApplyMethod`. To reset the entire DB cluster parameter group, specify the
   `DBClusterParameterGroupName` and `ResetAllParameters` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ResetDBClusterParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_db_cluster_parameter_group_message`)
+    %{
+      optional("Parameters") => list(parameter()()),
+      optional("ResetAllParameters") => boolean(),
+      required("DBClusterParameterGroupName") => String.t()
+    }
   """
-  @spec reset_db_cluster_parameter_group(
-          AWS.Client.t(),
-          reset_db_cluster_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec reset_db_cluster_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_db_cluster_parameter_group_errors()}
-  def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4843,12 +5620,24 @@ defmodule AWS.Neptune do
   resetting the entire group, dynamic parameters are updated immediately and
   static parameters are set to `pending-reboot` to take effect on the next DB
   instance restart or `RebootDBInstance` request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20ResetDBParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_db_parameter_group_message`)
+    %{
+      optional("Parameters") => list(parameter()()),
+      optional("ResetAllParameters") => boolean(),
+      required("DBParameterGroupName") => String.t()
+    }
   """
-  @spec reset_db_parameter_group(AWS.Client.t(), reset_db_parameter_group_message(), Keyword.t()) ::
+
+  @spec reset_db_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_db_parameter_group_errors()}
-  def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def reset_db_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4859,16 +5648,41 @@ defmodule AWS.Neptune do
   Creates a new DB cluster from a DB snapshot or DB cluster snapshot. If a DB
   snapshot is specified, the target DB cluster is created from the source DB
   snapshot with a default configuration and default security group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20RestoreDBClusterFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_db_cluster_from_snapshot_message`)
+    %{
+      optional("AvailabilityZones") => list(String.t()()),
+      optional("CopyTagsToSnapshot") => boolean(),
+      optional("DBClusterParameterGroupName") => String.t(),
+      optional("DBSubnetGroupName") => String.t(),
+      optional("DatabaseName") => String.t(),
+      optional("DeletionProtection") => boolean(),
+      optional("EnableCloudwatchLogsExports") => list(String.t()()),
+      optional("EnableIAMDatabaseAuthentication") => boolean(),
+      optional("EngineVersion") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("OptionGroupName") => String.t(),
+      optional("Port") => integer(),
+      optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
+      optional("StorageType") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VpcSecurityGroupIds") => list(String.t()()),
+      required("DBClusterIdentifier") => String.t(),
+      required("Engine") => String.t(),
+      required("SnapshotIdentifier") => String.t()
+    }
   """
-  @spec restore_db_cluster_from_snapshot(
-          AWS.Client.t(),
-          restore_db_cluster_from_snapshot_message(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_db_cluster_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_cluster_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_from_snapshot_errors()}
-  def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
+
+  def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4881,16 +5695,39 @@ defmodule AWS.Neptune do
   days. The target DB cluster is created from the source DB cluster with the
   same configuration as the original DB cluster, except that the new DB cluster
   is created with the default DB security group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20RestoreDBClusterToPointInTime&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_db_cluster_to_point_in_time_message`)
+    %{
+      optional("DBClusterParameterGroupName") => String.t(),
+      optional("DBSubnetGroupName") => String.t(),
+      optional("DeletionProtection") => boolean(),
+      optional("EnableCloudwatchLogsExports") => list(String.t()()),
+      optional("EnableIAMDatabaseAuthentication") => boolean(),
+      optional("KmsKeyId") => String.t(),
+      optional("OptionGroupName") => String.t(),
+      optional("Port") => integer(),
+      optional("RestoreToTime") => non_neg_integer(),
+      optional("RestoreType") => String.t(),
+      optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
+      optional("StorageType") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("UseLatestRestorableTime") => boolean(),
+      optional("VpcSecurityGroupIds") => list(String.t()()),
+      required("DBClusterIdentifier") => String.t(),
+      required("SourceDBClusterIdentifier") => String.t()
+    }
   """
-  @spec restore_db_cluster_to_point_in_time(
-          AWS.Client.t(),
-          restore_db_cluster_to_point_in_time_message(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_db_cluster_to_point_in_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_db_cluster_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
-  def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
+
+  def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4900,12 +5737,22 @@ defmodule AWS.Neptune do
   @doc """
   Starts an Amazon Neptune DB cluster that was stopped using the Amazon console,
   the Amazon CLI stop-db-cluster command, or the StopDBCluster API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20StartDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_db_cluster_message`)
+    %{
+      required("DBClusterIdentifier") => String.t()
+    }
   """
-  @spec start_db_cluster(AWS.Client.t(), start_db_cluster_message(), Keyword.t()) ::
+
+  @spec start_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_db_cluster_errors()}
-  def start_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def start_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4915,12 +5762,22 @@ defmodule AWS.Neptune do
   @doc """
   Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune retains
   the DB cluster's metadata, including its endpoints and DB parameter groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptune%20StopDBCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_db_cluster_message`)
+    %{
+      required("DBClusterIdentifier") => String.t()
+    }
   """
-  @spec stop_db_cluster(AWS.Client.t(), stop_db_cluster_message(), Keyword.t()) ::
+
+  @spec stop_db_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_db_cluster_errors()}
-  def stop_db_cluster(%Client{} = client, input, options \\ []) do
+
+  def stop_db_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

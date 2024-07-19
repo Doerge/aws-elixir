@@ -20,82 +20,82 @@ defmodule AWS.IoTSiteWise do
   @typedoc """
 
   ## Example:
-
+      
       delete_asset_model_response() :: %{
         "assetModelStatus" => asset_model_status()
       }
-
+      
   """
   @type delete_asset_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gateway_request() :: %{
         required("gatewayName") => String.t()
       }
-
+      
   """
   @type update_gateway_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_query_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("queryStatement") => String.t()
       }
-
+      
   """
   @type execute_query_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_summary() :: %{
         "actionDefinitionId" => String.t(),
         "actionId" => String.t(),
         "targetResource" => target_resource()
       }
-
+      
   """
   @type action_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dashboards_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("projectId") => String.t()
       }
-
+      
   """
   @type list_dashboards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_aggregates_response() :: %{
         "errorEntries" => list(batch_get_asset_property_aggregates_error_entry()()),
         "nextToken" => String.t(),
         "skippedEntries" => list(batch_get_asset_property_aggregates_skipped_entry()()),
         "successEntries" => list(batch_get_asset_property_aggregates_success_entry()())
       }
-
+      
   """
   @type batch_get_asset_property_aggregates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_project_response() :: %{
         "portalId" => String.t(),
         "projectArn" => String.t(),
@@ -105,71 +105,71 @@ defmodule AWS.IoTSiteWise do
         "projectLastUpdateDate" => non_neg_integer(),
         "projectName" => String.t()
       }
-
+      
   """
   @type describe_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_default_encryption_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "encryptionType" => list(any()),
         "kmsKeyArn" => String.t()
       }
-
+      
   """
   @type put_default_encryption_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_composition_relationships_response() :: %{
         "compositionRelationshipSummaries" => list(composition_relationship_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_composition_relationships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_policies_response() :: %{
         "accessPolicySummaries" => list(access_policy_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_access_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_response() :: %{}
-
+      
   """
   @type update_dashboard_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       portal_resource() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type portal_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_model_composite_model_response() :: %{
         "actionDefinitions" => list(action_definition()()),
         "assetModelCompositeModelDescription" => String.t(),
@@ -183,62 +183,62 @@ defmodule AWS.IoTSiteWise do
         "assetModelId" => String.t(),
         "compositionDetails" => composition_details()
       }
-
+      
   """
   @type describe_asset_model_composite_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_request() :: %{
         optional("clientToken") => String.t(),
         optional("dashboardDescription") => String.t(),
         required("dashboardDefinition") => String.t(),
         required("dashboardName") => String.t()
       }
-
+      
   """
   @type update_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_failure_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_project_assets_response() :: %{
         "errors" => list(asset_error_details()())
       }
-
+      
   """
   @type batch_associate_project_assets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_property() :: %{
         "alias" => String.t(),
         "dataType" => list(any()),
@@ -250,94 +250,94 @@ defmodule AWS.IoTSiteWise do
         "path" => list(asset_property_path_segment()()),
         "unit" => String.t()
       }
-
+      
   """
   @type asset_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflicting_operation_exception() :: %{
         "message" => String.t(),
         "resourceArn" => String.t(),
         "resourceId" => String.t()
       }
-
+      
   """
   @type conflicting_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_model_composite_model_request() :: %{}
-
+      
   """
   @type describe_asset_model_composite_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_asset_property_aggregates_response() :: %{
         "aggregatedValues" => list(aggregated_value()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type get_asset_property_aggregates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_project_assets_response() :: %{
         "assetIds" => list(String.t()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_project_assets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       interpolated_asset_property_value() :: %{
         "timestamp" => time_in_nanos(),
         "value" => variant()
       }
-
+      
   """
   @type interpolated_asset_property_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       greengrass() :: %{
         "groupArn" => String.t()
       }
-
+      
   """
   @type greengrass() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_summary() :: %{
         "creationDate" => non_neg_integer(),
         "description" => String.t(),
@@ -345,120 +345,120 @@ defmodule AWS.IoTSiteWise do
         "lastUpdateDate" => non_neg_integer(),
         "name" => String.t()
       }
-
+      
   """
   @type project_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       detailed_error() :: %{
         "code" => list(any()),
         "message" => String.t()
       }
-
+      
   """
   @type detailed_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_hierarchy() :: %{
         "childAssetModelId" => String.t(),
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type asset_model_hierarchy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_gateway_response() :: %{
         "gatewayArn" => String.t(),
         "gatewayId" => String.t()
       }
-
+      
   """
   @type create_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric() :: %{
         "expression" => String.t(),
         "processingConfig" => metric_processing_config(),
         "variables" => list(expression_variable()()),
         "window" => metric_window()
       }
-
+      
   """
   @type metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_policy_response() :: %{}
-
+      
   """
   @type delete_access_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gateways_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_gateways_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       expression_variable() :: %{
         "name" => String.t(),
         "value" => variable_value()
       }
-
+      
   """
   @type expression_variable() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_model_composite_models_response() :: %{
         "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_asset_model_composite_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bulk_import_job_request() :: %{
         optional("adaptiveIngestion") => boolean(),
         optional("deleteFilesAfterImport") => boolean(),
@@ -468,108 +468,108 @@ defmodule AWS.IoTSiteWise do
         required("jobName") => String.t(),
         required("jobRoleArn") => String.t()
       }
-
+      
   """
   @type create_bulk_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_asset_property_value_response() :: %{
         "propertyValue" => asset_property_value()
       }
-
+      
   """
   @type get_asset_property_value_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_property_value() :: %{
         "quality" => list(any()),
         "timestamp" => time_in_nanos(),
         "value" => variant()
       }
-
+      
   """
   @type asset_property_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_logging_options_response() :: %{}
-
+      
   """
   @type put_logging_options_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       identity() :: %{
         "group" => group_identity(),
         "iamRole" => iam_role_identity(),
         "iamUser" => iam_user_identity(),
         "user" => user_identity()
       }
-
+      
   """
   @type identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_format() :: %{
         "csv" => csv(),
         "parquet" => parquet()
       }
-
+      
   """
   @type file_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bulk_import_jobs_request() :: %{
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_bulk_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_default_encryption_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "encryptionType" => list(any()),
         "kmsKeyArn" => String.t()
       }
-
+      
   """
   @type describe_default_encryption_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_project_request() :: %{}
-
+      
   """
   @type describe_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_action_response() :: %{
         "actionDefinitionId" => String.t(),
         "actionId" => String.t(),
@@ -577,23 +577,23 @@ defmodule AWS.IoTSiteWise do
         "executionTime" => non_neg_integer(),
         "targetResource" => target_resource()
       }
-
+      
   """
   @type describe_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_bulk_import_job_request() :: %{}
-
+      
   """
   @type describe_bulk_import_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_response() :: %{
         "assetArn" => String.t(),
         "assetCompositeModelSummaries" => list(asset_composite_model_summary()()),
@@ -609,14 +609,14 @@ defmodule AWS.IoTSiteWise do
         "assetProperties" => list(asset_property()()),
         "assetStatus" => asset_status()
       }
-
+      
   """
   @type describe_asset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_asset_property_value_entry() :: %{
         "assetId" => String.t(),
         "entryId" => String.t(),
@@ -624,50 +624,50 @@ defmodule AWS.IoTSiteWise do
         "propertyId" => String.t(),
         "propertyValues" => list(asset_property_value()())
       }
-
+      
   """
   @type put_asset_property_value_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retention_period() :: %{
         "numberOfDays" => integer(),
         "unlimited" => boolean()
       }
-
+      
   """
   @type retention_period() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_skipped_entry() :: %{
         "completionStatus" => list(any()),
         "entryId" => String.t(),
         "errorInfo" => batch_get_asset_property_value_error_info()
       }
-
+      
   """
   @type batch_get_asset_property_value_skipped_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_policy_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_access_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_property() :: %{
         "dataType" => list(any()),
         "dataTypeSpec" => String.t(),
@@ -678,39 +678,39 @@ defmodule AWS.IoTSiteWise do
         "type" => property_type(),
         "unit" => String.t()
       }
-
+      
   """
   @type asset_model_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       datum() :: %{
         "arrayValue" => list(datum()()),
         "nullValue" => boolean(),
         "rowValue" => row(),
         "scalarValue" => String.t()
       }
-
+      
   """
   @type datum() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_resource() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type project_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_portal_response() :: %{
         "portalArn" => String.t(),
         "portalId" => String.t(),
@@ -718,14 +718,14 @@ defmodule AWS.IoTSiteWise do
         "portalStatus" => portal_status(),
         "ssoApplicationId" => String.t()
       }
-
+      
   """
   @type create_portal_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_property_response() :: %{
         "assetExternalId" => String.t(),
         "assetId" => String.t(),
@@ -734,27 +734,27 @@ defmodule AWS.IoTSiteWise do
         "assetProperty" => property(),
         "compositeModel" => composite_model_property()
       }
-
+      
   """
   @type describe_asset_property_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_asset_property_value_request() :: %{
         optional("assetId") => String.t(),
         optional("propertyAlias") => String.t(),
         optional("propertyId") => String.t()
       }
-
+      
   """
   @type get_asset_property_value_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_composite_model() :: %{
         "description" => String.t(),
         "externalId" => String.t(),
@@ -763,14 +763,14 @@ defmodule AWS.IoTSiteWise do
         "properties" => list(asset_model_property()()),
         "type" => String.t()
       }
-
+      
   """
   @type asset_model_composite_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_policies_request() :: %{
         optional("iamArn") => String.t(),
         optional("identityId") => String.t(),
@@ -780,51 +780,51 @@ defmodule AWS.IoTSiteWise do
         optional("resourceId") => String.t(),
         optional("resourceType") => list(any())
       }
-
+      
   """
   @type list_access_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_policy_response() :: %{
         "accessPolicyArn" => String.t(),
         "accessPolicyId" => String.t()
       }
-
+      
   """
   @type create_access_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_report_location() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
       }
-
+      
   """
   @type error_report_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_history_skipped_entry() :: %{
         "completionStatus" => list(any()),
         "entryId" => String.t(),
         "errorInfo" => batch_get_asset_property_value_history_error_info()
       }
-
+      
   """
   @type batch_get_asset_property_value_history_skipped_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_policy_summary() :: %{
         "creationDate" => non_neg_integer(),
         "id" => String.t(),
@@ -833,49 +833,49 @@ defmodule AWS.IoTSiteWise do
         "permission" => list(any()),
         "resource" => resource()
       }
-
+      
   """
   @type access_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_asset_model_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_asset_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_aggregates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("entries") => list(batch_get_asset_property_aggregates_entry()())
       }
-
+      
   """
   @type batch_get_asset_property_aggregates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_logging_options_response() :: %{
         "loggingOptions" => logging_options()
       }
-
+      
   """
   @type describe_logging_options_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composite_model_property() :: %{
         "assetProperty" => property(),
         "externalId" => String.t(),
@@ -883,47 +883,47 @@ defmodule AWS.IoTSiteWise do
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type composite_model_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_identity() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type user_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_processing_config() :: %{
         "computeLocation" => list(any())
       }
-
+      
   """
   @type metric_processing_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_identity() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type group_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_asset_request() :: %{
         optional("assetDescription") => String.t(),
         optional("assetExternalId") => String.t(),
@@ -933,50 +933,50 @@ defmodule AWS.IoTSiteWise do
         required("assetModelId") => String.t(),
         required("assetName") => String.t()
       }
-
+      
   """
   @type create_asset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_window() :: %{
         "tumbling" => tumbling_window()
       }
-
+      
   """
   @type metric_window() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file() :: %{
         "bucket" => String.t(),
         "key" => String.t(),
         "versionId" => String.t()
       }
-
+      
   """
   @type file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_status() :: %{
         "error" => error_details(),
         "state" => list(any())
       }
-
+      
   """
   @type asset_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_summary() :: %{
         "arn" => String.t(),
         "assetModelId" => String.t(),
@@ -989,60 +989,60 @@ defmodule AWS.IoTSiteWise do
         "name" => String.t(),
         "status" => asset_status()
       }
-
+      
   """
   @type asset_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_aggregates_skipped_entry() :: %{
         "completionStatus" => list(any()),
         "entryId" => String.t(),
         "errorInfo" => batch_get_asset_property_aggregates_error_info()
       }
-
+      
   """
   @type batch_get_asset_property_aggregates_skipped_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_response() :: %{}
-
+      
   """
   @type update_project_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       portal_status() :: %{
         "error" => monitor_error_details(),
         "state" => list(any())
       }
-
+      
   """
   @type portal_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_summary() :: %{
         "arn" => String.t(),
         "assetModelType" => list(any()),
@@ -1054,122 +1054,122 @@ defmodule AWS.IoTSiteWise do
         "name" => String.t(),
         "status" => asset_model_status()
       }
-
+      
   """
   @type asset_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_time_series_request() :: %{
         optional("alias") => String.t(),
         optional("assetId") => String.t(),
         optional("propertyId") => String.t()
       }
-
+      
   """
   @type describe_time_series_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alarms() :: %{
         "alarmRoleArn" => String.t(),
         "notificationLambdaArn" => String.t()
       }
-
+      
   """
   @type alarms() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_assets_request() :: %{
         optional("hierarchyId") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("traversalDirection") => list(any())
       }
-
+      
   """
   @type list_associated_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_status() :: %{
         "error" => configuration_error_details(),
         "state" => list(any())
       }
-
+      
   """
   @type configuration_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_history_response() :: %{
         "errorEntries" => list(batch_get_asset_property_value_history_error_entry()()),
         "nextToken" => String.t(),
         "skippedEntries" => list(batch_get_asset_property_value_history_skipped_entry()()),
         "successEntries" => list(batch_get_asset_property_value_history_success_entry()())
       }
-
+      
   """
   @type batch_get_asset_property_value_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_layer_storage() :: %{
         "customerManagedS3Storage" => customer_managed_s3_storage()
       }
-
+      
   """
   @type multi_layer_storage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       target_resource() :: %{
         "assetId" => String.t()
       }
-
+      
   """
   @type target_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_project_assets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_project_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_action_request() :: %{}
-
+      
   """
   @type describe_action_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_bulk_import_job_response() :: %{
         "adaptiveIngestion" => boolean(),
         "deleteFilesAfterImport" => boolean(),
@@ -1183,83 +1183,83 @@ defmodule AWS.IoTSiteWise do
         "jobRoleArn" => String.t(),
         "jobStatus" => list(any())
       }
-
+      
   """
   @type describe_bulk_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_project_assets_request() :: %{
         optional("clientToken") => String.t(),
         required("assetIds") => list(String.t()())
       }
-
+      
   """
   @type batch_associate_project_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_asset_model_response() :: %{
         "assetModelArn" => String.t(),
         "assetModelId" => String.t(),
         "assetModelStatus" => asset_model_status()
       }
-
+      
   """
   @type create_asset_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_asset_response() :: %{
         "assetStatus" => asset_status()
       }
-
+      
   """
   @type update_asset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_access_policy_response() :: %{}
-
+      
   """
   @type update_access_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_error_entry() :: %{
         "entryId" => String.t(),
         "errorCode" => list(any()),
         "errorMessage" => String.t()
       }
-
+      
   """
   @type batch_get_asset_property_value_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_action_response() :: %{
         "actionId" => String.t()
       }
-
+      
   """
   @type execute_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_summary() :: %{
         "creationDate" => non_neg_integer(),
         "gatewayCapabilitySummaries" => list(gateway_capability_summary()()),
@@ -1268,51 +1268,51 @@ defmodule AWS.IoTSiteWise do
         "gatewayPlatform" => gateway_platform(),
         "lastUpdateDate" => non_neg_integer()
       }
-
+      
   """
   @type gateway_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_time_series_response() :: %{
         "TimeSeriesSummaries" => list(time_series_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_time_series_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_portals_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_portals_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_summary() :: %{
         "id" => String.t(),
         "name" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_composite_model() :: %{
         "description" => String.t(),
         "externalId" => String.t(),
@@ -1321,46 +1321,46 @@ defmodule AWS.IoTSiteWise do
         "properties" => list(asset_property()()),
         "type" => String.t()
       }
-
+      
   """
   @type asset_composite_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_capability_configuration_request() :: %{}
-
+      
   """
   @type describe_gateway_capability_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gateway_capability_configuration_request() :: %{
         required("capabilityConfiguration") => String.t(),
         required("capabilityNamespace") => String.t()
       }
-
+      
   """
   @type update_gateway_capability_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_portal_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_portal_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_time_series_response() :: %{
         "alias" => String.t(),
         "assetId" => String.t(),
@@ -1372,26 +1372,26 @@ defmodule AWS.IoTSiteWise do
         "timeSeriesId" => String.t(),
         "timeSeriesLastUpdateDate" => non_neg_integer()
       }
-
+      
   """
   @type describe_time_series_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_aggregates_success_entry() :: %{
         "aggregatedValues" => list(aggregated_value()()),
         "entryId" => String.t()
       }
-
+      
   """
   @type batch_get_asset_property_aggregates_success_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_interpolated_asset_property_values_request() :: %{
         optional("assetId") => String.t(),
         optional("endTimeOffsetInNanos") => integer(),
@@ -1407,158 +1407,158 @@ defmodule AWS.IoTSiteWise do
         required("startTimeInSeconds") => float(),
         required("type") => String.t()
       }
-
+      
   """
   @type get_interpolated_asset_property_values_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_response() :: %{
         "projectArn" => String.t(),
         "projectId" => String.t()
       }
-
+      
   """
   @type create_project_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitor_error_details() :: %{
         "code" => list(any()),
         "message" => String.t()
       }
-
+      
   """
   @type monitor_error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_aggregates_error_entry() :: %{
         "entryId" => String.t(),
         "errorCode" => list(any()),
         "errorMessage" => String.t()
       }
-
+      
   """
   @type batch_get_asset_property_aggregates_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       warm_tier_retention_period() :: %{
         "numberOfDays" => integer(),
         "unlimited" => boolean()
       }
-
+      
   """
   @type warm_tier_retention_period() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_error_info() :: %{
         "errorCode" => list(any()),
         "errorTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type batch_get_asset_property_value_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_composite_model_path_segment() :: %{
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type asset_composite_model_path_segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregated_value() :: %{
         "quality" => list(any()),
         "timestamp" => non_neg_integer(),
         "value" => aggregates()
       }
-
+      
   """
   @type aggregated_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       row() :: %{
         "data" => list(datum()())
       }
-
+      
   """
   @type row() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_time_series_from_asset_property_request() :: %{
         optional("clientToken") => String.t(),
         required("alias") => String.t(),
         required("assetId") => String.t(),
         required("propertyId") => String.t()
       }
-
+      
   """
   @type disassociate_time_series_from_asset_property_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_portal_response() :: %{
         "portalStatus" => portal_status()
       }
-
+      
   """
   @type delete_portal_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_asset_model_request() :: %{
         optional("assetModelCompositeModels") => list(asset_model_composite_model()()),
         optional("assetModelDescription") => String.t(),
@@ -1568,14 +1568,14 @@ defmodule AWS.IoTSiteWise do
         optional("clientToken") => String.t(),
         required("assetModelName") => String.t()
       }
-
+      
   """
   @type update_asset_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_portal_request() :: %{
         optional("alarms") => alarms(),
         optional("clientToken") => String.t(),
@@ -1588,14 +1588,14 @@ defmodule AWS.IoTSiteWise do
         required("portalName") => String.t(),
         required("roleArn") => String.t()
       }
-
+      
   """
   @type create_portal_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associated_assets_summary() :: %{
         "arn" => String.t(),
         "assetModelId" => String.t(),
@@ -1608,63 +1608,63 @@ defmodule AWS.IoTSiteWise do
         "name" => String.t(),
         "status" => asset_status()
       }
-
+      
   """
   @type associated_assets_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_capability_summary() :: %{
         "capabilityNamespace" => String.t(),
         "capabilitySyncStatus" => list(any())
       }
-
+      
   """
   @type gateway_capability_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_error_details() :: %{
         "code" => list(any()),
         "message" => String.t()
       }
-
+      
   """
   @type configuration_error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_portal_response() :: %{
         "portalStatus" => portal_status()
       }
-
+      
   """
   @type update_portal_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_capability_configuration_response() :: %{
         "capabilityConfiguration" => String.t(),
         "capabilityNamespace" => String.t(),
         "capabilitySyncStatus" => list(any()),
         "gatewayId" => String.t()
       }
-
+      
   """
   @type describe_gateway_capability_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_property_summary() :: %{
         "alias" => String.t(),
         "assetCompositeModelId" => String.t(),
@@ -1674,14 +1674,14 @@ defmodule AWS.IoTSiteWise do
         "path" => list(asset_property_path_segment()()),
         "unit" => String.t()
       }
-
+      
   """
   @type asset_property_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_composite_model_definition() :: %{
         "description" => String.t(),
         "externalId" => String.t(),
@@ -1690,47 +1690,47 @@ defmodule AWS.IoTSiteWise do
         "properties" => list(asset_model_property_definition()()),
         "type" => String.t()
       }
-
+      
   """
   @type asset_model_composite_model_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       csv() :: %{
         "columnNames" => list(list(any())())
       }
-
+      
   """
   @type csv() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_default_encryption_configuration_request() :: %{}
-
+      
   """
   @type describe_default_encryption_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_relationships_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("traversalType") => list(any())
       }
-
+      
   """
   @type list_asset_relationships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_response() :: %{
         "dashboardArn" => String.t(),
         "dashboardCreationDate" => non_neg_integer(),
@@ -1741,14 +1741,14 @@ defmodule AWS.IoTSiteWise do
         "dashboardName" => String.t(),
         "projectId" => String.t()
       }
-
+      
   """
   @type describe_dashboard_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_portal_response() :: %{
         "alarms" => alarms(),
         "notificationSenderEmail" => String.t(),
@@ -1766,230 +1766,230 @@ defmodule AWS.IoTSiteWise do
         "portalStatus" => portal_status(),
         "roleArn" => String.t()
       }
-
+      
   """
   @type describe_portal_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_property_path_segment() :: %{
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type asset_model_property_path_segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_response() :: %{
         "nextToken" => String.t(),
         "projectSummaries" => list(project_summary()())
       }
-
+      
   """
   @type list_projects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_asset_response() :: %{
         "assetStatus" => asset_status()
       }
-
+      
   """
   @type delete_asset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_configuration() :: %{
         "fileFormat" => file_format()
       }
-
+      
   """
   @type job_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_details() :: %{
         "code" => list(any()),
         "details" => list(detailed_error()()),
         "message" => String.t()
       }
-
+      
   """
   @type error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_notification() :: %{
         "state" => list(any()),
         "topic" => String.t()
       }
-
+      
   """
   @type property_notification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_asset_property_request() :: %{
         optional("clientToken") => String.t(),
         optional("propertyAlias") => String.t(),
         optional("propertyNotificationState") => list(any()),
         optional("propertyUnit") => String.t()
       }
-
+      
   """
   @type update_asset_property_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gateway_capability_configuration_response() :: %{
         "capabilityNamespace" => String.t(),
         "capabilitySyncStatus" => list(any())
       }
-
+      
   """
   @type update_gateway_capability_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_payload() :: %{
         "stringValue" => String.t()
       }
-
+      
   """
   @type action_payload() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_actions_response() :: %{
         "actionSummaries" => list(action_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_actions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       customer_managed_s3_storage() :: %{
         "roleArn" => String.t(),
         "s3ResourceArn" => String.t()
       }
-
+      
   """
   @type customer_managed_s3_storage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_location() :: %{
         "id" => String.t(),
         "url" => String.t()
       }
-
+      
   """
   @type image_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composition_relationship_summary() :: %{
         "assetModelCompositeModelId" => String.t(),
         "assetModelCompositeModelType" => String.t(),
         "assetModelId" => String.t()
       }
-
+      
   """
   @type composition_relationship_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_actions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("targetResourceId") => String.t(),
         required("targetResourceType") => list(any())
       }
-
+      
   """
   @type list_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       iam_role_identity() :: %{
         "arn" => String.t()
       }
-
+      
   """
   @type iam_role_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transform_processing_config() :: %{
         "computeLocation" => list(any()),
         "forwardingConfig" => forwarding_config()
       }
-
+      
   """
   @type transform_processing_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_asset_model_composite_model_request() :: %{
         optional("assetModelCompositeModelDescription") => String.t(),
         optional("assetModelCompositeModelExternalId") => String.t(),
@@ -2001,37 +2001,37 @@ defmodule AWS.IoTSiteWise do
         required("assetModelCompositeModelName") => String.t(),
         required("assetModelCompositeModelType") => String.t()
       }
-
+      
   """
   @type create_asset_model_composite_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_file() :: %{
         "data" => binary(),
         "type" => list(any())
       }
-
+      
   """
   @type image_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_model_request() :: %{
         optional("excludeProperties") => boolean()
       }
-
+      
   """
   @type describe_asset_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_storage_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "disassociatedDataStorage" => list(any()),
@@ -2041,192 +2041,192 @@ defmodule AWS.IoTSiteWise do
         "warmTier" => list(any()),
         "warmTierRetentionPeriod" => warm_tier_retention_period()
       }
-
+      
   """
   @type put_storage_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_history_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("entries") => list(batch_get_asset_property_value_history_entry()())
       }
-
+      
   """
   @type batch_get_asset_property_value_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_logging_options_request() :: %{}
-
+      
   """
   @type describe_logging_options_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       iam_user_identity() :: %{
         "arn" => String.t()
       }
-
+      
   """
   @type iam_user_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_history_error_entry() :: %{
         "entryId" => String.t(),
         "errorCode" => list(any()),
         "errorMessage" => String.t()
       }
-
+      
   """
   @type batch_get_asset_property_value_history_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_asset_model_composite_model_response() :: %{
         "assetModelCompositeModelId" => String.t(),
         "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()()),
         "assetModelStatus" => asset_model_status()
       }
-
+      
   """
   @type create_asset_model_composite_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dashboard_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_asset_model_composite_model_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_asset_model_composite_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_models_response() :: %{
         "assetModelSummaries" => list(asset_model_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_asset_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_property_request() :: %{}
-
+      
   """
   @type describe_asset_property_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_status() :: %{
         "error" => error_details(),
         "state" => list(any())
       }
-
+      
   """
   @type asset_model_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_access_policy_request() :: %{}
-
+      
   """
   @type describe_access_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_model_composite_models_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_asset_model_composite_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_composite_model_request() :: %{}
-
+      
   """
   @type describe_asset_composite_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dashboard_response() :: %{}
-
+      
   """
   @type delete_dashboard_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_asset_property_value_request() :: %{
         required("entries") => list(put_asset_property_value_entry()())
       }
-
+      
   """
   @type batch_put_asset_property_value_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_hierarchy_definition() :: %{
         "childAssetModelId" => String.t(),
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type asset_model_hierarchy_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_model_response() :: %{
         "assetModelArn" => String.t(),
         "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()()),
@@ -2242,47 +2242,47 @@ defmodule AWS.IoTSiteWise do
         "assetModelStatus" => asset_model_status(),
         "assetModelType" => list(any())
       }
-
+      
   """
   @type describe_asset_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_success_entry() :: %{
         "assetPropertyValue" => asset_property_value(),
         "entryId" => String.t()
       }
-
+      
   """
   @type batch_get_asset_property_value_success_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_portals_response() :: %{
         "nextToken" => String.t(),
         "portalSummaries" => list(portal_summary()())
       }
-
+      
   """
   @type list_portals_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parquet() :: %{}
-
+      
   """
   @type parquet() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_storage_configuration_request() :: %{
         optional("disassociatedDataStorage") => list(any()),
         optional("multiLayerStorage") => multi_layer_storage(),
@@ -2291,110 +2291,110 @@ defmodule AWS.IoTSiteWise do
         optional("warmTierRetentionPeriod") => warm_tier_retention_period(),
         required("storageType") => list(any())
       }
-
+      
   """
   @type put_storage_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_response() :: %{}
-
+      
   """
   @type delete_project_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       forwarding_config() :: %{
         "state" => list(any())
       }
-
+      
   """
   @type forwarding_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gateway_platform() :: %{
         "greengrass" => greengrass(),
         "greengrassV2" => greengrass_v2()
       }
-
+      
   """
   @type gateway_platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dashboard_response() :: %{
         "dashboardArn" => String.t(),
         "dashboardId" => String.t()
       }
-
+      
   """
   @type create_dashboard_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_request() :: %{
         optional("clientToken") => String.t(),
         optional("projectDescription") => String.t(),
         required("projectName") => String.t()
       }
-
+      
   """
   @type update_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_gateway_request() :: %{
         optional("tags") => map(),
         required("gatewayName") => String.t(),
         required("gatewayPlatform") => gateway_platform()
       }
-
+      
   """
   @type create_gateway_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bulk_import_job_response() :: %{
         "jobId" => String.t(),
         "jobName" => String.t(),
         "jobStatus" => list(any())
       }
-
+      
   """
   @type create_bulk_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_model_properties_request() :: %{
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_asset_model_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_access_policy_response() :: %{
         "accessPolicyArn" => String.t(),
         "accessPolicyCreationDate" => non_neg_integer(),
@@ -2404,74 +2404,74 @@ defmodule AWS.IoTSiteWise do
         "accessPolicyPermission" => list(any()),
         "accessPolicyResource" => resource()
       }
-
+      
   """
   @type describe_access_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_composite_model_path_segment() :: %{
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type asset_model_composite_model_path_segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_interpolated_asset_property_values_response() :: %{
         "interpolatedAssetPropertyValues" => list(interpolated_asset_property_value()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type get_interpolated_asset_property_values_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_asset_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_asset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image() :: %{
         "file" => image_file(),
         "id" => String.t()
       }
-
+      
   """
   @type image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_assets_request() :: %{
         optional("clientToken") => String.t(),
         required("childAssetId") => String.t(),
         required("hierarchyId") => String.t()
       }
-
+      
   """
   @type associate_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_aggregates_entry() :: %{
         "aggregateTypes" => list(list(any())()),
         "assetId" => String.t(),
@@ -2484,52 +2484,52 @@ defmodule AWS.IoTSiteWise do
         "startDate" => non_neg_integer(),
         "timeOrdering" => list(any())
       }
-
+      
   """
   @type batch_get_asset_property_aggregates_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_response() :: %{
         "errorEntries" => list(batch_get_asset_property_value_error_entry()()),
         "nextToken" => String.t(),
         "skippedEntries" => list(batch_get_asset_property_value_skipped_entry()()),
         "successEntries" => list(batch_get_asset_property_value_success_entry()())
       }
-
+      
   """
   @type batch_get_asset_property_value_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transform() :: %{
         "expression" => String.t(),
         "processingConfig" => transform_processing_config(),
         "variables" => list(expression_variable()())
       }
-
+      
   """
   @type transform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_asset_property_value_history_request() :: %{
         optional("assetId") => String.t(),
         optional("endDate") => non_neg_integer(),
@@ -2541,26 +2541,26 @@ defmodule AWS.IoTSiteWise do
         optional("startDate") => non_neg_integer(),
         optional("timeOrdering") => list(any())
       }
-
+      
   """
   @type get_asset_property_value_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_relationship_summary() :: %{
         "hierarchyInfo" => asset_hierarchy_info(),
         "relationshipType" => list(any())
       }
-
+      
   """
   @type asset_relationship_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_composite_model_summary() :: %{
         "description" => String.t(),
         "externalId" => String.t(),
@@ -2569,64 +2569,64 @@ defmodule AWS.IoTSiteWise do
         "path" => list(asset_composite_model_path_segment()()),
         "type" => String.t()
       }
-
+      
   """
   @type asset_composite_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_asset_response() :: %{
         "assetArn" => String.t(),
         "assetId" => String.t(),
         "assetStatus" => asset_status()
       }
-
+      
   """
   @type create_asset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_access_policy_request() :: %{
         optional("clientToken") => String.t(),
         required("accessPolicyIdentity") => identity(),
         required("accessPolicyPermission") => list(any()),
         required("accessPolicyResource") => resource()
       }
-
+      
   """
   @type update_access_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_asset_request() :: %{
         optional("assetDescription") => String.t(),
         optional("assetExternalId") => String.t(),
         optional("clientToken") => String.t(),
         required("assetName") => String.t()
       }
-
+      
   """
   @type update_asset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_summary() :: %{
         "creationDate" => non_neg_integer(),
         "description" => String.t(),
@@ -2634,93 +2634,93 @@ defmodule AWS.IoTSiteWise do
         "lastUpdateDate" => non_neg_integer(),
         "name" => String.t()
       }
-
+      
   """
   @type dashboard_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_logging_options_request() :: %{
         required("loggingOptions") => logging_options()
       }
-
+      
   """
   @type put_logging_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       measurement_processing_config() :: %{
         "forwardingConfig" => forwarding_config()
       }
-
+      
   """
   @type measurement_processing_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_type() :: %{
         "attribute" => attribute(),
         "measurement" => measurement(),
         "metric" => metric(),
         "transform" => transform()
       }
-
+      
   """
   @type property_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_time_series_request() :: %{
         optional("alias") => String.t(),
         optional("assetId") => String.t(),
         optional("clientToken") => String.t(),
         optional("propertyId") => String.t()
       }
-
+      
   """
   @type delete_time_series_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_gateway_request() :: %{}
-
+      
   """
   @type delete_gateway_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_request() :: %{}
-
+      
   """
   @type describe_gateway_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_project_assets_response() :: %{
         "errors" => list(asset_error_details()())
       }
-
+      
   """
   @type batch_disassociate_project_assets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_portal_request() :: %{
         optional("alarms") => alarms(),
         optional("clientToken") => String.t(),
@@ -2731,14 +2731,14 @@ defmodule AWS.IoTSiteWise do
         required("portalName") => String.t(),
         required("roleArn") => String.t()
       }
-
+      
   """
   @type update_portal_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_storage_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "disassociatedDataStorage" => list(any()),
@@ -2749,107 +2749,107 @@ defmodule AWS.IoTSiteWise do
         "warmTier" => list(any()),
         "warmTierRetentionPeriod" => warm_tier_retention_period()
       }
-
+      
   """
   @type describe_storage_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_error_details() :: %{
         "assetId" => String.t(),
         "code" => list(any()),
         "message" => String.t()
       }
-
+      
   """
   @type asset_error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_in_nanos() :: %{
         "offsetInNanos" => integer(),
         "timeInSeconds" => float()
       }
-
+      
   """
   @type time_in_nanos() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tumbling_window() :: %{
         "interval" => String.t(),
         "offset" => String.t()
       }
-
+      
   """
   @type tumbling_window() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       measurement() :: %{
         "processingConfig" => measurement_processing_config()
       }
-
+      
   """
   @type measurement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_history_error_info() :: %{
         "errorCode" => list(any()),
         "errorTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type batch_get_asset_property_value_history_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_asset_model_composite_model_response() :: %{
         "assetModelStatus" => asset_model_status()
       }
-
+      
   """
   @type delete_asset_model_composite_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property() :: %{
         "alias" => String.t(),
         "dataType" => list(any()),
@@ -2861,50 +2861,50 @@ defmodule AWS.IoTSiteWise do
         "type" => property_type(),
         "unit" => String.t()
       }
-
+      
   """
   @type property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_query_response() :: %{
         "columns" => list(column_info()()),
         "nextToken" => String.t(),
         "rows" => list(row()())
       }
-
+      
   """
   @type execute_query_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_timeout_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type query_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_asset_property_value_history_response() :: %{
         "assetPropertyValueHistory" => list(asset_property_value()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type get_asset_property_value_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_composite_model_summary() :: %{
         "description" => String.t(),
         "externalId" => String.t(),
@@ -2913,48 +2913,48 @@ defmodule AWS.IoTSiteWise do
         "path" => list(asset_model_composite_model_path_segment()()),
         "type" => String.t()
       }
-
+      
   """
   @type asset_model_composite_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_composition_relationships_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_composition_relationships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composition_details() :: %{
         "compositionRelationship" => list(composition_relationship_item()())
       }
-
+      
   """
   @type composition_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_request() :: %{
         optional("clientToken") => String.t(),
         optional("projectDescription") => String.t(),
@@ -2962,14 +2962,14 @@ defmodule AWS.IoTSiteWise do
         required("portalId") => String.t(),
         required("projectName") => String.t()
       }
-
+      
   """
   @type create_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_gateway_response() :: %{
         "creationDate" => non_neg_integer(),
         "gatewayArn" => String.t(),
@@ -2979,63 +2979,63 @@ defmodule AWS.IoTSiteWise do
         "gatewayPlatform" => gateway_platform(),
         "lastUpdateDate" => non_neg_integer()
       }
-
+      
   """
   @type describe_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_request() :: %{
         optional("nextToken") => String.t(),
         required("entries") => list(batch_get_asset_property_value_entry()())
       }
-
+      
   """
   @type batch_get_asset_property_value_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_assets_request() :: %{
         optional("clientToken") => String.t(),
         required("childAssetId") => String.t(),
         required("hierarchyId") => String.t()
       }
-
+      
   """
   @type disassociate_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_history_success_entry() :: %{
         "assetPropertyValueHistory" => list(asset_property_value()()),
         "entryId" => String.t()
       }
-
+      
   """
   @type batch_get_asset_property_value_history_success_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_property_path_segment() :: %{
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type asset_property_path_segment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_time_series_request() :: %{
         optional("aliasPrefix") => String.t(),
         optional("assetId") => String.t(),
@@ -3043,27 +3043,27 @@ defmodule AWS.IoTSiteWise do
         optional("nextToken") => String.t(),
         optional("timeSeriesType") => list(any())
       }
-
+      
   """
   @type list_time_series_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("portalId") => String.t()
       }
-
+      
   """
   @type list_projects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dashboard_request() :: %{
         optional("clientToken") => String.t(),
         optional("dashboardDescription") => String.t(),
@@ -3072,14 +3072,14 @@ defmodule AWS.IoTSiteWise do
         required("dashboardName") => String.t(),
         required("projectId") => String.t()
       }
-
+      
   """
   @type create_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_asset_model_composite_model_request() :: %{
         optional("assetModelCompositeModelDescription") => String.t(),
         optional("assetModelCompositeModelExternalId") => String.t(),
@@ -3087,26 +3087,26 @@ defmodule AWS.IoTSiteWise do
         optional("clientToken") => String.t(),
         required("assetModelCompositeModelName") => String.t()
       }
-
+      
   """
   @type update_asset_model_composite_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_relationships_response() :: %{
         "assetRelationshipSummaries" => list(asset_relationship_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_asset_relationships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregates() :: %{
         "average" => float(),
         "count" => float(),
@@ -3115,37 +3115,37 @@ defmodule AWS.IoTSiteWise do
         "standardDeviation" => float(),
         "sum" => float()
       }
-
+      
   """
   @type aggregates() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_model_properties_response() :: %{
         "assetModelPropertySummaries" => list(asset_model_property_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_asset_model_properties_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute() :: %{
         "defaultValue" => String.t()
       }
-
+      
   """
   @type attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       portal_summary() :: %{
         "creationDate" => non_neg_integer(),
         "description" => String.t(),
@@ -3156,62 +3156,62 @@ defmodule AWS.IoTSiteWise do
         "startUrl" => String.t(),
         "status" => portal_status()
       }
-
+      
   """
   @type portal_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_assets_request() :: %{
         optional("assetModelId") => String.t(),
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_project_assets_request() :: %{
         optional("clientToken") => String.t(),
         required("assetIds") => list(String.t()())
       }
-
+      
   """
   @type batch_disassociate_project_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_asset_property_value_response() :: %{
         "errorEntries" => list(batch_put_asset_property_error_entry()())
       }
-
+      
   """
   @type batch_put_asset_property_value_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_composite_model_response() :: %{
         "actionDefinitions" => list(action_definition()()),
         "assetCompositeModelDescription" => String.t(),
@@ -3224,70 +3224,70 @@ defmodule AWS.IoTSiteWise do
         "assetCompositeModelType" => String.t(),
         "assetId" => String.t()
       }
-
+      
   """
   @type describe_asset_composite_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composition_relationship_item() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type composition_relationship_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_options() :: %{
         "level" => list(any())
       }
-
+      
   """
   @type logging_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_request() :: %{}
-
+      
   """
   @type describe_dashboard_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_properties_response() :: %{
         "assetPropertySummaries" => list(asset_property_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_asset_properties_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_hierarchy() :: %{
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type asset_hierarchy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_property_definition() :: %{
         "dataType" => list(any()),
         "dataTypeSpec" => String.t(),
@@ -3297,98 +3297,98 @@ defmodule AWS.IoTSiteWise do
         "type" => property_type(),
         "unit" => String.t()
       }
-
+      
   """
   @type asset_model_property_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_hierarchy_info() :: %{
         "childAssetId" => String.t(),
         "parentAssetId" => String.t()
       }
-
+      
   """
   @type asset_hierarchy_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_asset_property_error_entry() :: %{
         "entryId" => String.t(),
         "errors" => list(batch_put_asset_property_error()())
       }
-
+      
   """
   @type batch_put_asset_property_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_properties_request() :: %{
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_asset_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       variable_value() :: %{
         "hierarchyId" => String.t(),
         "propertyId" => String.t(),
         "propertyPath" => list(asset_model_property_path_segment()())
       }
-
+      
   """
   @type variable_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_portal_request() :: %{}
-
+      
   """
   @type describe_portal_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_already_exists_exception() :: %{
         "message" => String.t(),
         "resourceArn" => String.t(),
         "resourceId" => String.t()
       }
-
+      
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_info() :: %{
         "name" => String.t(),
         "type" => column_type()
       }
-
+      
   """
   @type column_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_series_summary() :: %{
         "alias" => String.t(),
         "assetId" => String.t(),
@@ -3400,25 +3400,25 @@ defmodule AWS.IoTSiteWise do
         "timeSeriesId" => String.t(),
         "timeSeriesLastUpdateDate" => non_neg_integer()
       }
-
+      
   """
   @type time_series_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_asset_model_request() :: %{
         optional("assetModelCompositeModels") => list(asset_model_composite_model_definition()()),
         optional("assetModelDescription") => String.t(),
@@ -3431,125 +3431,125 @@ defmodule AWS.IoTSiteWise do
         optional("tags") => map(),
         required("assetModelName") => String.t()
       }
-
+      
   """
   @type create_asset_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_action_request() :: %{
         optional("clientToken") => String.t(),
         required("actionDefinitionId") => String.t(),
         required("actionPayload") => action_payload(),
         required("targetResource") => target_resource()
       }
-
+      
   """
   @type execute_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_asset_property_error() :: %{
         "errorCode" => list(any()),
         "errorMessage" => String.t(),
         "timestamps" => list(time_in_nanos()())
       }
-
+      
   """
   @type batch_put_asset_property_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_assets_response() :: %{
         "assetSummaries" => list(asset_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_assets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_asset_model_response() :: %{
         "assetModelStatus" => asset_model_status()
       }
-
+      
   """
   @type update_asset_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_request() :: %{
         optional("excludeProperties") => boolean()
       }
-
+      
   """
   @type describe_asset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dashboards_response() :: %{
         "dashboardSummaries" => list(dashboard_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_dashboards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_entry() :: %{
         "assetId" => String.t(),
         "entryId" => String.t(),
         "propertyAlias" => String.t(),
         "propertyId" => String.t()
       }
-
+      
   """
   @type batch_get_asset_property_value_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gateways_response() :: %{
         "gatewaySummaries" => list(gateway_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_gateways_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_aggregates_error_info() :: %{
         "errorCode" => list(any()),
         "errorTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type batch_get_asset_property_aggregates_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_policy_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
@@ -3557,37 +3557,37 @@ defmodule AWS.IoTSiteWise do
         required("accessPolicyPermission") => list(any()),
         required("accessPolicyResource") => resource()
       }
-
+      
   """
   @type create_access_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_default_encryption_configuration_request() :: %{
         optional("kmsKeyId") => String.t(),
         required("encryptionType") => list(any())
       }
-
+      
   """
   @type put_default_encryption_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       greengrass_v2() :: %{
         "coreDeviceThingName" => String.t()
       }
-
+      
   """
   @type greengrass_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_asset_property_value_history_entry() :: %{
         "assetId" => String.t(),
         "endDate" => non_neg_integer(),
@@ -3598,14 +3598,14 @@ defmodule AWS.IoTSiteWise do
         "startDate" => non_neg_integer(),
         "timeOrdering" => list(any())
       }
-
+      
   """
   @type batch_get_asset_property_value_history_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_asset_property_aggregates_request() :: %{
         optional("assetId") => String.t(),
         optional("maxResults") => integer(),
@@ -3619,99 +3619,99 @@ defmodule AWS.IoTSiteWise do
         required("resolution") => String.t(),
         required("startDate") => non_neg_integer()
       }
-
+      
   """
   @type get_asset_property_aggregates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       variant() :: %{
         "booleanValue" => boolean(),
         "doubleValue" => float(),
         "integerValue" => integer(),
         "stringValue" => String.t()
       }
-
+      
   """
   @type variant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_models_request() :: %{
         optional("assetModelTypes") => list(list(any())()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_asset_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "message" => String.t(),
         "resourceName" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_assets_response() :: %{
         "assetSummaries" => list(associated_assets_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_associated_assets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_storage_configuration_request() :: %{}
-
+      
   """
   @type describe_storage_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_asset_model_composite_model_response() :: %{
         "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()()),
         "assetModelStatus" => asset_model_status()
       }
-
+      
   """
   @type update_asset_model_composite_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_definition() :: %{
         "actionDefinitionId" => String.t(),
         "actionName" => String.t(),
         "actionType" => String.t()
       }
-
+      
   """
   @type action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_model_property_summary() :: %{
         "assetModelCompositeModelId" => String.t(),
         "dataType" => list(any()),
@@ -3723,56 +3723,56 @@ defmodule AWS.IoTSiteWise do
         "type" => property_type(),
         "unit" => String.t()
       }
-
+      
   """
   @type asset_model_property_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_type() :: %{
         "scalarType" => list(any())
       }
-
+      
   """
   @type column_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_time_series_to_asset_property_request() :: %{
         optional("clientToken") => String.t(),
         required("alias") => String.t(),
         required("assetId") => String.t(),
         required("propertyId") => String.t()
       }
-
+      
   """
   @type associate_time_series_to_asset_property_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "portal" => portal_resource(),
         "project" => project_resource()
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bulk_import_jobs_response() :: %{
         "jobSummaries" => list(job_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_bulk_import_jobs_response() :: %{String.t() => any()}
 
@@ -4353,35 +4353,46 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the parent asset. This can be either the
-    actual ID in UUID format, or else externalId: followed by the external ID,
-    if it has one. For more information, see Referencing objects with external
-    IDs in the IoT SiteWise User Guide.
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
-  @spec associate_assets(AWS.Client.t(), String.t(), associate_assets_request(), Keyword.t()) ::
+
+  @spec associate_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_assets_errors()}
-  def associate_assets(%Client{} = client, asset_id, input, options \\ []) do
+
+  def associate_assets(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/associate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4392,51 +4403,64 @@ defmodule AWS.IoTSiteWise do
   ## Parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
-    created. This can be either the actual ID in UUID format, or else
-    externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.
+  created. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
   * `:property_id` (`t:string`) The ID of the asset property. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
+
   @spec associate_time_series_to_asset_property(
           AWS.Client.t(),
-          associate_time_series_to_asset_property_request(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_time_series_to_asset_property_errors()}
-  def associate_time_series_to_asset_property(%Client{} = client, input, options \\ []) do
+
+  def associate_time_series_to_asset_property(
+        %Client{} = client,
+        alias,
+        asset_id,
+        property_id,
+        options \\ []
+      )
+      when is_binary(alias) and is_binary(asset_id) and is_binary(property_id) do
     url_path = "/timeseries/associate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"alias", "alias"},
-        {"assetId", "assetId"},
-        {"propertyId", "propertyId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"alias", alias}, {"assetId", asset_id}, {"propertyId", property_id}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4446,38 +4470,44 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:project_id` (`t:string`) The ID of the project to which to associate the
-    assets.
+  assets.
 
   ## Optional parameters:
   """
-  @spec batch_associate_project_assets(
-          AWS.Client.t(),
-          String.t(),
-          batch_associate_project_assets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_associate_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_associate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_project_assets_errors()}
-  def batch_associate_project_assets(%Client{} = client, project_id, input, options \\ []) do
+
+  def batch_associate_project_assets(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/associate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4487,38 +4517,44 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:project_id` (`t:string`) The ID of the project from which to disassociate
-    the assets.
+  the assets.
 
   ## Optional parameters:
   """
-  @spec batch_disassociate_project_assets(
-          AWS.Client.t(),
-          String.t(),
-          batch_disassociate_project_assets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_disassociate_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_disassociate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_project_assets_errors()}
-  def batch_disassociate_project_assets(%Client{} = client, project_id, input, options \\ []) do
+
+  def batch_disassociate_project_assets(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/disassociate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4533,33 +4569,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec batch_get_asset_property_aggregates(
-          AWS.Client.t(),
-          batch_get_asset_property_aggregates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_asset_property_aggregates(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_asset_property_aggregates_errors()}
-  def batch_get_asset_property_aggregates(%Client{} = client, input, options \\ []) do
+
+  def batch_get_asset_property_aggregates(%Client{} = client, options \\ []) do
     url_path = "/properties/batch/aggregates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4574,33 +4617,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec batch_get_asset_property_value(
-          AWS.Client.t(),
-          batch_get_asset_property_value_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_asset_property_value(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_asset_property_value_errors()}
-  def batch_get_asset_property_value(%Client{} = client, input, options \\ []) do
+
+  def batch_get_asset_property_value(%Client{} = client, options \\ []) do
     url_path = "/properties/batch/latest"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4615,33 +4665,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec batch_get_asset_property_value_history(
-          AWS.Client.t(),
-          batch_get_asset_property_value_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_asset_property_value_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_asset_property_value_history_errors()}
-  def batch_get_asset_property_value_history(%Client{} = client, input, options \\ []) do
+
+  def batch_get_asset_property_value_history(%Client{} = client, options \\ []) do
     url_path = "/properties/batch/history"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4658,33 +4715,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec batch_put_asset_property_value(
-          AWS.Client.t(),
-          batch_put_asset_property_value_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_put_asset_property_value(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_asset_property_value_errors()}
-  def batch_put_asset_property_value(%Client{} = client, input, options \\ []) do
+
+  def batch_put_asset_property_value(%Client{} = client, options \\ []) do
     url_path = "/properties"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4698,29 +4762,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_access_policy(AWS.Client.t(), create_access_policy_request(), Keyword.t()) ::
+
+  @spec create_access_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_policy_errors()}
-  def create_access_policy(%Client{} = client, input, options \\ []) do
+
+  def create_access_policy(%Client{} = client, options \\ []) do
     url_path = "/access-policies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -4735,29 +4810,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_asset(AWS.Client.t(), create_asset_request(), Keyword.t()) ::
+
+  @spec create_asset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_errors()}
-  def create_asset(%Client{} = client, input, options \\ []) do
+
+  def create_asset(%Client{} = client, options \\ []) do
     url_path = "/assets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4776,29 +4862,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_asset_model(AWS.Client.t(), create_asset_model_request(), Keyword.t()) ::
+
+  @spec create_asset_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_model_errors()}
-  def create_asset_model(%Client{} = client, input, options \\ []) do
+
+  def create_asset_model(%Client{} = client, options \\ []) do
     url_path = "/asset-models"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4817,38 +4914,44 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model this composite model
-    is a part of.
+  is a part of.
 
   ## Optional parameters:
   """
-  @spec create_asset_model_composite_model(
-          AWS.Client.t(),
-          String.t(),
-          create_asset_model_composite_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_asset_model_composite_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_asset_model_composite_model_errors()}
-  def create_asset_model_composite_model(%Client{} = client, asset_model_id, input, options \\ []) do
+
+  def create_asset_model_composite_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4869,29 +4972,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_bulk_import_job(AWS.Client.t(), create_bulk_import_job_request(), Keyword.t()) ::
+
+  @spec create_bulk_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bulk_import_job_errors()}
-  def create_bulk_import_job(%Client{} = client, input, options \\ []) do
+
+  def create_bulk_import_job(%Client{} = client, options \\ []) do
     url_path = "/jobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4903,29 +5017,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_dashboard(AWS.Client.t(), create_dashboard_request(), Keyword.t()) ::
+
+  @spec create_dashboard(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dashboard_errors()}
-  def create_dashboard(%Client{} = client, input, options \\ []) do
+
+  def create_dashboard(%Client{} = client, options \\ []) do
     url_path = "/dashboards"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -4941,29 +5066,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_gateway(AWS.Client.t(), create_gateway_request(), Keyword.t()) ::
+
+  @spec create_gateway(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_gateway_errors()}
-  def create_gateway(%Client{} = client, input, options \\ []) do
+
+  def create_gateway(%Client{} = client, options \\ []) do
     url_path = "/20200301/gateways"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -4977,29 +5113,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_portal(AWS.Client.t(), create_portal_request(), Keyword.t()) ::
+
+  @spec create_portal(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_portal_errors()}
-  def create_portal(%Client{} = client, input, options \\ []) do
+
+  def create_portal(%Client{} = client, options \\ []) do
     url_path = "/portals"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -5011,29 +5158,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+
+  @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-  def create_project(%Client{} = client, input, options \\ []) do
+
+  def create_project(%Client{} = client, options \\ []) do
     url_path = "/projects"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -5048,27 +5206,42 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-    provide to ensure the idempotency of the request. Don't reuse this client
-    token if a new idempotent request is required.
+  provide to ensure the idempotency of the request. Don't reuse this client
+  token if a new idempotent request is required.
   """
-  @spec delete_access_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_policy_errors()}
-  def delete_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
+
+  def delete_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5078,6 +5251,8 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5085,7 +5260,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -5103,28 +5278,48 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset to delete. This can be either the
-    actual ID in UUID format, or else externalId: followed by the external ID,
-    if it has one. For more information, see Referencing objects with external
-    IDs in the IoT SiteWise User Guide.
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-    provide to ensure the idempotency of the request. Don't reuse this client
-    token if a new idempotent request is required.
+  provide to ensure the idempotency of the request. Don't reuse this client
+  token if a new idempotent request is required.
   """
-  @spec delete_asset(AWS.Client.t(), String.t(), delete_asset_request(), Keyword.t()) ::
+
+  @spec delete_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_errors()}
-  def delete_asset(%Client{} = client, asset_id, input, options \\ []) do
+
+  def delete_asset(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5134,6 +5329,8 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5141,7 +5338,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -5160,28 +5357,48 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model to delete. This can
-    be either the actual ID in UUID format, or else externalId: followed by the
-    external ID, if it has one. For more information, see Referencing objects
-    with external IDs in the IoT SiteWise User Guide.
+  be either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-    provide to ensure the idempotency of the request. Don't reuse this client
-    token if a new idempotent request is required.
+  provide to ensure the idempotency of the request. Don't reuse this client
+  token if a new idempotent request is required.
   """
-  @spec delete_asset_model(AWS.Client.t(), String.t(), delete_asset_model_request(), Keyword.t()) ::
+
+  @spec delete_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_model_errors()}
-  def delete_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
+
+  def delete_asset_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5191,6 +5408,8 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5198,7 +5417,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -5217,41 +5436,53 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
-    this asset model.
+  this asset model.
   * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-    provide to ensure the idempotency of the request. Don't reuse this client
-    token if a new idempotent request is required.
+  provide to ensure the idempotency of the request. Don't reuse this client
+  token if a new idempotent request is required.
   """
-  @spec delete_asset_model_composite_model(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_asset_model_composite_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_asset_model_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_asset_model_composite_model_errors()}
+
   def delete_asset_model_composite_model(
         %Client{} = client,
         asset_model_composite_model_id,
         asset_model_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
 
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5261,6 +5492,8 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5268,7 +5501,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -5284,22 +5517,42 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-    provide to ensure the idempotency of the request. Don't reuse this client
-    token if a new idempotent request is required.
+  provide to ensure the idempotency of the request. Don't reuse this client
+  token if a new idempotent request is required.
   """
-  @spec delete_dashboard(AWS.Client.t(), String.t(), delete_dashboard_request(), Keyword.t()) ::
+
+  @spec delete_dashboard(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dashboard_errors()}
-  def delete_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
+
+  def delete_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5309,6 +5562,8 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5316,7 +5571,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -5333,17 +5588,38 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec delete_gateway(AWS.Client.t(), String.t(), delete_gateway_request(), Keyword.t()) ::
+
+  @spec delete_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
-  def delete_gateway(%Client{} = client, gateway_id, input, options \\ []) do
+
+  def delete_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5352,7 +5628,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5368,22 +5644,42 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-    provide to ensure the idempotency of the request. Don't reuse this client
-    token if a new idempotent request is required.
+  provide to ensure the idempotency of the request. Don't reuse this client
+  token if a new idempotent request is required.
   """
-  @spec delete_portal(AWS.Client.t(), String.t(), delete_portal_request(), Keyword.t()) ::
+
+  @spec delete_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_portal_errors()}
-  def delete_portal(%Client{} = client, portal_id, input, options \\ []) do
+
+  def delete_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5393,6 +5689,8 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5400,7 +5698,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -5416,22 +5714,42 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-    provide to ensure the idempotency of the request. Don't reuse this client
-    token if a new idempotent request is required.
+  provide to ensure the idempotency of the request. Don't reuse this client
+  token if a new idempotent request is required.
   """
-  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
+
+  @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-  def delete_project(%Client{} = client, project_id, input, options \\ []) do
+
+  def delete_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5441,6 +5759,8 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5448,7 +5768,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -5467,30 +5787,62 @@ defmodule AWS.IoTSiteWise do
   ## Optional parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
-    created. This can be either the actual ID in UUID format, or else
-    externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.
+  created. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
   * `:property_id` (`t:string`) The ID of the asset property. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
   """
-  @spec delete_time_series(AWS.Client.t(), delete_time_series_request(), Keyword.t()) ::
+
+  @spec delete_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_time_series_errors()}
-  def delete_time_series(%Client{} = client, input, options \\ []) do
+
+  def delete_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries/delete"
+
+    # Validate optional parameters
+    optional_params = [alias: nil, asset_id: nil, property_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"alias", "alias"},
-        {"assetId", "assetId"},
-        {"propertyId", "propertyId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :property_id) do
+        [{"propertyId", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :asset_id) do
+        [{"assetId", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :alias) do
+        [{"alias", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5500,17 +5852,9 @@ defmodule AWS.IoTSiteWise do
       options
       |> Keyword.drop([:alias, :asset_id, :property_id])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5524,10 +5868,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_policy_errors()}
+
   def describe_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
 
@@ -5566,10 +5912,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_errors()}
+
   def describe_action(%Client{} = client, action_id, options \\ []) do
     url_path = "/actions/#{AWS.Util.encode_uri(action_id)}"
 
@@ -5605,18 +5953,20 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-    in UUID format, or else externalId: followed by the external ID, if it has
-    one. For more information, see Referencing objects with external IDs in the
-    IoT SiteWise User Guide.
+  in UUID format, or else externalId: followed by the external ID, if it has
+  one. For more information, see Referencing objects with external IDs in the
+  IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset properties
-    from the response.
+  from the response.
   """
+
   @spec describe_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_errors()}
+
   def describe_asset(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
 
@@ -5667,20 +6017,22 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_composite_model_id` (`t:string`) The ID of a composite model on this
-    asset. This can be either the actual ID in UUID format, or else externalId:
-    followed by the external ID, if it has one. For more information, see
-    Referencing objects with external IDs in the IoT SiteWise User Guide.
+  asset. This can be either the actual ID in UUID format, or else externalId:
+  followed by the external ID, if it has one. For more information, see
+  Referencing objects with external IDs in the IoT SiteWise User Guide.
   * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-    in UUID format, or else externalId: followed by the external ID, if it has
-    one. For more information, see Referencing objects with external IDs in the
-    IoT SiteWise User Guide.
+  in UUID format, or else externalId: followed by the external ID, if it has
+  one. For more information, see Referencing objects with external IDs in the
+  IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
+
   @spec describe_asset_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_composite_model_errors()}
+
   def describe_asset_composite_model(
         %Client{} = client,
         asset_composite_model_id,
@@ -5722,18 +6074,20 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset model
-    properties from the response.
+  properties from the response.
   """
+
   @spec describe_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_errors()}
+
   def describe_asset_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
 
@@ -5783,21 +6137,23 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
-    this asset model. This can be either the actual ID in UUID format, or else
-    externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.
+  this asset model. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
   * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
+
   @spec describe_asset_model_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_composite_model_errors()}
+
   def describe_asset_model_composite_model(
         %Client{} = client,
         asset_model_composite_model_id,
@@ -5842,20 +6198,22 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-    in UUID format, or else externalId: followed by the external ID, if it has
-    one. For more information, see Referencing objects with external IDs in the
-    IoT SiteWise User Guide.
+  in UUID format, or else externalId: followed by the external ID, if it has
+  one. For more information, see Referencing objects with external IDs in the
+  IoT SiteWise User Guide.
   * `:property_id` (`t:string`) The ID of the asset property. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
+
   @spec describe_asset_property(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_property_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_property_errors()}
+
   def describe_asset_property(%Client{} = client, asset_id, property_id, options \\ []) do
     url_path =
       "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
@@ -5898,10 +6256,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_bulk_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bulk_import_job_errors()}
+
   def describe_bulk_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -5940,10 +6300,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_dashboard(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_errors()}
+
   def describe_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
@@ -5985,10 +6347,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_default_encryption_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_default_encryption_configuration_errors()}
+
   def describe_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
 
@@ -6027,10 +6391,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_errors()}
+
   def describe_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
 
@@ -6072,14 +6438,15 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:capability_namespace` (`t:string`) The namespace of the capability
-    configuration. For example, if you configure OPC-UA sources from the IoT
-    SiteWise console, your OPC-UA capability configuration has the namespace
-    iotsitewise:opcuacollector:version, where version is a number such as 1.
+  configuration. For example, if you configure OPC-UA sources from the IoT
+  SiteWise console, your OPC-UA capability configuration has the namespace
+  iotsitewise:opcuacollector:version, where version is a number such as 1.
   * `:gateway_id` (`t:string`) The ID of the gateway that defines the capability
-    configuration.
+  configuration.
 
   ## Optional parameters:
   """
+
   @spec describe_gateway_capability_configuration(
           AWS.Client.t(),
           String.t(),
@@ -6089,6 +6456,7 @@ defmodule AWS.IoTSiteWise do
           {:ok, describe_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_gateway_capability_configuration_errors()}
+
   def describe_gateway_capability_configuration(
         %Client{} = client,
         capability_namespace,
@@ -6132,10 +6500,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_options_errors()}
+
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
 
@@ -6174,10 +6544,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_portal_errors()}
+
   def describe_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
 
@@ -6216,10 +6588,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
+
   def describe_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
 
@@ -6257,10 +6631,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec describe_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_configuration_errors()}
+
   def describe_storage_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/storage"
 
@@ -6300,19 +6676,21 @@ defmodule AWS.IoTSiteWise do
   ## Optional parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
-    created. This can be either the actual ID in UUID format, or else
-    externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.
+  created. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
   * `:property_id` (`t:string`) The ID of the asset property. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
   """
+
   @spec describe_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_time_series_errors()}
+
   def describe_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries/describe"
 
@@ -6374,41 +6752,47 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the parent asset from which to disassociate
-    the child asset. This can be either the actual ID in UUID format, or else
-    externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.
+  the child asset. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
 
   ## Optional parameters:
   """
-  @spec disassociate_assets(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_assets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_assets_errors()}
-  def disassociate_assets(%Client{} = client, asset_id, input, options \\ []) do
+
+  def disassociate_assets(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/disassociate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6419,51 +6803,64 @@ defmodule AWS.IoTSiteWise do
   ## Parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
-    created. This can be either the actual ID in UUID format, or else
-    externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.
+  created. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
   * `:property_id` (`t:string`) The ID of the asset property. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
+
   @spec disassociate_time_series_from_asset_property(
           AWS.Client.t(),
-          disassociate_time_series_from_asset_property_request(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_time_series_from_asset_property_errors()}
-  def disassociate_time_series_from_asset_property(%Client{} = client, input, options \\ []) do
+
+  def disassociate_time_series_from_asset_property(
+        %Client{} = client,
+        alias,
+        asset_id,
+        property_id,
+        options \\ []
+      )
+      when is_binary(alias) and is_binary(asset_id) and is_binary(property_id) do
     url_path = "/timeseries/disassociate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"alias", "alias"},
-        {"assetId", "assetId"},
-        {"propertyId", "propertyId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"alias", alias}, {"assetId", asset_id}, {"propertyId", property_id}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6475,29 +6872,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec execute_action(AWS.Client.t(), execute_action_request(), Keyword.t()) ::
+
+  @spec execute_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_action_errors()}
-  def execute_action(%Client{} = client, input, options \\ []) do
+
+  def execute_action(%Client{} = client, options \\ []) do
     url_path = "/actions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -6510,29 +6918,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec execute_query(AWS.Client.t(), execute_query_request(), Keyword.t()) ::
+
+  @spec execute_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_query_errors()}
-  def execute_query(%Client{} = client, input, options \\ []) do
+
+  def execute_query(%Client{} = client, options \\ []) do
     url_path = "/queries/execution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6546,31 +6965,32 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:aggregate_types` (`t:list[com.amazonaws.iotsitewise#AggregateType]`) The
-    data aggregating function.
+  data aggregating function.
   * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
-    historical data, expressed in seconds in Unix epoch time.
+  historical data, expressed in seconds in Unix epoch time.
   * `:resolution` (`t:string`) The time interval over which to aggregate data.
   * `:start_date` (`t:timestamp`) The exclusive start of the range from which to
-    query historical data, expressed in seconds in Unix epoch time.
+  query historical data, expressed in seconds in Unix epoch time.
 
   ## Optional parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request. A result set is returned in the two cases, whichever
-    occurs first.
+  paginated request. A result set is returned in the two cases, whichever
+  occurs first.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   * `:property_alias` (`t:string`) The alias that identifies the property, such as
-    an OPC-UA server data stream path (for example,
-    /company/windfarm/3/turbine/7/temperature). For more information, see
-    Mapping industrial data streams to asset properties in the IoT SiteWise User
-    Guide.
+  an OPC-UA server data stream path (for example,
+  /company/windfarm/3/turbine/7/temperature). For more information, see
+  Mapping industrial data streams to asset properties in the IoT SiteWise User
+  Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
   * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by
-    which to filter asset data.
+  which to filter asset data.
   * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
-    order of the requested information.
+  order of the requested information.
   """
+
   @spec get_asset_property_aggregates(
           AWS.Client.t(),
           String.t(),
@@ -6582,6 +7002,7 @@ defmodule AWS.IoTSiteWise do
           {:ok, get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_aggregates_errors()}
+
   def get_asset_property_aggregates(
         %Client{} = client,
         aggregate_types,
@@ -6589,7 +7010,9 @@ defmodule AWS.IoTSiteWise do
         resolution,
         start_date,
         options \\ []
-      ) do
+      )
+      when is_binary(aggregate_types) and is_binary(end_date) and is_binary(resolution) and
+             is_binary(start_date) do
     url_path = "/properties/aggregates"
 
     # Validate optional parameters
@@ -6705,16 +7128,18 @@ defmodule AWS.IoTSiteWise do
   ## Optional parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:property_alias` (`t:string`) The alias that identifies the property, such as
-    an OPC-UA server data stream path (for example,
-    /company/windfarm/3/turbine/7/temperature). For more information, see
-    Mapping industrial data streams to asset properties in the IoT SiteWise User
-    Guide.
+  an OPC-UA server data stream path (for example,
+  /company/windfarm/3/turbine/7/temperature). For more information, see
+  Mapping industrial data streams to asset properties in the IoT SiteWise User
+  Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
   """
+
   @spec get_asset_property_value(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_value_errors()}
+
   def get_asset_property_value(%Client{} = client, options \\ []) do
     url_path = "/properties/latest"
 
@@ -6782,29 +7207,31 @@ defmodule AWS.IoTSiteWise do
   ## Optional parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
-    historical data, expressed in seconds in Unix epoch time.
+  historical data, expressed in seconds in Unix epoch time.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request. A result set is returned in the two cases, whichever
-    occurs first.
+  paginated request. A result set is returned in the two cases, whichever
+  occurs first.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   * `:property_alias` (`t:string`) The alias that identifies the property, such as
-    an OPC-UA server data stream path (for example,
-    /company/windfarm/3/turbine/7/temperature). For more information, see
-    Mapping industrial data streams to asset properties in the IoT SiteWise User
-    Guide.
+  an OPC-UA server data stream path (for example,
+  /company/windfarm/3/turbine/7/temperature). For more information, see
+  Mapping industrial data streams to asset properties in the IoT SiteWise User
+  Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
   * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by
-    which to filter asset data.
+  which to filter asset data.
   * `:start_date` (`t:timestamp`) The exclusive start of the range from which to
-    query historical data, expressed in seconds in Unix epoch time.
+  query historical data, expressed in seconds in Unix epoch time.
   * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
-    order of the requested information.
+  order of the requested information.
   """
+
   @spec get_asset_property_value_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_asset_property_value_history_errors()}
+
   def get_asset_property_value_history(%Client{} = client, options \\ []) do
     url_path = "/properties/history"
 
@@ -6932,38 +7359,39 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:end_time_in_seconds` (`t:long`) The inclusive end of the range from which to
-    interpolate data, expressed in seconds in Unix epoch time.
+  interpolate data, expressed in seconds in Unix epoch time.
   * `:interval_in_seconds` (`t:long`) The time interval in seconds over which to
-    interpolate data. Each interval starts when the previous one ends.
+  interpolate data. Each interval starts when the previous one ends.
   * `:quality` (`t:enum["BAD|GOOD|UNCERTAIN"]`) The quality of the asset property
-    value. You can use this parameter as a filter to choose only the asset
-    property values that have a specific quality.
+  value. You can use this parameter as a filter to choose only the asset
+  property values that have a specific quality.
   * `:start_time_in_seconds` (`t:long`) The exclusive start of the range from
-    which to interpolate data, expressed in seconds in Unix epoch time.
+  which to interpolate data, expressed in seconds in Unix epoch time.
   * `:type` (`t:string`) The interpolation type.
 
   ## Optional parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
   * `:end_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted from
-    endTimeInSeconds.
+  endTimeInSeconds.
   * `:interval_window_in_seconds` (`t:long`) The query interval for the window, in
-    seconds. IoT SiteWise computes each interpolated value by using data points
-    from the timestamp of each interval, minus the window to the timestamp of
-    each interval plus the window. If not specified, the window ranges between
-    the start time minus the interval and the end time plus the interval.
+  seconds. IoT SiteWise computes each interpolated value by using data points
+  from the timestamp of each interval, minus the window to the timestamp of
+  each interval plus the window. If not specified, the window ranges between
+  the start time minus the interval and the end time plus the interval.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request. If not specified, the default value is 10.
+  paginated request. If not specified, the default value is 10.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   * `:property_alias` (`t:string`) The alias that identifies the property, such as
-    an OPC-UA server data stream path (for example,
-    /company/windfarm/3/turbine/7/temperature). For more information, see
-    Mapping industrial data streams to asset properties in the IoT SiteWise User
-    Guide.
+  an OPC-UA server data stream path (for example,
+  /company/windfarm/3/turbine/7/temperature). For more information, see
+  Mapping industrial data streams to asset properties in the IoT SiteWise User
+  Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
   * `:start_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted
-    from startTimeInSeconds.
+  from startTimeInSeconds.
   """
+
   @spec get_interpolated_asset_property_values(
           AWS.Client.t(),
           String.t(),
@@ -6976,6 +7404,7 @@ defmodule AWS.IoTSiteWise do
           {:ok, get_interpolated_asset_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_interpolated_asset_property_values_errors()}
+
   def get_interpolated_asset_property_values(
         %Client{} = client,
         end_time_in_seconds,
@@ -6984,7 +7413,9 @@ defmodule AWS.IoTSiteWise do
         start_time_in_seconds,
         type,
         options \\ []
-      ) do
+      )
+      when is_integer(end_time_in_seconds) and is_integer(interval_in_seconds) and
+             is_binary(quality) and is_integer(start_time_in_seconds) and is_binary(type) do
     url_path = "/properties/interpolated"
 
     # Validate optional parameters
@@ -7107,26 +7538,28 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:iam_arn` (`t:string`) The ARN of the IAM user. For more information, see IAM
-    ARNs in the IAM User Guide. This parameter is required if you specify IAM
-    for identityType.
+  ARNs in the IAM User Guide. This parameter is required if you specify IAM
+  for identityType.
   * `:identity_id` (`t:string`) The ID of the identity. This parameter is required
-    if you specify USER or GROUP for identityType.
+  if you specify USER or GROUP for identityType.
   * `:identity_type` (`t:enum["GROUP|IAM|USER"]`) The type of identity (IAM
-    Identity Center user, IAM Identity Center group, or IAM user). This
-    parameter is required if you specify identityId.
+  Identity Center user, IAM Identity Center group, or IAM user). This
+  parameter is required if you specify identityId.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   * `:resource_id` (`t:string`) The ID of the resource. This parameter is required
-    if you specify resourceType.
+  if you specify resourceType.
   * `:resource_type` (`t:enum["PORTAL|PROJECT"]`) The type of resource (portal or
-    project). This parameter is required if you specify resourceId.
+  project). This parameter is required if you specify resourceId.
   """
+
   @spec list_access_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_policies_errors()}
+
   def list_access_policies(%Client{} = client, options \\ []) do
     url_path = "/access-policies"
 
@@ -7235,15 +7668,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_actions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_actions_errors()}
-  def list_actions(%Client{} = client, target_resource_id, target_resource_type, options \\ []) do
+
+  def list_actions(%Client{} = client, target_resource_id, target_resource_type, options \\ [])
+      when is_binary(target_resource_id) and is_binary(target_resource_type) do
     url_path = "/actions"
 
     # Validate optional parameters
@@ -7299,20 +7735,22 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_asset_model_composite_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_composite_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_model_composite_models_errors()}
+
   def list_asset_model_composite_models(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
 
@@ -7368,22 +7806,24 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset model
-    properties. You can choose one of the following options:
+  properties. You can choose one of the following options:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request. If not specified, the default value is 50.
+  paginated request. If not specified, the default value is 50.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_asset_model_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_model_properties_errors()}
+
   def list_asset_model_properties(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/properties"
 
@@ -7446,16 +7886,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:asset_model_types` (`t:list[com.amazonaws.iotsitewise#AssetModelType]`) The
-    type of asset model.
+  type of asset model.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_asset_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_asset_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_models_errors()}
+
   def list_asset_models(%Client{} = client, options \\ []) do
     url_path = "/asset-models"
 
@@ -7518,22 +7960,24 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-    in UUID format, or else externalId: followed by the external ID, if it has
-    one. For more information, see Referencing objects with external IDs in the
-    IoT SiteWise User Guide.
+  in UUID format, or else externalId: followed by the external ID, if it has
+  one. For more information, see Referencing objects with external IDs in the
+  IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset
-    properties. You can choose one of the following options:
+  properties. You can choose one of the following options:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request. If not specified, the default value is 50.
+  paginated request. If not specified, the default value is 50.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_asset_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_properties_errors()}
+
   def list_asset_properties(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/properties"
 
@@ -7596,23 +8040,26 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
-    in UUID format, or else externalId: followed by the external ID, if it has
-    one. For more information, see Referencing objects with external IDs in the
-    IoT SiteWise User Guide.
+  in UUID format, or else externalId: followed by the external ID, if it has
+  one. For more information, see Referencing objects with external IDs in the
+  IoT SiteWise User Guide.
   * `:traversal_type` (`t:enum["PATH_TO_ROOT"]`) The type of traversal to use to
-    identify asset relationships. Choose the following option:
+  identify asset relationships. Choose the following option:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_asset_relationships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_relationships_errors()}
-  def list_asset_relationships(%Client{} = client, asset_id, traversal_type, options \\ []) do
+
+  def list_asset_relationships(%Client{} = client, asset_id, traversal_type, options \\ [])
+      when is_binary(traversal_type) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/assetRelationships"
 
     # Validate optional parameters
@@ -7668,21 +8115,23 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model by which to filter
-    the list of assets. This parameter is required if you choose ALL for filter.
-    This can be either the actual ID in UUID format, or else externalId:
-    followed by the external ID, if it has one. For more information, see
-    Referencing objects with external IDs in the IoT SiteWise User Guide.
+  the list of assets. This parameter is required if you choose ALL for filter.
+  This can be either the actual ID in UUID format, or else externalId:
+  followed by the external ID, if it has one. For more information, see
+  Referencing objects with external IDs in the IoT SiteWise User Guide.
   * `:filter` (`t:enum["ALL|TOP_LEVEL"]`) The filter for the requested list of
-    assets. Choose one of the following options:
+  assets. Choose one of the following options:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
+
   def list_assets(%Client{} = client, options \\ []) do
     url_path = "/assets"
 
@@ -7751,29 +8200,31 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset to query. This can be either the
-    actual ID in UUID format, or else externalId: followed by the external ID,
-    if it has one. For more information, see Referencing objects with external
-    IDs in the IoT SiteWise User Guide.
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:hierarchy_id` (`t:string`) The ID of the hierarchy by which child assets are
-    associated to the asset. (This can be either the actual ID in UUID format,
-    or else externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.) To find a hierarchy ID, use the DescribeAsset or
-    DescribeAssetModel operations. This parameter is required if you choose
-    CHILD for traversalDirection.
+  associated to the asset. (This can be either the actual ID in UUID format,
+  or else externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.) To find a hierarchy ID, use the DescribeAsset or
+  DescribeAssetModel operations. This parameter is required if you choose
+  CHILD for traversalDirection.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   * `:traversal_direction` (`t:enum["CHILD|PARENT"]`) The direction to list
-    associated assets. Choose one of the following options:
+  associated assets. Choose one of the following options:
   """
+
   @spec list_associated_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_assets_errors()}
+
   def list_associated_assets(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/hierarchies"
 
@@ -7851,18 +8302,20 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:filter`
-    (`t:enum["ALL|CANCELLED|COMPLETED|COMPLETED_WITH_FAILURES|FAILED|PENDING|RUNNING"]`)
-    You can use a filter to select the bulk import jobs that you want to
-    retrieve.
+  (`t:enum["ALL|CANCELLED|COMPLETED|COMPLETED_WITH_FAILURES|FAILED|PENDING|RUNNING"]`)
+  You can use a filter to select the bulk import jobs that you want to
+  retrieve.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_bulk_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bulk_import_jobs_errors()}
+
   def list_bulk_import_jobs(%Client{} = client, options \\ []) do
     url_path = "/jobs"
 
@@ -7924,20 +8377,22 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_composition_relationships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_composition_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_composition_relationships_errors()}
+
   def list_composition_relationships(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composition-relationships"
 
@@ -7994,15 +8449,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboards_errors()}
-  def list_dashboards(%Client{} = client, project_id, options \\ []) do
+
+  def list_dashboards(%Client{} = client, project_id, options \\ []) when is_binary(project_id) do
     url_path = "/dashboards"
 
     # Validate optional parameters
@@ -8057,14 +8514,16 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gateways_errors()}
+
   def list_gateways(%Client{} = client, options \\ []) do
     url_path = "/20200301/gateways"
 
@@ -8120,14 +8579,16 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_portals_errors()}
+
   def list_portals(%Client{} = client, options \\ []) do
     url_path = "/portals"
 
@@ -8185,14 +8646,16 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_project_assets_errors()}
+
   def list_project_assets(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets"
 
@@ -8249,15 +8712,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   """
+
   @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-  def list_projects(%Client{} = client, portal_id, options \\ []) do
+
+  def list_projects(%Client{} = client, portal_id, options \\ []) when is_binary(portal_id) do
     url_path = "/projects"
 
     # Validate optional parameters
@@ -8313,11 +8778,14 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/tags"
 
     # Validate optional parameters
@@ -8355,21 +8823,23 @@ defmodule AWS.IoTSiteWise do
   ## Optional parameters:
   * `:alias_prefix` (`t:string`) The alias prefix of the time series.
   * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
-    created. This can be either the actual ID in UUID format, or else
-    externalId: followed by the external ID, if it has one. For more
-    information, see Referencing objects with external IDs in the IoT SiteWise
-    User Guide.
+  created. This can be either the actual ID in UUID format, or else
+  externalId: followed by the external ID, if it has one. For more
+  information, see Referencing objects with external IDs in the IoT SiteWise
+  User Guide.
   * `:max_results` (`t:integer`) The maximum number of results to return for each
-    paginated request.
+  paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-    results.
+  results.
   * `:time_series_type` (`t:enum["ASSOCIATED|DISASSOCIATED"]`) The type of the
-    time series. The time series type can be one of the following values:
+  time series. The time series type can be one of the following values:
   """
+
   @spec list_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_time_series_errors()}
+
   def list_time_series(%Client{} = client, options \\ []) do
     url_path = "/timeseries"
 
@@ -8455,33 +8925,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec put_default_encryption_configuration(
-          AWS.Client.t(),
-          put_default_encryption_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_default_encryption_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_default_encryption_configuration_errors()}
-  def put_default_encryption_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8493,19 +8970,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec put_logging_options(AWS.Client.t(), put_logging_options_request(), Keyword.t()) ::
+
+  @spec put_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
-  def put_logging_options(%Client{} = client, input, options \\ []) do
+
+  def put_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8517,33 +9015,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec put_storage_configuration(
-          AWS.Client.t(),
-          put_storage_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_storage_configuration_errors()}
-  def put_storage_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_storage_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/storage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8557,34 +9062,41 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceArn", "resourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8595,27 +9107,43 @@ defmodule AWS.IoTSiteWise do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to untag.
   * `:tag_keys` (`t:list[com.amazonaws.iotsitewise#TagKey]`) A list of keys for
-    tags to remove from the resource.
+  tags to remove from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceArn", "resourceArn"},
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}, {"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8624,7 +9152,7 @@ defmodule AWS.IoTSiteWise do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8641,24 +9169,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec update_access_policy(
-          AWS.Client.t(),
-          String.t(),
-          update_access_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_access_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_policy_errors()}
-  def update_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
+
+  def update_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8670,25 +9214,46 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset to update. This can be either the
-    actual ID in UUID format, or else externalId: followed by the external ID,
-    if it has one. For more information, see Referencing objects with external
-    IDs in the IoT SiteWise User Guide.
+  actual ID in UUID format, or else externalId: followed by the external ID,
+  if it has one. For more information, see Referencing objects with external
+  IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
-  @spec update_asset(AWS.Client.t(), String.t(), update_asset_request(), Keyword.t()) ::
+
+  @spec update_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_errors()}
-  def update_asset(%Client{} = client, asset_id, input, options \\ []) do
+
+  def update_asset(%Client{} = client, asset_id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -8710,25 +9275,46 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_id` (`t:string`) The ID of the asset model to update. This can
-    be either the actual ID in UUID format, or else externalId: followed by the
-    external ID, if it has one. For more information, see Referencing objects
-    with external IDs in the IoT SiteWise User Guide.
+  be either the actual ID in UUID format, or else externalId: followed by the
+  external ID, if it has one. For more information, see Referencing objects
+  with external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
-  @spec update_asset_model(AWS.Client.t(), String.t(), update_asset_model_request(), Keyword.t()) ::
+
+  @spec update_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_model_errors()}
-  def update_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
+
+  def update_asset_model(%Client{} = client, asset_model_id, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -8743,38 +9329,51 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
-    this asset model.
+  this asset model.
   * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
 
   ## Optional parameters:
   """
-  @spec update_asset_model_composite_model(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_asset_model_composite_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_asset_model_composite_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_model_composite_model_errors()}
+
   def update_asset_model_composite_model(
         %Client{} = client,
         asset_model_composite_model_id,
         asset_model_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -8784,37 +9383,51 @@ defmodule AWS.IoTSiteWise do
 
   ## Parameters:
   * `:asset_id` (`t:string`) The ID of the asset to be updated. This can be either
-    the actual ID in UUID format, or else externalId: followed by the external
-    ID, if it has one. For more information, see Referencing objects with
-    external IDs in the IoT SiteWise User Guide.
+  the actual ID in UUID format, or else externalId: followed by the external
+  ID, if it has one. For more information, see Referencing objects with
+  external IDs in the IoT SiteWise User Guide.
   * `:property_id` (`t:string`) The ID of the asset property to be updated. This
-    can be either the actual ID in UUID format, or else externalId: followed by
-    the external ID, if it has one. For more information, see Referencing
-    objects with external IDs in the IoT SiteWise User Guide.
+  can be either the actual ID in UUID format, or else externalId: followed by
+  the external ID, if it has one. For more information, see Referencing
+  objects with external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
-  @spec update_asset_property(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_asset_property_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_asset_property(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_asset_property_errors()}
-  def update_asset_property(%Client{} = client, asset_id, property_id, input, options \\ []) do
+
+  def update_asset_property(%Client{} = client, asset_id, property_id, options \\ []) do
     url_path =
       "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8827,19 +9440,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec update_dashboard(AWS.Client.t(), String.t(), update_dashboard_request(), Keyword.t()) ::
+
+  @spec update_dashboard(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_errors()}
-  def update_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
+
+  def update_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8852,19 +9486,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec update_gateway(AWS.Client.t(), String.t(), update_gateway_request(), Keyword.t()) ::
+
+  @spec update_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_errors()}
-  def update_gateway(%Client{} = client, gateway_id, input, options \\ []) do
+
+  def update_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8883,39 +9538,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec update_gateway_capability_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_gateway_capability_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_gateway_capability_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_capability_configuration_errors()}
-  def update_gateway_capability_configuration(
-        %Client{} = client,
-        gateway_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_gateway_capability_configuration(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}/capability"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8928,19 +9584,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec update_portal(AWS.Client.t(), String.t(), update_portal_request(), Keyword.t()) ::
+
+  @spec update_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_portal_errors()}
-  def update_portal(%Client{} = client, portal_id, input, options \\ []) do
+
+  def update_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -8953,18 +9630,39 @@ defmodule AWS.IoTSiteWise do
 
   ## Optional parameters:
   """
-  @spec update_project(AWS.Client.t(), String.t(), update_project_request(), Keyword.t()) ::
+
+  @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-  def update_project(%Client{} = client, project_id, input, options \\ []) do
+
+  def update_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

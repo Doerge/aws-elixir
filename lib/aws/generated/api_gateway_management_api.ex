@@ -17,92 +17,92 @@ defmodule AWS.ApiGatewayManagementApi do
   @typedoc """
 
   ## Example:
-
+      
       delete_connection_request() :: %{}
-
+      
   """
   @type delete_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{}
-
+      
   """
   @type forbidden_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_connection_request() :: %{}
-
+      
   """
   @type get_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_connection_response() :: %{
         "ConnectedAt" => non_neg_integer(),
         "Identity" => identity(),
         "LastActiveAt" => non_neg_integer()
       }
-
+      
   """
   @type get_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gone_exception() :: %{}
-
+      
   """
   @type gone_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       identity() :: %{
         required("SourceIp") => String.t(),
         required("UserAgent") => String.t()
       }
-
+      
   """
   @type identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{}
-
+      
   """
   @type limit_exceeded_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       payload_too_large_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type payload_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_to_connection_request() :: %{
         required("Data") => binary()
       }
-
+      
   """
   @type post_to_connection_request() :: %{String.t() => any()}
 
@@ -144,23 +144,38 @@ defmodule AWS.ApiGatewayManagementApi do
 
   ## Optional parameters:
   """
-  @spec delete_connection(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_connection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_connection(AWS.Client.t(), any(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-  def delete_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
+
+  def delete_connection(%Client{} = client, stage, connection_id, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -169,7 +184,7 @@ defmodule AWS.ApiGatewayManagementApi do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -185,10 +200,12 @@ defmodule AWS.ApiGatewayManagementApi do
 
   ## Optional parameters:
   """
-  @spec get_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+
+  @spec get_connection(AWS.Client.t(), any(), String.t(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
+
   def get_connection(%Client{} = client, stage, connection_id, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
 
@@ -224,38 +241,47 @@ defmodule AWS.ApiGatewayManagementApi do
 
   ## Parameters:
   * `:connection_id` (`t:string`) The identifier of the connection that a specific
-    client is using.
+  client is using.
+  * `:input` (`t:map`):
+    * `:data` (`t:blob`) The data to be sent to the client specified by its
+  connection id.
 
   ## Optional parameters:
   """
-  @spec post_to_connection(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          post_to_connection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec post_to_connection(AWS.Client.t(), any(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_to_connection_errors()}
-  def post_to_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
+
+  def post_to_connection(%Client{} = client, stage, connection_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

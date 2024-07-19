@@ -2478,12 +2478,22 @@ defmodule AWS.KMS do
   of KMS
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *Key Management Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20CancelKeyDeletion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_key_deletion_request`)
+    %{
+      required("KeyId") => String.t()
+    }
   """
-  @spec cancel_key_deletion(AWS.Client.t(), cancel_key_deletion_request(), Keyword.t()) ::
+
+  @spec cancel_key_deletion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_key_deletion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_key_deletion_errors()}
-  def cancel_key_deletion(%Client{} = client, input, options \\ []) do
+
+  def cancel_key_deletion(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2506,12 +2516,22 @@ defmodule AWS.KMS do
   properties. However, this response does not indicate that the custom key store
   is connected. To get the connection state of the custom key store, use the
   `DescribeCustomKeyStores` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ConnectCustomKeyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:connect_custom_key_store_request`)
+    %{
+      required("CustomKeyStoreId") => String.t()
+    }
   """
-  @spec connect_custom_key_store(AWS.Client.t(), connect_custom_key_store_request(), Keyword.t()) ::
+
+  @spec connect_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, connect_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, connect_custom_key_store_errors()}
-  def connect_custom_key_store(%Client{} = client, input, options \\ []) do
+
+  def connect_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2530,12 +2550,23 @@ defmodule AWS.KMS do
   that's associated with the alias (`UpdateAlias`) or delete the alias
   (`DeleteAlias`) at any time. These operations don't affect the underlying KMS
   key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20CreateAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_alias_request`)
+    %{
+      required("AliasName") => String.t(),
+      required("TargetKeyId") => String.t()
+    }
   """
-  @spec create_alias(AWS.Client.t(), create_alias_request(), Keyword.t()) ::
+
+  @spec create_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
-  def create_alias(%Client{} = client, input, options \\ []) do
+
+  def create_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2569,12 +2600,31 @@ defmodule AWS.KMS do
   stores)](https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements)
   in the *Key Management Service Developer Guide*. To create a custom key store,
   use the following parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20CreateCustomKeyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_custom_key_store_request`)
+    %{
+      optional("CloudHsmClusterId") => String.t(),
+      optional("CustomKeyStoreType") => list(any()),
+      optional("KeyStorePassword") => String.t(),
+      optional("TrustAnchorCertificate") => String.t(),
+      optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
+      optional("XksProxyConnectivity") => list(any()),
+      optional("XksProxyUriEndpoint") => String.t(),
+      optional("XksProxyUriPath") => String.t(),
+      optional("XksProxyVpcEndpointServiceName") => String.t(),
+      required("CustomKeyStoreName") => String.t()
+    }
   """
-  @spec create_custom_key_store(AWS.Client.t(), create_custom_key_store_request(), Keyword.t()) ::
+
+  @spec create_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_key_store_errors()}
-  def create_custom_key_store(%Client{} = client, input, options \\ []) do
+
+  def create_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2589,12 +2639,29 @@ defmodule AWS.KMS do
   policies and IAM policies. Grants are often used for temporary permissions
   because you can create one, use its permissions, and delete it without
   changing your key policies or IAM policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20CreateGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_grant_request`)
+    %{
+      optional("Constraints") => grant_constraints(),
+      optional("DryRun") => boolean(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("Name") => String.t(),
+      optional("RetiringPrincipal") => String.t(),
+      required("GranteePrincipal") => String.t(),
+      required("KeyId") => String.t(),
+      required("Operations") => list(list(any())())
+    }
   """
-  @spec create_grant(AWS.Client.t(), create_grant_request(), Keyword.t()) ::
+
+  @spec create_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_grant_errors()}
-  def create_grant(%Client{} = client, input, options \\ []) do
+
+  def create_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2615,12 +2682,32 @@ defmodule AWS.KMS do
   in the *Key Management Service Developer Guide* Use the parameters of
   `CreateKey` to specify the type of KMS key, the source of its key material,
   its key policy, description, tags, and other properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20CreateKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_key_request`)
+    %{
+      optional("BypassPolicyLockoutSafetyCheck") => boolean(),
+      optional("CustomKeyStoreId") => String.t(),
+      optional("CustomerMasterKeySpec") => list(any()),
+      optional("Description") => String.t(),
+      optional("KeySpec") => list(any()),
+      optional("KeyUsage") => list(any()),
+      optional("MultiRegion") => boolean(),
+      optional("Origin") => list(any()),
+      optional("Policy") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("XksKeyId") => String.t()
+    }
   """
-  @spec create_key(AWS.Client.t(), create_key_request(), Keyword.t()) ::
+
+  @spec create_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_errors()}
-  def create_key(%Client{} = client, input, options \\ []) do
+
+  def create_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2630,12 +2717,28 @@ defmodule AWS.KMS do
   @doc """
   Decrypts ciphertext that was encrypted by a KMS key using any of the following
   operations:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20Decrypt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:decrypt_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("EncryptionAlgorithm") => list(any()),
+      optional("EncryptionContext") => map(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("KeyId") => String.t(),
+      optional("Recipient") => recipient_info(),
+      required("CiphertextBlob") => binary()
+    }
   """
-  @spec decrypt(AWS.Client.t(), decrypt_request(), Keyword.t()) ::
+
+  @spec decrypt(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrypt_errors()}
-  def decrypt(%Client{} = client, input, options \\ []) do
+
+  def decrypt(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2651,12 +2754,22 @@ defmodule AWS.KMS do
   affecting the KMS key. Also, aliases do not appear in the response from the
   `DescribeKey` operation. To get the aliases of all KMS keys, use the
   `ListAliases` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DeleteAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_alias_request`)
+    %{
+      required("AliasName") => String.t()
+    }
   """
-  @spec delete_alias(AWS.Client.t(), delete_alias_request(), Keyword.t()) ::
+
+  @spec delete_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
-  def delete_alias(%Client{} = client, input, options \\ []) do
+
+  def delete_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2690,12 +2803,22 @@ defmodule AWS.KMS do
   from the cluster and its backups. KMS never creates, manages, or deletes
   cryptographic keys in the external key manager associated with an external key
   store. You must manage them using your external key manager tools.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DeleteCustomKeyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_custom_key_store_request`)
+    %{
+      required("CustomKeyStoreId") => String.t()
+    }
   """
-  @spec delete_custom_key_store(AWS.Client.t(), delete_custom_key_store_request(), Keyword.t()) ::
+
+  @spec delete_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_key_store_errors()}
-  def delete_custom_key_store(%Client{} = client, input, options \\ []) do
+
+  def delete_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2715,16 +2838,22 @@ defmodule AWS.KMS do
   details, see [Key states of KMS
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *Key Management Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DeleteImportedKeyMaterial&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_imported_key_material_request`)
+    %{
+      required("KeyId") => String.t()
+    }
   """
-  @spec delete_imported_key_material(
-          AWS.Client.t(),
-          delete_imported_key_material_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_imported_key_material(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_imported_key_material_errors()}
-  def delete_imported_key_material(%Client{} = client, input, options \\ []) do
+
+  def delete_imported_key_material(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2736,12 +2865,27 @@ defmodule AWS.KMS do
   asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China Regions only)
   KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT` to call
   DeriveSharedSecret.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DeriveSharedSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:derive_shared_secret_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("Recipient") => recipient_info(),
+      required("KeyAgreementAlgorithm") => list(any()),
+      required("KeyId") => String.t(),
+      required("PublicKey") => binary()
+    }
   """
-  @spec derive_shared_secret(AWS.Client.t(), derive_shared_secret_request(), Keyword.t()) ::
+
+  @spec derive_shared_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, derive_shared_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, derive_shared_secret_errors()}
-  def derive_shared_secret(%Client{} = client, input, options \\ []) do
+
+  def derive_shared_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2759,16 +2903,25 @@ defmodule AWS.KMS do
   account and Region. To get only information about a particular custom key
   store, use either the `CustomKeyStoreName` or `CustomKeyStoreId` parameter
   (but not both).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DescribeCustomKeyStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_custom_key_stores_request`)
+    %{
+      optional("CustomKeyStoreId") => String.t(),
+      optional("CustomKeyStoreName") => String.t(),
+      optional("Limit") => integer(),
+      optional("Marker") => String.t()
+    }
   """
-  @spec describe_custom_key_stores(
-          AWS.Client.t(),
-          describe_custom_key_stores_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_custom_key_stores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_custom_key_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_custom_key_stores_errors()}
-  def describe_custom_key_stores(%Client{} = client, input, options \\ []) do
+
+  def describe_custom_key_stores(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2796,12 +2949,23 @@ defmodule AWS.KMS do
   stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html),
   it includes the custom key store ID and the ID of the external key.
   `DescribeKey` does not return the following information:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DescribeKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_key_request`)
+    %{
+      optional("GrantTokens") => list(String.t()()),
+      required("KeyId") => String.t()
+    }
   """
-  @spec describe_key(AWS.Client.t(), describe_key_request(), Keyword.t()) ::
+
+  @spec describe_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_errors()}
-  def describe_key(%Client{} = client, input, options \\ []) do
+
+  def describe_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2822,12 +2986,22 @@ defmodule AWS.KMS do
   the *Key Management Service Developer Guide*. **Cross-account use**: No. You
   cannot perform this operation on a KMS key in a different Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DisableKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_key_request`)
+    %{
+      required("KeyId") => String.t()
+    }
   """
-  @spec disable_key(AWS.Client.t(), disable_key_request(), Keyword.t()) ::
+
+  @spec disable_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_key_errors()}
-  def disable_key(%Client{} = client, input, options \\ []) do
+
+  def disable_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2863,12 +3037,22 @@ defmodule AWS.KMS do
   compatible key state. For details, see [Key states of KMS
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *Key Management Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DisableKeyRotation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_key_rotation_request`)
+    %{
+      required("KeyId") => String.t()
+    }
   """
-  @spec disable_key_rotation(AWS.Client.t(), disable_key_rotation_request(), Keyword.t()) ::
+
+  @spec disable_key_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_key_rotation_errors()}
-  def disable_key_rotation(%Client{} = client, input, options \\ []) do
+
+  def disable_key_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2888,16 +3072,22 @@ defmodule AWS.KMS do
   While a custom key store is disconnected, you can manage the custom key store
   and its KMS keys, but you cannot create or use its KMS keys. You can reconnect
   the custom key store at any time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20DisconnectCustomKeyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disconnect_custom_key_store_request`)
+    %{
+      required("CustomKeyStoreId") => String.t()
+    }
   """
-  @spec disconnect_custom_key_store(
-          AWS.Client.t(),
-          disconnect_custom_key_store_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disconnect_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disconnect_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_custom_key_store_errors()}
-  def disconnect_custom_key_store(%Client{} = client, input, options \\ []) do
+
+  def disconnect_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2914,12 +3104,22 @@ defmodule AWS.KMS do
   the *Key Management Service Developer Guide*. **Cross-account use**: No. You
   cannot perform this operation on a KMS key in a different Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20EnableKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_key_request`)
+    %{
+      required("KeyId") => String.t()
+    }
   """
-  @spec enable_key(AWS.Client.t(), enable_key_request(), Keyword.t()) ::
+
+  @spec enable_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_key_errors()}
-  def enable_key(%Client{} = client, input, options \\ []) do
+
+  def enable_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2943,12 +3143,23 @@ defmodule AWS.KMS do
   the `GetKeyRotationStatus` operation to identify any in progress rotations.
   You can use the `ListKeyRotations` operation to view the details of completed
   rotations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20EnableKeyRotation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_key_rotation_request`)
+    %{
+      optional("RotationPeriodInDays") => integer(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec enable_key_rotation(AWS.Client.t(), enable_key_rotation_request(), Keyword.t()) ::
+
+  @spec enable_key_rotation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_key_rotation_errors()}
-  def enable_key_rotation(%Client{} = client, input, options \\ []) do
+
+  def enable_key_rotation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2963,12 +3174,27 @@ defmodule AWS.KMS do
   need to use the `Encrypt` operation to encrypt a data key. The
   `GenerateDataKey` and `GenerateDataKeyPair` operations return a plaintext data
   key and an encrypted copy of that data key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20Encrypt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:encrypt_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("EncryptionAlgorithm") => list(any()),
+      optional("EncryptionContext") => map(),
+      optional("GrantTokens") => list(String.t()()),
+      required("KeyId") => String.t(),
+      required("Plaintext") => binary()
+    }
   """
-  @spec encrypt(AWS.Client.t(), encrypt_request(), Keyword.t()) ::
+
+  @spec encrypt(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, encrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, encrypt_errors()}
-  def encrypt(%Client{} = client, input, options \\ []) do
+
+  def encrypt(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2985,12 +3211,28 @@ defmodule AWS.KMS do
   encryption KMS key that will be used to encrypt the data key. You cannot use
   an asymmetric KMS key to encrypt data keys. To get the type of your KMS key,
   use the `DescribeKey` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GenerateDataKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_data_key_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("EncryptionContext") => map(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("KeySpec") => list(any()),
+      optional("NumberOfBytes") => integer(),
+      optional("Recipient") => recipient_info(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec generate_data_key(AWS.Client.t(), generate_data_key_request(), Keyword.t()) ::
+
+  @spec generate_data_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_errors()}
-  def generate_data_key(%Client{} = client, input, options \\ []) do
+
+  def generate_data_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3009,12 +3251,27 @@ defmodule AWS.KMS do
   encrypted private key with the data. When you are ready to decrypt data or
   sign a message, you can use the `Decrypt` operation to decrypt the encrypted
   private key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GenerateDataKeyPair&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_data_key_pair_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("EncryptionContext") => map(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("Recipient") => recipient_info(),
+      required("KeyId") => String.t(),
+      required("KeyPairSpec") => list(any())
+    }
   """
-  @spec generate_data_key_pair(AWS.Client.t(), generate_data_key_pair_request(), Keyword.t()) ::
+
+  @spec generate_data_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_pair_errors()}
-  def generate_data_key_pair(%Client{} = client, input, options \\ []) do
+
+  def generate_data_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3032,16 +3289,27 @@ defmodule AWS.KMS do
   signature outside of KMS. Then, store the encrypted private key with the data.
   When you are ready to decrypt data or sign a message, you can use the
   `Decrypt` operation to decrypt the encrypted private key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GenerateDataKeyPairWithoutPlaintext&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_data_key_pair_without_plaintext_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("EncryptionContext") => map(),
+      optional("GrantTokens") => list(String.t()()),
+      required("KeyId") => String.t(),
+      required("KeyPairSpec") => list(any())
+    }
   """
-  @spec generate_data_key_pair_without_plaintext(
-          AWS.Client.t(),
-          generate_data_key_pair_without_plaintext_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_data_key_pair_without_plaintext(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_pair_without_plaintext_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_pair_without_plaintext_errors()}
-  def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ []) do
+
+  def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3055,16 +3323,28 @@ defmodule AWS.KMS do
   caller or to the KMS key. `GenerateDataKeyWithoutPlaintext` is identical to
   the `GenerateDataKey` operation except that it does not return a plaintext
   copy of the data key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GenerateDataKeyWithoutPlaintext&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_data_key_without_plaintext_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("EncryptionContext") => map(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("KeySpec") => list(any()),
+      optional("NumberOfBytes") => integer(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec generate_data_key_without_plaintext(
-          AWS.Client.t(),
-          generate_data_key_without_plaintext_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_data_key_without_plaintext(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_key_without_plaintext_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_key_without_plaintext_errors()}
-  def generate_data_key_without_plaintext(%Client{} = client, input, options \\ []) do
+
+  def generate_data_key_without_plaintext(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3089,12 +3369,26 @@ defmodule AWS.KMS do
   establish validity repeatedly or long after the message is superseded. HMAC
   tags do not include a timestamp, but you can include a timestamp in the token
   or message to help you detect when its time to refresh the HMAC.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GenerateMac&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_mac_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("GrantTokens") => list(String.t()()),
+      required("KeyId") => String.t(),
+      required("MacAlgorithm") => list(any()),
+      required("Message") => binary()
+    }
   """
-  @spec generate_mac(AWS.Client.t(), generate_mac_request(), Keyword.t()) ::
+
+  @spec generate_mac(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_mac_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_mac_errors()}
-  def generate_mac(%Client{} = client, input, options \\ []) do
+
+  def generate_mac(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3105,12 +3399,24 @@ defmodule AWS.KMS do
   Returns a random byte string that is cryptographically secure. You must use the
   `NumberOfBytes` parameter to specify the length of the random byte string.
   There is no default value for string length.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GenerateRandom&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_random_request`)
+    %{
+      optional("CustomKeyStoreId") => String.t(),
+      optional("NumberOfBytes") => integer(),
+      optional("Recipient") => recipient_info()
+    }
   """
-  @spec generate_random(AWS.Client.t(), generate_random_request(), Keyword.t()) ::
+
+  @spec generate_random(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_random_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_random_errors()}
-  def generate_random(%Client{} = client, input, options \\ []) do
+
+  def generate_random(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3121,12 +3427,23 @@ defmodule AWS.KMS do
   Gets a key policy attached to the specified KMS key. **Cross-account use**: No.
   You cannot perform this operation on a KMS key in a different Amazon Web
   Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GetKeyPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_key_policy_request`)
+    %{
+      optional("PolicyName") => String.t(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec get_key_policy(AWS.Client.t(), get_key_policy_request(), Keyword.t()) ::
+
+  @spec get_key_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_policy_errors()}
-  def get_key_policy(%Client{} = client, input, options \\ []) do
+
+  def get_key_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3165,12 +3482,22 @@ defmodule AWS.KMS do
   use GetKeyRotationStatus to identify the date and time that an in progress
   on-demand rotation was initiated. You can use `ListKeyRotations` to view the
   details of completed rotations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GetKeyRotationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_key_rotation_status_request`)
+    %{
+      required("KeyId") => String.t()
+    }
   """
-  @spec get_key_rotation_status(AWS.Client.t(), get_key_rotation_status_request(), Keyword.t()) ::
+
+  @spec get_key_rotation_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_rotation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_rotation_status_errors()}
-  def get_key_rotation_status(%Client{} = client, input, options \\ []) do
+
+  def get_key_rotation_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3202,16 +3529,24 @@ defmodule AWS.KMS do
   into a KMS key whose key material expired or was deleted.
   `GetParametersForImport` returns the items that you need to import your key
   material.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GetParametersForImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_parameters_for_import_request`)
+    %{
+      required("KeyId") => String.t(),
+      required("WrappingAlgorithm") => list(any()),
+      required("WrappingKeySpec") => list(any())
+    }
   """
-  @spec get_parameters_for_import(
-          AWS.Client.t(),
-          get_parameters_for_import_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_parameters_for_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_for_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_for_import_errors()}
-  def get_parameters_for_import(%Client{} = client, input, options \\ []) do
+
+  def get_parameters_for_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3235,12 +3570,23 @@ defmodule AWS.KMS do
   decrypted. These features are not effective outside of KMS. To help you use
   the public key safely outside of KMS, `GetPublicKey` returns important
   information about the public key in the response, including:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20GetPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_public_key_request`)
+    %{
+      optional("GrantTokens") => list(String.t()()),
+      required("KeyId") => String.t()
+    }
   """
-  @spec get_public_key(AWS.Client.t(), get_public_key_request(), Keyword.t()) ::
+
+  @spec get_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_errors()}
-  def get_public_key(%Client{} = client, input, options \\ []) do
+
+  def get_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3264,12 +3610,26 @@ defmodule AWS.KMS do
   reimport key material to replace key material that expired or key material
   that you deleted. You might also reimport key material to change the
   expiration model or expiration date of the key material.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ImportKeyMaterial&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_key_material_request`)
+    %{
+      optional("ExpirationModel") => list(any()),
+      optional("ValidTo") => non_neg_integer(),
+      required("EncryptedKeyMaterial") => binary(),
+      required("ImportToken") => binary(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec import_key_material(AWS.Client.t(), import_key_material_request(), Keyword.t()) ::
+
+  @spec import_key_material(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_key_material_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_key_material_errors()}
-  def import_key_material(%Client{} = client, input, options \\ []) do
+
+  def import_key_material(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3282,12 +3642,24 @@ defmodule AWS.KMS do
   `ListAliases` operation returns all aliases in the account and region. To get
   only the aliases associated with a particular KMS key, use the `KeyId`
   parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ListAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_aliases_request`)
+    %{
+      optional("KeyId") => String.t(),
+      optional("Limit") => integer(),
+      optional("Marker") => String.t()
+    }
   """
-  @spec list_aliases(AWS.Client.t(), list_aliases_request(), Keyword.t()) ::
+
+  @spec list_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-  def list_aliases(%Client{} = client, input, options \\ []) do
+
+  def list_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3298,12 +3670,26 @@ defmodule AWS.KMS do
   Gets a list of all grants for the specified KMS key. You must specify the KMS
   key in all requests. You can filter the grant list by grant ID or grantee
   principal.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ListGrants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_grants_request`)
+    %{
+      optional("GrantId") => String.t(),
+      optional("GranteePrincipal") => String.t(),
+      optional("Limit") => integer(),
+      optional("Marker") => String.t(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec list_grants(AWS.Client.t(), list_grants_request(), Keyword.t()) ::
+
+  @spec list_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_grants_errors()}
-  def list_grants(%Client{} = client, input, options \\ []) do
+
+  def list_grants(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3316,12 +3702,24 @@ defmodule AWS.KMS do
   operation. However, the only valid policy name is `default`. **Cross-account
   use**: No. You cannot perform this operation on a KMS key in a different
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ListKeyPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_key_policies_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("Marker") => String.t(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec list_key_policies(AWS.Client.t(), list_key_policies_request(), Keyword.t()) ::
+
+  @spec list_key_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_key_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_policies_errors()}
-  def list_key_policies(%Client{} = client, input, options \\ []) do
+
+  def list_key_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3332,12 +3730,24 @@ defmodule AWS.KMS do
   Returns information about all completed key material rotations for the specified
   KMS key. You must specify the KMS key in all requests. You can refine the key
   rotations list by limiting the number of rotations returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ListKeyRotations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_key_rotations_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("Marker") => String.t(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec list_key_rotations(AWS.Client.t(), list_key_rotations_request(), Keyword.t()) ::
+
+  @spec list_key_rotations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_key_rotations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_key_rotations_errors()}
-  def list_key_rotations(%Client{} = client, input, options \\ []) do
+
+  def list_key_rotations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3348,12 +3758,23 @@ defmodule AWS.KMS do
   Gets a list of all KMS keys in the caller's Amazon Web Services account and
   Region. **Cross-account use**: No. You cannot perform this operation on a KMS
   key in a different Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ListKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_keys_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("Marker") => String.t()
+    }
   """
-  @spec list_keys(AWS.Client.t(), list_keys_request(), Keyword.t()) ::
+
+  @spec list_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
-  def list_keys(%Client{} = client, input, options \\ []) do
+
+  def list_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3369,12 +3790,24 @@ defmodule AWS.KMS do
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html).
   **Cross-account use**: No. You cannot perform this operation on a KMS key in a
   different Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ListResourceTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_tags_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("Marker") => String.t(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec list_resource_tags(AWS.Client.t(), list_resource_tags_request(), Keyword.t()) ::
+
+  @spec list_resource_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_tags_errors()}
-  def list_resource_tags(%Client{} = client, input, options \\ []) do
+
+  def list_resource_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3388,12 +3821,24 @@ defmodule AWS.KMS do
   include grants for KMS keys in your Amazon Web Services account and other
   Amazon Web Services accounts. You might use this operation to determine which
   grants you may retire. To retire a grant, use the `RetireGrant` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ListRetirableGrants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_retirable_grants_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("Marker") => String.t(),
+      required("RetiringPrincipal") => String.t()
+    }
   """
-  @spec list_retirable_grants(AWS.Client.t(), list_retirable_grants_request(), Keyword.t()) ::
+
+  @spec list_retirable_grants(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_retirable_grants_errors()}
-  def list_retirable_grants(%Client{} = client, input, options \\ []) do
+
+  def list_retirable_grants(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3413,12 +3858,25 @@ defmodule AWS.KMS do
   in the *Key Management Service Developer Guide*. **Cross-account use**: No.
   You cannot perform this operation on a KMS key in a different Amazon Web
   Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20PutKeyPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_key_policy_request`)
+    %{
+      optional("BypassPolicyLockoutSafetyCheck") => boolean(),
+      optional("PolicyName") => String.t(),
+      required("KeyId") => String.t(),
+      required("Policy") => String.t()
+    }
   """
-  @spec put_key_policy(AWS.Client.t(), put_key_policy_request(), Keyword.t()) ::
+
+  @spec put_key_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_key_policy_errors()}
-  def put_key_policy(%Client{} = client, input, options \\ []) do
+
+  def put_key_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3447,12 +3905,30 @@ defmodule AWS.KMS do
   These libraries return a ciphertext format that is incompatible with KMS. When
   you use the `ReEncrypt` operation, you need to provide information for the
   decrypt operation and the subsequent encrypt operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ReEncrypt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:re_encrypt_request`)
+    %{
+      optional("DestinationEncryptionAlgorithm") => list(any()),
+      optional("DestinationEncryptionContext") => map(),
+      optional("DryRun") => boolean(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("SourceEncryptionAlgorithm") => list(any()),
+      optional("SourceEncryptionContext") => map(),
+      optional("SourceKeyId") => String.t(),
+      required("CiphertextBlob") => binary(),
+      required("DestinationKeyId") => String.t()
+    }
   """
-  @spec re_encrypt(AWS.Client.t(), re_encrypt_request(), Keyword.t()) ::
+
+  @spec re_encrypt(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, re_encrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, re_encrypt_errors()}
-  def re_encrypt(%Client{} = client, input, options \\ []) do
+
+  def re_encrypt(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3505,12 +3981,27 @@ defmodule AWS.KMS do
   key state, see [Key states of KMS
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
   the *Key Management Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ReplicateKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:replicate_key_request`)
+    %{
+      optional("BypassPolicyLockoutSafetyCheck") => boolean(),
+      optional("Description") => String.t(),
+      optional("Policy") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("KeyId") => String.t(),
+      required("ReplicaRegion") => String.t()
+    }
   """
-  @spec replicate_key(AWS.Client.t(), replicate_key_request(), Keyword.t()) ::
+
+  @spec replicate_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replicate_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replicate_key_errors()}
-  def replicate_key(%Client{} = client, input, options \\ []) do
+
+  def replicate_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3537,12 +4028,25 @@ defmodule AWS.KMS do
   grants](https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html).
   **Cross-account use**: Yes. You can retire a grant on a KMS key in a different
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20RetireGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:retire_grant_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("GrantId") => String.t(),
+      optional("GrantToken") => String.t(),
+      optional("KeyId") => String.t()
+    }
   """
-  @spec retire_grant(AWS.Client.t(), retire_grant_request(), Keyword.t()) ::
+
+  @spec retire_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retire_grant_errors()}
-  def retire_grant(%Client{} = client, input, options \\ []) do
+
+  def retire_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3567,12 +4071,24 @@ defmodule AWS.KMS do
   **Cross-account use**: Yes. To perform this operation on a KMS key in a
   different Amazon Web Services account, specify the key ARN in the value of the
   `KeyId` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20RevokeGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:revoke_grant_request`)
+    %{
+      optional("DryRun") => boolean(),
+      required("GrantId") => String.t(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec revoke_grant(AWS.Client.t(), revoke_grant_request(), Keyword.t()) ::
+
+  @spec revoke_grant(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_grant_errors()}
-  def revoke_grant(%Client{} = client, input, options \\ []) do
+
+  def revoke_grant(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3594,12 +4110,22 @@ defmodule AWS.KMS do
   14, 2024 and every 730 days thereafter. You can perform on-demand key rotation
   a **maximum of 10 times** per KMS key. You can use the KMS console to view the
   number of remaining on-demand rotations available for a KMS key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20RotateKeyOnDemand&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:rotate_key_on_demand_request`)
+    %{
+      required("KeyId") => String.t()
+    }
   """
-  @spec rotate_key_on_demand(AWS.Client.t(), rotate_key_on_demand_request(), Keyword.t()) ::
+
+  @spec rotate_key_on_demand(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rotate_key_on_demand_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_key_on_demand_errors()}
-  def rotate_key_on_demand(%Client{} = client, input, options \\ []) do
+
+  def rotate_key_on_demand(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3633,12 +4159,23 @@ defmodule AWS.KMS do
   multi-Region
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html)
   in the *Key Management Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20ScheduleKeyDeletion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:schedule_key_deletion_request`)
+    %{
+      optional("PendingWindowInDays") => integer(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec schedule_key_deletion(AWS.Client.t(), schedule_key_deletion_request(), Keyword.t()) ::
+
+  @spec schedule_key_deletion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, schedule_key_deletion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, schedule_key_deletion_errors()}
-  def schedule_key_deletion(%Client{} = client, input, options \\ []) do
+
+  def schedule_key_deletion(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3659,12 +4196,27 @@ defmodule AWS.KMS do
   public key can verify that the message was signed with that particular private
   key and that the message hasn't changed since it was signed. To use the `Sign`
   operation, provide the following information:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20Sign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:sign_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("MessageType") => list(any()),
+      required("KeyId") => String.t(),
+      required("Message") => binary(),
+      required("SigningAlgorithm") => list(any())
+    }
   """
-  @spec sign(AWS.Client.t(), sign_request(), Keyword.t()) ::
+
+  @spec sign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, sign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sign_errors()}
-  def sign(%Client{} = client, input, options \\ []) do
+
+  def sign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3681,12 +4233,23 @@ defmodule AWS.KMS do
   tag value, both of which are case-sensitive strings. The tag value can be an
   empty (null) string. To add a tag, specify a new tag key and a tag value. To
   edit a tag, specify an existing tag key and a new tag value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("KeyId") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3704,12 +4267,23 @@ defmodule AWS.KMS do
   tag key isn't found on the KMS key, it doesn't throw an exception or return a
   response. To confirm that the operation worked, use the `ListResourceTags`
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("KeyId") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3728,12 +4302,23 @@ defmodule AWS.KMS do
   have the same key usage. This restriction prevents errors in code that uses
   aliases. If you must assign an alias to a different type of KMS key, use
   `DeleteAlias` to delete the old alias and `CreateAlias` to create a new alias.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20UpdateAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_alias_request`)
+    %{
+      required("AliasName") => String.t(),
+      required("TargetKeyId") => String.t()
+    }
   """
-  @spec update_alias(AWS.Client.t(), update_alias_request(), Keyword.t()) ::
+
+  @spec update_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alias_errors()}
-  def update_alias(%Client{} = client, input, options \\ []) do
+
+  def update_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3747,12 +4332,30 @@ defmodule AWS.KMS do
   Use the remaining optional parameters to change its properties. This operation
   does not return any property values. To verify the updated property values,
   use the `DescribeCustomKeyStores` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20UpdateCustomKeyStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_custom_key_store_request`)
+    %{
+      optional("CloudHsmClusterId") => String.t(),
+      optional("KeyStorePassword") => String.t(),
+      optional("NewCustomKeyStoreName") => String.t(),
+      optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
+      optional("XksProxyConnectivity") => list(any()),
+      optional("XksProxyUriEndpoint") => String.t(),
+      optional("XksProxyUriPath") => String.t(),
+      optional("XksProxyVpcEndpointServiceName") => String.t(),
+      required("CustomKeyStoreId") => String.t()
+    }
   """
-  @spec update_custom_key_store(AWS.Client.t(), update_custom_key_store_request(), Keyword.t()) ::
+
+  @spec update_custom_key_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_key_store_errors()}
-  def update_custom_key_store(%Client{} = client, input, options \\ []) do
+
+  def update_custom_key_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3767,12 +4370,23 @@ defmodule AWS.KMS do
   the *Key Management Service Developer Guide*. **Cross-account use**: No. You
   cannot perform this operation on a KMS key in a different Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20UpdateKeyDescription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_key_description_request`)
+    %{
+      required("Description") => String.t(),
+      required("KeyId") => String.t()
+    }
   """
-  @spec update_key_description(AWS.Client.t(), update_key_description_request(), Keyword.t()) ::
+
+  @spec update_key_description(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_description_errors()}
-  def update_key_description(%Client{} = client, input, options \\ []) do
+
+  def update_key_description(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3798,12 +4412,23 @@ defmodule AWS.KMS do
   keys, see [Multi-Region keys in
   KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html)
   in the *Key Management Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20UpdatePrimaryRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_primary_region_request`)
+    %{
+      required("KeyId") => String.t(),
+      required("PrimaryRegion") => String.t()
+    }
   """
-  @spec update_primary_region(AWS.Client.t(), update_primary_region_request(), Keyword.t()) ::
+
+  @spec update_primary_region(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_primary_region_errors()}
-  def update_primary_region(%Client{} = client, input, options \\ []) do
+
+  def update_primary_region(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3812,12 +4437,28 @@ defmodule AWS.KMS do
 
   @doc """
   Verifies a digital signature that was generated by the `Sign` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20Verify&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:verify_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("GrantTokens") => list(String.t()()),
+      optional("MessageType") => list(any()),
+      required("KeyId") => String.t(),
+      required("Message") => binary(),
+      required("Signature") => binary(),
+      required("SigningAlgorithm") => list(any())
+    }
   """
-  @spec verify(AWS.Client.t(), verify_request(), Keyword.t()) ::
+
+  @spec verify(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_errors()}
-  def verify(%Client{} = client, input, options \\ []) do
+
+  def verify(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3838,12 +4479,27 @@ defmodule AWS.KMS do
   of KMS support for HMAC KMS keys. For details, see [HMAC keys in
   KMS](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html) in the
   *Key Management Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kms%20VerifyMac&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:verify_mac_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("GrantTokens") => list(String.t()()),
+      required("KeyId") => String.t(),
+      required("Mac") => binary(),
+      required("MacAlgorithm") => list(any()),
+      required("Message") => binary()
+    }
   """
-  @spec verify_mac(AWS.Client.t(), verify_mac_request(), Keyword.t()) ::
+
+  @spec verify_mac(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_mac_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_mac_errors()}
-  def verify_mac(%Client{} = client, input, options \\ []) do
+
+  def verify_mac(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -13,297 +13,297 @@ defmodule AWS.S3Control do
   @typedoc """
 
   ## Example:
-
+      
       region_report() :: %{
         "Bucket" => String.t(),
         "BucketAccountId" => String.t(),
         "Region" => String.t()
       }
-
+      
   """
   @type region_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_bucket_policy_request() :: %{
         optional("ConfirmRemoveSelfBucketAccess") => boolean(),
         required("AccountId") => String.t(),
         required("Policy") => String.t()
       }
-
+      
   """
   @type put_bucket_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_multi_region_access_point_policy_request() :: %{
         required("AccountId") => String.t(),
         required("ClientToken") => String.t(),
         required("Details") => put_multi_region_access_point_policy_input()
       }
-
+      
   """
   @type put_multi_region_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_group_level_selection_criteria() :: %{
         "Exclude" => list(String.t()()),
         "Include" => list(String.t()())
       }
-
+      
   """
   @type storage_lens_group_level_selection_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_manifest() :: %{
         "Location" => job_manifest_location(),
         "Spec" => job_manifest_spec()
       }
-
+      
   """
   @type job_manifest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_storage_lens_configuration_tagging_result() :: %{
         "Tags" => list(storage_lens_tag()())
       }
-
+      
   """
   @type get_storage_lens_configuration_tagging_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_multi_region_access_point_request() :: %{
         required("AccountId") => String.t(),
         required("ClientToken") => String.t(),
         required("Details") => delete_multi_region_access_point_input()
       }
-
+      
   """
   @type delete_multi_region_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_configuration() :: %{
         "ReplicaKmsKeyID" => String.t()
       }
-
+      
   """
   @type encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("AccountId") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_such_public_access_block_configuration() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_such_public_access_block_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_bucket_versioning_request() :: %{
         optional("MFA") => String.t(),
         required("AccountId") => String.t(),
         required("VersioningConfiguration") => versioning_configuration()
       }
-
+      
   """
   @type put_bucket_versioning_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_region_access_point_regional_response() :: %{
         "Name" => String.t(),
         "RequestStatus" => String.t()
       }
-
+      
   """
   @type multi_region_access_point_regional_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_storage_lens_configuration_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_storage_lens_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_configuration_for_object_lambda_result() :: %{
         "Configuration" => object_lambda_configuration()
       }
-
+      
   """
   @type get_access_point_configuration_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_access_block_configuration() :: %{
         "BlockPublicAcls" => boolean(),
         "BlockPublicPolicy" => boolean(),
         "IgnorePublicAcls" => boolean(),
         "RestrictPublicBuckets" => boolean()
       }
-
+      
   """
   @type public_access_block_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_data_export() :: %{
         "CloudWatchMetrics" => cloud_watch_metrics(),
         "S3BucketDestination" => s3_bucket_destination()
       }
-
+      
   """
   @type storage_lens_data_export() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_group_level() :: %{
         "SelectionCriteria" => storage_lens_group_level_selection_criteria()
       }
-
+      
   """
   @type storage_lens_group_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prefix_level_storage_metrics() :: %{
         "IsEnabled" => boolean(),
         "SelectionCriteria" => selection_criteria()
       }
-
+      
   """
   @type prefix_level_storage_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_grants_instance_result() :: %{
         "AccessGrantsInstanceArn" => String.t(),
         "AccessGrantsInstanceId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "IdentityCenterArn" => String.t()
       }
-
+      
   """
   @type create_access_grants_instance_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generated_manifest_encryption() :: %{
         "SSEKMS" => sse_kms_encryption(),
         "SSES3" => sse_s3_encryption()
       }
-
+      
   """
   @type generated_manifest_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_result() :: %{
         "Job" => job_descriptor()
       }
-
+      
   """
   @type describe_job_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       match_object_age() :: %{
         "DaysGreaterThan" => integer(),
         "DaysLessThan" => integer()
       }
-
+      
   """
   @type match_object_age() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_result() :: %{
         "Jobs" => list(job_list_descriptor()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_jobs_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_public_access_block_request() :: %{
         required("AccountId") => String.t(),
         required("PublicAccessBlockConfiguration") => public_access_block_configuration()
       }
-
+      
   """
   @type put_public_access_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grant_result() :: %{
         "AccessGrantArn" => String.t(),
         "AccessGrantId" => String.t(),
@@ -315,48 +315,48 @@ defmodule AWS.S3Control do
         "Grantee" => grantee(),
         "Permission" => list(any())
       }
-
+      
   """
   @type get_access_grant_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_configuration() :: %{
         "VpcId" => String.t()
       }
-
+      
   """
   @type vpc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_access_control_list() :: %{
         "Grants" => list(s3_grant()()),
         "Owner" => s3_object_owner()
       }
-
+      
   """
   @type s3_access_control_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       abort_incomplete_multipart_upload() :: %{
         "DaysAfterInitiation" => integer()
       }
-
+      
   """
   @type abort_incomplete_multipart_upload() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_rule() :: %{
         "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
         "Expiration" => lifecycle_expiration(),
@@ -367,84 +367,84 @@ defmodule AWS.S3Control do
         "Status" => list(any()),
         "Transitions" => list(transition()())
       }
-
+      
   """
   @type lifecycle_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_result() :: %{}
-
+      
   """
   @type untag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_public_access_block_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_public_access_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_access_grants_instance_resource_policy_result() :: %{
         "CreatedAt" => non_neg_integer(),
         "Organization" => String.t(),
         "Policy" => String.t()
       }
-
+      
   """
   @type put_access_grants_instance_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_lambda_configuration() :: %{
         "AllowedFeatures" => list(list(any())()),
         "CloudWatchMetricsEnabled" => boolean(),
         "SupportingAccessPoint" => String.t(),
         "TransformationConfigurations" => list(object_lambda_transformation_configuration()())
       }
-
+      
   """
   @type object_lambda_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_policy_result() :: %{
         "Policy" => multi_region_access_point_policy_document()
       }
-
+      
   """
   @type get_multi_region_access_point_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       versioning_configuration() :: %{
         "MFADelete" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type versioning_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_report() :: %{
         "Bucket" => String.t(),
         "Enabled" => boolean(),
@@ -452,171 +452,171 @@ defmodule AWS.S3Control do
         "Prefix" => String.t(),
         "ReportScope" => list(any())
       }
-
+      
   """
   @type job_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_storage_lens_group_request() :: %{
         optional("Tags") => list(tag()()),
         required("AccountId") => String.t(),
         required("StorageLensGroup") => storage_lens_group()
       }
-
+      
   """
   @type create_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_result() :: %{
         "AccessGrantsList" => list(list_access_grant_entry()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_access_grants_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_access_grants_instance_resource_policy_request() :: %{
         optional("Organization") => String.t(),
         required("AccountId") => String.t(),
         required("Policy") => String.t()
       }
-
+      
   """
   @type put_access_grants_instance_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_tagging_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_job_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_request() :: %{
         optional("JobStatuses") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_grants_instance_request() :: %{
         optional("IdentityCenterArn") => String.t(),
         optional("Tags") => list(tag()()),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type create_access_grants_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_selection_criteria() :: %{
         "ReplicaModifications" => replica_modifications(),
         "SseKmsEncryptedObjects" => sse_kms_encrypted_objects()
       }
-
+      
   """
   @type source_selection_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_job_tagging_request() :: %{
         required("AccountId") => String.t(),
         required("Tags") => list(s3_tag()())
       }
-
+      
   """
   @type put_job_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_configuration() :: %{
         "Rules" => list(lifecycle_rule()())
       }
-
+      
   """
   @type lifecycle_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_storage_lens_group_entry() :: %{
         "HomeRegion" => String.t(),
         "Name" => String.t(),
         "StorageLensGroupArn" => String.t()
       }
-
+      
   """
   @type list_storage_lens_group_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_bucket_tagging_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_bucket_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_storage_lens_group_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prefix_level() :: %{
         "StorageMetrics" => prefix_level_storage_metrics()
       }
-
+      
   """
   @type prefix_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_grant_result() :: %{
         "AccessGrantArn" => String.t(),
         "AccessGrantId" => String.t(),
@@ -628,170 +628,170 @@ defmodule AWS.S3Control do
         "Grantee" => grantee(),
         "Permission" => list(any())
       }
-
+      
   """
   @type create_access_grant_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       credentials() :: %{
         "AccessKeyId" => String.t(),
         "Expiration" => non_neg_integer(),
         "SecretAccessKey" => String.t(),
         "SessionToken" => String.t()
       }
-
+      
   """
   @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_bucket_replication_request() :: %{
         required("AccountId") => String.t(),
         required("ReplicationConfiguration") => replication_configuration()
       }
-
+      
   """
   @type put_bucket_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_point_for_object_lambda_result() :: %{
         "Alias" => object_lambda_access_point_alias(),
         "ObjectLambdaAccessPointArn" => String.t()
       }
-
+      
   """
   @type create_access_point_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_status_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type job_status_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_instance_for_prefix_result() :: %{
         "AccessGrantsInstanceArn" => String.t(),
         "AccessGrantsInstanceId" => String.t()
       }
-
+      
   """
   @type get_access_grants_instance_for_prefix_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_access_grants_identity_center_request() :: %{
         required("AccountId") => String.t(),
         required("IdentityCenterArn") => String.t()
       }
-
+      
   """
   @type associate_access_grants_identity_center_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_storage_lens_configurations_result() :: %{
         "NextToken" => String.t(),
         "StorageLensConfigurationList" => list(list_storage_lens_configuration_entry()())
       }
-
+      
   """
   @type list_storage_lens_configurations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_multi_region_access_point_input() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type delete_multi_region_access_point_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_multi_region_access_point_operation_result() :: %{
         "AsyncOperation" => async_operation()
       }
-
+      
   """
   @type describe_multi_region_access_point_operation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_for_object_lambda_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_point_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_points_for_object_lambda_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_access_points_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_job_tagging_result() :: %{
         "Tags" => list(s3_tag()())
       }
-
+      
   """
   @type get_job_tagging_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_grants_location_request() :: %{
         optional("Tags") => list(tag()()),
         required("AccountId") => String.t(),
         required("IAMRoleArn") => String.t(),
         required("LocationScope") => String.t()
       }
-
+      
   """
   @type create_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       async_operation() :: %{
         "CreationTime" => non_neg_integer(),
         "Operation" => list(any()),
@@ -800,25 +800,25 @@ defmodule AWS.S3Control do
         "RequestTokenARN" => String.t(),
         "ResponseDetails" => async_response_details()
       }
-
+      
   """
   @type async_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_point_policy_for_object_lambda_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_point_policy_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_bucket_destination() :: %{
         "AccountId" => String.t(),
         "Arn" => String.t(),
@@ -827,48 +827,48 @@ defmodule AWS.S3Control do
         "OutputSchemaVersion" => list(any()),
         "Prefix" => String.t()
       }
-
+      
   """
   @type s3_bucket_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_storage_lens_group_result() :: %{
         "StorageLensGroup" => storage_lens_group()
       }
-
+      
   """
   @type get_storage_lens_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_instance_resource_policy_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_grants_instance_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grantee() :: %{
         "GranteeIdentifier" => String.t(),
         "GranteeType" => list(any())
       }
-
+      
   """
   @type grantee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bucket_level() :: %{
         "ActivityMetrics" => activity_metrics(),
         "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
@@ -876,38 +876,38 @@ defmodule AWS.S3Control do
         "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
         "PrefixLevel" => prefix_level()
       }
-
+      
   """
   @type bucket_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_status_result() :: %{
         "PolicyStatus" => policy_status()
       }
-
+      
   """
   @type get_access_point_policy_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_grantee() :: %{
         "DisplayName" => String.t(),
         "Identifier" => String.t(),
         "TypeIdentifier" => list(any())
       }
-
+      
   """
   @type s3_grantee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_request() :: %{
         optional("ConfirmationRequired") => boolean(),
         optional("Description") => String.t(),
@@ -921,37 +921,37 @@ defmodule AWS.S3Control do
         required("Report") => job_report(),
         required("RoleArn") => String.t()
       }
-
+      
   """
   @type create_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_for_object_lambda_result() :: %{
         "Policy" => String.t()
       }
-
+      
   """
   @type get_access_point_policy_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type storage_lens_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grant_entry() :: %{
         "AccessGrantArn" => String.t(),
         "AccessGrantId" => String.t(),
@@ -963,14 +963,14 @@ defmodule AWS.S3Control do
         "Grantee" => grantee(),
         "Permission" => list(any())
       }
-
+      
   """
   @type list_access_grant_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_group_filter() :: %{
         "And" => storage_lens_group_and_operator(),
         "MatchAnyPrefix" => list(String.t()()),
@@ -980,14 +980,14 @@ defmodule AWS.S3Control do
         "MatchObjectSize" => match_object_size(),
         "Or" => storage_lens_group_or_operator()
       }
-
+      
   """
   @type storage_lens_group_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_group_or_operator() :: %{
         "MatchAnyPrefix" => list(String.t()()),
         "MatchAnySuffix" => list(String.t()()),
@@ -995,202 +995,202 @@ defmodule AWS.S3Control do
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size()
       }
-
+      
   """
   @type storage_lens_group_or_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       proposed_multi_region_access_point_policy() :: %{
         "Policy" => String.t()
       }
-
+      
   """
   @type proposed_multi_region_access_point_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       include() :: %{
         "Buckets" => list(String.t()()),
         "Regions" => list(String.t()())
       }
-
+      
   """
   @type include() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_multi_region_access_point_policy_input() :: %{
         "Name" => String.t(),
         "Policy" => String.t()
       }
-
+      
   """
   @type put_multi_region_access_point_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_instance_result() :: %{
         "AccessGrantsInstanceArn" => String.t(),
         "AccessGrantsInstanceId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "IdentityCenterArn" => String.t()
       }
-
+      
   """
   @type get_access_grants_instance_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sse_kms_encryption() :: %{
         "KeyId" => String.t()
       }
-
+      
   """
   @type sse_kms_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_versioning_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_bucket_versioning_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("AccountId") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       advanced_data_protection_metrics() :: %{
         "IsEnabled" => boolean()
       }
-
+      
   """
   @type advanced_data_protection_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_point_for_object_lambda_request() :: %{
         required("AccountId") => String.t(),
         required("Configuration") => object_lambda_configuration()
       }
-
+      
   """
   @type create_access_point_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sse_kms_encrypted_objects() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type sse_kms_encrypted_objects() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_manifest_location() :: %{
         "ETag" => String.t(),
         "ObjectArn" => String.t(),
         "ObjectVersionId" => String.t()
       }
-
+      
   """
   @type job_manifest_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_points_for_object_lambda_result() :: %{
         "NextToken" => String.t(),
         "ObjectLambdaAccessPointList" => list(object_lambda_access_point()())
       }
-
+      
   """
   @type list_access_points_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_storage_lens_configuration_request() :: %{
         optional("Tags") => list(storage_lens_tag()()),
         required("AccountId") => String.t(),
         required("StorageLensConfiguration") => storage_lens_configuration()
       }
-
+      
   """
   @type put_storage_lens_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_storage_lens_configuration_result() :: %{
         "StorageLensConfiguration" => storage_lens_configuration()
       }
-
+      
   """
   @type get_storage_lens_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_job_manifest_generator() :: %{
         "EnableManifestOutput" => boolean(),
         "ExpectedBucketOwner" => String.t(),
@@ -1198,87 +1198,87 @@ defmodule AWS.S3Control do
         "ManifestOutputLocation" => s3_manifest_output_location(),
         "SourceBucket" => String.t()
       }
-
+      
   """
   @type s3_job_manifest_generator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_regional_buckets_result() :: %{
         "NextToken" => String.t(),
         "RegionalBucketList" => list(regional_bucket()())
       }
-
+      
   """
   @type list_regional_buckets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_bucket_lifecycle_configuration_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_lambda_access_point() :: %{
         "Alias" => object_lambda_access_point_alias(),
         "Name" => String.t(),
         "ObjectLambdaAccessPointArn" => String.t()
       }
-
+      
   """
   @type object_lambda_access_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_rule_filter() :: %{
         "And" => replication_rule_and_operator(),
         "Prefix" => String.t(),
         "Tag" => s3_tag()
       }
-
+      
   """
   @type replication_rule_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_storage_lens_configuration_tagging_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_storage_lens_configuration_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_multi_region_access_point_request() :: %{
         required("AccountId") => String.t(),
         required("ClientToken") => String.t(),
         required("Details") => create_multi_region_access_point_input()
       }
-
+      
   """
   @type create_multi_region_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_operation() :: %{
         "LambdaInvoke" => lambda_invoke_operation(),
         "S3DeleteObjectTagging" => s3_delete_object_tagging_operation(),
@@ -1290,167 +1290,167 @@ defmodule AWS.S3Control do
         "S3PutObjectTagging" => s3_set_object_tagging_operation(),
         "S3ReplicateObject" => s3_replicate_object_operation()
       }
-
+      
   """
   @type job_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_storage_lens_groups_request() :: %{
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_storage_lens_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bucket_already_owned_by_you() :: %{}
-
+      
   """
   @type bucket_already_owned_by_you() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_bucket_policy_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_bucket_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_multi_region_access_point_policy_result() :: %{
         "RequestTokenARN" => String.t()
       }
-
+      
   """
   @type put_multi_region_access_point_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_storage_lens_configuration_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_storage_lens_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dissociate_access_grants_identity_center_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type dissociate_access_grants_identity_center_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       noncurrent_version_expiration() :: %{
         "NewerNoncurrentVersions" => integer(),
         "NoncurrentDays" => integer()
       }
-
+      
   """
   @type noncurrent_version_expiration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_storage_lens_configuration_tagging_result() :: %{}
-
+      
   """
   @type delete_storage_lens_configuration_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_multi_region_access_point_routes_result() :: %{}
-
+      
   """
   @type submit_multi_region_access_point_routes_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_instances_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_access_grants_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_region_access_points_async_response() :: %{
         "Regions" => list(multi_region_access_point_regional_response()())
       }
-
+      
   """
   @type multi_region_access_points_async_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_multi_region_access_points_result() :: %{
         "AccessPoints" => list(multi_region_access_point_report()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_multi_region_access_points_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_bucket_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_bucket_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_policy_status_result() :: %{
         "Established" => policy_status()
       }
-
+      
   """
   @type get_multi_region_access_point_policy_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_point_request() :: %{
         optional("BucketAccountId") => String.t(),
         optional("PublicAccessBlockConfiguration") => public_access_block_configuration(),
@@ -1458,255 +1458,255 @@ defmodule AWS.S3Control do
         required("AccountId") => String.t(),
         required("Bucket") => String.t()
       }
-
+      
   """
   @type create_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_grants_instance_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_grants_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_multi_region_access_point_routes_request() :: %{
         required("AccountId") => String.t(),
         required("RouteUpdates") => list(multi_region_access_point_route()())
       }
-
+      
   """
   @type submit_multi_region_access_point_routes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metrics() :: %{
         "EventThreshold" => replication_time_value(),
         "Status" => list(any())
       }
-
+      
   """
   @type metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_multi_region_access_point_result() :: %{
         "RequestTokenARN" => String.t()
       }
-
+      
   """
   @type create_multi_region_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       region() :: %{
         "Bucket" => String.t(),
         "BucketAccountId" => String.t()
       }
-
+      
   """
   @type region() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_storage_lens_configuration_tagging_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_storage_lens_configuration_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_for_object_lambda_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_point_policy_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replica_modifications() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type replica_modifications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_time_value() :: %{
         "Minutes" => integer()
       }
-
+      
   """
   @type replication_time_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_access_grants_location_request() :: %{
         required("AccountId") => String.t(),
         required("IAMRoleArn") => String.t()
       }
-
+      
   """
   @type update_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       exclude() :: %{
         "Buckets" => list(String.t()()),
         "Regions" => list(String.t()())
       }
-
+      
   """
   @type exclude() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       policy_status() :: %{
         "IsPublic" => boolean()
       }
-
+      
   """
   @type policy_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_replication_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_bucket_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_initiate_restore_object_operation() :: %{
         "ExpirationInDays" => integer(),
         "GlacierJobTier" => list(any())
       }
-
+      
   """
   @type s3_initiate_restore_object_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration() :: %{
         "Role" => String.t(),
         "Rules" => list(replication_rule()())
       }
-
+      
   """
   @type replication_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_access_control_policy() :: %{
         "AccessControlList" => s3_access_control_list(),
         "CannedAccessControlList" => list(any())
       }
-
+      
   """
   @type s3_access_control_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_configuration_for_object_lambda_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_point_configuration_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grant_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_grant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_grant() :: %{
         "Grantee" => s3_grantee(),
         "Permission" => list(any())
       }
-
+      
   """
   @type s3_grant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_data_access_request() :: %{
         optional("DurationSeconds") => integer(),
         optional("Privilege") => list(any()),
@@ -1715,48 +1715,48 @@ defmodule AWS.S3Control do
         required("Permission") => list(any()),
         required("Target") => String.t()
       }
-
+      
   """
   @type get_data_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_policy_result() :: %{
         "Policy" => String.t()
       }
-
+      
   """
   @type get_bucket_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       noncurrent_version_transition() :: %{
         "NoncurrentDays" => integer(),
         "StorageClass" => list(any())
       }
-
+      
   """
   @type noncurrent_version_transition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_location_result() :: %{
         "AccessGrantsLocationArn" => String.t(),
         "AccessGrantsLocationId" => String.t(),
@@ -1764,14 +1764,14 @@ defmodule AWS.S3Control do
         "IAMRoleArn" => String.t(),
         "LocationScope" => String.t()
       }
-
+      
   """
   @type get_access_grants_location_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_rule_filter() :: %{
         "And" => lifecycle_rule_and_operator(),
         "ObjectSizeGreaterThan" => float(),
@@ -1779,155 +1779,155 @@ defmodule AWS.S3Control do
         "Prefix" => String.t(),
         "Tag" => s3_tag()
       }
-
+      
   """
   @type lifecycle_rule_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_storage_lens_group_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_next_token_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_status_result() :: %{
         "JobId" => String.t(),
         "Status" => list(any()),
         "StatusUpdateReason" => String.t()
       }
-
+      
   """
   @type update_job_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_multi_region_access_points_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_multi_region_access_points_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_region_access_point_policy_document() :: %{
         "Established" => established_multi_region_access_point_policy(),
         "Proposed" => proposed_multi_region_access_point_policy()
       }
-
+      
   """
   @type multi_region_access_point_policy_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_instance_entry() :: %{
         "AccessGrantsInstanceArn" => String.t(),
         "AccessGrantsInstanceId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "IdentityCenterArn" => String.t()
       }
-
+      
   """
   @type list_access_grants_instance_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_instance_resource_policy_result() :: %{
         "CreatedAt" => non_neg_integer(),
         "Organization" => String.t(),
         "Policy" => String.t()
       }
-
+      
   """
   @type get_access_grants_instance_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_failure() :: %{
         "FailureCode" => String.t(),
         "FailureReason" => String.t()
       }
-
+      
   """
   @type job_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bucket_configuration() :: %{
         "LocationConstraint" => list(any())
       }
-
+      
   """
   @type create_bucket_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bucket_already_exists() :: %{}
-
+      
   """
   @type bucket_already_exists() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_replication_result() :: %{
         "ReplicationConfiguration" => replication_configuration()
       }
-
+      
   """
   @type get_bucket_replication_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       regional_bucket() :: %{
         "Bucket" => String.t(),
         "BucketArn" => String.t(),
@@ -1935,83 +1935,83 @@ defmodule AWS.S3Control do
         "OutpostId" => String.t(),
         "PublicAccessBlockEnabled" => boolean()
       }
-
+      
   """
   @type regional_bucket() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       async_response_details() :: %{
         "ErrorDetails" => async_error_details(),
         "MultiRegionAccessPointDetails" => multi_region_access_points_async_response()
       }
-
+      
   """
   @type async_response_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_set_object_acl_operation() :: %{
         "AccessControlPolicy" => s3_access_control_policy()
       }
-
+      
   """
   @type s3_set_object_acl_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       async_request_parameters() :: %{
         "CreateMultiRegionAccessPointRequest" => create_multi_region_access_point_input(),
         "DeleteMultiRegionAccessPointRequest" => delete_multi_region_access_point_input(),
         "PutMultiRegionAccessPointPolicyRequest" => put_multi_region_access_point_policy_input()
       }
-
+      
   """
   @type async_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tagging() :: %{
         "TagSet" => list(s3_tag()())
       }
-
+      
   """
   @type tagging() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activity_metrics() :: %{
         "IsEnabled" => boolean()
       }
-
+      
   """
   @type activity_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_control_translation() :: %{
         "Owner" => list(any())
       }
-
+      
   """
   @type access_control_translation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_grants_location_result() :: %{
         "AccessGrantsLocationArn" => String.t(),
         "AccessGrantsLocationId" => String.t(),
@@ -2019,37 +2019,37 @@ defmodule AWS.S3Control do
         "IAMRoleArn" => String.t(),
         "LocationScope" => String.t()
       }
-
+      
   """
   @type create_access_grants_location_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type describe_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_data_export_encryption() :: %{
         "SSEKMS" => sse_kms(),
         "SSES3" => sse_s3()
       }
-
+      
   """
   @type storage_lens_data_export_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_group_and_operator() :: %{
         "MatchAnyPrefix" => list(String.t()()),
         "MatchAnySuffix" => list(String.t()()),
@@ -2057,26 +2057,26 @@ defmodule AWS.S3Control do
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size()
       }
-
+      
   """
   @type storage_lens_group_and_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_lambda_transformation_configuration() :: %{
         "Actions" => list(list(any())()),
         "ContentTransformation" => list()
       }
-
+      
   """
   @type object_lambda_transformation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_descriptor() :: %{
         "ConfirmationRequired" => boolean(),
         "CreationTime" => non_neg_integer(),
@@ -2098,48 +2098,48 @@ defmodule AWS.S3Control do
         "SuspendedDate" => non_neg_integer(),
         "TerminationDate" => non_neg_integer()
       }
-
+      
   """
   @type job_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detailed_status_codes_metrics() :: %{
         "IsEnabled" => boolean()
       }
-
+      
   """
   @type detailed_status_codes_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_status_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_point_policy_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_manifest_spec() :: %{
         "Fields" => list(list(any())()),
         "Format" => list(any())
       }
-
+      
   """
   @type job_manifest_spec() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_object_metadata() :: %{
         "CacheControl" => String.t(),
         "ContentDisposition" => String.t(),
@@ -2153,48 +2153,48 @@ defmodule AWS.S3Control do
         "SSEAlgorithm" => list(any()),
         "UserMetadata" => map()
       }
-
+      
   """
   @type s3_object_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_instances_result() :: %{
         "AccessGrantsInstancesList" => list(list_access_grants_instance_entry()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_access_grants_instances_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_multi_region_access_point_result() :: %{
         "RequestTokenARN" => String.t()
       }
-
+      
   """
   @type delete_multi_region_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       established_multi_region_access_point_policy() :: %{
         "Policy" => String.t()
       }
-
+      
   """
   @type established_multi_region_access_point_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_access_grants_location_result() :: %{
         "AccessGrantsLocationArn" => String.t(),
         "AccessGrantsLocationId" => String.t(),
@@ -2202,98 +2202,98 @@ defmodule AWS.S3Control do
         "IAMRoleArn" => String.t(),
         "LocationScope" => String.t()
       }
-
+      
   """
   @type update_access_grants_location_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_tagging_result() :: %{}
-
+      
   """
   @type delete_job_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_multi_region_access_point_input() :: %{
         "Name" => String.t(),
         "PublicAccessBlock" => public_access_block_configuration(),
         "Regions" => list(region()())
       }
-
+      
   """
   @type create_multi_region_access_point_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_group() :: %{
         "Filter" => storage_lens_group_filter(),
         "Name" => String.t(),
         "StorageLensGroupArn" => String.t()
       }
-
+      
   """
   @type storage_lens_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_for_object_lambda_result() :: %{
         "Alias" => object_lambda_access_point_alias(),
         "CreationDate" => non_neg_integer(),
         "Name" => String.t(),
         "PublicAccessBlockConfiguration" => public_access_block_configuration()
       }
-
+      
   """
   @type get_access_point_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bucket_result() :: %{
         "BucketArn" => String.t(),
         "Location" => String.t()
       }
-
+      
   """
   @type create_bucket_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_replicate_object_operation() :: %{}
-
+      
   """
   @type s3_replicate_object_operation() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_regional_buckets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("OutpostId") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_regional_buckets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_manifest_output_location() :: %{
         "Bucket" => String.t(),
         "ExpectedManifestBucketOwner" => String.t(),
@@ -2301,96 +2301,96 @@ defmodule AWS.S3Control do
         "ManifestFormat" => list(any()),
         "ManifestPrefix" => String.t()
       }
-
+      
   """
   @type s3_manifest_output_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_point_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_invoke_operation() :: %{
         "FunctionArn" => String.t(),
         "InvocationSchemaVersion" => String.t(),
         "UserArguments" => map()
       }
-
+      
   """
   @type lambda_invoke_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_lifecycle_configuration_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_grants_instance_resource_policy_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_grants_instance_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_aws_org() :: %{
         "Arn" => String.t()
       }
-
+      
   """
   @type storage_lens_aws_org() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_result() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       async_error_details() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t(),
         "Resource" => String.t()
       }
-
+      
   """
   @type async_error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_list_descriptor() :: %{
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
@@ -2401,36 +2401,36 @@ defmodule AWS.S3Control do
         "Status" => list(any()),
         "TerminationDate" => non_neg_integer()
       }
-
+      
   """
   @type job_list_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_point_for_object_lambda_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_point_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_bucket_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_copy_object_operation() :: %{
         "AccessControlGrants" => list(s3_grant()()),
         "BucketKeyEnabled" => boolean(),
@@ -2451,81 +2451,81 @@ defmodule AWS.S3Control do
         "TargetResource" => String.t(),
         "UnModifiedSinceConstraint" => non_neg_integer()
       }
-
+      
   """
   @type s3_copy_object_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_policy_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_bucket_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_public_access_block_output() :: %{
         "PublicAccessBlockConfiguration" => public_access_block_configuration()
       }
-
+      
   """
   @type get_public_access_block_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_point_policy_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_lambda_transformation() :: %{
         "FunctionArn" => String.t(),
         "FunctionPayload" => String.t()
       }
-
+      
   """
   @type aws_lambda_transformation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_tagging_result() :: %{
         "TagSet" => list(s3_tag()())
       }
-
+      
   """
   @type get_bucket_tagging_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_marker_replication() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type delete_marker_replication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bucket_request() :: %{
         optional("ACL") => list(any()),
         optional("CreateBucketConfiguration") => create_bucket_configuration(),
@@ -2537,142 +2537,142 @@ defmodule AWS.S3Control do
         optional("ObjectLockEnabledForBucket") => boolean(),
         optional("OutpostId") => String.t()
       }
-
+      
   """
   @type create_bucket_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_name_constraint() :: %{
         "MatchAnyPrefix" => list(String.t()()),
         "MatchAnySubstring" => list(String.t()()),
         "MatchAnySuffix" => list(String.t()())
       }
-
+      
   """
   @type key_name_constraint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_result() :: %{
         "Bucket" => String.t(),
         "CreationDate" => non_neg_integer(),
         "PublicAccessBlockEnabled" => boolean()
       }
-
+      
   """
   @type get_bucket_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_job_tagging_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_job_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_data_access_result() :: %{
         "Credentials" => credentials(),
         "MatchedGrantTarget" => String.t()
       }
-
+      
   """
   @type get_data_access_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_timers() :: %{
         "ElapsedTimeInActiveSeconds" => float()
       }
-
+      
   """
   @type job_timers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       existing_object_replication() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type existing_object_replication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transition() :: %{
         "Date" => non_neg_integer(),
         "Days" => integer(),
         "StorageClass" => list(any())
       }
-
+      
   """
   @type transition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_region_access_point_route() :: %{
         "Bucket" => String.t(),
         "Region" => String.t(),
         "TrafficDialPercentage" => integer()
       }
-
+      
   """
   @type multi_region_access_point_route() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_delete_object_tagging_operation() :: %{}
-
+      
   """
   @type s3_delete_object_tagging_operation() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_multi_region_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_manifest_generator_filter() :: %{
         "CreatedAfter" => non_neg_integer(),
         "CreatedBefore" => non_neg_integer(),
@@ -2683,14 +2683,14 @@ defmodule AWS.S3Control do
         "ObjectSizeGreaterThanBytes" => float(),
         "ObjectSizeLessThanBytes" => float()
       }
-
+      
   """
   @type job_manifest_generator_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_region_access_point_report() :: %{
         "Alias" => String.t(),
         "CreatedAt" => non_neg_integer(),
@@ -2699,89 +2699,89 @@ defmodule AWS.S3Control do
         "Regions" => list(region_report()()),
         "Status" => list(any())
       }
-
+      
   """
   @type multi_region_access_point_report() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_tagging_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_bucket_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sse_s3_encryption() :: %{}
-
+      
   """
   @type sse_s3_encryption() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_locations_result() :: %{
         "AccessGrantsLocationsList" => list(list_access_grants_locations_entry()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_access_grants_locations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_status_for_object_lambda_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_point_policy_status_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_grants_location_configuration() :: %{
         "S3SubPrefix" => String.t()
       }
-
+      
   """
   @type access_grants_location_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sse_s3() :: %{}
-
+      
   """
   @type sse_s3() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_access_point_policy_for_object_lambda_request() :: %{
         required("AccountId") => String.t(),
         required("Policy") => String.t()
       }
-
+      
   """
   @type put_access_point_policy_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_request() :: %{
         optional("ApplicationArn") => String.t(),
         optional("GrantScope") => String.t(),
@@ -2792,36 +2792,36 @@ defmodule AWS.S3Control do
         optional("Permission") => list(any()),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_access_grants_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_grants_location_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_routes_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_multi_region_access_point_routes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_rule() :: %{
         "Bucket" => String.t(),
         "DeleteMarkerReplication" => delete_marker_replication(),
@@ -2834,61 +2834,61 @@ defmodule AWS.S3Control do
         "SourceSelectionCriteria" => source_selection_criteria(),
         "Status" => list(any())
       }
-
+      
   """
   @type replication_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_retention() :: %{
         "Mode" => list(any()),
         "RetainUntilDate" => non_neg_integer()
       }
-
+      
   """
   @type s3_retention() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       match_object_size() :: %{
         "BytesGreaterThan" => float(),
         "BytesLessThan" => float()
       }
-
+      
   """
   @type match_object_size() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_priority_result() :: %{
         "JobId" => String.t(),
         "Priority" => integer()
       }
-
+      
   """
   @type update_job_priority_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_point() :: %{
         "AccessPointArn" => String.t(),
         "Alias" => String.t(),
@@ -2898,48 +2898,48 @@ defmodule AWS.S3Control do
         "NetworkOrigin" => list(any()),
         "VpcConfiguration" => vpc_configuration()
       }
-
+      
   """
   @type access_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_metrics() :: %{
         "IsEnabled" => boolean()
       }
-
+      
   """
   @type cloud_watch_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_versioning_result() :: %{
         "MFADelete" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type get_bucket_versioning_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       idempotency_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type idempotency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination() :: %{
         "AccessControlTranslation" => access_control_translation(),
         "Account" => String.t(),
@@ -2949,109 +2949,109 @@ defmodule AWS.S3Control do
         "ReplicationTime" => replication_time(),
         "StorageClass" => list(any())
       }
-
+      
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_status_request() :: %{
         optional("StatusUpdateReason") => String.t(),
         required("AccountId") => String.t(),
         required("RequestedJobStatus") => list(any())
       }
-
+      
   """
   @type update_job_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_expiration() :: %{
         "Date" => non_neg_integer(),
         "Days" => integer(),
         "ExpiredObjectDeleteMarker" => boolean()
       }
-
+      
   """
   @type lifecycle_expiration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_set_object_legal_hold_operation() :: %{
         "LegalHold" => s3_object_lock_legal_hold()
       }
-
+      
   """
   @type s3_set_object_legal_hold_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_result() :: %{
         "JobId" => String.t()
       }
-
+      
   """
   @type create_job_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_bucket_tagging_request() :: %{
         required("AccountId") => String.t(),
         required("Tagging") => tagging()
       }
-
+      
   """
   @type put_bucket_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_instance_for_prefix_request() :: %{
         required("AccountId") => String.t(),
         required("S3Prefix") => String.t()
       }
-
+      
   """
   @type get_access_grants_instance_for_prefix_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sse_kms() :: %{
         "KeyId" => String.t()
       }
-
+      
   """
   @type sse_kms() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_priority_request() :: %{
         required("AccountId") => String.t(),
         required("Priority") => integer()
       }
-
+      
   """
   @type update_job_priority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_result() :: %{
         "AccessPointArn" => String.t(),
         "Alias" => String.t(),
@@ -3064,247 +3064,247 @@ defmodule AWS.S3Control do
         "PublicAccessBlockConfiguration" => public_access_block_configuration(),
         "VpcConfiguration" => vpc_configuration()
       }
-
+      
   """
   @type get_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_storage_lens_configuration_tagging_result() :: %{}
-
+      
   """
   @type put_storage_lens_configuration_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_points_result() :: %{
         "AccessPointList" => list(access_point()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_access_points_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_result() :: %{}
-
+      
   """
   @type tag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_policy_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_multi_region_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_rule_and_operator() :: %{
         "Prefix" => String.t(),
         "Tags" => list(s3_tag()())
       }
-
+      
   """
   @type replication_rule_and_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_status_for_object_lambda_result() :: %{
         "PolicyStatus" => policy_status()
       }
-
+      
   """
   @type get_access_point_policy_status_for_object_lambda_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_routes_result() :: %{
         "Mrap" => String.t(),
         "Routes" => list(multi_region_access_point_route()())
       }
-
+      
   """
   @type get_multi_region_access_point_routes_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_lambda_access_point_alias() :: %{
         "Status" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type object_lambda_access_point_alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_public_access_block_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_public_access_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_access_point_policy_request() :: %{
         required("AccountId") => String.t(),
         required("Policy") => String.t()
       }
-
+      
   """
   @type put_access_point_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       selection_criteria() :: %{
         "Delimiter" => String.t(),
         "MaxDepth" => integer(),
         "MinStorageBytesPercentage" => float()
       }
-
+      
   """
   @type selection_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_point_result() :: %{
         "AccessPointArn" => String.t(),
         "Alias" => String.t()
       }
-
+      
   """
   @type create_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_storage_lens_configuration_entry() :: %{
         "HomeRegion" => String.t(),
         "Id" => String.t(),
         "IsEnabled" => boolean(),
         "StorageLensArn" => String.t()
       }
-
+      
   """
   @type list_storage_lens_configuration_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_time() :: %{
         "Status" => list(any()),
         "Time" => replication_time_value()
       }
-
+      
   """
   @type replication_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_object_owner() :: %{
         "DisplayName" => String.t(),
         "ID" => String.t()
       }
-
+      
   """
   @type s3_object_owner() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_points_request() :: %{
         optional("Bucket") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_access_points_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_storage_lens_configuration_tagging_request() :: %{
         required("AccountId") => String.t(),
         required("Tags") => list(storage_lens_tag()())
       }
-
+      
   """
   @type put_storage_lens_configuration_tagging_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_point_policy_result() :: %{
         "Policy" => String.t()
       }
-
+      
   """
   @type get_access_point_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_policy_status_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_multi_region_access_point_policy_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       storage_lens_configuration() :: %{
         "AccountLevel" => account_level(),
         "AwsOrg" => storage_lens_aws_org(),
@@ -3315,83 +3315,83 @@ defmodule AWS.S3Control do
         "IsEnabled" => boolean(),
         "StorageLensArn" => String.t()
       }
-
+      
   """
   @type storage_lens_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_set_object_tagging_operation() :: %{
         "TagSet" => list(s3_tag()())
       }
-
+      
   """
   @type s3_set_object_tagging_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_bucket_lifecycle_configuration_request() :: %{
         optional("LifecycleConfiguration") => lifecycle_configuration(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type put_bucket_lifecycle_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_grant_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_access_grant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type s3_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_generated_manifest_descriptor() :: %{
         "Format" => list(any()),
         "Location" => job_manifest_location()
       }
-
+      
   """
   @type s3_generated_manifest_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       advanced_cost_optimization_metrics() :: %{
         "IsEnabled" => boolean()
       }
-
+      
   """
   @type advanced_cost_optimization_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_grant_request() :: %{
         optional("AccessGrantsLocationConfiguration") => access_grants_location_configuration(),
         optional("ApplicationArn") => String.t(),
@@ -3402,62 +3402,62 @@ defmodule AWS.S3Control do
         required("Grantee") => grantee(),
         required("Permission") => list(any())
       }
-
+      
   """
   @type create_access_grant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bucket_lifecycle_configuration_result() :: %{
         "Rules" => list(lifecycle_rule()())
       }
-
+      
   """
   @type get_bucket_lifecycle_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_locations_request() :: %{
         optional("LocationScope") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_access_grants_locations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_multi_region_access_point_operation_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type describe_multi_region_access_point_operation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_set_object_retention_operation() :: %{
         "BypassGovernanceRetention" => boolean(),
         "Retention" => s3_retention()
       }
-
+      
   """
   @type s3_set_object_retention_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_access_grants_locations_entry() :: %{
         "AccessGrantsLocationArn" => String.t(),
         "AccessGrantsLocationId" => String.t(),
@@ -3465,26 +3465,26 @@ defmodule AWS.S3Control do
         "IAMRoleArn" => String.t(),
         "LocationScope" => String.t()
       }
-
+      
   """
   @type list_access_grants_locations_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_storage_lens_group_request() :: %{
         required("AccountId") => String.t(),
         required("StorageLensGroup") => storage_lens_group()
       }
-
+      
   """
   @type update_storage_lens_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_level() :: %{
         "ActivityMetrics" => activity_metrics(),
         "AdvancedCostOptimizationMetrics" => advanced_cost_optimization_metrics(),
@@ -3493,146 +3493,146 @@ defmodule AWS.S3Control do
         "DetailedStatusCodesMetrics" => detailed_status_codes_metrics(),
         "StorageLensGroupLevel" => storage_lens_group_level()
       }
-
+      
   """
   @type account_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_storage_lens_groups_result() :: %{
         "NextToken" => String.t(),
         "StorageLensGroupList" => list(list_storage_lens_group_entry()())
       }
-
+      
   """
   @type list_storage_lens_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_location_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_grants_location_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_object_lock_legal_hold() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type s3_object_lock_legal_hold() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_bucket_replication_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type delete_bucket_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_job_tagging_result() :: %{}
-
+      
   """
   @type put_job_tagging_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_storage_lens_configurations_request() :: %{
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
       }
-
+      
   """
   @type list_storage_lens_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_progress_summary() :: %{
         "NumberOfTasksFailed" => float(),
         "NumberOfTasksSucceeded" => float(),
         "Timers" => job_timers(),
         "TotalNumberOfTasks" => float()
       }
-
+      
   """
   @type job_progress_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_access_point_configuration_for_object_lambda_request() :: %{
         required("AccountId") => String.t(),
         required("Configuration") => object_lambda_configuration()
       }
-
+      
   """
   @type put_access_point_configuration_for_object_lambda_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_multi_region_access_point_result() :: %{
         "AccessPoint" => multi_region_access_point_report()
       }
-
+      
   """
   @type get_multi_region_access_point_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_rule_and_operator() :: %{
         "ObjectSizeGreaterThan" => float(),
         "ObjectSizeLessThan" => float(),
         "Prefix" => String.t(),
         "Tags" => list(s3_tag()())
       }
-
+      
   """
   @type lifecycle_rule_and_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_access_grants_instance_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type get_access_grants_instance_request() :: %{String.t() => any()}
 
@@ -3710,21 +3710,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec associate_access_grants_identity_center(
-          AWS.Client.t(),
-          associate_access_grants_identity_center_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_access_grants_identity_center(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def associate_access_grants_identity_center(%Client{} = client, input, options \\ []) do
+
+  def associate_access_grants_identity_center(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/identitycenter"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -3732,28 +3732,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3771,17 +3765,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec create_access_grant(AWS.Client.t(), create_access_grant_request(), Keyword.t()) ::
+
+  @spec create_access_grant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_access_grant(%Client{} = client, input, options \\ []) do
+
+  def create_access_grant(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grant"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -3789,28 +3787,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3822,21 +3814,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec create_access_grants_instance(
-          AWS.Client.t(),
-          create_access_grants_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_access_grants_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_grants_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_access_grants_instance(%Client{} = client, input, options \\ []) do
+
+  def create_access_grants_instance(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -3844,28 +3836,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3877,21 +3863,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec create_access_grants_location(
-          AWS.Client.t(),
-          create_access_grants_location_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_access_grants_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_grants_location_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_access_grants_location(%Client{} = client, input, options \\ []) do
+
+  def create_access_grants_location(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/location"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -3899,28 +3885,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3935,22 +3915,21 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name you want to assign to this access point.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-    that owns the specified access point.
+  that owns the specified access point.
 
   ## Optional parameters:
   """
-  @spec create_access_point(
-          AWS.Client.t(),
-          String.t(),
-          create_access_point_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_access_point(%Client{} = client, name, input, options \\ []) do
+
+  def create_access_point(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -3958,18 +3937,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3984,24 +3967,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name you want to assign to this Object Lambda Access
-    Point.
+  Point.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for owner of the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
-  @spec create_access_point_for_object_lambda(
-          AWS.Client.t(),
-          String.t(),
-          create_access_point_for_object_lambda_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_access_point_for_object_lambda(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_access_point_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_access_point_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+
+  def create_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4009,18 +3991,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4040,30 +4026,37 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:bucket` (`t:string`) The name of the bucket.
+  * `:input` (`t:map | nil`):
+    * `:create_bucket_configuration` (`t:structure`) The configuration information
+  for the bucket.
 
   ## Optional parameters:
   * `:acl` (`t:enum["authenticated_read|private|public_read|public_read_write"]`)
-    The canned ACL to apply to the bucket.
+  The canned ACL to apply to the bucket.
   * `:grant_full_control` (`t:string`) Allows grantee the read, write, read ACP,
-    and write ACP permissions on the bucket.
+  and write ACP permissions on the bucket.
   * `:grant_read` (`t:string`) Allows grantee to list the objects in the bucket.
   * `:grant_read_a_c_p` (`t:string`) Allows grantee to read the bucket ACL.
   * `:grant_write` (`t:string`) Allows grantee to create, overwrite, and delete
-    any object in the bucket.
+  any object in the bucket.
   * `:grant_write_a_c_p` (`t:string`) Allows grantee to write the ACL for the
-    applicable bucket.
+  applicable bucket.
   * `:object_lock_enabled_for_bucket` (`t:boolean`) Specifies whether you want S3
-    Object Lock to be enabled for the new bucket.
+  Object Lock to be enabled for the new bucket.
   * `:outpost_id` (`t:string`) The ID of the Outposts where the bucket is being
-    created.
+  created.
   """
-  @spec create_bucket(AWS.Client.t(), String.t(), create_bucket_request(), Keyword.t()) ::
+
+  @spec create_bucket(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bucket_errors()}
-  def create_bucket(%Client{} = client, bucket, input, options \\ []) do
+
+  def create_bucket(%Client{} = client, bucket, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
 
+    # Validate optional parameters
     optional_params = [
       acl: nil,
       grant_full_control: nil,
@@ -4081,20 +4074,76 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ACL", "x-amz-acl"},
-        {"GrantFullControl", "x-amz-grant-full-control"},
-        {"GrantRead", "x-amz-grant-read"},
-        {"GrantReadACP", "x-amz-grant-read-acp"},
-        {"GrantWrite", "x-amz-grant-write"},
-        {"GrantWriteACP", "x-amz-grant-write-acp"},
-        {"ObjectLockEnabledForBucket", "x-amz-bucket-object-lock-enabled"},
-        {"OutpostId", "x-amz-outpost-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :outpost_id) do
+        [{"x-amz-outpost-id", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :object_lock_enabled_for_bucket) do
+        [{"x-amz-bucket-object-lock-enabled", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :grant_write_a_c_p) do
+        [{"x-amz-grant-write-acp", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :grant_write) do
+        [{"x-amz-grant-write", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :grant_read_a_c_p) do
+        [{"x-amz-grant-read-acp", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :grant_read) do
+        [{"x-amz-grant-read", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :grant_full_control) do
+        [{"x-amz-grant-full-control", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :acl) do
+        [{"x-amz-acl", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
 
     options =
       Keyword.put(
@@ -4120,7 +4169,9 @@ defmodule AWS.S3Control do
         :outpost_id
       ])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4135,18 +4186,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID that creates the
-    job.
+  job.
 
   ## Optional parameters:
   """
-  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
+
+  @spec create_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-  def create_job(%Client{} = client, input, options \\ []) do
+
+  def create_job(%Client{} = client, account_id, options \\ []) when is_binary(account_id) do
     url_path = "/v20180820/jobs"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4154,28 +4208,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4195,22 +4243,22 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point. The owner of the Multi-Region Access Point
-    also must own the underlying buckets.
+  the Multi-Region Access Point. The owner of the Multi-Region Access Point
+  also must own the underlying buckets.
 
   ## Optional parameters:
   """
-  @spec create_multi_region_access_point(
-          AWS.Client.t(),
-          create_multi_region_access_point_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_multi_region_access_point(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_multi_region_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_multi_region_access_point(%Client{} = client, input, options \\ []) do
+
+  def create_multi_region_access_point(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/async-requests/mrap/create"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4218,28 +4266,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4262,21 +4304,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID that the Storage
-    Lens group is created from and associated with.
+  Lens group is created from and associated with.
 
   ## Optional parameters:
   """
-  @spec create_storage_lens_group(
-          AWS.Client.t(),
-          create_storage_lens_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_storage_lens_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def create_storage_lens_group(%Client{} = client, input, options \\ []) do
+
+  def create_storage_lens_group(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4284,28 +4326,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4317,24 +4353,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:access_grant_id` (`t:string`) The ID of the access grant. S3 Access Grants
-    auto-generates this ID when you create the access grant.
+  auto-generates this ID when you create the access grant.
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec delete_access_grant(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_grant_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_access_grant(%Client{} = client, access_grant_id, input, options \\ []) do
+
+  def delete_access_grant(%Client{} = client, access_grant_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grant/#{AWS.Util.encode_uri(access_grant_id)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4342,16 +4377,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4360,7 +4399,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4385,21 +4424,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec delete_access_grants_instance(
-          AWS.Client.t(),
-          delete_access_grants_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_grants_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_access_grants_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_access_grants_instance(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4407,16 +4446,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4425,7 +4468,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4441,21 +4484,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec delete_access_grants_instance_resource_policy(
-          AWS.Client.t(),
-          delete_access_grants_instance_resource_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_grants_instance_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_access_grants_instance_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4463,16 +4506,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4481,7 +4528,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4500,33 +4547,32 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:access_grants_location_id` (`t:string`) The ID of the registered location
-    that you are deregistering from your S3 Access Grants instance. S3 Access
-    Grants assigned this ID when you registered the location. S3 Access Grants
-    assigns the ID default to the default location s3:// and assigns an
-    auto-generated ID to other locations that you register.
+  that you are deregistering from your S3 Access Grants instance. S3 Access
+  Grants assigned this ID when you registered the location. S3 Access Grants
+  assigns the ID default to the default location s3:// and assigns an
+  auto-generated ID to other locations that you register.
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec delete_access_grants_location(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_grants_location_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_grants_location(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+
   def delete_access_grants_location(
         %Client{} = client,
         access_grants_location_id,
-        input,
+        account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path =
       "/v20180820/accessgrantsinstance/location/#{AWS.Util.encode_uri(access_grants_location_id)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4534,16 +4580,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4552,7 +4602,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4567,22 +4617,21 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name of the access point you want to delete.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-    that owns the specified access point.
+  that owns the specified access point.
 
   ## Optional parameters:
   """
-  @spec delete_access_point(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_point_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_access_point(%Client{} = client, name, input, options \\ []) do
+
+  def delete_access_point(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4590,16 +4639,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4608,7 +4661,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4623,22 +4676,21 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name of the access point you want to delete.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
-  @spec delete_access_point_for_object_lambda(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_point_for_object_lambda_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_point_for_object_lambda(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_access_point_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+
+  def delete_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4646,16 +4698,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4664,7 +4720,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4678,24 +4734,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the access point whose policy you want to
-    delete.
+  delete.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified access point.
+  specified access point.
 
   ## Optional parameters:
   """
-  @spec delete_access_point_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_point_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_access_point_policy(%Client{} = client, name, input, options \\ []) do
+
+  def delete_access_point_policy(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4703,16 +4758,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4721,7 +4780,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4735,24 +4794,33 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Object Lambda Access Point you want to
-    delete the policy for.
+  delete the policy for.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
+
   @spec delete_access_point_policy_for_object_lambda(
           AWS.Client.t(),
           String.t(),
-          delete_access_point_policy_for_object_lambda_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_access_point_policy_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+
+  def delete_access_point_policy_for_object_lambda(
+        %Client{} = client,
+        name,
+        account_id,
+        options \\ []
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4760,16 +4828,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4778,7 +4850,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4810,13 +4882,17 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
-  @spec delete_bucket(AWS.Client.t(), String.t(), delete_bucket_request(), Keyword.t()) ::
+
+  @spec delete_bucket(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_bucket(%Client{} = client, bucket, input, options \\ []) do
+
+  def delete_bucket(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4824,16 +4900,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4842,7 +4922,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4869,22 +4949,21 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the bucket.
   * `:account_id` (`t:string`) The account ID of the lifecycle configuration to
-    delete.
+  delete.
 
   ## Optional parameters:
   """
-  @spec delete_bucket_lifecycle_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_bucket_lifecycle_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_bucket_lifecycle_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
+
+  def delete_bucket_lifecycle_configuration(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4892,16 +4971,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4910,7 +4993,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4941,18 +5024,17 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
-  @spec delete_bucket_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_bucket_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_bucket_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
+
+  def delete_bucket_policy(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -4960,16 +5042,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4978,7 +5064,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5007,24 +5093,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the S3 on Outposts bucket to delete the
-    replication configuration for.
+  replication configuration for.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket to delete the replication configuration for.
+  bucket to delete the replication configuration for.
 
   ## Optional parameters:
   """
-  @spec delete_bucket_replication(
-          AWS.Client.t(),
-          String.t(),
-          delete_bucket_replication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_bucket_replication(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
+
+  def delete_bucket_replication(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/replication"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5032,16 +5117,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5050,7 +5139,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5072,22 +5161,21 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) The bucket ARN that has the tag set to be removed.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket tag set to be removed.
+  bucket tag set to be removed.
 
   ## Optional parameters:
   """
-  @spec delete_bucket_tagging(
-          AWS.Client.t(),
-          String.t(),
-          delete_bucket_tagging_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_bucket_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
+
+  def delete_bucket_tagging(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5095,16 +5183,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5113,7 +5205,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -5127,20 +5219,24 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you
-    want to delete.
+  want to delete.
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the S3 Batch Operations job.
+  the S3 Batch Operations job.
 
   ## Optional parameters:
   """
-  @spec delete_job_tagging(AWS.Client.t(), String.t(), delete_job_tagging_request(), Keyword.t()) ::
+
+  @spec delete_job_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_tagging_errors()}
-  def delete_job_tagging(%Client{} = client, job_id, input, options \\ []) do
+
+  def delete_job_tagging(%Client{} = client, job_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5148,16 +5244,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5166,7 +5266,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5181,21 +5281,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
-  @spec delete_multi_region_access_point(
-          AWS.Client.t(),
-          delete_multi_region_access_point_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_multi_region_access_point(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multi_region_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_multi_region_access_point(%Client{} = client, input, options \\ []) do
+
+  def delete_multi_region_access_point(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/async-requests/mrap/delete"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5203,28 +5303,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5238,21 +5332,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The account ID for the Amazon Web Services account
-    whose PublicAccessBlock configuration you want to remove.
+  whose PublicAccessBlock configuration you want to remove.
 
   ## Optional parameters:
   """
-  @spec delete_public_access_block(
-          AWS.Client.t(),
-          delete_public_access_block_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_public_access_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_public_access_block(%Client{} = client, input, options \\ []) do
+
+  def delete_public_access_block(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/configuration/publicAccessBlock"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5260,16 +5354,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5278,7 +5376,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5295,18 +5393,17 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
-  @spec delete_storage_lens_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_storage_lens_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_storage_lens_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
+
+  def delete_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5314,16 +5411,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5332,7 +5433,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5349,23 +5450,27 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
+
   @spec delete_storage_lens_configuration_tagging(
           AWS.Client.t(),
           String.t(),
-          delete_storage_lens_configuration_tagging_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, delete_storage_lens_configuration_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def delete_storage_lens_configuration_tagging(
         %Client{} = client,
         config_id,
-        input,
+        account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}/tagging"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5373,16 +5478,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5391,7 +5500,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5404,24 +5513,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Storage Lens group that you're trying to
-    delete.
+  delete.
   * `:account_id` (`t:string`) The Amazon Web Services account ID used to create
-    the Storage Lens group that you're trying to delete.
+  the Storage Lens group that you're trying to delete.
 
   ## Optional parameters:
   """
-  @spec delete_storage_lens_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_storage_lens_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_storage_lens_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_storage_lens_group(%Client{} = client, name, input, options \\ []) do
+
+  def delete_storage_lens_group(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5429,16 +5537,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5447,7 +5559,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -5463,17 +5575,20 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:job_id` (`t:string`) The ID for the job whose information you want to
-    retrieve.
+  retrieve.
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the S3 Batch Operations job.
+  the S3 Batch Operations job.
 
   ## Optional parameters:
   """
+
   @spec describe_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_errors()}
-  def describe_job(%Client{} = client, job_id, account_id, options \\ []) do
+
+  def describe_job(%Client{} = client, job_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}"
 
     # Validate optional parameters
@@ -5514,14 +5629,15 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:request_token_arn` (`t:string`) The request token associated with the
-    request you want to know about. This request token is returned as part of
-    the response when you make an asynchronous request. You provide this token
-    to query about the status of the asynchronous action.
+  request you want to know about. This request token is returned as part of
+  the response when you make an asynchronous request. You provide this token
+  to query about the status of the asynchronous action.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
+
   @spec describe_multi_region_access_point_operation(
           AWS.Client.t(),
           String.t(),
@@ -5530,12 +5646,14 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, describe_multi_region_access_point_operation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def describe_multi_region_access_point_operation(
         %Client{} = client,
         request_token_arn,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path =
       "/v20180820/async-requests/mrap/#{AWS.Util.encode_multi_segment_uri(request_token_arn)}"
 
@@ -5572,21 +5690,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec dissociate_access_grants_identity_center(
-          AWS.Client.t(),
-          dissociate_access_grants_identity_center_request(),
-          Keyword.t()
-        ) ::
+
+  @spec dissociate_access_grants_identity_center(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def dissociate_access_grants_identity_center(%Client{} = client, input, options \\ []) do
+
+  def dissociate_access_grants_identity_center(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/identitycenter"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -5594,16 +5712,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5612,7 +5734,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5626,16 +5748,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:access_grant_id` (`t:string`) The ID of the access grant. S3 Access Grants
-    auto-generates this ID when you create the access grant.
+  auto-generates this ID when you create the access grant.
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
+
   @spec get_access_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_grant(%Client{} = client, access_grant_id, account_id, options \\ []) do
+
+  def get_access_grant(%Client{} = client, access_grant_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grant/#{AWS.Util.encode_uri(access_grant_id)}"
 
     # Validate optional parameters
@@ -5671,14 +5796,17 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
+
   @spec get_access_grants_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_grants_instance(%Client{} = client, account_id, options \\ []) do
+
+  def get_access_grants_instance(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance"
 
     # Validate optional parameters
@@ -5714,21 +5842,24 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:s3_prefix` (`t:string`) The S3 prefix of the access grants that you would
-    like to retrieve.
+  like to retrieve.
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
+
   @spec get_access_grants_instance_for_prefix(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_for_prefix_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def get_access_grants_instance_for_prefix(
         %Client{} = client,
         s3_prefix,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(s3_prefix) and is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/prefix"
 
     # Validate optional parameters
@@ -5763,14 +5894,17 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
+
   @spec get_access_grants_instance_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ []) do
+
+  def get_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
 
     # Validate optional parameters
@@ -5806,24 +5940,27 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:access_grants_location_id` (`t:string`) The ID of the registered location
-    that you are retrieving. S3 Access Grants assigns this ID when you register
-    the location. S3 Access Grants assigns the ID default to the default
-    location s3:// and assigns an auto-generated ID to other locations that you
-    register.
+  that you are retrieving. S3 Access Grants assigns this ID when you register
+  the location. S3 Access Grants assigns the ID default to the default
+  location s3:// and assigns an auto-generated ID to other locations that you
+  register.
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
+
   @spec get_access_grants_location(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_location_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def get_access_grants_location(
         %Client{} = client,
         access_grants_location_id,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path =
       "/v20180820/accessgrantsinstance/location/#{AWS.Util.encode_uri(access_grants_location_id)}"
 
@@ -5860,16 +5997,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the access point whose configuration
-    information you want to retrieve.
+  information you want to retrieve.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-    that owns the specified access point.
+  that owns the specified access point.
 
   ## Optional parameters:
   """
+
   @spec get_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_point(%Client{} = client, name, account_id, options \\ []) do
+
+  def get_access_point(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}"
 
     # Validate optional parameters
@@ -5905,12 +6045,13 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Object Lambda Access Point you want to
-    return the configuration for.
+  return the configuration for.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_access_point_configuration_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -5919,12 +6060,14 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_access_point_configuration_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def get_access_point_configuration_for_object_lambda(
         %Client{} = client,
         name,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/configuration"
 
     # Validate optional parameters
@@ -5961,14 +6104,17 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name of the Object Lambda Access Point.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_access_point_for_object_lambda(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ []) do
+
+  def get_access_point_for_object_lambda(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}"
 
     # Validate optional parameters
@@ -6004,16 +6150,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the access point whose policy you want to
-    retrieve.
+  retrieve.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified access point.
+  specified access point.
 
   ## Optional parameters:
   """
+
   @spec get_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_point_policy(%Client{} = client, name, account_id, options \\ []) do
+
+  def get_access_point_policy(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
 
     # Validate optional parameters
@@ -6050,10 +6199,11 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name of the Object Lambda Access Point.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_access_point_policy_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -6062,12 +6212,14 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_access_point_policy_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def get_access_point_policy_for_object_lambda(
         %Client{} = client,
         name,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policy"
 
     # Validate optional parameters
@@ -6102,16 +6254,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the access point whose policy status you want
-    to retrieve.
+  to retrieve.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified access point.
+  specified access point.
 
   ## Optional parameters:
   """
+
   @spec get_access_point_policy_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_policy_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_point_policy_status(%Client{} = client, name, account_id, options \\ []) do
+
+  def get_access_point_policy_status(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policyStatus"
 
     # Validate optional parameters
@@ -6147,10 +6302,11 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name of the Object Lambda Access Point.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_access_point_policy_status_for_object_lambda(
           AWS.Client.t(),
           String.t(),
@@ -6159,12 +6315,14 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_access_point_policy_status_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def get_access_point_policy_status_for_object_lambda(
         %Client{} = client,
         name,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policyStatus"
 
     # Validate optional parameters
@@ -6211,14 +6369,17 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the bucket.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
 
   ## Optional parameters:
   """
+
   @spec get_bucket(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_bucket(%Client{} = client, bucket, account_id, options \\ []) do
+
+  def get_bucket(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}"
 
     # Validate optional parameters
@@ -6278,14 +6439,17 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) The Amazon Resource Name (ARN) of the bucket.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
 
   ## Optional parameters:
   """
+
   @spec get_bucket_lifecycle_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_lifecycle_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_bucket_lifecycle_configuration(%Client{} = client, bucket, account_id, options \\ []) do
+
+  def get_bucket_lifecycle_configuration(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
 
     # Validate optional parameters
@@ -6330,14 +6494,17 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the bucket.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
 
   ## Optional parameters:
   """
+
   @spec get_bucket_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_bucket_policy(%Client{} = client, bucket, account_id, options \\ []) do
+
+  def get_bucket_policy(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
 
     # Validate optional parameters
@@ -6403,16 +6570,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the bucket to get the replication information
-    for.
+  for.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
 
   ## Optional parameters:
   """
+
   @spec get_bucket_replication(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_replication_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_bucket_replication(%Client{} = client, bucket, account_id, options \\ []) do
+
+  def get_bucket_replication(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/replication"
 
     # Validate optional parameters
@@ -6456,14 +6626,17 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the bucket.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
 
   ## Optional parameters:
   """
+
   @spec get_bucket_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_bucket_tagging(%Client{} = client, bucket, account_id, options \\ []) do
+
+  def get_bucket_tagging(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
 
     # Validate optional parameters
@@ -6506,16 +6679,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:bucket` (`t:string`) The S3 on Outposts bucket to return the versioning
-    state for.
+  state for.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the S3 on
-    Outposts bucket.
+  Outposts bucket.
 
   ## Optional parameters:
   """
+
   @spec get_bucket_versioning(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_versioning_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_bucket_versioning(%Client{} = client, bucket, account_id, options \\ []) do
+
+  def get_bucket_versioning(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/versioning"
 
     # Validate optional parameters
@@ -6554,31 +6730,34 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:permission` (`t:enum["READ|READWRITE|WRITE"]`) The type of permission
-    granted to your S3 data, which can be set to one of the following values:
+  granted to your S3 data, which can be set to one of the following values:
   * `:target` (`t:string`) The S3 URI path of the data to which you are requesting
-    temporary access credentials. If the requesting account has an access grant
-    for this data, S3 Access Grants vends temporary access credentials in the
-    response.
+  temporary access credentials. If the requesting account has an access grant
+  for this data, S3 Access Grants vends temporary access credentials in the
+  response.
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   * `:duration_seconds` (`t:integer`) The session duration, in seconds, of the
-    temporary access credential that S3 Access Grants vends to the grantee or
-    client application. The default value is 1 hour, but the grantee can specify
-    a range from 900 seconds (15 minutes) up to 43200 seconds (12 hours). If the
-    grantee requests a value higher than this maximum, the operation fails.
+  temporary access credential that S3 Access Grants vends to the grantee or
+  client application. The default value is 1 hour, but the grantee can specify
+  a range from 900 seconds (15 minutes) up to 43200 seconds (12 hours). If the
+  grantee requests a value higher than this maximum, the operation fails.
   * `:privilege` (`t:enum["Default|Minimal"]`) The scope of the temporary access
-    credential that S3 Access Grants vends to the grantee or client application.
+  credential that S3 Access Grants vends to the grantee or client application.
   * `:target_type` (`t:enum["Object"]`) The type of Target. The only possible
-    value is Object. Pass this value if the target data that you would like to
-    access is a path to an object. Do not pass this value if the target data is
-    a bucket or a bucket and a prefix.
+  value is Object. Pass this value if the target data that you would like to
+  access is a path to an object. Do not pass this value if the target data is
+  a bucket or a bucket and a prefix.
   """
+
   @spec get_data_access(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_data_access(%Client{} = client, permission, target, account_id, options \\ []) do
+
+  def get_data_access(%Client{} = client, permission, target, account_id, options \\ [])
+      when is_binary(permission) and is_binary(target) and is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/dataaccess"
 
     # Validate optional parameters
@@ -6638,17 +6817,20 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you
-    want to retrieve.
+  want to retrieve.
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the S3 Batch Operations job.
+  the S3 Batch Operations job.
 
   ## Optional parameters:
   """
+
   @spec get_job_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_tagging_errors()}
-  def get_job_tagging(%Client{} = client, job_id, account_id, options \\ []) do
+
+  def get_job_tagging(%Client{} = client, job_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
 
     # Validate optional parameters
@@ -6684,20 +6866,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Multi-Region Access Point whose
-    configuration information you want to receive. The name of the Multi-Region
-    Access Point is different from the alias. For more information about the
-    distinction between the name and the alias of an Multi-Region Access Point,
-    see Rules for naming Amazon S3 Multi-Region Access Points in the Amazon S3
-    User Guide.
+  configuration information you want to receive. The name of the Multi-Region
+  Access Point is different from the alias. For more information about the
+  distinction between the name and the alias of an Multi-Region Access Point,
+  see Rules for naming Amazon S3 Multi-Region Access Points in the Amazon S3
+  User Guide.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_multi_region_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_multi_region_access_point(%Client{} = client, name, account_id, options \\ []) do
+
+  def get_multi_region_access_point(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}"
 
     # Validate optional parameters
@@ -6733,19 +6918,22 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) Specifies the Multi-Region Access Point. The name of the
-    Multi-Region Access Point is different from the alias. For more information
-    about the distinction between the name and the alias of an Multi-Region
-    Access Point, see Rules for naming Amazon S3 Multi-Region Access Points in
-    the Amazon S3 User Guide.
+  Multi-Region Access Point is different from the alias. For more information
+  about the distinction between the name and the alias of an Multi-Region
+  Access Point, see Rules for naming Amazon S3 Multi-Region Access Points in
+  the Amazon S3 User Guide.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_multi_region_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_multi_region_access_point_policy(%Client{} = client, name, account_id, options \\ []) do
+
+  def get_multi_region_access_point_policy(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}/policy"
 
     # Validate optional parameters
@@ -6782,15 +6970,16 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) Specifies the Multi-Region Access Point. The name of the
-    Multi-Region Access Point is different from the alias. For more information
-    about the distinction between the name and the alias of an Multi-Region
-    Access Point, see Rules for naming Amazon S3 Multi-Region Access Points in
-    the Amazon S3 User Guide.
+  Multi-Region Access Point is different from the alias. For more information
+  about the distinction between the name and the alias of an Multi-Region
+  Access Point, see Rules for naming Amazon S3 Multi-Region Access Points in
+  the Amazon S3 User Guide.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_multi_region_access_point_policy_status(
           AWS.Client.t(),
           String.t(),
@@ -6799,12 +6988,14 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_multi_region_access_point_policy_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def get_multi_region_access_point_policy_status(
         %Client{} = client,
         name,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(name)}/policystatus"
 
     # Validate optional parameters
@@ -6842,14 +7033,17 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:mrap` (`t:string`) The Multi-Region Access Point ARN.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
+
   @spec get_multi_region_access_point_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_multi_region_access_point_routes(%Client{} = client, mrap, account_id, options \\ []) do
+
+  def get_multi_region_access_point_routes(%Client{} = client, mrap, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(mrap)}/routes"
 
     # Validate optional parameters
@@ -6888,15 +7082,18 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The account ID for the Amazon Web Services account
-    whose PublicAccessBlock configuration you want to retrieve.
+  whose PublicAccessBlock configuration you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_public_access_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_access_block_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_access_block_errors()}
-  def get_public_access_block(%Client{} = client, account_id, options \\ []) do
+
+  def get_public_access_block(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/configuration/publicAccessBlock"
 
     # Validate optional parameters
@@ -6935,10 +7132,13 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
+
   @spec get_storage_lens_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_lens_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ []) do
+
+  def get_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
 
     # Validate optional parameters
@@ -6977,6 +7177,7 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
+
   @spec get_storage_lens_configuration_tagging(
           AWS.Client.t(),
           String.t(),
@@ -6985,12 +7186,14 @@ defmodule AWS.S3Control do
         ) ::
           {:ok, get_storage_lens_configuration_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def get_storage_lens_configuration_tagging(
         %Client{} = client,
         config_id,
         account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}/tagging"
 
     # Validate optional parameters
@@ -7025,16 +7228,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Storage Lens group that you're trying to
-    retrieve the configuration details for.
+  retrieve the configuration details for.
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the Storage Lens group that you're trying to retrieve the details for.
+  the Storage Lens group that you're trying to retrieve the details for.
 
   ## Optional parameters:
   """
+
   @spec get_storage_lens_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_lens_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_storage_lens_group(%Client{} = client, name, account_id, options \\ []) do
+
+  def get_storage_lens_group(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
 
     # Validate optional parameters
@@ -7070,38 +7276,41 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   * `:application_arn` (`t:string`) The Amazon Resource Name (ARN) of an Amazon
-    Web Services IAM Identity Center application associated with your Identity
-    Center instance. If the grant includes an application ARN, the grantee can
-    only access the S3 data through this application.
+  Web Services IAM Identity Center application associated with your Identity
+  Center instance. If the grant includes an application ARN, the grantee can
+  only access the S3 data through this application.
   * `:grant_scope` (`t:string`) The S3 path of the data to which you are granting
-    access. It is the result of appending the Subprefix to the location scope.
+  access. It is the result of appending the Subprefix to the location scope.
   * `:grantee_identifier` (`t:string`) The unique identifer of the Grantee. If the
-    grantee type is IAM, the identifier is the IAM Amazon Resource Name (ARN) of
-    the user or role. If the grantee type is a directory user or group, the
-    identifier is 128-bit universally unique identifier (UUID) in the format
-    a1b2c3d4-5678-90ab-cdef-EXAMPLE11111. You can obtain this UUID from your
-    Amazon Web Services IAM Identity Center instance.
+  grantee type is IAM, the identifier is the IAM Amazon Resource Name (ARN) of
+  the user or role. If the grantee type is a directory user or group, the
+  identifier is 128-bit universally unique identifier (UUID) in the format
+  a1b2c3d4-5678-90ab-cdef-EXAMPLE11111. You can obtain this UUID from your
+  Amazon Web Services IAM Identity Center instance.
   * `:grantee_type` (`t:enum["DIRECTORY_GROUP|DIRECTORY_USER|IAM"]`) The type of
-    the grantee to which access has been granted. It can be one of the following
-    values:
+  the grantee to which access has been granted. It can be one of the following
+  values:
   * `:max_results` (`t:integer`) The maximum number of access grants that you
-    would like returned in the List Access Grants response. If the results
-    include the pagination token NextToken, make another call using the
-    NextToken to determine if there are more results.
+  would like returned in the List Access Grants response. If the results
+  include the pagination token NextToken, make another call using the
+  NextToken to determine if there are more results.
   * `:next_token` (`t:string`) A pagination token to request the next page of
-    results. Pass this value into a subsequent List Access Grants request in
-    order to retrieve the next page of results.
+  results. Pass this value into a subsequent List Access Grants request in
+  order to retrieve the next page of results.
   * `:permission` (`t:enum["READ|READWRITE|WRITE"]`) The type of permission
-    granted to your S3 data, which can be set to one of the following values:
+  granted to your S3 data, which can be set to one of the following values:
   """
+
   @spec list_access_grants(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_access_grants(%Client{} = client, account_id, options \\ []) do
+
+  def list_access_grants(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/grants"
 
     # Validate optional parameters
@@ -7207,21 +7416,24 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of access grants that you
-    would like returned in the List Access Grants response. If the results
-    include the pagination token NextToken, make another call using the
-    NextToken to determine if there are more results.
+  would like returned in the List Access Grants response. If the results
+  include the pagination token NextToken, make another call using the
+  NextToken to determine if there are more results.
   * `:next_token` (`t:string`) A pagination token to request the next page of
-    results. Pass this value into a subsequent List Access Grants Instances
-    request in order to retrieve the next page of results.
+  results. Pass this value into a subsequent List Access Grants Instances
+  request in order to retrieve the next page of results.
   """
+
   @spec list_access_grants_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_access_grants_instances(%Client{} = client, account_id, options \\ []) do
+
+  def list_access_grants_instances(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstances"
 
     # Validate optional parameters
@@ -7275,28 +7487,31 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   * `:location_scope` (`t:string`) The S3 path to the location that you are
-    registering. The location scope can be the default S3 location s3://, the S3
-    path to a bucket s3://, or the S3 path to a bucket and prefix s3:///. A
-    prefix in S3 is a string of characters at the beginning of an object key
-    name used to organize the objects that you store in your S3 buckets. For
-    example, object key names that start with the engineering/ prefix or object
-    key names that start with the marketing/campaigns/ prefix.
+  registering. The location scope can be the default S3 location s3://, the S3
+  path to a bucket s3://, or the S3 path to a bucket and prefix s3:///. A
+  prefix in S3 is a string of characters at the beginning of an object key
+  name used to organize the objects that you store in your S3 buckets. For
+  example, object key names that start with the engineering/ prefix or object
+  key names that start with the marketing/campaigns/ prefix.
   * `:max_results` (`t:integer`) The maximum number of access grants that you
-    would like returned in the List Access Grants response. If the results
-    include the pagination token NextToken, make another call using the
-    NextToken to determine if there are more results.
+  would like returned in the List Access Grants response. If the results
+  include the pagination token NextToken, make another call using the
+  NextToken to determine if there are more results.
   * `:next_token` (`t:string`) A pagination token to request the next page of
-    results. Pass this value into a subsequent List Access Grants Locations
-    request in order to retrieve the next page of results.
+  results. Pass this value into a subsequent List Access Grants Locations
+  request in order to retrieve the next page of results.
   """
+
   @spec list_access_grants_locations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_locations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_access_grants_locations(%Client{} = client, account_id, options \\ []) do
+
+  def list_access_grants_locations(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/locations"
 
     # Validate optional parameters
@@ -7361,24 +7576,27 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the account
-    that owns the specified access points.
+  that owns the specified access points.
 
   ## Optional parameters:
   * `:bucket` (`t:string`) The name of the bucket whose associated access points
-    you want to list.
+  you want to list.
   * `:max_results` (`t:integer`) The maximum number of access points that you want
-    to include in the list. If the specified bucket has more than this number of
-    access points, then the response will include a continuation token in the
-    NextToken field that you can use to retrieve the next page of access points.
+  to include in the list. If the specified bucket has more than this number of
+  access points, then the response will include a continuation token in the
+  NextToken field that you can use to retrieve the next page of access points.
   * `:next_token` (`t:string`) A continuation token. If a previous call to
-    ListAccessPoints returned a continuation token in the NextToken field, then
-    providing that value here causes Amazon S3 to retrieve the next page of
-    results.
+  ListAccessPoints returned a continuation token in the NextToken field, then
+  providing that value here causes Amazon S3 to retrieve the next page of
+  results.
   """
+
   @spec list_access_points(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_points_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_access_points(%Client{} = client, account_id, options \\ []) do
+
+  def list_access_points(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint"
 
     # Validate optional parameters
@@ -7442,23 +7660,26 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of access points that you want
-    to include in the list. The response may contain fewer access points but
-    will never contain more. If there are more than this number of access
-    points, then the response will include a continuation token in the NextToken
-    field that you can use to retrieve the next page of access points.
+  to include in the list. The response may contain fewer access points but
+  will never contain more. If there are more than this number of access
+  points, then the response will include a continuation token in the NextToken
+  field that you can use to retrieve the next page of access points.
   * `:next_token` (`t:string`) If the list has more access points than can be
-    returned in one call to this API, this field contains a continuation token
-    that you can provide in subsequent calls to this API to retrieve additional
-    access points.
+  returned in one call to this API, this field contains a continuation token
+  that you can provide in subsequent calls to this API to retrieve additional
+  access points.
   """
+
   @spec list_access_points_for_object_lambda(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_points_for_object_lambda_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_access_points_for_object_lambda(%Client{} = client, account_id, options \\ []) do
+
+  def list_access_points_for_object_lambda(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda"
 
     # Validate optional parameters
@@ -7515,24 +7736,26 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the S3 Batch Operations job.
+  the S3 Batch Operations job.
 
   ## Optional parameters:
   * `:job_statuses` (`t:list[com.amazonaws.s3control#JobStatus]`) The List Jobs
-    request returns jobs that match the statuses listed in this element.
+  request returns jobs that match the statuses listed in this element.
   * `:max_results` (`t:integer`) The maximum number of jobs that Amazon S3 will
-    include in the List Jobs response. If there are more jobs than this number,
-    the response will include a pagination token in the NextToken field to
-    enable you to retrieve the next page of results.
+  include in the List Jobs response. If there are more jobs than this number,
+  the response will include a pagination token in the NextToken field to
+  enable you to retrieve the next page of results.
   * `:next_token` (`t:string`) A pagination token to request the next page of
-    results. Use the token that Amazon S3 returned in the NextToken element of
-    the ListJobsResult from the previous List Jobs request.
+  results. Use the token that Amazon S3 returned in the NextToken element of
+  the ListJobsResult from the previous List Jobs request.
   """
+
   @spec list_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(%Client{} = client, account_id, options \\ []) do
+
+  def list_jobs(%Client{} = client, account_id, options \\ []) when is_binary(account_id) do
     url_path = "/v20180820/jobs"
 
     # Validate optional parameters
@@ -7596,16 +7819,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Not currently used. Do not use this parameter.
   * `:next_token` (`t:string`) Not currently used. Do not use this parameter.
   """
+
   @spec list_multi_region_access_points(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multi_region_access_points_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_multi_region_access_points(%Client{} = client, account_id, options \\ []) do
+
+  def list_multi_region_access_points(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances"
 
     # Validate optional parameters
@@ -7658,17 +7884,20 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:outpost_id` (`t:string`) The ID of the Outposts resource.
   """
+
   @spec list_regional_buckets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_regional_buckets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_regional_buckets(%Client{} = client, account_id, options \\ []) do
+
+  def list_regional_buckets(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket"
 
     # Validate optional parameters
@@ -7730,12 +7959,15 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A pagination token to request the next page of
-    results.
+  results.
   """
+
   @spec list_storage_lens_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_lens_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_storage_lens_configurations(%Client{} = client, account_id, options \\ []) do
+
+  def list_storage_lens_configurations(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelens"
 
     # Validate optional parameters
@@ -7781,16 +8013,19 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID that owns the
-    Storage Lens groups.
+  Storage Lens groups.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_storage_lens_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_lens_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_storage_lens_groups(%Client{} = client, account_id, options \\ []) do
+
+  def list_storage_lens_groups(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup"
 
     # Validate optional parameters
@@ -7839,17 +8074,20 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 resource
-    that you want to list the tags for. The tagged resource can be an S3 Storage
-    Lens group or S3 Access Grants instance, registered location, or grant.
+  that you want to list the tags for. The tagged resource can be an S3 Storage
+  Lens group or S3 Access Grants instance, registered location, or grant.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the resource
-    owner.
+  owner.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_tags_for_resource(%Client{} = client, resource_arn, account_id, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
 
     # Validate optional parameters
@@ -7884,21 +8122,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec put_access_grants_instance_resource_policy(
-          AWS.Client.t(),
-          put_access_grants_instance_resource_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_access_grants_instance_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_access_grants_instance_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def put_access_grants_instance_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_access_grants_instance_resource_policy(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accessgrantsinstance/resourcepolicy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -7906,18 +8144,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7929,27 +8171,31 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name of the Object Lambda Access Point.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
+
   @spec put_access_point_configuration_for_object_lambda(
           AWS.Client.t(),
           String.t(),
-          put_access_point_configuration_for_object_lambda_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+
   def put_access_point_configuration_for_object_lambda(
         %Client{} = client,
         name,
-        input,
+        account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/configuration"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -7957,18 +8203,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7981,24 +8231,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the access point that you want to associate
-    with the specified policy.
+  with the specified policy.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for owner of the
-    bucket associated with the specified access point.
+  bucket associated with the specified access point.
 
   ## Optional parameters:
   """
-  @spec put_access_point_policy(
-          AWS.Client.t(),
-          String.t(),
-          put_access_point_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_access_point_policy(%Client{} = client, name, input, options \\ []) do
+
+  def put_access_point_policy(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspoint/#{AWS.Util.encode_uri(name)}/policy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8006,18 +8255,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8033,22 +8286,31 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:name` (`t:string`) The name of the Object Lambda Access Point.
   * `:account_id` (`t:string`) The account ID for the account that owns the
-    specified Object Lambda Access Point.
+  specified Object Lambda Access Point.
 
   ## Optional parameters:
   """
+
   @spec put_access_point_policy_for_object_lambda(
           AWS.Client.t(),
           String.t(),
-          put_access_point_policy_for_object_lambda_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_access_point_policy_for_object_lambda(%Client{} = client, name, input, options \\ []) do
+
+  def put_access_point_policy_for_object_lambda(
+        %Client{} = client,
+        name,
+        account_id,
+        options \\ []
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/accesspointforobjectlambda/#{AWS.Util.encode_uri(name)}/policy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8056,18 +8318,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8083,24 +8349,38 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:bucket` (`t:string`) The name of the bucket for which to set the
-    configuration.
+  configuration.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
+  * `:input` (`t:map | nil`):
+    * `:lifecycle_configuration` (`t:structure`) Container for lifecycle rules. You
+  can add as many as 1,000 rules.
 
   ## Optional parameters:
   """
+
   @spec put_bucket_lifecycle_configuration(
           AWS.Client.t(),
           String.t(),
-          put_bucket_lifecycle_configuration_request(),
+          String.t(),
+          input :: map() | nil,
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
+
+  def put_bucket_lifecycle_configuration(
+        %Client{} = client,
+        bucket,
+        account_id,
+        input,
+        options \\ []
+      )
+      when (is_map(input) or is_nil(input)) and is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/lifecycleconfiguration"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8108,18 +8388,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8140,20 +8424,24 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the bucket.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
 
   ## Optional parameters:
   * `:confirm_remove_self_bucket_access` (`t:boolean`) Set this parameter to true
-    to confirm that you want to remove your permissions to change this bucket
-    policy in the future.
+  to confirm that you want to remove your permissions to change this bucket
+  policy in the future.
   """
-  @spec put_bucket_policy(AWS.Client.t(), String.t(), put_bucket_policy_request(), Keyword.t()) ::
+
+  @spec put_bucket_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
+
+  def put_bucket_policy(%Client{} = client, bucket, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/policy"
 
-    optional_params = [account_id: nil, confirm_remove_self_bucket_access: nil]
+    # Validate optional parameters
+    optional_params = [confirm_remove_self_bucket_access: nil]
 
     options =
       Keyword.validate!(
@@ -8161,14 +8449,21 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"},
-        {"ConfirmRemoveSelfBucketAccess", "x-amz-confirm-remove-self-bucket-access"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :confirm_remove_self_bucket_access) do
+        [{"x-amz-confirm-remove-self-bucket-access", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -8178,7 +8473,9 @@ defmodule AWS.S3Control do
       options
       |> Keyword.drop([:confirm_remove_self_bucket_access])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8200,24 +8497,31 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:bucket` (`t:string`) Specifies the S3 on Outposts bucket to set the
-    configuration for.
+  configuration for.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
+  * `:input` (`t:map`):
+    * `:replication_configuration` (`t:structure`)
 
   ## Optional parameters:
   """
+
   @spec put_bucket_replication(
           AWS.Client.t(),
           String.t(),
-          put_bucket_replication_request(),
+          String.t(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
+
+  def put_bucket_replication(%Client{} = client, bucket, account_id, input, options \\ [])
+      when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/replication"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8225,18 +8529,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8265,17 +8573,23 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:bucket` (`t:string`) The Amazon Resource Name (ARN) of the bucket.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts
-    bucket.
+  bucket.
+  * `:input` (`t:map`):
+    * `:tagging` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec put_bucket_tagging(AWS.Client.t(), String.t(), put_bucket_tagging_request(), Keyword.t()) ::
+
+  @spec put_bucket_tagging(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
+
+  def put_bucket_tagging(%Client{} = client, bucket, account_id, input, options \\ [])
+      when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/tagging"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8283,13 +8597,15 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     options =
       Keyword.put(
@@ -8301,7 +8617,9 @@ defmodule AWS.S3Control do
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8317,27 +8635,29 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:bucket` (`t:string`) The S3 on Outposts bucket to set the versioning state
-    for.
+  for.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the S3 on
-    Outposts bucket.
+  Outposts bucket.
+  * `:input` (`t:map`):
+    * `:versioning_configuration` (`t:structure`) The root-level tag for the
+  VersioningConfiguration parameters.
 
   ## Optional parameters:
   * `:mfa` (`t:string`) The concatenation of the authentication device's serial
-    number, a space, and the value that is displayed on your authentication
-    device.
+  number, a space, and the value that is displayed on your authentication
+  device.
   """
-  @spec put_bucket_versioning(
-          AWS.Client.t(),
-          String.t(),
-          put_bucket_versioning_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_bucket_versioning(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_bucket_versioning(%Client{} = client, bucket, input, options \\ []) do
+
+  def put_bucket_versioning(%Client{} = client, bucket, account_id, input, options \\ [])
+      when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/bucket/#{AWS.Util.encode_uri(bucket)}/versioning"
 
-    optional_params = [account_id: nil, mfa: nil]
+    # Validate optional parameters
+    optional_params = [mfa: nil]
 
     options =
       Keyword.validate!(
@@ -8345,14 +8665,21 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"},
-        {"MFA", "x-amz-mfa"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :mfa) do
+        [{"x-amz-mfa", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -8362,7 +8689,9 @@ defmodule AWS.S3Control do
       options
       |> Keyword.drop([:mfa])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8398,20 +8727,24 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you
-    want to replace.
+  want to replace.
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the S3 Batch Operations job.
+  the S3 Batch Operations job.
 
   ## Optional parameters:
   """
-  @spec put_job_tagging(AWS.Client.t(), String.t(), put_job_tagging_request(), Keyword.t()) ::
+
+  @spec put_job_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_job_tagging_errors()}
-  def put_job_tagging(%Client{} = client, job_id, input, options \\ []) do
+
+  def put_job_tagging(%Client{} = client, job_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/tagging"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8419,18 +8752,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8444,21 +8781,21 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
-  @spec put_multi_region_access_point_policy(
-          AWS.Client.t(),
-          put_multi_region_access_point_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_multi_region_access_point_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_multi_region_access_point_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def put_multi_region_access_point_policy(%Client{} = client, input, options \\ []) do
+
+  def put_multi_region_access_point_policy(%Client{} = client, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/async-requests/mrap/put-policy"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8466,28 +8803,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8502,17 +8833,25 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:account_id` (`t:string`) The account ID for the Amazon Web Services account
-    whose PublicAccessBlock configuration you want to set.
+  whose PublicAccessBlock configuration you want to set.
+  * `:input` (`t:map`):
+    * `:public_access_block_configuration` (`t:structure`) The PublicAccessBlock
+  configuration that you want to apply to the specified Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
-  @spec put_public_access_block(AWS.Client.t(), put_public_access_block_request(), Keyword.t()) ::
+
+  @spec put_public_access_block(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_public_access_block(%Client{} = client, input, options \\ []) do
+
+  def put_public_access_block(%Client{} = client, account_id, input, options \\ [])
+      when is_map(input) and is_binary(account_id) do
     url_path = "/v20180820/configuration/publicAccessBlock"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8520,18 +8859,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8545,18 +8888,17 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
-  @spec put_storage_lens_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_storage_lens_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_storage_lens_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def put_storage_lens_configuration(%Client{} = client, config_id, input, options \\ []) do
+
+  def put_storage_lens_configuration(%Client{} = client, config_id, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8564,18 +8906,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8589,18 +8935,27 @@ defmodule AWS.S3Control do
 
   ## Optional parameters:
   """
+
   @spec put_storage_lens_configuration_tagging(
           AWS.Client.t(),
           String.t(),
-          put_storage_lens_configuration_tagging_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, put_storage_lens_configuration_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def put_storage_lens_configuration_tagging(%Client{} = client, config_id, input, options \\ []) do
+
+  def put_storage_lens_configuration_tagging(
+        %Client{} = client,
+        config_id,
+        account_id,
+        options \\ []
+      )
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelens/#{AWS.Util.encode_uri(config_id)}/tagging"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8608,18 +8963,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8636,22 +8995,26 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:mrap` (`t:string`) The Multi-Region Access Point ARN.
   * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of
-    the Multi-Region Access Point.
+  the Multi-Region Access Point.
 
   ## Optional parameters:
   """
+
   @spec submit_multi_region_access_point_routes(
           AWS.Client.t(),
           String.t(),
-          submit_multi_region_access_point_routes_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, submit_multi_region_access_point_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def submit_multi_region_access_point_routes(%Client{} = client, mrap, input, options \\ []) do
+
+  def submit_multi_region_access_point_routes(%Client{} = client, mrap, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/mrap/instances/#{AWS.Util.encode_multi_segment_uri(mrap)}/routes"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8659,16 +9022,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8677,7 +9044,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8699,20 +9066,24 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 resource
-    that you're trying to add tags to. The tagged resource can be an S3 Storage
-    Lens group or S3 Access Grants instance, registered location, or grant.
+  that you're trying to add tags to. The tagged resource can be an S3 Storage
+  Lens group or S3 Access Grants instance, registered location, or grant.
   * `:account_id` (`t:string`) The Amazon Web Services account ID that created the
-    S3 resource that you're trying to add tags to or the requester's account ID.
+  S3 resource that you're trying to add tags to or the requester's account ID.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8720,28 +9091,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -8759,21 +9124,25 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 resource
-    that you're trying to remove the tags from.
+  that you're trying to remove the tags from.
   * `:tag_keys` (`t:list[com.amazonaws.s3control#TagKeyString]`) The array of tag
-    key-value pairs that you're trying to remove from of the S3 resource.
+  key-value pairs that you're trying to remove from of the S3 resource.
   * `:account_id` (`t:string`) The Amazon Web Services account ID that owns the
-    resource that you're trying to remove the tags from.
+  resource that you're trying to remove the tags from.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, account_id, options \\ [])
+      when is_binary(tag_keys) and is_binary(account_id) do
     url_path = "/v20180820/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
 
-    optional_params = [tag_keys: nil, account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8781,20 +9150,20 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8803,7 +9172,7 @@ defmodule AWS.S3Control do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8817,33 +9186,32 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:access_grants_location_id` (`t:string`) The ID of the registered location
-    that you are updating. S3 Access Grants assigns this ID when you register
-    the location. S3 Access Grants assigns the ID default to the default
-    location s3:// and assigns an auto-generated ID to other locations that you
-    register.
+  that you are updating. S3 Access Grants assigns this ID when you register
+  the location. S3 Access Grants assigns the ID default to the default
+  location s3:// and assigns an auto-generated ID to other locations that you
+  register.
   * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is
-    making this request.
+  making this request.
 
   ## Optional parameters:
   """
-  @spec update_access_grants_location(
-          AWS.Client.t(),
-          String.t(),
-          update_access_grants_location_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_access_grants_location(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_grants_location_result(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def update_access_grants_location(
         %Client{} = client,
         access_grants_location_id,
-        input,
+        account_id,
         options \\ []
-      ) do
+      )
+      when is_binary(account_id) do
     url_path =
       "/v20180820/accessgrantsinstance/location/#{AWS.Util.encode_uri(access_grants_location_id)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8851,18 +9219,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8877,23 +9249,22 @@ defmodule AWS.S3Control do
   * `:job_id` (`t:string`) The ID for the job whose priority you want to update.
   * `:priority` (`t:integer`) The priority you want to assign to this job.
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the S3 Batch Operations job.
+  the S3 Batch Operations job.
 
   ## Optional parameters:
   """
-  @spec update_job_priority(
-          AWS.Client.t(),
-          String.t(),
-          update_job_priority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_job_priority(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_priority_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_priority_errors()}
-  def update_job_priority(%Client{} = client, job_id, input, options \\ []) do
+
+  def update_job_priority(%Client{} = client, job_id, priority, account_id, options \\ [])
+      when is_integer(priority) and is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/priority"
 
-    optional_params = [priority: nil, account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -8901,32 +9272,22 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
-    {query_params, input} =
-      [
-        {"Priority", "priority"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"priority", priority}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -8941,23 +9302,33 @@ defmodule AWS.S3Control do
   ## Parameters:
   * `:job_id` (`t:string`) The ID of the job whose status you want to update.
   * `:requested_job_status` (`t:enum["Cancelled|Ready"]`) The status that you want
-    to move the specified job to.
+  to move the specified job to.
   * `:account_id` (`t:string`) The Amazon Web Services account ID associated with
-    the S3 Batch Operations job.
+  the S3 Batch Operations job.
 
   ## Optional parameters:
   * `:status_update_reason` (`t:string`) A description of the reason why you want
-    to change the specified job's status. This field can be any string up to the
-    maximum length.
+  to change the specified job's status. This field can be any string up to the
+  maximum length.
   """
-  @spec update_job_status(AWS.Client.t(), String.t(), update_job_status_request(), Keyword.t()) ::
+
+  @spec update_job_status(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_status_errors()}
-  def update_job_status(%Client{} = client, job_id, input, options \\ []) do
+
+  def update_job_status(
+        %Client{} = client,
+        job_id,
+        requested_job_status,
+        account_id,
+        options \\ []
+      )
+      when is_binary(requested_job_status) and is_binary(account_id) do
     url_path = "/v20180820/jobs/#{AWS.Util.encode_uri(job_id)}/status"
 
-    optional_params = [requested_job_status: nil, status_update_reason: nil, account_id: nil]
+    # Validate optional parameters
+    optional_params = [status_update_reason: nil]
 
     options =
       Keyword.validate!(
@@ -8965,18 +9336,21 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
-    {query_params, input} =
-      [
-        {"RequestedJobStatus", "requestedJobStatus"},
-        {"StatusUpdateReason", "statusUpdateReason"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"requestedJobStatus", requested_job_status}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :status_update_reason) do
+        [{"statusUpdateReason", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -8986,17 +9360,9 @@ defmodule AWS.S3Control do
       options
       |> Keyword.drop([:status_update_reason])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -9006,24 +9372,23 @@ defmodule AWS.S3Control do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Storage Lens group that you want to
-    update.
+  update.
   * `:account_id` (`t:string`) The Amazon Web Services account ID of the Storage
-    Lens group owner.
+  Lens group owner.
 
   ## Optional parameters:
   """
-  @spec update_storage_lens_group(
-          AWS.Client.t(),
-          String.t(),
-          update_storage_lens_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_storage_lens_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def update_storage_lens_group(%Client{} = client, name, input, options \\ []) do
+
+  def update_storage_lens_group(%Client{} = client, name, account_id, options \\ [])
+      when is_binary(account_id) do
     url_path = "/v20180820/storagelensgroup/#{AWS.Util.encode_uri(name)}"
 
-    optional_params = [account_id: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -9031,17 +9396,21 @@ defmodule AWS.S3Control do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"AccountId", "x-amz-account-id"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-account-id", account_id}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 end

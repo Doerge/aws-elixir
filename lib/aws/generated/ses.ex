@@ -2608,12 +2608,23 @@ defmodule AWS.SES do
   independent of the source rule set. For information about setting up rule
   sets, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CloneReceiptRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:clone_receipt_rule_set_request`)
+    %{
+      required("OriginalRuleSetName") => String.t(),
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec clone_receipt_rule_set(AWS.Client.t(), clone_receipt_rule_set_request(), Keyword.t()) ::
+
+  @spec clone_receipt_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, clone_receipt_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, clone_receipt_rule_set_errors()}
-  def clone_receipt_rule_set(%Client{} = client, input, options \\ []) do
+
+  def clone_receipt_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2625,12 +2636,22 @@ defmodule AWS.SES do
   sending events. For information about using configuration sets, see the
   [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_configuration_set_request`)
+    %{
+      required("ConfigurationSet") => configuration_set()
+    }
   """
-  @spec create_configuration_set(AWS.Client.t(), create_configuration_set_request(), Keyword.t()) ::
+
+  @spec create_configuration_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_errors()}
-  def create_configuration_set(%Client{} = client, input, options \\ []) do
+
+  def create_configuration_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2642,16 +2663,24 @@ defmodule AWS.SES do
   event destination, you must provide one, and only one, destination. The
   destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple
   Notification Service (Amazon SNS).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_configuration_set_event_destination_request`)
+    %{
+      required("ConfigurationSetName") => String.t(),
+      required("EventDestination") => event_destination()
+    }
   """
-  @spec create_configuration_set_event_destination(
-          AWS.Client.t(),
-          create_configuration_set_event_destination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_configuration_set_event_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_event_destination_errors()}
-  def create_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
+
+  def create_configuration_set_event_destination(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2661,16 +2690,24 @@ defmodule AWS.SES do
   @doc """
   Creates an association between a configuration set and a custom domain for open
   and click event tracking.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateConfigurationSetTrackingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_configuration_set_tracking_options_request`)
+    %{
+      required("ConfigurationSetName") => String.t(),
+      required("TrackingOptions") => tracking_options()
+    }
   """
-  @spec create_configuration_set_tracking_options(
-          AWS.Client.t(),
-          create_configuration_set_tracking_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_configuration_set_tracking_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_set_tracking_options_errors()}
-  def create_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
+
+  def create_configuration_set_tracking_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2682,16 +2719,28 @@ defmodule AWS.SES do
   custom verification email templates, see [Using Custom Verification Email
   Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_custom_verification_email_template_request`)
+    %{
+      required("FailureRedirectionURL") => String.t(),
+      required("FromEmailAddress") => String.t(),
+      required("SuccessRedirectionURL") => String.t(),
+      required("TemplateContent") => String.t(),
+      required("TemplateName") => String.t(),
+      required("TemplateSubject") => String.t()
+    }
   """
-  @spec create_custom_verification_email_template(
-          AWS.Client.t(),
-          create_custom_verification_email_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_custom_verification_email_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_verification_email_template_errors()}
-  def create_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+
+  def create_custom_verification_email_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2702,12 +2751,22 @@ defmodule AWS.SES do
   Creates a new IP address filter. For information about setting up IP address
   filters, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateReceiptFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_receipt_filter_request`)
+    %{
+      required("Filter") => receipt_filter()
+    }
   """
-  @spec create_receipt_filter(AWS.Client.t(), create_receipt_filter_request(), Keyword.t()) ::
+
+  @spec create_receipt_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_receipt_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_receipt_filter_errors()}
-  def create_receipt_filter(%Client{} = client, input, options \\ []) do
+
+  def create_receipt_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2718,12 +2777,24 @@ defmodule AWS.SES do
   Creates a receipt rule. For information about setting up receipt rules, see the
   [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateReceiptRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_receipt_rule_request`)
+    %{
+      optional("After") => String.t(),
+      required("Rule") => receipt_rule(),
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec create_receipt_rule(AWS.Client.t(), create_receipt_rule_request(), Keyword.t()) ::
+
+  @spec create_receipt_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_receipt_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_receipt_rule_errors()}
-  def create_receipt_rule(%Client{} = client, input, options \\ []) do
+
+  def create_receipt_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2734,12 +2805,22 @@ defmodule AWS.SES do
   Creates an empty receipt rule set. For information about setting up receipt rule
   sets, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateReceiptRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_receipt_rule_set_request`)
+    %{
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec create_receipt_rule_set(AWS.Client.t(), create_receipt_rule_set_request(), Keyword.t()) ::
+
+  @spec create_receipt_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_receipt_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_receipt_rule_set_errors()}
-  def create_receipt_rule_set(%Client{} = client, input, options \\ []) do
+
+  def create_receipt_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2751,12 +2832,22 @@ defmodule AWS.SES do
   to one or more destinations in a single operation. For more information, see
   the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20CreateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_template_request`)
+    %{
+      required("Template") => template()
+    }
   """
-  @spec create_template(AWS.Client.t(), create_template_request(), Keyword.t()) ::
+
+  @spec create_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-  def create_template(%Client{} = client, input, options \\ []) do
+
+  def create_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2768,12 +2859,22 @@ defmodule AWS.SES do
   sending events. For information about using configuration sets, see the
   [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_configuration_set_request`)
+    %{
+      required("ConfigurationSetName") => String.t()
+    }
   """
-  @spec delete_configuration_set(AWS.Client.t(), delete_configuration_set_request(), Keyword.t()) ::
+
+  @spec delete_configuration_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_errors()}
-  def delete_configuration_set(%Client{} = client, input, options \\ []) do
+
+  def delete_configuration_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2786,16 +2887,24 @@ defmodule AWS.SES do
   publish email sending events. For information about using configuration sets,
   see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_configuration_set_event_destination_request`)
+    %{
+      required("ConfigurationSetName") => String.t(),
+      required("EventDestinationName") => String.t()
+    }
   """
-  @spec delete_configuration_set_event_destination(
-          AWS.Client.t(),
-          delete_configuration_set_event_destination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configuration_set_event_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_event_destination_errors()}
-  def delete_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
+
+  def delete_configuration_set_event_destination(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2809,16 +2918,23 @@ defmodule AWS.SES do
   configure a subdomain of your own to handle these events. For information
   about using custom domains, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteConfigurationSetTrackingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_configuration_set_tracking_options_request`)
+    %{
+      required("ConfigurationSetName") => String.t()
+    }
   """
-  @spec delete_configuration_set_tracking_options(
-          AWS.Client.t(),
-          delete_configuration_set_tracking_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configuration_set_tracking_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_set_tracking_options_errors()}
-  def delete_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
+
+  def delete_configuration_set_tracking_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2831,15 +2947,22 @@ defmodule AWS.SES do
   Email
   Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_custom_verification_email_template_request`)
+    %{
+      required("TemplateName") => String.t()
+    }
   """
-  @spec delete_custom_verification_email_template(
-          AWS.Client.t(),
-          delete_custom_verification_email_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_custom_verification_email_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+
+  def delete_custom_verification_email_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2849,11 +2972,21 @@ defmodule AWS.SES do
   @doc """
   Deletes the specified identity (an email address or a domain) from the list of
   verified identities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_identity_request`)
+    %{
+      required("Identity") => String.t()
+    }
   """
-  @spec delete_identity(AWS.Client.t(), delete_identity_request(), Keyword.t()) ::
+
+  @spec delete_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_identity(%Client{} = client, input, options \\ []) do
+
+  def delete_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2866,11 +2999,22 @@ defmodule AWS.SES do
   policy with the specified name does not exist. This operation is for the
   identity owner only. If you have not verified the identity, it returns an
   error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteIdentityPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_identity_policy_request`)
+    %{
+      required("Identity") => String.t(),
+      required("PolicyName") => String.t()
+    }
   """
-  @spec delete_identity_policy(AWS.Client.t(), delete_identity_policy_request(), Keyword.t()) ::
+
+  @spec delete_identity_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_identity_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_identity_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2881,11 +3025,21 @@ defmodule AWS.SES do
   Deletes the specified IP address filter. For information about managing IP
   address filters, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteReceiptFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_receipt_filter_request`)
+    %{
+      required("FilterName") => String.t()
+    }
   """
-  @spec delete_receipt_filter(AWS.Client.t(), delete_receipt_filter_request(), Keyword.t()) ::
+
+  @spec delete_receipt_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_receipt_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_receipt_filter(%Client{} = client, input, options \\ []) do
+
+  def delete_receipt_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2896,12 +3050,23 @@ defmodule AWS.SES do
   Deletes the specified receipt rule. For information about managing receipt
   rules, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteReceiptRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_receipt_rule_request`)
+    %{
+      required("RuleName") => String.t(),
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec delete_receipt_rule(AWS.Client.t(), delete_receipt_rule_request(), Keyword.t()) ::
+
+  @spec delete_receipt_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_receipt_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_receipt_rule_errors()}
-  def delete_receipt_rule(%Client{} = client, input, options \\ []) do
+
+  def delete_receipt_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2911,12 +3076,22 @@ defmodule AWS.SES do
   @doc """
   Deletes the specified receipt rule set and all of the receipt rules it contains.
   The currently active rule set cannot be deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteReceiptRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_receipt_rule_set_request`)
+    %{
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec delete_receipt_rule_set(AWS.Client.t(), delete_receipt_rule_set_request(), Keyword.t()) ::
+
+  @spec delete_receipt_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_receipt_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_receipt_rule_set_errors()}
-  def delete_receipt_rule_set(%Client{} = client, input, options \\ []) do
+
+  def delete_receipt_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2925,11 +3100,21 @@ defmodule AWS.SES do
 
   @doc """
   Deletes an email template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_template_request`)
+    %{
+      required("TemplateName") => String.t()
+    }
   """
-  @spec delete_template(AWS.Client.t(), delete_template_request(), Keyword.t()) ::
+
+  @spec delete_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_template(%Client{} = client, input, options \\ []) do
+
+  def delete_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2939,15 +3124,22 @@ defmodule AWS.SES do
   @doc """
   Deprecated. Use the `DeleteIdentity` operation to delete email addresses and
   domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DeleteVerifiedEmailAddress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_verified_email_address_request`)
+    %{
+      required("EmailAddress") => String.t()
+    }
   """
-  @spec delete_verified_email_address(
-          AWS.Client.t(),
-          delete_verified_email_address_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_verified_email_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_verified_email_address(%Client{} = client, input, options \\ []) do
+
+  def delete_verified_email_address(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2959,15 +3151,22 @@ defmodule AWS.SES do
   currently active. For information about setting up receipt rule sets, see the
   [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DescribeActiveReceiptRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_active_receipt_rule_set_request`)
+    %{
+      
+    }
   """
-  @spec describe_active_receipt_rule_set(
-          AWS.Client.t(),
-          describe_active_receipt_rule_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_active_receipt_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_active_receipt_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_active_receipt_rule_set(%Client{} = client, input, options \\ []) do
+
+  def describe_active_receipt_rule_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2978,16 +3177,23 @@ defmodule AWS.SES do
   Returns the details of the specified configuration set. For information about
   using configuration sets, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DescribeConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_configuration_set_request`)
+    %{
+      optional("ConfigurationSetAttributeNames") => list(list(any())()),
+      required("ConfigurationSetName") => String.t()
+    }
   """
-  @spec describe_configuration_set(
-          AWS.Client.t(),
-          describe_configuration_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_configuration_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configuration_set_errors()}
-  def describe_configuration_set(%Client{} = client, input, options \\ []) do
+
+  def describe_configuration_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2998,12 +3204,23 @@ defmodule AWS.SES do
   Returns the details of the specified receipt rule. For information about setting
   up receipt rules, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DescribeReceiptRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_receipt_rule_request`)
+    %{
+      required("RuleName") => String.t(),
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec describe_receipt_rule(AWS.Client.t(), describe_receipt_rule_request(), Keyword.t()) ::
+
+  @spec describe_receipt_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_receipt_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_receipt_rule_errors()}
-  def describe_receipt_rule(%Client{} = client, input, options \\ []) do
+
+  def describe_receipt_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3014,16 +3231,22 @@ defmodule AWS.SES do
   Returns the details of the specified receipt rule set. For information about
   managing receipt rule sets, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20DescribeReceiptRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_receipt_rule_set_request`)
+    %{
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec describe_receipt_rule_set(
-          AWS.Client.t(),
-          describe_receipt_rule_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_receipt_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_receipt_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_receipt_rule_set_errors()}
-  def describe_receipt_rule_set(%Client{} = client, input, options \\ []) do
+
+  def describe_receipt_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3033,11 +3256,18 @@ defmodule AWS.SES do
   @doc """
   Returns the email sending status of the Amazon SES account for the current
   Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetAccountSendingEnabled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec get_account_sending_enabled(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_account_sending_enabled(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_sending_enabled_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_account_sending_enabled(%Client{} = client, input, options \\ []) do
+
+  def get_account_sending_enabled(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3050,16 +3280,23 @@ defmodule AWS.SES do
   [Using Custom Verification Email
   Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_custom_verification_email_template_request`)
+    %{
+      required("TemplateName") => String.t()
+    }
   """
-  @spec get_custom_verification_email_template(
-          AWS.Client.t(),
-          get_custom_verification_email_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_custom_verification_email_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_verification_email_template_errors()}
-  def get_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+
+  def get_custom_verification_email_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3072,15 +3309,21 @@ defmodule AWS.SES do
   Easy DKIM signing, and whether Amazon SES has successfully verified that these
   tokens have been published. This operation takes a list of identities as input
   and returns the following information for each:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetIdentityDkimAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_identity_dkim_attributes_request`)
+    %{
+      required("Identities") => list(String.t()())
+    }
   """
-  @spec get_identity_dkim_attributes(
-          AWS.Client.t(),
-          get_identity_dkim_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_identity_dkim_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_identity_dkim_attributes(%Client{} = client, input, options \\ []) do
+
+  def get_identity_dkim_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3090,15 +3333,22 @@ defmodule AWS.SES do
   @doc """
   Returns the custom MAIL FROM attributes for a list of identities (email
   addresses : domains).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetIdentityMailFromDomainAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_identity_mail_from_domain_attributes_request`)
+    %{
+      required("Identities") => list(String.t()())
+    }
   """
-  @spec get_identity_mail_from_domain_attributes(
-          AWS.Client.t(),
-          get_identity_mail_from_domain_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_identity_mail_from_domain_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_mail_from_domain_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_identity_mail_from_domain_attributes(%Client{} = client, input, options \\ []) do
+
+  def get_identity_mail_from_domain_attributes(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3110,15 +3360,22 @@ defmodule AWS.SES do
   structure describing identity notification attributes. This operation is
   throttled at one request per second and can only get notification attributes
   for up to 100 identities at a time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetIdentityNotificationAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_identity_notification_attributes_request`)
+    %{
+      required("Identities") => list(String.t()())
+    }
   """
-  @spec get_identity_notification_attributes(
-          AWS.Client.t(),
-          get_identity_notification_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_identity_notification_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_notification_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_identity_notification_attributes(%Client{} = client, input, options \\ []) do
+
+  def get_identity_notification_attributes(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3131,11 +3388,22 @@ defmodule AWS.SES do
   to policy contents. You can retrieve a maximum of 20 policies at a time. This
   operation is for the identity owner only. If you have not verified the
   identity, it returns an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetIdentityPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_identity_policies_request`)
+    %{
+      required("Identity") => String.t(),
+      required("PolicyNames") => list(String.t()())
+    }
   """
-  @spec get_identity_policies(AWS.Client.t(), get_identity_policies_request(), Keyword.t()) ::
+
+  @spec get_identity_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_identity_policies(%Client{} = client, input, options \\ []) do
+
+  def get_identity_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3152,15 +3420,22 @@ defmodule AWS.SES do
   "Success". If the link is not clicked within 24 hours, the verification status
   changes to "Failed." In that case, to verify the email address, you must
   restart the verification process from the beginning.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetIdentityVerificationAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_identity_verification_attributes_request`)
+    %{
+      required("Identities") => list(String.t()())
+    }
   """
-  @spec get_identity_verification_attributes(
-          AWS.Client.t(),
-          get_identity_verification_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_identity_verification_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_verification_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_identity_verification_attributes(%Client{} = client, input, options \\ []) do
+
+  def get_identity_verification_attributes(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3169,11 +3444,18 @@ defmodule AWS.SES do
 
   @doc """
   Provides the sending limits for the Amazon SES account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetSendQuota&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec get_send_quota(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_send_quota(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_send_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_send_quota(%Client{} = client, input, options \\ []) do
+
+  def get_send_quota(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3185,11 +3467,18 @@ defmodule AWS.SES do
   result is a list of data points, representing the last two weeks of sending
   activity. Each data point in the list contains statistics for a 15-minute
   period of time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetSendStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec get_send_statistics(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_send_statistics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_send_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_send_statistics(%Client{} = client, input, options \\ []) do
+
+  def get_send_statistics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3199,12 +3488,22 @@ defmodule AWS.SES do
   @doc """
   Displays the template object (which includes the Subject line, HTML part and
   text part) for the template you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20GetTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_template_request`)
+    %{
+      required("TemplateName") => String.t()
+    }
   """
-  @spec get_template(AWS.Client.t(), get_template_request(), Keyword.t()) ::
+
+  @spec get_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
-  def get_template(%Client{} = client, input, options \\ []) do
+
+  def get_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3217,11 +3516,22 @@ defmodule AWS.SES do
   configuration sets, see [Monitoring Your Amazon SES Sending
   Activity](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html)
   in the *Amazon SES Developer Guide.*
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListConfigurationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_configuration_sets_request`)
+    %{
+      optional("MaxItems") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_configuration_sets(AWS.Client.t(), list_configuration_sets_request(), Keyword.t()) ::
+
+  @spec list_configuration_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_configuration_sets(%Client{} = client, input, options \\ []) do
+
+  def list_configuration_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3234,15 +3544,23 @@ defmodule AWS.SES do
   verification email templates, see [Using Custom Verification Email
   Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListCustomVerificationEmailTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_custom_verification_email_templates_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_custom_verification_email_templates(
-          AWS.Client.t(),
-          list_custom_verification_email_templates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_custom_verification_email_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_custom_verification_email_templates(%Client{} = client, input, options \\ []) do
+
+  def list_custom_verification_email_templates(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3254,11 +3572,23 @@ defmodule AWS.SES do
   for your Amazon Web Services account in the current Amazon Web Services
   Region, regardless of verification status. You can execute this operation no
   more than once per second.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_identities_request`)
+    %{
+      optional("IdentityType") => list(any()),
+      optional("MaxItems") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_identities(AWS.Client.t(), list_identities_request(), Keyword.t()) ::
+
+  @spec list_identities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_identities(%Client{} = client, input, options \\ []) do
+
+  def list_identities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3271,11 +3601,21 @@ defmodule AWS.SES do
   To get the actual policy content, use `GetIdentityPolicies`. This operation is
   for the identity owner only. If you have not verified the identity, it returns
   an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListIdentityPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_identity_policies_request`)
+    %{
+      required("Identity") => String.t()
+    }
   """
-  @spec list_identity_policies(AWS.Client.t(), list_identity_policies_request(), Keyword.t()) ::
+
+  @spec list_identity_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_identity_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_identity_policies(%Client{} = client, input, options \\ []) do
+
+  def list_identity_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3287,11 +3627,21 @@ defmodule AWS.SES do
   the current Amazon Web Services Region. For information about managing IP
   address filters, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListReceiptFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_receipt_filters_request`)
+    %{
+      
+    }
   """
-  @spec list_receipt_filters(AWS.Client.t(), list_receipt_filters_request(), Keyword.t()) ::
+
+  @spec list_receipt_filters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_receipt_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_receipt_filters(%Client{} = client, input, options \\ []) do
+
+  def list_receipt_filters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3305,11 +3655,21 @@ defmodule AWS.SES do
   next call to `ListReceiptRuleSets` to retrieve the additional entries. For
   information about managing receipt rule sets, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListReceiptRuleSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_receipt_rule_sets_request`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_receipt_rule_sets(AWS.Client.t(), list_receipt_rule_sets_request(), Keyword.t()) ::
+
+  @spec list_receipt_rule_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_receipt_rule_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_receipt_rule_sets(%Client{} = client, input, options \\ []) do
+
+  def list_receipt_rule_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3319,11 +3679,22 @@ defmodule AWS.SES do
   @doc """
   Lists the email templates present in your Amazon SES account in the current
   Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_templates_request`)
+    %{
+      optional("MaxItems") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_templates(AWS.Client.t(), list_templates_request(), Keyword.t()) ::
+
+  @spec list_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_templates(%Client{} = client, input, options \\ []) do
+
+  def list_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3333,11 +3704,19 @@ defmodule AWS.SES do
   @doc """
   Deprecated. Use the `ListIdentities` operation to list the email addresses and
   domains associated with your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ListVerifiedEmailAddresses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec list_verified_email_addresses(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec list_verified_email_addresses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_verified_email_addresses_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_verified_email_addresses(%Client{} = client, input, options \\ []) do
+
+  def list_verified_email_addresses(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3346,16 +3725,24 @@ defmodule AWS.SES do
 
   @doc """
   Adds or updates the delivery options for a configuration set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20PutConfigurationSetDeliveryOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_configuration_set_delivery_options_request`)
+    %{
+      optional("DeliveryOptions") => delivery_options(),
+      required("ConfigurationSetName") => String.t()
+    }
   """
-  @spec put_configuration_set_delivery_options(
-          AWS.Client.t(),
-          put_configuration_set_delivery_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_configuration_set_delivery_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_set_delivery_options_errors()}
-  def put_configuration_set_delivery_options(%Client{} = client, input, options \\ []) do
+
+  def put_configuration_set_delivery_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3366,12 +3753,24 @@ defmodule AWS.SES do
   Adds or updates a sending authorization policy for the specified identity (an
   email address or a domain). This operation is for the identity owner only. If
   you have not verified the identity, it returns an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20PutIdentityPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_identity_policy_request`)
+    %{
+      required("Identity") => String.t(),
+      required("Policy") => String.t(),
+      required("PolicyName") => String.t()
+    }
   """
-  @spec put_identity_policy(AWS.Client.t(), put_identity_policy_request(), Keyword.t()) ::
+
+  @spec put_identity_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_identity_policy_errors()}
-  def put_identity_policy(%Client{} = client, input, options \\ []) do
+
+  def put_identity_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3382,12 +3781,23 @@ defmodule AWS.SES do
   Reorders the receipt rules within a receipt rule set. All of the rules in the
   rule set must be represented in this request. That is, it is error if the
   reorder request doesn't explicitly position all of the rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20ReorderReceiptRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reorder_receipt_rule_set_request`)
+    %{
+      required("RuleNames") => list(String.t()()),
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec reorder_receipt_rule_set(AWS.Client.t(), reorder_receipt_rule_set_request(), Keyword.t()) ::
+
+  @spec reorder_receipt_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reorder_receipt_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reorder_receipt_rule_set_errors()}
-  def reorder_receipt_rule_set(%Client{} = client, input, options \\ []) do
+
+  def reorder_receipt_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3399,12 +3809,27 @@ defmodule AWS.SES do
   through Amazon SES. You can only use this operation on an email up to 24 hours
   after you receive it. You cannot use this operation to send generic bounces
   for mail that was not received by Amazon SES.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SendBounce&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_bounce_request`)
+    %{
+      optional("BounceSenderArn") => String.t(),
+      optional("Explanation") => String.t(),
+      optional("MessageDsn") => message_dsn(),
+      required("BounceSender") => String.t(),
+      required("BouncedRecipientInfoList") => list(bounced_recipient_info()()),
+      required("OriginalMessageId") => String.t()
+    }
   """
-  @spec send_bounce(AWS.Client.t(), send_bounce_request(), Keyword.t()) ::
+
+  @spec send_bounce(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_bounce_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_bounce_errors()}
-  def send_bounce(%Client{} = client, input, options \\ []) do
+
+  def send_bounce(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3415,16 +3840,32 @@ defmodule AWS.SES do
   Composes an email message to multiple destinations. The message body is created
   using an email template. To send email using this operation, your call must
   meet the following requirements:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SendBulkTemplatedEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_bulk_templated_email_request`)
+    %{
+      optional("ConfigurationSetName") => String.t(),
+      optional("DefaultTags") => list(message_tag()()),
+      optional("DefaultTemplateData") => String.t(),
+      optional("ReplyToAddresses") => list(String.t()()),
+      optional("ReturnPath") => String.t(),
+      optional("ReturnPathArn") => String.t(),
+      optional("SourceArn") => String.t(),
+      optional("TemplateArn") => String.t(),
+      required("Destinations") => list(bulk_email_destination()()),
+      required("Source") => String.t(),
+      required("Template") => String.t()
+    }
   """
-  @spec send_bulk_templated_email(
-          AWS.Client.t(),
-          send_bulk_templated_email_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_bulk_templated_email(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_bulk_templated_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_bulk_templated_email_errors()}
-  def send_bulk_templated_email(%Client{} = client, input, options \\ []) do
+
+  def send_bulk_templated_email(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3440,16 +3881,25 @@ defmodule AWS.SES do
   custom verification email templates, see [Using Custom Verification Email
   Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SendCustomVerificationEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_custom_verification_email_request`)
+    %{
+      optional("ConfigurationSetName") => String.t(),
+      required("EmailAddress") => String.t(),
+      required("TemplateName") => String.t()
+    }
   """
-  @spec send_custom_verification_email(
-          AWS.Client.t(),
-          send_custom_verification_email_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_custom_verification_email(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_custom_verification_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_custom_verification_email_errors()}
-  def send_custom_verification_email(%Client{} = client, input, options \\ []) do
+
+  def send_custom_verification_email(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3459,12 +3909,30 @@ defmodule AWS.SES do
   @doc """
   Composes an email message and immediately queues it for sending. To send email
   using this operation, your message must meet the following requirements:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SendEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_email_request`)
+    %{
+      optional("ConfigurationSetName") => String.t(),
+      optional("ReplyToAddresses") => list(String.t()()),
+      optional("ReturnPath") => String.t(),
+      optional("ReturnPathArn") => String.t(),
+      optional("SourceArn") => String.t(),
+      optional("Tags") => list(message_tag()()),
+      required("Destination") => destination(),
+      required("Message") => message(),
+      required("Source") => String.t()
+    }
   """
-  @spec send_email(AWS.Client.t(), send_email_request(), Keyword.t()) ::
+
+  @spec send_email(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_email_errors()}
-  def send_email(%Client{} = client, input, options \\ []) do
+
+  def send_email(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3479,12 +3947,29 @@ defmodule AWS.SES do
   a multipart MIME email (such a message that contains both a text and an HTML
   version). You can also use this operation to send messages that include
   attachments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SendRawEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_raw_email_request`)
+    %{
+      optional("ConfigurationSetName") => String.t(),
+      optional("Destinations") => list(String.t()()),
+      optional("FromArn") => String.t(),
+      optional("ReturnPathArn") => String.t(),
+      optional("Source") => String.t(),
+      optional("SourceArn") => String.t(),
+      optional("Tags") => list(message_tag()()),
+      required("RawMessage") => raw_message()
+    }
   """
-  @spec send_raw_email(AWS.Client.t(), send_raw_email_request(), Keyword.t()) ::
+
+  @spec send_raw_email(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_raw_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_raw_email_errors()}
-  def send_raw_email(%Client{} = client, input, options \\ []) do
+
+  def send_raw_email(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3495,12 +3980,32 @@ defmodule AWS.SES do
   Composes an email message using an email template and immediately queues it for
   sending. To send email using this operation, your call must meet the following
   requirements:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SendTemplatedEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_templated_email_request`)
+    %{
+      optional("ConfigurationSetName") => String.t(),
+      optional("ReplyToAddresses") => list(String.t()()),
+      optional("ReturnPath") => String.t(),
+      optional("ReturnPathArn") => String.t(),
+      optional("SourceArn") => String.t(),
+      optional("Tags") => list(message_tag()()),
+      optional("TemplateArn") => String.t(),
+      required("Destination") => destination(),
+      required("Source") => String.t(),
+      required("Template") => String.t(),
+      required("TemplateData") => String.t()
+    }
   """
-  @spec send_templated_email(AWS.Client.t(), send_templated_email_request(), Keyword.t()) ::
+
+  @spec send_templated_email(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_templated_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_templated_email_errors()}
-  def send_templated_email(%Client{} = client, input, options \\ []) do
+
+  def send_templated_email(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3511,16 +4016,22 @@ defmodule AWS.SES do
   Sets the specified receipt rule set as the active receipt rule set. To disable
   your email-receiving through Amazon SES completely, you can call this
   operation with `RuleSetName` set to null.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SetActiveReceiptRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_active_receipt_rule_set_request`)
+    %{
+      optional("RuleSetName") => String.t()
+    }
   """
-  @spec set_active_receipt_rule_set(
-          AWS.Client.t(),
-          set_active_receipt_rule_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_active_receipt_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_active_receipt_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_active_receipt_rule_set_errors()}
-  def set_active_receipt_rule_set(%Client{} = client, input, options \\ []) do
+
+  def set_active_receipt_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3535,15 +4046,22 @@ defmodule AWS.SES do
   sends from that address. For email addresses (for example,
   `user@example.com`), you can only enable DKIM signing if the corresponding
   domain (in this case, `example.com`) has been set up to use Easy DKIM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SetIdentityDkimEnabled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_identity_dkim_enabled_request`)
+    %{
+      required("DkimEnabled") => boolean(),
+      required("Identity") => String.t()
+    }
   """
-  @spec set_identity_dkim_enabled(
-          AWS.Client.t(),
-          set_identity_dkim_enabled_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_identity_dkim_enabled(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_identity_dkim_enabled_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def set_identity_dkim_enabled(%Client{} = client, input, options \\ []) do
+
+  def set_identity_dkim_enabled(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3557,15 +4075,23 @@ defmodule AWS.SES do
   (Amazon SNS) topics are specified for both bounces and complaints. Feedback
   forwarding does not apply to delivery notifications. Delivery notifications
   are only available through Amazon SNS.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SetIdentityFeedbackForwardingEnabled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_identity_feedback_forwarding_enabled_request`)
+    %{
+      required("ForwardingEnabled") => boolean(),
+      required("Identity") => String.t()
+    }
   """
-  @spec set_identity_feedback_forwarding_enabled(
-          AWS.Client.t(),
-          set_identity_feedback_forwarding_enabled_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_identity_feedback_forwarding_enabled(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_identity_feedback_forwarding_enabled_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def set_identity_feedback_forwarding_enabled(%Client{} = client, input, options \\ []) do
+
+  def set_identity_feedback_forwarding_enabled(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3577,15 +4103,24 @@ defmodule AWS.SES do
   includes the original email headers in the Amazon Simple Notification Service
   (Amazon SNS) notifications of a specified type. You can execute this operation
   no more than once per second.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SetIdentityHeadersInNotificationsEnabled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_identity_headers_in_notifications_enabled_request`)
+    %{
+      required("Enabled") => boolean(),
+      required("Identity") => String.t(),
+      required("NotificationType") => list(any())
+    }
   """
-  @spec set_identity_headers_in_notifications_enabled(
-          AWS.Client.t(),
-          set_identity_headers_in_notifications_enabled_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_identity_headers_in_notifications_enabled(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_identity_headers_in_notifications_enabled_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def set_identity_headers_in_notifications_enabled(%Client{} = client, input, options \\ []) do
+
+  def set_identity_headers_in_notifications_enabled(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3599,15 +4134,24 @@ defmodule AWS.SES do
   ensure that your emails pass Sender Policy Framework (SPF) checks, you must
   also add or update an SPF record. For more information, see the [Amazon SES
   Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SetIdentityMailFromDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_identity_mail_from_domain_request`)
+    %{
+      optional("BehaviorOnMXFailure") => list(any()),
+      optional("MailFromDomain") => String.t(),
+      required("Identity") => String.t()
+    }
   """
-  @spec set_identity_mail_from_domain(
-          AWS.Client.t(),
-          set_identity_mail_from_domain_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_identity_mail_from_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_identity_mail_from_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def set_identity_mail_from_domain(%Client{} = client, input, options \\ []) do
+
+  def set_identity_mail_from_domain(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3622,15 +4166,24 @@ defmodule AWS.SES do
   topic you specified. You can send bounce, complaint, or delivery notifications
   (or any combination of the three) to the Amazon SNS topic that you specify.
   You can execute this operation no more than once per second.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SetIdentityNotificationTopic&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_identity_notification_topic_request`)
+    %{
+      optional("SnsTopic") => String.t(),
+      required("Identity") => String.t(),
+      required("NotificationType") => list(any())
+    }
   """
-  @spec set_identity_notification_topic(
-          AWS.Client.t(),
-          set_identity_notification_topic_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_identity_notification_topic(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_identity_notification_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def set_identity_notification_topic(%Client{} = client, input, options \\ []) do
+
+  def set_identity_notification_topic(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3641,16 +4194,24 @@ defmodule AWS.SES do
   Sets the position of the specified receipt rule in the receipt rule set. For
   information about managing receipt rules, see the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20SetReceiptRulePosition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_receipt_rule_position_request`)
+    %{
+      optional("After") => String.t(),
+      required("RuleName") => String.t(),
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec set_receipt_rule_position(
-          AWS.Client.t(),
-          set_receipt_rule_position_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_receipt_rule_position(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_receipt_rule_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_receipt_rule_position_errors()}
-  def set_receipt_rule_position(%Client{} = client, input, options \\ []) do
+
+  def set_receipt_rule_position(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3660,12 +4221,23 @@ defmodule AWS.SES do
   @doc """
   Creates a preview of the MIME content of an email when provided with a template
   and a set of replacement data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20TestRenderTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_render_template_request`)
+    %{
+      required("TemplateData") => String.t(),
+      required("TemplateName") => String.t()
+    }
   """
-  @spec test_render_template(AWS.Client.t(), test_render_template_request(), Keyword.t()) ::
+
+  @spec test_render_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_render_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_render_template_errors()}
-  def test_render_template(%Client{} = client, input, options \\ []) do
+
+  def test_render_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3678,15 +4250,22 @@ defmodule AWS.SES do
   with Amazon CloudWatch alarms to temporarily pause email sending across your
   Amazon SES account in a given Amazon Web Services Region when reputation
   metrics (such as your bounce or complaint rates) reach certain thresholds.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateAccountSendingEnabled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_account_sending_enabled_request`)
+    %{
+      optional("Enabled") => boolean()
+    }
   """
-  @spec update_account_sending_enabled(
-          AWS.Client.t(),
-          update_account_sending_enabled_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_account_sending_enabled(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def update_account_sending_enabled(%Client{} = client, input, options \\ []) do
+
+  def update_account_sending_enabled(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3704,16 +4283,24 @@ defmodule AWS.SES do
   destination, you must provide one, and only one, destination. The destination
   can be Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple
   Notification Service (Amazon SNS).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_configuration_set_event_destination_request`)
+    %{
+      required("ConfigurationSetName") => String.t(),
+      required("EventDestination") => event_destination()
+    }
   """
-  @spec update_configuration_set_event_destination(
-          AWS.Client.t(),
-          update_configuration_set_event_destination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configuration_set_event_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_set_event_destination_errors()}
-  def update_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
+
+  def update_configuration_set_event_destination(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3726,20 +4313,32 @@ defmodule AWS.SES do
   metrics include bounce and complaint rates. These metrics are published to
   Amazon CloudWatch. By using CloudWatch, you can create alarms when bounce or
   complaint rates exceed certain thresholds.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateConfigurationSetReputationMetricsEnabled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_configuration_set_reputation_metrics_enabled_request`)
+    %{
+      required("ConfigurationSetName") => String.t(),
+      required("Enabled") => boolean()
+    }
   """
+
   @spec update_configuration_set_reputation_metrics_enabled(
           AWS.Client.t(),
-          update_configuration_set_reputation_metrics_enabled_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_set_reputation_metrics_enabled_errors()}
+
   def update_configuration_set_reputation_metrics_enabled(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3759,16 +4358,24 @@ defmodule AWS.SES do
   email sending for a configuration set when the reputation metrics for that
   configuration set (such as your bounce on complaint rate) exceed certain
   thresholds.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateConfigurationSetSendingEnabled&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_configuration_set_sending_enabled_request`)
+    %{
+      required("ConfigurationSetName") => String.t(),
+      required("Enabled") => boolean()
+    }
   """
-  @spec update_configuration_set_sending_enabled(
-          AWS.Client.t(),
-          update_configuration_set_sending_enabled_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configuration_set_sending_enabled(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_set_sending_enabled_errors()}
-  def update_configuration_set_sending_enabled(%Client{} = client, input, options \\ []) do
+
+  def update_configuration_set_sending_enabled(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3778,16 +4385,24 @@ defmodule AWS.SES do
   @doc """
   Modifies an association between a configuration set and a custom domain for open
   and click event tracking.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateConfigurationSetTrackingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_configuration_set_tracking_options_request`)
+    %{
+      required("ConfigurationSetName") => String.t(),
+      required("TrackingOptions") => tracking_options()
+    }
   """
-  @spec update_configuration_set_tracking_options(
-          AWS.Client.t(),
-          update_configuration_set_tracking_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configuration_set_tracking_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_set_tracking_options_errors()}
-  def update_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
+
+  def update_configuration_set_tracking_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3800,16 +4415,28 @@ defmodule AWS.SES do
   Email
   Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
   in the *Amazon SES Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_custom_verification_email_template_request`)
+    %{
+      optional("FailureRedirectionURL") => String.t(),
+      optional("FromEmailAddress") => String.t(),
+      optional("SuccessRedirectionURL") => String.t(),
+      optional("TemplateContent") => String.t(),
+      optional("TemplateSubject") => String.t(),
+      required("TemplateName") => String.t()
+    }
   """
-  @spec update_custom_verification_email_template(
-          AWS.Client.t(),
-          update_custom_verification_email_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_custom_verification_email_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_custom_verification_email_template_errors()}
-  def update_custom_verification_email_template(%Client{} = client, input, options \\ []) do
+
+  def update_custom_verification_email_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3820,12 +4447,23 @@ defmodule AWS.SES do
   Updates a receipt rule. For information about managing receipt rules, see the
   [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateReceiptRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_receipt_rule_request`)
+    %{
+      required("Rule") => receipt_rule(),
+      required("RuleSetName") => String.t()
+    }
   """
-  @spec update_receipt_rule(AWS.Client.t(), update_receipt_rule_request(), Keyword.t()) ::
+
+  @spec update_receipt_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_receipt_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_receipt_rule_errors()}
-  def update_receipt_rule(%Client{} = client, input, options \\ []) do
+
+  def update_receipt_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3837,12 +4475,22 @@ defmodule AWS.SES do
   to one or more destinations in a single operation. For more information, see
   the [Amazon SES Developer
   Guide](https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20UpdateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_template_request`)
+    %{
+      required("Template") => template()
+    }
   """
-  @spec update_template(AWS.Client.t(), update_template_request(), Keyword.t()) ::
+
+  @spec update_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-  def update_template(%Client{} = client, input, options \\ []) do
+
+  def update_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3859,11 +4507,21 @@ defmodule AWS.SES do
   it](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#verify-domain-procedure)
   or you successfully [set up DKIM for
   it](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20VerifyDomainDkim&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:verify_domain_dkim_request`)
+    %{
+      required("Domain") => String.t()
+    }
   """
-  @spec verify_domain_dkim(AWS.Client.t(), verify_domain_dkim_request(), Keyword.t()) ::
+
+  @spec verify_domain_dkim(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_domain_dkim_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def verify_domain_dkim(%Client{} = client, input, options \\ []) do
+
+  def verify_domain_dkim(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3876,11 +4534,21 @@ defmodule AWS.SES do
   information about verifying domains, see [Verifying Email Addresses and
   Domains](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html)
   in the *Amazon SES Developer Guide.*
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20VerifyDomainIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:verify_domain_identity_request`)
+    %{
+      required("Domain") => String.t()
+    }
   """
-  @spec verify_domain_identity(AWS.Client.t(), verify_domain_identity_request(), Keyword.t()) ::
+
+  @spec verify_domain_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_domain_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def verify_domain_identity(%Client{} = client, input, options \\ []) do
+
+  def verify_domain_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3890,11 +4558,21 @@ defmodule AWS.SES do
   @doc """
   Deprecated. Use the `VerifyEmailIdentity` operation to verify a new email
   address.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20VerifyEmailAddress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:verify_email_address_request`)
+    %{
+      required("EmailAddress") => String.t()
+    }
   """
-  @spec verify_email_address(AWS.Client.t(), verify_email_address_request(), Keyword.t()) ::
+
+  @spec verify_email_address(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def verify_email_address(%Client{} = client, input, options \\ []) do
+
+  def verify_email_address(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3906,11 +4584,21 @@ defmodule AWS.SES do
   the current Amazon Web Services Region and attempts to verify it. As a result
   of executing this operation, a verification email is sent to the specified
   address.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ses%20VerifyEmailIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:verify_email_identity_request`)
+    %{
+      required("EmailAddress") => String.t()
+    }
   """
-  @spec verify_email_identity(AWS.Client.t(), verify_email_identity_request(), Keyword.t()) ::
+
+  @spec verify_email_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def verify_email_identity(%Client{} = client, input, options \\ []) do
+
+  def verify_email_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

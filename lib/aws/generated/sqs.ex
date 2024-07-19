@@ -1160,12 +1160,25 @@ defmodule AWS.SQS do
   permissions, see [Allow Developers to Write Messages to a Shared
   Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue)
   in the *Amazon SQS Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20AddPermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_permission_request`)
+    %{
+      required("AWSAccountIds") => list(String.t()()),
+      required("Actions") => list(String.t()()),
+      required("Label") => String.t(),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec add_permission(AWS.Client.t(), add_permission_request(), Keyword.t()) ::
+
+  @spec add_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_permission_errors()}
-  def add_permission(%Client{} = client, input, options \\ []) do
+
+  def add_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1177,12 +1190,22 @@ defmodule AWS.SQS do
   cancelled when the current status is RUNNING. Cancelling a message movement
   task does not revert the messages that have already been moved. It can only
   stop the messages that have not been moved yet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20CancelMessageMoveTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_message_move_task_request`)
+    %{
+      required("TaskHandle") => String.t()
+    }
   """
-  @spec cancel_message_move_task(AWS.Client.t(), cancel_message_move_task_request(), Keyword.t()) ::
+
+  @spec cancel_message_move_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_message_move_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_message_move_task_errors()}
-  def cancel_message_move_task(%Client{} = client, input, options \\ []) do
+
+  def cancel_message_move_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1202,16 +1225,24 @@ defmodule AWS.SQS do
   timeout or to delete that message 10 seconds after you initially change the
   visibility timeout (a total of 25 seconds) might result in an error. An Amazon
   SQS message has three basic states:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20ChangeMessageVisibility&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:change_message_visibility_request`)
+    %{
+      required("QueueUrl") => String.t(),
+      required("ReceiptHandle") => String.t(),
+      required("VisibilityTimeout") => integer()
+    }
   """
-  @spec change_message_visibility(
-          AWS.Client.t(),
-          change_message_visibility_request(),
-          Keyword.t()
-        ) ::
+
+  @spec change_message_visibility(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_message_visibility_errors()}
-  def change_message_visibility(%Client{} = client, input, options \\ []) do
+
+  def change_message_visibility(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1224,16 +1255,24 @@ defmodule AWS.SQS do
   reported individually in the response. You can send up to 10 ```
   `ChangeMessageVisibility` ``` requests with each
   `ChangeMessageVisibilityBatch` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20ChangeMessageVisibilityBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:change_message_visibility_batch_request`)
+    %{
+      required("Entries") => list(change_message_visibility_batch_request_entry()()),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec change_message_visibility_batch(
-          AWS.Client.t(),
-          change_message_visibility_batch_request(),
-          Keyword.t()
-        ) ::
+
+  @spec change_message_visibility_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, change_message_visibility_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_message_visibility_batch_errors()}
-  def change_message_visibility_batch(%Client{} = client, input, options \\ []) do
+
+  def change_message_visibility_batch(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1243,12 +1282,24 @@ defmodule AWS.SQS do
   @doc """
   Creates a new standard or FIFO queue. You can pass one or more attributes in the
   request. Keep the following in mind:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20CreateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_queue_request`)
+    %{
+      optional("Attributes") => map(),
+      optional("tags") => map(),
+      required("QueueName") => String.t()
+    }
   """
-  @spec create_queue(AWS.Client.t(), create_queue_request(), Keyword.t()) ::
+
+  @spec create_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_queue_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
-  def create_queue(%Client{} = client, input, options \\ []) do
+
+  def create_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1262,12 +1313,23 @@ defmodule AWS.SQS do
   queue even if a visibility timeout setting causes the message to be locked by
   another consumer. Amazon SQS automatically deletes messages left in a queue
   longer than the retention period configured for the queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20DeleteMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_message_request`)
+    %{
+      required("QueueUrl") => String.t(),
+      required("ReceiptHandle") => String.t()
+    }
   """
-  @spec delete_message(AWS.Client.t(), delete_message_request(), Keyword.t()) ::
+
+  @spec delete_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_message_errors()}
-  def delete_message(%Client{} = client, input, options \\ []) do
+
+  def delete_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1278,12 +1340,23 @@ defmodule AWS.SQS do
   Deletes up to ten messages from the specified queue. This is a batch version of
   ``` `DeleteMessage`. ``` The result of the action on each message is reported
   individually in the response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20DeleteMessageBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_message_batch_request`)
+    %{
+      required("Entries") => list(delete_message_batch_request_entry()()),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec delete_message_batch(AWS.Client.t(), delete_message_batch_request(), Keyword.t()) ::
+
+  @spec delete_message_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_message_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_message_batch_errors()}
-  def delete_message_batch(%Client{} = client, input, options \\ []) do
+
+  def delete_message_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1294,12 +1367,22 @@ defmodule AWS.SQS do
   Deletes the queue specified by the `QueueUrl`, regardless of the queue's
   contents. Be careful with the `DeleteQueue` action: When you delete a queue,
   any messages in the queue are no longer available.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20DeleteQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_queue_request`)
+    %{
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec delete_queue(AWS.Client.t(), delete_queue_request(), Keyword.t()) ::
+
+  @spec delete_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
-  def delete_queue(%Client{} = client, input, options \\ []) do
+
+  def delete_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1308,12 +1391,23 @@ defmodule AWS.SQS do
 
   @doc """
   Gets attributes for the specified queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20GetQueueAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_queue_attributes_request`)
+    %{
+      optional("AttributeNames") => list(list(any())()),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec get_queue_attributes(AWS.Client.t(), get_queue_attributes_request(), Keyword.t()) ::
+
+  @spec get_queue_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_queue_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_attributes_errors()}
-  def get_queue_attributes(%Client{} = client, input, options \\ []) do
+
+  def get_queue_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1322,12 +1416,23 @@ defmodule AWS.SQS do
 
   @doc """
   Returns the URL of an existing Amazon SQS queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20GetQueueUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_queue_url_request`)
+    %{
+      optional("QueueOwnerAWSAccountId") => String.t(),
+      required("QueueName") => String.t()
+    }
   """
-  @spec get_queue_url(AWS.Client.t(), get_queue_url_request(), Keyword.t()) ::
+
+  @spec get_queue_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_queue_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_queue_url_errors()}
-  def get_queue_url(%Client{} = client, input, options \\ []) do
+
+  def get_queue_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1343,16 +1448,25 @@ defmodule AWS.SQS do
   `MaxResults` and there are additional results to display, the response
   includes a value for `NextToken`. Use `NextToken` as a parameter in your next
   request to `ListDeadLetterSourceQueues` to receive the next page of results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20ListDeadLetterSourceQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dead_letter_source_queues_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec list_dead_letter_source_queues(
-          AWS.Client.t(),
-          list_dead_letter_source_queues_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_dead_letter_source_queues(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dead_letter_source_queues_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dead_letter_source_queues_errors()}
-  def list_dead_letter_source_queues(%Client{} = client, input, options \\ []) do
+
+  def list_dead_letter_source_queues(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1362,12 +1476,23 @@ defmodule AWS.SQS do
   @doc """
   Gets the most recent message movement tasks (up to 10) under a specific source
   queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20ListMessageMoveTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_message_move_tasks_request`)
+    %{
+      optional("MaxResults") => integer(),
+      required("SourceArn") => String.t()
+    }
   """
-  @spec list_message_move_tasks(AWS.Client.t(), list_message_move_tasks_request(), Keyword.t()) ::
+
+  @spec list_message_move_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_message_move_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_message_move_tasks_errors()}
-  def list_message_move_tasks(%Client{} = client, input, options \\ []) do
+
+  def list_message_move_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1383,12 +1508,22 @@ defmodule AWS.SQS do
   role and a
   username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20ListQueueTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_queue_tags_request`)
+    %{
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec list_queue_tags(AWS.Client.t(), list_queue_tags_request(), Keyword.t()) ::
+
+  @spec list_queue_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_queue_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_tags_errors()}
-  def list_queue_tags(%Client{} = client, input, options \\ []) do
+
+  def list_queue_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1406,12 +1541,24 @@ defmodule AWS.SQS do
   there are additional results to display, the response includes a value for
   `NextToken`. Use `NextToken` as a parameter in your next request to
   `listQueues` to receive the next page of results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20ListQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_queues_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QueueNamePrefix") => String.t()
+    }
   """
-  @spec list_queues(AWS.Client.t(), list_queues_request(), Keyword.t()) ::
+
+  @spec list_queues(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_queues_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
-  def list_queues(%Client{} = client, input, options \\ []) do
+
+  def list_queues(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1424,12 +1571,22 @@ defmodule AWS.SQS do
   retrieve any messages deleted from a queue. The message deletion process takes
   up to 60 seconds. We recommend waiting for 60 seconds regardless of your
   queue's size.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20PurgeQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:purge_queue_request`)
+    %{
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec purge_queue(AWS.Client.t(), purge_queue_request(), Keyword.t()) ::
+
+  @spec purge_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purge_queue_errors()}
-  def purge_queue(%Client{} = client, input, options \\ []) do
+
+  def purge_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1449,12 +1606,29 @@ defmodule AWS.SQS do
   messages in the queue is extremely small, you might not receive any messages
   in a particular `ReceiveMessage` response. If this happens, repeat the
   request. For each message returned, the response includes the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20ReceiveMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:receive_message_request`)
+    %{
+      optional("AttributeNames") => list(list(any())()),
+      optional("MaxNumberOfMessages") => integer(),
+      optional("MessageAttributeNames") => list(String.t()()),
+      optional("MessageSystemAttributeNames") => list(list(any())()),
+      optional("ReceiveRequestAttemptId") => String.t(),
+      optional("VisibilityTimeout") => integer(),
+      optional("WaitTimeSeconds") => integer(),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec receive_message(AWS.Client.t(), receive_message_request(), Keyword.t()) ::
+
+  @spec receive_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, receive_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, receive_message_errors()}
-  def receive_message(%Client{} = client, input, options \\ []) do
+
+  def receive_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1464,12 +1638,23 @@ defmodule AWS.SQS do
   @doc """
   Revokes any permissions in the queue policy that matches the specified `Label`
   parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20RemovePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_permission_request`)
+    %{
+      required("Label") => String.t(),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec remove_permission(AWS.Client.t(), remove_permission_request(), Keyword.t()) ::
+
+  @spec remove_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_permission_errors()}
-  def remove_permission(%Client{} = client, input, options \\ []) do
+
+  def remove_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1478,12 +1663,28 @@ defmodule AWS.SQS do
 
   @doc """
   Delivers a message to the specified queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20SendMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_message_request`)
+    %{
+      optional("DelaySeconds") => integer(),
+      optional("MessageAttributes") => map(),
+      optional("MessageDeduplicationId") => String.t(),
+      optional("MessageGroupId") => String.t(),
+      optional("MessageSystemAttributes") => map(),
+      required("MessageBody") => String.t(),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec send_message(AWS.Client.t(), send_message_request(), Keyword.t()) ::
+
+  @spec send_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_message_errors()}
-  def send_message(%Client{} = client, input, options \\ []) do
+
+  def send_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1499,12 +1700,23 @@ defmodule AWS.SQS do
   individually in the response. Because the batch request can result in a
   combination of successful and unsuccessful actions, you should check for batch
   errors even when the call returns an HTTP status code of `200`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20SendMessageBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_message_batch_request`)
+    %{
+      required("Entries") => list(send_message_batch_request_entry()()),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec send_message_batch(AWS.Client.t(), send_message_batch_request(), Keyword.t()) ::
+
+  @spec send_message_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_message_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_message_batch_errors()}
-  def send_message_batch(%Client{} = client, input, options \\ []) do
+
+  def send_message_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1519,12 +1731,23 @@ defmodule AWS.SQS do
   existing messages in the queue potentially causing them to be expired and
   deleted if the `MessageRetentionPeriod` is reduced below the age of existing
   messages.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20SetQueueAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_queue_attributes_request`)
+    %{
+      required("Attributes") => map(),
+      required("QueueUrl") => String.t()
+    }
   """
-  @spec set_queue_attributes(AWS.Client.t(), set_queue_attributes_request(), Keyword.t()) ::
+
+  @spec set_queue_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_queue_attributes_errors()}
-  def set_queue_attributes(%Client{} = client, input, options \\ []) do
+
+  def set_queue_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1534,12 +1757,24 @@ defmodule AWS.SQS do
   @doc """
   Starts an asynchronous task to move messages from a specified source queue to a
   specified destination queue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20StartMessageMoveTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_message_move_task_request`)
+    %{
+      optional("DestinationArn") => String.t(),
+      optional("MaxNumberOfMessagesPerSecond") => integer(),
+      required("SourceArn") => String.t()
+    }
   """
-  @spec start_message_move_task(AWS.Client.t(), start_message_move_task_request(), Keyword.t()) ::
+
+  @spec start_message_move_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_message_move_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_message_move_task_errors()}
-  def start_message_move_task(%Client{} = client, input, options \\ []) do
+
+  def start_message_move_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1552,12 +1787,23 @@ defmodule AWS.SQS do
   Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html)
   in the *Amazon SQS Developer Guide*. When you use queue tags, keep the
   following guidelines in mind:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20TagQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_queue_request`)
+    %{
+      required("QueueUrl") => String.t(),
+      required("Tags") => map()
+    }
   """
-  @spec tag_queue(AWS.Client.t(), tag_queue_request(), Keyword.t()) ::
+
+  @spec tag_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_queue_errors()}
-  def tag_queue(%Client{} = client, input, options \\ []) do
+
+  def tag_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1573,12 +1819,23 @@ defmodule AWS.SQS do
   role and a
   username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
   in the *Amazon SQS Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sqs%20UntagQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_queue_request`)
+    %{
+      required("QueueUrl") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_queue(AWS.Client.t(), untag_queue_request(), Keyword.t()) ::
+
+  @spec untag_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_queue_errors()}
-  def untag_queue(%Client{} = client, input, options \\ []) do
+
+  def untag_queue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

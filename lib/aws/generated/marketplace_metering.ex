@@ -410,12 +410,23 @@ defmodule AWS.MarketplaceMetering do
   post metering records for a set of customers. For identical requests, the API
   is idempotent; requests can be retried with the same records or a subset of
   the input records.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacemetering%20BatchMeterUsage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_meter_usage_request`)
+    %{
+      required("ProductCode") => String.t(),
+      required("UsageRecords") => list(usage_record()())
+    }
   """
-  @spec batch_meter_usage(AWS.Client.t(), batch_meter_usage_request(), Keyword.t()) ::
+
+  @spec batch_meter_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_meter_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_meter_usage_errors()}
-  def batch_meter_usage(%Client{} = client, input, options \\ []) do
+
+  def batch_meter_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -427,12 +438,27 @@ defmodule AWS.MarketplaceMetering do
   simply returns the metering record ID. `MeterUsage` is authenticated on the
   buyer's AWS account using credentials from the EC2 instance, ECS task, or EKS
   pod.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacemetering%20MeterUsage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:meter_usage_request`)
+    %{
+      optional("DryRun") => boolean(),
+      optional("UsageAllocations") => list(usage_allocation()()),
+      optional("UsageQuantity") => integer(),
+      required("ProductCode") => String.t(),
+      required("Timestamp") => non_neg_integer(),
+      required("UsageDimension") => String.t()
+    }
   """
-  @spec meter_usage(AWS.Client.t(), meter_usage_request(), Keyword.t()) ::
+
+  @spec meter_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, meter_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, meter_usage_errors()}
-  def meter_usage(%Client{} = client, input, options \\ []) do
+
+  def meter_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -447,12 +473,24 @@ defmodule AWS.MarketplaceMetering do
   choose to do so if you would like to receive usage data in your seller
   reports. The sections below explain the behavior of `RegisterUsage`.
   `RegisterUsage` performs two primary functions: metering and entitlement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacemetering%20RegisterUsage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_usage_request`)
+    %{
+      optional("Nonce") => String.t(),
+      required("ProductCode") => String.t(),
+      required("PublicKeyVersion") => integer()
+    }
   """
-  @spec register_usage(AWS.Client.t(), register_usage_request(), Keyword.t()) ::
+
+  @spec register_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_usage_errors()}
-  def register_usage(%Client{} = client, input, options \\ []) do
+
+  def register_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -465,12 +503,22 @@ defmodule AWS.MarketplaceMetering do
   buyer submits a registration token through their browser. The registration
   token is resolved through this API to obtain a `CustomerIdentifier` along with
   the `CustomerAWSAccountId` and `ProductCode`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacemetering%20ResolveCustomer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:resolve_customer_request`)
+    %{
+      required("RegistrationToken") => String.t()
+    }
   """
-  @spec resolve_customer(AWS.Client.t(), resolve_customer_request(), Keyword.t()) ::
+
+  @spec resolve_customer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resolve_customer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_customer_errors()}
-  def resolve_customer(%Client{} = client, input, options \\ []) do
+
+  def resolve_customer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

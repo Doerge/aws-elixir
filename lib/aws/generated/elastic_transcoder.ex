@@ -12,37 +12,37 @@ defmodule AWS.ElasticTranscoder do
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_request() :: %{}
-
+      
   """
   @type cancel_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_preset_response() :: %{}
-
+      
   """
   @type delete_preset_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pipelines_response() :: %{
         "NextPageToken" => String.t(),
         "Pipelines" => list(pipeline()())
       }
-
+      
   """
   @type list_pipelines_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_playlist() :: %{
         "Format" => String.t(),
         "HlsContentProtection" => hls_content_protection(),
@@ -50,49 +50,49 @@ defmodule AWS.ElasticTranscoder do
         "OutputKeys" => list(String.t()()),
         "PlayReadyDrm" => play_ready_drm()
       }
-
+      
   """
   @type create_job_playlist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pipeline_response() :: %{
         "Pipeline" => pipeline(),
         "Warnings" => list(warning()())
       }
-
+      
   """
   @type update_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_response() :: %{
         "Job" => job()
       }
-
+      
   """
   @type create_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pipelines_request() :: %{
         optional("Ascending") => String.t(),
         optional("PageToken") => String.t()
       }
-
+      
   """
   @type list_pipelines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_preset_request() :: %{
         optional("Audio") => audio_parameters(),
         optional("Description") => String.t(),
@@ -101,100 +101,100 @@ defmodule AWS.ElasticTranscoder do
         required("Container") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_preset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       captions() :: %{
         "CaptionFormats" => list(caption_format()()),
         "CaptionSources" => list(caption_source()()),
         "MergePolicy" => String.t()
       }
-
+      
   """
   @type captions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_presets_request() :: %{
         optional("Ascending") => String.t(),
         optional("PageToken") => String.t()
       }
-
+      
   """
   @type list_presets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_in_use_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_pipeline_response() :: %{
         "Pipeline" => pipeline(),
         "Warnings" => list(warning()())
       }
-
+      
   """
   @type create_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_role_request() :: %{
         required("InputBucket") => String.t(),
         required("OutputBucket") => String.t(),
         required("Role") => String.t(),
         required("Topics") => list(String.t()())
       }
-
+      
   """
   @type test_role_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       input_captions() :: %{
         "CaptionSources" => list(caption_source()()),
         "MergePolicy" => String.t()
       }
-
+      
   """
   @type input_captions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_pipeline_response() :: %{
         "Pipeline" => pipeline(),
         "Warnings" => list(warning()())
       }
-
+      
   """
   @type read_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pipeline() :: %{
         "Arn" => String.t(),
         "AwsKmsKeyArn" => String.t(),
@@ -208,46 +208,46 @@ defmodule AWS.ElasticTranscoder do
         "Status" => String.t(),
         "ThumbnailConfig" => pipeline_output_config()
       }
-
+      
   """
   @type pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_job_response() :: %{
         "Job" => job()
       }
-
+      
   """
   @type read_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_pipeline_request() :: %{}
-
+      
   """
   @type read_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_by_pipeline_response() :: %{
         "Jobs" => list(job()()),
         "NextPageToken" => String.t()
       }
-
+      
   """
   @type list_jobs_by_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_request() :: %{
         optional("Input") => job_input(),
         optional("Inputs") => list(job_input()()),
@@ -258,36 +258,36 @@ defmodule AWS.ElasticTranscoder do
         optional("UserMetadata") => map(),
         required("PipelineId") => String.t()
       }
-
+      
   """
   @type create_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_preset_response() :: %{
         "Preset" => preset()
       }
-
+      
   """
   @type read_preset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_output() :: %{
         "AlbumArt" => job_album_art(),
         "AppliedColorSpaceConversion" => String.t(),
@@ -311,36 +311,36 @@ defmodule AWS.ElasticTranscoder do
         "Watermarks" => list(job_watermark()()),
         "Width" => integer()
       }
-
+      
   """
   @type job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pipeline_notifications_response() :: %{
         "Pipeline" => pipeline()
       }
-
+      
   """
   @type update_pipeline_notifications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       clip() :: %{
         "TimeSpan" => time_span()
       }
-
+      
   """
   @type clip() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_properties() :: %{
         "DurationMillis" => float(),
         "FileSize" => float(),
@@ -348,25 +348,25 @@ defmodule AWS.ElasticTranscoder do
         "Height" => integer(),
         "Width" => integer()
       }
-
+      
   """
   @type detected_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hls_content_protection() :: %{
         "InitializationVector" => String.t(),
         "Key" => String.t(),
@@ -375,14 +375,14 @@ defmodule AWS.ElasticTranscoder do
         "LicenseAcquisitionUrl" => String.t(),
         "Method" => String.t()
       }
-
+      
   """
   @type hls_content_protection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_pipeline_request() :: %{
         optional("AwsKmsKeyArn") => String.t(),
         optional("ContentConfig") => pipeline_output_config(),
@@ -393,14 +393,14 @@ defmodule AWS.ElasticTranscoder do
         required("Name") => String.t(),
         required("Role") => String.t()
       }
-
+      
   """
   @type create_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pipeline_request() :: %{
         optional("AwsKmsKeyArn") => String.t(),
         optional("ContentConfig") => pipeline_output_config(),
@@ -410,23 +410,23 @@ defmodule AWS.ElasticTranscoder do
         optional("Role") => String.t(),
         optional("ThumbnailConfig") => pipeline_output_config()
       }
-
+      
   """
   @type update_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_pipeline_request() :: %{}
-
+      
   """
   @type delete_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       artwork() :: %{
         "AlbumArtFormat" => String.t(),
         "Encryption" => encryption(),
@@ -436,26 +436,26 @@ defmodule AWS.ElasticTranscoder do
         "PaddingPolicy" => String.t(),
         "SizingPolicy" => String.t()
       }
-
+      
   """
   @type artwork() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_by_status_response() :: %{
         "Jobs" => list(job()()),
         "NextPageToken" => String.t()
       }
-
+      
   """
   @type list_jobs_by_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       video_parameters() :: %{
         "AspectRatio" => String.t(),
         "BitRate" => String.t(),
@@ -473,53 +473,53 @@ defmodule AWS.ElasticTranscoder do
         "SizingPolicy" => String.t(),
         "Watermarks" => list(preset_watermark()())
       }
-
+      
   """
   @type video_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_by_status_request() :: %{
         optional("Ascending") => String.t(),
         optional("PageToken") => String.t()
       }
-
+      
   """
   @type list_jobs_by_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption() :: %{
         "InitializationVector" => String.t(),
         "Key" => String.t(),
         "KeyMd5" => String.t(),
         "Mode" => String.t()
       }
-
+      
   """
   @type encryption() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pipeline_output_config() :: %{
         "Bucket" => String.t(),
         "Permissions" => list(permission()()),
         "StorageClass" => String.t()
       }
-
+      
   """
   @type pipeline_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audio_parameters() :: %{
         "AudioPackingMode" => String.t(),
         "BitRate" => String.t(),
@@ -528,37 +528,37 @@ defmodule AWS.ElasticTranscoder do
         "CodecOptions" => audio_codec_options(),
         "SampleRate" => String.t()
       }
-
+      
   """
   @type audio_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pipeline_status_request() :: %{
         required("Status") => String.t()
       }
-
+      
   """
   @type update_pipeline_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_presets_response() :: %{
         "NextPageToken" => String.t(),
         "Presets" => list(preset()())
       }
-
+      
   """
   @type list_presets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_input() :: %{
         "AspectRatio" => String.t(),
         "Container" => String.t(),
@@ -571,23 +571,23 @@ defmodule AWS.ElasticTranscoder do
         "Resolution" => String.t(),
         "TimeSpan" => time_span()
       }
-
+      
   """
   @type job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_preset_request() :: %{}
-
+      
   """
   @type delete_preset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       preset_watermark() :: %{
         "HorizontalAlign" => String.t(),
         "HorizontalOffset" => String.t(),
@@ -600,147 +600,147 @@ defmodule AWS.ElasticTranscoder do
         "VerticalAlign" => String.t(),
         "VerticalOffset" => String.t()
       }
-
+      
   """
   @type preset_watermark() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incompatible_version_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type incompatible_version_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       notifications() :: %{
         "Completed" => String.t(),
         "Error" => String.t(),
         "Progressing" => String.t(),
         "Warning" => String.t()
       }
-
+      
   """
   @type notifications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       timing() :: %{
         "FinishTimeMillis" => float(),
         "StartTimeMillis" => float(),
         "SubmitTimeMillis" => float()
       }
-
+      
   """
   @type timing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_preset_request() :: %{}
-
+      
   """
   @type read_preset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       warning() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type warning() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       caption_format() :: %{
         "Encryption" => encryption(),
         "Format" => String.t(),
         "Pattern" => String.t()
       }
-
+      
   """
   @type caption_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audio_codec_options() :: %{
         "BitDepth" => String.t(),
         "BitOrder" => String.t(),
         "Profile" => String.t(),
         "Signed" => String.t()
       }
-
+      
   """
   @type audio_codec_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_album_art() :: %{
         "Artwork" => list(artwork()()),
         "MergePolicy" => String.t()
       }
-
+      
   """
   @type job_album_art() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_watermark() :: %{
         "Encryption" => encryption(),
         "InputKey" => String.t(),
         "PresetWatermarkId" => String.t()
       }
-
+      
   """
   @type job_watermark() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -755,34 +755,34 @@ defmodule AWS.ElasticTranscoder do
         "Timing" => timing(),
         "UserMetadata" => map()
       }
-
+      
   """
   @type job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pipeline_status_response() :: %{
         "Pipeline" => pipeline()
       }
-
+      
   """
   @type update_pipeline_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_job_request() :: %{}
-
+      
   """
   @type read_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       thumbnails() :: %{
         "AspectRatio" => String.t(),
         "Format" => String.t(),
@@ -793,25 +793,25 @@ defmodule AWS.ElasticTranscoder do
         "Resolution" => String.t(),
         "SizingPolicy" => String.t()
       }
-
+      
   """
   @type thumbnails() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       caption_source() :: %{
         "Encryption" => encryption(),
         "Key" => String.t(),
@@ -819,38 +819,38 @@ defmodule AWS.ElasticTranscoder do
         "Language" => String.t(),
         "TimeOffset" => String.t()
       }
-
+      
   """
   @type caption_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_by_pipeline_request() :: %{
         optional("Ascending") => String.t(),
         optional("PageToken") => String.t()
       }
-
+      
   """
   @type list_jobs_by_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_preset_response() :: %{
         "Preset" => preset(),
         "Warning" => String.t()
       }
-
+      
   """
   @type create_preset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_output() :: %{
         "AlbumArt" => job_album_art(),
         "Captions" => captions(),
@@ -864,14 +864,14 @@ defmodule AWS.ElasticTranscoder do
         "ThumbnailPattern" => String.t(),
         "Watermarks" => list(job_watermark()())
       }
-
+      
   """
   @type create_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       play_ready_drm() :: %{
         "Format" => String.t(),
         "InitializationVector" => String.t(),
@@ -880,14 +880,14 @@ defmodule AWS.ElasticTranscoder do
         "KeyMd5" => String.t(),
         "LicenseAcquisitionUrl" => String.t()
       }
-
+      
   """
   @type play_ready_drm() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       playlist() :: %{
         "Format" => String.t(),
         "HlsContentProtection" => hls_content_protection(),
@@ -897,23 +897,23 @@ defmodule AWS.ElasticTranscoder do
         "Status" => String.t(),
         "StatusDetail" => String.t()
       }
-
+      
   """
   @type playlist() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_response() :: %{}
-
+      
   """
   @type cancel_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       preset() :: %{
         "Arn" => String.t(),
         "Audio" => audio_parameters(),
@@ -925,64 +925,64 @@ defmodule AWS.ElasticTranscoder do
         "Type" => String.t(),
         "Video" => video_parameters()
       }
-
+      
   """
   @type preset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_role_response() :: %{
         "Messages" => list(String.t()()),
         "Success" => String.t()
       }
-
+      
   """
   @type test_role_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_span() :: %{
         "Duration" => String.t(),
         "StartTime" => String.t()
       }
-
+      
   """
   @type time_span() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       permission() :: %{
         "Access" => list(String.t()()),
         "Grantee" => String.t(),
         "GranteeType" => String.t()
       }
-
+      
   """
   @type permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pipeline_notifications_request() :: %{
         required("Notifications") => notifications()
       }
-
+      
   """
   @type update_pipeline_notifications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_pipeline_response() :: %{}
-
+      
   """
   @type delete_pipeline_response() :: %{}
 
@@ -1136,17 +1136,38 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
+
+  @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-  def cancel_job(%Client{} = client, id, input, options \\ []) do
+
+  def cancel_job(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1155,7 +1176,7 @@ defmodule AWS.ElasticTranscoder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1171,29 +1192,40 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
+
+  @spec create_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-  def create_job(%Client{} = client, input, options \\ []) do
+
+  def create_job(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/jobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1205,29 +1237,40 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec create_pipeline(AWS.Client.t(), create_pipeline_request(), Keyword.t()) ::
+
+  @spec create_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
-  def create_pipeline(%Client{} = client, input, options \\ []) do
+
+  def create_pipeline(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/pipelines"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1249,29 +1292,40 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec create_preset(AWS.Client.t(), create_preset_request(), Keyword.t()) ::
+
+  @spec create_preset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_preset_errors()}
-  def create_preset(%Client{} = client, input, options \\ []) do
+
+  def create_preset(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/presets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1284,17 +1338,38 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec delete_pipeline(AWS.Client.t(), String.t(), delete_pipeline_request(), Keyword.t()) ::
+
+  @spec delete_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
-  def delete_pipeline(%Client{} = client, id, input, options \\ []) do
+
+  def delete_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1303,7 +1378,7 @@ defmodule AWS.ElasticTranscoder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1316,21 +1391,42 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the preset for which you want to get
-    detailed information.
+  detailed information.
 
   ## Optional parameters:
   """
-  @spec delete_preset(AWS.Client.t(), String.t(), delete_preset_request(), Keyword.t()) ::
+
+  @spec delete_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_preset_errors()}
-  def delete_preset(%Client{} = client, id, input, options \\ []) do
+
+  def delete_preset(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1339,7 +1435,7 @@ defmodule AWS.ElasticTranscoder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1353,20 +1449,22 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:pipeline_id` (`t:string`) The ID of the pipeline for which you want to get
-    job information.
+  job information.
 
   ## Optional parameters:
   * `:ascending` (`t:string`) To list jobs in chronological order by the date and
-    time that they were submitted, enter true. To list jobs in reverse
-    chronological order, enter false.
+  time that they were submitted, enter true. To list jobs in reverse
+  chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-    of results, use pageToken in subsequent GET requests to get each successive
-    page of results.
+  of results, use pageToken in subsequent GET requests to get each successive
+  page of results.
   """
+
   @spec list_jobs_by_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_by_pipeline_errors()}
+
   def list_jobs_by_pipeline(%Client{} = client, pipeline_id, options \\ []) do
     url_path = "/2012-09-25/jobsByPipeline/#{AWS.Util.encode_uri(pipeline_id)}"
 
@@ -1422,21 +1520,23 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:status` (`t:string`) To get information about all of the jobs associated
-    with the current AWS account that have a given status, specify the following
-    status: Submitted, Progressing, Complete, Canceled, or Error.
+  with the current AWS account that have a given status, specify the following
+  status: Submitted, Progressing, Complete, Canceled, or Error.
 
   ## Optional parameters:
   * `:ascending` (`t:string`) To list jobs in chronological order by the date and
-    time that they were submitted, enter true. To list jobs in reverse
-    chronological order, enter false.
+  time that they were submitted, enter true. To list jobs in reverse
+  chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-    of results, use pageToken in subsequent GET requests to get each successive
-    page of results.
+  of results, use pageToken in subsequent GET requests to get each successive
+  page of results.
   """
+
   @spec list_jobs_by_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_by_status_errors()}
+
   def list_jobs_by_status(%Client{} = client, status, options \\ []) do
     url_path = "/2012-09-25/jobsByStatus/#{AWS.Util.encode_uri(status)}"
 
@@ -1493,16 +1593,18 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   * `:ascending` (`t:string`) To list pipelines in chronological order by the date
-    and time that they were created, enter true. To list pipelines in reverse
-    chronological order, enter false.
+  and time that they were created, enter true. To list pipelines in reverse
+  chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-    of results, use pageToken in subsequent GET requests to get each successive
-    page of results.
+  of results, use pageToken in subsequent GET requests to get each successive
+  page of results.
   """
+
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
+
   def list_pipelines(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/pipelines"
 
@@ -1559,16 +1661,18 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   * `:ascending` (`t:string`) To list presets in chronological order by the date
-    and time that they were created, enter true. To list presets in reverse
-    chronological order, enter false.
+  and time that they were created, enter true. To list presets in reverse
+  chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-    of results, use pageToken in subsequent GET requests to get each successive
-    page of results.
+  of results, use pageToken in subsequent GET requests to get each successive
+  page of results.
   """
+
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_presets_errors()}
+
   def list_presets(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/presets"
 
@@ -1622,14 +1726,16 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the job for which you want to get
-    detailed information.
+  detailed information.
 
   ## Optional parameters:
   """
+
   @spec read_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_job_errors()}
+
   def read_job(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
 
@@ -1668,10 +1774,12 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
+
   @spec read_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_pipeline_errors()}
+
   def read_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
 
@@ -1707,14 +1815,16 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the preset for which you want to get
-    detailed information.
+  detailed information.
 
   ## Optional parameters:
   """
+
   @spec read_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, read_preset_errors()}
+
   def read_preset(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
 
@@ -1752,29 +1862,40 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec test_role(AWS.Client.t(), test_role_request(), Keyword.t()) ::
+
+  @spec test_role(AWS.Client.t(), Keyword.t()) ::
           {:ok, test_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_role_errors()}
-  def test_role(%Client{} = client, input, options \\ []) do
+
+  def test_role(%Client{} = client, options \\ []) do
     url_path = "/2012-09-25/roleTests"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1787,19 +1908,40 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec update_pipeline(AWS.Client.t(), String.t(), update_pipeline_request(), Keyword.t()) ::
+
+  @spec update_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
-  def update_pipeline(%Client{} = client, id, input, options \\ []) do
+
+  def update_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1810,38 +1952,44 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the pipeline for which you want to change
-    notification settings.
+  notification settings.
 
   ## Optional parameters:
   """
-  @spec update_pipeline_notifications(
-          AWS.Client.t(),
-          String.t(),
-          update_pipeline_notifications_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_pipeline_notifications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_notifications_errors()}
-  def update_pipeline_notifications(%Client{} = client, id, input, options \\ []) do
+
+  def update_pipeline_notifications(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/notifications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1855,33 +2003,39 @@ defmodule AWS.ElasticTranscoder do
 
   ## Optional parameters:
   """
-  @spec update_pipeline_status(
-          AWS.Client.t(),
-          String.t(),
-          update_pipeline_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_pipeline_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_status_errors()}
-  def update_pipeline_status(%Client{} = client, id, input, options \\ []) do
+
+  def update_pipeline_status(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

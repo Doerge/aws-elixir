@@ -680,12 +680,23 @@ defmodule AWS.CloudHSM do
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Adds or
   overwrites one or more tags for the specified AWS CloudHSM resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20AddTagsToResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagList") => list(tag()())
+    }
   """
-  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_request(), Keyword.t()) ::
+
+  @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-  def add_tags_to_resource(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -704,12 +715,22 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20CreateHapg&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hapg_request`)
+    %{
+      required("Label") => String.t()
+    }
   """
-  @spec create_hapg(AWS.Client.t(), create_hapg_request(), Keyword.t()) ::
+
+  @spec create_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hapg_errors()}
-  def create_hapg(%Client{} = client, input, options \\ []) do
+
+  def create_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -734,12 +755,29 @@ defmodule AWS.CloudHSM do
   `DeleteHsm` operation, go to the [AWS Support
   Center](https://console.aws.amazon.com/support/home), create a new case, and
   select **Account and Billing Support**.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20CreateHsm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hsm_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("EniIp") => String.t(),
+      optional("ExternalId") => String.t(),
+      optional("SyslogIp") => String.t(),
+      required("IamRoleArn") => String.t(),
+      required("SshKey") => String.t(),
+      required("SubnetId") => String.t(),
+      required("SubscriptionType") => list(any())
+    }
   """
-  @spec create_hsm(AWS.Client.t(), create_hsm_request(), Keyword.t()) ::
+
+  @spec create_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hsm_errors()}
-  def create_hsm(%Client{} = client, input, options \\ []) do
+
+  def create_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -758,12 +796,23 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20CreateLunaClient&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_luna_client_request`)
+    %{
+      optional("Label") => String.t(),
+      required("Certificate") => String.t()
+    }
   """
-  @spec create_luna_client(AWS.Client.t(), create_luna_client_request(), Keyword.t()) ::
+
+  @spec create_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_luna_client_errors()}
-  def create_luna_client(%Client{} = client, input, options \\ []) do
+
+  def create_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -782,12 +831,22 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20DeleteHapg&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hapg_request`)
+    %{
+      required("HapgArn") => String.t()
+    }
   """
-  @spec delete_hapg(AWS.Client.t(), delete_hapg_request(), Keyword.t()) ::
+
+  @spec delete_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hapg_errors()}
-  def delete_hapg(%Client{} = client, input, options \\ []) do
+
+  def delete_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -806,12 +865,22 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20DeleteHsm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hsm_request`)
+    %{
+      required("HsmArn") => String.t()
+    }
   """
-  @spec delete_hsm(AWS.Client.t(), delete_hsm_request(), Keyword.t()) ::
+
+  @spec delete_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hsm_errors()}
-  def delete_hsm(%Client{} = client, input, options \\ []) do
+
+  def delete_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -830,12 +899,22 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20DeleteLunaClient&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_luna_client_request`)
+    %{
+      required("ClientArn") => String.t()
+    }
   """
-  @spec delete_luna_client(AWS.Client.t(), delete_luna_client_request(), Keyword.t()) ::
+
+  @spec delete_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_luna_client_errors()}
-  def delete_luna_client(%Client{} = client, input, options \\ []) do
+
+  def delete_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -854,12 +933,22 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20DescribeHapg&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_hapg_request`)
+    %{
+      required("HapgArn") => String.t()
+    }
   """
-  @spec describe_hapg(AWS.Client.t(), describe_hapg_request(), Keyword.t()) ::
+
+  @spec describe_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hapg_errors()}
-  def describe_hapg(%Client{} = client, input, options \\ []) do
+
+  def describe_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -878,12 +967,23 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20DescribeHsm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_hsm_request`)
+    %{
+      optional("HsmArn") => String.t(),
+      optional("HsmSerialNumber") => String.t()
+    }
   """
-  @spec describe_hsm(AWS.Client.t(), describe_hsm_request(), Keyword.t()) ::
+
+  @spec describe_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hsm_errors()}
-  def describe_hsm(%Client{} = client, input, options \\ []) do
+
+  def describe_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -902,12 +1002,23 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20DescribeLunaClient&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_luna_client_request`)
+    %{
+      optional("CertificateFingerprint") => String.t(),
+      optional("ClientArn") => String.t()
+    }
   """
-  @spec describe_luna_client(AWS.Client.t(), describe_luna_client_request(), Keyword.t()) ::
+
+  @spec describe_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_luna_client_errors()}
-  def describe_luna_client(%Client{} = client, input, options \\ []) do
+
+  def describe_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -926,12 +1037,24 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20GetConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_config_request`)
+    %{
+      required("ClientArn") => String.t(),
+      required("ClientVersion") => list(any()),
+      required("HapgList") => list(String.t()())
+    }
   """
-  @spec get_config(AWS.Client.t(), get_config_request(), Keyword.t()) ::
+
+  @spec get_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_config_errors()}
-  def get_config(%Client{} = client, input, options \\ []) do
+
+  def get_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -950,12 +1073,22 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ListAvailableZones&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_available_zones_request`)
+    %{
+      
+    }
   """
-  @spec list_available_zones(AWS.Client.t(), list_available_zones_request(), Keyword.t()) ::
+
+  @spec list_available_zones(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_zones_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_zones_errors()}
-  def list_available_zones(%Client{} = client, input, options \\ []) do
+
+  def list_available_zones(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -975,12 +1108,22 @@ defmodule AWS.CloudHSM do
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Lists
   the high-availability partition groups for the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ListHapgs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hapgs_request`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_hapgs(AWS.Client.t(), list_hapgs_request(), Keyword.t()) ::
+
+  @spec list_hapgs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hapgs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hapgs_errors()}
-  def list_hapgs(%Client{} = client, input, options \\ []) do
+
+  def list_hapgs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1001,12 +1144,22 @@ defmodule AWS.CloudHSM do
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   Retrieves the identifiers of all of the HSMs provisioned for the current
   customer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ListHsms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hsms_request`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_hsms(AWS.Client.t(), list_hsms_request(), Keyword.t()) ::
+
+  @spec list_hsms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hsms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hsms_errors()}
-  def list_hsms(%Client{} = client, input, options \\ []) do
+
+  def list_hsms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1026,12 +1179,22 @@ defmodule AWS.CloudHSM do
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Lists
   all of the clients.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ListLunaClients&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_luna_clients_request`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_luna_clients(AWS.Client.t(), list_luna_clients_request(), Keyword.t()) ::
+
+  @spec list_luna_clients(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_luna_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_luna_clients_errors()}
-  def list_luna_clients(%Client{} = client, input, options \\ []) do
+
+  def list_luna_clients(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1050,12 +1213,22 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1074,12 +1247,24 @@ defmodule AWS.CloudHSM do
   Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ModifyHapg&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_hapg_request`)
+    %{
+      optional("Label") => String.t(),
+      optional("PartitionSerialList") => list(String.t()()),
+      required("HapgArn") => String.t()
+    }
   """
-  @spec modify_hapg(AWS.Client.t(), modify_hapg_request(), Keyword.t()) ::
+
+  @spec modify_hapg(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_hapg_errors()}
-  def modify_hapg(%Client{} = client, input, options \\ []) do
+
+  def modify_hapg(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1099,12 +1284,27 @@ defmodule AWS.CloudHSM do
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   Modifies an HSM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ModifyHsm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_hsm_request`)
+    %{
+      optional("EniIp") => String.t(),
+      optional("ExternalId") => String.t(),
+      optional("IamRoleArn") => String.t(),
+      optional("SubnetId") => String.t(),
+      optional("SyslogIp") => String.t(),
+      required("HsmArn") => String.t()
+    }
   """
-  @spec modify_hsm(AWS.Client.t(), modify_hsm_request(), Keyword.t()) ::
+
+  @spec modify_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_hsm_errors()}
-  def modify_hsm(%Client{} = client, input, options \\ []) do
+
+  def modify_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1124,12 +1324,23 @@ defmodule AWS.CloudHSM do
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   Modifies the certificate used by the client.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20ModifyLunaClient&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_luna_client_request`)
+    %{
+      required("Certificate") => String.t(),
+      required("ClientArn") => String.t()
+    }
   """
-  @spec modify_luna_client(AWS.Client.t(), modify_luna_client_request(), Keyword.t()) ::
+
+  @spec modify_luna_client(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_luna_client_errors()}
-  def modify_luna_client(%Client{} = client, input, options \\ []) do
+
+  def modify_luna_client(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1149,16 +1360,23 @@ defmodule AWS.CloudHSM do
   CloudHSM API
   Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Removes
   one or more tags from the specified AWS CloudHSM resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsm%20RemoveTagsFromResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeyList") => list(String.t()())
+    }
   """
-  @spec remove_tags_from_resource(
-          AWS.Client.t(),
-          remove_tags_from_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-  def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -122,12 +122,25 @@ defmodule AWS.MarketplaceEntitlement do
   @doc """
   GetEntitlements retrieves entitlement values for a given product. The results
   can be filtered based on customer identifier or product dimensions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplaceentitlementservice%20GetEntitlements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_entitlements_request`)
+    %{
+      optional("Filter") => map(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ProductCode") => String.t()
+    }
   """
-  @spec get_entitlements(AWS.Client.t(), get_entitlements_request(), Keyword.t()) ::
+
+  @spec get_entitlements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_entitlements_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_entitlements_errors()}
-  def get_entitlements(%Client{} = client, input, options \\ []) do
+
+  def get_entitlements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

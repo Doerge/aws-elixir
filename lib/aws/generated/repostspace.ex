@@ -21,31 +21,31 @@ defmodule AWS.Repostspace do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_space_input() :: %{
         optional("description") => String.t(),
         optional("roleArn") => String.t(),
@@ -55,52 +55,52 @@ defmodule AWS.Repostspace do
         required("subdomain") => String.t(),
         required("tier") => list(any())
       }
-
+      
   """
   @type create_space_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_space_output() :: %{
         "spaceId" => String.t()
       }
-
+      
   """
   @type create_space_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_space_input() :: %{}
-
+      
   """
   @type delete_space_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_admin_input() :: %{}
-
+      
   """
   @type deregister_admin_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_space_input() :: %{}
-
+      
   """
   @type get_space_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_space_output() :: %{
         "arn" => String.t(),
         "clientId" => String.t(),
@@ -123,105 +123,105 @@ defmodule AWS.Repostspace do
         "vanityDomain" => String.t(),
         "vanityDomainStatus" => list(any())
       }
-
+      
   """
   @type get_space_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_spaces_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()]
       }
-
+      
   """
   @type list_spaces_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_spaces_output() :: %{
         "nextToken" => [String.t()],
         "spaces" => list(space_data()())
       }
-
+      
   """
   @type list_spaces_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_admin_input() :: %{}
-
+      
   """
   @type register_admin_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_invites_input() :: %{
         required("accessorIds") => list(String.t()()),
         required("body") => String.t(),
         required("title") => String.t()
       }
-
+      
   """
   @type send_invites_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -229,14 +229,14 @@ defmodule AWS.Repostspace do
         "resourceType" => [String.t()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       space_data() :: %{
         "arn" => String.t(),
         "configurationStatus" => list(any()),
@@ -255,99 +255,99 @@ defmodule AWS.Repostspace do
         "vanityDomain" => String.t(),
         "vanityDomainStatus" => list(any())
       }
-
+      
   """
   @type space_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
         "retryAfterSeconds" => [integer()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_space_input() :: %{
         optional("description") => String.t(),
         optional("roleArn") => String.t(),
         optional("tier") => list(any())
       }
-
+      
   """
   @type update_space_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
@@ -455,29 +455,40 @@ defmodule AWS.Repostspace do
 
   ## Optional parameters:
   """
-  @spec create_space(AWS.Client.t(), create_space_input(), Keyword.t()) ::
+
+  @spec create_space(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_space_errors()}
-  def create_space(%Client{} = client, input, options \\ []) do
+
+  def create_space(%Client{} = client, options \\ []) do
     url_path = "/spaces"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -490,17 +501,38 @@ defmodule AWS.Repostspace do
 
   ## Optional parameters:
   """
-  @spec delete_space(AWS.Client.t(), String.t(), delete_space_input(), Keyword.t()) ::
+
+  @spec delete_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_space_errors()}
-  def delete_space(%Client{} = client, space_id, input, options \\ []) do
+
+  def delete_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -509,7 +541,7 @@ defmodule AWS.Repostspace do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -524,27 +556,42 @@ defmodule AWS.Repostspace do
   ## Parameters:
   * `:admin_id` (`t:string`) The ID of the admin to remove.
   * `:space_id` (`t:string`) The ID of the private re:Post to remove the admin
-    from.
+  from.
 
   ## Optional parameters:
   """
-  @spec deregister_admin(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          deregister_admin_input(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_admin_errors()}
-  def deregister_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
+
+  def deregister_admin(%Client{} = client, admin_id, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -553,7 +600,7 @@ defmodule AWS.Repostspace do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -569,10 +616,12 @@ defmodule AWS.Repostspace do
 
   ## Optional parameters:
   """
+
   @spec get_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_space_errors()}
+
   def get_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
 
@@ -611,14 +660,16 @@ defmodule AWS.Repostspace do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of private re:Posts to include
-    in the results.
-  * `:next_token` (`t:`) The token for the next set of private re:Posts to return.
-    You receive this token from a previous ListSpaces operation.
+  in the results.
+  * `:next_token` (`t:string`) The token for the next set of private re:Posts to
+  return. You receive this token from a previous ListSpaces operation.
   """
+
   @spec list_spaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_spaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_spaces_errors()}
+
   def list_spaces(%Client{} = client, options \\ []) do
     url_path = "/spaces"
 
@@ -674,14 +725,16 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource that the tags are
-    associated with.
+  associated with.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -721,35 +774,40 @@ defmodule AWS.Repostspace do
 
   ## Optional parameters:
   """
-  @spec register_admin(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          register_admin_input(),
-          Keyword.t()
-        ) ::
+
+  @spec register_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_admin_errors()}
-  def register_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
+
+  def register_admin(%Client{} = client, admin_id, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -762,29 +820,40 @@ defmodule AWS.Repostspace do
 
   ## Optional parameters:
   """
-  @spec send_invites(AWS.Client.t(), String.t(), send_invites_input(), Keyword.t()) ::
+
+  @spec send_invites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_invites_errors()}
-  def send_invites(%Client{} = client, space_id, input, options \\ []) do
+
+  def send_invites(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/invite"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -799,33 +868,44 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource that the tag is
-    associated with.
+  associated with.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -836,26 +916,43 @@ defmodule AWS.Repostspace do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]`) The key values of the
-    tag.
+  tag.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -864,7 +961,7 @@ defmodule AWS.Repostspace do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -880,18 +977,39 @@ defmodule AWS.Repostspace do
 
   ## Optional parameters:
   """
-  @spec update_space(AWS.Client.t(), String.t(), update_space_input(), Keyword.t()) ::
+
+  @spec update_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_space_errors()}
-  def update_space(%Client{} = client, space_id, input, options \\ []) do
+
+  def update_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

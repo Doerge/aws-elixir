@@ -3495,16 +3495,24 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Adds tags to on-premises instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20AddTagsToOnPremisesInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_on_premises_instances_input`)
+    %{
+      required("instanceNames") => list(String.t()()),
+      required("tags") => list(tag()())
+    }
   """
-  @spec add_tags_to_on_premises_instances(
-          AWS.Client.t(),
-          add_tags_to_on_premises_instances_input(),
-          Keyword.t()
-        ) ::
+
+  @spec add_tags_to_on_premises_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_on_premises_instances_errors()}
-  def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3514,16 +3522,24 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about one or more application revisions. The maximum number of
   application revisions that can be returned is 25.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20BatchGetApplicationRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_application_revisions_input`)
+    %{
+      required("applicationName") => String.t(),
+      required("revisions") => list(revision_location()())
+    }
   """
-  @spec batch_get_application_revisions(
-          AWS.Client.t(),
-          batch_get_application_revisions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_application_revisions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_application_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_application_revisions_errors()}
-  def batch_get_application_revisions(%Client{} = client, input, options \\ []) do
+
+  def batch_get_application_revisions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3533,12 +3549,22 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about one or more applications. The maximum number of
   applications that can be returned is 100.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20BatchGetApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_applications_input`)
+    %{
+      required("applicationNames") => list(String.t()())
+    }
   """
-  @spec batch_get_applications(AWS.Client.t(), batch_get_applications_input(), Keyword.t()) ::
+
+  @spec batch_get_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_applications_errors()}
-  def batch_get_applications(%Client{} = client, input, options \\ []) do
+
+  def batch_get_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3547,16 +3573,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about one or more deployment groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20BatchGetDeploymentGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_deployment_groups_input`)
+    %{
+      required("applicationName") => String.t(),
+      required("deploymentGroupNames") => list(String.t()())
+    }
   """
-  @spec batch_get_deployment_groups(
-          AWS.Client.t(),
-          batch_get_deployment_groups_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_deployment_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_deployment_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployment_groups_errors()}
-  def batch_get_deployment_groups(%Client{} = client, input, options \\ []) do
+
+  def batch_get_deployment_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3565,16 +3598,24 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   This method works, but is deprecated. Use `BatchGetDeploymentTargets` instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20BatchGetDeploymentInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_deployment_instances_input`)
+    %{
+      required("deploymentId") => String.t(),
+      required("instanceIds") => list(String.t()())
+    }
   """
-  @spec batch_get_deployment_instances(
-          AWS.Client.t(),
-          batch_get_deployment_instances_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_deployment_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_deployment_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployment_instances_errors()}
-  def batch_get_deployment_instances(%Client{} = client, input, options \\ []) do
+
+  def batch_get_deployment_instances(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3587,16 +3628,23 @@ defmodule AWS.CodeDeploy do
   deprecated `BatchGetDeploymentInstances`. The maximum number of targets that
   can be returned is 25. The type of targets returned depends on the
   deployment's compute platform or deployment method:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20BatchGetDeploymentTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_deployment_targets_input`)
+    %{
+      required("deploymentId") => String.t(),
+      required("targetIds") => list(String.t()())
+    }
   """
-  @spec batch_get_deployment_targets(
-          AWS.Client.t(),
-          batch_get_deployment_targets_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_deployment_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployment_targets_errors()}
-  def batch_get_deployment_targets(%Client{} = client, input, options \\ []) do
+
+  def batch_get_deployment_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3606,12 +3654,22 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about one or more deployments. The maximum number of
   deployments that can be returned is 25.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20BatchGetDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_deployments_input`)
+    %{
+      required("deploymentIds") => list(String.t()())
+    }
   """
-  @spec batch_get_deployments(AWS.Client.t(), batch_get_deployments_input(), Keyword.t()) ::
+
+  @spec batch_get_deployments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_deployments_errors()}
-  def batch_get_deployments(%Client{} = client, input, options \\ []) do
+
+  def batch_get_deployments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3621,16 +3679,23 @@ defmodule AWS.CodeDeploy do
   @doc """
   Gets information about one or more on-premises instances. The maximum number of
   on-premises instances that can be returned is 25.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20BatchGetOnPremisesInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_on_premises_instances_input`)
+    %{
+      required("instanceNames") => list(String.t()())
+    }
   """
-  @spec batch_get_on_premises_instances(
-          AWS.Client.t(),
-          batch_get_on_premises_instances_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_on_premises_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_on_premises_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_on_premises_instances_errors()}
-  def batch_get_on_premises_instances(%Client{} = client, input, options \\ []) do
+
+  def batch_get_on_premises_instances(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3644,12 +3709,23 @@ defmodule AWS.CodeDeploy do
   rerouting, which is achieved by registering instances in the replacement
   environment with the load balancer, can start as soon as all instances have a
   status of Ready.)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ContinueDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:continue_deployment_input`)
+    %{
+      optional("deploymentId") => String.t(),
+      optional("deploymentWaitType") => list(any())
+    }
   """
-  @spec continue_deployment(AWS.Client.t(), continue_deployment_input(), Keyword.t()) ::
+
+  @spec continue_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, continue_deployment_errors()}
-  def continue_deployment(%Client{} = client, input, options \\ []) do
+
+  def continue_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3658,12 +3734,24 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Creates an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_application_input`)
+    %{
+      optional("computePlatform") => list(any()),
+      optional("tags") => list(tag()()),
+      required("applicationName") => String.t()
+    }
   """
-  @spec create_application(AWS.Client.t(), create_application_input(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3672,12 +3760,32 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Deploys an application revision through the specified deployment group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20CreateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_deployment_input`)
+    %{
+      optional("autoRollbackConfiguration") => auto_rollback_configuration(),
+      optional("deploymentConfigName") => String.t(),
+      optional("deploymentGroupName") => String.t(),
+      optional("description") => String.t(),
+      optional("fileExistsBehavior") => list(any()),
+      optional("ignoreApplicationStopFailures") => boolean(),
+      optional("overrideAlarmConfiguration") => alarm_configuration(),
+      optional("revision") => revision_location(),
+      optional("targetInstances") => target_instances(),
+      optional("updateOutdatedInstancesOnly") => boolean(),
+      required("applicationName") => String.t()
+    }
   """
-  @spec create_deployment(AWS.Client.t(), create_deployment_input(), Keyword.t()) ::
+
+  @spec create_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_errors()}
-  def create_deployment(%Client{} = client, input, options \\ []) do
+
+  def create_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3686,12 +3794,26 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Creates a deployment configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20CreateDeploymentConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_deployment_config_input`)
+    %{
+      optional("computePlatform") => list(any()),
+      optional("minimumHealthyHosts") => minimum_healthy_hosts(),
+      optional("trafficRoutingConfig") => traffic_routing_config(),
+      optional("zonalConfig") => zonal_config(),
+      required("deploymentConfigName") => String.t()
+    }
   """
-  @spec create_deployment_config(AWS.Client.t(), create_deployment_config_input(), Keyword.t()) ::
+
+  @spec create_deployment_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_deployment_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_config_errors()}
-  def create_deployment_config(%Client{} = client, input, options \\ []) do
+
+  def create_deployment_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3700,12 +3822,40 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Creates a deployment group to which application revisions are deployed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20CreateDeploymentGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_deployment_group_input`)
+    %{
+      optional("alarmConfiguration") => alarm_configuration(),
+      optional("autoRollbackConfiguration") => auto_rollback_configuration(),
+      optional("autoScalingGroups") => list(String.t()()),
+      optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
+      optional("deploymentConfigName") => String.t(),
+      optional("deploymentStyle") => deployment_style(),
+      optional("ec2TagFilters") => list(ec2_tag_filter()()),
+      optional("ec2TagSet") => ec2_tag_set(),
+      optional("ecsServices") => list(e_c_s_service()()),
+      optional("loadBalancerInfo") => load_balancer_info(),
+      optional("onPremisesInstanceTagFilters") => list(tag_filter()()),
+      optional("onPremisesTagSet") => on_premises_tag_set(),
+      optional("outdatedInstancesStrategy") => list(any()),
+      optional("tags") => list(tag()()),
+      optional("terminationHookEnabled") => boolean(),
+      optional("triggerConfigurations") => list(trigger_config()()),
+      required("applicationName") => String.t(),
+      required("deploymentGroupName") => String.t(),
+      required("serviceRoleArn") => String.t()
+    }
   """
-  @spec create_deployment_group(AWS.Client.t(), create_deployment_group_input(), Keyword.t()) ::
+
+  @spec create_deployment_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_group_errors()}
-  def create_deployment_group(%Client{} = client, input, options \\ []) do
+
+  def create_deployment_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3714,12 +3864,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Deletes an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_input`)
+    %{
+      required("applicationName") => String.t()
+    }
   """
-  @spec delete_application(AWS.Client.t(), delete_application_input(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, input, options \\ []) do
+
+  def delete_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3728,12 +3888,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Deletes a deployment configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20DeleteDeploymentConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_deployment_config_input`)
+    %{
+      required("deploymentConfigName") => String.t()
+    }
   """
-  @spec delete_deployment_config(AWS.Client.t(), delete_deployment_config_input(), Keyword.t()) ::
+
+  @spec delete_deployment_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_config_errors()}
-  def delete_deployment_config(%Client{} = client, input, options \\ []) do
+
+  def delete_deployment_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3742,12 +3912,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Deletes a deployment group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20DeleteDeploymentGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_deployment_group_input`)
+    %{
+      required("applicationName") => String.t(),
+      required("deploymentGroupName") => String.t()
+    }
   """
-  @spec delete_deployment_group(AWS.Client.t(), delete_deployment_group_input(), Keyword.t()) ::
+
+  @spec delete_deployment_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_group_errors()}
-  def delete_deployment_group(%Client{} = client, input, options \\ []) do
+
+  def delete_deployment_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3756,16 +3937,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Deletes a GitHub account connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20DeleteGitHubAccountToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_git_hub_account_token_input`)
+    %{
+      optional("tokenName") => String.t()
+    }
   """
-  @spec delete_git_hub_account_token(
-          AWS.Client.t(),
-          delete_git_hub_account_token_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_git_hub_account_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_git_hub_account_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_git_hub_account_token_errors()}
-  def delete_git_hub_account_token(%Client{} = client, input, options \\ []) do
+
+  def delete_git_hub_account_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3775,15 +3962,22 @@ defmodule AWS.CodeDeploy do
   @doc """
   Deletes resources linked to an external ID. This action only applies if you have
   configured blue/green deployments through CloudFormation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20DeleteResourcesByExternalId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resources_by_external_id_input`)
+    %{
+      optional("externalId") => String.t()
+    }
   """
-  @spec delete_resources_by_external_id(
-          AWS.Client.t(),
-          delete_resources_by_external_id_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_resources_by_external_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resources_by_external_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
+
+  def delete_resources_by_external_id(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3792,16 +3986,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Deregisters an on-premises instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20DeregisterOnPremisesInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_on_premises_instance_input`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec deregister_on_premises_instance(
-          AWS.Client.t(),
-          deregister_on_premises_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_on_premises_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_on_premises_instance_errors()}
-  def deregister_on_premises_instance(%Client{} = client, input, options \\ []) do
+
+  def deregister_on_premises_instance(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3810,12 +4011,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_application_input`)
+    %{
+      required("applicationName") => String.t()
+    }
   """
-  @spec get_application(AWS.Client.t(), get_application_input(), Keyword.t()) ::
+
+  @spec get_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
-  def get_application(%Client{} = client, input, options \\ []) do
+
+  def get_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3824,12 +4035,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about an application revision.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetApplicationRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_application_revision_input`)
+    %{
+      required("applicationName") => String.t(),
+      required("revision") => revision_location()
+    }
   """
-  @spec get_application_revision(AWS.Client.t(), get_application_revision_input(), Keyword.t()) ::
+
+  @spec get_application_revision(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_application_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_revision_errors()}
-  def get_application_revision(%Client{} = client, input, options \\ []) do
+
+  def get_application_revision(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3838,12 +4060,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about a deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_deployment_input`)
+    %{
+      required("deploymentId") => String.t()
+    }
   """
-  @spec get_deployment(AWS.Client.t(), get_deployment_input(), Keyword.t()) ::
+
+  @spec get_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
-  def get_deployment(%Client{} = client, input, options \\ []) do
+
+  def get_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3852,12 +4084,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about a deployment configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetDeploymentConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_deployment_config_input`)
+    %{
+      required("deploymentConfigName") => String.t()
+    }
   """
-  @spec get_deployment_config(AWS.Client.t(), get_deployment_config_input(), Keyword.t()) ::
+
+  @spec get_deployment_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_deployment_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_config_errors()}
-  def get_deployment_config(%Client{} = client, input, options \\ []) do
+
+  def get_deployment_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3866,12 +4108,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about a deployment group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetDeploymentGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_deployment_group_input`)
+    %{
+      required("applicationName") => String.t(),
+      required("deploymentGroupName") => String.t()
+    }
   """
-  @spec get_deployment_group(AWS.Client.t(), get_deployment_group_input(), Keyword.t()) ::
+
+  @spec get_deployment_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_group_errors()}
-  def get_deployment_group(%Client{} = client, input, options \\ []) do
+
+  def get_deployment_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3880,12 +4133,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about an instance as part of a deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetDeploymentInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_deployment_instance_input`)
+    %{
+      required("deploymentId") => String.t(),
+      required("instanceId") => String.t()
+    }
   """
-  @spec get_deployment_instance(AWS.Client.t(), get_deployment_instance_input(), Keyword.t()) ::
+
+  @spec get_deployment_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_deployment_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_instance_errors()}
-  def get_deployment_instance(%Client{} = client, input, options \\ []) do
+
+  def get_deployment_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3894,12 +4158,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Returns information about a deployment target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetDeploymentTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_deployment_target_input`)
+    %{
+      required("deploymentId") => String.t(),
+      required("targetId") => String.t()
+    }
   """
-  @spec get_deployment_target(AWS.Client.t(), get_deployment_target_input(), Keyword.t()) ::
+
+  @spec get_deployment_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_deployment_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_target_errors()}
-  def get_deployment_target(%Client{} = client, input, options \\ []) do
+
+  def get_deployment_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3908,12 +4183,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets information about an on-premises instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20GetOnPremisesInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_on_premises_instance_input`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec get_on_premises_instance(AWS.Client.t(), get_on_premises_instance_input(), Keyword.t()) ::
+
+  @spec get_on_premises_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_on_premises_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_on_premises_instance_errors()}
-  def get_on_premises_instance(%Client{} = client, input, options \\ []) do
+
+  def get_on_premises_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3922,16 +4207,28 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Lists information about revisions for an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListApplicationRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_application_revisions_input`)
+    %{
+      optional("deployed") => list(any()),
+      optional("nextToken") => String.t(),
+      optional("s3Bucket") => String.t(),
+      optional("s3KeyPrefix") => String.t(),
+      optional("sortBy") => list(any()),
+      optional("sortOrder") => list(any()),
+      required("applicationName") => String.t()
+    }
   """
-  @spec list_application_revisions(
-          AWS.Client.t(),
-          list_application_revisions_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_revisions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_application_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_revisions_errors()}
-  def list_application_revisions(%Client{} = client, input, options \\ []) do
+
+  def list_application_revisions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3940,12 +4237,22 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Lists the applications registered with the user or Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_applications_input`)
+    %{
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_applications(AWS.Client.t(), list_applications_input(), Keyword.t()) ::
+
+  @spec list_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, input, options \\ []) do
+
+  def list_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3955,12 +4262,22 @@ defmodule AWS.CodeDeploy do
   @doc """
   Lists the deployment configurations with the user or Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListDeploymentConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_deployment_configs_input`)
+    %{
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_deployment_configs(AWS.Client.t(), list_deployment_configs_input(), Keyword.t()) ::
+
+  @spec list_deployment_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_deployment_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_configs_errors()}
-  def list_deployment_configs(%Client{} = client, input, options \\ []) do
+
+  def list_deployment_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3970,12 +4287,23 @@ defmodule AWS.CodeDeploy do
   @doc """
   Lists the deployment groups for an application registered with the Amazon Web
   Services user or Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListDeploymentGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_deployment_groups_input`)
+    %{
+      optional("nextToken") => String.t(),
+      required("applicationName") => String.t()
+    }
   """
-  @spec list_deployment_groups(AWS.Client.t(), list_deployment_groups_input(), Keyword.t()) ::
+
+  @spec list_deployment_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_deployment_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_groups_errors()}
-  def list_deployment_groups(%Client{} = client, input, options \\ []) do
+
+  def list_deployment_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3986,12 +4314,25 @@ defmodule AWS.CodeDeploy do
   The newer `BatchGetDeploymentTargets` should be used instead because it works
   with all compute types. `ListDeploymentInstances` throws an exception if it is
   used with a compute platform other than EC2/On-premises or Lambda.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListDeploymentInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_deployment_instances_input`)
+    %{
+      optional("instanceStatusFilter") => list(list(any())()),
+      optional("instanceTypeFilter") => list(list(any())()),
+      optional("nextToken") => String.t(),
+      required("deploymentId") => String.t()
+    }
   """
-  @spec list_deployment_instances(AWS.Client.t(), list_deployment_instances_input(), Keyword.t()) ::
+
+  @spec list_deployment_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_deployment_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_instances_errors()}
-  def list_deployment_instances(%Client{} = client, input, options \\ []) do
+
+  def list_deployment_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4000,12 +4341,24 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Returns an array of target IDs that are associated a deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListDeploymentTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_deployment_targets_input`)
+    %{
+      optional("nextToken") => String.t(),
+      optional("targetFilters") => map(),
+      required("deploymentId") => String.t()
+    }
   """
-  @spec list_deployment_targets(AWS.Client.t(), list_deployment_targets_input(), Keyword.t()) ::
+
+  @spec list_deployment_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_targets_errors()}
-  def list_deployment_targets(%Client{} = client, input, options \\ []) do
+
+  def list_deployment_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4015,12 +4368,27 @@ defmodule AWS.CodeDeploy do
   @doc """
   Lists the deployments in a deployment group for an application registered with
   the user or Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_deployments_input`)
+    %{
+      optional("applicationName") => String.t(),
+      optional("createTimeRange") => time_range(),
+      optional("deploymentGroupName") => String.t(),
+      optional("externalId") => String.t(),
+      optional("includeOnlyStatuses") => list(list(any())()),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_deployments(AWS.Client.t(), list_deployments_input(), Keyword.t()) ::
+
+  @spec list_deployments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
-  def list_deployments(%Client{} = client, input, options \\ []) do
+
+  def list_deployments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4029,16 +4397,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Lists the names of stored connections to GitHub accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListGitHubAccountTokenNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_git_hub_account_token_names_input`)
+    %{
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_git_hub_account_token_names(
-          AWS.Client.t(),
-          list_git_hub_account_token_names_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_git_hub_account_token_names(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_git_hub_account_token_names_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_git_hub_account_token_names_errors()}
-  def list_git_hub_account_token_names(%Client{} = client, input, options \\ []) do
+
+  def list_git_hub_account_token_names(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4047,16 +4422,24 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Gets a list of names for one or more on-premises instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListOnPremisesInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_on_premises_instances_input`)
+    %{
+      optional("nextToken") => String.t(),
+      optional("registrationStatus") => list(any()),
+      optional("tagFilters") => list(tag_filter()())
+    }
   """
-  @spec list_on_premises_instances(
-          AWS.Client.t(),
-          list_on_premises_instances_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_on_premises_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_on_premises_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_on_premises_instances_errors()}
-  def list_on_premises_instances(%Client{} = client, input, options \\ []) do
+
+  def list_on_premises_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4067,12 +4450,23 @@ defmodule AWS.CodeDeploy do
   Returns a list of tags for the resource identified by a specified Amazon
   Resource Name (ARN). Tags are used to organize and categorize your CodeDeploy
   resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      optional("NextToken") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4091,16 +4485,25 @@ defmodule AWS.CodeDeploy do
   ](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda)
   and [AppSpec 'hooks' Section for an Amazon ECS
   Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20PutLifecycleEventHookExecutionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_lifecycle_event_hook_execution_status_input`)
+    %{
+      optional("deploymentId") => String.t(),
+      optional("lifecycleEventHookExecutionId") => String.t(),
+      optional("status") => list(any())
+    }
   """
-  @spec put_lifecycle_event_hook_execution_status(
-          AWS.Client.t(),
-          put_lifecycle_event_hook_execution_status_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_lifecycle_event_hook_execution_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_lifecycle_event_hook_execution_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lifecycle_event_hook_execution_status_errors()}
-  def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ []) do
+
+  def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4109,16 +4512,25 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Registers with CodeDeploy a revision for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20RegisterApplicationRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_application_revision_input`)
+    %{
+      optional("description") => String.t(),
+      required("applicationName") => String.t(),
+      required("revision") => revision_location()
+    }
   """
-  @spec register_application_revision(
-          AWS.Client.t(),
-          register_application_revision_input(),
-          Keyword.t()
-        ) ::
+
+  @spec register_application_revision(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_application_revision_errors()}
-  def register_application_revision(%Client{} = client, input, options \\ []) do
+
+  def register_application_revision(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4127,16 +4539,25 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Registers an on-premises instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20RegisterOnPremisesInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_on_premises_instance_input`)
+    %{
+      optional("iamSessionArn") => String.t(),
+      optional("iamUserArn") => String.t(),
+      required("instanceName") => String.t()
+    }
   """
-  @spec register_on_premises_instance(
-          AWS.Client.t(),
-          register_on_premises_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec register_on_premises_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_on_premises_instance_errors()}
-  def register_on_premises_instance(%Client{} = client, input, options \\ []) do
+
+  def register_on_premises_instance(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4145,16 +4566,24 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Removes one or more tags from one or more on-premises instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20RemoveTagsFromOnPremisesInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_on_premises_instances_input`)
+    %{
+      required("instanceNames") => list(String.t()()),
+      required("tags") => list(tag()())
+    }
   """
-  @spec remove_tags_from_on_premises_instances(
-          AWS.Client.t(),
-          remove_tags_from_on_premises_instances_input(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_tags_from_on_premises_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_on_premises_instances_errors()}
-  def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4164,16 +4593,23 @@ defmodule AWS.CodeDeploy do
   @doc """
   In a blue/green deployment, overrides any specified wait time and starts
   terminating instances immediately after the traffic routing is complete.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20SkipWaitTimeForInstanceTermination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:skip_wait_time_for_instance_termination_input`)
+    %{
+      optional("deploymentId") => String.t()
+    }
   """
-  @spec skip_wait_time_for_instance_termination(
-          AWS.Client.t(),
-          skip_wait_time_for_instance_termination_input(),
-          Keyword.t()
-        ) ::
+
+  @spec skip_wait_time_for_instance_termination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, skip_wait_time_for_instance_termination_errors()}
-  def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ []) do
+
+  def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4182,12 +4618,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Attempts to stop an ongoing deployment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20StopDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_deployment_input`)
+    %{
+      optional("autoRollbackEnabled") => boolean(),
+      required("deploymentId") => String.t()
+    }
   """
-  @spec stop_deployment(AWS.Client.t(), stop_deployment_input(), Keyword.t()) ::
+
+  @spec stop_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_deployment_errors()}
-  def stop_deployment(%Client{} = client, input, options \\ []) do
+
+  def stop_deployment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4197,12 +4644,23 @@ defmodule AWS.CodeDeploy do
   @doc """
   Associates the list of tags in the input `Tags` parameter with the resource
   identified by the `ResourceArn` input parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4213,12 +4671,23 @@ defmodule AWS.CodeDeploy do
   Disassociates a resource from a list of tags. The resource is identified by the
   `ResourceArn` input parameter. The tags are identified by the list of keys in
   the `TagKeys` input parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4227,12 +4696,23 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Changes the name of an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_application_input`)
+    %{
+      optional("applicationName") => String.t(),
+      optional("newApplicationName") => String.t()
+    }
   """
-  @spec update_application(AWS.Client.t(), update_application_input(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, input, options \\ []) do
+
+  def update_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4241,12 +4721,40 @@ defmodule AWS.CodeDeploy do
 
   @doc """
   Changes information about a deployment group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codedeploy%20UpdateDeploymentGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_deployment_group_input`)
+    %{
+      optional("alarmConfiguration") => alarm_configuration(),
+      optional("autoRollbackConfiguration") => auto_rollback_configuration(),
+      optional("autoScalingGroups") => list(String.t()()),
+      optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
+      optional("deploymentConfigName") => String.t(),
+      optional("deploymentStyle") => deployment_style(),
+      optional("ec2TagFilters") => list(ec2_tag_filter()()),
+      optional("ec2TagSet") => ec2_tag_set(),
+      optional("ecsServices") => list(e_c_s_service()()),
+      optional("loadBalancerInfo") => load_balancer_info(),
+      optional("newDeploymentGroupName") => String.t(),
+      optional("onPremisesInstanceTagFilters") => list(tag_filter()()),
+      optional("onPremisesTagSet") => on_premises_tag_set(),
+      optional("outdatedInstancesStrategy") => list(any()),
+      optional("serviceRoleArn") => String.t(),
+      optional("terminationHookEnabled") => boolean(),
+      optional("triggerConfigurations") => list(trigger_config()()),
+      required("applicationName") => String.t(),
+      required("currentDeploymentGroupName") => String.t()
+    }
   """
-  @spec update_deployment_group(AWS.Client.t(), update_deployment_group_input(), Keyword.t()) ::
+
+  @spec update_deployment_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deployment_group_errors()}
-  def update_deployment_group(%Client{} = client, input, options \\ []) do
+
+  def update_deployment_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

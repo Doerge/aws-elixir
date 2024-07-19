@@ -410,12 +410,22 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   @doc """
   Describes the status of the `StartReportCreation` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20DescribeReportCreation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_report_creation_input`)
+    %{
+      
+    }
   """
-  @spec describe_report_creation(AWS.Client.t(), describe_report_creation_input(), Keyword.t()) ::
+
+  @spec describe_report_creation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_report_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_report_creation_errors()}
-  def describe_report_creation(%Client{} = client, input, options \\ []) do
+
+  def describe_report_creation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -427,12 +437,28 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   tag policies. For more information on tag policies, see [Tag
   Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
   in the *Organizations User Guide.*
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20GetComplianceSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_compliance_summary_input`)
+    %{
+      optional("GroupBy") => list(list(any())()),
+      optional("MaxResults") => integer(),
+      optional("PaginationToken") => String.t(),
+      optional("RegionFilters") => list(String.t()()),
+      optional("ResourceTypeFilters") => list(String.t()()),
+      optional("TagKeyFilters") => list(String.t()()),
+      optional("TargetIdFilters") => list(String.t()())
+    }
   """
-  @spec get_compliance_summary(AWS.Client.t(), get_compliance_summary_input(), Keyword.t()) ::
+
+  @spec get_compliance_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_compliance_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_compliance_summary_errors()}
-  def get_compliance_summary(%Client{} = client, input, options \\ []) do
+
+  def get_compliance_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -443,12 +469,29 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   Returns all the tagged or previously tagged resources that are located in the
   specified Amazon Web Services Region for the account. Depending on what
   information you want returned, you can also specify the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20GetResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resources_input`)
+    %{
+      optional("ExcludeCompliantResources") => boolean(),
+      optional("IncludeComplianceDetails") => boolean(),
+      optional("PaginationToken") => String.t(),
+      optional("ResourceARNList") => list(String.t()()),
+      optional("ResourceTypeFilters") => list(String.t()()),
+      optional("ResourcesPerPage") => integer(),
+      optional("TagFilters") => list(tag_filter()()),
+      optional("TagsPerPage") => integer()
+    }
   """
-  @spec get_resources(AWS.Client.t(), get_resources_input(), Keyword.t()) ::
+
+  @spec get_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resources_errors()}
-  def get_resources(%Client{} = client, input, options \\ []) do
+
+  def get_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -458,12 +501,22 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @doc """
   Returns all tag keys currently in use in the specified Amazon Web Services
   Region for the calling account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20GetTagKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_tag_keys_input`)
+    %{
+      optional("PaginationToken") => String.t()
+    }
   """
-  @spec get_tag_keys(AWS.Client.t(), get_tag_keys_input(), Keyword.t()) ::
+
+  @spec get_tag_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_tag_keys_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tag_keys_errors()}
-  def get_tag_keys(%Client{} = client, input, options \\ []) do
+
+  def get_tag_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -473,12 +526,23 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @doc """
   Returns all tag values for the specified key that are used in the specified
   Amazon Web Services Region for the calling account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20GetTagValues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_tag_values_input`)
+    %{
+      optional("PaginationToken") => String.t(),
+      required("Key") => String.t()
+    }
   """
-  @spec get_tag_values(AWS.Client.t(), get_tag_values_input(), Keyword.t()) ::
+
+  @spec get_tag_values(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_tag_values_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tag_values_errors()}
-  def get_tag_values(%Client{} = client, input, options \\ []) do
+
+  def get_tag_values(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -490,12 +554,22 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   organization and tells whether each resource is compliant with the effective
   tag policy. Compliance data is refreshed daily. The report is generated
   asynchronously. The generated report is saved to the following location:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20StartReportCreation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_report_creation_input`)
+    %{
+      required("S3Bucket") => String.t()
+    }
   """
-  @spec start_report_creation(AWS.Client.t(), start_report_creation_input(), Keyword.t()) ::
+
+  @spec start_report_creation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_report_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_report_creation_errors()}
-  def start_report_creation(%Client{} = client, input, options \\ []) do
+
+  def start_report_creation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -504,12 +578,23 @@ defmodule AWS.ResourceGroupsTaggingAPI do
 
   @doc """
   Applies one or more tags to the specified resources. Note the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20TagResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resources_input`)
+    %{
+      required("ResourceARNList") => list(String.t()()),
+      required("Tags") => map()
+    }
   """
-  @spec tag_resources(AWS.Client.t(), tag_resources_input(), Keyword.t()) ::
+
+  @spec tag_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resources_errors()}
-  def tag_resources(%Client{} = client, input, options \\ []) do
+
+  def tag_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -521,12 +606,23 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   key, the action removes both that key and its associated value. The operation
   succeeds even if you attempt to remove tags from a resource that were already
   removed. Note the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroupstaggingapi%20UntagResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resources_input`)
+    %{
+      required("ResourceARNList") => list(String.t()()),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resources(AWS.Client.t(), untag_resources_input(), Keyword.t()) ::
+
+  @spec untag_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resources_errors()}
-  def untag_resources(%Client{} = client, input, options \\ []) do
+
+  def untag_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -702,16 +702,25 @@ defmodule AWS.Health do
   Organizations. To do this, call the
   [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html)
   operation from your organization's management account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeAffectedAccountsForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_affected_accounts_for_organization_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("eventArn") => String.t()
+    }
   """
-  @spec describe_affected_accounts_for_organization(
-          AWS.Client.t(),
-          describe_affected_accounts_for_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_affected_accounts_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_affected_accounts_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_affected_accounts_for_organization_errors()}
-  def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ []) do
+
+  def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -725,16 +734,25 @@ defmodule AWS.Health do
   depending on the Amazon Web Service. Events that have impact beyond that of
   the affected entities, or where the extent of impact is unknown, include at
   least one entity indicating this. At least one event ARN is required.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeAffectedEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_affected_entities_request`)
+    %{
+      optional("locale") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("filter") => entity_filter()
+    }
   """
-  @spec describe_affected_entities(
-          AWS.Client.t(),
-          describe_affected_entities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_affected_entities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_affected_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_affected_entities_errors()}
-  def describe_affected_entities(%Client{} = client, input, options \\ []) do
+
+  def describe_affected_entities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -748,16 +766,27 @@ defmodule AWS.Health do
   customer resources, or any other construct, depending on the Amazon Web
   Service. At least one event Amazon Resource Name (ARN) and account ID are
   required.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeAffectedEntitiesForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_affected_entities_for_organization_request`)
+    %{
+      optional("locale") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("organizationEntityAccountFilters") => list(entity_account_filter()()),
+      optional("organizationEntityFilters") => list(event_account_filter()())
+    }
   """
-  @spec describe_affected_entities_for_organization(
-          AWS.Client.t(),
-          describe_affected_entities_for_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_affected_entities_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_affected_entities_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_affected_entities_for_organization_errors()}
-  def describe_affected_entities_for_organization(%Client{} = client, input, options \\ []) do
+
+  def describe_affected_entities_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -767,15 +796,21 @@ defmodule AWS.Health do
   @doc """
   Returns the number of entities that are affected by each of the specified
   events.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEntityAggregates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_entity_aggregates_request`)
+    %{
+      optional("eventArns") => list(String.t()())
+    }
   """
-  @spec describe_entity_aggregates(
-          AWS.Client.t(),
-          describe_entity_aggregates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_entity_aggregates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entity_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_entity_aggregates(%Client{} = client, input, options \\ []) do
+
+  def describe_entity_aggregates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -785,15 +820,23 @@ defmodule AWS.Health do
   @doc """
   Returns a list of entity aggregates for your Organizations that are affected by
   each of the specified events.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEntityAggregatesForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_entity_aggregates_for_organization_request`)
+    %{
+      optional("awsAccountIds") => list(String.t()()),
+      required("eventArns") => list(String.t()())
+    }
   """
-  @spec describe_entity_aggregates_for_organization(
-          AWS.Client.t(),
-          describe_entity_aggregates_for_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_entity_aggregates_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entity_aggregates_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_entity_aggregates_for_organization(%Client{} = client, input, options \\ []) do
+
+  def describe_entity_aggregates_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -804,16 +847,25 @@ defmodule AWS.Health do
   Returns the number of events of each event type (issue, scheduled change, and
   account notification). If no filter is specified, the counts of all events in
   each category are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEventAggregates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_aggregates_request`)
+    %{
+      optional("filter") => event_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("aggregateField") => list(any())
+    }
   """
-  @spec describe_event_aggregates(
-          AWS.Client.t(),
-          describe_event_aggregates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_event_aggregates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_aggregates_errors()}
-  def describe_event_aggregates(%Client{} = client, input, options \\ []) do
+
+  def describe_event_aggregates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -831,12 +883,23 @@ defmodule AWS.Health do
   [DescribeAffectedEntities](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html)
   operation. If a specified event can't be retrieved, an error message is
   returned for that event.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEventDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_details_request`)
+    %{
+      optional("locale") => String.t(),
+      required("eventArns") => list(String.t()())
+    }
   """
-  @spec describe_event_details(AWS.Client.t(), describe_event_details_request(), Keyword.t()) ::
+
+  @spec describe_event_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_details_errors()}
-  def describe_event_details(%Client{} = client, input, options \\ []) do
+
+  def describe_event_details(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -858,16 +921,24 @@ defmodule AWS.Health do
   `DescribeEventDetailsForOrganization` operation, specify the
   `organizationEventDetailFilters` object in the request. Depending on the
   Health event type, note the following differences:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEventDetailsForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_details_for_organization_request`)
+    %{
+      optional("locale") => String.t(),
+      required("organizationEventDetailFilters") => list(event_account_filter()())
+    }
   """
-  @spec describe_event_details_for_organization(
-          AWS.Client.t(),
-          describe_event_details_for_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_event_details_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_details_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_details_for_organization_errors()}
-  def describe_event_details_for_organization(%Client{} = client, input, options \\ []) do
+
+  def describe_event_details_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -882,12 +953,25 @@ defmodule AWS.Health do
   [EventType](https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html)
   object. If you don't specify a filter criteria, the API operation returns all
   event types, in no particular order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEventTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_types_request`)
+    %{
+      optional("filter") => event_type_filter(),
+      optional("locale") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_event_types(AWS.Client.t(), describe_event_types_request(), Keyword.t()) ::
+
+  @spec describe_event_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_types_errors()}
-  def describe_event_types(%Client{} = client, input, options \\ []) do
+
+  def describe_event_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -904,12 +988,25 @@ defmodule AWS.Health do
   [DescribeAffectedEntities](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html)
   operations. If no filter criteria are specified, all events are returned.
   Results are sorted by `lastModifiedTime`, starting with the most recent event.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_events_request`)
+    %{
+      optional("filter") => event_filter(),
+      optional("locale") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_events(AWS.Client.t(), describe_events_request(), Keyword.t()) ::
+
+  @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_errors()}
-  def describe_events(%Client{} = client, input, options \\ []) do
+
+  def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -923,16 +1020,26 @@ defmodule AWS.Health do
   detailed description, any additional metadata that depends on the event type,
   or any affected resources. To retrieve that information, use the following
   operations:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeEventsForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_events_for_organization_request`)
+    %{
+      optional("filter") => organization_event_filter(),
+      optional("locale") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_events_for_organization(
-          AWS.Client.t(),
-          describe_events_for_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_events_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_events_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_for_organization_errors()}
-  def describe_events_for_organization(%Client{} = client, input, options \\ []) do
+
+  def describe_events_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -943,11 +1050,23 @@ defmodule AWS.Health do
   This operation provides status information on enabling or disabling Health to
   work with your organization. To call this operation, you must use the
   organization's management account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DescribeHealthServiceStatusForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec describe_health_service_status_for_organization(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec describe_health_service_status_for_organization(
+          AWS.Client.t(),
+          input :: map(),
+          Keyword.t()
+        ) ::
           {:ok, describe_health_service_status_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_health_service_status_for_organization(%Client{} = client, input, options \\ []) do
+
+  def describe_health_service_status_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -971,12 +1090,24 @@ defmodule AWS.Health do
   role. For more information, see [Deleting a Service-Linked
   Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20DisableHealthServiceAccessForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec disable_health_service_access_for_organization(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec disable_health_service_access_for_organization(
+          AWS.Client.t(),
+          input :: map(),
+          Keyword.t()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_health_service_access_for_organization_errors()}
-  def disable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
+
+  def disable_health_service_access_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -994,12 +1125,20 @@ defmodule AWS.Health do
   feature to aggregate events from all Amazon Web Services accounts in your
   organization in a centralized location. This operation also creates a
   service-linked role for the management account in the organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=health%20EnableHealthServiceAccessForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec enable_health_service_access_for_organization(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec enable_health_service_access_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_health_service_access_for_organization_errors()}
-  def enable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
+
+  def enable_health_service_access_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 

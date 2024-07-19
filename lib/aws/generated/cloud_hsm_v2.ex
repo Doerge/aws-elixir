@@ -774,12 +774,24 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Copy an CloudHSM cluster backup to a different region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20CopyBackupToRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_backup_to_region_request`)
+    %{
+      optional("TagList") => list(tag()()),
+      required("BackupId") => String.t(),
+      required("DestinationRegion") => String.t()
+    }
   """
-  @spec copy_backup_to_region(AWS.Client.t(), copy_backup_to_region_request(), Keyword.t()) ::
+
+  @spec copy_backup_to_region(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_backup_to_region_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_backup_to_region_errors()}
-  def copy_backup_to_region(%Client{} = client, input, options \\ []) do
+
+  def copy_backup_to_region(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -788,12 +800,27 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Creates a new CloudHSM cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cluster_request`)
+    %{
+      optional("BackupRetentionPolicy") => backup_retention_policy(),
+      optional("Mode") => list(any()),
+      optional("SourceBackupId") => String.t(),
+      optional("TagList") => list(tag()()),
+      required("HsmType") => String.t(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
+
+  @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-  def create_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -802,12 +829,24 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Creates a new hardware security module (HSM) in the specified CloudHSM cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20CreateHsm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hsm_request`)
+    %{
+      optional("IpAddress") => String.t(),
+      required("AvailabilityZone") => String.t(),
+      required("ClusterId") => String.t()
+    }
   """
-  @spec create_hsm(AWS.Client.t(), create_hsm_request(), Keyword.t()) ::
+
+  @spec create_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hsm_errors()}
-  def create_hsm(%Client{} = client, input, options \\ []) do
+
+  def create_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -818,12 +857,22 @@ defmodule AWS.CloudHSMV2 do
   Deletes a specified CloudHSM backup. A backup can be restored up to 7 days after
   the DeleteBackup request is made. For more information on restoring a backup,
   see `RestoreBackup`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20DeleteBackup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_backup_request`)
+    %{
+      required("BackupId") => String.t()
+    }
   """
-  @spec delete_backup(AWS.Client.t(), delete_backup_request(), Keyword.t()) ::
+
+  @spec delete_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_errors()}
-  def delete_backup(%Client{} = client, input, options \\ []) do
+
+  def delete_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -834,12 +883,22 @@ defmodule AWS.CloudHSMV2 do
   Deletes the specified CloudHSM cluster. Before you can delete a cluster, you
   must delete all HSMs in the cluster. To see if the cluster contains any HSMs,
   use `DescribeClusters`. To delete an HSM, use `DeleteHsm`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cluster_request`)
+    %{
+      required("ClusterId") => String.t()
+    }
   """
-  @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
+
+  @spec delete_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-  def delete_cluster(%Client{} = client, input, options \\ []) do
+
+  def delete_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -851,12 +910,25 @@ defmodule AWS.CloudHSMV2 do
   the IP address of the HSM's elastic network interface (ENI), or the ID of the
   HSM's ENI. You need to specify only one of these values. To find these values,
   use `DescribeClusters`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20DeleteHsm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hsm_request`)
+    %{
+      optional("EniId") => String.t(),
+      optional("EniIp") => String.t(),
+      optional("HsmId") => String.t(),
+      required("ClusterId") => String.t()
+    }
   """
-  @spec delete_hsm(AWS.Client.t(), delete_hsm_request(), Keyword.t()) ::
+
+  @spec delete_hsm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hsm_errors()}
-  def delete_hsm(%Client{} = client, input, options \\ []) do
+
+  def delete_hsm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -868,12 +940,22 @@ defmodule AWS.CloudHSMV2 do
   the resource being unshared and removed from any RAM resource shares. Deleting
   the resource policy attached to a backup will not impact any clusters created
   from that backup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_policy_request`)
+    %{
+      optional("ResourceArn") => String.t()
+    }
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -889,12 +971,26 @@ defmodule AWS.CloudHSMV2 do
   `DescribeBackups` request to get more backups. When you receive a response
   with no `NextToken` (or an empty or null value), that means there are no more
   backups to get.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20DescribeBackups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_backups_request`)
+    %{
+      optional("Filters") => map(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Shared") => boolean(),
+      optional("SortAscending") => boolean()
+    }
   """
-  @spec describe_backups(AWS.Client.t(), describe_backups_request(), Keyword.t()) ::
+
+  @spec describe_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backups_errors()}
-  def describe_backups(%Client{} = client, input, options \\ []) do
+
+  def describe_backups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -908,12 +1004,24 @@ defmodule AWS.CloudHSMV2 do
   value. Use this value in a subsequent `DescribeClusters` request to get more
   clusters. When you receive a response with no `NextToken` (or an empty or null
   value), that means there are no more clusters to get.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20DescribeClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_clusters_request`)
+    %{
+      optional("Filters") => map(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_clusters(AWS.Client.t(), describe_clusters_request(), Keyword.t()) ::
+
+  @spec describe_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_clusters_errors()}
-  def describe_clusters(%Client{} = client, input, options \\ []) do
+
+  def describe_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -922,12 +1030,22 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Retrieves the resource policy document attached to a given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_policy_request`)
+    %{
+      optional("ResourceArn") => String.t()
+    }
   """
-  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_request(), Keyword.t()) ::
+
+  @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-  def get_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -939,12 +1057,24 @@ defmodule AWS.CloudHSMV2 do
   issuing certificate authority (CA) and the CA's root certificate. Before you
   can claim a cluster, you must sign the cluster's certificate signing request
   (CSR) with your issuing CA. To get the cluster's CSR, use `DescribeClusters`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20InitializeCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:initialize_cluster_request`)
+    %{
+      required("ClusterId") => String.t(),
+      required("SignedCert") => String.t(),
+      required("TrustAnchor") => String.t()
+    }
   """
-  @spec initialize_cluster(AWS.Client.t(), initialize_cluster_request(), Keyword.t()) ::
+
+  @spec initialize_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, initialize_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initialize_cluster_errors()}
-  def initialize_cluster(%Client{} = client, input, options \\ []) do
+
+  def initialize_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -958,12 +1088,24 @@ defmodule AWS.CloudHSMV2 do
   `NextToken` value. Use this value in a subsequent `ListTags` request to get
   more tags. When you receive a response with no `NextToken` (or an empty or
   null value), that means there are no more tags to get.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
+
+  @spec list_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-  def list_tags(%Client{} = client, input, options \\ []) do
+
+  def list_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -972,12 +1114,23 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Modifies attributes for CloudHSM backup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20ModifyBackupAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_backup_attributes_request`)
+    %{
+      required("BackupId") => String.t(),
+      required("NeverExpires") => boolean()
+    }
   """
-  @spec modify_backup_attributes(AWS.Client.t(), modify_backup_attributes_request(), Keyword.t()) ::
+
+  @spec modify_backup_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_backup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_backup_attributes_errors()}
-  def modify_backup_attributes(%Client{} = client, input, options \\ []) do
+
+  def modify_backup_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -986,12 +1139,23 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Modifies CloudHSM cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20ModifyCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_cluster_request`)
+    %{
+      required("BackupRetentionPolicy") => backup_retention_policy(),
+      required("ClusterId") => String.t()
+    }
   """
-  @spec modify_cluster(AWS.Client.t(), modify_cluster_request(), Keyword.t()) ::
+
+  @spec modify_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cluster_errors()}
-  def modify_cluster(%Client{} = client, input, options \\ []) do
+
+  def modify_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1003,12 +1167,23 @@ defmodule AWS.CloudHSMV2 do
   define the IAM entity (for example, an Amazon Web Services account) that can
   manage your CloudHSM resources. The following resources support CloudHSM
   resource policies:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_policy_request`)
+    %{
+      optional("Policy") => String.t(),
+      optional("ResourceArn") => String.t()
+    }
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1018,12 +1193,22 @@ defmodule AWS.CloudHSMV2 do
   @doc """
   Restores a specified CloudHSM backup that is in the `PENDING_DELETION` state.
   For more information on deleting a backup, see `DeleteBackup`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20RestoreBackup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_backup_request`)
+    %{
+      required("BackupId") => String.t()
+    }
   """
-  @spec restore_backup(AWS.Client.t(), restore_backup_request(), Keyword.t()) ::
+
+  @spec restore_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_backup_errors()}
-  def restore_backup(%Client{} = client, input, options \\ []) do
+
+  def restore_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1032,12 +1217,23 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Adds or overwrites one or more tags for the specified CloudHSM cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("TagList") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1046,12 +1242,23 @@ defmodule AWS.CloudHSMV2 do
 
   @doc """
   Removes the specified tag or tags from the specified CloudHSM cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudhsmv2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("TagKeyList") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

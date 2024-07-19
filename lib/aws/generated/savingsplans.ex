@@ -17,57 +17,57 @@ defmodule AWS.Savingsplans do
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plans_offerings_response() :: %{
         "nextToken" => String.t(),
         "searchResults" => list(savings_plan_offering()())
       }
-
+      
   """
   @type describe_savings_plans_offerings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plan_rates_request() :: %{
         optional("filters") => list(savings_plan_rate_filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("savingsPlanId") => String.t()
       }
-
+      
   """
   @type describe_savings_plan_rates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_rate_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t()())
       }
-
+      
   """
   @type savings_plan_rate_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plans_request() :: %{
         optional("filters") => list(savings_plan_filter()()),
         optional("maxResults") => integer(),
@@ -76,34 +76,34 @@ defmodule AWS.Savingsplans do
         optional("savingsPlanIds") => list(String.t()()),
         optional("states") => list(list(any())())
       }
-
+      
   """
   @type describe_savings_plans_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_savings_plan_response() :: %{
         "savingsPlanId" => String.t()
       }
-
+      
   """
   @type create_savings_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_offering_rate() :: %{
         "operation" => String.t(),
         "productType" => list(any()),
@@ -114,26 +114,26 @@ defmodule AWS.Savingsplans do
         "unit" => list(any()),
         "usageType" => String.t()
       }
-
+      
   """
   @type savings_plan_offering_rate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_offering_rate_property() :: %{
         "name" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type savings_plan_offering_rate_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_offering() :: %{
         "currency" => list(any()),
         "description" => String.t(),
@@ -147,14 +147,14 @@ defmodule AWS.Savingsplans do
         "serviceCode" => String.t(),
         "usageType" => String.t()
       }
-
+      
   """
   @type savings_plan_offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plans_offering_rates_request() :: %{
         optional("filters") => list(savings_plan_offering_rate_filter_element()()),
         optional("maxResults") => integer(),
@@ -167,14 +167,14 @@ defmodule AWS.Savingsplans do
         optional("serviceCodes") => list(list(any())()),
         optional("usageTypes") => list(String.t()())
       }
-
+      
   """
   @type describe_savings_plans_offering_rates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_rate() :: %{
         "currency" => list(any()),
         "operation" => String.t(),
@@ -185,70 +185,70 @@ defmodule AWS.Savingsplans do
         "unit" => list(any()),
         "usageType" => String.t()
       }
-
+      
   """
   @type savings_plan_rate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_queued_savings_plan_response() :: %{}
-
+      
   """
   @type delete_queued_savings_plan_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t()())
       }
-
+      
   """
   @type savings_plan_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_offering_property() :: %{
         "name" => list(any()),
         "value" => String.t()
       }
-
+      
   """
   @type savings_plan_offering_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parent_savings_plan_offering() :: %{
         "currency" => list(any()),
         "durationSeconds" => float(),
@@ -257,48 +257,48 @@ defmodule AWS.Savingsplans do
         "planDescription" => String.t(),
         "planType" => list(any())
       }
-
+      
   """
   @type parent_savings_plan_offering() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       return_savings_plan_request() :: %{
         optional("clientToken") => String.t(),
         required("savingsPlanId") => String.t()
       }
-
+      
   """
   @type return_savings_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan() :: %{
         "commitment" => String.t(),
         "currency" => list(any()),
@@ -320,14 +320,14 @@ defmodule AWS.Savingsplans do
         "termDurationInSeconds" => float(),
         "upfrontPaymentAmount" => String.t()
       }
-
+      
   """
   @type savings_plan() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_savings_plan_request() :: %{
         optional("clientToken") => String.t(),
         optional("purchaseTime") => non_neg_integer(),
@@ -336,139 +336,139 @@ defmodule AWS.Savingsplans do
         required("commitment") => String.t(),
         required("savingsPlanOfferingId") => String.t()
       }
-
+      
   """
   @type create_savings_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plans_response() :: %{
         "nextToken" => String.t(),
         "savingsPlans" => list(savings_plan()())
       }
-
+      
   """
   @type describe_savings_plans_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plans_offering_rates_response() :: %{
         "nextToken" => String.t(),
         "searchResults" => list(savings_plan_offering_rate()())
       }
-
+      
   """
   @type describe_savings_plans_offering_rates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plan_rates_response() :: %{
         "nextToken" => String.t(),
         "savingsPlanId" => String.t(),
         "searchResults" => list(savings_plan_rate()())
       }
-
+      
   """
   @type describe_savings_plan_rates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_queued_savings_plan_request() :: %{
         required("savingsPlanId") => String.t()
       }
-
+      
   """
   @type delete_queued_savings_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_rate_property() :: %{
         "name" => list(any()),
         "value" => String.t()
       }
-
+      
   """
   @type savings_plan_rate_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       return_savings_plan_response() :: %{
         "savingsPlanId" => String.t()
       }
-
+      
   """
   @type return_savings_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_offering_filter_element() :: %{
         "name" => list(any()),
         "values" => list(String.t()())
       }
-
+      
   """
   @type savings_plan_offering_filter_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_savings_plans_offerings_request() :: %{
         optional("currencies") => list(list(any())()),
         optional("descriptions") => list(String.t()()),
@@ -484,19 +484,19 @@ defmodule AWS.Savingsplans do
         optional("serviceCodes") => list(String.t()()),
         optional("usageTypes") => list(String.t()())
       }
-
+      
   """
   @type describe_savings_plans_offerings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       savings_plan_offering_rate_filter_element() :: %{
         "name" => list(any()),
         "values" => list(String.t()())
       }
-
+      
   """
   @type savings_plan_offering_rate_filter_element() :: %{String.t() => any()}
 
@@ -566,29 +566,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec create_savings_plan(AWS.Client.t(), create_savings_plan_request(), Keyword.t()) ::
+
+  @spec create_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_savings_plan_errors()}
-  def create_savings_plan(%Client{} = client, input, options \\ []) do
+
+  def create_savings_plan(%Client{} = client, options \\ []) do
     url_path = "/CreateSavingsPlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -600,33 +611,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec delete_queued_savings_plan(
-          AWS.Client.t(),
-          delete_queued_savings_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_queued_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_queued_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queued_savings_plan_errors()}
-  def delete_queued_savings_plan(%Client{} = client, input, options \\ []) do
+
+  def delete_queued_savings_plan(%Client{} = client, options \\ []) do
     url_path = "/DeleteQueuedSavingsPlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -638,33 +656,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec describe_savings_plan_rates(
-          AWS.Client.t(),
-          describe_savings_plan_rates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_savings_plan_rates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plan_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plan_rates_errors()}
-  def describe_savings_plan_rates(%Client{} = client, input, options \\ []) do
+
+  def describe_savings_plan_rates(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlanRates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -676,29 +701,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec describe_savings_plans(AWS.Client.t(), describe_savings_plans_request(), Keyword.t()) ::
+
+  @spec describe_savings_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plans_errors()}
-  def describe_savings_plans(%Client{} = client, input, options \\ []) do
+
+  def describe_savings_plans(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlans"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -710,33 +746,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec describe_savings_plans_offering_rates(
-          AWS.Client.t(),
-          describe_savings_plans_offering_rates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_savings_plans_offering_rates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_offering_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plans_offering_rates_errors()}
-  def describe_savings_plans_offering_rates(%Client{} = client, input, options \\ []) do
+
+  def describe_savings_plans_offering_rates(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferingRates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -748,33 +791,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec describe_savings_plans_offerings(
-          AWS.Client.t(),
-          describe_savings_plans_offerings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_savings_plans_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_savings_plans_offerings_errors()}
-  def describe_savings_plans_offerings(%Client{} = client, input, options \\ []) do
+
+  def describe_savings_plans_offerings(%Client{} = client, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -786,29 +836,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/ListTagsForResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -820,29 +881,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec return_savings_plan(AWS.Client.t(), return_savings_plan_request(), Keyword.t()) ::
+
+  @spec return_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, return_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, return_savings_plan_errors()}
-  def return_savings_plan(%Client{} = client, input, options \\ []) do
+
+  def return_savings_plan(%Client{} = client, options \\ []) do
     url_path = "/ReturnSavingsPlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -854,29 +926,40 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/TagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -888,28 +971,39 @@ defmodule AWS.Savingsplans do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/UntagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

@@ -3239,12 +3239,23 @@ defmodule AWS.CloudTrail do
   trail or event data store that applies to all Amazon Web Services Regions only
   from the Region in which the trail or event data store was created (also known
   as its home Region).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20AddTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("TagsList") => list(tag()())
+    }
   """
-  @spec add_tags(AWS.Client.t(), add_tags_request(), Keyword.t()) ::
+
+  @spec add_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_errors()}
-  def add_tags(%Client{} = client, input, options \\ []) do
+
+  def add_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3257,12 +3268,23 @@ defmodule AWS.CloudTrail do
   `EventDataStore`. The ID of the query that you want to cancel is also
   required. When you run `CancelQuery`, the query status might show as
   `CANCELLED` even if the operation is not yet finished.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20CancelQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_query_request`)
+    %{
+      optional("EventDataStore") => String.t(),
+      required("QueryId") => String.t()
+    }
   """
-  @spec cancel_query(AWS.Client.t(), cancel_query_request(), Keyword.t()) ::
+
+  @spec cancel_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_query_errors()}
-  def cancel_query(%Client{} = client, input, options \\ []) do
+
+  def cancel_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3273,12 +3295,25 @@ defmodule AWS.CloudTrail do
   Creates a channel for CloudTrail to ingest events from a partner or external
   source. After you create a channel, a CloudTrail Lake event data store can log
   events from the partner or source that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20CreateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_channel_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("Destinations") => list(destination()()),
+      required("Name") => String.t(),
+      required("Source") => String.t()
+    }
   """
-  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
+
+  @spec create_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-  def create_channel(%Client{} = client, input, options \\ []) do
+
+  def create_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3287,12 +3322,31 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Creates a new event data store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20CreateEventDataStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_event_data_store_request`)
+    %{
+      optional("AdvancedEventSelectors") => list(advanced_event_selector()()),
+      optional("BillingMode") => list(any()),
+      optional("KmsKeyId") => String.t(),
+      optional("MultiRegionEnabled") => boolean(),
+      optional("OrganizationEnabled") => boolean(),
+      optional("RetentionPeriod") => integer(),
+      optional("StartIngestion") => boolean(),
+      optional("TagsList") => list(tag()()),
+      optional("TerminationProtectionEnabled") => boolean(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_event_data_store(AWS.Client.t(), create_event_data_store_request(), Keyword.t()) ::
+
+  @spec create_event_data_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_data_store_errors()}
-  def create_event_data_store(%Client{} = client, input, options \\ []) do
+
+  def create_event_data_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3302,12 +3356,33 @@ defmodule AWS.CloudTrail do
   @doc """
   Creates a trail that specifies the settings for delivery of log data to an
   Amazon S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20CreateTrail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_trail_request`)
+    %{
+      optional("CloudWatchLogsLogGroupArn") => String.t(),
+      optional("CloudWatchLogsRoleArn") => String.t(),
+      optional("EnableLogFileValidation") => boolean(),
+      optional("IncludeGlobalServiceEvents") => boolean(),
+      optional("IsMultiRegionTrail") => boolean(),
+      optional("IsOrganizationTrail") => boolean(),
+      optional("KmsKeyId") => String.t(),
+      optional("S3KeyPrefix") => String.t(),
+      optional("SnsTopicName") => String.t(),
+      optional("TagsList") => list(tag()()),
+      required("Name") => String.t(),
+      required("S3BucketName") => String.t()
+    }
   """
-  @spec create_trail(AWS.Client.t(), create_trail_request(), Keyword.t()) ::
+
+  @spec create_trail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trail_errors()}
-  def create_trail(%Client{} = client, input, options \\ []) do
+
+  def create_trail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3316,12 +3391,22 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Deletes a channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DeleteChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_channel_request`)
+    %{
+      required("Channel") => String.t()
+    }
   """
-  @spec delete_channel(AWS.Client.t(), delete_channel_request(), Keyword.t()) ::
+
+  @spec delete_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-  def delete_channel(%Client{} = client, input, options \\ []) do
+
+  def delete_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3336,12 +3421,22 @@ defmodule AWS.CloudTrail do
   `False` on the event data store and the `FederationStatus` must be `DISABLED`.
   You cannot delete an event data store if `TerminationProtectionEnabled` is
   `True` or the `FederationStatus` is `ENABLED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DeleteEventDataStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_event_data_store_request`)
+    %{
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec delete_event_data_store(AWS.Client.t(), delete_event_data_store_request(), Keyword.t()) ::
+
+  @spec delete_event_data_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_data_store_errors()}
-  def delete_event_data_store(%Client{} = client, input, options \\ []) do
+
+  def delete_event_data_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3350,12 +3445,22 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Deletes the resource-based policy attached to the CloudTrail channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3367,12 +3472,22 @@ defmodule AWS.CloudTrail do
   trail was created. `DeleteTrail` cannot be called on the shadow trails
   (replicated trails in other Regions) of a trail that is enabled in all
   Regions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DeleteTrail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_trail_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_trail(AWS.Client.t(), delete_trail_request(), Keyword.t()) ::
+
+  @spec delete_trail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trail_errors()}
-  def delete_trail(%Client{} = client, input, options \\ []) do
+
+  def delete_trail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3382,16 +3497,23 @@ defmodule AWS.CloudTrail do
   @doc """
   Removes CloudTrail delegated administrator permissions from a member account in
   an organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DeregisterOrganizationDelegatedAdmin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_organization_delegated_admin_request`)
+    %{
+      required("DelegatedAdminAccountId") => String.t()
+    }
   """
-  @spec deregister_organization_delegated_admin(
-          AWS.Client.t(),
-          deregister_organization_delegated_admin_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_organization_delegated_admin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_organization_delegated_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_organization_delegated_admin_errors()}
-  def deregister_organization_delegated_admin(%Client{} = client, input, options \\ []) do
+
+  def deregister_organization_delegated_admin(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3403,12 +3525,24 @@ defmodule AWS.CloudTrail do
   of events scanned and matched, and query status. If the query results were
   delivered to an S3 bucket, the response also provides the S3 URI and the
   delivery status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DescribeQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_query_request`)
+    %{
+      optional("EventDataStore") => String.t(),
+      optional("QueryAlias") => String.t(),
+      optional("QueryId") => String.t()
+    }
   """
-  @spec describe_query(AWS.Client.t(), describe_query_request(), Keyword.t()) ::
+
+  @spec describe_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_query_errors()}
-  def describe_query(%Client{} = client, input, options \\ []) do
+
+  def describe_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3418,12 +3552,23 @@ defmodule AWS.CloudTrail do
   @doc """
   Retrieves settings for one or more trails associated with the current Region for
   your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DescribeTrails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trails_request`)
+    %{
+      optional("includeShadowTrails") => boolean(),
+      optional("trailNameList") => list(String.t()())
+    }
   """
-  @spec describe_trails(AWS.Client.t(), describe_trails_request(), Keyword.t()) ::
+
+  @spec describe_trails(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trails_errors()}
-  def describe_trails(%Client{} = client, input, options \\ []) do
+
+  def describe_trails(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3435,12 +3580,22 @@ defmodule AWS.CloudTrail do
   disable federation, CloudTrail disables the integration with Glue, Lake
   Formation, and Amazon Athena. After disabling Lake query federation, you can
   no longer query your event data in Amazon Athena.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20DisableFederation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_federation_request`)
+    %{
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec disable_federation(AWS.Client.t(), disable_federation_request(), Keyword.t()) ::
+
+  @spec disable_federation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_federation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_federation_errors()}
-  def disable_federation(%Client{} = client, input, options \\ []) do
+
+  def disable_federation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3463,12 +3618,23 @@ defmodule AWS.CloudTrail do
   Formation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation-lake-formation.html),
   the service responsible for allowing fine-grained access control of the
   federated resources in the Glue Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20EnableFederation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_federation_request`)
+    %{
+      required("EventDataStore") => String.t(),
+      required("FederationRoleArn") => String.t()
+    }
   """
-  @spec enable_federation(AWS.Client.t(), enable_federation_request(), Keyword.t()) ::
+
+  @spec enable_federation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_federation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_federation_errors()}
-  def enable_federation(%Client{} = client, input, options \\ []) do
+
+  def enable_federation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3477,12 +3643,22 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Returns information about a specific channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_channel_request`)
+    %{
+      required("Channel") => String.t()
+    }
   """
-  @spec get_channel(AWS.Client.t(), get_channel_request(), Keyword.t()) ::
+
+  @spec get_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_errors()}
-  def get_channel(%Client{} = client, input, options \\ []) do
+
+  def get_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3492,12 +3668,22 @@ defmodule AWS.CloudTrail do
   @doc """
   Returns information about an event data store specified as either an ARN or the
   ID portion of the ARN.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetEventDataStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_event_data_store_request`)
+    %{
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec get_event_data_store(AWS.Client.t(), get_event_data_store_request(), Keyword.t()) ::
+
+  @spec get_event_data_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_data_store_errors()}
-  def get_event_data_store(%Client{} = client, input, options \\ []) do
+
+  def get_event_data_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3508,12 +3694,22 @@ defmodule AWS.CloudTrail do
   Describes the settings for the event selectors that you configured for your
   trail. The information returned for your event selectors includes the
   following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetEventSelectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_event_selectors_request`)
+    %{
+      required("TrailName") => String.t()
+    }
   """
-  @spec get_event_selectors(AWS.Client.t(), get_event_selectors_request(), Keyword.t()) ::
+
+  @spec get_event_selectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_event_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_selectors_errors()}
-  def get_event_selectors(%Client{} = client, input, options \\ []) do
+
+  def get_event_selectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3522,12 +3718,22 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Returns information about a specific import.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_import_request`)
+    %{
+      required("ImportId") => String.t()
+    }
   """
-  @spec get_import(AWS.Client.t(), get_import_request(), Keyword.t()) ::
+
+  @spec get_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_errors()}
-  def get_import(%Client{} = client, input, options \\ []) do
+
+  def get_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3544,12 +3750,23 @@ defmodule AWS.CloudTrail do
   `EventDataStore` parameter to get Insights event selectors for an event data
   store, or the `TrailName` parameter to the get Insights event selectors for a
   trail. You cannot specify these parameters together.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetInsightSelectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_insight_selectors_request`)
+    %{
+      optional("EventDataStore") => String.t(),
+      optional("TrailName") => String.t()
+    }
   """
-  @spec get_insight_selectors(AWS.Client.t(), get_insight_selectors_request(), Keyword.t()) ::
+
+  @spec get_insight_selectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_insight_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_insight_selectors_errors()}
-  def get_insight_selectors(%Client{} = client, input, options \\ []) do
+
+  def get_insight_selectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3559,12 +3776,25 @@ defmodule AWS.CloudTrail do
   @doc """
   Gets event data results of a query. You must specify the `QueryID` value
   returned by the `StartQuery` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetQueryResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_query_results_request`)
+    %{
+      optional("EventDataStore") => String.t(),
+      optional("MaxQueryResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("QueryId") => String.t()
+    }
   """
-  @spec get_query_results(AWS.Client.t(), get_query_results_request(), Keyword.t()) ::
+
+  @spec get_query_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_query_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_query_results_errors()}
-  def get_query_results(%Client{} = client, input, options \\ []) do
+
+  def get_query_results(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3574,12 +3804,22 @@ defmodule AWS.CloudTrail do
   @doc """
   Retrieves the JSON text of the resource-based policy document attached to the
   CloudTrail channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_request(), Keyword.t()) ::
+
+  @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-  def get_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3588,12 +3828,22 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Returns settings information for a specified trail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetTrail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_trail_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_trail(AWS.Client.t(), get_trail_request(), Keyword.t()) ::
+
+  @spec get_trail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trail_errors()}
-  def get_trail(%Client{} = client, input, options \\ []) do
+
+  def get_trail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3606,12 +3856,22 @@ defmodule AWS.CloudTrail do
   start and stop logging times for each trail. This operation returns trail
   status from a single Region. To return trail status from all Regions, you must
   call the operation on each Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20GetTrailStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_trail_status_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_trail_status(AWS.Client.t(), get_trail_status_request(), Keyword.t()) ::
+
+  @spec get_trail_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_trail_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trail_status_errors()}
-  def get_trail_status(%Client{} = client, input, options \\ []) do
+
+  def get_trail_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3620,12 +3880,23 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Lists the channels in the current account, and their source names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_channels_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_channels(AWS.Client.t(), list_channels_request(), Keyword.t()) ::
+
+  @spec list_channels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-  def list_channels(%Client{} = client, input, options \\ []) do
+
+  def list_channels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3635,12 +3906,23 @@ defmodule AWS.CloudTrail do
   @doc """
   Returns information about all event data stores in the account, in the current
   Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListEventDataStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_event_data_stores_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_event_data_stores(AWS.Client.t(), list_event_data_stores_request(), Keyword.t()) ::
+
+  @spec list_event_data_stores(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_data_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_data_stores_errors()}
-  def list_event_data_stores(%Client{} = client, input, options \\ []) do
+
+  def list_event_data_stores(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3649,12 +3931,24 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Returns a list of failures for the specified import.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListImportFailures&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_import_failures_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ImportId") => String.t()
+    }
   """
-  @spec list_import_failures(AWS.Client.t(), list_import_failures_request(), Keyword.t()) ::
+
+  @spec list_import_failures(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_import_failures_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_failures_errors()}
-  def list_import_failures(%Client{} = client, input, options \\ []) do
+
+  def list_import_failures(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3664,12 +3958,25 @@ defmodule AWS.CloudTrail do
   @doc """
   Returns information on all imports, or a select set of imports by `ImportStatus`
   or `Destination`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListImports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_imports_request`)
+    %{
+      optional("Destination") => String.t(),
+      optional("ImportStatus") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_imports(AWS.Client.t(), list_imports_request(), Keyword.t()) ::
+
+  @spec list_imports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_imports_errors()}
-  def list_imports(%Client{} = client, input, options \\ []) do
+
+  def list_imports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3681,16 +3988,31 @@ defmodule AWS.CloudTrail do
   must include the `EventSource`, `EventName`, and `InsightType` parameters. If
   the `InsightType` is set to `ApiErrorRateInsight`, the request must also
   include the `ErrorCode` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListInsightsMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_insights_metric_data_request`)
+    %{
+      optional("DataType") => list(any()),
+      optional("EndTime") => non_neg_integer(),
+      optional("ErrorCode") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Period") => integer(),
+      optional("StartTime") => non_neg_integer(),
+      required("EventName") => String.t(),
+      required("EventSource") => String.t(),
+      required("InsightType") => list(any())
+    }
   """
-  @spec list_insights_metric_data(
-          AWS.Client.t(),
-          list_insights_metric_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_insights_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_insights_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_insights_metric_data_errors()}
-  def list_insights_metric_data(%Client{} = client, input, options \\ []) do
+
+  def list_insights_metric_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3701,12 +4023,24 @@ defmodule AWS.CloudTrail do
   Returns all public keys whose private keys were used to sign the digest files
   within the specified time range. The public key is needed to validate digest
   files that were signed with its corresponding private key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListPublicKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_public_keys_request`)
+    %{
+      optional("EndTime") => non_neg_integer(),
+      optional("NextToken") => String.t(),
+      optional("StartTime") => non_neg_integer()
+    }
   """
-  @spec list_public_keys(AWS.Client.t(), list_public_keys_request(), Keyword.t()) ::
+
+  @spec list_public_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_public_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_public_keys_errors()}
-  def list_public_keys(%Client{} = client, input, options \\ []) do
+
+  def list_public_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3720,12 +4054,27 @@ defmodule AWS.CloudTrail do
   `StartTime` and `EndTime` parameters, and a `QueryStatus` value. Valid values
   for `QueryStatus` include `QUEUED`, `RUNNING`, `FINISHED`, `FAILED`,
   `TIMED_OUT`, or `CANCELLED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListQueries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_queries_request`)
+    %{
+      optional("EndTime") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QueryStatus") => list(any()),
+      optional("StartTime") => non_neg_integer(),
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec list_queries(AWS.Client.t(), list_queries_request(), Keyword.t()) ::
+
+  @spec list_queries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queries_errors()}
-  def list_queries(%Client{} = client, input, options \\ []) do
+
+  def list_queries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3735,12 +4084,23 @@ defmodule AWS.CloudTrail do
   @doc """
   Lists the tags for the specified trails, event data stores, or channels in the
   current Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("ResourceIdList") => list(String.t()())
+    }
   """
-  @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
+
+  @spec list_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_errors()}
-  def list_tags(%Client{} = client, input, options \\ []) do
+
+  def list_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3749,12 +4109,22 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Lists trails that are in the current account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20ListTrails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_trails_request`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_trails(AWS.Client.t(), list_trails_request(), Keyword.t()) ::
+
+  @spec list_trails(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_trails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trails_errors()}
-  def list_trails(%Client{} = client, input, options \\ []) do
+
+  def list_trails(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3771,12 +4141,27 @@ defmodule AWS.CloudTrail do
   for trails that enable Insights. To view Insights events for an event data
   store, you can run queries on your Insights event data store, and you can also
   view the Lake dashboard for Insights.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20LookupEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:lookup_events_request`)
+    %{
+      optional("EndTime") => non_neg_integer(),
+      optional("EventCategory") => list(any()),
+      optional("LookupAttributes") => list(lookup_attribute()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StartTime") => non_neg_integer()
+    }
   """
-  @spec lookup_events(AWS.Client.t(), lookup_events_request(), Keyword.t()) ::
+
+  @spec lookup_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, lookup_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, lookup_events_errors()}
-  def lookup_events(%Client{} = client, input, options \\ []) do
+
+  def lookup_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3798,12 +4183,24 @@ defmodule AWS.CloudTrail do
   if the event matches any event selector, the trail processes and logs the
   event. If the event doesn't match any event selector, the trail doesn't log
   the event. Example
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20PutEventSelectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_event_selectors_request`)
+    %{
+      optional("AdvancedEventSelectors") => list(advanced_event_selector()()),
+      optional("EventSelectors") => list(event_selector()()),
+      required("TrailName") => String.t()
+    }
   """
-  @spec put_event_selectors(AWS.Client.t(), put_event_selectors_request(), Keyword.t()) ::
+
+  @spec put_event_selectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_event_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_event_selectors_errors()}
-  def put_event_selectors(%Client{} = client, input, options \\ []) do
+
+  def put_event_selectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3823,12 +4220,25 @@ defmodule AWS.CloudTrail do
   events based upon the management event activity of the source event data
   store. The source and destination event data stores must belong to the same
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20PutInsightSelectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_insight_selectors_request`)
+    %{
+      optional("EventDataStore") => String.t(),
+      optional("InsightsDestination") => String.t(),
+      optional("TrailName") => String.t(),
+      required("InsightSelectors") => list(insight_selector()())
+    }
   """
-  @spec put_insight_selectors(AWS.Client.t(), put_insight_selectors_request(), Keyword.t()) ::
+
+  @spec put_insight_selectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_insight_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_insight_selectors_errors()}
-  def put_insight_selectors(%Client{} = client, input, options \\ []) do
+
+  def put_insight_selectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3842,12 +4252,23 @@ defmodule AWS.CloudTrail do
   policy
   examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html)
   in the *CloudTrail User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_policy_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("ResourcePolicy") => String.t()
+    }
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3857,16 +4278,23 @@ defmodule AWS.CloudTrail do
   @doc """
   Registers an organization’s member account as the CloudTrail [delegated
   administrator](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-delegated-administrator.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20RegisterOrganizationDelegatedAdmin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_organization_delegated_admin_request`)
+    %{
+      required("MemberAccountId") => String.t()
+    }
   """
-  @spec register_organization_delegated_admin(
-          AWS.Client.t(),
-          register_organization_delegated_admin_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_organization_delegated_admin(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_organization_delegated_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_organization_delegated_admin_errors()}
-  def register_organization_delegated_admin(%Client{} = client, input, options \\ []) do
+
+  def register_organization_delegated_admin(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3875,12 +4303,23 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Removes the specified tags from a trail, event data store, or channel.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20RemoveTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("TagsList") => list(tag()())
+    }
   """
-  @spec remove_tags(AWS.Client.t(), remove_tags_request(), Keyword.t()) ::
+
+  @spec remove_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_errors()}
-  def remove_tags(%Client{} = client, input, options \\ []) do
+
+  def remove_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3892,12 +4331,22 @@ defmodule AWS.CloudTrail do
   an event data store ARN. You can only restore a deleted event data store
   within the seven-day wait period after deletion. Restoring an event data store
   can take several minutes, depending on the size of the event data store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20RestoreEventDataStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_event_data_store_request`)
+    %{
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec restore_event_data_store(AWS.Client.t(), restore_event_data_store_request(), Keyword.t()) ::
+
+  @spec restore_event_data_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_event_data_store_errors()}
-  def restore_event_data_store(%Client{} = client, input, options \\ []) do
+
+  def restore_event_data_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3909,16 +4358,23 @@ defmodule AWS.CloudTrail do
   an ARN or the ID portion of the ARN. To start ingestion, the event data store
   `Status` must be `STOPPED_INGESTION` and the `eventCategory` must be
   `Management`, `Data`, or `ConfigurationItem`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20StartEventDataStoreIngestion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_event_data_store_ingestion_request`)
+    %{
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec start_event_data_store_ingestion(
-          AWS.Client.t(),
-          start_event_data_store_ingestion_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_event_data_store_ingestion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_event_data_store_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_event_data_store_ingestion_errors()}
-  def start_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
+
+  def start_event_data_store_ingestion(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3941,12 +4397,26 @@ defmodule AWS.CloudTrail do
   of objects and disabling ACLs for your
   bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html).
   When you retry an import, the `ImportID` parameter is required.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20StartImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_import_request`)
+    %{
+      optional("Destinations") => list(String.t()()),
+      optional("EndEventTime") => non_neg_integer(),
+      optional("ImportId") => String.t(),
+      optional("ImportSource") => import_source(),
+      optional("StartEventTime") => non_neg_integer()
+    }
   """
-  @spec start_import(AWS.Client.t(), start_import_request(), Keyword.t()) ::
+
+  @spec start_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_errors()}
-  def start_import(%Client{} = client, input, options \\ []) do
+
+  def start_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3959,12 +4429,22 @@ defmodule AWS.CloudTrail do
   called from the Region in which the trail was created. This operation cannot
   be called on the shadow trails (replicated trails in other Regions) of a trail
   that is enabled in all Regions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20StartLogging&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_logging_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec start_logging(AWS.Client.t(), start_logging_request(), Keyword.t()) ::
+
+  @spec start_logging(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_logging_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_logging_errors()}
-  def start_logging(%Client{} = client, input, options \\ []) do
+
+  def start_logging(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3975,12 +4455,25 @@ defmodule AWS.CloudTrail do
   Starts a CloudTrail Lake query. Use the `QueryStatement` parameter to provide
   your SQL query, enclosed in single quotation marks. Use the optional
   `DeliveryS3Uri` parameter to deliver the query results to an S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20StartQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_query_request`)
+    %{
+      optional("DeliveryS3Uri") => String.t(),
+      optional("QueryAlias") => String.t(),
+      optional("QueryParameters") => list(String.t()()),
+      optional("QueryStatement") => String.t()
+    }
   """
-  @spec start_query(AWS.Client.t(), start_query_request(), Keyword.t()) ::
+
+  @spec start_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_query_errors()}
-  def start_query(%Client{} = client, input, options \\ []) do
+
+  def start_query(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3992,16 +4485,23 @@ defmodule AWS.CloudTrail do
   ARN or the ID portion of the ARN. To stop ingestion, the event data store
   `Status` must be `ENABLED` and the `eventCategory` must be `Management`,
   `Data`, or `ConfigurationItem`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20StopEventDataStoreIngestion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_event_data_store_ingestion_request`)
+    %{
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec stop_event_data_store_ingestion(
-          AWS.Client.t(),
-          stop_event_data_store_ingestion_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_event_data_store_ingestion(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_event_data_store_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_event_data_store_ingestion_errors()}
-  def stop_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
+
+  def stop_event_data_store_ingestion(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4010,12 +4510,22 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Stops a specified import.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20StopImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_import_request`)
+    %{
+      required("ImportId") => String.t()
+    }
   """
-  @spec stop_import(AWS.Client.t(), stop_import_request(), Keyword.t()) ::
+
+  @spec stop_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_import_errors()}
-  def stop_import(%Client{} = client, input, options \\ []) do
+
+  def stop_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4031,12 +4541,22 @@ defmodule AWS.CloudTrail do
   `InvalidHomeRegionException` will occur. This operation cannot be called on
   the shadow trails (replicated trails in other Regions) of a trail enabled in
   all Regions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20StopLogging&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_logging_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec stop_logging(AWS.Client.t(), stop_logging_request(), Keyword.t()) ::
+
+  @spec stop_logging(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_logging_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_logging_errors()}
-  def stop_logging(%Client{} = client, input, options \\ []) do
+
+  def stop_logging(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4045,12 +4565,24 @@ defmodule AWS.CloudTrail do
 
   @doc """
   Updates a channel specified by a required channel ARN or UUID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_channel_request`)
+    %{
+      optional("Destinations") => list(destination()()),
+      optional("Name") => String.t(),
+      required("Channel") => String.t()
+    }
   """
-  @spec update_channel(AWS.Client.t(), update_channel_request(), Keyword.t()) ::
+
+  @spec update_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-  def update_channel(%Client{} = client, input, options \\ []) do
+
+  def update_channel(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4069,12 +4601,30 @@ defmodule AWS.CloudTrail do
   events in your event data store. For more information about
   `AdvancedEventSelectors`, see
   [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20UpdateEventDataStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_event_data_store_request`)
+    %{
+      optional("AdvancedEventSelectors") => list(advanced_event_selector()()),
+      optional("BillingMode") => list(any()),
+      optional("KmsKeyId") => String.t(),
+      optional("MultiRegionEnabled") => boolean(),
+      optional("Name") => String.t(),
+      optional("OrganizationEnabled") => boolean(),
+      optional("RetentionPeriod") => integer(),
+      optional("TerminationProtectionEnabled") => boolean(),
+      required("EventDataStore") => String.t()
+    }
   """
-  @spec update_event_data_store(AWS.Client.t(), update_event_data_store_request(), Keyword.t()) ::
+
+  @spec update_event_data_store(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_data_store_errors()}
-  def update_event_data_store(%Client{} = client, input, options \\ []) do
+
+  def update_event_data_store(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4089,12 +4639,32 @@ defmodule AWS.CloudTrail do
   IAM policy exists for the bucket. `UpdateTrail` must be called from the Region
   in which the trail was created; otherwise, an `InvalidHomeRegionException` is
   thrown.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudtrail%20UpdateTrail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_trail_request`)
+    %{
+      optional("CloudWatchLogsLogGroupArn") => String.t(),
+      optional("CloudWatchLogsRoleArn") => String.t(),
+      optional("EnableLogFileValidation") => boolean(),
+      optional("IncludeGlobalServiceEvents") => boolean(),
+      optional("IsMultiRegionTrail") => boolean(),
+      optional("IsOrganizationTrail") => boolean(),
+      optional("KmsKeyId") => String.t(),
+      optional("S3BucketName") => String.t(),
+      optional("S3KeyPrefix") => String.t(),
+      optional("SnsTopicName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_trail(AWS.Client.t(), update_trail_request(), Keyword.t()) ::
+
+  @spec update_trail(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trail_errors()}
-  def update_trail(%Client{} = client, input, options \\ []) do
+
+  def update_trail(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

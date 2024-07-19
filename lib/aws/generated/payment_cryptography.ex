@@ -1056,12 +1056,23 @@ defmodule AWS.PaymentCryptography do
   [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html).
   **Cross-account use**: This operation can't be used across different Amazon
   Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20CreateAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_alias_input`)
+    %{
+      optional("KeyArn") => String.t(),
+      required("AliasName") => String.t()
+    }
   """
-  @spec create_alias(AWS.Client.t(), create_alias_input(), Keyword.t()) ::
+
+  @spec create_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alias_errors()}
-  def create_alias(%Client{} = client, input, options \\ []) do
+
+  def create_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1076,12 +1087,26 @@ defmodule AWS.PaymentCryptography do
   cryptographic operations, an Amazon Web Services Payment Cryptography key
   includes metadata such as the key ARN, key usage, key origin, creation date,
   description, and key state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20CreateKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_key_input`)
+    %{
+      optional("Enabled") => [boolean()],
+      optional("KeyCheckValueAlgorithm") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Exportable") => [boolean()],
+      required("KeyAttributes") => key_attributes()
+    }
   """
-  @spec create_key(AWS.Client.t(), create_key_input(), Keyword.t()) ::
+
+  @spec create_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_errors()}
-  def create_key(%Client{} = client, input, options \\ []) do
+
+  def create_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1101,12 +1126,22 @@ defmodule AWS.PaymentCryptography do
   [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html).
   **Cross-account use:** This operation can't be used across different Amazon
   Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20DeleteAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_alias_input`)
+    %{
+      required("AliasName") => String.t()
+    }
   """
-  @spec delete_alias(AWS.Client.t(), delete_alias_input(), Keyword.t()) ::
+
+  @spec delete_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alias_errors()}
-  def delete_alias(%Client{} = client, input, options \\ []) do
+
+  def delete_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1126,12 +1161,23 @@ defmodule AWS.PaymentCryptography do
   `DeleteKeyInDays`. The default waiting period is 7 days. During the waiting
   period, the `KeyState` is `DELETE_PENDING`. After the key is deleted, the
   `KeyState` is `DELETE_COMPLETE`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20DeleteKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_key_input`)
+    %{
+      optional("DeleteKeyInDays") => [integer()],
+      required("KeyIdentifier") => String.t()
+    }
   """
-  @spec delete_key(AWS.Client.t(), delete_key_input(), Keyword.t()) ::
+
+  @spec delete_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_errors()}
-  def delete_key(%Client{} = client, input, options \\ []) do
+
+  def delete_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1146,12 +1192,24 @@ defmodule AWS.PaymentCryptography do
   mechanisms. Using this operation, you can share your Amazon Web Services
   Payment Cryptography generated keys with other service partners to perform
   cryptographic operations outside of Amazon Web Services Payment Cryptography
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20ExportKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_key_input`)
+    %{
+      optional("ExportAttributes") => export_attributes(),
+      required("ExportKeyIdentifier") => String.t(),
+      required("KeyMaterial") => list()
+    }
   """
-  @spec export_key(AWS.Client.t(), export_key_input(), Keyword.t()) ::
+
+  @spec export_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_key_errors()}
-  def export_key(%Client{} = client, input, options \\ []) do
+
+  def export_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1162,12 +1220,22 @@ defmodule AWS.PaymentCryptography do
   Gets the Amazon Web Services Payment Cryptography key associated with the alias.
   **Cross-account use:** This operation can't be used across different Amazon
   Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20GetAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_alias_input`)
+    %{
+      required("AliasName") => String.t()
+    }
   """
-  @spec get_alias(AWS.Client.t(), get_alias_input(), Keyword.t()) ::
+
+  @spec get_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_alias_errors()}
-  def get_alias(%Client{} = client, input, options \\ []) do
+
+  def get_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1179,12 +1247,22 @@ defmodule AWS.PaymentCryptography do
   including the immutable and mutable data specified when the key was created.
   **Cross-account use:** This operation can't be used across different Amazon
   Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20GetKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_key_input`)
+    %{
+      required("KeyIdentifier") => String.t()
+    }
   """
-  @spec get_key(AWS.Client.t(), get_key_input(), Keyword.t()) ::
+
+  @spec get_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_errors()}
-  def get_key(%Client{} = client, input, options \\ []) do
+
+  def get_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1201,12 +1279,23 @@ defmodule AWS.PaymentCryptography do
   The export token expires in 7 days. You can use the same export token to
   export multiple keys from your service account. **Cross-account use:** This
   operation can't be used across different Amazon Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20GetParametersForExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_parameters_for_export_input`)
+    %{
+      required("KeyMaterialType") => String.t(),
+      required("SigningKeyAlgorithm") => String.t()
+    }
   """
-  @spec get_parameters_for_export(AWS.Client.t(), get_parameters_for_export_input(), Keyword.t()) ::
+
+  @spec get_parameters_for_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_for_export_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_for_export_errors()}
-  def get_parameters_for_export(%Client{} = client, input, options \\ []) do
+
+  def get_parameters_for_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1223,12 +1312,23 @@ defmodule AWS.PaymentCryptography do
   The import token expires in 7 days. You can use the same import token to
   import multiple keys into your service account. **Cross-account use:** This
   operation can't be used across different Amazon Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20GetParametersForImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_parameters_for_import_input`)
+    %{
+      required("KeyMaterialType") => String.t(),
+      required("WrappingKeyAlgorithm") => String.t()
+    }
   """
-  @spec get_parameters_for_import(AWS.Client.t(), get_parameters_for_import_input(), Keyword.t()) ::
+
+  @spec get_parameters_for_import(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_parameters_for_import_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_parameters_for_import_errors()}
-  def get_parameters_for_import(%Client{} = client, input, options \\ []) do
+
+  def get_parameters_for_import(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1243,16 +1343,22 @@ defmodule AWS.PaymentCryptography do
   the public key certificate of the asymmetric key. You can share the public key
   certificate to allow others to encrypt messages and verify signatures outside
   of Amazon Web Services Payment Cryptography
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20GetPublicKeyCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_public_key_certificate_input`)
+    %{
+      required("KeyIdentifier") => String.t()
+    }
   """
-  @spec get_public_key_certificate(
-          AWS.Client.t(),
-          get_public_key_certificate_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_public_key_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_public_key_certificate_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_public_key_certificate_errors()}
-  def get_public_key_certificate(%Client{} = client, input, options \\ []) do
+
+  def get_public_key_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1266,12 +1372,25 @@ defmodule AWS.PaymentCryptography do
   paper-based approach with a modern electronic approach. With `ImportKey` you
   can import symmetric keys using either symmetric and asymmetric key exchange
   mechanisms.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20ImportKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_key_input`)
+    %{
+      optional("Enabled") => [boolean()],
+      optional("KeyCheckValueAlgorithm") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("KeyMaterial") => list()
+    }
   """
-  @spec import_key(AWS.Client.t(), import_key_input(), Keyword.t()) ::
+
+  @spec import_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_key_errors()}
-  def import_key(%Client{} = client, input, options \\ []) do
+
+  def import_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1291,12 +1410,23 @@ defmodule AWS.PaymentCryptography do
   NextToken (or an empty or null value), that means there are no more aliases to
   get. **Cross-account use:** This operation can't be used across different
   Amazon Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20ListAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_aliases_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_aliases(AWS.Client.t(), list_aliases_input(), Keyword.t()) ::
+
+  @spec list_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-  def list_aliases(%Client{} = client, input, options \\ []) do
+
+  def list_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1311,12 +1441,24 @@ defmodule AWS.PaymentCryptography do
   `NextToken` value. Use this value in a subsequent `ListKeys` request to get
   more keys. When you receive a response with no NextToken (or an empty or null
   value), that means there are no more keys to get.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20ListKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_keys_input`)
+    %{
+      optional("KeyState") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_keys(AWS.Client.t(), list_keys_input(), Keyword.t()) ::
+
+  @spec list_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_keys_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
-  def list_keys(%Client{} = client, input, options \\ []) do
+
+  def list_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1330,12 +1472,24 @@ defmodule AWS.PaymentCryptography do
   `NextToken` value. Use this value in a subsequent `ListTagsForResource`
   request to get more tags. When you receive a response with no NextToken (or an
   empty or null value), that means there are no more tags to get.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1349,12 +1503,22 @@ defmodule AWS.PaymentCryptography do
   date and time after which the `Key` will be deleted. After `Key` is restored,
   the `KeyState` is `CREATE_COMPLETE`, and the value for
   `deletePendingTimestamp` is removed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20RestoreKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_key_input`)
+    %{
+      required("KeyIdentifier") => String.t()
+    }
   """
-  @spec restore_key(AWS.Client.t(), restore_key_input(), Keyword.t()) ::
+
+  @spec restore_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_key_errors()}
-  def restore_key(%Client{} = client, input, options \\ []) do
+
+  def restore_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1366,12 +1530,22 @@ defmodule AWS.PaymentCryptography do
   for cryptographic operations within Amazon Web Services Payment Cryptography
   **Cross-account use:** This operation can't be used across different Amazon
   Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20StartKeyUsage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_key_usage_input`)
+    %{
+      required("KeyIdentifier") => String.t()
+    }
   """
-  @spec start_key_usage(AWS.Client.t(), start_key_usage_input(), Keyword.t()) ::
+
+  @spec start_key_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_key_usage_errors()}
-  def start_key_usage(%Client{} = client, input, options \\ []) do
+
+  def start_key_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1387,12 +1561,22 @@ defmodule AWS.PaymentCryptography do
   [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html).
   **Cross-account use:** This operation can't be used across different Amazon
   Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20StopKeyUsage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_key_usage_input`)
+    %{
+      required("KeyIdentifier") => String.t()
+    }
   """
-  @spec stop_key_usage(AWS.Client.t(), stop_key_usage_input(), Keyword.t()) ::
+
+  @spec stop_key_usage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_key_usage_errors()}
-  def stop_key_usage(%Client{} = client, input, options \\ []) do
+
+  def stop_key_usage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1403,12 +1587,23 @@ defmodule AWS.PaymentCryptography do
   Adds or edits tags on an Amazon Web Services Payment Cryptography key. Tagging
   or untagging an Amazon Web Services Payment Cryptography key can allow or deny
   permission to the key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1419,12 +1614,23 @@ defmodule AWS.PaymentCryptography do
   Deletes a tag from an Amazon Web Services Payment Cryptography key. Tagging or
   untagging an Amazon Web Services Payment Cryptography key can allow or deny
   permission to the key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1439,12 +1645,23 @@ defmodule AWS.PaymentCryptography do
   same Amazon Web Services account and Amazon Web Services Region
   **Cross-account use:** This operation can't be used across different Amazon
   Web Services accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptography%20UpdateAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_alias_input`)
+    %{
+      optional("KeyArn") => String.t(),
+      required("AliasName") => String.t()
+    }
   """
-  @spec update_alias(AWS.Client.t(), update_alias_input(), Keyword.t()) ::
+
+  @spec update_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alias_errors()}
-  def update_alias(%Client{} = client, input, options \\ []) do
+
+  def update_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -346,12 +346,29 @@ defmodule AWS.QLDBSession do
 
   @doc """
   Sends a command to an Amazon QLDB ledger.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldbsession%20SendCommand&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_command_request`)
+    %{
+      optional("AbortTransaction") => abort_transaction_request(),
+      optional("CommitTransaction") => commit_transaction_request(),
+      optional("EndSession") => end_session_request(),
+      optional("ExecuteStatement") => execute_statement_request(),
+      optional("FetchPage") => fetch_page_request(),
+      optional("SessionToken") => String.t(),
+      optional("StartSession") => start_session_request(),
+      optional("StartTransaction") => start_transaction_request()
+    }
   """
-  @spec send_command(AWS.Client.t(), send_command_request(), Keyword.t()) ::
+
+  @spec send_command(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_command_errors()}
-  def send_command(%Client{} = client, input, options \\ []) do
+
+  def send_command(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

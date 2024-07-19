@@ -13,7 +13,7 @@ defmodule AWS.PcaConnectorScep do
   @typedoc """
 
   ## Example:
-
+      
       connector() :: %{
         "Arn" => String.t(),
         "CertificateAuthorityArn" => String.t(),
@@ -26,202 +26,202 @@ defmodule AWS.PcaConnectorScep do
         "Type" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_response() :: %{
         "Connectors" => list(connector_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_challenge_response() :: %{
         "Challenge" => challenge()
       }
-
+      
   """
   @type create_challenge_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_challenge_metadata_response() :: %{
         "ChallengeMetadata" => challenge_metadata()
       }
-
+      
   """
   @type get_challenge_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_challenge_password_request() :: %{}
-
+      
   """
   @type get_challenge_password_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list([String.t()]())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_challenge_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
         required("ConnectorArn") => String.t()
       }
-
+      
   """
   @type create_challenge_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       challenge_metadata_summary() :: %{
         "Arn" => String.t(),
         "ConnectorArn" => String.t(),
         "CreatedAt" => [non_neg_integer()],
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type challenge_metadata_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => [String.t()],
         "ResourceId" => [String.t()],
         "ResourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => [String.t()],
         "ResourceId" => [String.t()],
         "ResourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t()],
         "QuotaCode" => [String.t()],
         "ResourceType" => [String.t()],
         "ServiceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       open_id_configuration() :: %{
         "Audience" => [String.t()],
         "Issuer" => [String.t()],
         "Subject" => [String.t()]
       }
-
+      
   """
   @type open_id_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_challenge_request() :: %{}
-
+      
   """
   @type delete_challenge_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_connector_response() :: %{
         "ConnectorArn" => String.t()
       }
-
+      
   """
   @type create_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       challenge() :: %{
         "Arn" => String.t(),
         "ConnectorArn" => String.t(),
@@ -229,59 +229,59 @@ defmodule AWS.PcaConnectorScep do
         "Password" => String.t(),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type challenge() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_connector_request() :: %{}
-
+      
   """
   @type get_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_connector_request() :: %{
         optional("ClientToken") => String.t(),
         optional("MobileDeviceManagement") => list(),
         optional("Tags") => map(),
         required("CertificateAuthorityArn") => String.t()
       }
-
+      
   """
   @type create_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_summary() :: %{
         "Arn" => String.t(),
         "CertificateAuthorityArn" => String.t(),
@@ -294,141 +294,141 @@ defmodule AWS.PcaConnectorScep do
         "Type" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type connector_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => [String.t()],
         "Reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_connector_response() :: %{
         "Connector" => connector()
       }
-
+      
   """
   @type get_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_challenge_metadata_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ConnectorArn") => String.t()
       }
-
+      
   """
   @type list_challenge_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_connector_request() :: %{}
-
+      
   """
   @type delete_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       challenge_metadata() :: %{
         "Arn" => String.t(),
         "ConnectorArn" => String.t(),
         "CreatedAt" => [non_neg_integer()],
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type challenge_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_challenge_metadata_request() :: %{}
-
+      
   """
   @type get_challenge_metadata_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       intune_configuration() :: %{
         "AzureApplicationId" => String.t(),
         "Domain" => String.t()
       }
-
+      
   """
   @type intune_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_challenge_metadata_response() :: %{
         "Challenges" => list(challenge_metadata_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_challenge_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_challenge_password_response() :: %{
         "Password" => String.t()
       }
-
+      
   """
   @type get_challenge_password_response() :: %{String.t() => any()}
 
@@ -553,29 +553,40 @@ defmodule AWS.PcaConnectorScep do
 
   ## Optional parameters:
   """
-  @spec create_challenge(AWS.Client.t(), create_challenge_request(), Keyword.t()) ::
+
+  @spec create_challenge(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_challenge_errors()}
-  def create_challenge(%Client{} = client, input, options \\ []) do
+
+  def create_challenge(%Client{} = client, options \\ []) do
     url_path = "/challenges"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -592,29 +603,40 @@ defmodule AWS.PcaConnectorScep do
 
   ## Optional parameters:
   """
-  @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
+
+  @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-  def create_connector(%Client{} = client, input, options \\ []) do
+
+  def create_connector(%Client{} = client, options \\ []) do
     url_path = "/connectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -625,21 +647,42 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:challenge_arn` (`t:string`) The Amazon Resource Name (ARN) of the challenge
-    password to delete.
+  password to delete.
 
   ## Optional parameters:
   """
-  @spec delete_challenge(AWS.Client.t(), String.t(), delete_challenge_request(), Keyword.t()) ::
+
+  @spec delete_challenge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_challenge_errors()}
-  def delete_challenge(%Client{} = client, challenge_arn, input, options \\ []) do
+
+  def delete_challenge(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challenges/#{AWS.Util.encode_uri(challenge_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -648,7 +691,7 @@ defmodule AWS.PcaConnectorScep do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -663,21 +706,42 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector
-    to delete.
+  to delete.
 
   ## Optional parameters:
   """
-  @spec delete_connector(AWS.Client.t(), String.t(), delete_connector_request(), Keyword.t()) ::
+
+  @spec delete_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-  def delete_connector(%Client{} = client, connector_arn, input, options \\ []) do
+
+  def delete_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -686,7 +750,7 @@ defmodule AWS.PcaConnectorScep do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -703,10 +767,12 @@ defmodule AWS.PcaConnectorScep do
 
   ## Optional parameters:
   """
+
   @spec get_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_challenge_metadata_errors()}
+
   def get_challenge_metadata(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengeMetadata/#{AWS.Util.encode_uri(challenge_arn)}"
 
@@ -746,10 +812,12 @@ defmodule AWS.PcaConnectorScep do
 
   ## Optional parameters:
   """
+
   @spec get_challenge_password(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_challenge_password_errors()}
+
   def get_challenge_password(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengePasswords/#{AWS.Util.encode_uri(challenge_arn)}"
 
@@ -791,10 +859,12 @@ defmodule AWS.PcaConnectorScep do
 
   ## Optional parameters:
   """
+
   @spec get_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_errors()}
+
   def get_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -833,20 +903,23 @@ defmodule AWS.PcaConnectorScep do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want
-    Connector for SCEP to return for this request. If more objects are
-    available, in the response, Connector for SCEP provides a NextToken value
-    that you can use in a subsequent call to get the next batch of objects.
+  Connector for SCEP to return for this request. If more objects are
+  available, in the response, Connector for SCEP provides a NextToken value
+  that you can use in a subsequent call to get the next batch of objects.
   * `:next_token` (`t:string`) When you request a list of objects with a
-    MaxResults setting, if the number of objects that are still available for
-    retrieval exceeds the maximum you requested, Connector for SCEP returns a
-    NextToken value in the response. To retrieve the next batch of objects, use
-    the token returned from the prior request in your next request.
+  MaxResults setting, if the number of objects that are still available for
+  retrieval exceeds the maximum you requested, Connector for SCEP returns a
+  NextToken value in the response. To retrieve the next batch of objects, use
+  the token returned from the prior request in your next request.
   """
+
   @spec list_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_challenge_metadata_errors()}
-  def list_challenge_metadata(%Client{} = client, connector_arn, options \\ []) do
+
+  def list_challenge_metadata(%Client{} = client, connector_arn, options \\ [])
+      when is_binary(connector_arn) do
     url_path = "/challengeMetadata"
 
     # Validate optional parameters
@@ -901,19 +974,21 @@ defmodule AWS.PcaConnectorScep do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want
-    Connector for SCEP to return for this request. If more objects are
-    available, in the response, Connector for SCEP provides a NextToken value
-    that you can use in a subsequent call to get the next batch of objects.
+  Connector for SCEP to return for this request. If more objects are
+  available, in the response, Connector for SCEP provides a NextToken value
+  that you can use in a subsequent call to get the next batch of objects.
   * `:next_token` (`t:string`) When you request a list of objects with a
-    MaxResults setting, if the number of objects that are still available for
-    retrieval exceeds the maximum you requested, Connector for SCEP returns a
-    NextToken value in the response. To retrieve the next batch of objects, use
-    the token returned from the prior request in your next request.
+  MaxResults setting, if the number of objects that are still available for
+  retrieval exceeds the maximum you requested, Connector for SCEP returns a
+  NextToken value in the response. To retrieve the next batch of objects, use
+  the token returned from the prior request in your next request.
   """
+
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
+
   def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/connectors"
 
@@ -970,14 +1045,16 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1012,33 +1089,44 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1047,28 +1135,45 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
   * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that
-    you want to remove from the specified resources.
+  you want to remove from the specified resources.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1077,7 +1182,7 @@ defmodule AWS.PcaConnectorScep do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )

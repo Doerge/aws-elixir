@@ -14,45 +14,45 @@ defmodule AWS.MediaStoreData do
   @typedoc """
 
   ## Example:
-
+      
       container_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type container_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_object_request() :: %{}
-
+      
   """
   @type delete_object_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_object_response() :: %{}
-
+      
   """
   @type delete_object_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_object_request() :: %{}
-
+      
   """
   @type describe_object_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_object_response() :: %{
         "CacheControl" => String.t(),
         "ContentLength" => float(),
@@ -60,25 +60,25 @@ defmodule AWS.MediaStoreData do
         "ETag" => String.t(),
         "LastModified" => non_neg_integer()
       }
-
+      
   """
   @type describe_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_object_request() :: %{
         optional("Range") => String.t()
       }
-
+      
   """
   @type get_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_object_response() :: %{
         "Body" => binary(),
         "CacheControl" => String.t(),
@@ -89,25 +89,25 @@ defmodule AWS.MediaStoreData do
         "LastModified" => non_neg_integer(),
         "StatusCode" => integer()
       }
-
+      
   """
   @type get_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       item() :: %{
         "ContentLength" => float(),
         "ContentType" => String.t(),
@@ -116,50 +116,50 @@ defmodule AWS.MediaStoreData do
         "Name" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_items_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Path") => String.t()
       }
-
+      
   """
   @type list_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_items_response() :: %{
         "Items" => list(item()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       object_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type object_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_object_request() :: %{
         optional("CacheControl") => String.t(),
         optional("ContentType") => String.t(),
@@ -167,31 +167,31 @@ defmodule AWS.MediaStoreData do
         optional("UploadAvailability") => list(any()),
         required("Body") => binary()
       }
-
+      
   """
   @type put_object_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_object_response() :: %{
         "ContentSHA256" => String.t(),
         "ETag" => String.t(),
         "StorageClass" => list(any())
       }
-
+      
   """
   @type put_object_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       requested_range_not_satisfiable_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type requested_range_not_satisfiable_exception() :: %{String.t() => any()}
 
@@ -234,21 +234,42 @@ defmodule AWS.MediaStoreData do
 
   ## Parameters:
   * `:path` (`t:string`) The path (including the file name) where the object is
-    stored in the container. Format: //
+  stored in the container. Format: //
 
   ## Optional parameters:
   """
-  @spec delete_object(AWS.Client.t(), String.t(), delete_object_request(), Keyword.t()) ::
+
+  @spec delete_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_object_errors()}
-  def delete_object(%Client{} = client, path, input, options \\ []) do
+
+  def delete_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -257,7 +278,7 @@ defmodule AWS.MediaStoreData do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -270,18 +291,49 @@ defmodule AWS.MediaStoreData do
 
   ## Parameters:
   * `:path` (`t:string`) The path (including the file name) where the object is
-    stored in the container. Format: //
+  stored in the container. Format: //
 
   ## Optional parameters:
   """
-  @spec describe_object(AWS.Client.t(), String.t(), describe_object_request(), Keyword.t()) ::
+
+  @spec describe_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_object_errors()}
-  def describe_object(%Client{} = client, path, input, options \\ []) do
+
+  def describe_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Cache-Control", "CacheControl"},
+          {"Content-Length", "ContentLength"},
+          {"Content-Type", "ContentType"},
+          {"ETag", "ETag"},
+          {"Last-Modified", "LastModified"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -299,17 +351,9 @@ defmodule AWS.MediaStoreData do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :head,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :head, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -321,19 +365,21 @@ defmodule AWS.MediaStoreData do
 
   ## Parameters:
   * `:path` (`t:string`) The path (including the file name) where the object is
-    stored in the container. Format: //
+  stored in the container. Format: //
 
   ## Optional parameters:
   * `:range` (`t:string`) The range bytes of an object to retrieve. For more
-    information about the Range header, see
-    http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35. AWS
-    Elemental MediaStore ignores this header for partially uploaded objects that
-    have streaming upload availability.
+  information about the Range header, see
+  http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35. AWS
+  Elemental MediaStore ignores this header for partially uploaded objects that
+  have streaming upload availability.
   """
+
   @spec get_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_object_errors()}
+
   def get_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 
@@ -403,23 +449,25 @@ defmodule AWS.MediaStoreData do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per API
-    request. For example, you submit a ListItems request with MaxResults set at
-    500. Although 2,000 items match your request, the service returns no more
-    than the first 500 items. (The service also returns a NextToken value that
-    you can use to fetch the next batch of results.) The service might return
-    fewer results than the MaxResults value.
+  request. For example, you submit a ListItems request with MaxResults set at
+  500. Although 2,000 items match your request, the service returns no more
+  than the first 500 items. (The service also returns a NextToken value that
+  you can use to fetch the next batch of results.) The service might return
+  fewer results than the MaxResults value.
   * `:next_token` (`t:string`) The token that identifies which batch of results
-    that you want to see. For example, you submit a ListItems request with
-    MaxResults set at 500. The service returns the first batch of results (up to
-    500) and a NextToken value. To see the next batch of results, you can submit
-    the ListItems request a second time and specify the NextToken value.
+  that you want to see. For example, you submit a ListItems request with
+  MaxResults set at 500. The service returns the first batch of results (up to
+  500) and a NextToken value. To see the next batch of results, you can submit
+  the ListItems request a second time and specify the NextToken value.
   * `:path` (`t:string`) The path in the container from which to retrieve items.
-    Format: //
+  Format: //
   """
+
   @spec list_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_items_errors()}
+
   def list_items(%Client{} = client, options \\ []) do
     url_path = "/"
 
@@ -481,31 +529,36 @@ defmodule AWS.MediaStoreData do
 
   ## Parameters:
   * `:path` (`t:string`) The path (including the file name) where the object is
-    stored in the container. Format: //
+  stored in the container. Format: //
+  * `:input` (`t:binary`)
+
 
   ## Optional parameters:
   * `:cache_control` (`t:string`) An optional CacheControl header that allows the
-    caller to control the object's cache behavior. Headers can be passed in as
-    specified in the HTTP at
-    https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.
+  caller to control the object's cache behavior. Headers can be passed in as
+  specified in the HTTP at
+  https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.
   * `:content_type` (`t:string`) The content type of the object.
   * `:storage_class` (`t:enum["TEMPORAL"]`) Indicates the storage class of a Put
-    request. Defaults to high-performance temporal storage class, and objects
-    are persisted into durable storage shortly after being received.
+  request. Defaults to high-performance temporal storage class, and objects
+  are persisted into durable storage shortly after being received.
   * `:upload_availability` (`t:enum["STANDARD|STREAMING"]`) Indicates the
-    availability of an object while it is still uploading. If the value is set
-    to streaming, the object is available for downloading after some initial
-    buffering but before the object is uploaded completely. If the value is set
-    to standard, the object is available for downloading only when it is
-    uploaded completely. The default value for this header is standard.
+  availability of an object while it is still uploading. If the value is set
+  to streaming, the object is available for downloading after some initial
+  buffering but before the object is uploaded completely. If the value is set
+  to standard, the object is available for downloading only when it is
+  uploaded completely. The default value for this header is standard.
   """
-  @spec put_object(AWS.Client.t(), String.t(), put_object_request(), Keyword.t()) ::
+
+  @spec put_object(AWS.Client.t(), String.t(), input :: binary(), Keyword.t()) ::
           {:ok, put_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_object_errors()}
-  def put_object(%Client{} = client, path, input, options \\ []) do
+
+  def put_object(%Client{} = client, path, input, options \\ []) when is_binary(input) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 
+    # Validate optional parameters
     optional_params = [
       cache_control: nil,
       content_type: nil,
@@ -519,16 +572,42 @@ defmodule AWS.MediaStoreData do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"CacheControl", "Cache-Control"},
-        {"ContentType", "Content-Type"},
-        {"StorageClass", "x-amz-storage-class"},
-        {"UploadAvailability", "x-amz-upload-availability"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :upload_availability) do
+        [{"x-amz-upload-availability", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :storage_class) do
+        [{"x-amz-storage-class", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :cache_control) do
+        [{"Cache-Control", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     options =
       Keyword.put(
@@ -545,6 +624,8 @@ defmodule AWS.MediaStoreData do
       options
       |> Keyword.drop([:cache_control, :content_type, :storage_class, :upload_availability])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

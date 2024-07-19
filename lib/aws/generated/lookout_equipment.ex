@@ -2289,12 +2289,26 @@ defmodule AWS.LookoutEquipment do
   actually looks like. For example, it contains the location of the data source,
   the data schema, and other information. A dataset also contains any tags
   associated with the ingested data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_request`)
+    %{
+      optional("DatasetSchema") => dataset_schema(),
+      optional("ServerSideKmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ClientToken") => String.t(),
+      required("DatasetName") => String.t()
+    }
   """
-  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
+
+  @spec create_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-  def create_dataset(%Client{} = client, input, options \\ []) do
+
+  def create_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2308,16 +2322,31 @@ defmodule AWS.LookoutEquipment do
   assign it a delimiter between separate entries in the data, set an offset
   delay if desired, and set the frequency of inferencing. You must also provide
   an S3 bucket location for the output data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20CreateInferenceScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_inference_scheduler_request`)
+    %{
+      optional("DataDelayOffsetInMinutes") => float(),
+      optional("ServerSideKmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ClientToken") => String.t(),
+      required("DataInputConfiguration") => inference_input_configuration(),
+      required("DataOutputConfiguration") => inference_output_configuration(),
+      required("DataUploadFrequency") => list(any()),
+      required("InferenceSchedulerName") => String.t(),
+      required("ModelName") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_inference_scheduler(
-          AWS.Client.t(),
-          create_inference_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_inference_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_scheduler_errors()}
-  def create_inference_scheduler(%Client{} = client, input, options \\ []) do
+
+  def create_inference_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2326,12 +2355,29 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Creates a label for an event.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20CreateLabel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_label_request`)
+    %{
+      optional("Equipment") => String.t(),
+      optional("FaultCode") => String.t(),
+      optional("Notes") => String.t(),
+      required("ClientToken") => String.t(),
+      required("EndTime") => non_neg_integer(),
+      required("LabelGroupName") => String.t(),
+      required("Rating") => list(any()),
+      required("StartTime") => non_neg_integer()
+    }
   """
-  @spec create_label(AWS.Client.t(), create_label_request(), Keyword.t()) ::
+
+  @spec create_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_label_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_label_errors()}
-  def create_label(%Client{} = client, input, options \\ []) do
+
+  def create_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2340,12 +2386,25 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Creates a group of labels.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20CreateLabelGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_label_group_request`)
+    %{
+      optional("FaultCodes") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      required("ClientToken") => String.t(),
+      required("LabelGroupName") => String.t()
+    }
   """
-  @spec create_label_group(AWS.Client.t(), create_label_group_request(), Keyword.t()) ::
+
+  @spec create_label_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_label_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_label_group_errors()}
-  def create_label_group(%Client{} = client, input, options \\ []) do
+
+  def create_label_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2359,12 +2418,36 @@ defmodule AWS.LookoutEquipment do
   detects abnormal behavior that could be potential equipment failure (or
   maintenance events). The models are made by analyzing normal data and
   abnormalities in machine behavior that have already occurred.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20CreateModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_request`)
+    %{
+      optional("DataPreProcessingConfiguration") => data_pre_processing_configuration(),
+      optional("DatasetSchema") => dataset_schema(),
+      optional("EvaluationDataEndTime") => non_neg_integer(),
+      optional("EvaluationDataStartTime") => non_neg_integer(),
+      optional("LabelsInputConfiguration") => labels_input_configuration(),
+      optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
+      optional("OffCondition") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("ServerSideKmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TrainingDataEndTime") => non_neg_integer(),
+      optional("TrainingDataStartTime") => non_neg_integer(),
+      required("ClientToken") => String.t(),
+      required("DatasetName") => String.t(),
+      required("ModelName") => String.t()
+    }
   """
-  @spec create_model(AWS.Client.t(), create_model_request(), Keyword.t()) ::
+
+  @spec create_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
-  def create_model(%Client{} = client, input, options \\ []) do
+
+  def create_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2373,16 +2456,27 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Creates a retraining scheduler on the specified model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20CreateRetrainingScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_retraining_scheduler_request`)
+    %{
+      optional("PromoteMode") => list(any()),
+      optional("RetrainingStartDate") => non_neg_integer(),
+      required("ClientToken") => String.t(),
+      required("LookbackWindow") => String.t(),
+      required("ModelName") => String.t(),
+      required("RetrainingFrequency") => String.t()
+    }
   """
-  @spec create_retraining_scheduler(
-          AWS.Client.t(),
-          create_retraining_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_retraining_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_retraining_scheduler_errors()}
-  def create_retraining_scheduler(%Client{} = client, input, options \\ []) do
+
+  def create_retraining_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2396,12 +2490,22 @@ defmodule AWS.LookoutEquipment do
   in S3 will be deleted. This does not affect any models that used this dataset
   for training and evaluation, but does prevent it from being used in the
   future.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dataset_request`)
+    %{
+      required("DatasetName") => String.t()
+    }
   """
-  @spec delete_dataset(AWS.Client.t(), delete_dataset_request(), Keyword.t()) ::
+
+  @spec delete_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-  def delete_dataset(%Client{} = client, input, options \\ []) do
+
+  def delete_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2411,16 +2515,22 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Deletes an inference scheduler that has been set up. Prior inference results
   will not be deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DeleteInferenceScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_inference_scheduler_request`)
+    %{
+      required("InferenceSchedulerName") => String.t()
+    }
   """
-  @spec delete_inference_scheduler(
-          AWS.Client.t(),
-          delete_inference_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_inference_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inference_scheduler_errors()}
-  def delete_inference_scheduler(%Client{} = client, input, options \\ []) do
+
+  def delete_inference_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2429,12 +2539,23 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Deletes a label.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DeleteLabel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_label_request`)
+    %{
+      required("LabelGroupName") => String.t(),
+      required("LabelId") => String.t()
+    }
   """
-  @spec delete_label(AWS.Client.t(), delete_label_request(), Keyword.t()) ::
+
+  @spec delete_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_label_errors()}
-  def delete_label(%Client{} = client, input, options \\ []) do
+
+  def delete_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2443,12 +2564,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Deletes a group of labels.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DeleteLabelGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_label_group_request`)
+    %{
+      required("LabelGroupName") => String.t()
+    }
   """
-  @spec delete_label_group(AWS.Client.t(), delete_label_group_request(), Keyword.t()) ::
+
+  @spec delete_label_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_label_group_errors()}
-  def delete_label_group(%Client{} = client, input, options \\ []) do
+
+  def delete_label_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2459,12 +2590,22 @@ defmodule AWS.LookoutEquipment do
   Deletes a machine learning model currently available for Amazon Lookout for
   Equipment. This will prevent it from being used with an inference scheduler,
   even one that is already set up.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DeleteModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_request`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec delete_model(AWS.Client.t(), delete_model_request(), Keyword.t()) ::
+
+  @spec delete_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_errors()}
-  def delete_model(%Client{} = client, input, options \\ []) do
+
+  def delete_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2473,12 +2614,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Deletes the resource policy attached to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2488,16 +2639,22 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Deletes a retraining scheduler from a model. The retraining scheduler must be in
   the `STOPPED` status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DeleteRetrainingScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_retraining_scheduler_request`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec delete_retraining_scheduler(
-          AWS.Client.t(),
-          delete_retraining_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_retraining_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_retraining_scheduler_errors()}
-  def delete_retraining_scheduler(%Client{} = client, input, options \\ []) do
+
+  def delete_retraining_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2507,16 +2664,22 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Provides information on a specific data ingestion job such as creation time,
   dataset ARN, and status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeDataIngestionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_data_ingestion_job_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec describe_data_ingestion_job(
-          AWS.Client.t(),
-          describe_data_ingestion_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_data_ingestion_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_ingestion_job_errors()}
-  def describe_data_ingestion_job(%Client{} = client, input, options \\ []) do
+
+  def describe_data_ingestion_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2526,12 +2689,22 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Provides a JSON description of the data in each time series dataset, including
   names, column names, and data types.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_request`)
+    %{
+      required("DatasetName") => String.t()
+    }
   """
-  @spec describe_dataset(AWS.Client.t(), describe_dataset_request(), Keyword.t()) ::
+
+  @spec describe_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-  def describe_dataset(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2541,16 +2714,22 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Specifies information about the inference scheduler being used, including name,
   model, status, and associated metadata
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeInferenceScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_inference_scheduler_request`)
+    %{
+      required("InferenceSchedulerName") => String.t()
+    }
   """
-  @spec describe_inference_scheduler(
-          AWS.Client.t(),
-          describe_inference_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_inference_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inference_scheduler_errors()}
-  def describe_inference_scheduler(%Client{} = client, input, options \\ []) do
+
+  def describe_inference_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2559,12 +2738,23 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Returns the name of the label.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeLabel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_label_request`)
+    %{
+      required("LabelGroupName") => String.t(),
+      required("LabelId") => String.t()
+    }
   """
-  @spec describe_label(AWS.Client.t(), describe_label_request(), Keyword.t()) ::
+
+  @spec describe_label(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_label_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_label_errors()}
-  def describe_label(%Client{} = client, input, options \\ []) do
+
+  def describe_label(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2573,12 +2763,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Returns information about the label group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeLabelGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_label_group_request`)
+    %{
+      required("LabelGroupName") => String.t()
+    }
   """
-  @spec describe_label_group(AWS.Client.t(), describe_label_group_request(), Keyword.t()) ::
+
+  @spec describe_label_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_label_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_label_group_errors()}
-  def describe_label_group(%Client{} = client, input, options \\ []) do
+
+  def describe_label_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2589,12 +2789,22 @@ defmodule AWS.LookoutEquipment do
   Provides a JSON containing the overall information about a specific machine
   learning model, including model name and ARN, dataset, training and evaluation
   information, status, and so on.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_request`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec describe_model(AWS.Client.t(), describe_model_request(), Keyword.t()) ::
+
+  @spec describe_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_errors()}
-  def describe_model(%Client{} = client, input, options \\ []) do
+
+  def describe_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2603,12 +2813,23 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Retrieves information about a specific machine learning model version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeModelVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_version_request`)
+    %{
+      required("ModelName") => String.t(),
+      required("ModelVersion") => float()
+    }
   """
-  @spec describe_model_version(AWS.Client.t(), describe_model_version_request(), Keyword.t()) ::
+
+  @spec describe_model_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_version_errors()}
-  def describe_model_version(%Client{} = client, input, options \\ []) do
+
+  def describe_model_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2617,12 +2838,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides the details of a resource policy attached to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_resource_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec describe_resource_policy(AWS.Client.t(), describe_resource_policy_request(), Keyword.t()) ::
+
+  @spec describe_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_policy_errors()}
-  def describe_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def describe_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2632,16 +2863,23 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Provides a description of the retraining scheduler, including information such
   as the model name and retraining parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20DescribeRetrainingScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_retraining_scheduler_request`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec describe_retraining_scheduler(
-          AWS.Client.t(),
-          describe_retraining_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_retraining_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_retraining_scheduler_errors()}
-  def describe_retraining_scheduler(%Client{} = client, input, options \\ []) do
+
+  def describe_retraining_scheduler(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2650,12 +2888,26 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Imports a dataset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ImportDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_dataset_request`)
+    %{
+      optional("DatasetName") => String.t(),
+      optional("ServerSideKmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ClientToken") => String.t(),
+      required("SourceDatasetArn") => String.t()
+    }
   """
-  @spec import_dataset(AWS.Client.t(), import_dataset_request(), Keyword.t()) ::
+
+  @spec import_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_dataset_errors()}
-  def import_dataset(%Client{} = client, input, options \\ []) do
+
+  def import_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2664,12 +2916,30 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Imports a model that has been trained successfully.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ImportModelVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_model_version_request`)
+    %{
+      optional("InferenceDataImportStrategy") => list(any()),
+      optional("LabelsInputConfiguration") => labels_input_configuration(),
+      optional("ModelName") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("ServerSideKmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ClientToken") => String.t(),
+      required("DatasetName") => String.t(),
+      required("SourceModelVersionArn") => String.t()
+    }
   """
-  @spec import_model_version(AWS.Client.t(), import_model_version_request(), Keyword.t()) ::
+
+  @spec import_model_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_model_version_errors()}
-  def import_model_version(%Client{} = client, input, options \\ []) do
+
+  def import_model_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2679,12 +2949,25 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Provides a list of all data ingestion jobs, including dataset name and ARN, S3
   location of the input data, status, and so on.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListDataIngestionJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_ingestion_jobs_request`)
+    %{
+      optional("DatasetName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_data_ingestion_jobs(AWS.Client.t(), list_data_ingestion_jobs_request(), Keyword.t()) ::
+
+  @spec list_data_ingestion_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_ingestion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_ingestion_jobs_errors()}
-  def list_data_ingestion_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_data_ingestion_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2694,12 +2977,24 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Lists all datasets currently available in your account, filtering on the dataset
   name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_datasets_request`)
+    %{
+      optional("DatasetNameBeginsWith") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_datasets(AWS.Client.t(), list_datasets_request(), Keyword.t()) ::
+
+  @spec list_datasets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-  def list_datasets(%Client{} = client, input, options \\ []) do
+
+  def list_datasets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2709,12 +3004,26 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Lists all inference events that have been found for the specified inference
   scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListInferenceEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inference_events_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("InferenceSchedulerName") => String.t(),
+      required("IntervalEndTime") => non_neg_integer(),
+      required("IntervalStartTime") => non_neg_integer()
+    }
   """
-  @spec list_inference_events(AWS.Client.t(), list_inference_events_request(), Keyword.t()) ::
+
+  @spec list_inference_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inference_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_events_errors()}
-  def list_inference_events(%Client{} = client, input, options \\ []) do
+
+  def list_inference_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2724,16 +3033,27 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Lists all inference executions that have been performed by the specified
   inference scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListInferenceExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inference_executions_request`)
+    %{
+      optional("DataEndTimeBefore") => non_neg_integer(),
+      optional("DataStartTimeAfter") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any()),
+      required("InferenceSchedulerName") => String.t()
+    }
   """
-  @spec list_inference_executions(
-          AWS.Client.t(),
-          list_inference_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_inference_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inference_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_executions_errors()}
-  def list_inference_executions(%Client{} = client, input, options \\ []) do
+
+  def list_inference_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2743,16 +3063,26 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Retrieves a list of all inference schedulers currently available for your
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListInferenceSchedulers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inference_schedulers_request`)
+    %{
+      optional("InferenceSchedulerNameBeginsWith") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("ModelName") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_inference_schedulers(
-          AWS.Client.t(),
-          list_inference_schedulers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_inference_schedulers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inference_schedulers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_schedulers_errors()}
-  def list_inference_schedulers(%Client{} = client, input, options \\ []) do
+
+  def list_inference_schedulers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2761,12 +3091,24 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Returns a list of the label groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListLabelGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_label_groups_request`)
+    %{
+      optional("LabelGroupNameBeginsWith") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_label_groups(AWS.Client.t(), list_label_groups_request(), Keyword.t()) ::
+
+  @spec list_label_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_label_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_label_groups_errors()}
-  def list_label_groups(%Client{} = client, input, options \\ []) do
+
+  def list_label_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2775,12 +3117,28 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides a list of labels.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListLabels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_labels_request`)
+    %{
+      optional("Equipment") => String.t(),
+      optional("FaultCode") => String.t(),
+      optional("IntervalEndTime") => non_neg_integer(),
+      optional("IntervalStartTime") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("LabelGroupName") => String.t()
+    }
   """
-  @spec list_labels(AWS.Client.t(), list_labels_request(), Keyword.t()) ::
+
+  @spec list_labels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_labels_errors()}
-  def list_labels(%Client{} = client, input, options \\ []) do
+
+  def list_labels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2791,12 +3149,30 @@ defmodule AWS.LookoutEquipment do
   Generates a list of all model versions for a given model, including the model
   version, model version ARN, and status. To list a subset of versions, use the
   `MaxModelVersion` and `MinModelVersion` fields.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListModelVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_versions_request`)
+    %{
+      optional("CreatedAtEndTime") => non_neg_integer(),
+      optional("CreatedAtStartTime") => non_neg_integer(),
+      optional("MaxModelVersion") => float(),
+      optional("MaxResults") => integer(),
+      optional("MinModelVersion") => float(),
+      optional("NextToken") => String.t(),
+      optional("SourceType") => list(any()),
+      optional("Status") => list(any()),
+      required("ModelName") => String.t()
+    }
   """
-  @spec list_model_versions(AWS.Client.t(), list_model_versions_request(), Keyword.t()) ::
+
+  @spec list_model_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_versions_errors()}
-  def list_model_versions(%Client{} = client, input, options \\ []) do
+
+  def list_model_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2806,12 +3182,26 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Generates a list of all models in the account, including model name and ARN,
   dataset, and status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_models_request`)
+    %{
+      optional("DatasetNameBeginsWith") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("ModelNameBeginsWith") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_models(AWS.Client.t(), list_models_request(), Keyword.t()) ::
+
+  @spec list_models(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_models_errors()}
-  def list_models(%Client{} = client, input, options \\ []) do
+
+  def list_models(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2821,16 +3211,25 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Lists all retraining schedulers in your account, filtering by model name prefix
   and status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListRetrainingSchedulers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_retraining_schedulers_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("ModelNameBeginsWith") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_retraining_schedulers(
-          AWS.Client.t(),
-          list_retraining_schedulers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_retraining_schedulers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_retraining_schedulers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_retraining_schedulers_errors()}
-  def list_retraining_schedulers(%Client{} = client, input, options \\ []) do
+
+  def list_retraining_schedulers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2841,12 +3240,25 @@ defmodule AWS.LookoutEquipment do
   Lists statistics about the data collected for each of the sensors that have been
   successfully ingested in the particular dataset. Can also be used to retreive
   Sensor Statistics for a previous ingestion job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListSensorStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_sensor_statistics_request`)
+    %{
+      optional("IngestionJobId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("DatasetName") => String.t()
+    }
   """
-  @spec list_sensor_statistics(AWS.Client.t(), list_sensor_statistics_request(), Keyword.t()) ::
+
+  @spec list_sensor_statistics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sensor_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sensor_statistics_errors()}
-  def list_sensor_statistics(%Client{} = client, input, options \\ []) do
+
+  def list_sensor_statistics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2855,12 +3267,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Lists all the tags for a specified resource, including key and value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2869,12 +3291,25 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Creates a resource control policy for a given resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_policy_request`)
+    %{
+      optional("PolicyRevisionId") => String.t(),
+      required("ClientToken") => String.t(),
+      required("ResourceArn") => String.t(),
+      required("ResourcePolicy") => String.t()
+    }
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2884,12 +3319,25 @@ defmodule AWS.LookoutEquipment do
   @doc """
   Starts a data ingestion job. Amazon Lookout for Equipment returns the job
   status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20StartDataIngestionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_data_ingestion_job_request`)
+    %{
+      required("ClientToken") => String.t(),
+      required("DatasetName") => String.t(),
+      required("IngestionInputConfiguration") => ingestion_input_configuration(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec start_data_ingestion_job(AWS.Client.t(), start_data_ingestion_job_request(), Keyword.t()) ::
+
+  @spec start_data_ingestion_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_data_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_ingestion_job_errors()}
-  def start_data_ingestion_job(%Client{} = client, input, options \\ []) do
+
+  def start_data_ingestion_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2898,16 +3346,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Starts an inference scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20StartInferenceScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_inference_scheduler_request`)
+    %{
+      required("InferenceSchedulerName") => String.t()
+    }
   """
-  @spec start_inference_scheduler(
-          AWS.Client.t(),
-          start_inference_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_inference_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_inference_scheduler_errors()}
-  def start_inference_scheduler(%Client{} = client, input, options \\ []) do
+
+  def start_inference_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2916,16 +3370,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Starts a retraining scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20StartRetrainingScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_retraining_scheduler_request`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec start_retraining_scheduler(
-          AWS.Client.t(),
-          start_retraining_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_retraining_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_retraining_scheduler_errors()}
-  def start_retraining_scheduler(%Client{} = client, input, options \\ []) do
+
+  def start_retraining_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2934,12 +3394,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Stops an inference scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20StopInferenceScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_inference_scheduler_request`)
+    %{
+      required("InferenceSchedulerName") => String.t()
+    }
   """
-  @spec stop_inference_scheduler(AWS.Client.t(), stop_inference_scheduler_request(), Keyword.t()) ::
+
+  @spec stop_inference_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_inference_scheduler_errors()}
-  def stop_inference_scheduler(%Client{} = client, input, options \\ []) do
+
+  def stop_inference_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2948,16 +3418,22 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Stops a retraining scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20StopRetrainingScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_retraining_scheduler_request`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec stop_retraining_scheduler(
-          AWS.Client.t(),
-          stop_retraining_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_retraining_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_retraining_scheduler_errors()}
-  def stop_retraining_scheduler(%Client{} = client, input, options \\ []) do
+
+  def stop_retraining_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2971,12 +3447,23 @@ defmodule AWS.LookoutEquipment do
   search and filter by tag. Multiple tags can be added to a resource, either
   when you create it, or later. Up to 50 tags can be associated with each
   resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2985,12 +3472,23 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Removes a specific tag from a given resource. The tag is specified by its key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2999,16 +3497,23 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Sets the active model version for a given machine learning model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20UpdateActiveModelVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_active_model_version_request`)
+    %{
+      required("ModelName") => String.t(),
+      required("ModelVersion") => float()
+    }
   """
-  @spec update_active_model_version(
-          AWS.Client.t(),
-          update_active_model_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_active_model_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_active_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_active_model_version_errors()}
-  def update_active_model_version(%Client{} = client, input, options \\ []) do
+
+  def update_active_model_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3017,16 +3522,27 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Updates an inference scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20UpdateInferenceScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_inference_scheduler_request`)
+    %{
+      optional("DataDelayOffsetInMinutes") => float(),
+      optional("DataInputConfiguration") => inference_input_configuration(),
+      optional("DataOutputConfiguration") => inference_output_configuration(),
+      optional("DataUploadFrequency") => list(any()),
+      optional("RoleArn") => String.t(),
+      required("InferenceSchedulerName") => String.t()
+    }
   """
-  @spec update_inference_scheduler(
-          AWS.Client.t(),
-          update_inference_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_inference_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_scheduler_errors()}
-  def update_inference_scheduler(%Client{} = client, input, options \\ []) do
+
+  def update_inference_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3035,12 +3551,23 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Updates the label group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20UpdateLabelGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_label_group_request`)
+    %{
+      optional("FaultCodes") => list(String.t()()),
+      required("LabelGroupName") => String.t()
+    }
   """
-  @spec update_label_group(AWS.Client.t(), update_label_group_request(), Keyword.t()) ::
+
+  @spec update_label_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_label_group_errors()}
-  def update_label_group(%Client{} = client, input, options \\ []) do
+
+  def update_label_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3049,12 +3576,25 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Updates a model in the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20UpdateModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_model_request`)
+    %{
+      optional("LabelsInputConfiguration") => labels_input_configuration(),
+      optional("ModelDiagnosticsOutputConfiguration") => model_diagnostics_output_configuration(),
+      optional("RoleArn") => String.t(),
+      required("ModelName") => String.t()
+    }
   """
-  @spec update_model(AWS.Client.t(), update_model_request(), Keyword.t()) ::
+
+  @spec update_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_errors()}
-  def update_model(%Client{} = client, input, options \\ []) do
+
+  def update_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3063,16 +3603,26 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Updates a retraining scheduler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutequipment%20UpdateRetrainingScheduler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_retraining_scheduler_request`)
+    %{
+      optional("LookbackWindow") => String.t(),
+      optional("PromoteMode") => list(any()),
+      optional("RetrainingFrequency") => String.t(),
+      optional("RetrainingStartDate") => non_neg_integer(),
+      required("ModelName") => String.t()
+    }
   """
-  @spec update_retraining_scheduler(
-          AWS.Client.t(),
-          update_retraining_scheduler_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_retraining_scheduler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_retraining_scheduler_errors()}
-  def update_retraining_scheduler(%Client{} = client, input, options \\ []) do
+
+  def update_retraining_scheduler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

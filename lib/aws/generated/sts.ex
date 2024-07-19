@@ -455,12 +455,33 @@ defmodule AWS.STS do
   created by `AssumeRole` can be used to make API calls to any Amazon Web
   Services service with the following exception: You cannot call the Amazon Web
   Services STS `GetFederationToken` or `GetSessionToken` API operations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20AssumeRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:assume_role_request`)
+    %{
+      optional("DurationSeconds") => integer(),
+      optional("ExternalId") => String.t(),
+      optional("Policy") => String.t(),
+      optional("PolicyArns") => list(policy_descriptor_type()()),
+      optional("ProvidedContexts") => list(provided_context()()),
+      optional("SerialNumber") => String.t(),
+      optional("SourceIdentity") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TokenCode") => String.t(),
+      optional("TransitiveTagKeys") => list(String.t()()),
+      required("RoleArn") => String.t(),
+      required("RoleSessionName") => String.t()
+    }
   """
-  @spec assume_role(AWS.Client.t(), assume_role_request(), Keyword.t()) ::
+
+  @spec assume_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assume_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_role_errors()}
-  def assume_role(%Client{} = client, input, options \\ []) do
+
+  def assume_role(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -481,12 +502,27 @@ defmodule AWS.STS do
   operation consist of an access key ID, a secret access key, and a security
   token. Applications can use these temporary security credentials to sign calls
   to Amazon Web Services services. **Session Duration**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20AssumeRoleWithSAML&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:assume_role_with_saml_request`)
+    %{
+      optional("DurationSeconds") => integer(),
+      optional("Policy") => String.t(),
+      optional("PolicyArns") => list(policy_descriptor_type()()),
+      required("PrincipalArn") => String.t(),
+      required("RoleArn") => String.t(),
+      required("SAMLAssertion") => String.t()
+    }
   """
-  @spec assume_role_with_saml(AWS.Client.t(), assume_role_with_saml_request(), Keyword.t()) ::
+
+  @spec assume_role_with_saml(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assume_role_with_saml_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_role_with_saml_errors()}
-  def assume_role_with_saml(%Client{} = client, input, options \\ []) do
+
+  def assume_role_with_saml(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -525,16 +561,29 @@ defmodule AWS.STS do
   API consist of an access key ID, a secret access key, and a security token.
   Applications can use these temporary security credentials to sign calls to
   Amazon Web Services service API operations. **Session Duration**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20AssumeRoleWithWebIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:assume_role_with_web_identity_request`)
+    %{
+      optional("DurationSeconds") => integer(),
+      optional("Policy") => String.t(),
+      optional("PolicyArns") => list(policy_descriptor_type()()),
+      optional("ProviderId") => String.t(),
+      required("RoleArn") => String.t(),
+      required("RoleSessionName") => String.t(),
+      required("WebIdentityToken") => String.t()
+    }
   """
-  @spec assume_role_with_web_identity(
-          AWS.Client.t(),
-          assume_role_with_web_identity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec assume_role_with_web_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, assume_role_with_web_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, assume_role_with_web_identity_errors()}
-  def assume_role_with_web_identity(%Client{} = client, input, options \\ []) do
+
+  def assume_role_with_web_identity(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -549,16 +598,22 @@ defmodule AWS.STS do
   (an HTTP 403 response). Some Amazon Web Services operations additionally
   return an encoded message that can provide details about this authorization
   failure.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20DecodeAuthorizationMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:decode_authorization_message_request`)
+    %{
+      required("EncodedMessage") => String.t()
+    }
   """
-  @spec decode_authorization_message(
-          AWS.Client.t(),
-          decode_authorization_message_request(),
-          Keyword.t()
-        ) ::
+
+  @spec decode_authorization_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decode_authorization_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decode_authorization_message_errors()}
-  def decode_authorization_message(%Client{} = client, input, options \\ []) do
+
+  def decode_authorization_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -584,11 +639,21 @@ defmodule AWS.STS do
   credentials for an `ASIA` access key, view the STS events in your [CloudTrail
   logs](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20GetAccessKeyInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_access_key_info_request`)
+    %{
+      required("AccessKeyId") => String.t()
+    }
   """
-  @spec get_access_key_info(AWS.Client.t(), get_access_key_info_request(), Keyword.t()) ::
+
+  @spec get_access_key_info(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_access_key_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_access_key_info(%Client{} = client, input, options \\ []) do
+
+  def get_access_key_info(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -598,11 +663,21 @@ defmodule AWS.STS do
   @doc """
   Returns details about the IAM user or role whose credentials are used to call
   the operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20GetCallerIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_caller_identity_request`)
+    %{
+      
+    }
   """
-  @spec get_caller_identity(AWS.Client.t(), get_caller_identity_request(), Keyword.t()) ::
+
+  @spec get_caller_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_caller_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_caller_identity(%Client{} = client, input, options \\ []) do
+
+  def get_caller_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -629,12 +704,26 @@ defmodule AWS.STS do
   root user credentials and don't use them for everyday
   tasks](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20GetFederationToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_federation_token_request`)
+    %{
+      optional("DurationSeconds") => integer(),
+      optional("Policy") => String.t(),
+      optional("PolicyArns") => list(policy_descriptor_type()()),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec get_federation_token(AWS.Client.t(), get_federation_token_request(), Keyword.t()) ::
+
+  @spec get_federation_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_federation_token_errors()}
-  def get_federation_token(%Client{} = client, input, options \\ []) do
+
+  def get_federation_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -662,12 +751,24 @@ defmodule AWS.STS do
   authentication operations. For more information, see [Permissions for
   GetSessionToken](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getsessiontoken.html)
   in the *IAM User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sts%20GetSessionToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_session_token_request`)
+    %{
+      optional("DurationSeconds") => integer(),
+      optional("SerialNumber") => String.t(),
+      optional("TokenCode") => String.t()
+    }
   """
-  @spec get_session_token(AWS.Client.t(), get_session_token_request(), Keyword.t()) ::
+
+  @spec get_session_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_session_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_token_errors()}
-  def get_session_token(%Client{} = client, input, options \\ []) do
+
+  def get_session_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -974,16 +974,23 @@ defmodule AWS.ServiceQuotas do
   Web Services account is created in your organization, the quota increase
   requests in the template are automatically applied to the account. You can add
   a quota increase request for any adjustable quota to your template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20AssociateServiceQuotaTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_service_quota_template_request`)
+    %{
+      
+    }
   """
-  @spec associate_service_quota_template(
-          AWS.Client.t(),
-          associate_service_quota_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_service_quota_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_service_quota_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_service_quota_template_errors()}
-  def associate_service_quota_template(%Client{} = client, input, options \\ []) do
+
+  def associate_service_quota_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -993,20 +1000,33 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Deletes the quota increase request for the specified quota from your quota
   request template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20DeleteServiceQuotaIncreaseRequestFromTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_service_quota_increase_request_from_template_request`)
+    %{
+      required("AwsRegion") => String.t(),
+      required("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
+
   @spec delete_service_quota_increase_request_from_template(
           AWS.Client.t(),
-          delete_service_quota_increase_request_from_template_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, delete_service_quota_increase_request_from_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_quota_increase_request_from_template_errors()}
+
   def delete_service_quota_increase_request_from_template(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1024,16 +1044,23 @@ defmodule AWS.ServiceQuotas do
   increase requests in the template are not applied to new Amazon Web Services
   accounts in your organization. Disabling a quota request template does not
   apply its quota increase requests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20DisassociateServiceQuotaTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_service_quota_template_request`)
+    %{
+      
+    }
   """
-  @spec disassociate_service_quota_template(
-          AWS.Client.t(),
-          disassociate_service_quota_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_service_quota_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_service_quota_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_service_quota_template_errors()}
-  def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
+
+  def disassociate_service_quota_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1042,16 +1069,23 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves the status of the association for the quota request template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20GetAssociationForServiceQuotaTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_association_for_service_quota_template_request`)
+    %{
+      
+    }
   """
-  @spec get_association_for_service_quota_template(
-          AWS.Client.t(),
-          get_association_for_service_quota_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_association_for_service_quota_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_association_for_service_quota_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_association_for_service_quota_template_errors()}
-  def get_association_for_service_quota_template(%Client{} = client, input, options \\ []) do
+
+  def get_association_for_service_quota_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1061,16 +1095,24 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Retrieves the default value for the specified quota. The default value does not
   reflect any quota increases.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20GetAWSDefaultServiceQuota&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_aws_default_service_quota_request`)
+    %{
+      required("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec get_aws_default_service_quota(
-          AWS.Client.t(),
-          get_aws_default_service_quota_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_aws_default_service_quota(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_aws_default_service_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_aws_default_service_quota_errors()}
-  def get_aws_default_service_quota(%Client{} = client, input, options \\ []) do
+
+  def get_aws_default_service_quota(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1079,16 +1121,23 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves information about the specified quota increase request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20GetRequestedServiceQuotaChange&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_requested_service_quota_change_request`)
+    %{
+      required("RequestId") => String.t()
+    }
   """
-  @spec get_requested_service_quota_change(
-          AWS.Client.t(),
-          get_requested_service_quota_change_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_requested_service_quota_change(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_requested_service_quota_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_requested_service_quota_change_errors()}
-  def get_requested_service_quota_change(%Client{} = client, input, options \\ []) do
+
+  def get_requested_service_quota_change(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1099,12 +1148,24 @@ defmodule AWS.ServiceQuotas do
   Retrieves the applied quota value for the specified quota. For some quotas, only
   the default values are available. If the applied quota value is not available
   for a quota, the quota is not retrieved.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20GetServiceQuota&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_service_quota_request`)
+    %{
+      optional("ContextId") => String.t(),
+      required("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec get_service_quota(AWS.Client.t(), get_service_quota_request(), Keyword.t()) ::
+
+  @spec get_service_quota(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_quota_errors()}
-  def get_service_quota(%Client{} = client, input, options \\ []) do
+
+  def get_service_quota(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1114,16 +1175,29 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Retrieves information about the specified quota increase request in your quota
   request template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20GetServiceQuotaIncreaseRequestFromTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_service_quota_increase_request_from_template_request`)
+    %{
+      required("AwsRegion") => String.t(),
+      required("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
+
   @spec get_service_quota_increase_request_from_template(
           AWS.Client.t(),
-          get_service_quota_increase_request_from_template_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, get_service_quota_increase_request_from_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_quota_increase_request_from_template_errors()}
-  def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ []) do
+
+  def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1139,16 +1213,25 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Lists the default values for the quotas for the specified Amazon Web Service. A
   default value does not reflect any quota increases.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20ListAWSDefaultServiceQuotas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_aws_default_service_quotas_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec list_aws_default_service_quotas(
-          AWS.Client.t(),
-          list_aws_default_service_quotas_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_aws_default_service_quotas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aws_default_service_quotas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aws_default_service_quotas_errors()}
-  def list_aws_default_service_quotas(%Client{} = client, input, options \\ []) do
+
+  def list_aws_default_service_quotas(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1157,16 +1240,27 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves the quota increase requests for the specified Amazon Web Service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20ListRequestedServiceQuotaChangeHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_requested_service_quota_change_history_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QuotaRequestedAtLevel") => list(any()),
+      optional("ServiceCode") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_requested_service_quota_change_history(
-          AWS.Client.t(),
-          list_requested_service_quota_change_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_requested_service_quota_change_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_requested_service_quota_change_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_requested_service_quota_change_history_errors()}
-  def list_requested_service_quota_change_history(%Client{} = client, input, options \\ []) do
+
+  def list_requested_service_quota_change_history(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1175,20 +1269,36 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves the quota increase requests for the specified quota.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20ListRequestedServiceQuotaChangeHistoryByQuota&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_requested_service_quota_change_history_by_quota_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QuotaRequestedAtLevel") => list(any()),
+      optional("Status") => list(any()),
+      required("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
+
   @spec list_requested_service_quota_change_history_by_quota(
           AWS.Client.t(),
-          list_requested_service_quota_change_history_by_quota_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, list_requested_service_quota_change_history_by_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_requested_service_quota_change_history_by_quota_errors()}
+
   def list_requested_service_quota_change_history_by_quota(
         %Client{} = client,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1203,16 +1313,30 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Lists the quota increase requests in the specified quota request template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20ListServiceQuotaIncreaseRequestsInTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_service_quota_increase_requests_in_template_request`)
+    %{
+      optional("AwsRegion") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ServiceCode") => String.t()
+    }
   """
+
   @spec list_service_quota_increase_requests_in_template(
           AWS.Client.t(),
-          list_service_quota_increase_requests_in_template_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, list_service_quota_increase_requests_in_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_quota_increase_requests_in_template_errors()}
-  def list_service_quota_increase_requests_in_template(%Client{} = client, input, options \\ []) do
+
+  def list_service_quota_increase_requests_in_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1229,12 +1353,26 @@ defmodule AWS.ServiceQuotas do
   Lists the applied quota values for the specified Amazon Web Service. For some
   quotas, only the default values are available. If the applied quota value is
   not available for a quota, the quota is not retrieved.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20ListServiceQuotas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_service_quotas_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QuotaAppliedAtLevel") => list(any()),
+      optional("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec list_service_quotas(AWS.Client.t(), list_service_quotas_request(), Keyword.t()) ::
+
+  @spec list_service_quotas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_service_quotas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_quotas_errors()}
-  def list_service_quotas(%Client{} = client, input, options \\ []) do
+
+  def list_service_quotas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1244,12 +1382,23 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Lists the names and codes for the Amazon Web Services integrated with Service
   Quotas.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20ListServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_services_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_services(AWS.Client.t(), list_services_request(), Keyword.t()) ::
+
+  @spec list_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-  def list_services(%Client{} = client, input, options \\ []) do
+
+  def list_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1258,12 +1407,22 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Returns a list of the tags assigned to the specified applied quota.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1272,16 +1431,30 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Adds a quota increase request to your quota request template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20PutServiceQuotaIncreaseRequestIntoTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_service_quota_increase_request_into_template_request`)
+    %{
+      required("AwsRegion") => String.t(),
+      required("DesiredValue") => float(),
+      required("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
+
   @spec put_service_quota_increase_request_into_template(
           AWS.Client.t(),
-          put_service_quota_increase_request_into_template_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, put_service_quota_increase_request_into_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_service_quota_increase_request_into_template_errors()}
-  def put_service_quota_increase_request_into_template(%Client{} = client, input, options \\ []) do
+
+  def put_service_quota_increase_request_into_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1296,16 +1469,26 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Submits a quota increase request for the specified quota.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20RequestServiceQuotaIncrease&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:request_service_quota_increase_request`)
+    %{
+      optional("ContextId") => String.t(),
+      required("DesiredValue") => float(),
+      required("QuotaCode") => String.t(),
+      required("ServiceCode") => String.t()
+    }
   """
-  @spec request_service_quota_increase(
-          AWS.Client.t(),
-          request_service_quota_increase_request(),
-          Keyword.t()
-        ) ::
+
+  @spec request_service_quota_increase(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, request_service_quota_increase_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, request_service_quota_increase_errors()}
-  def request_service_quota_increase(%Client{} = client, input, options \\ []) do
+
+  def request_service_quota_increase(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1315,12 +1498,23 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Adds tags to the specified applied quota. You can include one or more tags to
   add to the quota.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1330,12 +1524,23 @@ defmodule AWS.ServiceQuotas do
   @doc """
   Removes tags from the specified applied quota. You can specify one or more tags
   to remove.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicequotas%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

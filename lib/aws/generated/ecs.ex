@@ -3671,12 +3671,24 @@ defmodule AWS.ECS do
   Creates a new capacity provider. Capacity providers are associated with an
   Amazon ECS cluster and are used in capacity provider strategies to facilitate
   cluster auto scaling.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20CreateCapacityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_capacity_provider_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("autoScalingGroupProvider") => auto_scaling_group_provider(),
+      required("name") => String.t()
+    }
   """
-  @spec create_capacity_provider(AWS.Client.t(), create_capacity_provider_request(), Keyword.t()) ::
+
+  @spec create_capacity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_capacity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_capacity_provider_errors()}
-  def create_capacity_provider(%Client{} = client, input, options \\ []) do
+
+  def create_capacity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3687,12 +3699,28 @@ defmodule AWS.ECS do
   Creates a new Amazon ECS cluster. By default, your account receives a `default`
   cluster when you launch your first container instance. However, you can create
   your own cluster with a unique name with the `CreateCluster` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cluster_request`)
+    %{
+      optional("capacityProviders") => list(String.t()()),
+      optional("clusterName") => String.t(),
+      optional("configuration") => cluster_configuration(),
+      optional("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+      optional("serviceConnectDefaults") => cluster_service_connect_defaults_request(),
+      optional("settings") => list(cluster_setting()()),
+      optional("tags") => list(tag()())
+    }
   """
-  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
+
+  @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-  def create_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3707,12 +3735,45 @@ defmodule AWS.ECS do
   March 21, 2024, a change was made to resolve the task definition revision
   before authorization. When a task definition revision is not specified,
   authorization will occur using the latest revision of a task definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20CreateService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_service_request`)
+    %{
+      optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+      optional("clientToken") => String.t(),
+      optional("cluster") => String.t(),
+      optional("deploymentConfiguration") => deployment_configuration(),
+      optional("deploymentController") => deployment_controller(),
+      optional("desiredCount") => integer(),
+      optional("enableECSManagedTags") => boolean(),
+      optional("enableExecuteCommand") => boolean(),
+      optional("healthCheckGracePeriodSeconds") => integer(),
+      optional("launchType") => list(any()),
+      optional("loadBalancers") => list(load_balancer()()),
+      optional("networkConfiguration") => network_configuration(),
+      optional("placementConstraints") => list(placement_constraint()()),
+      optional("placementStrategy") => list(placement_strategy()()),
+      optional("platformVersion") => String.t(),
+      optional("propagateTags") => list(any()),
+      optional("role") => String.t(),
+      optional("schedulingStrategy") => list(any()),
+      optional("serviceConnectConfiguration") => service_connect_configuration(),
+      optional("serviceRegistries") => list(service_registry()()),
+      optional("tags") => list(tag()()),
+      optional("taskDefinition") => String.t(),
+      optional("volumeConfigurations") => list(service_volume_configuration()()),
+      required("serviceName") => String.t()
+    }
   """
-  @spec create_service(AWS.Client.t(), create_service_request(), Keyword.t()) ::
+
+  @spec create_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
-  def create_service(%Client{} = client, input, options \\ []) do
+
+  def create_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3728,12 +3789,34 @@ defmodule AWS.ECS do
   a change was made to resolve the task definition revision before
   authorization. When a task definition revision is not specified, authorization
   will occur using the latest revision of a task definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20CreateTaskSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_task_set_request`)
+    %{
+      optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+      optional("clientToken") => String.t(),
+      optional("externalId") => String.t(),
+      optional("launchType") => list(any()),
+      optional("loadBalancers") => list(load_balancer()()),
+      optional("networkConfiguration") => network_configuration(),
+      optional("platformVersion") => String.t(),
+      optional("scale") => scale(),
+      optional("serviceRegistries") => list(service_registry()()),
+      optional("tags") => list(tag()()),
+      required("cluster") => String.t(),
+      required("service") => String.t(),
+      required("taskDefinition") => String.t()
+    }
   """
-  @spec create_task_set(AWS.Client.t(), create_task_set_request(), Keyword.t()) ::
+
+  @spec create_task_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_task_set_errors()}
-  def create_task_set(%Client{} = client, input, options \\ []) do
+
+  def create_task_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3743,12 +3826,23 @@ defmodule AWS.ECS do
   @doc """
   Disables an account setting for a specified user, role, or the root user for an
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeleteAccountSetting&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_account_setting_request`)
+    %{
+      optional("principalArn") => String.t(),
+      required("name") => list(any())
+    }
   """
-  @spec delete_account_setting(AWS.Client.t(), delete_account_setting_request(), Keyword.t()) ::
+
+  @spec delete_account_setting(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_account_setting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_setting_errors()}
-  def delete_account_setting(%Client{} = client, input, options \\ []) do
+
+  def delete_account_setting(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3757,12 +3851,23 @@ defmodule AWS.ECS do
 
   @doc """
   Deletes one or more custom attributes from an Amazon ECS resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeleteAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_attributes_request`)
+    %{
+      optional("cluster") => String.t(),
+      required("attributes") => list(attribute()())
+    }
   """
-  @spec delete_attributes(AWS.Client.t(), delete_attributes_request(), Keyword.t()) ::
+
+  @spec delete_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attributes_errors()}
-  def delete_attributes(%Client{} = client, input, options \\ []) do
+
+  def delete_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3774,12 +3879,22 @@ defmodule AWS.ECS do
   capacity providers are reserved and can't be deleted. You can disassociate
   them from a cluster using either the `PutClusterCapacityProviders` API or by
   deleting the cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeleteCapacityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_capacity_provider_request`)
+    %{
+      required("capacityProvider") => String.t()
+    }
   """
-  @spec delete_capacity_provider(AWS.Client.t(), delete_capacity_provider_request(), Keyword.t()) ::
+
+  @spec delete_capacity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_capacity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_capacity_provider_errors()}
-  def delete_capacity_provider(%Client{} = client, input, options \\ []) do
+
+  def delete_capacity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3791,12 +3906,22 @@ defmodule AWS.ECS do
   Clusters with an `INACTIVE` status might remain discoverable in your account
   for a period of time. However, this behavior is subject to change in the
   future. We don't recommend that you rely on `INACTIVE` clusters persisting.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cluster_request`)
+    %{
+      required("cluster") => String.t()
+    }
   """
-  @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
+
+  @spec delete_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-  def delete_cluster(%Client{} = client, input, options \\ []) do
+
+  def delete_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3818,12 +3943,24 @@ defmodule AWS.ECS do
   may be cleaned up and purged from Amazon ECS record keeping, and
   `DescribeServices` calls on those services return a `ServiceNotFoundException`
   error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeleteService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_service_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("force") => boolean(),
+      required("service") => String.t()
+    }
   """
-  @spec delete_service(AWS.Client.t(), delete_service_request(), Keyword.t()) ::
+
+  @spec delete_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
-  def delete_service(%Client{} = client, input, options \\ []) do
+
+  def delete_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3834,12 +3971,22 @@ defmodule AWS.ECS do
   Deletes one or more task definitions. You must deregister a task definition
   revision before you delete it. For more information, see
   [DeregisterTaskDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeleteTaskDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_task_definitions_request`)
+    %{
+      required("taskDefinitions") => list(String.t()())
+    }
   """
-  @spec delete_task_definitions(AWS.Client.t(), delete_task_definitions_request(), Keyword.t()) ::
+
+  @spec delete_task_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_task_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_task_definitions_errors()}
-  def delete_task_definitions(%Client{} = client, input, options \\ []) do
+
+  def delete_task_definitions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3852,12 +3999,25 @@ defmodule AWS.ECS do
   ECS deployment
   types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeleteTaskSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_task_set_request`)
+    %{
+      optional("force") => boolean(),
+      required("cluster") => String.t(),
+      required("service") => String.t(),
+      required("taskSet") => String.t()
+    }
   """
-  @spec delete_task_set(AWS.Client.t(), delete_task_set_request(), Keyword.t()) ::
+
+  @spec delete_task_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_task_set_errors()}
-  def delete_task_set(%Client{} = client, input, options \\ []) do
+
+  def delete_task_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3870,16 +4030,25 @@ defmodule AWS.ECS do
   container instance for some other purpose after deregistration, we recommend
   that you stop all of the tasks running on the container instance before
   deregistration. That prevents any orphaned tasks from consuming resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeregisterContainerInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_container_instance_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("force") => boolean(),
+      required("containerInstance") => String.t()
+    }
   """
-  @spec deregister_container_instance(
-          AWS.Client.t(),
-          deregister_container_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_container_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_container_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_container_instance_errors()}
-  def deregister_container_instance(%Client{} = client, input, options \\ []) do
+
+  def deregister_container_instance(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3898,16 +4067,22 @@ defmodule AWS.ECS do
   existing service to reference an `INACTIVE` task definition. However, there
   may be up to a 10-minute window following deregistration where these
   restrictions have not yet taken effect.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DeregisterTaskDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_task_definition_request`)
+    %{
+      required("taskDefinition") => String.t()
+    }
   """
-  @spec deregister_task_definition(
-          AWS.Client.t(),
-          deregister_task_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_task_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_task_definition_errors()}
-  def deregister_task_definition(%Client{} = client, input, options \\ []) do
+
+  def deregister_task_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3916,16 +4091,25 @@ defmodule AWS.ECS do
 
   @doc """
   Describes one or more of your capacity providers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DescribeCapacityProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_capacity_providers_request`)
+    %{
+      optional("capacityProviders") => list(String.t()()),
+      optional("include") => list(list(any())()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_capacity_providers(
-          AWS.Client.t(),
-          describe_capacity_providers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_capacity_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_capacity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_capacity_providers_errors()}
-  def describe_capacity_providers(%Client{} = client, input, options \\ []) do
+
+  def describe_capacity_providers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3934,12 +4118,23 @@ defmodule AWS.ECS do
 
   @doc """
   Describes one or more of your clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DescribeClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_clusters_request`)
+    %{
+      optional("clusters") => list(String.t()()),
+      optional("include") => list(list(any())())
+    }
   """
-  @spec describe_clusters(AWS.Client.t(), describe_clusters_request(), Keyword.t()) ::
+
+  @spec describe_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_clusters_errors()}
-  def describe_clusters(%Client{} = client, input, options \\ []) do
+
+  def describe_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3949,16 +4144,24 @@ defmodule AWS.ECS do
   @doc """
   Describes one or more container instances. Returns metadata about each container
   instance requested.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DescribeContainerInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_container_instances_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("include") => list(list(any())()),
+      required("containerInstances") => list(String.t()())
+    }
   """
-  @spec describe_container_instances(
-          AWS.Client.t(),
-          describe_container_instances_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_container_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_container_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_container_instances_errors()}
-  def describe_container_instances(%Client{} = client, input, options \\ []) do
+
+  def describe_container_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3967,12 +4170,24 @@ defmodule AWS.ECS do
 
   @doc """
   Describes the specified services running in your cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DescribeServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_services_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("include") => list(list(any())()),
+      required("services") => list(String.t()())
+    }
   """
-  @spec describe_services(AWS.Client.t(), describe_services_request(), Keyword.t()) ::
+
+  @spec describe_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_services_errors()}
-  def describe_services(%Client{} = client, input, options \\ []) do
+
+  def describe_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3983,12 +4198,23 @@ defmodule AWS.ECS do
   Describes a task definition. You can specify a `family` and `revision` to find
   information about a specific task definition, or you can simply specify the
   family to find the latest `ACTIVE` revision in that family.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DescribeTaskDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_task_definition_request`)
+    %{
+      optional("include") => list(list(any())()),
+      required("taskDefinition") => String.t()
+    }
   """
-  @spec describe_task_definition(AWS.Client.t(), describe_task_definition_request(), Keyword.t()) ::
+
+  @spec describe_task_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_task_definition_errors()}
-  def describe_task_definition(%Client{} = client, input, options \\ []) do
+
+  def describe_task_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4001,12 +4227,25 @@ defmodule AWS.ECS do
   information, see [Amazon ECS Deployment
   Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DescribeTaskSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_task_sets_request`)
+    %{
+      optional("include") => list(list(any())()),
+      optional("taskSets") => list(String.t()()),
+      required("cluster") => String.t(),
+      required("service") => String.t()
+    }
   """
-  @spec describe_task_sets(AWS.Client.t(), describe_task_sets_request(), Keyword.t()) ::
+
+  @spec describe_task_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_task_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_task_sets_errors()}
-  def describe_task_sets(%Client{} = client, input, options \\ []) do
+
+  def describe_task_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4016,12 +4255,24 @@ defmodule AWS.ECS do
   @doc """
   Describes a specified task or tasks. Currently, stopped tasks appear in the
   returned results for at least one hour.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DescribeTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_tasks_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("include") => list(list(any())()),
+      required("tasks") => list(String.t()())
+    }
   """
-  @spec describe_tasks(AWS.Client.t(), describe_tasks_request(), Keyword.t()) ::
+
+  @spec describe_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tasks_errors()}
-  def describe_tasks(%Client{} = client, input, options \\ []) do
+
+  def describe_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4031,12 +4282,23 @@ defmodule AWS.ECS do
   @doc """
   This action is only used by the Amazon ECS agent, and it is not intended for use
   outside of the agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20DiscoverPollEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:discover_poll_endpoint_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("containerInstance") => String.t()
+    }
   """
-  @spec discover_poll_endpoint(AWS.Client.t(), discover_poll_endpoint_request(), Keyword.t()) ::
+
+  @spec discover_poll_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, discover_poll_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_poll_endpoint_errors()}
-  def discover_poll_endpoint(%Client{} = client, input, options \\ []) do
+
+  def discover_poll_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4049,12 +4311,26 @@ defmodule AWS.ECS do
   example limit the actions to a specific cluster, you receive an
   `AccessDeniedException` when there is a mismatch between the condition key
   value and the corresponding parameter value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ExecuteCommand&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:execute_command_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("container") => String.t(),
+      required("command") => String.t(),
+      required("interactive") => boolean(),
+      required("task") => String.t()
+    }
   """
-  @spec execute_command(AWS.Client.t(), execute_command_request(), Keyword.t()) ::
+
+  @spec execute_command(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_command_errors()}
-  def execute_command(%Client{} = client, input, options \\ []) do
+
+  def execute_command(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4063,12 +4339,23 @@ defmodule AWS.ECS do
 
   @doc """
   Retrieves the protection status of tasks in an Amazon ECS service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20GetTaskProtection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_task_protection_request`)
+    %{
+      optional("tasks") => list(String.t()()),
+      required("cluster") => String.t()
+    }
   """
-  @spec get_task_protection(AWS.Client.t(), get_task_protection_request(), Keyword.t()) ::
+
+  @spec get_task_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_task_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_task_protection_errors()}
-  def get_task_protection(%Client{} = client, input, options \\ []) do
+
+  def get_task_protection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4077,12 +4364,27 @@ defmodule AWS.ECS do
 
   @doc """
   Lists the account settings for a specified principal.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_account_settings_request`)
+    %{
+      optional("effectiveSettings") => boolean(),
+      optional("maxResults") => integer(),
+      optional("name") => list(any()),
+      optional("nextToken") => String.t(),
+      optional("principalArn") => String.t(),
+      optional("value") => String.t()
+    }
   """
-  @spec list_account_settings(AWS.Client.t(), list_account_settings_request(), Keyword.t()) ::
+
+  @spec list_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_settings_errors()}
-  def list_account_settings(%Client{} = client, input, options \\ []) do
+
+  def list_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4097,12 +4399,27 @@ defmodule AWS.ECS do
   that have that name. You can also filter the results by attribute name and
   value. You can do this, for example, to see which container instances in a
   cluster are running a Linux AMI (`ecs.os-type=linux`).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_attributes_request`)
+    %{
+      optional("attributeName") => String.t(),
+      optional("attributeValue") => String.t(),
+      optional("cluster") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("targetType") => list(any())
+    }
   """
-  @spec list_attributes(AWS.Client.t(), list_attributes_request(), Keyword.t()) ::
+
+  @spec list_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attributes_errors()}
-  def list_attributes(%Client{} = client, input, options \\ []) do
+
+  def list_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4111,12 +4428,23 @@ defmodule AWS.ECS do
 
   @doc """
   Returns a list of existing clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_clusters_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_clusters(AWS.Client.t(), list_clusters_request(), Keyword.t()) ::
+
+  @spec list_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_clusters_errors()}
-  def list_clusters(%Client{} = client, input, options \\ []) do
+
+  def list_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4130,12 +4458,26 @@ defmodule AWS.ECS do
   Query
   Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListContainerInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_container_instances_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("filter") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("status") => list(any())
+    }
   """
-  @spec list_container_instances(AWS.Client.t(), list_container_instances_request(), Keyword.t()) ::
+
+  @spec list_container_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_container_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_container_instances_errors()}
-  def list_container_instances(%Client{} = client, input, options \\ []) do
+
+  def list_container_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4145,12 +4487,26 @@ defmodule AWS.ECS do
   @doc """
   Returns a list of services. You can filter the results by cluster, launch type,
   and scheduling strategy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_services_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("launchType") => list(any()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("schedulingStrategy") => list(any())
+    }
   """
-  @spec list_services(AWS.Client.t(), list_services_request(), Keyword.t()) ::
+
+  @spec list_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-  def list_services(%Client{} = client, input, options \\ []) do
+
+  def list_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4165,16 +4521,24 @@ defmodule AWS.ECS do
   parameters, use `ListServices`. For more information, see [Service
   Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListServicesByNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_services_by_namespace_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("namespace") => String.t()
+    }
   """
-  @spec list_services_by_namespace(
-          AWS.Client.t(),
-          list_services_by_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_services_by_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_services_by_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_by_namespace_errors()}
-  def list_services_by_namespace(%Client{} = client, input, options \\ []) do
+
+  def list_services_by_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4183,12 +4547,22 @@ defmodule AWS.ECS do
 
   @doc """
   List the tags for an Amazon ECS resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4199,16 +4573,26 @@ defmodule AWS.ECS do
   Returns a list of task definition families that are registered to your account.
   This list includes task definition families that no longer have any `ACTIVE`
   task definition revisions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListTaskDefinitionFamilies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_task_definition_families_request`)
+    %{
+      optional("familyPrefix") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("status") => list(any())
+    }
   """
-  @spec list_task_definition_families(
-          AWS.Client.t(),
-          list_task_definition_families_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_task_definition_families(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_task_definition_families_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_task_definition_families_errors()}
-  def list_task_definition_families(%Client{} = client, input, options \\ []) do
+
+  def list_task_definition_families(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4219,12 +4603,26 @@ defmodule AWS.ECS do
   Returns a list of task definitions that are registered to your account. You can
   filter the results by family name with the `familyPrefix` parameter or by
   status with the `status` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListTaskDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_task_definitions_request`)
+    %{
+      optional("familyPrefix") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("sort") => list(any()),
+      optional("status") => list(any())
+    }
   """
-  @spec list_task_definitions(AWS.Client.t(), list_task_definitions_request(), Keyword.t()) ::
+
+  @spec list_task_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_task_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_task_definitions_errors()}
-  def list_task_definitions(%Client{} = client, input, options \\ []) do
+
+  def list_task_definitions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4235,12 +4633,30 @@ defmodule AWS.ECS do
   Returns a list of tasks. You can filter the results by cluster, task definition
   family, container instance, launch type, what IAM principal started the task,
   or by the desired status of the task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20ListTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tasks_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("containerInstance") => String.t(),
+      optional("desiredStatus") => list(any()),
+      optional("family") => String.t(),
+      optional("launchType") => list(any()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("serviceName") => String.t(),
+      optional("startedBy") => String.t()
+    }
   """
-  @spec list_tasks(AWS.Client.t(), list_tasks_request(), Keyword.t()) ::
+
+  @spec list_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tasks_errors()}
-  def list_tasks(%Client{} = client, input, options \\ []) do
+
+  def list_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4249,12 +4665,24 @@ defmodule AWS.ECS do
 
   @doc """
   Modifies an account setting. Account settings are set on a per-Region basis.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20PutAccountSetting&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_account_setting_request`)
+    %{
+      optional("principalArn") => String.t(),
+      required("name") => list(any()),
+      required("value") => String.t()
+    }
   """
-  @spec put_account_setting(AWS.Client.t(), put_account_setting_request(), Keyword.t()) ::
+
+  @spec put_account_setting(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_account_setting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_setting_errors()}
-  def put_account_setting(%Client{} = client, input, options \\ []) do
+
+  def put_account_setting(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4265,16 +4693,23 @@ defmodule AWS.ECS do
   Modifies an account setting for all users on an account for whom no individual
   account setting has been specified. Account settings are set on a per-Region
   basis.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20PutAccountSettingDefault&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_account_setting_default_request`)
+    %{
+      required("name") => list(any()),
+      required("value") => String.t()
+    }
   """
-  @spec put_account_setting_default(
-          AWS.Client.t(),
-          put_account_setting_default_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_account_setting_default(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_account_setting_default_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_setting_default_errors()}
-  def put_account_setting_default(%Client{} = client, input, options \\ []) do
+
+  def put_account_setting_default(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4288,12 +4723,23 @@ defmodule AWS.ECS do
   more information, see
   [Attributes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20PutAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_attributes_request`)
+    %{
+      optional("cluster") => String.t(),
+      required("attributes") => list(attribute()())
+    }
   """
-  @spec put_attributes(AWS.Client.t(), put_attributes_request(), Keyword.t()) ::
+
+  @spec put_attributes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_attributes_errors()}
-  def put_attributes(%Client{} = client, input, options \\ []) do
+
+  def put_attributes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4310,16 +4756,25 @@ defmodule AWS.ECS do
   omitted from a `PutClusterCapacityProviders` API call will be disassociated
   with the cluster. You can only disassociate an existing capacity provider from
   a cluster if it's not being used by any existing tasks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20PutClusterCapacityProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_cluster_capacity_providers_request`)
+    %{
+      required("capacityProviders") => list(String.t()()),
+      required("cluster") => String.t(),
+      required("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item()())
+    }
   """
-  @spec put_cluster_capacity_providers(
-          AWS.Client.t(),
-          put_cluster_capacity_providers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_cluster_capacity_providers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_cluster_capacity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_cluster_capacity_providers_errors()}
-  def put_cluster_capacity_providers(%Client{} = client, input, options \\ []) do
+
+  def put_cluster_capacity_providers(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4329,16 +4784,30 @@ defmodule AWS.ECS do
   @doc """
   This action is only used by the Amazon ECS agent, and it is not intended for use
   outside of the agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20RegisterContainerInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_container_instance_request`)
+    %{
+      optional("attributes") => list(attribute()()),
+      optional("cluster") => String.t(),
+      optional("containerInstanceArn") => String.t(),
+      optional("instanceIdentityDocument") => String.t(),
+      optional("instanceIdentityDocumentSignature") => String.t(),
+      optional("platformDevices") => list(platform_device()()),
+      optional("tags") => list(tag()()),
+      optional("totalResources") => list(resource()()),
+      optional("versionInfo") => version_info()
+    }
   """
-  @spec register_container_instance(
-          AWS.Client.t(),
-          register_container_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_container_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_container_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_container_instance_errors()}
-  def register_container_instance(%Client{} = client, input, options \\ []) do
+
+  def register_container_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4359,12 +4828,38 @@ defmodule AWS.ECS do
   Roles for
   Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20RegisterTaskDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_task_definition_request`)
+    %{
+      optional("cpu") => String.t(),
+      optional("ephemeralStorage") => ephemeral_storage(),
+      optional("executionRoleArn") => String.t(),
+      optional("inferenceAccelerators") => list(inference_accelerator()()),
+      optional("ipcMode") => list(any()),
+      optional("memory") => String.t(),
+      optional("networkMode") => list(any()),
+      optional("pidMode") => list(any()),
+      optional("placementConstraints") => list(task_definition_placement_constraint()()),
+      optional("proxyConfiguration") => proxy_configuration(),
+      optional("requiresCompatibilities") => list(list(any())()),
+      optional("runtimePlatform") => runtime_platform(),
+      optional("tags") => list(tag()()),
+      optional("taskRoleArn") => String.t(),
+      optional("volumes") => list(volume()()),
+      required("containerDefinitions") => list(container_definition()()),
+      required("family") => String.t()
+    }
   """
-  @spec register_task_definition(AWS.Client.t(), register_task_definition_request(), Keyword.t()) ::
+
+  @spec register_task_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_task_definition_errors()}
-  def register_task_definition(%Client{} = client, input, options \\ []) do
+
+  def register_task_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4376,12 +4871,40 @@ defmodule AWS.ECS do
   change was made to resolve the task definition revision before authorization.
   When a task definition revision is not specified, authorization will occur
   using the latest revision of a task definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20RunTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:run_task_request`)
+    %{
+      optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+      optional("clientToken") => String.t(),
+      optional("cluster") => String.t(),
+      optional("count") => integer(),
+      optional("enableECSManagedTags") => boolean(),
+      optional("enableExecuteCommand") => boolean(),
+      optional("group") => String.t(),
+      optional("launchType") => list(any()),
+      optional("networkConfiguration") => network_configuration(),
+      optional("overrides") => task_override(),
+      optional("placementConstraints") => list(placement_constraint()()),
+      optional("placementStrategy") => list(placement_strategy()()),
+      optional("platformVersion") => String.t(),
+      optional("propagateTags") => list(any()),
+      optional("referenceId") => String.t(),
+      optional("startedBy") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("volumeConfigurations") => list(task_volume_configuration()()),
+      required("taskDefinition") => String.t()
+    }
   """
-  @spec run_task(AWS.Client.t(), run_task_request(), Keyword.t()) ::
+
+  @spec run_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, run_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_task_errors()}
-  def run_task(%Client{} = client, input, options \\ []) do
+
+  def run_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4394,12 +4917,34 @@ defmodule AWS.ECS do
   task definition revision before authorization. When a task definition revision
   is not specified, authorization will occur using the latest revision of a task
   definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20StartTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_task_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("enableECSManagedTags") => boolean(),
+      optional("enableExecuteCommand") => boolean(),
+      optional("group") => String.t(),
+      optional("networkConfiguration") => network_configuration(),
+      optional("overrides") => task_override(),
+      optional("propagateTags") => list(any()),
+      optional("referenceId") => String.t(),
+      optional("startedBy") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("volumeConfigurations") => list(task_volume_configuration()()),
+      required("containerInstances") => list(String.t()()),
+      required("taskDefinition") => String.t()
+    }
   """
-  @spec start_task(AWS.Client.t(), start_task_request(), Keyword.t()) ::
+
+  @spec start_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_task_errors()}
-  def start_task(%Client{} = client, input, options \\ []) do
+
+  def start_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4414,12 +4959,24 @@ defmodule AWS.ECS do
   and the containers are forcibly stopped. If the container handles the
   `SIGTERM` value gracefully and exits within 30 seconds from receiving it, no
   `SIGKILL` value is sent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20StopTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_task_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("reason") => String.t(),
+      required("task") => String.t()
+    }
   """
-  @spec stop_task(AWS.Client.t(), stop_task_request(), Keyword.t()) ::
+
+  @spec stop_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_task_errors()}
-  def stop_task(%Client{} = client, input, options \\ []) do
+
+  def stop_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4429,16 +4986,24 @@ defmodule AWS.ECS do
   @doc """
   This action is only used by the Amazon ECS agent, and it is not intended for use
   outside of the agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20SubmitAttachmentStateChanges&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:submit_attachment_state_changes_request`)
+    %{
+      optional("cluster") => String.t(),
+      required("attachments") => list(attachment_state_change()())
+    }
   """
-  @spec submit_attachment_state_changes(
-          AWS.Client.t(),
-          submit_attachment_state_changes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec submit_attachment_state_changes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, submit_attachment_state_changes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_attachment_state_changes_errors()}
-  def submit_attachment_state_changes(%Client{} = client, input, options \\ []) do
+
+  def submit_attachment_state_changes(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4448,16 +5013,30 @@ defmodule AWS.ECS do
   @doc """
   This action is only used by the Amazon ECS agent, and it is not intended for use
   outside of the agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20SubmitContainerStateChange&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:submit_container_state_change_request`)
+    %{
+      optional("cluster") => String.t(),
+      optional("containerName") => String.t(),
+      optional("exitCode") => integer(),
+      optional("networkBindings") => list(network_binding()()),
+      optional("reason") => String.t(),
+      optional("runtimeId") => String.t(),
+      optional("status") => String.t(),
+      optional("task") => String.t()
+    }
   """
-  @spec submit_container_state_change(
-          AWS.Client.t(),
-          submit_container_state_change_request(),
-          Keyword.t()
-        ) ::
+
+  @spec submit_container_state_change(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, submit_container_state_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_container_state_change_errors()}
-  def submit_container_state_change(%Client{} = client, input, options \\ []) do
+
+  def submit_container_state_change(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4467,12 +5046,31 @@ defmodule AWS.ECS do
   @doc """
   This action is only used by the Amazon ECS agent, and it is not intended for use
   outside of the agent.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20SubmitTaskStateChange&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:submit_task_state_change_request`)
+    %{
+      optional("attachments") => list(attachment_state_change()()),
+      optional("cluster") => String.t(),
+      optional("containers") => list(container_state_change()()),
+      optional("executionStoppedAt") => non_neg_integer(),
+      optional("managedAgents") => list(managed_agent_state_change()()),
+      optional("pullStartedAt") => non_neg_integer(),
+      optional("pullStoppedAt") => non_neg_integer(),
+      optional("reason") => String.t(),
+      optional("status") => String.t(),
+      optional("task") => String.t()
+    }
   """
-  @spec submit_task_state_change(AWS.Client.t(), submit_task_state_change_request(), Keyword.t()) ::
+
+  @spec submit_task_state_change(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, submit_task_state_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_task_state_change_errors()}
-  def submit_task_state_change(%Client{} = client, input, options \\ []) do
+
+  def submit_task_state_change(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4484,12 +5082,23 @@ defmodule AWS.ECS do
   existing tags on a resource aren't specified in the request parameters, they
   aren't changed. When a resource is deleted, the tags that are associated with
   that resource are deleted as well.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4498,12 +5107,23 @@ defmodule AWS.ECS do
 
   @doc """
   Deletes specified tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4512,12 +5132,23 @@ defmodule AWS.ECS do
 
   @doc """
   Modifies the parameters for a capacity provider.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateCapacityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_capacity_provider_request`)
+    %{
+      required("autoScalingGroupProvider") => auto_scaling_group_provider_update(),
+      required("name") => String.t()
+    }
   """
-  @spec update_capacity_provider(AWS.Client.t(), update_capacity_provider_request(), Keyword.t()) ::
+
+  @spec update_capacity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_capacity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_capacity_provider_errors()}
-  def update_capacity_provider(%Client{} = client, input, options \\ []) do
+
+  def update_capacity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4526,12 +5157,25 @@ defmodule AWS.ECS do
 
   @doc """
   Updates the cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_cluster_request`)
+    %{
+      optional("configuration") => cluster_configuration(),
+      optional("serviceConnectDefaults") => cluster_service_connect_defaults_request(),
+      optional("settings") => list(cluster_setting()()),
+      required("cluster") => String.t()
+    }
   """
-  @spec update_cluster(AWS.Client.t(), update_cluster_request(), Keyword.t()) ::
+
+  @spec update_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
-  def update_cluster(%Client{} = client, input, options \\ []) do
+
+  def update_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4540,12 +5184,23 @@ defmodule AWS.ECS do
 
   @doc """
   Modifies the settings to use for a cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateClusterSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_cluster_settings_request`)
+    %{
+      required("cluster") => String.t(),
+      required("settings") => list(cluster_setting()())
+    }
   """
-  @spec update_cluster_settings(AWS.Client.t(), update_cluster_settings_request(), Keyword.t()) ::
+
+  @spec update_cluster_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_settings_errors()}
-  def update_cluster_settings(%Client{} = client, input, options \\ []) do
+
+  def update_cluster_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4567,12 +5222,23 @@ defmodule AWS.ECS do
   the `UpdateContainerAgent` API operation do not apply to Windows container
   instances. We recommend that you launch new container instances to update the
   agent version in your Windows clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateContainerAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_container_agent_request`)
+    %{
+      optional("cluster") => String.t(),
+      required("containerInstance") => String.t()
+    }
   """
-  @spec update_container_agent(AWS.Client.t(), update_container_agent_request(), Keyword.t()) ::
+
+  @spec update_container_agent(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_container_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_container_agent_errors()}
-  def update_container_agent(%Client{} = client, input, options \\ []) do
+
+  def update_container_agent(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4585,16 +5251,25 @@ defmodule AWS.ECS do
   container instance to `DRAINING` to manually remove an instance from a
   cluster, for example to perform system updates, update the Docker daemon, or
   scale down the cluster size.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateContainerInstancesState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_container_instances_state_request`)
+    %{
+      optional("cluster") => String.t(),
+      required("containerInstances") => list(String.t()()),
+      required("status") => list(any())
+    }
   """
-  @spec update_container_instances_state(
-          AWS.Client.t(),
-          update_container_instances_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_container_instances_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_container_instances_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_container_instances_state_errors()}
-  def update_container_instances_state(%Client{} = client, input, options \\ []) do
+
+  def update_container_instances_state(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4606,12 +5281,40 @@ defmodule AWS.ECS do
   resolve the task definition revision before authorization. When a task
   definition revision is not specified, authorization will occur using the
   latest revision of a task definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_service_request`)
+    %{
+      optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+      optional("cluster") => String.t(),
+      optional("deploymentConfiguration") => deployment_configuration(),
+      optional("desiredCount") => integer(),
+      optional("enableECSManagedTags") => boolean(),
+      optional("enableExecuteCommand") => boolean(),
+      optional("forceNewDeployment") => boolean(),
+      optional("healthCheckGracePeriodSeconds") => integer(),
+      optional("loadBalancers") => list(load_balancer()()),
+      optional("networkConfiguration") => network_configuration(),
+      optional("placementConstraints") => list(placement_constraint()()),
+      optional("placementStrategy") => list(placement_strategy()()),
+      optional("platformVersion") => String.t(),
+      optional("propagateTags") => list(any()),
+      optional("serviceConnectConfiguration") => service_connect_configuration(),
+      optional("serviceRegistries") => list(service_registry()()),
+      optional("taskDefinition") => String.t(),
+      optional("volumeConfigurations") => list(service_volume_configuration()()),
+      required("service") => String.t()
+    }
   """
-  @spec update_service(AWS.Client.t(), update_service_request(), Keyword.t()) ::
+
+  @spec update_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
-  def update_service(%Client{} = client, input, options \\ []) do
+
+  def update_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4625,16 +5328,25 @@ defmodule AWS.ECS do
   type. For more information, see [Amazon ECS Deployment
   Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateServicePrimaryTaskSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_service_primary_task_set_request`)
+    %{
+      required("cluster") => String.t(),
+      required("primaryTaskSet") => String.t(),
+      required("service") => String.t()
+    }
   """
-  @spec update_service_primary_task_set(
-          AWS.Client.t(),
-          update_service_primary_task_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_service_primary_task_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_primary_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_primary_task_set_errors()}
-  def update_service_primary_task_set(%Client{} = client, input, options \\ []) do
+
+  def update_service_primary_task_set(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4657,12 +5369,25 @@ defmodule AWS.ECS do
   operation for a task that already has `protectionEnabled` set to `true`. You
   can keep extending the protection expiration period of a task by invoking this
   operation repeatedly.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateTaskProtection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_task_protection_request`)
+    %{
+      optional("expiresInMinutes") => integer(),
+      required("cluster") => String.t(),
+      required("protectionEnabled") => boolean(),
+      required("tasks") => list(String.t()())
+    }
   """
-  @spec update_task_protection(AWS.Client.t(), update_task_protection_request(), Keyword.t()) ::
+
+  @spec update_task_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_task_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_task_protection_errors()}
-  def update_task_protection(%Client{} = client, input, options \\ []) do
+
+  def update_task_protection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4674,12 +5399,25 @@ defmodule AWS.ECS do
   controller type. For more information, see [Amazon ECS Deployment
   Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecs%20UpdateTaskSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_task_set_request`)
+    %{
+      required("cluster") => String.t(),
+      required("scale") => scale(),
+      required("service") => String.t(),
+      required("taskSet") => String.t()
+    }
   """
-  @spec update_task_set(AWS.Client.t(), update_task_set_request(), Keyword.t()) ::
+
+  @spec update_task_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_task_set_errors()}
-  def update_task_set(%Client{} = client, input, options \\ []) do
+
+  def update_task_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

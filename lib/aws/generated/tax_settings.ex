@@ -17,55 +17,55 @@ defmodule AWS.TaxSettings do
   @typedoc """
 
   ## Example:
-
+      
       get_tax_registration_document_request() :: %{
         required("destinationS3Location") => destination_s3_location(),
         required("taxDocumentMetadata") => tax_document_metadata()
       }
-
+      
   """
   @type get_tax_registration_document_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       south_korea_additional_info() :: %{
         "businessRepresentativeName" => String.t(),
         "itemOfBusiness" => String.t(),
         "lineOfBusiness" => String.t()
       }
-
+      
   """
   @type south_korea_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_s3_location() :: %{
         "bucket" => String.t(),
         "key" => String.t()
       }
-
+      
   """
   @type source_s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_tax_registration_response() :: %{
         "errors" => list(batch_delete_tax_registration_error()())
       }
-
+      
   """
   @type batch_delete_tax_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       additional_info_response() :: %{
         "brazilAdditionalInfo" => brazil_additional_info(),
         "canadaAdditionalInfo" => canada_additional_info(),
@@ -84,153 +84,153 @@ defmodule AWS.TaxSettings do
         "turkeyAdditionalInfo" => turkey_additional_info(),
         "ukraineAdditionalInfo" => ukraine_additional_info()
       }
-
+      
   """
   @type additional_info_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ukraine_additional_info() :: %{
         "ukraineTrnType" => list(any())
       }
-
+      
   """
   @type ukraine_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       italy_additional_info() :: %{
         "cigNumber" => String.t(),
         "cupNumber" => String.t(),
         "sdiAccountId" => String.t(),
         "taxCode" => String.t()
       }
-
+      
   """
   @type italy_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tax_inheritance_details() :: %{
         "inheritanceObtainedReason" => String.t(),
         "parentEntityId" => String.t()
       }
-
+      
   """
   @type tax_inheritance_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       malaysia_additional_info() :: %{
         "serviceTaxCodes" => list(list(any())())
       }
-
+      
   """
   @type malaysia_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kenya_additional_info() :: %{
         "personType" => list(any())
       }
-
+      
   """
   @type kenya_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_tax_registration_response() :: %{
         "taxRegistration" => tax_registration()
       }
-
+      
   """
   @type get_tax_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       india_additional_info() :: %{
         "pan" => String.t()
       }
-
+      
   """
   @type india_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       poland_additional_info() :: %{
         "individualRegistrationNumber" => String.t(),
         "isGroupVatEnabled" => boolean()
       }
-
+      
   """
   @type poland_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_tax_registration_request() :: %{
         required("accountIds") => list(String.t()()),
         required("taxRegistrationEntry") => tax_registration_entry()
       }
-
+      
   """
   @type batch_put_tax_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_tax_registration_request() :: %{
         optional("accountId") => String.t()
       }
-
+      
   """
   @type get_tax_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       romania_additional_info() :: %{
         "taxRegistrationNumberType" => list(any())
       }
-
+      
   """
   @type romania_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       brazil_additional_info() :: %{
         "ccmCode" => String.t(),
         "legalNatureCode" => String.t()
       }
-
+      
   """
   @type brazil_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       additional_info_request() :: %{
         "canadaAdditionalInfo" => canada_additional_info(),
         "estoniaAdditionalInfo" => estonia_additional_info(),
@@ -247,261 +247,261 @@ defmodule AWS.TaxSettings do
         "turkeyAdditionalInfo" => turkey_additional_info(),
         "ukraineAdditionalInfo" => ukraine_additional_info()
       }
-
+      
   """
   @type additional_info_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_tax_registration_response() :: %{}
-
+      
   """
   @type delete_tax_registration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_tax_registration_response() :: %{
         "errors" => list(batch_put_tax_registration_error()()),
         "status" => list(any())
       }
-
+      
   """
   @type batch_put_tax_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tax_document_metadata() :: %{
         "taxDocumentAccessToken" => String.t(),
         "taxDocumentName" => String.t()
       }
-
+      
   """
   @type tax_document_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "errorCode" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "errorCode" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       estonia_additional_info() :: %{
         "registryCommercialCode" => String.t()
       }
-
+      
   """
   @type estonia_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tax_registrations_response() :: %{
         "accountDetails" => list(account_details()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_tax_registrations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tax_registrations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_tax_registrations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       spain_additional_info() :: %{
         "registrationType" => list(any())
       }
-
+      
   """
   @type spain_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       georgia_additional_info() :: %{
         "personType" => list(any())
       }
-
+      
   """
   @type georgia_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_details() :: %{
         "accountId" => String.t(),
         "accountMetaData" => account_meta_data(),
         "taxInheritanceDetails" => tax_inheritance_details(),
         "taxRegistration" => tax_registration_with_jurisdiction()
       }
-
+      
   """
   @type account_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tax_registration_document() :: %{
         "s3Location" => source_s3_location()
       }
-
+      
   """
   @type tax_registration_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_s3_location() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
       }
-
+      
   """
   @type destination_s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "name" => String.t()
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_tax_registration_error() :: %{
         "accountId" => String.t(),
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type batch_delete_tax_registration_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saudi_arabia_additional_info() :: %{
         "taxRegistrationNumberType" => list(any())
       }
-
+      
   """
   @type saudi_arabia_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       canada_additional_info() :: %{
         "canadaQuebecSalesTaxNumber" => String.t(),
         "canadaRetailSalesTaxNumber" => String.t(),
         "isResellerAccount" => boolean(),
         "provincialSalesTaxId" => String.t()
       }
-
+      
   """
   @type canada_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_tax_registration_request() :: %{
         optional("accountId") => String.t(),
         required("taxRegistrationEntry") => tax_registration_entry()
       }
-
+      
   """
   @type put_tax_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verification_details() :: %{
         "dateOfBirth" => String.t(),
         "taxRegistrationDocuments" => list(tax_registration_document()())
       }
-
+      
   """
   @type verification_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_tax_registration_request() :: %{
         optional("accountId") => String.t()
       }
-
+      
   """
   @type delete_tax_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "errorCode" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tax_registration() :: %{
         "additionalTaxInformation" => additional_info_response(),
         "certifiedEmailId" => String.t(),
@@ -513,28 +513,28 @@ defmodule AWS.TaxSettings do
         "status" => list(any()),
         "taxDocumentMetadatas" => list(tax_document_metadata()())
       }
-
+      
   """
   @type tax_registration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       turkey_additional_info() :: %{
         "industries" => list(any()),
         "kepEmailId" => String.t(),
         "secondaryTaxId" => String.t(),
         "taxOffice" => String.t()
       }
-
+      
   """
   @type turkey_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tax_registration_entry() :: %{
         "additionalTaxInformation" => additional_info_request(),
         "certifiedEmailId" => String.t(),
@@ -545,14 +545,14 @@ defmodule AWS.TaxSettings do
         "sector" => list(any()),
         "verificationDetails" => verification_details()
       }
-
+      
   """
   @type tax_registration_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tax_registration_with_jurisdiction() :: %{
         "additionalTaxInformation" => additional_info_response(),
         "certifiedEmailId" => String.t(),
@@ -564,40 +564,40 @@ defmodule AWS.TaxSettings do
         "status" => list(any()),
         "taxDocumentMetadatas" => list(tax_document_metadata()())
       }
-
+      
   """
   @type tax_registration_with_jurisdiction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "errorCode" => list(any()),
         "fieldList" => list(validation_exception_field()()),
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_tax_registration_error() :: %{
         "accountId" => String.t(),
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type batch_put_tax_registration_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       address() :: %{
         "addressLine1" => String.t(),
         "addressLine2" => String.t(),
@@ -608,38 +608,38 @@ defmodule AWS.TaxSettings do
         "postalCode" => String.t(),
         "stateOrRegion" => String.t()
       }
-
+      
   """
   @type address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       israel_additional_info() :: %{
         "customerType" => list(any()),
         "dealerType" => list(any())
       }
-
+      
   """
   @type israel_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       jurisdiction() :: %{
         "countryCode" => String.t(),
         "stateOrRegion" => String.t()
       }
-
+      
   """
   @type jurisdiction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_meta_data() :: %{
         "accountName" => String.t(),
         "address" => address(),
@@ -647,40 +647,40 @@ defmodule AWS.TaxSettings do
         "addressType" => list(any()),
         "seller" => String.t()
       }
-
+      
   """
   @type account_meta_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_tax_registration_request() :: %{
         required("accountIds") => list(String.t()())
       }
-
+      
   """
   @type batch_delete_tax_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_tax_registration_response() :: %{
         "status" => list(any())
       }
-
+      
   """
   @type put_tax_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_tax_registration_document_response() :: %{
         "destinationFilePath" => String.t()
       }
-
+      
   """
   @type get_tax_registration_document_response() :: %{String.t() => any()}
 
@@ -712,10 +712,10 @@ defmodule AWS.TaxSettings do
     %{
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
-      credential_scope: nil,
+      credential_scope: "us-east-1",
       endpoint_prefix: "tax",
-      global?: false,
-      hostname: nil,
+      global?: true,
+      hostname: "tax.us-east-1.amazonaws.com",
       protocol: "rest-json",
       service_id: "TaxSettings",
       signature_version: "v4",
@@ -734,33 +734,40 @@ defmodule AWS.TaxSettings do
 
   ## Optional parameters:
   """
-  @spec batch_delete_tax_registration(
-          AWS.Client.t(),
-          batch_delete_tax_registration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_tax_registration_errors()}
-  def batch_delete_tax_registration(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/BatchDeleteTaxRegistration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -776,33 +783,40 @@ defmodule AWS.TaxSettings do
 
   ## Optional parameters:
   """
-  @spec batch_put_tax_registration(
-          AWS.Client.t(),
-          batch_put_tax_registration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_put_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_tax_registration_errors()}
-  def batch_put_tax_registration(%Client{} = client, input, options \\ []) do
+
+  def batch_put_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/BatchPutTaxRegistration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -814,29 +828,40 @@ defmodule AWS.TaxSettings do
 
   ## Optional parameters:
   """
-  @spec delete_tax_registration(AWS.Client.t(), delete_tax_registration_request(), Keyword.t()) ::
+
+  @spec delete_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tax_registration_errors()}
-  def delete_tax_registration(%Client{} = client, input, options \\ []) do
+
+  def delete_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/DeleteTaxRegistration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -848,29 +873,40 @@ defmodule AWS.TaxSettings do
 
   ## Optional parameters:
   """
-  @spec get_tax_registration(AWS.Client.t(), get_tax_registration_request(), Keyword.t()) ::
+
+  @spec get_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tax_registration_errors()}
-  def get_tax_registration(%Client{} = client, input, options \\ []) do
+
+  def get_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/GetTaxRegistration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -883,33 +919,40 @@ defmodule AWS.TaxSettings do
 
   ## Optional parameters:
   """
-  @spec get_tax_registration_document(
-          AWS.Client.t(),
-          get_tax_registration_document_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_tax_registration_document(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_tax_registration_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tax_registration_document_errors()}
-  def get_tax_registration_document(%Client{} = client, input, options \\ []) do
+
+  def get_tax_registration_document(%Client{} = client, options \\ []) do
     url_path = "/GetTaxRegistrationDocument"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -923,29 +966,40 @@ defmodule AWS.TaxSettings do
 
   ## Optional parameters:
   """
-  @spec list_tax_registrations(AWS.Client.t(), list_tax_registrations_request(), Keyword.t()) ::
+
+  @spec list_tax_registrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tax_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tax_registrations_errors()}
-  def list_tax_registrations(%Client{} = client, input, options \\ []) do
+
+  def list_tax_registrations(%Client{} = client, options \\ []) do
     url_path = "/ListTaxRegistrations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -960,28 +1014,39 @@ defmodule AWS.TaxSettings do
 
   ## Optional parameters:
   """
-  @spec put_tax_registration(AWS.Client.t(), put_tax_registration_request(), Keyword.t()) ::
+
+  @spec put_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_tax_registration_errors()}
-  def put_tax_registration(%Client{} = client, input, options \\ []) do
+
+  def put_tax_registration(%Client{} = client, options \\ []) do
     url_path = "/PutTaxRegistration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

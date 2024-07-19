@@ -17,19 +17,19 @@ defmodule AWS.Appflow do
   @typedoc """
 
   ## Example:
-
+      
       event_bridge_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
         "object" => String.t()
       }
-
+      
   """
   @type event_bridge_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -40,37 +40,37 @@ defmodule AWS.Appflow do
         required("tasks") => list(task()()),
         required("triggerConfig") => trigger_config()
       }
-
+      
   """
   @type update_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       basic_auth_credentials() :: %{
         "password" => String.t(),
         "username" => String.t()
       }
-
+      
   """
   @type basic_auth_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dynatrace_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type dynatrace_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_profile() :: %{
         "connectionMode" => list(any()),
         "connectorLabel" => String.t(),
@@ -83,14 +83,14 @@ defmodule AWS.Appflow do
         "lastUpdatedAt" => non_neg_integer(),
         "privateConnectionProvisioningState" => private_connection_provisioning_state()
       }
-
+      
   """
   @type connector_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task() :: %{
         "connectorOperator" => connector_operator(),
         "destinationField" => String.t(),
@@ -98,25 +98,25 @@ defmodule AWS.Appflow do
         "taskProperties" => map(),
         "taskType" => list(any())
       }
-
+      
   """
   @type task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scheduled_trigger_properties() :: %{
         "dataPullMode" => list(any()),
         "firstExecutionFrom" => non_neg_integer(),
@@ -127,157 +127,157 @@ defmodule AWS.Appflow do
         "scheduleStartTime" => non_neg_integer(),
         "timezone" => String.t()
       }
-
+      
   """
   @type scheduled_trigger_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       honeycode_connector_profile_properties() :: %{}
-
+      
   """
   @type honeycode_connector_profile_properties() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       range() :: %{
         "maximum" => float(),
         "minimum" => float()
       }
-
+      
   """
   @type range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snowflake_metadata() :: %{
         "supportedRegions" => list(String.t()())
       }
-
+      
   """
   @type snowflake_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_a_p_o_data_source_properties() :: %{
         "objectPath" => String.t(),
         "paginationConfig" => s_a_p_o_data_pagination_config(),
         "parallelismConfig" => s_a_p_o_data_parallelism_config()
       }
-
+      
   """
   @type s_a_p_o_data_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       honeycode_metadata() :: %{
         "oAuthScopes" => list(String.t()())
       }
-
+      
   """
   @type honeycode_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snowflake_connector_profile_credentials() :: %{
         "password" => String.t(),
         "username" => String.t()
       }
-
+      
   """
   @type snowflake_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redshift_connector_profile_credentials() :: %{
         "password" => String.t(),
         "username" => String.t()
       }
-
+      
   """
   @type redshift_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       marketo_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type marketo_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_operation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unsupported_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lookout_metrics_destination_properties() :: %{}
-
+      
   """
   @type lookout_metrics_destination_properties() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       trendmicro_connector_profile_properties() :: %{}
-
+      
   """
   @type trendmicro_connector_profile_properties() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_response() :: %{
         "connectors" => list(connector_detail()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pardot_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type pardot_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_connector_properties() :: %{
         "CustomConnector" => custom_connector_destination_properties(),
         "CustomerProfiles" => customer_profiles_destination_properties(),
@@ -293,34 +293,34 @@ defmodule AWS.Appflow do
         "Upsolver" => upsolver_destination_properties(),
         "Zendesk" => zendesk_destination_properties()
       }
-
+      
   """
   @type destination_connector_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slack_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type slack_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_connector_metadata_cache_response() :: %{}
-
+      
   """
   @type reset_connector_metadata_cache_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_flow_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -333,82 +333,82 @@ defmodule AWS.Appflow do
         required("tasks") => list(task()()),
         required("triggerConfig") => trigger_config()
       }
-
+      
   """
   @type create_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       zendesk_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
         "idFieldNames" => list(String.t()()),
         "object" => String.t(),
         "writeOperationType" => list(any())
       }
-
+      
   """
   @type zendesk_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connector_entities_response() :: %{
         "connectorEntityMap" => map(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_connector_entities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amplitude_metadata() :: %{}
-
+      
   """
   @type amplitude_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       execution_details() :: %{
         "mostRecentExecutionMessage" => String.t(),
         "mostRecentExecutionStatus" => list(any()),
         "mostRecentExecutionTime" => non_neg_integer()
       }
-
+      
   """
   @type execution_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       amplitude_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type amplitude_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connector_entities_request() :: %{
         optional("apiVersion") => String.t(),
         optional("connectorProfileName") => String.t(),
@@ -417,25 +417,25 @@ defmodule AWS.Appflow do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_connector_entities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connector_response() :: %{
         "connectorConfiguration" => connector_configuration()
       }
-
+      
   """
   @type describe_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_auth2_defaults() :: %{
         "authCodeUrls" => list(String.t()()),
         "oauth2CustomProperties" => list(o_auth2_custom_parameter()()),
@@ -443,62 +443,62 @@ defmodule AWS.Appflow do
         "oauthScopes" => list(String.t()()),
         "tokenUrls" => list(String.t()())
       }
-
+      
   """
   @type o_auth2_defaults() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snowflake_destination_properties() :: %{
         "bucketPrefix" => String.t(),
         "errorHandlingConfig" => error_handling_config(),
         "intermediateBucketName" => String.t(),
         "object" => String.t()
       }
-
+      
   """
   @type snowflake_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       google_analytics_connector_profile_properties() :: %{}
-
+      
   """
   @type google_analytics_connector_profile_properties() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_source_properties() :: %{
         "bucketName" => String.t(),
         "bucketPrefix" => String.t(),
         "s3InputFormatConfig" => s3_input_format_config()
       }
-
+      
   """
   @type s3_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregation_config() :: %{
         "aggregationType" => list(any()),
         "targetFileSize" => float()
       }
-
+      
   """
   @type aggregation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_profile_credentials() :: %{
         "Amplitude" => amplitude_connector_profile_credentials(),
         "CustomConnector" => custom_connector_profile_credentials(),
@@ -520,170 +520,170 @@ defmodule AWS.Appflow do
         "Veeva" => veeva_connector_profile_credentials(),
         "Zendesk" => zendesk_connector_profile_credentials()
       }
-
+      
   """
   @type connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connector_entity_response() :: %{
         "connectorEntityFields" => list(connector_entity_field()())
       }
-
+      
   """
   @type describe_connector_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connector_profiles_response() :: %{
         "connectorProfileDetails" => list(connector_profile()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type describe_connector_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_input_format_config() :: %{
         "s3InputFileType" => list(any())
       }
-
+      
   """
   @type s3_input_format_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_provisioning_config() :: %{
         "lambda" => lambda_connector_provisioning_config()
       }
-
+      
   """
   @type connector_provisioning_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upsolver_s3_output_format_config() :: %{
         "aggregationConfig" => aggregation_config(),
         "fileType" => list(any()),
         "prefixConfig" => prefix_config()
       }
-
+      
   """
   @type upsolver_s3_output_format_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_flow_config() :: %{
         "apiVersion" => String.t(),
         "connectorProfileName" => String.t(),
         "connectorType" => list(any()),
         "destinationConnectorProperties" => destination_connector_properties()
       }
-
+      
   """
   @type destination_flow_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       google_analytics_metadata() :: %{
         "oAuthScopes" => list(String.t()())
       }
-
+      
   """
   @type google_analytics_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_flow_request() :: %{
         optional("forceDelete") => boolean(),
         required("flowName") => String.t()
       }
-
+      
   """
   @type delete_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redshift_metadata() :: %{}
-
+      
   """
   @type redshift_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_destination_properties() :: %{
         "bucketName" => String.t(),
         "bucketPrefix" => String.t(),
         "s3OutputFormatConfig" => s3_output_format_config()
       }
-
+      
   """
   @type s3_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       infor_nexus_connector_profile_credentials() :: %{
         "accessKeyId" => String.t(),
         "datakey" => String.t(),
         "secretAccessKey" => String.t(),
         "userId" => String.t()
       }
-
+      
   """
   @type infor_nexus_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redshift_destination_properties() :: %{
         "bucketPrefix" => String.t(),
         "errorHandlingConfig" => error_handling_config(),
         "intermediateBucketName" => String.t(),
         "object" => String.t()
       }
-
+      
   """
   @type redshift_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_a_p_o_data_pagination_config() :: %{
         "maxPageSize" => integer()
       }
-
+      
   """
   @type s_a_p_o_data_pagination_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_field_properties() :: %{
         "isCreatable" => boolean(),
         "isDefaultedOnCreate" => boolean(),
@@ -692,14 +692,14 @@ defmodule AWS.Appflow do
         "isUpsertable" => boolean(),
         "supportedWriteOperations" => list(list(any())())
       }
-
+      
   """
   @type destination_field_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flow_definition() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -717,61 +717,61 @@ defmodule AWS.Appflow do
         "tags" => map(),
         "triggerType" => list(any())
       }
-
+      
   """
   @type flow_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slack_connector_profile_credentials() :: %{
         "accessToken" => String.t(),
         "clientId" => String.t(),
         "clientSecret" => String.t(),
         "oAuthRequest" => connector_o_auth_request()
       }
-
+      
   """
   @type slack_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_metadata() :: %{}
-
+      
   """
   @type s3_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connectors_response() :: %{
         "connectorConfigurations" => map(),
         "connectors" => list(connector_detail()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type describe_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       zendesk_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type zendesk_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_auth_credentials() :: %{
         "accessToken" => String.t(),
         "clientId" => String.t(),
@@ -779,50 +779,50 @@ defmodule AWS.Appflow do
         "oAuthRequest" => connector_o_auth_request(),
         "refreshToken" => String.t()
       }
-
+      
   """
   @type o_auth_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       infor_nexus_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type infor_nexus_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_now_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type service_now_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connector_entity_request() :: %{
         optional("apiVersion") => String.t(),
         optional("connectorProfileName") => String.t(),
         optional("connectorType") => list(any()),
         required("connectorEntityName") => String.t()
       }
-
+      
   """
   @type describe_connector_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       salesforce_destination_properties() :: %{
         "dataTransferApi" => list(any()),
         "errorHandlingConfig" => error_handling_config(),
@@ -830,149 +830,149 @@ defmodule AWS.Appflow do
         "object" => String.t(),
         "writeOperationType" => list(any())
       }
-
+      
   """
   @type salesforce_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_field_properties() :: %{
         "isQueryable" => boolean(),
         "isRetrievable" => boolean(),
         "isTimestampFieldForIncrementalQueries" => boolean()
       }
-
+      
   """
   @type source_field_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_connector_profile_request() :: %{
         optional("clientToken") => String.t(),
         required("connectionMode") => list(any()),
         required("connectorProfileConfig") => connector_profile_config(),
         required("connectorProfileName") => String.t()
       }
-
+      
   """
   @type update_connector_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       salesforce_connector_profile_properties() :: %{
         "instanceUrl" => String.t(),
         "isSandboxEnvironment" => boolean(),
         "usePrivateLinkForMetadataAndAuthorization" => boolean()
       }
-
+      
   """
   @type salesforce_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metadata_catalog_detail() :: %{
         "catalogType" => list(any()),
         "partitionRegistrationOutput" => registration_output(),
         "tableName" => String.t(),
         "tableRegistrationOutput" => registration_output()
       }
-
+      
   """
   @type metadata_catalog_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_key_credentials() :: %{
         "apiKey" => String.t(),
         "apiSecretKey" => String.t()
       }
-
+      
   """
   @type api_key_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_flow_response() :: %{
         "flowArn" => String.t(),
         "flowStatus" => list(any())
       }
-
+      
   """
   @type create_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       honeycode_connector_profile_credentials() :: %{
         "accessToken" => String.t(),
         "oAuthRequest" => connector_o_auth_request(),
         "refreshToken" => String.t()
       }
-
+      
   """
   @type honeycode_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_flow_response() :: %{}
-
+      
   """
   @type delete_flow_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       error_info() :: %{
         "executionMessage" => String.t(),
         "putFailuresCount" => float()
       }
-
+      
   """
   @type error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_entity_field() :: %{
         "customProperties" => map(),
         "defaultValue" => String.t(),
@@ -986,25 +986,25 @@ defmodule AWS.Appflow do
         "sourceProperties" => source_field_properties(),
         "supportedFieldTypeDetails" => supported_field_type_details()
       }
-
+      
   """
   @type connector_entity_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_authentication_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type connector_authentication_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_a_p_o_data_connector_profile_properties() :: %{
         "applicationHostUrl" => String.t(),
         "applicationServicePath" => String.t(),
@@ -1015,192 +1015,192 @@ defmodule AWS.Appflow do
         "portNumber" => integer(),
         "privateLinkServiceName" => String.t()
       }
-
+      
   """
   @type s_a_p_o_data_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       private_connection_provisioning_state() :: %{
         "failureCause" => list(any()),
         "failureMessage" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type private_connection_provisioning_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       marketo_metadata() :: %{}
-
+      
   """
   @type marketo_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       zendesk_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type zendesk_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trigger_properties() :: %{
         "Scheduled" => scheduled_trigger_properties()
       }
-
+      
   """
   @type trigger_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_output_format_config() :: %{
         "aggregationConfig" => aggregation_config(),
         "fileType" => list(any()),
         "prefixConfig" => prefix_config(),
         "preserveSourceDataTyping" => boolean()
       }
-
+      
   """
   @type s3_output_format_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       marketo_connector_profile_credentials() :: %{
         "accessToken" => String.t(),
         "clientId" => String.t(),
         "clientSecret" => String.t(),
         "oAuthRequest" => connector_o_auth_request()
       }
-
+      
   """
   @type marketo_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       marketo_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
         "object" => String.t()
       }
-
+      
   """
   @type marketo_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trendmicro_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type trendmicro_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amplitude_connector_profile_properties() :: %{}
-
+      
   """
   @type amplitude_connector_profile_properties() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       singular_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type singular_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_auth_config() :: %{
         "authParameters" => list(auth_parameter()()),
         "customAuthenticationType" => String.t()
       }
-
+      
   """
   @type custom_auth_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_connector_registration_request() :: %{
         optional("clientToken") => String.t(),
         optional("connectorProvisioningConfig") => connector_provisioning_config(),
         optional("description") => String.t(),
         required("connectorLabel") => String.t()
       }
-
+      
   """
   @type update_connector_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_flow_executions_response() :: %{
         "invalidExecutions" => list(String.t()())
       }
-
+      
   """
   @type cancel_flow_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_auth_properties() :: %{
         "authCodeUrl" => String.t(),
         "oAuthScopes" => list(String.t()()),
         "tokenUrl" => String.t()
       }
-
+      
   """
   @type o_auth_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connectors_request() :: %{
         optional("connectorTypes") => list(list(any())()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       salesforce_connector_profile_credentials() :: %{
         "accessToken" => String.t(),
         "clientCredentialsArn" => String.t(),
@@ -1209,59 +1209,59 @@ defmodule AWS.Appflow do
         "oAuthRequest" => connector_o_auth_request(),
         "refreshToken" => String.t()
       }
-
+      
   """
   @type salesforce_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_flows_response() :: %{
         "flows" => list(flow_definition()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_flows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_a_p_o_data_metadata() :: %{}
-
+      
   """
   @type s_a_p_o_data_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       zendesk_metadata() :: %{
         "oAuthScopes" => list(String.t()())
       }
-
+      
   """
   @type zendesk_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prefix_config() :: %{
         "pathPrefixHierarchy" => list(list(any())()),
         "prefixFormat" => list(any()),
         "prefixType" => list(any())
       }
-
+      
   """
   @type prefix_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execution_result() :: %{
         "bytesProcessed" => float(),
         "bytesWritten" => float(),
@@ -1270,105 +1270,105 @@ defmodule AWS.Appflow do
         "numParallelProcesses" => float(),
         "recordsProcessed" => float()
       }
-
+      
   """
   @type execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unregister_connector_response() :: %{}
-
+      
   """
   @type unregister_connector_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       pardot_connector_profile_credentials() :: %{
         "accessToken" => String.t(),
         "clientCredentialsArn" => String.t(),
         "oAuthRequest" => connector_o_auth_request(),
         "refreshToken" => String.t()
       }
-
+      
   """
   @type pardot_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_auth_credentials() :: %{
         "credentialsMap" => map(),
         "customAuthenticationType" => String.t()
       }
-
+      
   """
   @type custom_auth_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_flow_request() :: %{
         optional("clientToken") => String.t(),
         required("flowName") => String.t()
       }
-
+      
   """
   @type start_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slack_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type slack_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       datadog_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type datadog_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connector_profiles_request() :: %{
         optional("connectorLabel") => String.t(),
         optional("connectorProfileNames") => list(String.t()()),
@@ -1376,50 +1376,50 @@ defmodule AWS.Appflow do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_connector_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_now_connector_profile_credentials() :: %{
         "oAuth2Credentials" => o_auth2_credentials(),
         "password" => String.t(),
         "username" => String.t()
       }
-
+      
   """
   @type service_now_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       veeva_connector_profile_credentials() :: %{
         "password" => String.t(),
         "username" => String.t()
       }
-
+      
   """
   @type veeva_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       datadog_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type datadog_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_a_p_o_data_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
         "idFieldNames" => list(String.t()()),
@@ -1427,222 +1427,222 @@ defmodule AWS.Appflow do
         "successResponseHandlingConfig" => success_response_handling_config(),
         "writeOperationType" => list(any())
       }
-
+      
   """
   @type s_a_p_o_data_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       honeycode_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
         "object" => String.t()
       }
-
+      
   """
   @type honeycode_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unregister_connector_request() :: %{
         optional("forceDelete") => boolean(),
         required("connectorLabel") => String.t()
       }
-
+      
   """
   @type unregister_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registration_output() :: %{
         "message" => String.t(),
         "result" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type registration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       singular_connector_profile_credentials() :: %{
         "apiKey" => String.t()
       }
-
+      
   """
   @type singular_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       glue_data_catalog_config() :: %{
         "databaseName" => String.t(),
         "roleArn" => String.t(),
         "tablePrefix" => String.t()
       }
-
+      
   """
   @type glue_data_catalog_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amplitude_connector_profile_credentials() :: %{
         "apiKey" => String.t(),
         "secretKey" => String.t()
       }
-
+      
   """
   @type amplitude_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trendmicro_connector_profile_credentials() :: %{
         "apiSecretKey" => String.t()
       }
-
+      
   """
   @type trendmicro_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       customer_profiles_metadata() :: %{}
-
+      
   """
   @type customer_profiles_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_request() :: %{
         required("flowName") => String.t()
       }
-
+      
   """
   @type describe_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_entity() :: %{
         "hasNestedEntities" => boolean(),
         "label" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type connector_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_flow_response() :: %{
         "executionId" => String.t(),
         "flowArn" => String.t(),
         "flowStatus" => list(any())
       }
-
+      
   """
   @type start_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_flow_response() :: %{
         "flowArn" => String.t(),
         "flowStatus" => list(any())
       }
-
+      
   """
   @type stop_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_transfer_api() :: %{
         "Name" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type data_transfer_api() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metadata_catalog_config() :: %{
         "glueDataCatalog" => glue_data_catalog_config()
       }
-
+      
   """
   @type metadata_catalog_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_execution_records_response() :: %{
         "flowExecutions" => list(execution_record()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type describe_flow_execution_records_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trendmicro_metadata() :: %{}
-
+      
   """
   @type trendmicro_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_connector_properties() :: %{
         "Amplitude" => amplitude_source_properties(),
         "CustomConnector" => custom_connector_source_properties(),
@@ -1662,14 +1662,14 @@ defmodule AWS.Appflow do
         "Veeva" => veeva_source_properties(),
         "Zendesk" => zendesk_source_properties()
       }
-
+      
   """
   @type source_connector_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_metadata() :: %{
         "Amplitude" => amplitude_metadata(),
         "CustomerProfiles" => customer_profiles_metadata(),
@@ -1694,23 +1694,23 @@ defmodule AWS.Appflow do
         "Veeva" => veeva_metadata(),
         "Zendesk" => zendesk_metadata()
       }
-
+      
   """
   @type connector_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       infor_nexus_metadata() :: %{}
-
+      
   """
   @type infor_nexus_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_connector_profile_request() :: %{
         optional("clientToken") => String.t(),
         optional("connectorLabel") => String.t(),
@@ -1720,14 +1720,14 @@ defmodule AWS.Appflow do
         required("connectorProfileName") => String.t(),
         required("connectorType") => list(any())
       }
-
+      
   """
   @type create_connector_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_detail() :: %{
         "applicationType" => String.t(),
         "connectorDescription" => String.t(),
@@ -1742,60 +1742,60 @@ defmodule AWS.Appflow do
         "registeredBy" => String.t(),
         "supportedDataTransferTypes" => list(list(any())())
       }
-
+      
   """
   @type connector_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_execution_records_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("flowName") => String.t()
       }
-
+      
   """
   @type describe_flow_execution_records_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_flows_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_flows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_connector_request() :: %{
         optional("connectorLabel") => String.t(),
         required("connectorType") => list(any())
       }
-
+      
   """
   @type describe_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upsolver_metadata() :: %{}
-
+      
   """
   @type upsolver_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_connector_profile_credentials() :: %{
         "apiKey" => api_key_credentials(),
         "authenticationType" => list(any()),
@@ -1803,25 +1803,25 @@ defmodule AWS.Appflow do
         "custom" => custom_auth_credentials(),
         "oauth2" => o_auth2_credentials()
       }
-
+      
   """
   @type custom_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type connector_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_connector_request() :: %{
         optional("clientToken") => String.t(),
         optional("connectorLabel") => String.t(),
@@ -1829,14 +1829,14 @@ defmodule AWS.Appflow do
         optional("connectorProvisioningType") => list(any()),
         optional("description") => String.t()
       }
-
+      
   """
   @type register_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_connector_destination_properties() :: %{
         "customProperties" => map(),
         "entityName" => String.t(),
@@ -1844,14 +1844,14 @@ defmodule AWS.Appflow do
         "idFieldNames" => list(String.t()()),
         "writeOperationType" => list(any())
       }
-
+      
   """
   @type custom_connector_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       auth_parameter() :: %{
         "connectorSuppliedValues" => list(String.t()()),
         "description" => String.t(),
@@ -1860,14 +1860,14 @@ defmodule AWS.Appflow do
         "key" => String.t(),
         "label" => String.t()
       }
-
+      
   """
   @type auth_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_flow_config() :: %{
         "apiVersion" => String.t(),
         "connectorProfileName" => String.t(),
@@ -1875,67 +1875,67 @@ defmodule AWS.Appflow do
         "incrementalPullConfig" => incremental_pull_config(),
         "sourceConnectorProperties" => source_connector_properties()
       }
-
+      
   """
   @type source_flow_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_connector_profile_response() :: %{
         "connectorProfileArn" => String.t()
       }
-
+      
   """
   @type update_connector_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slack_metadata() :: %{
         "oAuthScopes" => list(String.t()())
       }
-
+      
   """
   @type slack_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       singular_metadata() :: %{}
-
+      
   """
   @type singular_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       register_connector_response() :: %{
         "connectorArn" => String.t()
       }
-
+      
   """
   @type register_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_auth2_credentials() :: %{
         "accessToken" => String.t(),
         "clientId" => String.t(),
@@ -1943,40 +1943,40 @@ defmodule AWS.Appflow do
         "oAuthRequest" => connector_o_auth_request(),
         "refreshToken" => String.t()
       }
-
+      
   """
   @type o_auth2_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       salesforce_source_properties() :: %{
         "dataTransferApi" => list(any()),
         "enableDynamicFieldUpdate" => boolean(),
         "includeDeletedRecords" => boolean(),
         "object" => String.t()
       }
-
+      
   """
   @type salesforce_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       datadog_connector_profile_credentials() :: %{
         "apiKey" => String.t(),
         "applicationKey" => String.t()
       }
-
+      
   """
   @type datadog_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_connector_metadata_cache_request() :: %{
         optional("apiVersion") => String.t(),
         optional("connectorEntityName") => String.t(),
@@ -1984,14 +1984,14 @@ defmodule AWS.Appflow do
         optional("connectorType") => list(any()),
         optional("entitiesPath") => String.t()
       }
-
+      
   """
   @type reset_connector_metadata_cache_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       veeva_source_properties() :: %{
         "documentType" => String.t(),
         "includeAllVersions" => boolean(),
@@ -1999,73 +1999,73 @@ defmodule AWS.Appflow do
         "includeSourceFiles" => boolean(),
         "object" => String.t()
       }
-
+      
   """
   @type veeva_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pardot_metadata() :: %{}
-
+      
   """
   @type pardot_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_connector_profile_request() :: %{
         optional("forceDelete") => boolean(),
         required("connectorProfileName") => String.t()
       }
-
+      
   """
   @type delete_connector_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_profile_config() :: %{
         "connectorProfileCredentials" => connector_profile_credentials(),
         "connectorProfileProperties" => connector_profile_properties()
       }
-
+      
   """
   @type connector_profile_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_o_auth_request() :: %{
         "authCode" => String.t(),
         "redirectUri" => String.t()
       }
-
+      
   """
   @type connector_o_auth_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       zendesk_connector_profile_credentials() :: %{
         "accessToken" => String.t(),
         "clientId" => String.t(),
         "clientSecret" => String.t(),
         "oAuthRequest" => connector_o_auth_request()
       }
-
+      
   """
   @type zendesk_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execution_record() :: %{
         "dataPullEndTime" => non_neg_integer(),
         "dataPullStartTime" => non_neg_integer(),
@@ -2076,25 +2076,25 @@ defmodule AWS.Appflow do
         "metadataCatalogDetails" => list(metadata_catalog_detail()()),
         "startedAt" => non_neg_integer()
       }
-
+      
   """
   @type execution_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       google_analytics_connector_profile_credentials() :: %{
         "accessToken" => String.t(),
         "clientId" => String.t(),
@@ -2102,14 +2102,14 @@ defmodule AWS.Appflow do
         "oAuthRequest" => connector_o_auth_request(),
         "refreshToken" => String.t()
       }
-
+      
   """
   @type google_analytics_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_auth2_custom_parameter() :: %{
         "connectorSuppliedValues" => list(String.t()()),
         "description" => String.t(),
@@ -2119,263 +2119,263 @@ defmodule AWS.Appflow do
         "label" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type o_auth2_custom_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_connector_profile_response() :: %{
         "connectorProfileArn" => String.t()
       }
-
+      
   """
   @type create_connector_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_connector_profile_properties() :: %{
         "oAuth2Properties" => o_auth2_properties(),
         "profileProperties" => map()
       }
-
+      
   """
   @type custom_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       singular_connector_profile_properties() :: %{}
-
+      
   """
   @type singular_connector_profile_properties() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       veeva_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type veeva_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       success_response_handling_config() :: %{
         "bucketName" => String.t(),
         "bucketPrefix" => String.t()
       }
-
+      
   """
   @type success_response_handling_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       dynatrace_connector_profile_credentials() :: %{
         "apiToken" => String.t()
       }
-
+      
   """
   @type dynatrace_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_handling_config() :: %{
         "bucketName" => String.t(),
         "bucketPrefix" => String.t(),
         "failOnFirstDestinationError" => boolean()
       }
-
+      
   """
   @type error_handling_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_connector_registration_response() :: %{
         "connectorArn" => String.t()
       }
-
+      
   """
   @type update_connector_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       google_analytics_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type google_analytics_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upsolver_destination_properties() :: %{
         "bucketName" => String.t(),
         "bucketPrefix" => String.t(),
         "s3OutputFormatConfig" => upsolver_s3_output_format_config()
       }
-
+      
   """
   @type upsolver_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_a_p_o_data_parallelism_config() :: %{
         "maxParallelism" => integer()
       }
-
+      
   """
   @type s_a_p_o_data_parallelism_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       supported_field_type_details() :: %{
         "v1" => field_type_details()
       }
-
+      
   """
   @type supported_field_type_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pardot_connector_profile_properties() :: %{
         "businessUnitId" => String.t(),
         "instanceUrl" => String.t(),
         "isSandboxEnvironment" => boolean()
       }
-
+      
   """
   @type pardot_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dynatrace_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type dynatrace_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s_a_p_o_data_connector_profile_credentials() :: %{
         "basicAuthCredentials" => basic_auth_credentials(),
         "oAuthCredentials" => o_auth_credentials()
       }
-
+      
   """
   @type s_a_p_o_data_connector_profile_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_connector_source_properties() :: %{
         "customProperties" => map(),
         "dataTransferApi" => data_transfer_api(),
         "entityName" => String.t()
       }
-
+      
   """
   @type custom_connector_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_auth2_properties() :: %{
         "oAuth2GrantType" => list(any()),
         "tokenUrl" => String.t(),
         "tokenUrlCustomProperties" => map()
       }
-
+      
   """
   @type o_auth2_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       marketo_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type marketo_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_type_details() :: %{
         "fieldLengthRange" => range(),
         "fieldType" => String.t(),
@@ -2385,23 +2385,23 @@ defmodule AWS.Appflow do
         "supportedValues" => list(String.t()()),
         "valueRegexPattern" => String.t()
       }
-
+      
   """
   @type field_type_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dynatrace_metadata() :: %{}
-
+      
   """
   @type dynatrace_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_operator() :: %{
         "Amplitude" => list(any()),
         "CustomConnector" => list(any()),
@@ -2421,25 +2421,25 @@ defmodule AWS.Appflow do
         "Veeva" => list(any()),
         "Zendesk" => list(any())
       }
-
+      
   """
   @type connector_operator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_flow_response() :: %{
         "flowStatus" => list(any())
       }
-
+      
   """
   @type update_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snowflake_connector_profile_properties() :: %{
         "accountName" => String.t(),
         "bucketName" => String.t(),
@@ -2449,37 +2449,37 @@ defmodule AWS.Appflow do
         "stage" => String.t(),
         "warehouse" => String.t()
       }
-
+      
   """
   @type snowflake_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       infor_nexus_connector_profile_properties() :: %{
         "instanceUrl" => String.t()
       }
-
+      
   """
   @type infor_nexus_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_flow_executions_request() :: %{
         optional("executionIds") => list(String.t()()),
         required("flowName") => String.t()
       }
-
+      
   """
   @type cancel_flow_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_flow_response() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -2501,34 +2501,34 @@ defmodule AWS.Appflow do
         "tasks" => list(task()()),
         "triggerConfig" => trigger_config()
       }
-
+      
   """
   @type describe_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_connector_provisioning_config() :: %{
         "lambdaArn" => String.t()
       }
-
+      
   """
   @type lambda_connector_provisioning_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_bridge_metadata() :: %{}
-
+      
   """
   @type event_bridge_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       redshift_connector_profile_properties() :: %{
         "bucketName" => String.t(),
         "bucketPrefix" => String.t(),
@@ -2540,77 +2540,77 @@ defmodule AWS.Appflow do
         "roleArn" => String.t(),
         "workgroupName" => String.t()
       }
-
+      
   """
   @type redshift_connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       veeva_metadata() :: %{}
-
+      
   """
   @type veeva_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_now_metadata() :: %{}
-
+      
   """
   @type service_now_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_connector_profile_response() :: %{}
-
+      
   """
   @type delete_connector_profile_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       customer_profiles_destination_properties() :: %{
         "domainName" => String.t(),
         "objectTypeName" => String.t()
       }
-
+      
   """
   @type customer_profiles_destination_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       salesforce_metadata() :: %{
         "dataTransferApis" => list(list(any())()),
         "oAuthScopes" => list(String.t()()),
         "oauth2GrantTypesSupported" => list(list(any())())
       }
-
+      
   """
   @type salesforce_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_now_source_properties() :: %{
         "object" => String.t()
       }
-
+      
   """
   @type service_now_source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_profile_properties() :: %{
         "Amplitude" => amplitude_connector_profile_properties(),
         "CustomConnector" => custom_connector_profile_properties(),
@@ -2632,36 +2632,36 @@ defmodule AWS.Appflow do
         "Veeva" => veeva_connector_profile_properties(),
         "Zendesk" => zendesk_connector_profile_properties()
       }
-
+      
   """
   @type connector_profile_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incremental_pull_config() :: %{
         "datetimeTypeFieldName" => String.t()
       }
-
+      
   """
   @type incremental_pull_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_flow_request() :: %{
         required("flowName") => String.t()
       }
-
+      
   """
   @type stop_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_runtime_setting() :: %{
         "connectorSuppliedValueOptions" => list(String.t()()),
         "dataType" => String.t(),
@@ -2671,26 +2671,26 @@ defmodule AWS.Appflow do
         "label" => String.t(),
         "scope" => String.t()
       }
-
+      
   """
   @type connector_runtime_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trigger_config() :: %{
         "triggerProperties" => trigger_properties(),
         "triggerType" => list(any())
       }
-
+      
   """
   @type trigger_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authentication_config() :: %{
         "customAuthConfigs" => list(custom_auth_config()()),
         "isApiKeyAuthSupported" => boolean(),
@@ -2699,23 +2699,23 @@ defmodule AWS.Appflow do
         "isOAuth2Supported" => boolean(),
         "oAuth2Defaults" => o_auth2_defaults()
       }
-
+      
   """
   @type authentication_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       datadog_metadata() :: %{}
-
+      
   """
   @type datadog_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_configuration() :: %{
         "authenticationConfig" => authentication_config(),
         "canUseAsDestination" => boolean(),
@@ -2746,7 +2746,7 @@ defmodule AWS.Appflow do
         "supportedTriggerTypes" => list(list(any())()),
         "supportedWriteOperations" => list(list(any())())
       }
-
+      
   """
   @type connector_configuration() :: %{String.t() => any()}
 
@@ -2906,29 +2906,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec cancel_flow_executions(AWS.Client.t(), cancel_flow_executions_request(), Keyword.t()) ::
+
+  @spec cancel_flow_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_flow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_flow_executions_errors()}
-  def cancel_flow_executions(%Client{} = client, input, options \\ []) do
+
+  def cancel_flow_executions(%Client{} = client, options \\ []) do
     url_path = "/cancel-flow-executions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2945,29 +2956,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec create_connector_profile(AWS.Client.t(), create_connector_profile_request(), Keyword.t()) ::
+
+  @spec create_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_profile_errors()}
-  def create_connector_profile(%Client{} = client, input, options \\ []) do
+
+  def create_connector_profile(%Client{} = client, options \\ []) do
     url_path = "/create-connector-profile"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2983,29 +3005,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec create_flow(AWS.Client.t(), create_flow_request(), Keyword.t()) ::
+
+  @spec create_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_errors()}
-  def create_flow(%Client{} = client, input, options \\ []) do
+
+  def create_flow(%Client{} = client, options \\ []) do
     url_path = "/create-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3017,29 +3050,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec delete_connector_profile(AWS.Client.t(), delete_connector_profile_request(), Keyword.t()) ::
+
+  @spec delete_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_profile_errors()}
-  def delete_connector_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_connector_profile(%Client{} = client, options \\ []) do
     url_path = "/delete-connector-profile"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3053,29 +3097,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec delete_flow(AWS.Client.t(), delete_flow_request(), Keyword.t()) ::
+
+  @spec delete_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_errors()}
-  def delete_flow(%Client{} = client, input, options \\ []) do
+
+  def delete_flow(%Client{} = client, options \\ []) do
     url_path = "/delete-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3089,29 +3144,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec describe_connector(AWS.Client.t(), describe_connector_request(), Keyword.t()) ::
+
+  @spec describe_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_errors()}
-  def describe_connector(%Client{} = client, input, options \\ []) do
+
+  def describe_connector(%Client{} = client, options \\ []) do
     url_path = "/describe-connector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3124,33 +3190,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec describe_connector_entity(
-          AWS.Client.t(),
-          describe_connector_entity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_connector_entity(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_entity_errors()}
-  def describe_connector_entity(%Client{} = client, input, options \\ []) do
+
+  def describe_connector_entity(%Client{} = client, options \\ []) do
     url_path = "/describe-connector-entity"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3164,33 +3237,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec describe_connector_profiles(
-          AWS.Client.t(),
-          describe_connector_profiles_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_connector_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_profiles_errors()}
-  def describe_connector_profiles(%Client{} = client, input, options \\ []) do
+
+  def describe_connector_profiles(%Client{} = client, options \\ []) do
     url_path = "/describe-connector-profiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3207,29 +3287,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec describe_connectors(AWS.Client.t(), describe_connectors_request(), Keyword.t()) ::
+
+  @spec describe_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connectors_errors()}
-  def describe_connectors(%Client{} = client, input, options \\ []) do
+
+  def describe_connectors(%Client{} = client, options \\ []) do
     url_path = "/describe-connectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3241,29 +3332,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec describe_flow(AWS.Client.t(), describe_flow_request(), Keyword.t()) ::
+
+  @spec describe_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_errors()}
-  def describe_flow(%Client{} = client, input, options \\ []) do
+
+  def describe_flow(%Client{} = client, options \\ []) do
     url_path = "/describe-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3275,33 +3377,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec describe_flow_execution_records(
-          AWS.Client.t(),
-          describe_flow_execution_records_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_flow_execution_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_flow_execution_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_execution_records_errors()}
-  def describe_flow_execution_records(%Client{} = client, input, options \\ []) do
+
+  def describe_flow_execution_records(%Client{} = client, options \\ []) do
     url_path = "/describe-flow-execution-records"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3315,29 +3424,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec list_connector_entities(AWS.Client.t(), list_connector_entities_request(), Keyword.t()) ::
+
+  @spec list_connector_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connector_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connector_entities_errors()}
-  def list_connector_entities(%Client{} = client, input, options \\ []) do
+
+  def list_connector_entities(%Client{} = client, options \\ []) do
     url_path = "/list-connector-entities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3351,29 +3471,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec list_connectors(AWS.Client.t(), list_connectors_request(), Keyword.t()) ::
+
+  @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-  def list_connectors(%Client{} = client, input, options \\ []) do
+
+  def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/list-connectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3385,29 +3516,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec list_flows(AWS.Client.t(), list_flows_request(), Keyword.t()) ::
+
+  @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flows_errors()}
-  def list_flows(%Client{} = client, input, options \\ []) do
+
+  def list_flows(%Client{} = client, options \\ []) do
     url_path = "/list-flows"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3417,14 +3559,16 @@ defmodule AWS.Appflow do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the specified
-    flow.
+  flow.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3464,29 +3608,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec register_connector(AWS.Client.t(), register_connector_request(), Keyword.t()) ::
+
+  @spec register_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_connector_errors()}
-  def register_connector(%Client{} = client, input, options \\ []) do
+
+  def register_connector(%Client{} = client, options \\ []) do
     url_path = "/register-connector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3500,33 +3655,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec reset_connector_metadata_cache(
-          AWS.Client.t(),
-          reset_connector_metadata_cache_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reset_connector_metadata_cache(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_connector_metadata_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_connector_metadata_cache_errors()}
-  def reset_connector_metadata_cache(%Client{} = client, input, options \\ []) do
+
+  def reset_connector_metadata_cache(%Client{} = client, options \\ []) do
     url_path = "/reset-connector-metadata-cache"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3540,29 +3702,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec start_flow(AWS.Client.t(), start_flow_request(), Keyword.t()) ::
+
+  @spec start_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_flow_errors()}
-  def start_flow(%Client{} = client, input, options \\ []) do
+
+  def start_flow(%Client{} = client, options \\ []) do
     url_path = "/start-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3576,29 +3749,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec stop_flow(AWS.Client.t(), stop_flow_request(), Keyword.t()) ::
+
+  @spec stop_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_flow_errors()}
-  def stop_flow(%Client{} = client, input, options \\ []) do
+
+  def stop_flow(%Client{} = client, options \\ []) do
     url_path = "/stop-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3608,33 +3792,44 @@ defmodule AWS.Appflow do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the flow that
-    you want to tag.
+  you want to tag.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3647,29 +3842,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec unregister_connector(AWS.Client.t(), unregister_connector_request(), Keyword.t()) ::
+
+  @spec unregister_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, unregister_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unregister_connector_errors()}
-  def unregister_connector(%Client{} = client, input, options \\ []) do
+
+  def unregister_connector(%Client{} = client, options \\ []) do
     url_path = "/unregister-connector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3679,28 +3885,45 @@ defmodule AWS.Appflow do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the flow that
-    you want to untag.
+  you want to untag.
   * `:tag_keys` (`t:list[com.amazonaws.appflow#TagKey]`) The tag keys associated
-    with the tag that you want to remove from your flow.
+  with the tag that you want to remove from your flow.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3709,7 +3932,7 @@ defmodule AWS.Appflow do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3724,29 +3947,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec update_connector_profile(AWS.Client.t(), update_connector_profile_request(), Keyword.t()) ::
+
+  @spec update_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_profile_errors()}
-  def update_connector_profile(%Client{} = client, input, options \\ []) do
+
+  def update_connector_profile(%Client{} = client, options \\ []) do
     url_path = "/update-connector-profile"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3759,33 +3993,40 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec update_connector_registration(
-          AWS.Client.t(),
-          update_connector_registration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_connector_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_connector_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_registration_errors()}
-  def update_connector_registration(%Client{} = client, input, options \\ []) do
+
+  def update_connector_registration(%Client{} = client, options \\ []) do
     url_path = "/update-connector-registration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3797,28 +4038,39 @@ defmodule AWS.Appflow do
 
   ## Optional parameters:
   """
-  @spec update_flow(AWS.Client.t(), update_flow_request(), Keyword.t()) ::
+
+  @spec update_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_flow_errors()}
-  def update_flow(%Client{} = client, input, options \\ []) do
+
+  def update_flow(%Client{} = client, options \\ []) do
     url_path = "/update-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

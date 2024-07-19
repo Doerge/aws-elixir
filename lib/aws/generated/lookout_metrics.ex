@@ -15,29 +15,29 @@ defmodule AWS.LookoutMetrics do
   @typedoc """
 
   ## Example:
-
+      
       get_data_quality_metrics_response() :: %{
         "AnomalyDetectorDataQualityMetricList" => list(anomaly_detector_data_quality_metric()())
       }
-
+      
   """
   @type get_data_quality_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_detector_config_summary() :: %{
         "AnomalyDetectorFrequency" => list(any())
       }
-
+      
   """
   @type anomaly_detector_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_csv_format_descriptor() :: %{
         "Charset" => detected_field(),
         "ContainsHeader" => detected_field(),
@@ -46,49 +46,49 @@ defmodule AWS.LookoutMetrics do
         "HeaderList" => detected_field(),
         "QuoteSymbol" => detected_field()
       }
-
+      
   """
   @type detected_csv_format_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_anomaly_detector_response() :: %{}
-
+      
   """
   @type activate_anomaly_detector_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_feedback_request() :: %{
         required("AnomalyDetectorArn") => String.t(),
         required("AnomalyGroupTimeSeriesFeedback") => anomaly_group_time_series_feedback()
       }
-
+      
   """
   @type put_feedback_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inter_metric_impact_details() :: %{
         "AnomalyGroupId" => String.t(),
         "ContributionPercentage" => float(),
         "MetricName" => String.t(),
         "RelationshipType" => list(any())
       }
-
+      
   """
   @type inter_metric_impact_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_metric_set_request() :: %{
         optional("DimensionFilterList") => list(metric_set_dimension_filter()()),
         optional("DimensionList") => list(String.t()()),
@@ -100,63 +100,63 @@ defmodule AWS.LookoutMetrics do
         optional("TimestampColumn") => timestamp_column(),
         required("MetricSetArn") => String.t()
       }
-
+      
   """
   @type update_metric_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dimension_contribution() :: %{
         "DimensionName" => String.t(),
         "DimensionValueContributionList" => list(dimension_value_contribution()())
       }
-
+      
   """
   @type dimension_contribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_group_summaries_response() :: %{
         "AnomalyGroupStatistics" => anomaly_group_statistics(),
         "AnomalyGroupSummaryList" => list(anomaly_group_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_anomaly_group_summaries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_field() :: %{
         "Confidence" => list(any()),
         "Message" => String.t(),
         "Value" => attribute_value()
       }
-
+      
   """
   @type detected_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_group() :: %{
         "AnomalyGroupId" => String.t(),
         "AnomalyGroupScore" => float(),
@@ -165,61 +165,61 @@ defmodule AWS.LookoutMetrics do
         "PrimaryMetricName" => String.t(),
         "StartTime" => String.t()
       }
-
+      
   """
   @type anomaly_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_configuration() :: %{
         "SecurityGroupIdList" => list(String.t()()),
         "SubnetIdList" => list(String.t()())
       }
-
+      
   """
   @type vpc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_metric_sets_response() :: %{
         "MetricSetSummaryList" => list(metric_set_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_metric_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_alert_request() :: %{
         required("AlertArn") => String.t()
       }
-
+      
   """
   @type describe_alert_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_group_time_series() :: %{
         "AnomalyGroupId" => String.t(),
         "TimeSeriesId" => String.t()
       }
-
+      
   """
   @type anomaly_group_time_series() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_set_summary() :: %{
         "AnomalyDetectorArn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -229,189 +229,189 @@ defmodule AWS.LookoutMetrics do
         "MetricSetName" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type metric_set_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_metric_sets_request() :: %{
         optional("AnomalyDetectorArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_metric_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deactivate_anomaly_detector_request() :: %{
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type deactivate_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       metric() :: %{
         "AggregationFunction" => list(any()),
         "MetricName" => String.t(),
         "Namespace" => String.t()
       }
-
+      
   """
   @type metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_file_format_descriptor() :: %{
         "CsvFormatDescriptor" => detected_csv_format_descriptor(),
         "JsonFormatDescriptor" => detected_json_format_descriptor()
       }
-
+      
   """
   @type detected_file_format_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_json_format_descriptor() :: %{
         "Charset" => detected_field(),
         "FileCompression" => detected_field()
       }
-
+      
   """
   @type detected_json_format_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_alerts_request() :: %{
         optional("AnomalyDetectorArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_alerts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_set_dimension_filter() :: %{
         "FilterList" => list(filter()()),
         "Name" => String.t()
       }
-
+      
   """
   @type metric_set_dimension_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dimension_name_value() :: %{
         "DimensionName" => String.t(),
         "DimensionValue" => String.t()
       }
-
+      
   """
   @type dimension_name_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detect_metric_set_config_request() :: %{
         required("AnomalyDetectorArn") => String.t(),
         required("AutoDetectionMetricSource") => auto_detection_metric_source()
       }
-
+      
   """
   @type detect_metric_set_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_config() :: %{
         "BackTestConfiguration" => back_test_configuration(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type cloud_watch_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_feedback_response() :: %{}
-
+      
   """
   @type put_feedback_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execution_status() :: %{
         "FailureReason" => String.t(),
         "Status" => list(any()),
         "Timestamp" => String.t()
       }
-
+      
   """
   @type execution_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_group_time_series_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -419,74 +419,74 @@ defmodule AWS.LookoutMetrics do
         required("AnomalyGroupId") => String.t(),
         required("MetricName") => String.t()
       }
-
+      
   """
   @type list_anomaly_group_time_series_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       auto_detection_s3_source_config() :: %{
         "HistoricalDataPathList" => list(String.t()()),
         "TemplatedPathList" => list(String.t()())
       }
-
+      
   """
   @type auto_detection_s3_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       json_format_descriptor() :: %{
         "Charset" => String.t(),
         "FileCompression" => list(any())
       }
-
+      
   """
   @type json_format_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_group_time_series_feedback() :: %{
         "AnomalyGroupId" => String.t(),
         "IsAnomaly" => boolean(),
         "TimeSeriesId" => String.t()
       }
-
+      
   """
   @type anomaly_group_time_series_feedback() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sample_data_response() :: %{
         "HeaderValues" => list(String.t()()),
         "SampleRows" => list(list(String.t()())())
       }
-
+      
   """
   @type get_sample_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sample_data_request() :: %{
         optional("S3SourceConfig") => sample_data_s3_source_config()
       }
-
+      
   """
   @type get_sample_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redshift_source_config() :: %{
         "ClusterIdentifier" => String.t(),
         "DatabaseHost" => String.t(),
@@ -497,25 +497,25 @@ defmodule AWS.LookoutMetrics do
         "TableName" => String.t(),
         "VpcConfiguration" => vpc_configuration()
       }
-
+      
   """
   @type redshift_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_metric_set_request() :: %{
         required("MetricSetArn") => String.t()
       }
-
+      
   """
   @type describe_metric_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_group_related_metrics_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -523,107 +523,107 @@ defmodule AWS.LookoutMetrics do
         required("AnomalyDetectorArn") => String.t(),
         required("AnomalyGroupId") => String.t()
       }
-
+      
   """
   @type list_anomaly_group_related_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_detector_data_quality_metric() :: %{
         "MetricSetDataQualityMetricList" => list(metric_set_data_quality_metric()()),
         "StartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type anomaly_detector_data_quality_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       timestamp_column() :: %{
         "ColumnFormat" => String.t(),
         "ColumnName" => String.t()
       }
-
+      
   """
   @type timestamp_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       back_test_configuration() :: %{
         "RunBackTestMode" => boolean()
       }
-
+      
   """
   @type back_test_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       back_test_anomaly_detector_response() :: %{}
-
+      
   """
   @type back_test_anomaly_detector_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_alert_response() :: %{
         "Alert" => alert()
       }
-
+      
   """
   @type describe_alert_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_set_data_quality_metric() :: %{
         "DataQualityMetricList" => list(data_quality_metric()()),
         "MetricSetArn" => String.t()
       }
-
+      
   """
   @type metric_set_data_quality_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_source() :: %{
         "AppFlowConfig" => app_flow_config(),
         "AthenaSourceConfig" => athena_source_config(),
@@ -632,14 +632,14 @@ defmodule AWS.LookoutMetrics do
         "RedshiftSourceConfig" => redshift_source_config(),
         "S3SourceConfig" => s3_source_config()
       }
-
+      
   """
   @type metric_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_anomaly_detector_response() :: %{
         "AnomalyDetectorArn" => String.t(),
         "AnomalyDetectorConfig" => anomaly_detector_config_summary(),
@@ -652,14 +652,14 @@ defmodule AWS.LookoutMetrics do
         "LastModificationTime" => non_neg_integer(),
         "Status" => list(any())
       }
-
+      
   """
   @type describe_anomaly_detector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       csv_format_descriptor() :: %{
         "Charset" => String.t(),
         "ContainsHeader" => boolean(),
@@ -668,26 +668,26 @@ defmodule AWS.LookoutMetrics do
         "HeaderList" => list(String.t()()),
         "QuoteSymbol" => String.t()
       }
-
+      
   """
   @type csv_format_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_format_descriptor() :: %{
         "CsvFormatDescriptor" => csv_format_descriptor(),
         "JsonFormatDescriptor" => json_format_descriptor()
       }
-
+      
   """
   @type file_format_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t(),
         "QuotaCode" => String.t(),
@@ -695,73 +695,73 @@ defmodule AWS.LookoutMetrics do
         "ResourceType" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_anomaly_detector_response() :: %{}
-
+      
   """
   @type delete_anomaly_detector_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sample_data_s3_source_config() :: %{
         "FileFormatDescriptor" => file_format_descriptor(),
         "HistoricalDataPathList" => list(String.t()()),
         "RoleArn" => String.t(),
         "TemplatedPathList" => list(String.t()())
       }
-
+      
   """
   @type sample_data_s3_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_flow_config() :: %{
         "FlowName" => String.t(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type app_flow_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_series() :: %{
         "DimensionList" => list(dimension_name_value()()),
         "MetricValueList" => list(float()()),
         "TimeSeriesId" => String.t()
       }
-
+      
   """
   @type time_series() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_anomaly_detector_request() :: %{
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type activate_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alert_summary() :: %{
         "AlertArn" => String.t(),
         "AlertName" => String.t(),
@@ -773,107 +773,107 @@ defmodule AWS.LookoutMetrics do
         "LastModificationTime" => non_neg_integer(),
         "Tags" => map()
       }
-
+      
   """
   @type alert_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_s3_source_config() :: %{
         "FileFormatDescriptor" => detected_file_format_descriptor()
       }
-
+      
   """
   @type detected_s3_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_alert_request() :: %{
         required("AlertArn") => String.t()
       }
-
+      
   """
   @type delete_alert_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_alert_response() :: %{
         "AlertArn" => String.t()
       }
-
+      
   """
   @type create_alert_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_group_summaries_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AnomalyDetectorArn") => String.t(),
         required("SensitivityThreshold") => integer()
       }
-
+      
   """
   @type list_anomaly_group_summaries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       itemized_metric_stats() :: %{
         "MetricName" => String.t(),
         "OccurrenceCount" => integer()
       }
-
+      
   """
   @type itemized_metric_stats() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "Message" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_anomaly_detector_response() :: %{
         "AnomalyDetectorArn" => String.t()
       }
-
+      
   """
   @type create_anomaly_detector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_value() :: %{
         "B" => String.t(),
         "BS" => list(String.t()()),
@@ -882,14 +882,14 @@ defmodule AWS.LookoutMetrics do
         "S" => String.t(),
         "SS" => list(String.t()())
       }
-
+      
   """
   @type attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_alert_request() :: %{
         optional("AlertDescription") => String.t(),
         optional("AlertFilters") => alert_filters(),
@@ -899,90 +899,90 @@ defmodule AWS.LookoutMetrics do
         required("AlertName") => String.t(),
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type create_alert_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter() :: %{
         "DimensionValue" => String.t(),
         "FilterOperation" => list(any())
       }
-
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dimension_value_contribution() :: %{
         "ContributionScore" => float(),
         "DimensionValue" => String.t()
       }
-
+      
   """
   @type dimension_value_contribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_source_config() :: %{
         "FileFormatDescriptor" => file_format_descriptor(),
         "HistoricalDataPathList" => list(String.t()()),
         "RoleArn" => String.t(),
         "TemplatedPathList" => list(String.t()())
       }
-
+      
   """
   @type s3_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_anomaly_group_request() :: %{
         required("AnomalyDetectorArn") => String.t(),
         required("AnomalyGroupId") => String.t()
       }
-
+      
   """
   @type get_anomaly_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_feedback_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AnomalyDetectorArn") => String.t(),
         required("AnomalyGroupTimeSeriesFeedback") => anomaly_group_time_series()
       }
-
+      
   """
   @type get_feedback_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_group_related_metrics_response() :: %{
         "InterMetricImpactList" => list(inter_metric_impact_details()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_anomaly_group_related_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       athena_source_config() :: %{
         "BackTestConfiguration" => back_test_configuration(),
         "DataCatalog" => String.t(),
@@ -992,25 +992,25 @@ defmodule AWS.LookoutMetrics do
         "TableName" => String.t(),
         "WorkGroupName" => String.t()
       }
-
+      
   """
   @type athena_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_detector_summary() :: %{
         "AnomalyDetectorArn" => String.t(),
         "AnomalyDetectorDescription" => String.t(),
@@ -1020,14 +1020,14 @@ defmodule AWS.LookoutMetrics do
         "Status" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type anomaly_detector_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rds_source_config() :: %{
         "DBInstanceIdentifier" => String.t(),
         "DatabaseHost" => String.t(),
@@ -1038,37 +1038,37 @@ defmodule AWS.LookoutMetrics do
         "TableName" => String.t(),
         "VpcConfiguration" => vpc_configuration()
       }
-
+      
   """
   @type rds_source_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       auto_detection_metric_source() :: %{
         "S3SourceConfig" => auto_detection_s3_source_config()
       }
-
+      
   """
   @type auto_detection_metric_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action() :: %{
         "LambdaConfiguration" => lambda_configuration(),
         "SNSConfiguration" => s_n_s_configuration()
       }
-
+      
   """
   @type action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_group_time_series_response() :: %{
         "AnomalyGroupId" => String.t(),
         "MetricName" => String.t(),
@@ -1076,114 +1076,114 @@ defmodule AWS.LookoutMetrics do
         "TimeSeriesList" => list(time_series()()),
         "TimestampList" => list(String.t()())
       }
-
+      
   """
   @type list_anomaly_group_time_series_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_anomaly_detection_executions_response() :: %{
         "ExecutionList" => list(execution_status()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type describe_anomaly_detection_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_metric_set_response() :: %{
         "MetricSetArn" => String.t()
       }
-
+      
   """
   @type update_metric_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_configuration() :: %{
         "LambdaArn" => String.t(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type lambda_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       s_n_s_configuration() :: %{
         "RoleArn" => String.t(),
         "SnsFormat" => list(any()),
         "SnsTopicArn" => String.t()
       }
-
+      
   """
   @type s_n_s_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_feedback_response() :: %{
         "AnomalyGroupTimeSeriesFeedback" => list(time_series_feedback()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_feedback_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_anomaly_group_response() :: %{
         "AnomalyGroup" => anomaly_group()
       }
-
+      
   """
   @type get_anomaly_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_alert_response() :: %{}
-
+      
   """
   @type delete_alert_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_metric_set_response() :: %{
         "AnomalyDetectorArn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -1200,83 +1200,83 @@ defmodule AWS.LookoutMetrics do
         "TimestampColumn" => timestamp_column(),
         "Timezone" => String.t()
       }
-
+      
   """
   @type describe_metric_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contribution_matrix() :: %{
         "DimensionContributionList" => list(dimension_contribution()())
       }
-
+      
   """
   @type contribution_matrix() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_metric_set_config() :: %{
         "MetricSetFrequency" => detected_field(),
         "MetricSource" => detected_metric_source(),
         "Offset" => detected_field()
       }
-
+      
   """
   @type detected_metric_set_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()()),
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_detectors_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_anomaly_detectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_anomaly_detector_request() :: %{
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type delete_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alert() :: %{
         "Action" => action(),
         "AlertArn" => String.t(),
@@ -1290,100 +1290,100 @@ defmodule AWS.LookoutMetrics do
         "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer()
       }
-
+      
   """
   @type alert() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_metric_set_response() :: %{
         "MetricSetArn" => String.t()
       }
-
+      
   """
   @type create_metric_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_data_quality_metrics_request() :: %{
         optional("MetricSetArn") => String.t(),
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type get_data_quality_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alert_filters() :: %{
         "DimensionFilterList" => list(dimension_filter()()),
         "MetricList" => list(String.t()())
       }
-
+      
   """
   @type alert_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detected_metric_source() :: %{
         "S3SourceConfig" => detected_s3_source_config()
       }
-
+      
   """
   @type detected_metric_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_anomaly_detector_request() :: %{
         optional("AnomalyDetectorConfig") => anomaly_detector_config(),
         optional("AnomalyDetectorDescription") => String.t(),
         optional("KmsKeyArn") => String.t(),
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type update_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_anomaly_detection_executions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Timestamp") => String.t(),
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type describe_anomaly_detection_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_alerts_response() :: %{
         "AlertSummaryList" => list(alert_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_alerts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_group_summary() :: %{
         "AnomalyGroupId" => String.t(),
         "AnomalyGroupScore" => float(),
@@ -1391,62 +1391,62 @@ defmodule AWS.LookoutMetrics do
         "PrimaryMetricName" => String.t(),
         "StartTime" => String.t()
       }
-
+      
   """
   @type anomaly_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_anomaly_detectors_response() :: %{
         "AnomalyDetectorSummaryList" => list(anomaly_detector_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_anomaly_detectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_series_feedback() :: %{
         "IsAnomaly" => boolean(),
         "TimeSeriesId" => String.t()
       }
-
+      
   """
   @type time_series_feedback() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_group_statistics() :: %{
         "EvaluationStartDate" => String.t(),
         "ItemizedMetricStatsList" => list(itemized_metric_stats()()),
         "TotalCount" => integer()
       }
-
+      
   """
   @type anomaly_group_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_alert_response() :: %{
         "AlertArn" => String.t()
       }
-
+      
   """
   @type update_alert_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_alert_request() :: %{
         optional("Action") => action(),
         optional("AlertDescription") => String.t(),
@@ -1454,50 +1454,50 @@ defmodule AWS.LookoutMetrics do
         optional("AlertSensitivityThreshold") => integer(),
         required("AlertArn") => String.t()
       }
-
+      
   """
   @type update_alert_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       back_test_anomaly_detector_request() :: %{
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type back_test_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_level_impact() :: %{
         "ContributionMatrix" => contribution_matrix(),
         "MetricName" => String.t(),
         "NumTimeSeries" => integer()
       }
-
+      
   """
   @type metric_level_impact() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dimension_filter() :: %{
         "DimensionName" => String.t(),
         "DimensionValueList" => list(String.t()())
       }
-
+      
   """
   @type dimension_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_anomaly_detector_request() :: %{
         optional("AnomalyDetectorDescription") => String.t(),
         optional("KmsKeyArn") => String.t(),
@@ -1505,34 +1505,34 @@ defmodule AWS.LookoutMetrics do
         required("AnomalyDetectorConfig") => anomaly_detector_config(),
         required("AnomalyDetectorName") => String.t()
       }
-
+      
   """
   @type create_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deactivate_anomaly_detector_response() :: %{}
-
+      
   """
   @type deactivate_anomaly_detector_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_detector_config() :: %{
         "AnomalyDetectorFrequency" => list(any())
       }
-
+      
   """
   @type anomaly_detector_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_metric_set_request() :: %{
         optional("DimensionFilterList") => list(metric_set_dimension_filter()()),
         optional("DimensionList") => list(String.t()()),
@@ -1547,54 +1547,54 @@ defmodule AWS.LookoutMetrics do
         required("MetricSetName") => String.t(),
         required("MetricSource") => metric_source()
       }
-
+      
   """
   @type create_metric_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       detect_metric_set_config_response() :: %{
         "DetectedMetricSetConfig" => detected_metric_set_config()
       }
-
+      
   """
   @type detect_metric_set_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_anomaly_detector_request() :: %{
         required("AnomalyDetectorArn") => String.t()
       }
-
+      
   """
   @type describe_anomaly_detector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_anomaly_detector_response() :: %{
         "AnomalyDetectorArn" => String.t()
       }
-
+      
   """
   @type update_anomaly_detector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_quality_metric() :: %{
         "MetricDescription" => String.t(),
         "MetricType" => list(any()),
         "MetricValue" => float(),
         "RelatedColumnName" => String.t()
       }
-
+      
   """
   @type data_quality_metric() :: %{String.t() => any()}
 
@@ -1830,33 +1830,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec activate_anomaly_detector(
-          AWS.Client.t(),
-          activate_anomaly_detector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec activate_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_anomaly_detector_errors()}
-  def activate_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def activate_anomaly_detector(%Client{} = client, options \\ []) do
     url_path = "/ActivateAnomalyDetector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1868,33 +1875,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec back_test_anomaly_detector(
-          AWS.Client.t(),
-          back_test_anomaly_detector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec back_test_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, back_test_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, back_test_anomaly_detector_errors()}
-  def back_test_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def back_test_anomaly_detector(%Client{} = client, options \\ []) do
     url_path = "/BackTestAnomalyDetector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1906,29 +1920,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec create_alert(AWS.Client.t(), create_alert_request(), Keyword.t()) ::
+
+  @spec create_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alert_errors()}
-  def create_alert(%Client{} = client, input, options \\ []) do
+
+  def create_alert(%Client{} = client, options \\ []) do
     url_path = "/CreateAlert"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1940,29 +1965,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec create_anomaly_detector(AWS.Client.t(), create_anomaly_detector_request(), Keyword.t()) ::
+
+  @spec create_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_anomaly_detector_errors()}
-  def create_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def create_anomaly_detector(%Client{} = client, options \\ []) do
     url_path = "/CreateAnomalyDetector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1974,29 +2010,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec create_metric_set(AWS.Client.t(), create_metric_set_request(), Keyword.t()) ::
+
+  @spec create_metric_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_metric_set_errors()}
-  def create_metric_set(%Client{} = client, input, options \\ []) do
+
+  def create_metric_set(%Client{} = client, options \\ []) do
     url_path = "/CreateMetricSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2008,33 +2055,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec deactivate_anomaly_detector(
-          AWS.Client.t(),
-          deactivate_anomaly_detector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deactivate_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, deactivate_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_anomaly_detector_errors()}
-  def deactivate_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def deactivate_anomaly_detector(%Client{} = client, options \\ []) do
     url_path = "/DeactivateAnomalyDetector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2046,29 +2100,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec delete_alert(AWS.Client.t(), delete_alert_request(), Keyword.t()) ::
+
+  @spec delete_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alert_errors()}
-  def delete_alert(%Client{} = client, input, options \\ []) do
+
+  def delete_alert(%Client{} = client, options \\ []) do
     url_path = "/DeleteAlert"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2081,29 +2146,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec delete_anomaly_detector(AWS.Client.t(), delete_anomaly_detector_request(), Keyword.t()) ::
+
+  @spec delete_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_anomaly_detector_errors()}
-  def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def delete_anomaly_detector(%Client{} = client, options \\ []) do
     url_path = "/DeleteAnomalyDetector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2115,29 +2191,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec describe_alert(AWS.Client.t(), describe_alert_request(), Keyword.t()) ::
+
+  @spec describe_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alert_errors()}
-  def describe_alert(%Client{} = client, input, options \\ []) do
+
+  def describe_alert(%Client{} = client, options \\ []) do
     url_path = "/DescribeAlert"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2149,33 +2236,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec describe_anomaly_detection_executions(
-          AWS.Client.t(),
-          describe_anomaly_detection_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_anomaly_detection_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_anomaly_detection_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_anomaly_detection_executions_errors()}
-  def describe_anomaly_detection_executions(%Client{} = client, input, options \\ []) do
+
+  def describe_anomaly_detection_executions(%Client{} = client, options \\ []) do
     url_path = "/DescribeAnomalyDetectionExecutions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2187,33 +2281,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec describe_anomaly_detector(
-          AWS.Client.t(),
-          describe_anomaly_detector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_anomaly_detector_errors()}
-  def describe_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def describe_anomaly_detector(%Client{} = client, options \\ []) do
     url_path = "/DescribeAnomalyDetector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2225,29 +2326,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec describe_metric_set(AWS.Client.t(), describe_metric_set_request(), Keyword.t()) ::
+
+  @spec describe_metric_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metric_set_errors()}
-  def describe_metric_set(%Client{} = client, input, options \\ []) do
+
+  def describe_metric_set(%Client{} = client, options \\ []) do
     url_path = "/DescribeMetricSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2259,29 +2371,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec detect_metric_set_config(AWS.Client.t(), detect_metric_set_config_request(), Keyword.t()) ::
+
+  @spec detect_metric_set_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, detect_metric_set_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_metric_set_config_errors()}
-  def detect_metric_set_config(%Client{} = client, input, options \\ []) do
+
+  def detect_metric_set_config(%Client{} = client, options \\ []) do
     url_path = "/DetectMetricSetConfig"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2293,29 +2416,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec get_anomaly_group(AWS.Client.t(), get_anomaly_group_request(), Keyword.t()) ::
+
+  @spec get_anomaly_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_anomaly_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_anomaly_group_errors()}
-  def get_anomaly_group(%Client{} = client, input, options \\ []) do
+
+  def get_anomaly_group(%Client{} = client, options \\ []) do
     url_path = "/GetAnomalyGroup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2327,29 +2461,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec get_data_quality_metrics(AWS.Client.t(), get_data_quality_metrics_request(), Keyword.t()) ::
+
+  @spec get_data_quality_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_quality_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_metrics_errors()}
-  def get_data_quality_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_data_quality_metrics(%Client{} = client, options \\ []) do
     url_path = "/GetDataQualityMetrics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2361,29 +2506,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec get_feedback(AWS.Client.t(), get_feedback_request(), Keyword.t()) ::
+
+  @spec get_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_feedback_errors()}
-  def get_feedback(%Client{} = client, input, options \\ []) do
+
+  def get_feedback(%Client{} = client, options \\ []) do
     url_path = "/GetFeedback"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2395,29 +2551,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec get_sample_data(AWS.Client.t(), get_sample_data_request(), Keyword.t()) ::
+
+  @spec get_sample_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sample_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sample_data_errors()}
-  def get_sample_data(%Client{} = client, input, options \\ []) do
+
+  def get_sample_data(%Client{} = client, options \\ []) do
     url_path = "/GetSampleData"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2429,29 +2596,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec list_alerts(AWS.Client.t(), list_alerts_request(), Keyword.t()) ::
+
+  @spec list_alerts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_alerts_errors()}
-  def list_alerts(%Client{} = client, input, options \\ []) do
+
+  def list_alerts(%Client{} = client, options \\ []) do
     url_path = "/ListAlerts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2463,29 +2641,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec list_anomaly_detectors(AWS.Client.t(), list_anomaly_detectors_request(), Keyword.t()) ::
+
+  @spec list_anomaly_detectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomaly_detectors_errors()}
-  def list_anomaly_detectors(%Client{} = client, input, options \\ []) do
+
+  def list_anomaly_detectors(%Client{} = client, options \\ []) do
     url_path = "/ListAnomalyDetectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2498,33 +2687,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec list_anomaly_group_related_metrics(
-          AWS.Client.t(),
-          list_anomaly_group_related_metrics_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_anomaly_group_related_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_group_related_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomaly_group_related_metrics_errors()}
-  def list_anomaly_group_related_metrics(%Client{} = client, input, options \\ []) do
+
+  def list_anomaly_group_related_metrics(%Client{} = client, options \\ []) do
     url_path = "/ListAnomalyGroupRelatedMetrics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2536,33 +2732,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec list_anomaly_group_summaries(
-          AWS.Client.t(),
-          list_anomaly_group_summaries_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_anomaly_group_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_group_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomaly_group_summaries_errors()}
-  def list_anomaly_group_summaries(%Client{} = client, input, options \\ []) do
+
+  def list_anomaly_group_summaries(%Client{} = client, options \\ []) do
     url_path = "/ListAnomalyGroupSummaries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2574,33 +2777,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec list_anomaly_group_time_series(
-          AWS.Client.t(),
-          list_anomaly_group_time_series_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_anomaly_group_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_group_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_anomaly_group_time_series_errors()}
-  def list_anomaly_group_time_series(%Client{} = client, input, options \\ []) do
+
+  def list_anomaly_group_time_series(%Client{} = client, options \\ []) do
     url_path = "/ListAnomalyGroupTimeSeries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2612,29 +2822,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec list_metric_sets(AWS.Client.t(), list_metric_sets_request(), Keyword.t()) ::
+
+  @spec list_metric_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_metric_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_sets_errors()}
-  def list_metric_sets(%Client{} = client, input, options \\ []) do
+
+  def list_metric_sets(%Client{} = client, options \\ []) do
     url_path = "/ListMetricSets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2649,10 +2870,12 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2690,29 +2913,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec put_feedback(AWS.Client.t(), put_feedback_request(), Keyword.t()) ::
+
+  @spec put_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_feedback_errors()}
-  def put_feedback(%Client{} = client, input, options \\ []) do
+
+  def put_feedback(%Client{} = client, options \\ []) do
     url_path = "/PutFeedback"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2724,32 +2958,47 @@ defmodule AWS.LookoutMetrics do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
+  * `:input` (`t:map`):
+    * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
+    * `:tags` (`t:map`) Tags to apply to the resource. Tag keys and values can
+  contain letters, numbers, spaces, and the following symbols: _.:/=+@-
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2762,26 +3011,47 @@ defmodule AWS.LookoutMetrics do
   ## Parameters:
   * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
   * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]`) Keys to remove
-    from the resource's tags.
+  from the resource's tags.
+  * `:input` (`t:map`):
+    * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
+    * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]`) Keys to remove
+  from the resource's tags.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, input, options \\ [])
+      when is_map(input) and is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = input
 
     Request.request_rest(
       client,
@@ -2790,7 +3060,7 @@ defmodule AWS.LookoutMetrics do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2805,29 +3075,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec update_alert(AWS.Client.t(), update_alert_request(), Keyword.t()) ::
+
+  @spec update_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_alert_errors()}
-  def update_alert(%Client{} = client, input, options \\ []) do
+
+  def update_alert(%Client{} = client, options \\ []) do
     url_path = "/UpdateAlert"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2840,29 +3121,40 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec update_anomaly_detector(AWS.Client.t(), update_anomaly_detector_request(), Keyword.t()) ::
+
+  @spec update_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_anomaly_detector_errors()}
-  def update_anomaly_detector(%Client{} = client, input, options \\ []) do
+
+  def update_anomaly_detector(%Client{} = client, options \\ []) do
     url_path = "/UpdateAnomalyDetector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2874,28 +3166,39 @@ defmodule AWS.LookoutMetrics do
 
   ## Optional parameters:
   """
-  @spec update_metric_set(AWS.Client.t(), update_metric_set_request(), Keyword.t()) ::
+
+  @spec update_metric_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_metric_set_errors()}
-  def update_metric_set(%Client{} = client, input, options \\ []) do
+
+  def update_metric_set(%Client{} = client, options \\ []) do
     url_path = "/UpdateMetricSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

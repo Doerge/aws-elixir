@@ -20,121 +20,121 @@ defmodule AWS.Batch do
   @typedoc """
 
   ## Example:
-
+      
       ecs_properties_override() :: %{
         "taskProperties" => list(task_properties_override()())
       }
-
+      
   """
   @type ecs_properties_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_compute_environments_response() :: %{
         "computeEnvironments" => list(compute_environment_detail()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type describe_compute_environments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scheduling_policies_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_scheduling_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_request() :: %{
         required("jobId") => String.t(),
         required("reason") => String.t()
       }
-
+      
   """
   @type cancel_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_metadata() :: %{
         "labels" => map()
       }
-
+      
   """
   @type eks_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_properties_override() :: %{
         "containers" => list(task_container_overrides()())
       }
-
+      
   """
   @type task_properties_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_job_definition_request() :: %{
         required("jobDefinition") => String.t()
       }
-
+      
   """
   @type deregister_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fargate_platform_configuration() :: %{
         "platformVersion" => String.t()
       }
-
+      
   """
   @type fargate_platform_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_definitions_response() :: %{
         "jobDefinitions" => list(job_definition()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type describe_job_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_properties() :: %{
         "command" => list(String.t()()),
         "environment" => list(key_value_pair()()),
@@ -160,58 +160,58 @@ defmodule AWS.Batch do
         "vcpus" => integer(),
         "volumes" => list(volume()())
       }
-
+      
   """
   @type container_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_host_path() :: %{
         "path" => String.t()
       }
-
+      
   """
   @type eks_host_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_compute_environment_response() :: %{
         "computeEnvironmentArn" => String.t(),
         "computeEnvironmentName" => String.t()
       }
-
+      
   """
   @type create_compute_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_container_environment_variable() :: %{
         "name" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type eks_container_environment_variable() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_compute_environment_request() :: %{
         optional("computeResources") => compute_resource_update(),
         optional("serviceRole") => String.t(),
@@ -220,50 +220,50 @@ defmodule AWS.Batch do
         optional("updatePolicy") => update_policy(),
         required("computeEnvironment") => String.t()
       }
-
+      
   """
   @type update_compute_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_job_queue_snapshot_request() :: %{
         required("jobQueue") => String.t()
       }
-
+      
   """
   @type get_job_queue_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_timeout() :: %{
         "attemptDurationSeconds" => integer()
       }
-
+      
   """
   @type job_timeout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scheduling_policy_detail() :: %{
         "arn" => String.t(),
         "fairsharePolicy" => fairshare_policy(),
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type scheduling_policy_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_request() :: %{
         optional("arrayJobId") => String.t(),
         optional("filters") => list(key_values_pair()()),
@@ -273,71 +273,71 @@ defmodule AWS.Batch do
         optional("multiNodeJobId") => String.t(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_scheduling_policy_request() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_scheduling_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_pull_secret() :: %{
         "name" => String.t()
       }
-
+      
   """
   @type image_pull_secret() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ec2_configuration() :: %{
         "imageIdOverride" => String.t(),
         "imageKubernetesVersion" => String.t(),
         "imageType" => String.t()
       }
-
+      
   """
   @type ec2_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deregister_job_definition_response() :: %{}
-
+      
   """
   @type deregister_job_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_scheduling_policy_request() :: %{
         optional("fairsharePolicy") => fairshare_policy(),
         optional("tags") => map(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_scheduling_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_property_override() :: %{
         "containerOverrides" => container_overrides(),
         "ecsPropertiesOverride" => ecs_properties_override(),
@@ -345,27 +345,27 @@ defmodule AWS.Batch do
         "instanceTypes" => list(String.t()()),
         "targetNodes" => String.t()
       }
-
+      
   """
   @type node_property_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_interface() :: %{
         "attachmentId" => String.t(),
         "ipv6Address" => String.t(),
         "privateIpv4Address" => String.t()
       }
-
+      
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_container_override() :: %{
         "args" => list(String.t()()),
         "command" => list(String.t()()),
@@ -374,26 +374,26 @@ defmodule AWS.Batch do
         "name" => String.t(),
         "resources" => eks_container_resource_requirements()
       }
-
+      
   """
   @type eks_container_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_jobs_response() :: %{
         "jobSummaryList" => list(job_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attempt_task_container_details() :: %{
         "exitCode" => integer(),
         "logStreamName" => String.t(),
@@ -401,37 +401,37 @@ defmodule AWS.Batch do
         "networkInterfaces" => list(network_interface()()),
         "reason" => String.t()
       }
-
+      
   """
   @type attempt_task_container_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_scheduling_policies_response() :: %{
         "schedulingPolicies" => list(scheduling_policy_detail()())
       }
-
+      
   """
   @type describe_scheduling_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_policy() :: %{
         "jobExecutionTimeoutMinutes" => float(),
         "terminateJobsOnUpdate" => boolean()
       }
-
+      
   """
   @type update_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_queue_detail() :: %{
         "computeEnvironmentOrder" => list(compute_environment_order()()),
         "jobQueueArn" => String.t(),
@@ -444,58 +444,58 @@ defmodule AWS.Batch do
         "statusReason" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type job_queue_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_queue_response() :: %{}
-
+      
   """
   @type delete_job_queue_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       ecs_properties() :: %{
         "taskProperties" => list(ecs_task_properties()())
       }
-
+      
   """
   @type ecs_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_job_definition_response() :: %{
         "jobDefinitionArn" => String.t(),
         "jobDefinitionName" => String.t(),
         "revision" => integer()
       }
-
+      
   """
   @type register_job_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_definitions_request() :: %{
         optional("jobDefinitionName") => String.t(),
         optional("jobDefinitions") => list(String.t()()),
@@ -503,14 +503,14 @@ defmodule AWS.Batch do
         optional("nextToken") => String.t(),
         optional("status") => String.t()
       }
-
+      
   """
   @type describe_job_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_compute_environment_request() :: %{
         optional("computeResources") => compute_resource(),
         optional("eksConfiguration") => eks_configuration(),
@@ -521,54 +521,54 @@ defmodule AWS.Batch do
         required("computeEnvironmentName") => String.t(),
         required("type") => list(any())
       }
-
+      
   """
   @type create_compute_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mount_point() :: %{
         "containerPath" => String.t(),
         "readOnly" => boolean(),
         "sourceVolume" => String.t()
       }
-
+      
   """
   @type mount_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attempt_ecs_task_details() :: %{
         "containerInstanceArn" => String.t(),
         "containers" => list(attempt_task_container_details()()),
         "taskArn" => String.t()
       }
-
+      
   """
   @type attempt_ecs_task_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_container_overrides() :: %{
         "command" => list(String.t()()),
         "environment" => list(key_value_pair()()),
         "name" => String.t(),
         "resourceRequirements" => list(resource_requirement()())
       }
-
+      
   """
   @type task_container_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_container_detail() :: %{
         "args" => list(String.t()()),
         "command" => list(String.t()()),
@@ -582,37 +582,37 @@ defmodule AWS.Batch do
         "securityContext" => eks_container_security_context(),
         "volumeMounts" => list(eks_container_volume_mount()())
       }
-
+      
   """
   @type eks_container_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_properties_override() :: %{
         "podProperties" => eks_pod_properties_override()
       }
-
+      
   """
   @type eks_properties_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_scheduling_policy_response() :: %{
         "arn" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type create_scheduling_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_summary() :: %{
         "arrayProperties" => array_properties_summary(),
         "container" => container_summary(),
@@ -627,37 +627,37 @@ defmodule AWS.Batch do
         "statusReason" => String.t(),
         "stoppedAt" => float()
       }
-
+      
   """
   @type job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scheduling_policies_response() :: %{
         "nextToken" => String.t(),
         "schedulingPolicies" => list(scheduling_policy_listing_detail()())
       }
-
+      
   """
   @type list_scheduling_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_compute_environment_request() :: %{
         required("computeEnvironment") => String.t()
       }
-
+      
   """
   @type delete_compute_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ecs_task_properties() :: %{
         "containers" => list(task_container_properties()()),
         "ephemeralStorage" => ephemeral_storage(),
@@ -670,14 +670,14 @@ defmodule AWS.Batch do
         "taskRoleArn" => String.t(),
         "volumes" => list(volume()())
       }
-
+      
   """
   @type ecs_task_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_container_details() :: %{
         "command" => list(String.t()()),
         "dependsOn" => list(task_container_dependency()()),
@@ -700,64 +700,64 @@ defmodule AWS.Batch do
         "ulimits" => list(ulimit()()),
         "user" => String.t()
       }
-
+      
   """
   @type task_container_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       client_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_queue_response() :: %{
         "jobQueueArn" => String.t(),
         "jobQueueName" => String.t()
       }
-
+      
   """
   @type create_job_queue_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ulimit() :: %{
         "hardLimit" => integer(),
         "name" => String.t(),
         "softLimit" => integer()
       }
-
+      
   """
   @type ulimit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluate_on_exit() :: %{
         "action" => list(any()),
         "onExitCode" => String.t(),
         "onReason" => String.t(),
         "onStatusReason" => String.t()
       }
-
+      
   """
   @type evaluate_on_exit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attempt_detail() :: %{
         "container" => attempt_container_detail(),
         "startedAt" => float(),
@@ -765,14 +765,14 @@ defmodule AWS.Batch do
         "stoppedAt" => float(),
         "taskProperties" => list(attempt_ecs_task_details()())
       }
-
+      
   """
   @type attempt_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_job_definition_request() :: %{
         optional("containerProperties") => container_properties(),
         optional("ecsProperties") => ecs_properties(),
@@ -788,23 +788,23 @@ defmodule AWS.Batch do
         required("jobDefinitionName") => String.t(),
         required("type") => list(any())
       }
-
+      
   """
   @type register_job_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_scheduling_policy_response() :: %{}
-
+      
   """
   @type delete_scheduling_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_job_request() :: %{
         optional("arrayProperties") => array_properties(),
         optional("containerOverrides") => container_overrides(),
@@ -823,26 +823,26 @@ defmodule AWS.Batch do
         required("jobName") => String.t(),
         required("jobQueue") => String.t()
       }
-
+      
   """
   @type submit_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_values_pair() :: %{
         "name" => String.t(),
         "values" => list(String.t()())
       }
-
+      
   """
   @type key_values_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attempt_container_detail() :: %{
         "containerInstanceArn" => String.t(),
         "exitCode" => integer(),
@@ -851,14 +851,14 @@ defmodule AWS.Batch do
         "reason" => String.t(),
         "taskArn" => String.t()
       }
-
+      
   """
   @type attempt_container_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_queue_request() :: %{
         optional("computeEnvironmentOrder") => list(compute_environment_order()()),
         optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()()),
@@ -867,14 +867,14 @@ defmodule AWS.Batch do
         optional("state") => list(any()),
         required("jobQueue") => String.t()
       }
-
+      
   """
   @type update_job_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ecs_task_details() :: %{
         "containerInstanceArn" => String.t(),
         "containers" => list(task_container_details()()),
@@ -889,101 +889,101 @@ defmodule AWS.Batch do
         "taskRoleArn" => String.t(),
         "volumes" => list(volume()())
       }
-
+      
   """
   @type ecs_task_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_queues_response() :: %{
         "jobQueues" => list(job_queue_detail()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type describe_job_queues_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_configuration() :: %{
         "eksClusterArn" => String.t(),
         "kubernetesNamespace" => String.t()
       }
-
+      
   """
   @type eks_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       secret() :: %{
         "name" => String.t(),
         "valueFrom" => String.t()
       }
-
+      
   """
   @type secret() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       share_attributes() :: %{
         "shareIdentifier" => String.t(),
         "weightFactor" => float()
       }
-
+      
   """
   @type share_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fairshare_policy() :: %{
         "computeReservation" => integer(),
         "shareDecaySeconds" => integer(),
         "shareDistribution" => list(share_attributes()())
       }
-
+      
   """
   @type fairshare_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_job_request() :: %{
         required("jobId") => String.t(),
         required("reason") => String.t()
       }
-
+      
   """
   @type terminate_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_volume() :: %{
         "emptyDir" => eks_empty_dir(),
         "hostPath" => eks_host_path(),
         "name" => String.t(),
         "secret" => eks_secret()
       }
-
+      
   """
   @type eks_volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_definition() :: %{
         "containerOrchestrationType" => list(any()),
         "containerProperties" => container_properties(),
@@ -1003,71 +1003,71 @@ defmodule AWS.Batch do
         "timeout" => job_timeout(),
         "type" => String.t()
       }
-
+      
   """
   @type job_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       front_of_queue_job_summary() :: %{
         "earliestTimeAtPosition" => float(),
         "jobArn" => String.t()
       }
-
+      
   """
   @type front_of_queue_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_summary() :: %{
         "exitCode" => integer(),
         "reason" => String.t()
       }
-
+      
   """
   @type container_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ephemeral_storage() :: %{
         "sizeInGiB" => integer()
       }
-
+      
   """
   @type ephemeral_storage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_properties() :: %{
         "podProperties" => eks_pod_properties()
       }
-
+      
   """
   @type eks_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_attempt_detail() :: %{
         "containers" => list(eks_attempt_container_detail()()),
         "eksClusterArn" => String.t(),
@@ -1078,72 +1078,72 @@ defmodule AWS.Batch do
         "statusReason" => String.t(),
         "stoppedAt" => float()
       }
-
+      
   """
   @type eks_attempt_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_secret() :: %{
         "optional" => boolean(),
         "secretName" => String.t()
       }
-
+      
   """
   @type eks_secret() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_job_queue_snapshot_response() :: %{
         "frontOfQueue" => front_of_queue_detail()
       }
-
+      
   """
   @type get_job_queue_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       host() :: %{
         "sourcePath" => String.t()
       }
-
+      
   """
   @type host() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compute_environment_order() :: %{
         "computeEnvironment" => String.t(),
         "order" => integer()
       }
-
+      
   """
   @type compute_environment_order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_scheduling_policy_request() :: %{
         optional("fairsharePolicy") => fairshare_policy(),
         required("arn") => String.t()
       }
-
+      
   """
   @type update_scheduling_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compute_resource_update() :: %{
         "allocationStrategy" => list(any()),
         "bidPercentage" => integer(),
@@ -1163,14 +1163,14 @@ defmodule AWS.Batch do
         "type" => list(any()),
         "updateToLatestImageVersion" => boolean()
       }
-
+      
   """
   @type compute_resource_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_container_security_context() :: %{
         "allowPrivilegeEscalation" => boolean(),
         "privileged" => boolean(),
@@ -1179,39 +1179,39 @@ defmodule AWS.Batch do
         "runAsNonRoot" => boolean(),
         "runAsUser" => float()
       }
-
+      
   """
   @type eks_container_security_context() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       e_f_s_authorization_config() :: %{
         "accessPointId" => String.t(),
         "iam" => list(any())
       }
-
+      
   """
   @type e_f_s_authorization_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_job_response() :: %{
         "jobArn" => String.t(),
         "jobId" => String.t(),
         "jobName" => String.t()
       }
-
+      
   """
   @type submit_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_overrides() :: %{
         "command" => list(String.t()()),
         "environment" => list(key_value_pair()()),
@@ -1220,26 +1220,26 @@ defmodule AWS.Batch do
         "resourceRequirements" => list(resource_requirement()()),
         "vcpus" => integer()
       }
-
+      
   """
   @type container_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       front_of_queue_detail() :: %{
         "jobs" => list(front_of_queue_job_summary()()),
         "lastUpdatedAt" => float()
       }
-
+      
   """
   @type front_of_queue_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       e_f_s_volume_configuration() :: %{
         "authorizationConfig" => e_f_s_authorization_config(),
         "fileSystemId" => String.t(),
@@ -1247,14 +1247,14 @@ defmodule AWS.Batch do
         "transitEncryption" => list(any()),
         "transitEncryptionPort" => integer()
       }
-
+      
   """
   @type e_f_s_volume_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_detail() :: %{
         "command" => list(String.t()()),
         "containerInstanceArn" => String.t(),
@@ -1286,106 +1286,106 @@ defmodule AWS.Batch do
         "vcpus" => integer(),
         "volumes" => list(volume()())
       }
-
+      
   """
   @type container_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_configuration() :: %{
         "assignPublicIp" => list(any())
       }
-
+      
   """
   @type network_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scheduling_policy_listing_detail() :: %{
         "arn" => String.t()
       }
-
+      
   """
   @type scheduling_policy_listing_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_compute_environments_request() :: %{
         optional("computeEnvironments") => list(String.t()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_compute_environments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_overrides() :: %{
         "nodePropertyOverrides" => list(node_property_override()()),
         "numNodes" => integer()
       }
-
+      
   """
   @type node_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       volume() :: %{
         "efsVolumeConfiguration" => e_f_s_volume_configuration(),
         "host" => host(),
         "name" => String.t()
       }
-
+      
   """
   @type volume() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_dependency() :: %{
         "jobId" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type job_dependency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       array_properties() :: %{
         "size" => integer()
       }
-
+      
   """
   @type array_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_range_property() :: %{
         "container" => container_properties(),
         "ecsProperties" => ecs_properties(),
@@ -1393,103 +1393,103 @@ defmodule AWS.Batch do
         "instanceTypes" => list(String.t()()),
         "targetNodes" => String.t()
       }
-
+      
   """
   @type node_range_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_attempt_container_detail() :: %{
         "exitCode" => integer(),
         "name" => String.t(),
         "reason" => String.t()
       }
-
+      
   """
   @type eks_attempt_container_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_response() :: %{
         "jobs" => list(job_detail()())
       }
-
+      
   """
   @type describe_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_value_pair() :: %{
         "name" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type key_value_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       runtime_platform() :: %{
         "cpuArchitecture" => String.t(),
         "operatingSystemFamily" => String.t()
       }
-
+      
   """
   @type runtime_platform() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_queue_request() :: %{
         required("jobQueue") => String.t()
       }
-
+      
   """
   @type delete_job_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_job_response() :: %{}
-
+      
   """
   @type terminate_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_container_resource_requirements() :: %{
         "limits" => map(),
         "requests" => map()
       }
-
+      
   """
   @type eks_container_resource_requirements() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       linux_parameters() :: %{
         "devices" => list(device()()),
         "initProcessEnabled" => boolean(),
@@ -1498,51 +1498,51 @@ defmodule AWS.Batch do
         "swappiness" => integer(),
         "tmpfs" => list(tmpfs()())
       }
-
+      
   """
   @type linux_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_compute_environment_response() :: %{
         "computeEnvironmentArn" => String.t(),
         "computeEnvironmentName" => String.t()
       }
-
+      
   """
   @type update_compute_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_details() :: %{
         "isMainNode" => boolean(),
         "nodeIndex" => integer()
       }
-
+      
   """
   @type node_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_container_volume_mount() :: %{
         "mountPath" => String.t(),
         "name" => String.t(),
         "readOnly" => boolean()
       }
-
+      
   """
   @type eks_container_volume_mount() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_pod_properties() :: %{
         "containers" => list(eks_container()()),
         "dnsPolicy" => String.t(),
@@ -1554,86 +1554,86 @@ defmodule AWS.Batch do
         "shareProcessNamespace" => boolean(),
         "volumes" => list(eks_volume()())
       }
-
+      
   """
   @type eks_pod_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_queue_response() :: %{
         "jobQueueArn" => String.t(),
         "jobQueueName" => String.t()
       }
-
+      
   """
   @type update_job_queue_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_strategy() :: %{
         "attempts" => integer(),
         "evaluateOnExit" => list(evaluate_on_exit()())
       }
-
+      
   """
   @type retry_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_request() :: %{
         required("jobs") => list(String.t()())
       }
-
+      
   """
   @type describe_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_template_specification() :: %{
         "launchTemplateId" => String.t(),
         "launchTemplateName" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type launch_template_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_properties_summary() :: %{
         "isMainNode" => boolean(),
         "nodeIndex" => integer(),
         "numNodes" => integer()
       }
-
+      
   """
   @type node_properties_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compute_environment_detail() :: %{
         "computeEnvironmentArn" => String.t(),
         "computeEnvironmentName" => String.t(),
@@ -1651,51 +1651,51 @@ defmodule AWS.Batch do
         "updatePolicy" => update_policy(),
         "uuid" => String.t()
       }
-
+      
   """
   @type compute_environment_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device() :: %{
         "containerPath" => String.t(),
         "hostPath" => String.t(),
         "permissions" => list(list(any())())
       }
-
+      
   """
   @type device() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_properties_detail() :: %{
         "podProperties" => eks_pod_properties_detail()
       }
-
+      
   """
   @type eks_properties_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_queues_request() :: %{
         optional("jobQueues") => list(String.t()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_job_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_container() :: %{
         "args" => list(String.t()()),
         "command" => list(String.t()()),
@@ -1707,14 +1707,14 @@ defmodule AWS.Batch do
         "securityContext" => eks_container_security_context(),
         "volumeMounts" => list(eks_container_volume_mount()())
       }
-
+      
   """
   @type eks_container() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_detail() :: %{
         "arrayProperties" => array_properties_detail(),
         "attempts" => list(attempt_detail()()),
@@ -1746,61 +1746,61 @@ defmodule AWS.Batch do
         "tags" => map(),
         "timeout" => job_timeout()
       }
-
+      
   """
   @type job_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       array_properties_detail() :: %{
         "index" => integer(),
         "size" => integer(),
         "statusSummary" => map()
       }
-
+      
   """
   @type array_properties_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_scheduling_policies_request() :: %{
         required("arns") => list(String.t()())
       }
-
+      
   """
   @type describe_scheduling_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       array_properties_summary() :: %{
         "index" => integer(),
         "size" => integer()
       }
-
+      
   """
   @type array_properties_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ecs_properties_detail() :: %{
         "taskProperties" => list(ecs_task_details()())
       }
-
+      
   """
   @type ecs_properties_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_queue_request() :: %{
         optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()()),
         optional("schedulingPolicyArn") => String.t(),
@@ -1810,71 +1810,71 @@ defmodule AWS.Batch do
         required("jobQueueName") => String.t(),
         required("priority") => integer()
       }
-
+      
   """
   @type create_job_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       log_configuration() :: %{
         "logDriver" => list(any()),
         "options" => map(),
         "secretOptions" => list(secret()())
       }
-
+      
   """
   @type log_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_response() :: %{}
-
+      
   """
   @type cancel_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_scheduling_policy_response() :: %{}
-
+      
   """
   @type update_scheduling_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_requirement() :: %{
         "type" => list(any()),
         "value" => String.t()
       }
-
+      
   """
   @type resource_requirement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_state_time_limit_action() :: %{
         "action" => list(any()),
         "maxTimeSeconds" => integer(),
         "reason" => String.t(),
         "state" => list(any())
       }
-
+      
   """
   @type job_state_time_limit_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compute_resource() :: %{
         "allocationStrategy" => list(any()),
         "bidPercentage" => integer(),
@@ -1894,75 +1894,75 @@ defmodule AWS.Batch do
         "tags" => map(),
         "type" => list(any())
       }
-
+      
   """
   @type compute_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_properties() :: %{
         "mainNode" => integer(),
         "nodeRangeProperties" => list(node_range_property()()),
         "numNodes" => integer()
       }
-
+      
   """
   @type node_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_empty_dir() :: %{
         "medium" => String.t(),
         "sizeLimit" => String.t()
       }
-
+      
   """
   @type eks_empty_dir() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_container_dependency() :: %{
         "condition" => String.t(),
         "containerName" => String.t()
       }
-
+      
   """
   @type task_container_dependency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_pod_properties_override() :: %{
         "containers" => list(eks_container_override()()),
         "initContainers" => list(eks_container_override()()),
         "metadata" => eks_metadata()
       }
-
+      
   """
   @type eks_pod_properties_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       repository_credentials() :: %{
         "credentialsParameter" => String.t()
       }
-
+      
   """
   @type repository_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_pod_properties_detail() :: %{
         "containers" => list(eks_container_detail()()),
         "dnsPolicy" => String.t(),
@@ -1976,36 +1976,36 @@ defmodule AWS.Batch do
         "shareProcessNamespace" => boolean(),
         "volumes" => list(eks_volume()())
       }
-
+      
   """
   @type eks_pod_properties_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tmpfs() :: %{
         "containerPath" => String.t(),
         "mountOptions" => list(String.t()()),
         "size" => integer()
       }
-
+      
   """
   @type tmpfs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_compute_environment_response() :: %{}
-
+      
   """
   @type delete_compute_environment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       task_container_properties() :: %{
         "command" => list(String.t()()),
         "dependsOn" => list(task_container_dependency()()),
@@ -2024,7 +2024,7 @@ defmodule AWS.Batch do
         "ulimits" => list(ulimit()()),
         "user" => String.t()
       }
-
+      
   """
   @type task_container_properties() :: %{String.t() => any()}
 
@@ -2110,29 +2110,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec cancel_job(AWS.Client.t(), cancel_job_request(), Keyword.t()) ::
+
+  @spec cancel_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_errors()}
-  def cancel_job(%Client{} = client, input, options \\ []) do
+
+  def cancel_job(%Client{} = client, options \\ []) do
     url_path = "/v1/canceljob"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2156,33 +2167,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec create_compute_environment(
-          AWS.Client.t(),
-          create_compute_environment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_compute_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_compute_environment_errors()}
-  def create_compute_environment(%Client{} = client, input, options \\ []) do
+
+  def create_compute_environment(%Client{} = client, options \\ []) do
     url_path = "/v1/createcomputeenvironment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2196,29 +2214,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec create_job_queue(AWS.Client.t(), create_job_queue_request(), Keyword.t()) ::
+
+  @spec create_job_queue(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_queue_errors()}
-  def create_job_queue(%Client{} = client, input, options \\ []) do
+
+  def create_job_queue(%Client{} = client, options \\ []) do
     url_path = "/v1/createjobqueue"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2230,29 +2259,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec create_scheduling_policy(AWS.Client.t(), create_scheduling_policy_request(), Keyword.t()) ::
+
+  @spec create_scheduling_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scheduling_policy_errors()}
-  def create_scheduling_policy(%Client{} = client, input, options \\ []) do
+
+  def create_scheduling_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/createschedulingpolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2264,33 +2304,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec delete_compute_environment(
-          AWS.Client.t(),
-          delete_compute_environment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_compute_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_compute_environment_errors()}
-  def delete_compute_environment(%Client{} = client, input, options \\ []) do
+
+  def delete_compute_environment(%Client{} = client, options \\ []) do
     url_path = "/v1/deletecomputeenvironment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2305,29 +2352,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec delete_job_queue(AWS.Client.t(), delete_job_queue_request(), Keyword.t()) ::
+
+  @spec delete_job_queue(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_queue_errors()}
-  def delete_job_queue(%Client{} = client, input, options \\ []) do
+
+  def delete_job_queue(%Client{} = client, options \\ []) do
     url_path = "/v1/deletejobqueue"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2339,29 +2397,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec delete_scheduling_policy(AWS.Client.t(), delete_scheduling_policy_request(), Keyword.t()) ::
+
+  @spec delete_scheduling_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduling_policy_errors()}
-  def delete_scheduling_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_scheduling_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/deleteschedulingpolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2374,33 +2443,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec deregister_job_definition(
-          AWS.Client.t(),
-          deregister_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_job_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_job_definition_errors()}
-  def deregister_job_definition(%Client{} = client, input, options \\ []) do
+
+  def deregister_job_definition(%Client{} = client, options \\ []) do
     url_path = "/v1/deregisterjobdefinition"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2412,33 +2488,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec describe_compute_environments(
-          AWS.Client.t(),
-          describe_compute_environments_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_compute_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_compute_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compute_environments_errors()}
-  def describe_compute_environments(%Client{} = client, input, options \\ []) do
+
+  def describe_compute_environments(%Client{} = client, options \\ []) do
     url_path = "/v1/describecomputeenvironments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2451,29 +2534,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec describe_job_definitions(AWS.Client.t(), describe_job_definitions_request(), Keyword.t()) ::
+
+  @spec describe_job_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_definitions_errors()}
-  def describe_job_definitions(%Client{} = client, input, options \\ []) do
+
+  def describe_job_definitions(%Client{} = client, options \\ []) do
     url_path = "/v1/describejobdefinitions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2485,29 +2579,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec describe_job_queues(AWS.Client.t(), describe_job_queues_request(), Keyword.t()) ::
+
+  @spec describe_job_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_queues_errors()}
-  def describe_job_queues(%Client{} = client, input, options \\ []) do
+
+  def describe_job_queues(%Client{} = client, options \\ []) do
     url_path = "/v1/describejobqueues"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2519,29 +2624,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec describe_jobs(AWS.Client.t(), describe_jobs_request(), Keyword.t()) ::
+
+  @spec describe_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
-  def describe_jobs(%Client{} = client, input, options \\ []) do
+
+  def describe_jobs(%Client{} = client, options \\ []) do
     url_path = "/v1/describejobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2553,33 +2669,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec describe_scheduling_policies(
-          AWS.Client.t(),
-          describe_scheduling_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_scheduling_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduling_policies_errors()}
-  def describe_scheduling_policies(%Client{} = client, input, options \\ []) do
+
+  def describe_scheduling_policies(%Client{} = client, options \\ []) do
     url_path = "/v1/describeschedulingpolicies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2592,29 +2715,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec get_job_queue_snapshot(AWS.Client.t(), get_job_queue_snapshot_request(), Keyword.t()) ::
+
+  @spec get_job_queue_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_job_queue_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_queue_snapshot_errors()}
-  def get_job_queue_snapshot(%Client{} = client, input, options \\ []) do
+
+  def get_job_queue_snapshot(%Client{} = client, options \\ []) do
     url_path = "/v1/getjobqueuesnapshot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2626,29 +2760,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec list_jobs(AWS.Client.t(), list_jobs_request(), Keyword.t()) ::
+
+  @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_jobs(%Client{} = client, options \\ []) do
     url_path = "/v1/listjobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2660,29 +2805,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec list_scheduling_policies(AWS.Client.t(), list_scheduling_policies_request(), Keyword.t()) ::
+
+  @spec list_scheduling_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scheduling_policies_errors()}
-  def list_scheduling_policies(%Client{} = client, input, options \\ []) do
+
+  def list_scheduling_policies(%Client{} = client, options \\ []) do
     url_path = "/v1/listschedulingpolicies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2695,17 +2851,19 @@ defmodule AWS.Batch do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-    the resource that tags are listed for. Batch resources that support tags are
-    compute environments, jobs, job definitions, job queues, and scheduling
-    policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
-    aren't supported.
+  the resource that tags are listed for. Batch resources that support tags are
+  compute environments, jobs, job definitions, job queues, and scheduling
+  policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
+  aren't supported.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2743,29 +2901,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec register_job_definition(AWS.Client.t(), register_job_definition_request(), Keyword.t()) ::
+
+  @spec register_job_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_job_definition_errors()}
-  def register_job_definition(%Client{} = client, input, options \\ []) do
+
+  def register_job_definition(%Client{} = client, options \\ []) do
     url_path = "/v1/registerjobdefinition"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2784,29 +2953,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec submit_job(AWS.Client.t(), submit_job_request(), Keyword.t()) ::
+
+  @spec submit_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, submit_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_job_errors()}
-  def submit_job(%Client{} = client, input, options \\ []) do
+
+  def submit_job(%Client{} = client, options \\ []) do
     url_path = "/v1/submitjob"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2822,36 +3002,47 @@ defmodule AWS.Batch do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that tags are added to. Batch resources that support tags are compute
-    environments, jobs, job definitions, job queues, and scheduling policies.
-    ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
-    supported.
+  that tags are added to. Batch resources that support tags are compute
+  environments, jobs, job definitions, job queues, and scheduling policies.
+  ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
+  supported.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2865,29 +3056,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec terminate_job(AWS.Client.t(), terminate_job_request(), Keyword.t()) ::
+
+  @spec terminate_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, terminate_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_job_errors()}
-  def terminate_job(%Client{} = client, input, options \\ []) do
+
+  def terminate_job(%Client{} = client, options \\ []) do
     url_path = "/v1/terminatejob"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2897,31 +3099,48 @@ defmodule AWS.Batch do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    from which to delete tags. Batch resources that support tags are compute
-    environments, jobs, job definitions, job queues, and scheduling policies.
-    ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
-    supported.
+  from which to delete tags. Batch resources that support tags are compute
+  environments, jobs, job definitions, job queues, and scheduling policies.
+  ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't
+  supported.
   * `:tag_keys` (`t:list[com.amazonaws.batch#TagKey]`) The keys of the tags to be
-    removed.
+  removed.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2930,7 +3149,7 @@ defmodule AWS.Batch do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2945,33 +3164,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec update_compute_environment(
-          AWS.Client.t(),
-          update_compute_environment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_compute_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_compute_environment_errors()}
-  def update_compute_environment(%Client{} = client, input, options \\ []) do
+
+  def update_compute_environment(%Client{} = client, options \\ []) do
     url_path = "/v1/updatecomputeenvironment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2983,29 +3209,40 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec update_job_queue(AWS.Client.t(), update_job_queue_request(), Keyword.t()) ::
+
+  @spec update_job_queue(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_queue_errors()}
-  def update_job_queue(%Client{} = client, input, options \\ []) do
+
+  def update_job_queue(%Client{} = client, options \\ []) do
     url_path = "/v1/updatejobqueue"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3017,28 +3254,39 @@ defmodule AWS.Batch do
 
   ## Optional parameters:
   """
-  @spec update_scheduling_policy(AWS.Client.t(), update_scheduling_policy_request(), Keyword.t()) ::
+
+  @spec update_scheduling_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scheduling_policy_errors()}
-  def update_scheduling_policy(%Client{} = client, input, options \\ []) do
+
+  def update_scheduling_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/updateschedulingpolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

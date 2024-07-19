@@ -20,70 +20,70 @@ defmodule AWS.Ivschat do
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_room_request() :: %{
         required("identifier") => String.t()
       }
-
+      
   """
   @type delete_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_message_response() :: %{
         optional("id") => String.t()
       }
-
+      
   """
   @type delete_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rooms_response() :: %{
         optional("nextToken") => String.t(),
         required("rooms") => list(room_summary()())
       }
-
+      
   """
   @type list_rooms_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disconnect_user_response() :: %{}
-
+      
   """
   @type disconnect_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_chat_token_request() :: %{
         optional("attributes") => map(),
         optional("capabilities") => list(String.t()()),
@@ -91,53 +91,53 @@ defmodule AWS.Ivschat do
         required("roomIdentifier") => String.t(),
         required("userId") => String.t()
       }
-
+      
   """
   @type create_chat_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_message_request() :: %{
         optional("reason") => String.t(),
         required("id") => String.t(),
         required("roomIdentifier") => String.t()
       }
-
+      
   """
   @type delete_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disconnect_user_request() :: %{
         optional("reason") => String.t(),
         required("roomIdentifier") => String.t(),
         required("userId") => String.t()
       }
-
+      
   """
   @type disconnect_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_logging_configuration_request() :: %{
         optional("destinationConfiguration") => list(),
         optional("name") => String.t(),
         required("identifier") => String.t()
       }
-
+      
   """
   @type update_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_room_response() :: %{
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
@@ -150,64 +150,64 @@ defmodule AWS.Ivschat do
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_logging_configuration_request() :: %{
         optional("name") => String.t(),
         optional("tags") => map(),
         required("destinationConfiguration") => list()
       }
-
+      
   """
   @type create_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_event_request() :: %{
         optional("attributes") => map(),
         required("eventName") => String.t(),
         required("roomIdentifier") => String.t()
       }
-
+      
   """
   @type send_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_logging_configuration_response() :: %{
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
@@ -218,52 +218,52 @@ defmodule AWS.Ivschat do
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
-
+      
   """
   @type create_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_event_response() :: %{
         optional("id") => String.t()
       }
-
+      
   """
   @type send_event_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "limit" => integer(),
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_logging_configuration_response() :: %{
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
@@ -274,117 +274,117 @@ defmodule AWS.Ivschat do
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
-
+      
   """
   @type get_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_destination_configuration() :: %{
         "bucketName" => String.t()
       }
-
+      
   """
   @type s3_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_chat_token_response() :: %{
         optional("sessionExpirationTime") => non_neg_integer(),
         optional("token") => String.t(),
         optional("tokenExpirationTime") => non_neg_integer()
       }
-
+      
   """
   @type create_chat_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_logging_configuration_request() :: %{
         required("identifier") => String.t()
       }
-
+      
   """
   @type get_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_room_request() :: %{
         required("identifier") => String.t()
       }
-
+      
   """
   @type get_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_logging_configurations_response() :: %{
         optional("nextToken") => String.t(),
         required("loggingConfigurations") => list(logging_configuration_summary()())
       }
-
+      
   """
   @type list_logging_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_room_response() :: %{
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
@@ -397,45 +397,45 @@ defmodule AWS.Ivschat do
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
-
+      
   """
   @type get_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => String.t(),
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_room_request() :: %{
         optional("loggingConfigurationIdentifiers") => list(String.t()()),
         optional("maximumMessageLength") => integer(),
@@ -444,28 +444,28 @@ defmodule AWS.Ivschat do
         optional("name") => String.t(),
         optional("tags") => map()
       }
-
+      
   """
   @type create_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "limit" => integer(),
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rooms_request() :: %{
         optional("loggingConfigurationIdentifier") => String.t(),
         optional("maxResults") => integer(),
@@ -473,59 +473,59 @@ defmodule AWS.Ivschat do
         optional("name") => String.t(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_rooms_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_logging_configurations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_logging_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logs_destination_configuration() :: %{
         "logGroupName" => String.t()
       }
-
+      
   """
   @type cloud_watch_logs_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       firehose_destination_configuration() :: %{
         "deliveryStreamName" => String.t()
       }
-
+      
   """
   @type firehose_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_logging_configuration_request() :: %{
         required("identifier") => String.t()
       }
-
+      
   """
   @type delete_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       room_summary() :: %{
         "arn" => String.t(),
         "createTime" => non_neg_integer(),
@@ -536,14 +536,14 @@ defmodule AWS.Ivschat do
         "tags" => map(),
         "updateTime" => non_neg_integer()
       }
-
+      
   """
   @type room_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_logging_configuration_response() :: %{
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
@@ -554,14 +554,14 @@ defmodule AWS.Ivschat do
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration_summary() :: %{
         "arn" => String.t(),
         "createTime" => non_neg_integer(),
@@ -572,14 +572,14 @@ defmodule AWS.Ivschat do
         "tags" => map(),
         "updateTime" => non_neg_integer()
       }
-
+      
   """
   @type logging_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_room_request() :: %{
         optional("loggingConfigurationIdentifiers") => list(String.t()()),
         optional("maximumMessageLength") => integer(),
@@ -588,14 +588,14 @@ defmodule AWS.Ivschat do
         optional("name") => String.t(),
         required("identifier") => String.t()
       }
-
+      
   """
   @type update_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_room_response() :: %{
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
@@ -608,30 +608,30 @@ defmodule AWS.Ivschat do
         optional("tags") => map(),
         optional("updateTime") => non_neg_integer()
       }
-
+      
   """
   @type create_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pending_verification() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type pending_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_review_handler() :: %{
         "fallbackResult" => String.t(),
         "uri" => String.t()
       }
-
+      
   """
   @type message_review_handler() :: %{String.t() => any()}
 
@@ -754,29 +754,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec create_chat_token(AWS.Client.t(), create_chat_token_request(), Keyword.t()) ::
+
+  @spec create_chat_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_chat_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_chat_token_errors()}
-  def create_chat_token(%Client{} = client, input, options \\ []) do
+
+  def create_chat_token(%Client{} = client, options \\ []) do
     url_path = "/CreateChatToken"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -789,33 +800,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec create_logging_configuration(
-          AWS.Client.t(),
-          create_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_logging_configuration_errors()}
-  def create_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateLoggingConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -827,29 +845,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec create_room(AWS.Client.t(), create_room_request(), Keyword.t()) ::
+
+  @spec create_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_room_errors()}
-  def create_room(%Client{} = client, input, options \\ []) do
+
+  def create_room(%Client{} = client, options \\ []) do
     url_path = "/CreateRoom"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -861,33 +890,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec delete_logging_configuration(
-          AWS.Client.t(),
-          delete_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logging_configuration_errors()}
-  def delete_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/DeleteLoggingConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -904,29 +940,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec delete_message(AWS.Client.t(), delete_message_request(), Keyword.t()) ::
+
+  @spec delete_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_message_errors()}
-  def delete_message(%Client{} = client, input, options \\ []) do
+
+  def delete_message(%Client{} = client, options \\ []) do
     url_path = "/DeleteMessage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -938,29 +985,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec delete_room(AWS.Client.t(), delete_room_request(), Keyword.t()) ::
+
+  @spec delete_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_room_errors()}
-  def delete_room(%Client{} = client, input, options \\ []) do
+
+  def delete_room(%Client{} = client, options \\ []) do
     url_path = "/DeleteRoom"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -975,29 +1033,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec disconnect_user(AWS.Client.t(), disconnect_user_request(), Keyword.t()) ::
+
+  @spec disconnect_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, disconnect_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_user_errors()}
-  def disconnect_user(%Client{} = client, input, options \\ []) do
+
+  def disconnect_user(%Client{} = client, options \\ []) do
     url_path = "/DisconnectUser"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1009,33 +1078,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec get_logging_configuration(
-          AWS.Client.t(),
-          get_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logging_configuration_errors()}
-  def get_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetLoggingConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1047,29 +1123,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec get_room(AWS.Client.t(), get_room_request(), Keyword.t()) ::
+
+  @spec get_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_room_errors()}
-  def get_room(%Client{} = client, input, options \\ []) do
+
+  def get_room(%Client{} = client, options \\ []) do
     url_path = "/GetRoom"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1082,33 +1169,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec list_logging_configurations(
-          AWS.Client.t(),
-          list_logging_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_logging_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_logging_configurations_errors()}
-  def list_logging_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_logging_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListLoggingConfigurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1121,29 +1215,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec list_rooms(AWS.Client.t(), list_rooms_request(), Keyword.t()) ::
+
+  @spec list_rooms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rooms_errors()}
-  def list_rooms(%Client{} = client, input, options \\ []) do
+
+  def list_rooms(%Client{} = client, options \\ []) do
     url_path = "/ListRooms"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1153,14 +1258,16 @@ defmodule AWS.Ivschat do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN
-    must be URL-encoded.
+  must be URL-encoded.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1200,29 +1307,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec send_event(AWS.Client.t(), send_event_request(), Keyword.t()) ::
+
+  @spec send_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_event_errors()}
-  def send_event(%Client{} = client, input, options \\ []) do
+
+  def send_event(%Client{} = client, options \\ []) do
     url_path = "/SendEvent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1232,33 +1350,44 @@ defmodule AWS.Ivschat do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to be tagged. The ARN
-    must be URL-encoded.
+  must be URL-encoded.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1268,31 +1397,48 @@ defmodule AWS.Ivschat do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to be untagged. The ARN
-    must be URL-encoded.
+  must be URL-encoded.
   * `:tag_keys` (`t:list[com.amazonaws.ivschat#TagKey]`) Array of tags to be
-    removed. Array of maps, each of the form string:string (key:value). See
-    Tagging AWS Resources for details, including restrictions that apply to tags
-    and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints
-    beyond what is documented there.
+  removed. Array of maps, each of the form string:string (key:value). See
+  Tagging AWS Resources for details, including restrictions that apply to tags
+  and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints
+  beyond what is documented there.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1301,7 +1447,7 @@ defmodule AWS.Ivschat do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1316,33 +1462,40 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec update_logging_configuration(
-          AWS.Client.t(),
-          update_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_logging_configuration_errors()}
-  def update_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateLoggingConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1354,28 +1507,39 @@ defmodule AWS.Ivschat do
 
   ## Optional parameters:
   """
-  @spec update_room(AWS.Client.t(), update_room_request(), Keyword.t()) ::
+
+  @spec update_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_room_errors()}
-  def update_room(%Client{} = client, input, options \\ []) do
+
+  def update_room(%Client{} = client, options \\ []) do
     url_path = "/UpdateRoom"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

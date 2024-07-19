@@ -847,12 +847,24 @@ defmodule AWS.Identitystore do
 
   @doc """
   Creates a group within the specified identity store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20CreateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_group_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
+
+  @spec create_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-  def create_group(%Client{} = client, input, options \\ []) do
+
+  def create_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -862,12 +874,24 @@ defmodule AWS.Identitystore do
   @doc """
   Creates a relationship between a member and a group. The following identifiers
   must be specified: `GroupId`, `IdentityStoreId`, and `MemberId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20CreateGroupMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_group_membership_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("IdentityStoreId") => String.t(),
+      required("MemberId") => list()
+    }
   """
-  @spec create_group_membership(AWS.Client.t(), create_group_membership_request(), Keyword.t()) ::
+
+  @spec create_group_membership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_membership_errors()}
-  def create_group_membership(%Client{} = client, input, options \\ []) do
+
+  def create_group_membership(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -876,12 +900,35 @@ defmodule AWS.Identitystore do
 
   @doc """
   Creates a user within the specified identity store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_request`)
+    %{
+      optional("Addresses") => list(address()()),
+      optional("DisplayName") => String.t(),
+      optional("Emails") => list(email()()),
+      optional("Locale") => String.t(),
+      optional("Name") => name(),
+      optional("NickName") => String.t(),
+      optional("PhoneNumbers") => list(phone_number()()),
+      optional("PreferredLanguage") => String.t(),
+      optional("ProfileUrl") => String.t(),
+      optional("Timezone") => String.t(),
+      optional("Title") => String.t(),
+      optional("UserName") => String.t(),
+      optional("UserType") => String.t(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, input, options \\ []) do
+
+  def create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -890,12 +937,23 @@ defmodule AWS.Identitystore do
 
   @doc """
   Delete a group within an identity store given `GroupId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20DeleteGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_group_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec delete_group(AWS.Client.t(), delete_group_request(), Keyword.t()) ::
+
+  @spec delete_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-  def delete_group(%Client{} = client, input, options \\ []) do
+
+  def delete_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -904,12 +962,23 @@ defmodule AWS.Identitystore do
 
   @doc """
   Delete a membership within a group given `MembershipId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20DeleteGroupMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_group_membership_request`)
+    %{
+      required("IdentityStoreId") => String.t(),
+      required("MembershipId") => String.t()
+    }
   """
-  @spec delete_group_membership(AWS.Client.t(), delete_group_membership_request(), Keyword.t()) ::
+
+  @spec delete_group_membership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_membership_errors()}
-  def delete_group_membership(%Client{} = client, input, options \\ []) do
+
+  def delete_group_membership(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -918,12 +987,23 @@ defmodule AWS.Identitystore do
 
   @doc """
   Deletes a user within an identity store given `UserId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_request`)
+    %{
+      required("IdentityStoreId") => String.t(),
+      required("UserId") => String.t()
+    }
   """
-  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, input, options \\ []) do
+
+  def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -932,12 +1012,23 @@ defmodule AWS.Identitystore do
 
   @doc """
   Retrieves the group metadata and attributes from `GroupId` in an identity store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20DescribeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_group_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec describe_group(AWS.Client.t(), describe_group_request(), Keyword.t()) ::
+
+  @spec describe_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_errors()}
-  def describe_group(%Client{} = client, input, options \\ []) do
+
+  def describe_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -947,16 +1038,23 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves membership metadata and attributes from `MembershipId` in an identity
   store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20DescribeGroupMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_group_membership_request`)
+    %{
+      required("IdentityStoreId") => String.t(),
+      required("MembershipId") => String.t()
+    }
   """
-  @spec describe_group_membership(
-          AWS.Client.t(),
-          describe_group_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_group_membership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_membership_errors()}
-  def describe_group_membership(%Client{} = client, input, options \\ []) do
+
+  def describe_group_membership(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -966,12 +1064,23 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves the user metadata and attributes from the `UserId` in an identity
   store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20DescribeUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_user_request`)
+    %{
+      required("IdentityStoreId") => String.t(),
+      required("UserId") => String.t()
+    }
   """
-  @spec describe_user(AWS.Client.t(), describe_user_request(), Keyword.t()) ::
+
+  @spec describe_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
-  def describe_user(%Client{} = client, input, options \\ []) do
+
+  def describe_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -980,12 +1089,23 @@ defmodule AWS.Identitystore do
 
   @doc """
   Retrieves `GroupId` in an identity store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20GetGroupId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_group_id_request`)
+    %{
+      required("AlternateIdentifier") => list(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec get_group_id(AWS.Client.t(), get_group_id_request(), Keyword.t()) ::
+
+  @spec get_group_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_id_errors()}
-  def get_group_id(%Client{} = client, input, options \\ []) do
+
+  def get_group_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -994,12 +1114,24 @@ defmodule AWS.Identitystore do
 
   @doc """
   Retrieves the `MembershipId` in an identity store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20GetGroupMembershipId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_group_membership_id_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("IdentityStoreId") => String.t(),
+      required("MemberId") => list()
+    }
   """
-  @spec get_group_membership_id(AWS.Client.t(), get_group_membership_id_request(), Keyword.t()) ::
+
+  @spec get_group_membership_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_group_membership_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_group_membership_id_errors()}
-  def get_group_membership_id(%Client{} = client, input, options \\ []) do
+
+  def get_group_membership_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1008,12 +1140,23 @@ defmodule AWS.Identitystore do
 
   @doc """
   Retrieves the `UserId` in an identity store.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20GetUserId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_user_id_request`)
+    %{
+      required("AlternateIdentifier") => list(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec get_user_id(AWS.Client.t(), get_user_id_request(), Keyword.t()) ::
+
+  @spec get_user_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_id_errors()}
-  def get_user_id(%Client{} = client, input, options \\ []) do
+
+  def get_user_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1023,12 +1166,24 @@ defmodule AWS.Identitystore do
   @doc """
   Checks the user's membership in all requested groups and returns if the member
   exists in all queried groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20IsMemberInGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:is_member_in_groups_request`)
+    %{
+      required("GroupIds") => list(String.t()()),
+      required("IdentityStoreId") => String.t(),
+      required("MemberId") => list()
+    }
   """
-  @spec is_member_in_groups(AWS.Client.t(), is_member_in_groups_request(), Keyword.t()) ::
+
+  @spec is_member_in_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, is_member_in_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, is_member_in_groups_errors()}
-  def is_member_in_groups(%Client{} = client, input, options \\ []) do
+
+  def is_member_in_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1038,12 +1193,25 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified group in the specified identity store, returns the list of all
   `GroupMembership` objects and returns results in paginated form.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20ListGroupMemberships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_group_memberships_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("GroupId") => String.t(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec list_group_memberships(AWS.Client.t(), list_group_memberships_request(), Keyword.t()) ::
+
+  @spec list_group_memberships(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_group_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_memberships_errors()}
-  def list_group_memberships(%Client{} = client, input, options \\ []) do
+
+  def list_group_memberships(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1053,16 +1221,26 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified member in the specified identity store, returns the list of
   all `GroupMembership` objects and returns results in paginated form.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20ListGroupMembershipsForMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_group_memberships_for_member_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IdentityStoreId") => String.t(),
+      required("MemberId") => list()
+    }
   """
-  @spec list_group_memberships_for_member(
-          AWS.Client.t(),
-          list_group_memberships_for_member_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_group_memberships_for_member(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_group_memberships_for_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_memberships_for_member_errors()}
-  def list_group_memberships_for_member(%Client{} = client, input, options \\ []) do
+
+  def list_group_memberships_for_member(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1073,12 +1251,25 @@ defmodule AWS.Identitystore do
   Lists all groups in the identity store. Returns a paginated list of complete
   `Group` objects. Filtering for a `Group` by the `DisplayName` attribute is
   deprecated. Instead, use the `GetGroupId` API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20ListGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_groups_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec list_groups(AWS.Client.t(), list_groups_request(), Keyword.t()) ::
+
+  @spec list_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
-  def list_groups(%Client{} = client, input, options \\ []) do
+
+  def list_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1089,12 +1280,25 @@ defmodule AWS.Identitystore do
   Lists all users in the identity store. Returns a paginated list of complete
   `User` objects. Filtering for a `User` by the `UserName` attribute is
   deprecated. Instead, use the `GetUserId` API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_users_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IdentityStoreId") => String.t()
+    }
   """
-  @spec list_users(AWS.Client.t(), list_users_request(), Keyword.t()) ::
+
+  @spec list_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-  def list_users(%Client{} = client, input, options \\ []) do
+
+  def list_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1104,12 +1308,24 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified group in the specified identity store, updates the group
   metadata and attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20UpdateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_group_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("IdentityStoreId") => String.t(),
+      required("Operations") => list(attribute_operation()())
+    }
   """
-  @spec update_group(AWS.Client.t(), update_group_request(), Keyword.t()) ::
+
+  @spec update_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-  def update_group(%Client{} = client, input, options \\ []) do
+
+  def update_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1119,12 +1335,24 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified user in the specified identity store, updates the user
   metadata and attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=identitystore%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_user_request`)
+    %{
+      required("IdentityStoreId") => String.t(),
+      required("Operations") => list(attribute_operation()()),
+      required("UserId") => String.t()
+    }
   """
-  @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::
+
+  @spec update_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-  def update_user(%Client{} = client, input, options \\ []) do
+
+  def update_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

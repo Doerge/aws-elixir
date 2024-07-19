@@ -3046,16 +3046,32 @@ defmodule AWS.Personalize do
   of recommended items for each user ID in the input file. For related items
   solutions, the job generates a list of recommended items for each item ID in
   the input file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateBatchInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_batch_inference_job_request`)
+    %{
+      optional("batchInferenceJobConfig") => batch_inference_job_config(),
+      optional("batchInferenceJobMode") => list(any()),
+      optional("filterArn") => String.t(),
+      optional("numResults") => integer(),
+      optional("tags") => list(tag()()),
+      optional("themeGenerationConfig") => theme_generation_config(),
+      required("jobInput") => batch_inference_job_input(),
+      required("jobName") => String.t(),
+      required("jobOutput") => batch_inference_job_output(),
+      required("roleArn") => String.t(),
+      required("solutionVersionArn") => String.t()
+    }
   """
-  @spec create_batch_inference_job(
-          AWS.Client.t(),
-          create_batch_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_batch_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_batch_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_inference_job_errors()}
-  def create_batch_inference_job(%Client{} = client, input, options \\ []) do
+
+  def create_batch_inference_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3067,12 +3083,29 @@ defmodule AWS.Personalize do
   and the input file must be in JSON format. For more information, see [Getting
   batch recommendations and user
   segments](https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateBatchSegmentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_batch_segment_job_request`)
+    %{
+      optional("filterArn") => String.t(),
+      optional("numResults") => integer(),
+      optional("tags") => list(tag()()),
+      required("jobInput") => batch_segment_job_input(),
+      required("jobName") => String.t(),
+      required("jobOutput") => batch_segment_job_output(),
+      required("roleArn") => String.t(),
+      required("solutionVersionArn") => String.t()
+    }
   """
-  @spec create_batch_segment_job(AWS.Client.t(), create_batch_segment_job_request(), Keyword.t()) ::
+
+  @spec create_batch_segment_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_batch_segment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_batch_segment_job_errors()}
-  def create_batch_segment_job(%Client{} = client, input, options \\ []) do
+
+  def create_batch_segment_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3093,12 +3126,26 @@ defmodule AWS.Personalize do
   recommend starting with 1 for `minProvisionedTPS` (the default). Track your
   usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS` as
   necessary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_campaign_request`)
+    %{
+      optional("campaignConfig") => campaign_config(),
+      optional("minProvisionedTPS") => integer(),
+      optional("tags") => list(tag()()),
+      required("name") => String.t(),
+      required("solutionVersionArn") => String.t()
+    }
   """
-  @spec create_campaign(AWS.Client.t(), create_campaign_request(), Keyword.t()) ::
+
+  @spec create_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_campaign_errors()}
-  def create_campaign(%Client{} = client, input, options \\ []) do
+
+  def create_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3114,12 +3161,26 @@ defmodule AWS.Personalize do
   data deletion job, see [Deleting
   users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
   *
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateDataDeletionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_data_deletion_job_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("dataSource") => data_source(),
+      required("datasetGroupArn") => String.t(),
+      required("jobName") => String.t(),
+      required("roleArn") => String.t()
+    }
   """
-  @spec create_data_deletion_job(AWS.Client.t(), create_data_deletion_job_request(), Keyword.t()) ::
+
+  @spec create_data_deletion_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_deletion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_deletion_job_errors()}
-  def create_data_deletion_job(%Client{} = client, input, options \\ []) do
+
+  def create_data_deletion_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3130,12 +3191,26 @@ defmodule AWS.Personalize do
   Creates an empty dataset and adds it to the specified dataset group. Use
   [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html)
   to import your training data to a dataset. There are 5 types of datasets:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("datasetGroupArn") => String.t(),
+      required("datasetType") => String.t(),
+      required("name") => String.t(),
+      required("schemaArn") => String.t()
+    }
   """
-  @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
+
+  @spec create_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_errors()}
-  def create_dataset(%Client{} = client, input, options \\ []) do
+
+  def create_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3150,16 +3225,27 @@ defmodule AWS.Personalize do
   dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html)
   in the Amazon Personalize developer guide. **Status** A dataset export job can
   be in one of the following states:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateDatasetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_export_job_request`)
+    %{
+      optional("ingestionMode") => list(any()),
+      optional("tags") => list(tag()()),
+      required("datasetArn") => String.t(),
+      required("jobName") => String.t(),
+      required("jobOutput") => dataset_export_job_output(),
+      required("roleArn") => String.t()
+    }
   """
-  @spec create_dataset_export_job(
-          AWS.Client.t(),
-          create_dataset_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_dataset_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_export_job_errors()}
-  def create_dataset_export_job(%Client{} = client, input, options \\ []) do
+
+  def create_dataset_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3170,12 +3256,26 @@ defmodule AWS.Personalize do
   Creates an empty dataset group. A dataset group is a container for Amazon
   Personalize resources. A dataset group can contain at most three datasets, one
   for each type of dataset:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateDatasetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_group_request`)
+    %{
+      optional("domain") => list(any()),
+      optional("kmsKeyArn") => String.t(),
+      optional("roleArn") => String.t(),
+      optional("tags") => list(tag()()),
+      required("name") => String.t()
+    }
   """
-  @spec create_dataset_group(AWS.Client.t(), create_dataset_group_request(), Keyword.t()) ::
+
+  @spec create_dataset_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_group_errors()}
-  def create_dataset_group(%Client{} = client, input, options \\ []) do
+
+  def create_dataset_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3199,16 +3299,28 @@ defmodule AWS.Personalize do
   that you imported in bulk. To add new records without replacing existing data,
   specify INCREMENTAL for the import mode in the CreateDatasetImportJob
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateDatasetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dataset_import_job_request`)
+    %{
+      optional("importMode") => list(any()),
+      optional("publishAttributionMetricsToS3") => boolean(),
+      optional("tags") => list(tag()()),
+      required("dataSource") => data_source(),
+      required("datasetArn") => String.t(),
+      required("jobName") => String.t(),
+      required("roleArn") => String.t()
+    }
   """
-  @spec create_dataset_import_job(
-          AWS.Client.t(),
-          create_dataset_import_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_dataset_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataset_import_job_errors()}
-  def create_dataset_import_job(%Client{} = client, input, options \\ []) do
+
+  def create_dataset_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3226,12 +3338,24 @@ defmodule AWS.Personalize do
   [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
   operation. Amazon Personalize then appends the event data to the Item
   interactions dataset of the dataset group you specify in your event tracker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateEventTracker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_event_tracker_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("datasetGroupArn") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec create_event_tracker(AWS.Client.t(), create_event_tracker_request(), Keyword.t()) ::
+
+  @spec create_event_tracker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_tracker_errors()}
-  def create_event_tracker(%Client{} = client, input, options \\ []) do
+
+  def create_event_tracker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3242,12 +3366,25 @@ defmodule AWS.Personalize do
   Creates a recommendation filter. For more information, see [Filtering
   recommendations and user
   segments](https://docs.aws.amazon.com/personalize/latest/dg/filter.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_filter_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("datasetGroupArn") => String.t(),
+      required("filterExpression") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec create_filter(AWS.Client.t(), create_filter_request(), Keyword.t()) ::
+
+  @spec create_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_filter_errors()}
-  def create_filter(%Client{} = client, input, options \\ []) do
+
+  def create_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3260,16 +3397,25 @@ defmodule AWS.Personalize do
   data, you can view reports in Amazon CloudWatch or Amazon S3. For more
   information, see [Measuring impact of
   recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateMetricAttribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_metric_attribution_request`)
+    %{
+      required("datasetGroupArn") => String.t(),
+      required("metrics") => list(metric_attribute()()),
+      required("metricsOutputConfig") => metric_attribution_output(),
+      required("name") => String.t()
+    }
   """
-  @spec create_metric_attribution(
-          AWS.Client.t(),
-          create_metric_attribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_metric_attribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_metric_attribution_errors()}
-  def create_metric_attribution(%Client{} = client, input, options \\ []) do
+
+  def create_metric_attribution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3286,12 +3432,26 @@ defmodule AWS.Personalize do
   starting with 1 for `minRecommendationRequestsPerSecond` (the default). Track
   your usage using Amazon CloudWatch metrics, and increase the
   `minRecommendationRequestsPerSecond` as necessary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateRecommender&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_recommender_request`)
+    %{
+      optional("recommenderConfig") => recommender_config(),
+      optional("tags") => list(tag()()),
+      required("datasetGroupArn") => String.t(),
+      required("name") => String.t(),
+      required("recipeArn") => String.t()
+    }
   """
-  @spec create_recommender(AWS.Client.t(), create_recommender_request(), Keyword.t()) ::
+
+  @spec create_recommender(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recommender_errors()}
-  def create_recommender(%Client{} = client, input, options \\ []) do
+
+  def create_recommender(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3307,12 +3467,24 @@ defmodule AWS.Personalize do
   You specify a schema when you call
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
   **Related APIs**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_schema_request`)
+    %{
+      optional("domain") => list(any()),
+      required("name") => String.t(),
+      required("schema") => String.t()
+    }
   """
-  @spec create_schema(AWS.Client.t(), create_schema_request(), Keyword.t()) ::
+
+  @spec create_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
-  def create_schema(%Client{} = client, input, options \\ []) do
+
+  def create_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3343,12 +3515,30 @@ defmodule AWS.Personalize do
   calling the
   [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html)
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateSolution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_solution_request`)
+    %{
+      optional("eventType") => String.t(),
+      optional("performAutoML") => boolean(),
+      optional("performAutoTraining") => boolean(),
+      optional("performHPO") => boolean(),
+      optional("recipeArn") => String.t(),
+      optional("solutionConfig") => solution_config(),
+      optional("tags") => list(tag()()),
+      required("datasetGroupArn") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec create_solution(AWS.Client.t(), create_solution_request(), Keyword.t()) ::
+
+  @spec create_solution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_solution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_solution_errors()}
-  def create_solution(%Client{} = client, input, options \\ []) do
+
+  def create_solution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3363,12 +3553,25 @@ defmodule AWS.Personalize do
   `CreateSolutionVersion`. A new version of the solution is created every time
   you call this operation. **Status** A solution version can be in one of the
   following states:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20CreateSolutionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_solution_version_request`)
+    %{
+      optional("name") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("trainingMode") => list(any()),
+      required("solutionArn") => String.t()
+    }
   """
-  @spec create_solution_version(AWS.Client.t(), create_solution_version_request(), Keyword.t()) ::
+
+  @spec create_solution_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_solution_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_solution_version_errors()}
-  def create_solution_version(%Client{} = client, input, options \\ []) do
+
+  def create_solution_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3382,12 +3585,22 @@ defmodule AWS.Personalize do
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   request. For information on creating campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_campaign_request`)
+    %{
+      required("campaignArn") => String.t()
+    }
   """
-  @spec delete_campaign(AWS.Client.t(), delete_campaign_request(), Keyword.t()) ::
+
+  @spec delete_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_campaign_errors()}
-  def delete_campaign(%Client{} = client, input, options \\ []) do
+
+  def delete_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3399,12 +3612,22 @@ defmodule AWS.Personalize do
   `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN
   PROGRESS state. For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dataset_request`)
+    %{
+      required("datasetArn") => String.t()
+    }
   """
-  @spec delete_dataset(AWS.Client.t(), delete_dataset_request(), Keyword.t()) ::
+
+  @spec delete_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
-  def delete_dataset(%Client{} = client, input, options \\ []) do
+
+  def delete_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3414,12 +3637,22 @@ defmodule AWS.Personalize do
   @doc """
   Deletes a dataset group. Before you delete a dataset group, you must delete the
   following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteDatasetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dataset_group_request`)
+    %{
+      required("datasetGroupArn") => String.t()
+    }
   """
-  @spec delete_dataset_group(AWS.Client.t(), delete_dataset_group_request(), Keyword.t()) ::
+
+  @spec delete_dataset_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_group_errors()}
-  def delete_dataset_group(%Client{} = client, input, options \\ []) do
+
+  def delete_dataset_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3430,12 +3663,22 @@ defmodule AWS.Personalize do
   Deletes the event tracker. Does not delete the dataset from the dataset group.
   For more information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteEventTracker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_event_tracker_request`)
+    %{
+      required("eventTrackerArn") => String.t()
+    }
   """
-  @spec delete_event_tracker(AWS.Client.t(), delete_event_tracker_request(), Keyword.t()) ::
+
+  @spec delete_event_tracker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_tracker_errors()}
-  def delete_event_tracker(%Client{} = client, input, options \\ []) do
+
+  def delete_event_tracker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3444,12 +3687,22 @@ defmodule AWS.Personalize do
 
   @doc """
   Deletes a filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_filter_request`)
+    %{
+      required("filterArn") => String.t()
+    }
   """
-  @spec delete_filter(AWS.Client.t(), delete_filter_request(), Keyword.t()) ::
+
+  @spec delete_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_filter_errors()}
-  def delete_filter(%Client{} = client, input, options \\ []) do
+
+  def delete_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3458,16 +3711,22 @@ defmodule AWS.Personalize do
 
   @doc """
   Deletes a metric attribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteMetricAttribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_metric_attribution_request`)
+    %{
+      required("metricAttributionArn") => String.t()
+    }
   """
-  @spec delete_metric_attribution(
-          AWS.Client.t(),
-          delete_metric_attribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_metric_attribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_metric_attribution_errors()}
-  def delete_metric_attribution(%Client{} = client, input, options \\ []) do
+
+  def delete_metric_attribution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3479,12 +3738,22 @@ defmodule AWS.Personalize do
   specified in a
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteRecommender&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_recommender_request`)
+    %{
+      required("recommenderArn") => String.t()
+    }
   """
-  @spec delete_recommender(AWS.Client.t(), delete_recommender_request(), Keyword.t()) ::
+
+  @spec delete_recommender(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommender_errors()}
-  def delete_recommender(%Client{} = client, input, options \\ []) do
+
+  def delete_recommender(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3495,12 +3764,22 @@ defmodule AWS.Personalize do
   Deletes a schema. Before deleting a schema, you must delete all datasets
   referencing the schema. For more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_schema_request`)
+    %{
+      required("schemaArn") => String.t()
+    }
   """
-  @spec delete_schema(AWS.Client.t(), delete_schema_request(), Keyword.t()) ::
+
+  @spec delete_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
-  def delete_schema(%Client{} = client, input, options \\ []) do
+
+  def delete_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3516,12 +3795,22 @@ defmodule AWS.Personalize do
   solution if an associated `SolutionVersion` is in the CREATE PENDING or IN
   PROGRESS state. For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DeleteSolution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_solution_request`)
+    %{
+      required("solutionArn") => String.t()
+    }
   """
-  @spec delete_solution(AWS.Client.t(), delete_solution_request(), Keyword.t()) ::
+
+  @spec delete_solution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_solution_errors()}
-  def delete_solution(%Client{} = client, input, options \\ []) do
+
+  def delete_solution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3530,12 +3819,22 @@ defmodule AWS.Personalize do
 
   @doc """
   Describes the given algorithm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeAlgorithm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_algorithm_request`)
+    %{
+      required("algorithmArn") => String.t()
+    }
   """
-  @spec describe_algorithm(AWS.Client.t(), describe_algorithm_request(), Keyword.t()) ::
+
+  @spec describe_algorithm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_algorithm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_algorithm_errors()}
-  def describe_algorithm(%Client{} = client, input, options \\ []) do
+
+  def describe_algorithm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3546,16 +3845,22 @@ defmodule AWS.Personalize do
   Gets the properties of a batch inference job including name, Amazon Resource
   Name (ARN), status, input and output configurations, and the ARN of the
   solution version used to generate the recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeBatchInferenceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_batch_inference_job_request`)
+    %{
+      required("batchInferenceJobArn") => String.t()
+    }
   """
-  @spec describe_batch_inference_job(
-          AWS.Client.t(),
-          describe_batch_inference_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_batch_inference_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_batch_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_inference_job_errors()}
-  def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
+
+  def describe_batch_inference_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3566,16 +3871,22 @@ defmodule AWS.Personalize do
   Gets the properties of a batch segment job including name, Amazon Resource Name
   (ARN), status, input and output configurations, and the ARN of the solution
   version used to generate segments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeBatchSegmentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_batch_segment_job_request`)
+    %{
+      required("batchSegmentJobArn") => String.t()
+    }
   """
-  @spec describe_batch_segment_job(
-          AWS.Client.t(),
-          describe_batch_segment_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_batch_segment_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_batch_segment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_segment_job_errors()}
-  def describe_batch_segment_job(%Client{} = client, input, options \\ []) do
+
+  def describe_batch_segment_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3585,12 +3896,22 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given campaign, including its status. A campaign can be in one of
   the following states:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_campaign_request`)
+    %{
+      required("campaignArn") => String.t()
+    }
   """
-  @spec describe_campaign(AWS.Client.t(), describe_campaign_request(), Keyword.t()) ::
+
+  @spec describe_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_campaign_errors()}
-  def describe_campaign(%Client{} = client, input, options \\ []) do
+
+  def describe_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3601,16 +3922,22 @@ defmodule AWS.Personalize do
   Describes the data deletion job created by
   [CreateDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataDeletionJob.html),
   including the job status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeDataDeletionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_data_deletion_job_request`)
+    %{
+      required("dataDeletionJobArn") => String.t()
+    }
   """
-  @spec describe_data_deletion_job(
-          AWS.Client.t(),
-          describe_data_deletion_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_data_deletion_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_deletion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_deletion_job_errors()}
-  def describe_data_deletion_job(%Client{} = client, input, options \\ []) do
+
+  def describe_data_deletion_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3620,12 +3947,22 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given dataset. For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_request`)
+    %{
+      required("datasetArn") => String.t()
+    }
   """
-  @spec describe_dataset(AWS.Client.t(), describe_dataset_request(), Keyword.t()) ::
+
+  @spec describe_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
-  def describe_dataset(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3636,16 +3973,22 @@ defmodule AWS.Personalize do
   Describes the dataset export job created by
   [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html),
   including the export job status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeDatasetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_export_job_request`)
+    %{
+      required("datasetExportJobArn") => String.t()
+    }
   """
-  @spec describe_dataset_export_job(
-          AWS.Client.t(),
-          describe_dataset_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_dataset_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_export_job_errors()}
-  def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3655,12 +3998,22 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given dataset group. For more information on dataset groups, see
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeDatasetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_group_request`)
+    %{
+      required("datasetGroupArn") => String.t()
+    }
   """
-  @spec describe_dataset_group(AWS.Client.t(), describe_dataset_group_request(), Keyword.t()) ::
+
+  @spec describe_dataset_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_group_errors()}
-  def describe_dataset_group(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3671,16 +4024,22 @@ defmodule AWS.Personalize do
   Describes the dataset import job created by
   [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html),
   including the import job status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeDatasetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dataset_import_job_request`)
+    %{
+      required("datasetImportJobArn") => String.t()
+    }
   """
-  @spec describe_dataset_import_job(
-          AWS.Client.t(),
-          describe_dataset_import_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_dataset_import_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_import_job_errors()}
-  def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
+
+  def describe_dataset_import_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3691,12 +4050,22 @@ defmodule AWS.Personalize do
   Describes an event tracker. The response includes the `trackingId` and `status`
   of the event tracker. For more information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeEventTracker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_tracker_request`)
+    %{
+      required("eventTrackerArn") => String.t()
+    }
   """
-  @spec describe_event_tracker(AWS.Client.t(), describe_event_tracker_request(), Keyword.t()) ::
+
+  @spec describe_event_tracker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_tracker_errors()}
-  def describe_event_tracker(%Client{} = client, input, options \\ []) do
+
+  def describe_event_tracker(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3705,16 +4074,23 @@ defmodule AWS.Personalize do
 
   @doc """
   Describes the given feature transformation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeFeatureTransformation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_feature_transformation_request`)
+    %{
+      required("featureTransformationArn") => String.t()
+    }
   """
-  @spec describe_feature_transformation(
-          AWS.Client.t(),
-          describe_feature_transformation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_feature_transformation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_feature_transformation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_feature_transformation_errors()}
-  def describe_feature_transformation(%Client{} = client, input, options \\ []) do
+
+  def describe_feature_transformation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3723,12 +4099,22 @@ defmodule AWS.Personalize do
 
   @doc """
   Describes a filter's properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_filter_request`)
+    %{
+      required("filterArn") => String.t()
+    }
   """
-  @spec describe_filter(AWS.Client.t(), describe_filter_request(), Keyword.t()) ::
+
+  @spec describe_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_filter_errors()}
-  def describe_filter(%Client{} = client, input, options \\ []) do
+
+  def describe_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3737,16 +4123,22 @@ defmodule AWS.Personalize do
 
   @doc """
   Describes a metric attribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeMetricAttribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_metric_attribution_request`)
+    %{
+      required("metricAttributionArn") => String.t()
+    }
   """
-  @spec describe_metric_attribution(
-          AWS.Client.t(),
-          describe_metric_attribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_metric_attribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_metric_attribution_errors()}
-  def describe_metric_attribution(%Client{} = client, input, options \\ []) do
+
+  def describe_metric_attribution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3755,12 +4147,22 @@ defmodule AWS.Personalize do
 
   @doc """
   Describes a recipe. A recipe contains three items:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_recipe_request`)
+    %{
+      required("recipeArn") => String.t()
+    }
   """
-  @spec describe_recipe(AWS.Client.t(), describe_recipe_request(), Keyword.t()) ::
+
+  @spec describe_recipe(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recipe_errors()}
-  def describe_recipe(%Client{} = client, input, options \\ []) do
+
+  def describe_recipe(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3770,12 +4172,22 @@ defmodule AWS.Personalize do
   @doc """
   Describes the given recommender, including its status. A recommender can be in
   one of the following states:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeRecommender&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_recommender_request`)
+    %{
+      required("recommenderArn") => String.t()
+    }
   """
-  @spec describe_recommender(AWS.Client.t(), describe_recommender_request(), Keyword.t()) ::
+
+  @spec describe_recommender(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommender_errors()}
-  def describe_recommender(%Client{} = client, input, options \\ []) do
+
+  def describe_recommender(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3785,12 +4197,22 @@ defmodule AWS.Personalize do
   @doc """
   Describes a schema. For more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_schema_request`)
+    %{
+      required("schemaArn") => String.t()
+    }
   """
-  @spec describe_schema(AWS.Client.t(), describe_schema_request(), Keyword.t()) ::
+
+  @spec describe_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schema_errors()}
-  def describe_schema(%Client{} = client, input, options \\ []) do
+
+  def describe_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3800,12 +4222,22 @@ defmodule AWS.Personalize do
   @doc """
   Describes a solution. For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeSolution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_solution_request`)
+    %{
+      required("solutionArn") => String.t()
+    }
   """
-  @spec describe_solution(AWS.Client.t(), describe_solution_request(), Keyword.t()) ::
+
+  @spec describe_solution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_solution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_solution_errors()}
-  def describe_solution(%Client{} = client, input, options \\ []) do
+
+  def describe_solution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3816,16 +4248,22 @@ defmodule AWS.Personalize do
   Describes a specific version of a solution. For more information on solutions,
   see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20DescribeSolutionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_solution_version_request`)
+    %{
+      required("solutionVersionArn") => String.t()
+    }
   """
-  @spec describe_solution_version(
-          AWS.Client.t(),
-          describe_solution_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_solution_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_solution_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_solution_version_errors()}
-  def describe_solution_version(%Client{} = client, input, options \\ []) do
+
+  def describe_solution_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3834,12 +4272,22 @@ defmodule AWS.Personalize do
 
   @doc """
   Gets the metrics for the specified solution version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20GetSolutionMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_solution_metrics_request`)
+    %{
+      required("solutionVersionArn") => String.t()
+    }
   """
-  @spec get_solution_metrics(AWS.Client.t(), get_solution_metrics_request(), Keyword.t()) ::
+
+  @spec get_solution_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_solution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_solution_metrics_errors()}
-  def get_solution_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_solution_metrics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3849,16 +4297,24 @@ defmodule AWS.Personalize do
   @doc """
   Gets a list of the batch inference jobs that have been performed off of a
   solution version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListBatchInferenceJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_batch_inference_jobs_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("solutionVersionArn") => String.t()
+    }
   """
-  @spec list_batch_inference_jobs(
-          AWS.Client.t(),
-          list_batch_inference_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_batch_inference_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_batch_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_inference_jobs_errors()}
-  def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_batch_inference_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3868,12 +4324,24 @@ defmodule AWS.Personalize do
   @doc """
   Gets a list of the batch segment jobs that have been performed off of a solution
   version that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListBatchSegmentJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_batch_segment_jobs_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("solutionVersionArn") => String.t()
+    }
   """
-  @spec list_batch_segment_jobs(AWS.Client.t(), list_batch_segment_jobs_request(), Keyword.t()) ::
+
+  @spec list_batch_segment_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_batch_segment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_segment_jobs_errors()}
-  def list_batch_segment_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_batch_segment_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3886,12 +4354,24 @@ defmodule AWS.Personalize do
   response provides the properties for each campaign, including the Amazon
   Resource Name (ARN). For more information on campaigns, see
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_campaigns_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("solutionArn") => String.t()
+    }
   """
-  @spec list_campaigns(AWS.Client.t(), list_campaigns_request(), Keyword.t()) ::
+
+  @spec list_campaigns(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_campaigns_errors()}
-  def list_campaigns(%Client{} = client, input, options \\ []) do
+
+  def list_campaigns(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3905,12 +4385,24 @@ defmodule AWS.Personalize do
   provides the properties for each job, including the Amazon Resource Name
   (ARN). For more information on data deletion jobs, see [Deleting
   users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListDataDeletionJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_deletion_jobs_request`)
+    %{
+      optional("datasetGroupArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_data_deletion_jobs(AWS.Client.t(), list_data_deletion_jobs_request(), Keyword.t()) ::
+
+  @spec list_data_deletion_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_deletion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_deletion_jobs_errors()}
-  def list_data_deletion_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_data_deletion_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3926,12 +4418,24 @@ defmodule AWS.Personalize do
   [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html).
   For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListDatasetExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dataset_export_jobs_request`)
+    %{
+      optional("datasetArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_dataset_export_jobs(AWS.Client.t(), list_dataset_export_jobs_request(), Keyword.t()) ::
+
+  @spec list_dataset_export_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dataset_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_export_jobs_errors()}
-  def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_dataset_export_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3943,12 +4447,23 @@ defmodule AWS.Personalize do
   dataset group, including the Amazon Resource Name (ARN). For more information
   on dataset groups, see
   [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListDatasetGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dataset_groups_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_dataset_groups(AWS.Client.t(), list_dataset_groups_request(), Keyword.t()) ::
+
+  @spec list_dataset_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dataset_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_groups_errors()}
-  def list_dataset_groups(%Client{} = client, input, options \\ []) do
+
+  def list_dataset_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3964,12 +4479,24 @@ defmodule AWS.Personalize do
   [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html).
   For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListDatasetImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dataset_import_jobs_request`)
+    %{
+      optional("datasetArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_dataset_import_jobs(AWS.Client.t(), list_dataset_import_jobs_request(), Keyword.t()) ::
+
+  @spec list_dataset_import_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dataset_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataset_import_jobs_errors()}
-  def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_dataset_import_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3981,12 +4508,24 @@ defmodule AWS.Personalize do
   provides the properties for each dataset, including the Amazon Resource Name
   (ARN). For more information on datasets, see
   [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_datasets_request`)
+    %{
+      optional("datasetGroupArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_datasets(AWS.Client.t(), list_datasets_request(), Keyword.t()) ::
+
+  @spec list_datasets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
-  def list_datasets(%Client{} = client, input, options \\ []) do
+
+  def list_datasets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3998,12 +4537,24 @@ defmodule AWS.Personalize do
   provides the properties for each event tracker, including the Amazon Resource
   Name (ARN) and tracking ID. For more information on event trackers, see
   [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListEventTrackers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_event_trackers_request`)
+    %{
+      optional("datasetGroupArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_event_trackers(AWS.Client.t(), list_event_trackers_request(), Keyword.t()) ::
+
+  @spec list_event_trackers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_trackers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_trackers_errors()}
-  def list_event_trackers(%Client{} = client, input, options \\ []) do
+
+  def list_event_trackers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4012,12 +4563,24 @@ defmodule AWS.Personalize do
 
   @doc """
   Lists all filters that belong to a given dataset group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_filters_request`)
+    %{
+      optional("datasetGroupArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_filters(AWS.Client.t(), list_filters_request(), Keyword.t()) ::
+
+  @spec list_filters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_filters_errors()}
-  def list_filters(%Client{} = client, input, options \\ []) do
+
+  def list_filters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4026,16 +4589,25 @@ defmodule AWS.Personalize do
 
   @doc """
   Lists the metrics for the metric attribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListMetricAttributionMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_metric_attribution_metrics_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("metricAttributionArn") => String.t(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_metric_attribution_metrics(
-          AWS.Client.t(),
-          list_metric_attribution_metrics_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_metric_attribution_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_metric_attribution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_attribution_metrics_errors()}
-  def list_metric_attribution_metrics(%Client{} = client, input, options \\ []) do
+
+  def list_metric_attribution_metrics(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4044,12 +4616,24 @@ defmodule AWS.Personalize do
 
   @doc """
   Lists metric attributions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListMetricAttributions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_metric_attributions_request`)
+    %{
+      optional("datasetGroupArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_metric_attributions(AWS.Client.t(), list_metric_attributions_request(), Keyword.t()) ::
+
+  @spec list_metric_attributions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_metric_attributions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metric_attributions_errors()}
-  def list_metric_attributions(%Client{} = client, input, options \\ []) do
+
+  def list_metric_attributions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4059,12 +4643,25 @@ defmodule AWS.Personalize do
   @doc """
   Returns a list of available recipes. The response provides the properties for
   each recipe, including the recipe's Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListRecipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_recipes_request`)
+    %{
+      optional("domain") => list(any()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("recipeProvider") => list(any())
+    }
   """
-  @spec list_recipes(AWS.Client.t(), list_recipes_request(), Keyword.t()) ::
+
+  @spec list_recipes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recipes_errors()}
-  def list_recipes(%Client{} = client, input, options \\ []) do
+
+  def list_recipes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4078,12 +4675,24 @@ defmodule AWS.Personalize do
   including the Amazon Resource Name (ARN). For more information on
   recommenders, see
   [CreateRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateRecommender.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListRecommenders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_recommenders_request`)
+    %{
+      optional("datasetGroupArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_recommenders(AWS.Client.t(), list_recommenders_request(), Keyword.t()) ::
+
+  @spec list_recommenders(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_recommenders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_recommenders_errors()}
-  def list_recommenders(%Client{} = client, input, options \\ []) do
+
+  def list_recommenders(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4095,12 +4704,23 @@ defmodule AWS.Personalize do
   the properties for each schema, including the Amazon Resource Name (ARN). For
   more information on schemas, see
   [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListSchemas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_schemas_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_schemas(AWS.Client.t(), list_schemas_request(), Keyword.t()) ::
+
+  @spec list_schemas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
-  def list_schemas(%Client{} = client, input, options \\ []) do
+
+  def list_schemas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4112,12 +4732,24 @@ defmodule AWS.Personalize do
   not specified, all the solution versions associated with the account are
   listed. The response provides the properties for each solution version,
   including the Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListSolutionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_solution_versions_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("solutionArn") => String.t()
+    }
   """
-  @spec list_solution_versions(AWS.Client.t(), list_solution_versions_request(), Keyword.t()) ::
+
+  @spec list_solution_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_solution_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_solution_versions_errors()}
-  def list_solution_versions(%Client{} = client, input, options \\ []) do
+
+  def list_solution_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4130,12 +4762,24 @@ defmodule AWS.Personalize do
   response provides the properties for each solution, including the Amazon
   Resource Name (ARN). For more information on solutions, see
   [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListSolutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_solutions_request`)
+    %{
+      optional("datasetGroupArn") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_solutions(AWS.Client.t(), list_solutions_request(), Keyword.t()) ::
+
+  @spec list_solutions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_solutions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_solutions_errors()}
-  def list_solutions(%Client{} = client, input, options \\ []) do
+
+  def list_solutions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4146,12 +4790,22 @@ defmodule AWS.Personalize do
   Get a list of
   [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)
   attached to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4162,12 +4816,22 @@ defmodule AWS.Personalize do
   Starts a recommender that is INACTIVE. Starting a recommender does not create
   any new models, but resumes billing and automatic retraining for the
   recommender.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20StartRecommender&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_recommender_request`)
+    %{
+      required("recommenderArn") => String.t()
+    }
   """
-  @spec start_recommender(AWS.Client.t(), start_recommender_request(), Keyword.t()) ::
+
+  @spec start_recommender(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recommender_errors()}
-  def start_recommender(%Client{} = client, input, options \\ []) do
+
+  def start_recommender(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4177,12 +4841,22 @@ defmodule AWS.Personalize do
   @doc """
   Stops a recommender that is ACTIVE. Stopping a recommender halts billing and
   automatic retraining for the recommender.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20StopRecommender&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_recommender_request`)
+    %{
+      required("recommenderArn") => String.t()
+    }
   """
-  @spec stop_recommender(AWS.Client.t(), stop_recommender_request(), Keyword.t()) ::
+
+  @spec stop_recommender(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_recommender_errors()}
-  def stop_recommender(%Client{} = client, input, options \\ []) do
+
+  def stop_recommender(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4193,16 +4867,23 @@ defmodule AWS.Personalize do
   Stops creating a solution version that is in a state of CREATE_PENDING or CREATE
   IN_PROGRESS. Depending on the current state of the solution version, the
   solution version state changes as follows:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20StopSolutionVersionCreation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_solution_version_creation_request`)
+    %{
+      required("solutionVersionArn") => String.t()
+    }
   """
-  @spec stop_solution_version_creation(
-          AWS.Client.t(),
-          stop_solution_version_creation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_solution_version_creation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_solution_version_creation_errors()}
-  def stop_solution_version_creation(%Client{} = client, input, options \\ []) do
+
+  def stop_solution_version_creation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4211,12 +4892,23 @@ defmodule AWS.Personalize do
 
   @doc """
   Add a list of tags to a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4227,12 +4919,23 @@ defmodule AWS.Personalize do
   Removes the specified tags that are attached to a resource. For more
   information, see [Removing tags from Amazon Personalize
   resources](https://docs.aws.amazon.com/personalize/latest/dg/tags-remove.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4246,12 +4949,25 @@ defmodule AWS.Personalize do
   `enableMetadataWithRecommendations` to true for an existing campaign. To
   update a campaign to start automatically using the latest solution version,
   specify the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20UpdateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_campaign_request`)
+    %{
+      optional("campaignConfig") => campaign_config(),
+      optional("minProvisionedTPS") => integer(),
+      optional("solutionVersionArn") => String.t(),
+      required("campaignArn") => String.t()
+    }
   """
-  @spec update_campaign(AWS.Client.t(), update_campaign_request(), Keyword.t()) ::
+
+  @spec update_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_errors()}
-  def update_campaign(%Client{} = client, input, options \\ []) do
+
+  def update_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4262,12 +4978,23 @@ defmodule AWS.Personalize do
   Update a dataset to replace its schema with a new or existing one. For more
   information, see [Replacing a dataset's
   schema](https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20UpdateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_dataset_request`)
+    %{
+      required("datasetArn") => String.t(),
+      required("schemaArn") => String.t()
+    }
   """
-  @spec update_dataset(AWS.Client.t(), update_dataset_request(), Keyword.t()) ::
+
+  @spec update_dataset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dataset_errors()}
-  def update_dataset(%Client{} = client, input, options \\ []) do
+
+  def update_dataset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4276,16 +5003,25 @@ defmodule AWS.Personalize do
 
   @doc """
   Updates a metric attribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20UpdateMetricAttribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_metric_attribution_request`)
+    %{
+      optional("addMetrics") => list(metric_attribute()()),
+      optional("metricAttributionArn") => String.t(),
+      optional("metricsOutputConfig") => metric_attribution_output(),
+      optional("removeMetrics") => list(String.t()())
+    }
   """
-  @spec update_metric_attribution(
-          AWS.Client.t(),
-          update_metric_attribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_metric_attribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_metric_attribution_errors()}
-  def update_metric_attribution(%Client{} = client, input, options \\ []) do
+
+  def update_metric_attribution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4302,12 +5038,23 @@ defmodule AWS.Personalize do
   `latestRecommenderUpdate` returned in the
   [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalize%20UpdateRecommender&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_recommender_request`)
+    %{
+      required("recommenderArn") => String.t(),
+      required("recommenderConfig") => recommender_config()
+    }
   """
-  @spec update_recommender(AWS.Client.t(), update_recommender_request(), Keyword.t()) ::
+
+  @spec update_recommender(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recommender_errors()}
-  def update_recommender(%Client{} = client, input, options \\ []) do
+
+  def update_recommender(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

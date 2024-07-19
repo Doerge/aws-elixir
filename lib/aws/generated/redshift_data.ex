@@ -549,12 +549,30 @@ defmodule AWS.RedshiftData do
   Runs one or more SQL statements, which can be data manipulation language (DML)
   or data definition language (DDL). Depending on the authorization method, use
   one of the following combinations of request parameters:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20BatchExecuteStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_execute_statement_input`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("ClusterIdentifier") => String.t(),
+      optional("DbUser") => String.t(),
+      optional("SecretArn") => String.t(),
+      optional("StatementName") => String.t(),
+      optional("WithEvent") => [boolean()],
+      optional("WorkgroupName") => String.t(),
+      required("Database") => String.t(),
+      required("Sqls") => list(String.t()())
+    }
   """
-  @spec batch_execute_statement(AWS.Client.t(), batch_execute_statement_input(), Keyword.t()) ::
+
+  @spec batch_execute_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_execute_statement_errors()}
-  def batch_execute_statement(%Client{} = client, input, options \\ []) do
+
+  def batch_execute_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -563,12 +581,22 @@ defmodule AWS.RedshiftData do
 
   @doc """
   Cancels a running query. To be canceled, a query must be running.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20CancelStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_statement_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec cancel_statement(AWS.Client.t(), cancel_statement_request(), Keyword.t()) ::
+
+  @spec cancel_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_statement_errors()}
-  def cancel_statement(%Client{} = client, input, options \\ []) do
+
+  def cancel_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -580,12 +608,22 @@ defmodule AWS.RedshiftData do
   Amazon Redshift Data API. The information includes when the query started,
   when it finished, the query status, the number of rows returned, and the SQL
   statement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20DescribeStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_statement_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec describe_statement(AWS.Client.t(), describe_statement_request(), Keyword.t()) ::
+
+  @spec describe_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_statement_errors()}
-  def describe_statement(%Client{} = client, input, options \\ []) do
+
+  def describe_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -597,12 +635,31 @@ defmodule AWS.RedshiftData do
   The information includes its columns. A token is returned to page through the
   column list. Depending on the authorization method, use one of the following
   combinations of request parameters:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20DescribeTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_table_request`)
+    %{
+      optional("ClusterIdentifier") => String.t(),
+      optional("ConnectedDatabase") => String.t(),
+      optional("DbUser") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Schema") => String.t(),
+      optional("SecretArn") => String.t(),
+      optional("Table") => String.t(),
+      optional("WorkgroupName") => String.t(),
+      required("Database") => String.t()
+    }
   """
-  @spec describe_table(AWS.Client.t(), describe_table_request(), Keyword.t()) ::
+
+  @spec describe_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_table_errors()}
-  def describe_table(%Client{} = client, input, options \\ []) do
+
+  def describe_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -614,12 +671,31 @@ defmodule AWS.RedshiftData do
   definition language (DDL). This statement must be a single SQL statement.
   Depending on the authorization method, use one of the following combinations
   of request parameters:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20ExecuteStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:execute_statement_input`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("ClusterIdentifier") => String.t(),
+      optional("DbUser") => String.t(),
+      optional("Parameters") => list(sql_parameter()()),
+      optional("SecretArn") => String.t(),
+      optional("StatementName") => String.t(),
+      optional("WithEvent") => [boolean()],
+      optional("WorkgroupName") => String.t(),
+      required("Database") => String.t(),
+      required("Sql") => String.t()
+    }
   """
-  @spec execute_statement(AWS.Client.t(), execute_statement_input(), Keyword.t()) ::
+
+  @spec execute_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_statement_errors()}
-  def execute_statement(%Client{} = client, input, options \\ []) do
+
+  def execute_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -629,12 +705,23 @@ defmodule AWS.RedshiftData do
   @doc """
   Fetches the temporarily cached result of an SQL statement. A token is returned
   to page through the statement results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20GetStatementResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_statement_result_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("Id") => String.t()
+    }
   """
-  @spec get_statement_result(AWS.Client.t(), get_statement_result_request(), Keyword.t()) ::
+
+  @spec get_statement_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_statement_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_statement_result_errors()}
-  def get_statement_result(%Client{} = client, input, options \\ []) do
+
+  def get_statement_result(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -645,12 +732,28 @@ defmodule AWS.RedshiftData do
   List the databases in a cluster. A token is returned to page through the
   database list. Depending on the authorization method, use one of the following
   combinations of request parameters:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20ListDatabases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_databases_request`)
+    %{
+      optional("ClusterIdentifier") => String.t(),
+      optional("DbUser") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SecretArn") => String.t(),
+      optional("WorkgroupName") => String.t(),
+      required("Database") => String.t()
+    }
   """
-  @spec list_databases(AWS.Client.t(), list_databases_request(), Keyword.t()) ::
+
+  @spec list_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_databases_errors()}
-  def list_databases(%Client{} = client, input, options \\ []) do
+
+  def list_databases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -661,12 +764,30 @@ defmodule AWS.RedshiftData do
   Lists the schemas in a database. A token is returned to page through the schema
   list. Depending on the authorization method, use one of the following
   combinations of request parameters:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20ListSchemas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_schemas_request`)
+    %{
+      optional("ClusterIdentifier") => String.t(),
+      optional("ConnectedDatabase") => String.t(),
+      optional("DbUser") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SchemaPattern") => String.t(),
+      optional("SecretArn") => String.t(),
+      optional("WorkgroupName") => String.t(),
+      required("Database") => String.t()
+    }
   """
-  @spec list_schemas(AWS.Client.t(), list_schemas_request(), Keyword.t()) ::
+
+  @spec list_schemas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
-  def list_schemas(%Client{} = client, input, options \\ []) do
+
+  def list_schemas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -676,12 +797,26 @@ defmodule AWS.RedshiftData do
   @doc """
   List of SQL statements. By default, only finished statements are shown. A token
   is returned to page through the statement list.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20ListStatements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_statements_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("RoleLevel") => [boolean()],
+      optional("StatementName") => String.t(),
+      optional("Status") => String.t()
+    }
   """
-  @spec list_statements(AWS.Client.t(), list_statements_request(), Keyword.t()) ::
+
+  @spec list_statements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_statements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_statements_errors()}
-  def list_statements(%Client{} = client, input, options \\ []) do
+
+  def list_statements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -693,12 +828,31 @@ defmodule AWS.RedshiftData do
   specified, then all tables in the database are returned. A token is returned
   to page through the table list. Depending on the authorization method, use one
   of the following combinations of request parameters:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=redshiftdata%20ListTables&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tables_request`)
+    %{
+      optional("ClusterIdentifier") => String.t(),
+      optional("ConnectedDatabase") => String.t(),
+      optional("DbUser") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SchemaPattern") => String.t(),
+      optional("SecretArn") => String.t(),
+      optional("TablePattern") => String.t(),
+      optional("WorkgroupName") => String.t(),
+      required("Database") => String.t()
+    }
   """
-  @spec list_tables(AWS.Client.t(), list_tables_request(), Keyword.t()) ::
+
+  @spec list_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tables_errors()}
-  def list_tables(%Client{} = client, input, options \\ []) do
+
+  def list_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

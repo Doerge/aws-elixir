@@ -19,143 +19,143 @@ defmodule AWS.RAM do
   @typedoc """
 
   ## Example:
-
+      
       set_default_permission_version_request() :: %{
         optional("clientToken") => String.t(),
         required("permissionArn") => String.t(),
         required("permissionVersion") => integer()
       }
-
+      
   """
   @type set_default_permission_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_invitation_expired_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_share_invitation_expired_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_permissions_response() :: %{
         "nextToken" => String.t(),
         "permissions" => list(resource_share_permission_summary()())
       }
-
+      
   """
   @type list_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_resource_share_response() :: %{
         "clientToken" => String.t(),
         "resourceShare" => resource_share()
       }
-
+      
   """
   @type create_resource_share_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_permission_response() :: %{
         "permission" => resource_share_permission_detail()
       }
-
+      
   """
   @type get_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_max_results_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_max_results_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         optional("resourceArn") => String.t(),
         optional("resourceShareArn") => String.t(),
         required("tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_permission_versions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("permissionArn") => String.t()
       }
-
+      
   """
   @type list_permission_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_replace_permission_associations_work_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => list(any()),
         optional("workIds") => list(String.t()())
       }
-
+      
   """
   @type list_replace_permission_associations_work_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_resource_share_request() :: %{
         optional("allowExternalPrincipals") => boolean(),
         optional("clientToken") => String.t(),
         optional("name") => String.t(),
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type update_resource_share_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resources_response() :: %{
         "nextToken" => String.t(),
         "resources" => list(resource()())
       }
-
+      
   """
   @type list_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_association() :: %{
         "associatedEntity" => String.t(),
         "associationType" => list(any()),
@@ -167,48 +167,48 @@ defmodule AWS.RAM do
         "status" => list(any()),
         "statusMessage" => String.t()
       }
-
+      
   """
   @type resource_share_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_arn_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_arn_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       malformed_policy_template_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type malformed_policy_template_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_share_permission_response() :: %{
         "clientToken" => String.t(),
         "returnValue" => boolean()
       }
-
+      
   """
   @type associate_resource_share_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_resource_share_request() :: %{
         optional("allowExternalPrincipals") => boolean(),
         optional("clientToken") => String.t(),
@@ -219,47 +219,47 @@ defmodule AWS.RAM do
         optional("tags") => list(tag()()),
         required("name") => String.t()
       }
-
+      
   """
   @type create_resource_share_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_resource_share_invitation_request() :: %{
         optional("clientToken") => String.t(),
         required("resourceShareInvitationArn") => String.t()
       }
-
+      
   """
   @type accept_resource_share_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_permission_request() :: %{
         optional("permissionVersion") => integer(),
         required("permissionArn") => String.t()
       }
-
+      
   """
   @type get_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replace_permission_associations_work() :: %{
         "creationTime" => non_neg_integer(),
         "fromPermissionArn" => String.t(),
@@ -271,26 +271,26 @@ defmodule AWS.RAM do
         "toPermissionArn" => String.t(),
         "toPermissionVersion" => String.t()
       }
-
+      
   """
   @type replace_permission_associations_work() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_resource_share_response() :: %{
         "clientToken" => String.t(),
         "resourceShare" => resource_share()
       }
-
+      
   """
   @type update_resource_share_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_permission_summary() :: %{
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -305,124 +305,124 @@ defmodule AWS.RAM do
         "tags" => list(tag()()),
         "version" => String.t()
       }
-
+      
   """
   @type resource_share_permission_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_invitation_arn_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_share_invitation_arn_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_share_invitations_response() :: %{
         "nextToken" => String.t(),
         "resourceShareInvitations" => list(resource_share_invitation()())
       }
-
+      
   """
   @type get_resource_share_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       missing_required_parameter_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type missing_required_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resource_share_permissions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type list_resource_share_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unmatched_policy_permission_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unmatched_policy_permission_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reject_resource_share_invitation_request() :: %{
         optional("clientToken") => String.t(),
         required("resourceShareInvitationArn") => String.t()
       }
-
+      
   """
   @type reject_resource_share_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_permission_version_request() :: %{
         optional("clientToken") => String.t(),
         required("permissionArn") => String.t(),
         required("policyTemplate") => String.t()
       }
-
+      
   """
   @type create_permission_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pending_invitation_resources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("resourceRegionScope") => list(any()),
         required("resourceShareInvitationArn") => String.t()
       }
-
+      
   """
   @type list_pending_invitation_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_permission_version_response() :: %{
         "clientToken" => String.t(),
         "permissionStatus" => list(any()),
         "returnValue" => boolean()
       }
-
+      
   """
   @type delete_permission_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       principal() :: %{
         "creationTime" => non_neg_integer(),
         "external" => boolean(),
@@ -430,61 +430,61 @@ defmodule AWS.RAM do
         "lastUpdatedTime" => non_neg_integer(),
         "resourceShareArn" => String.t()
       }
-
+      
   """
   @type principal() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       permission_already_exists_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type permission_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         optional("resourceArn") => String.t(),
         optional("resourceShareArn") => String.t(),
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_resource_share_permission_response() :: %{
         "clientToken" => String.t(),
         "returnValue" => boolean()
       }
-
+      
   """
   @type disassociate_resource_share_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_share_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_invitation() :: %{
         "invitationTimestamp" => non_neg_integer(),
         "receiverAccountId" => String.t(),
@@ -496,14 +496,14 @@ defmodule AWS.RAM do
         "senderAccountId" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type resource_share_invitation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_permission_associations_request() :: %{
         optional("associationStatus") => list(any()),
         optional("defaultVersion") => boolean(),
@@ -514,85 +514,85 @@ defmodule AWS.RAM do
         optional("permissionVersion") => integer(),
         optional("resourceType") => String.t()
       }
-
+      
   """
   @type list_permission_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       promote_permission_created_from_policy_response() :: %{
         "clientToken" => String.t(),
         "permission" => resource_share_permission_summary()
       }
-
+      
   """
   @type promote_permission_created_from_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_resource_share_response() :: %{
         "clientToken" => String.t(),
         "resourceShareAssociations" => list(resource_share_association()())
       }
-
+      
   """
   @type disassociate_resource_share_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_permission_request() :: %{
         optional("clientToken") => String.t(),
         required("permissionArn") => String.t()
       }
-
+      
   """
   @type delete_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_resource_share_permission_request() :: %{
         optional("clientToken") => String.t(),
         required("permissionArn") => String.t(),
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type disassociate_resource_share_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_policy_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_invitation_already_rejected_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_share_invitation_already_rejected_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_share_associations_request() :: %{
         optional("associationStatus") => list(any()),
         optional("maxResults") => integer(),
@@ -602,26 +602,26 @@ defmodule AWS.RAM do
         optional("resourceShareArns") => list(String.t()()),
         required("associationType") => list(any())
       }
-
+      
   """
   @type get_resource_share_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "key" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_permission_detail() :: %{
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -637,96 +637,96 @@ defmodule AWS.RAM do
         "tags" => list(tag()()),
         "version" => String.t()
       }
-
+      
   """
   @type resource_share_permission_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_permission_response() :: %{
         "clientToken" => String.t(),
         "permissionStatus" => list(any()),
         "returnValue" => boolean()
       }
-
+      
   """
   @type delete_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_name_and_resource_type() :: %{
         "resourceRegionScope" => list(any()),
         "resourceType" => String.t(),
         "serviceName" => String.t()
       }
-
+      
   """
   @type service_name_and_resource_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_replace_permission_associations_work_response() :: %{
         "nextToken" => String.t(),
         "replacePermissionAssociationsWorks" => list(replace_permission_associations_work()())
       }
-
+      
   """
   @type list_replace_permission_associations_work_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       promote_resource_share_created_from_policy_response() :: %{
         "returnValue" => boolean()
       }
-
+      
   """
   @type promote_resource_share_created_from_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       permission_versions_limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type permission_versions_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_next_token_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       idempotent_parameter_mismatch_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_share_permission_request() :: %{
         optional("clientToken") => String.t(),
         optional("permissionVersion") => integer(),
@@ -734,25 +734,25 @@ defmodule AWS.RAM do
         required("permissionArn") => String.t(),
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type associate_resource_share_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type tag_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_shares_request() :: %{
         optional("maxResults") => integer(),
         optional("name") => String.t(),
@@ -764,37 +764,37 @@ defmodule AWS.RAM do
         optional("tagFilters") => list(tag_filter()()),
         required("resourceOwner") => list(any())
       }
-
+      
   """
   @type get_resource_shares_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_permission_versions_response() :: %{
         "nextToken" => String.t(),
         "permissions" => list(resource_share_permission_summary()())
       }
-
+      
   """
   @type list_permission_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_state_transition_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_state_transition_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share() :: %{
         "allowExternalPrincipals" => boolean(),
         "creationTime" => non_neg_integer(),
@@ -807,98 +807,98 @@ defmodule AWS.RAM do
         "statusMessage" => String.t(),
         "tags" => list(tag()())
       }
-
+      
   """
   @type resource_share() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reject_resource_share_invitation_response() :: %{
         "clientToken" => String.t(),
         "resourceShareInvitation" => resource_share_invitation()
       }
-
+      
   """
   @type reject_resource_share_invitation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_principals_response() :: %{
         "nextToken" => String.t(),
         "principals" => list(principal()())
       }
-
+      
   """
   @type list_principals_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       operation_not_permitted_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type operation_not_permitted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_share_request() :: %{
         optional("clientToken") => String.t(),
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type delete_resource_share_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policies_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("principal") => String.t(),
         required("resourceArns") => list(String.t()())
       }
-
+      
   """
   @type get_resource_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policies_response() :: %{
         "nextToken" => String.t(),
         "policies" => list(String.t()())
       }
-
+      
   """
   @type get_resource_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_resource_share_request() :: %{
         optional("clientToken") => String.t(),
         optional("principals") => list(String.t()()),
@@ -906,27 +906,27 @@ defmodule AWS.RAM do
         optional("sources") => list(String.t()()),
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type disassociate_resource_share_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       promote_permission_created_from_policy_request() :: %{
         optional("clientToken") => String.t(),
         required("name") => String.t(),
         required("permissionArn") => String.t()
       }
-
+      
   """
   @type promote_permission_created_from_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_permission_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => list(tag()()),
@@ -934,28 +934,28 @@ defmodule AWS.RAM do
         required("policyTemplate") => String.t(),
         required("resourceType") => String.t()
       }
-
+      
   """
   @type create_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_share_invitations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("resourceShareArns") => list(String.t()()),
         optional("resourceShareInvitationArns") => list(String.t()())
       }
-
+      
   """
   @type get_resource_share_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associated_permission() :: %{
         "arn" => String.t(),
         "defaultVersion" => boolean(),
@@ -966,40 +966,40 @@ defmodule AWS.RAM do
         "resourceType" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type associated_permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_permissions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("permissionType") => list(any()),
         optional("resourceType") => String.t()
       }
-
+      
   """
   @type list_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_pending_invitation_resources_response() :: %{
         "nextToken" => String.t(),
         "resources" => list(resource()())
       }
-
+      
   """
   @type list_pending_invitation_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_share_request() :: %{
         optional("clientToken") => String.t(),
         optional("principals") => list(String.t()()),
@@ -1007,182 +1007,182 @@ defmodule AWS.RAM do
         optional("sources") => list(String.t()()),
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type associate_resource_share_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_share_associations_response() :: %{
         "nextToken" => String.t(),
         "resourceShareAssociations" => list(resource_share_association()())
       }
-
+      
   """
   @type get_resource_share_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unknown_resource_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unknown_resource_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       malformed_arn_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type malformed_arn_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resource_types_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("resourceRegionScope") => list(any())
       }
-
+      
   """
   @type list_resource_types_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_internal_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type server_internal_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       set_default_permission_version_response() :: %{
         "clientToken" => String.t(),
         "returnValue" => boolean()
       }
-
+      
   """
   @type set_default_permission_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_sharing_with_aws_organization_response() :: %{
         "returnValue" => boolean()
       }
-
+      
   """
   @type enable_sharing_with_aws_organization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_share_response() :: %{
         "clientToken" => String.t(),
         "returnValue" => boolean()
       }
-
+      
   """
   @type delete_resource_share_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_share_response() :: %{
         "clientToken" => String.t(),
         "resourceShareAssociations" => list(resource_share_association()())
       }
-
+      
   """
   @type associate_resource_share_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_client_token_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_client_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_sharing_with_aws_organization_request() :: %{}
-
+      
   """
   @type enable_sharing_with_aws_organization_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resource_share_permissions_response() :: %{
         "nextToken" => String.t(),
         "permissions" => list(resource_share_permission_summary()())
       }
-
+      
   """
   @type list_resource_share_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1193,60 +1193,60 @@ defmodule AWS.RAM do
         optional("resourceType") => String.t(),
         required("resourceOwner") => list(any())
       }
-
+      
   """
   @type list_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_permission_associations_response() :: %{
         "nextToken" => String.t(),
         "permissions" => list(associated_permission()())
       }
-
+      
   """
   @type list_permission_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       promote_resource_share_created_from_policy_request() :: %{
         required("resourceShareArn") => String.t()
       }
-
+      
   """
   @type promote_resource_share_created_from_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_filter() :: %{
         "tagKey" => String.t(),
         "tagValues" => list(String.t()())
       }
-
+      
   """
   @type tag_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_share_invitation_already_accepted_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_share_invitation_already_accepted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_principals_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1256,135 +1256,135 @@ defmodule AWS.RAM do
         optional("resourceType") => String.t(),
         required("resourceOwner") => list(any())
       }
-
+      
   """
   @type list_principals_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_resource_types_response() :: %{
         "nextToken" => String.t(),
         "resourceTypes" => list(service_name_and_resource_type()())
       }
-
+      
   """
   @type list_resource_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_permission_version_request() :: %{
         optional("clientToken") => String.t(),
         required("permissionArn") => String.t(),
         required("permissionVersion") => integer()
       }
-
+      
   """
   @type delete_permission_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_shares_response() :: %{
         "nextToken" => String.t(),
         "resourceShares" => list(resource_share()())
       }
-
+      
   """
   @type get_resource_shares_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_resource_share_invitation_response() :: %{
         "clientToken" => String.t(),
         "resourceShareInvitation" => resource_share_invitation()
       }
-
+      
   """
   @type accept_resource_share_invitation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_permission_version_response() :: %{
         "clientToken" => String.t(),
         "permission" => resource_share_permission_detail()
       }
-
+      
   """
   @type create_permission_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replace_permission_associations_request() :: %{
         optional("clientToken") => String.t(),
         optional("fromPermissionVersion") => integer(),
         required("fromPermissionArn") => String.t(),
         required("toPermissionArn") => String.t()
       }
-
+      
   """
   @type replace_permission_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_resource_type_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_resource_type_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replace_permission_associations_response() :: %{
         "clientToken" => String.t(),
         "replacePermissionAssociationsWork" => replace_permission_associations_work()
       }
-
+      
   """
   @type replace_permission_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_permission_response() :: %{
         "clientToken" => String.t(),
         "permission" => resource_share_permission_summary()
       }
-
+      
   """
   @type create_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_policy_violation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type tag_policy_violation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -1396,18 +1396,18 @@ defmodule AWS.RAM do
         "statusMessage" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       permission_limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type permission_limit_exceeded_exception() :: %{String.t() => any()}
 
@@ -1763,33 +1763,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec accept_resource_share_invitation(
-          AWS.Client.t(),
-          accept_resource_share_invitation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec accept_resource_share_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_resource_share_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_resource_share_invitation_errors()}
-  def accept_resource_share_invitation(%Client{} = client, input, options \\ []) do
+
+  def accept_resource_share_invitation(%Client{} = client, options \\ []) do
     url_path = "/acceptresourceshareinvitation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1804,29 +1811,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec associate_resource_share(AWS.Client.t(), associate_resource_share_request(), Keyword.t()) ::
+
+  @spec associate_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_share_errors()}
-  def associate_resource_share(%Client{} = client, input, options \\ []) do
+
+  def associate_resource_share(%Client{} = client, options \\ []) do
     url_path = "/associateresourceshare"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1841,33 +1859,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec associate_resource_share_permission(
-          AWS.Client.t(),
-          associate_resource_share_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_resource_share_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_share_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_share_permission_errors()}
-  def associate_resource_share_permission(%Client{} = client, input, options \\ []) do
+
+  def associate_resource_share_permission(%Client{} = client, options \\ []) do
     url_path = "/associateresourcesharepermission"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1881,29 +1906,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec create_permission(AWS.Client.t(), create_permission_request(), Keyword.t()) ::
+
+  @spec create_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_errors()}
-  def create_permission(%Client{} = client, input, options \\ []) do
+
+  def create_permission(%Client{} = client, options \\ []) do
     url_path = "/createpermission"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1919,33 +1955,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec create_permission_version(
-          AWS.Client.t(),
-          create_permission_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_permission_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_permission_version_errors()}
-  def create_permission_version(%Client{} = client, input, options \\ []) do
+
+  def create_permission_version(%Client{} = client, options \\ []) do
     url_path = "/createpermissionversion"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1960,29 +2003,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec create_resource_share(AWS.Client.t(), create_resource_share_request(), Keyword.t()) ::
+
+  @spec create_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_share_errors()}
-  def create_resource_share(%Client{} = client, input, options \\ []) do
+
+  def create_resource_share(%Client{} = client, options \\ []) do
     url_path = "/createresourceshare"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1995,30 +2049,50 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:permission_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of the
-    customer managed permission that you want to delete.
+  customer managed permission that you want to delete.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-    that you provide to ensure the idempotency of the request. This lets you
-    safely retry the request without accidentally performing the same operation
-    a second time. Passing the same value to a later call to an operation
-    requires that you also pass the same value for all other parameters. We
-    recommend that you use a UUID type of value..
+  that you provide to ensure the idempotency of the request. This lets you
+  safely retry the request without accidentally performing the same operation
+  a second time. Passing the same value to a later call to an operation
+  requires that you also pass the same value for all other parameters. We
+  recommend that you use a UUID type of value..
   """
-  @spec delete_permission(AWS.Client.t(), delete_permission_request(), Keyword.t()) ::
+
+  @spec delete_permission(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_errors()}
-  def delete_permission(%Client{} = client, input, options \\ []) do
+
+  def delete_permission(%Client{} = client, permission_arn, options \\ [])
+      when is_binary(permission_arn) do
     url_path = "/deletepermission"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"},
-        {"permissionArn", "permissionArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"permissionArn", permission_arn}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2028,6 +2102,8 @@ defmodule AWS.RAM do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2035,7 +2111,7 @@ defmodule AWS.RAM do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2050,36 +2126,56 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:permission_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of the
-    permission with the version you want to delete.
+  permission with the version you want to delete.
   * `:permission_version` (`t:integer`) Specifies the version number to delete.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-    that you provide to ensure the idempotency of the request. This lets you
-    safely retry the request without accidentally performing the same operation
-    a second time. Passing the same value to a later call to an operation
-    requires that you also pass the same value for all other parameters. We
-    recommend that you use a UUID type of value..
+  that you provide to ensure the idempotency of the request. This lets you
+  safely retry the request without accidentally performing the same operation
+  a second time. Passing the same value to a later call to an operation
+  requires that you also pass the same value for all other parameters. We
+  recommend that you use a UUID type of value..
   """
-  @spec delete_permission_version(
-          AWS.Client.t(),
-          delete_permission_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_permission_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_version_errors()}
-  def delete_permission_version(%Client{} = client, input, options \\ []) do
+
+  def delete_permission_version(
+        %Client{} = client,
+        permission_arn,
+        permission_version,
+        options \\ []
+      )
+      when is_binary(permission_arn) and is_integer(permission_version) do
     url_path = "/deletepermissionversion"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"},
-        {"permissionArn", "permissionArn"},
-        {"permissionVersion", "permissionVersion"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"permissionArn", permission_arn}, {"permissionVersion", permission_version}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2089,6 +2185,8 @@ defmodule AWS.RAM do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2096,7 +2194,7 @@ defmodule AWS.RAM do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2109,30 +2207,50 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:resource_share_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of
-    the resource share to delete.
+  the resource share to delete.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-    that you provide to ensure the idempotency of the request. This lets you
-    safely retry the request without accidentally performing the same operation
-    a second time. Passing the same value to a later call to an operation
-    requires that you also pass the same value for all other parameters. We
-    recommend that you use a UUID type of value..
+  that you provide to ensure the idempotency of the request. This lets you
+  safely retry the request without accidentally performing the same operation
+  a second time. Passing the same value to a later call to an operation
+  requires that you also pass the same value for all other parameters. We
+  recommend that you use a UUID type of value..
   """
-  @spec delete_resource_share(AWS.Client.t(), delete_resource_share_request(), Keyword.t()) ::
+
+  @spec delete_resource_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_share_errors()}
-  def delete_resource_share(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_share(%Client{} = client, resource_share_arn, options \\ [])
+      when is_binary(resource_share_arn) do
     url_path = "/deleteresourceshare"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"},
-        {"resourceShareArn", "resourceShareArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceShareArn", resource_share_arn}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2142,6 +2260,8 @@ defmodule AWS.RAM do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2149,7 +2269,7 @@ defmodule AWS.RAM do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2165,33 +2285,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec disassociate_resource_share(
-          AWS.Client.t(),
-          disassociate_resource_share_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_share_errors()}
-  def disassociate_resource_share(%Client{} = client, input, options \\ []) do
+
+  def disassociate_resource_share(%Client{} = client, options \\ []) do
     url_path = "/disassociateresourceshare"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2206,33 +2333,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec disassociate_resource_share_permission(
-          AWS.Client.t(),
-          disassociate_resource_share_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_resource_share_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_resource_share_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_share_permission_errors()}
-  def disassociate_resource_share_permission(%Client{} = client, input, options \\ []) do
+
+  def disassociate_resource_share_permission(%Client{} = client, options \\ []) do
     url_path = "/disassociateresourcesharepermission"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2253,33 +2387,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec enable_sharing_with_aws_organization(
-          AWS.Client.t(),
-          enable_sharing_with_aws_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_sharing_with_aws_organization(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_sharing_with_aws_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_sharing_with_aws_organization_errors()}
-  def enable_sharing_with_aws_organization(%Client{} = client, input, options \\ []) do
+
+  def enable_sharing_with_aws_organization(%Client{} = client, options \\ []) do
     url_path = "/enablesharingwithawsorganization"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2291,29 +2432,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec get_permission(AWS.Client.t(), get_permission_request(), Keyword.t()) ::
+
+  @spec get_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permission_errors()}
-  def get_permission(%Client{} = client, input, options \\ []) do
+
+  def get_permission(%Client{} = client, options \\ []) do
     url_path = "/getpermission"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2326,29 +2478,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec get_resource_policies(AWS.Client.t(), get_resource_policies_request(), Keyword.t()) ::
+
+  @spec get_resource_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
-  def get_resource_policies(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policies(%Client{} = client, options \\ []) do
     url_path = "/getresourcepolicies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2361,33 +2524,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec get_resource_share_associations(
-          AWS.Client.t(),
-          get_resource_share_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_resource_share_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_share_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_share_associations_errors()}
-  def get_resource_share_associations(%Client{} = client, input, options \\ []) do
+
+  def get_resource_share_associations(%Client{} = client, options \\ []) do
     url_path = "/getresourceshareassociations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2399,33 +2569,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec get_resource_share_invitations(
-          AWS.Client.t(),
-          get_resource_share_invitations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_resource_share_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_share_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_share_invitations_errors()}
-  def get_resource_share_invitations(%Client{} = client, input, options \\ []) do
+
+  def get_resource_share_invitations(%Client{} = client, options \\ []) do
     url_path = "/getresourceshareinvitations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2438,29 +2615,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec get_resource_shares(AWS.Client.t(), get_resource_shares_request(), Keyword.t()) ::
+
+  @spec get_resource_shares(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_shares_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_shares_errors()}
-  def get_resource_shares(%Client{} = client, input, options \\ []) do
+
+  def get_resource_shares(%Client{} = client, options \\ []) do
     url_path = "/getresourceshares"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2474,33 +2662,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_pending_invitation_resources(
-          AWS.Client.t(),
-          list_pending_invitation_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_pending_invitation_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pending_invitation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pending_invitation_resources_errors()}
-  def list_pending_invitation_resources(%Client{} = client, input, options \\ []) do
+
+  def list_pending_invitation_resources(%Client{} = client, options \\ []) do
     url_path = "/listpendinginvitationresources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2514,33 +2709,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_permission_associations(
-          AWS.Client.t(),
-          list_permission_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_permission_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permission_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_associations_errors()}
-  def list_permission_associations(%Client{} = client, input, options \\ []) do
+
+  def list_permission_associations(%Client{} = client, options \\ []) do
     url_path = "/listpermissionassociations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2552,29 +2754,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_permission_versions(AWS.Client.t(), list_permission_versions_request(), Keyword.t()) ::
+
+  @spec list_permission_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permission_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permission_versions_errors()}
-  def list_permission_versions(%Client{} = client, input, options \\ []) do
+
+  def list_permission_versions(%Client{} = client, options \\ []) do
     url_path = "/listpermissionversions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2587,29 +2800,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_permissions(AWS.Client.t(), list_permissions_request(), Keyword.t()) ::
+
+  @spec list_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
-  def list_permissions(%Client{} = client, input, options \\ []) do
+
+  def list_permissions(%Client{} = client, options \\ []) do
     url_path = "/listpermissions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2622,29 +2846,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_principals(AWS.Client.t(), list_principals_request(), Keyword.t()) ::
+
+  @spec list_principals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_principals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_principals_errors()}
-  def list_principals(%Client{} = client, input, options \\ []) do
+
+  def list_principals(%Client{} = client, options \\ []) do
     url_path = "/listprincipals"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2657,33 +2892,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_replace_permission_associations_work(
-          AWS.Client.t(),
-          list_replace_permission_associations_work_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_replace_permission_associations_work(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replace_permission_associations_work_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replace_permission_associations_work_errors()}
-  def list_replace_permission_associations_work(%Client{} = client, input, options \\ []) do
+
+  def list_replace_permission_associations_work(%Client{} = client, options \\ []) do
     url_path = "/listreplacepermissionassociationswork"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2695,33 +2937,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_resource_share_permissions(
-          AWS.Client.t(),
-          list_resource_share_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_resource_share_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_share_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_share_permissions_errors()}
-  def list_resource_share_permissions(%Client{} = client, input, options \\ []) do
+
+  def list_resource_share_permissions(%Client{} = client, options \\ []) do
     url_path = "/listresourcesharepermissions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2733,29 +2982,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_resource_types(AWS.Client.t(), list_resource_types_request(), Keyword.t()) ::
+
+  @spec list_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_types_errors()}
-  def list_resource_types(%Client{} = client, input, options \\ []) do
+
+  def list_resource_types(%Client{} = client, options \\ []) do
     url_path = "/listresourcetypes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2768,29 +3028,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec list_resources(AWS.Client.t(), list_resources_request(), Keyword.t()) ::
+
+  @spec list_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
-  def list_resources(%Client{} = client, input, options \\ []) do
+
+  def list_resources(%Client{} = client, options \\ []) do
     url_path = "/listresources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2810,33 +3081,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec promote_permission_created_from_policy(
-          AWS.Client.t(),
-          promote_permission_created_from_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec promote_permission_created_from_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, promote_permission_created_from_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_permission_created_from_policy_errors()}
-  def promote_permission_created_from_policy(%Client{} = client, input, options \\ []) do
+
+  def promote_permission_created_from_policy(%Client{} = client, options \\ []) do
     url_path = "/promotepermissioncreatedfrompolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2854,42 +3132,49 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:resource_share_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of
-    the resource share to promote.
+  the resource share to promote.
 
   ## Optional parameters:
   """
-  @spec promote_resource_share_created_from_policy(
-          AWS.Client.t(),
-          promote_resource_share_created_from_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec promote_resource_share_created_from_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, promote_resource_share_created_from_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, promote_resource_share_created_from_policy_errors()}
-  def promote_resource_share_created_from_policy(%Client{} = client, input, options \\ []) do
+
+  def promote_resource_share_created_from_policy(
+        %Client{} = client,
+        resource_share_arn,
+        options \\ []
+      )
+      when is_binary(resource_share_arn) do
     url_path = "/promoteresourcesharecreatedfrompolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceShareArn", "resourceShareArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceShareArn", resource_share_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2902,33 +3187,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec reject_resource_share_invitation(
-          AWS.Client.t(),
-          reject_resource_share_invitation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reject_resource_share_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, reject_resource_share_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_resource_share_invitation_errors()}
-  def reject_resource_share_invitation(%Client{} = client, input, options \\ []) do
+
+  def reject_resource_share_invitation(%Client{} = client, options \\ []) do
     url_path = "/rejectresourceshareinvitation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2947,33 +3239,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec replace_permission_associations(
-          AWS.Client.t(),
-          replace_permission_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec replace_permission_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, replace_permission_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replace_permission_associations_errors()}
-  def replace_permission_associations(%Client{} = client, input, options \\ []) do
+
+  def replace_permission_associations(%Client{} = client, options \\ []) do
     url_path = "/replacepermissionassociations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2989,33 +3288,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec set_default_permission_version(
-          AWS.Client.t(),
-          set_default_permission_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_default_permission_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, set_default_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_default_permission_version_errors()}
-  def set_default_permission_version(%Client{} = client, input, options \\ []) do
+
+  def set_default_permission_version(%Client{} = client, options \\ []) do
     url_path = "/setdefaultpermissionversion"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3029,29 +3335,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tagresource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3064,29 +3381,40 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/untagresource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3098,28 +3426,39 @@ defmodule AWS.RAM do
 
   ## Optional parameters:
   """
-  @spec update_resource_share(AWS.Client.t(), update_resource_share_request(), Keyword.t()) ::
+
+  @spec update_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_resource_share_errors()}
-  def update_resource_share(%Client{} = client, input, options \\ []) do
+
+  def update_resource_share(%Client{} = client, options \\ []) do
     url_path = "/updateresourceshare"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

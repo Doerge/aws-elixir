@@ -16,18 +16,18 @@ defmodule AWS.MWAA do
   @typedoc """
 
   ## Example:
-
+      
       get_environment_output() :: %{
         optional("Environment") => environment()
       }
-
+      
   """
   @type get_environment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_environment_input() :: %{
         "AirflowConfigurationOptions" => map(),
         "AirflowVersion" => String.t(),
@@ -54,36 +54,36 @@ defmodule AWS.MWAA do
         "WebserverAccessMode" => String.t(),
         "WeeklyMaintenanceWindowStart" => String.t()
       }
-
+      
   """
   @type create_environment_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_environment_input() :: %{}
-
+      
   """
   @type delete_environment_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       module_logging_configuration() :: %{
         "CloudWatchLogGroupArn" => String.t(),
         "Enabled" => boolean(),
         "LogLevel" => String.t()
       }
-
+      
   """
   @type module_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration_input() :: %{
         "DagProcessingLogs" => module_logging_configuration_input(),
         "SchedulerLogs" => module_logging_configuration_input(),
@@ -91,48 +91,48 @@ defmodule AWS.MWAA do
         "WebserverLogs" => module_logging_configuration_input(),
         "WorkerLogs" => module_logging_configuration_input()
       }
-
+      
   """
   @type logging_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_environments_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_environments_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_network_configuration_input() :: %{
         "SecurityGroupIds" => list(String.t()())
       }
-
+      
   """
   @type update_network_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration() :: %{
         "DagProcessingLogs" => module_logging_configuration(),
         "SchedulerLogs" => module_logging_configuration(),
@@ -140,37 +140,37 @@ defmodule AWS.MWAA do
         "WebserverLogs" => module_logging_configuration(),
         "WorkerLogs" => module_logging_configuration()
       }
-
+      
   """
   @type logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_environment_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type create_environment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_error() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t()
       }
-
+      
   """
   @type update_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_datum() :: %{
         "Dimensions" => list(dimension()()),
         "MetricName" => [String.t()],
@@ -179,50 +179,50 @@ defmodule AWS.MWAA do
         "Unit" => String.t(),
         "Value" => [float()]
       }
-
+      
   """
   @type metric_datum() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_environment_output() :: %{
         optional("Arn") => String.t()
       }
-
+      
   """
   @type update_environment_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       last_update() :: %{
         "CreatedAt" => non_neg_integer(),
         "Error" => update_error(),
         "Source" => String.t(),
         "Status" => String.t()
       }
-
+      
   """
   @type last_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       environment() :: %{
         "EnvironmentClass" => String.t(),
         "Status" => String.t(),
@@ -259,35 +259,35 @@ defmodule AWS.MWAA do
         "PluginsS3ObjectVersion" => String.t(),
         "DagS3Path" => String.t()
       }
-
+      
   """
   @type environment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_environment_input() :: %{}
-
+      
   """
   @type get_environment_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_environments_output() :: %{
         optional("NextToken") => String.t(),
         required("Environments") => list(String.t()())
       }
-
+      
   """
   @type list_environments_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_environment_input() :: %{
         optional("AirflowConfigurationOptions") => map(),
         optional("AirflowVersion") => String.t(),
@@ -311,212 +311,212 @@ defmodule AWS.MWAA do
         optional("WebserverAccessMode") => String.t(),
         optional("WeeklyMaintenanceWindowStart") => String.t()
       }
-
+      
   """
   @type update_environment_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_web_login_token_request() :: %{}
-
+      
   """
   @type create_web_login_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_environment_output() :: %{}
-
+      
   """
   @type delete_environment_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cli_token_response() :: %{
         optional("CliToken") => String.t(),
         optional("WebServerHostname") => String.t()
       }
-
+      
   """
   @type create_cli_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_configuration() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()())
       }
-
+      
   """
   @type network_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_cli_token_request() :: %{}
-
+      
   """
   @type create_cli_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_web_login_token_response() :: %{
         optional("AirflowIdentity") => String.t(),
         optional("IamIdentity") => String.t(),
         optional("WebServerHostname") => String.t(),
         optional("WebToken") => String.t()
       }
-
+      
   """
   @type create_web_login_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dimension() :: %{
         "Name" => [String.t()],
         "Value" => [String.t()]
       }
-
+      
   """
   @type dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_metrics_input() :: %{
         "MetricData" => list(metric_datum()())
       }
-
+      
   """
   @type publish_metrics_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_metrics_output() :: %{}
-
+      
   """
   @type publish_metrics_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       module_logging_configuration_input() :: %{
         "Enabled" => boolean(),
         "LogLevel" => String.t()
       }
-
+      
   """
   @type module_logging_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       statistic_set() :: %{
         "Maximum" => [float()],
         "Minimum" => [float()],
         "SampleCount" => [integer()],
         "Sum" => [float()]
       }
-
+      
   """
   @type statistic_set() :: %{String.t() => any()}
 
@@ -577,33 +577,44 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-    MyMWAAEnvironment.
+  MyMWAAEnvironment.
 
   ## Optional parameters:
   """
-  @spec create_cli_token(AWS.Client.t(), String.t(), create_cli_token_request(), Keyword.t()) ::
+
+  @spec create_cli_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_cli_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cli_token_errors()}
-  def create_cli_token(%Client{} = client, name, input, options \\ []) do
+
+  def create_cli_token(%Client{} = client, name, options \\ []) do
     url_path = "/clitoken/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "env.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -613,23 +624,44 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-    MyMWAAEnvironment.
+  MyMWAAEnvironment.
 
   ## Optional parameters:
   """
-  @spec create_environment(AWS.Client.t(), String.t(), create_environment_input(), Keyword.t()) ::
+
+  @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-  def create_environment(%Client{} = client, name, input, options \\ []) do
+
+  def create_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -641,38 +673,44 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-    MyMWAAEnvironment.
+  MyMWAAEnvironment.
 
   ## Optional parameters:
   """
-  @spec create_web_login_token(
-          AWS.Client.t(),
-          String.t(),
-          create_web_login_token_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_web_login_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_web_login_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_login_token_errors()}
-  def create_web_login_token(%Client{} = client, name, input, options \\ []) do
+
+  def create_web_login_token(%Client{} = client, name, options \\ []) do
     url_path = "/webtoken/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "env.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -682,21 +720,42 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-    MyMWAAEnvironment.
+  MyMWAAEnvironment.
 
   ## Optional parameters:
   """
-  @spec delete_environment(AWS.Client.t(), String.t(), delete_environment_input(), Keyword.t()) ::
+
+  @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-  def delete_environment(%Client{} = client, name, input, options \\ []) do
+
+  def delete_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -705,7 +764,7 @@ defmodule AWS.MWAA do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -718,14 +777,16 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the Amazon MWAA environment. For example,
-    MyMWAAEnvironment.
+  MyMWAAEnvironment.
 
   ## Optional parameters:
   """
+
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
+
   def get_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
 
@@ -762,14 +823,16 @@ defmodule AWS.MWAA do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to retrieve per page. For
-    example, 5 environments per page.
+  * `:max_results` (`t:string`) The maximum number of results to retrieve per
+  page. For example, 5 environments per page.
   * `:next_token` (`t:string`) Retrieves the next page of the results.
   """
+
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
+
   def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
 
@@ -824,15 +887,17 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
-    environment. For example,
-    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
+  environment. For example,
+  arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -871,29 +936,40 @@ defmodule AWS.MWAA do
 
   ## Optional parameters:
   """
-  @spec publish_metrics(AWS.Client.t(), String.t(), publish_metrics_input(), Keyword.t()) ::
+
+  @spec publish_metrics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_metrics_errors()}
-  def publish_metrics(%Client{} = client, environment_name, input, options \\ []) do
+
+  def publish_metrics(%Client{} = client, environment_name, options \\ []) do
     url_path = "/metrics/environments/#{AWS.Util.encode_uri(environment_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "ops.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -904,34 +980,45 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
-    environment. For example,
-    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
+  environment. For example,
+  arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -942,29 +1029,46 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA
-    environment. For example,
-    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
+  environment. For example,
+  arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
   * `:tag_keys` (`t:list[com.amazonaws.mwaa#TagKey]`) The key-value tag pair you
-    want to remove. For example, "Environment": "Staging".
+  want to remove. For example, "Environment": "Staging".
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -973,7 +1077,7 @@ defmodule AWS.MWAA do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -986,21 +1090,42 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string`) The name of your Amazon MWAA environment. For example,
-    MyMWAAEnvironment.
+  MyMWAAEnvironment.
 
   ## Optional parameters:
   """
-  @spec update_environment(AWS.Client.t(), String.t(), update_environment_input(), Keyword.t()) ::
+
+  @spec update_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-  def update_environment(%Client{} = client, name, input, options \\ []) do
+
+  def update_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1009,7 +1134,7 @@ defmodule AWS.MWAA do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

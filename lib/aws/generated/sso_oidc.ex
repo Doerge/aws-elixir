@@ -16,31 +16,31 @@ defmodule AWS.SSOOIDC do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authorization_pending_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type authorization_pending_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_token_request() :: %{
         optional("code") => String.t(),
         optional("codeVerifier") => String.t(),
@@ -52,14 +52,14 @@ defmodule AWS.SSOOIDC do
         required("clientSecret") => String.t(),
         required("grantType") => String.t()
       }
-
+      
   """
   @type create_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_token_response() :: %{
         "accessToken" => String.t(),
         "expiresIn" => integer(),
@@ -67,14 +67,14 @@ defmodule AWS.SSOOIDC do
         "refreshToken" => String.t(),
         "tokenType" => String.t()
       }
-
+      
   """
   @type create_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_token_with_iam_request() :: %{
         optional("assertion") => String.t(),
         optional("code") => String.t(),
@@ -88,14 +88,14 @@ defmodule AWS.SSOOIDC do
         required("clientId") => String.t(),
         required("grantType") => String.t()
       }
-
+      
   """
   @type create_token_with_iam_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_token_with_iam_response() :: %{
         "accessToken" => String.t(),
         "expiresIn" => integer(),
@@ -105,124 +105,124 @@ defmodule AWS.SSOOIDC do
         "scope" => list(String.t()()),
         "tokenType" => String.t()
       }
-
+      
   """
   @type create_token_with_iam_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       expired_token_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type expired_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_client_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type invalid_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_client_metadata_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type invalid_client_metadata_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_grant_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type invalid_grant_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_redirect_uri_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type invalid_redirect_uri_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_region_exception() :: %{
         "endpoint" => String.t(),
         "error" => String.t(),
         "error_description" => String.t(),
         "region" => String.t()
       }
-
+      
   """
   @type invalid_request_region_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_scope_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type invalid_scope_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_client_request() :: %{
         optional("entitledApplicationArn") => String.t(),
         optional("grantTypes") => list(String.t()()),
@@ -232,14 +232,14 @@ defmodule AWS.SSOOIDC do
         required("clientName") => String.t(),
         required("clientType") => String.t()
       }
-
+      
   """
   @type register_client_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_client_response() :: %{
         "authorizationEndpoint" => String.t(),
         "clientId" => String.t(),
@@ -248,39 +248,39 @@ defmodule AWS.SSOOIDC do
         "clientSecretExpiresAt" => float(),
         "tokenEndpoint" => String.t()
       }
-
+      
   """
   @type register_client_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slow_down_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type slow_down_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_device_authorization_request() :: %{
         required("clientId") => String.t(),
         required("clientSecret") => String.t(),
         required("startUrl") => String.t()
       }
-
+      
   """
   @type start_device_authorization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_device_authorization_response() :: %{
         "deviceCode" => String.t(),
         "expiresIn" => integer(),
@@ -289,31 +289,31 @@ defmodule AWS.SSOOIDC do
         "verificationUri" => String.t(),
         "verificationUriComplete" => String.t()
       }
-
+      
   """
   @type start_device_authorization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_client_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type unauthorized_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_grant_type_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
       }
-
+      
   """
   @type unsupported_grant_type_exception() :: %{String.t() => any()}
 
@@ -387,29 +387,40 @@ defmodule AWS.SSOOIDC do
 
   ## Optional parameters:
   """
-  @spec create_token(AWS.Client.t(), create_token_request(), Keyword.t()) ::
+
+  @spec create_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_errors()}
-  def create_token(%Client{} = client, input, options \\ []) do
+
+  def create_token(%Client{} = client, options \\ []) do
     url_path = "/token"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -424,29 +435,40 @@ defmodule AWS.SSOOIDC do
 
   ## Optional parameters:
   """
-  @spec create_token_with_iam(AWS.Client.t(), create_token_with_iam_request(), Keyword.t()) ::
+
+  @spec create_token_with_iam(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_token_with_iam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_token_with_iam_errors()}
-  def create_token_with_iam(%Client{} = client, input, options \\ []) do
+
+  def create_token_with_iam(%Client{} = client, options \\ []) do
     url_path = "/token?aws_iam=t"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -460,29 +482,40 @@ defmodule AWS.SSOOIDC do
 
   ## Optional parameters:
   """
-  @spec register_client(AWS.Client.t(), register_client_request(), Keyword.t()) ::
+
+  @spec register_client(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_client_errors()}
-  def register_client(%Client{} = client, input, options \\ []) do
+
+  def register_client(%Client{} = client, options \\ []) do
     url_path = "/client/register"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -495,32 +528,39 @@ defmodule AWS.SSOOIDC do
 
   ## Optional parameters:
   """
-  @spec start_device_authorization(
-          AWS.Client.t(),
-          start_device_authorization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_device_authorization(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_device_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_device_authorization_errors()}
-  def start_device_authorization(%Client{} = client, input, options \\ []) do
+
+  def start_device_authorization(%Client{} = client, options \\ []) do
     url_path = "/device_authorization"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

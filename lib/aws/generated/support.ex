@@ -856,12 +856,23 @@ defmodule AWS.Support do
   temporary container for attachments that you add to a case or case
   communication. The set is available for 1 hour after it's created. The
   `expiryTime` returned in the response is when the set expires.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20AddAttachmentsToSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_attachments_to_set_request`)
+    %{
+      optional("attachmentSetId") => String.t(),
+      required("attachments") => list(attachment()())
+    }
   """
-  @spec add_attachments_to_set(AWS.Client.t(), add_attachments_to_set_request(), Keyword.t()) ::
+
+  @spec add_attachments_to_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_attachments_to_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_attachments_to_set_errors()}
-  def add_attachments_to_set(%Client{} = client, input, options \\ []) do
+
+  def add_attachments_to_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -874,16 +885,25 @@ defmodule AWS.Support do
   You can list a set of email addresses to copy on the communication by using
   the `ccEmailAddresses` parameter. The `communicationBody` value contains the
   text of the communication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20AddCommunicationToCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_communication_to_case_request`)
+    %{
+      optional("attachmentSetId") => String.t(),
+      optional("caseId") => String.t(),
+      optional("ccEmailAddresses") => list(String.t()()),
+      required("communicationBody") => String.t()
+    }
   """
-  @spec add_communication_to_case(
-          AWS.Client.t(),
-          add_communication_to_case_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_communication_to_case(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_communication_to_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_communication_to_case_errors()}
-  def add_communication_to_case(%Client{} = client, input, options \\ []) do
+
+  def add_communication_to_case(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -896,12 +916,30 @@ defmodule AWS.Support do
   [Create Case](https://console.aws.amazon.com/support/home#/case/create) page.
   The Amazon Web Services Support API doesn't support requesting service limit
   increases. You can submit a service limit increase in the following ways:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20CreateCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_case_request`)
+    %{
+      optional("attachmentSetId") => String.t(),
+      optional("categoryCode") => String.t(),
+      optional("ccEmailAddresses") => list(String.t()()),
+      optional("issueType") => String.t(),
+      optional("language") => String.t(),
+      optional("serviceCode") => String.t(),
+      optional("severityCode") => String.t(),
+      required("communicationBody") => String.t(),
+      required("subject") => String.t()
+    }
   """
-  @spec create_case(AWS.Client.t(), create_case_request(), Keyword.t()) ::
+
+  @spec create_case(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_case_errors()}
-  def create_case(%Client{} = client, input, options \\ []) do
+
+  def create_case(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -915,12 +953,22 @@ defmodule AWS.Support do
   a case or case communication. Attachment IDs are returned in the
   `AttachmentDetails` objects that are returned by the `DescribeCommunications`
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_attachment_request`)
+    %{
+      required("attachmentId") => String.t()
+    }
   """
-  @spec describe_attachment(AWS.Client.t(), describe_attachment_request(), Keyword.t()) ::
+
+  @spec describe_attachment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_attachment_errors()}
-  def describe_attachment(%Client{} = client, input, options \\ []) do
+
+  def describe_attachment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -933,12 +981,30 @@ defmodule AWS.Support do
   date. You can set values for the `includeResolvedCases` and
   `includeCommunications` parameters to specify how much information to return.
   The response returns the following in JSON format:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeCases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cases_request`)
+    %{
+      optional("afterTime") => String.t(),
+      optional("beforeTime") => String.t(),
+      optional("caseIdList") => list(String.t()()),
+      optional("displayId") => String.t(),
+      optional("includeCommunications") => boolean(),
+      optional("includeResolvedCases") => boolean(),
+      optional("language") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_cases(AWS.Client.t(), describe_cases_request(), Keyword.t()) ::
+
+  @spec describe_cases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cases_errors()}
-  def describe_cases(%Client{} = client, input, options \\ []) do
+
+  def describe_cases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -951,12 +1017,26 @@ defmodule AWS.Support do
   `caseId` parameter to restrict the results to a specific case. Case data is
   available for 12 months after creation. If a case was created more than 12
   months ago, a request for data might cause an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeCommunications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_communications_request`)
+    %{
+      optional("afterTime") => String.t(),
+      optional("beforeTime") => String.t(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("caseId") => String.t()
+    }
   """
-  @spec describe_communications(AWS.Client.t(), describe_communications_request(), Keyword.t()) ::
+
+  @spec describe_communications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_communications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_communications_errors()}
-  def describe_communications(%Client{} = client, input, options \\ []) do
+
+  def describe_communications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -968,16 +1048,25 @@ defmodule AWS.Support do
   hours and language availability. You can specify the `language`
   `categoryCode`, `issueType` and `serviceCode` used to retrieve the
   CreateCaseOptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeCreateCaseOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_create_case_options_request`)
+    %{
+      required("categoryCode") => String.t(),
+      required("issueType") => String.t(),
+      required("language") => String.t(),
+      required("serviceCode") => String.t()
+    }
   """
-  @spec describe_create_case_options(
-          AWS.Client.t(),
-          describe_create_case_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_create_case_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_create_case_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_create_case_options_errors()}
-  def describe_create_case_options(%Client{} = client, input, options \\ []) do
+
+  def describe_create_case_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -989,12 +1078,23 @@ defmodule AWS.Support do
   categories for each service. You then use service names and categories in your
   `CreateCase` requests. Each Amazon Web Services service has its own set of
   categories.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_services_request`)
+    %{
+      optional("language") => String.t(),
+      optional("serviceCodeList") => list(String.t()())
+    }
   """
-  @spec describe_services(AWS.Client.t(), describe_services_request(), Keyword.t()) ::
+
+  @spec describe_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_services_errors()}
-  def describe_services(%Client{} = client, input, options \\ []) do
+
+  def describe_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1005,12 +1105,22 @@ defmodule AWS.Support do
   Returns the list of severity levels that you can assign to a support case. The
   severity level for a case is also a field in the `CaseDetails` data type that
   you include for a `CreateCase` request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeSeverityLevels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_severity_levels_request`)
+    %{
+      optional("language") => String.t()
+    }
   """
-  @spec describe_severity_levels(AWS.Client.t(), describe_severity_levels_request(), Keyword.t()) ::
+
+  @spec describe_severity_levels(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_severity_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_severity_levels_errors()}
-  def describe_severity_levels(%Client{} = client, input, options \\ []) do
+
+  def describe_severity_levels(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1021,16 +1131,24 @@ defmodule AWS.Support do
   Returns a list of supported languages for a specified `categoryCode`,
   `issueType` and `serviceCode`. The returned supported languages will include a
   ISO 639-1 code for the `language`, and the language display name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeSupportedLanguages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_supported_languages_request`)
+    %{
+      required("categoryCode") => String.t(),
+      required("issueType") => String.t(),
+      required("serviceCode") => String.t()
+    }
   """
-  @spec describe_supported_languages(
-          AWS.Client.t(),
-          describe_supported_languages_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_supported_languages(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_supported_languages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_supported_languages_errors()}
-  def describe_supported_languages(%Client{} = client, input, options \\ []) do
+
+  def describe_supported_languages(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1044,16 +1162,27 @@ defmodule AWS.Support do
   automatically, and you can't return their refresh statuses by using the
   `DescribeTrustedAdvisorCheckRefreshStatuses` operation. If you call this
   operation for these checks, you might see an `InvalidParameterValue` error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeTrustedAdvisorCheckRefreshStatuses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trusted_advisor_check_refresh_statuses_request`)
+    %{
+      required("checkIds") => list(String.t()())
+    }
   """
+
   @spec describe_trusted_advisor_check_refresh_statuses(
           AWS.Client.t(),
-          describe_trusted_advisor_check_refresh_statuses_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, describe_trusted_advisor_check_refresh_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_check_refresh_statuses_errors()}
-  def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
+
+  def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1071,16 +1200,24 @@ defmodule AWS.Support do
   ID. You can get the check IDs by calling the `DescribeTrustedAdvisorChecks`
   operation. The response contains a `TrustedAdvisorCheckResult` object, which
   contains these three objects:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeTrustedAdvisorCheckResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trusted_advisor_check_result_request`)
+    %{
+      optional("language") => String.t(),
+      required("checkId") => String.t()
+    }
   """
-  @spec describe_trusted_advisor_check_result(
-          AWS.Client.t(),
-          describe_trusted_advisor_check_result_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_trusted_advisor_check_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trusted_advisor_check_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_check_result_errors()}
-  def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
+
+  def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1092,16 +1229,23 @@ defmodule AWS.Support do
   that you specified. You can get the check IDs by calling the
   `DescribeTrustedAdvisorChecks` operation. The response contains an array of
   `TrustedAdvisorCheckSummary` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeTrustedAdvisorCheckSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trusted_advisor_check_summaries_request`)
+    %{
+      required("checkIds") => list(String.t()())
+    }
   """
-  @spec describe_trusted_advisor_check_summaries(
-          AWS.Client.t(),
-          describe_trusted_advisor_check_summaries_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_trusted_advisor_check_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trusted_advisor_check_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_check_summaries_errors()}
-  def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
+
+  def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1113,16 +1257,23 @@ defmodule AWS.Support do
   name, ID, category, description, and metadata. You must specify a language
   code. The response contains a `TrustedAdvisorCheckDescription` object for each
   check. You must set the Amazon Web Services Region to us-east-1.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20DescribeTrustedAdvisorChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trusted_advisor_checks_request`)
+    %{
+      required("language") => String.t()
+    }
   """
-  @spec describe_trusted_advisor_checks(
-          AWS.Client.t(),
-          describe_trusted_advisor_checks_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_trusted_advisor_checks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trusted_advisor_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trusted_advisor_checks_errors()}
-  def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
+
+  def describe_trusted_advisor_checks(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1135,16 +1286,23 @@ defmodule AWS.Support do
   Some checks are refreshed automatically. If you call the
   `RefreshTrustedAdvisorCheck` operation to refresh them, you might see the
   `InvalidParameterValue` error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20RefreshTrustedAdvisorCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:refresh_trusted_advisor_check_request`)
+    %{
+      required("checkId") => String.t()
+    }
   """
-  @spec refresh_trusted_advisor_check(
-          AWS.Client.t(),
-          refresh_trusted_advisor_check_request(),
-          Keyword.t()
-        ) ::
+
+  @spec refresh_trusted_advisor_check(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, refresh_trusted_advisor_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, refresh_trusted_advisor_check_errors()}
-  def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
+
+  def refresh_trusted_advisor_check(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1154,12 +1312,22 @@ defmodule AWS.Support do
   @doc """
   Resolves a support case. This operation takes a `caseId` and returns the initial
   and final state of the case.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=support%20ResolveCase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:resolve_case_request`)
+    %{
+      optional("caseId") => String.t()
+    }
   """
-  @spec resolve_case(AWS.Client.t(), resolve_case_request(), Keyword.t()) ::
+
+  @spec resolve_case(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resolve_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resolve_case_errors()}
-  def resolve_case(%Client{} = client, input, options \\ []) do
+
+  def resolve_case(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

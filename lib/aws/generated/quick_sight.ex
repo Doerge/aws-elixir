@@ -12,7 +12,7 @@ defmodule AWS.QuickSight do
   @typedoc """
 
   ## Example:
-
+      
       box_plot_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => box_plot_chart_configuration(),
@@ -21,14 +21,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type box_plot_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       theme() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -38,25 +38,25 @@ defmodule AWS.QuickSight do
         "Type" => list(any()),
         "Version" => theme_version()
       }
-
+      
   """
   @type theme() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_point_drill_up_down_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type data_point_drill_up_down_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       folder_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -66,14 +66,14 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "SharingModel" => list(any())
       }
-
+      
   """
   @type folder_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_topic_refresh_schedule_response() :: %{
         "DatasetArn" => String.t(),
         "RequestId" => String.t(),
@@ -81,27 +81,27 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type update_topic_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_default_series_settings() :: %{
         "AxisBinding" => list(any()),
         "LineStyleSettings" => line_chart_line_style_settings(),
         "MarkerStyleSettings" => line_chart_marker_style_settings()
       }
-
+      
   """
   @type line_chart_default_series_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_label_type() :: %{
         "DataPathLabelType" => data_path_label_type(),
         "FieldLabelType" => field_label_type(),
@@ -109,37 +109,37 @@ defmodule AWS.QuickSight do
         "MinimumLabelType" => minimum_label_type(),
         "RangeEndsLabelType" => range_ends_label_type()
       }
-
+      
   """
   @type data_label_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       number_format_configuration() :: %{
         "FormatConfiguration" => numeric_format_configuration()
       }
-
+      
   """
   @type number_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dashboards_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_dashboards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       growth_rate_computation() :: %{
         "ComputationId" => String.t(),
         "Name" => String.t(),
@@ -147,23 +147,23 @@ defmodule AWS.QuickSight do
         "Time" => dimension_field(),
         "Value" => measure_field()
       }
-
+      
   """
   @type growth_rate_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_snapshot_job_request() :: %{}
-
+      
   """
   @type describe_dashboard_snapshot_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_permissions_response() :: %{
         "DashboardArn" => String.t(),
         "DashboardId" => String.t(),
@@ -172,147 +172,147 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_dashboard_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_based_tooltip() :: %{
         "AggregationVisibility" => list(any()),
         "TooltipFields" => list(tooltip_item()()),
         "TooltipTitleType" => list(any())
       }
-
+      
   """
   @type field_based_tooltip() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gutter_style() :: %{
         "Show" => boolean()
       }
-
+      
   """
   @type gutter_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_namespace_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_parameter() :: %{
         "Name" => String.t(),
         "Values" => list(non_neg_integer()())
       }
-
+      
   """
   @type date_time_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_label_options() :: %{
         "ApplyTo" => axis_label_reference_options(),
         "CustomLabel" => String.t(),
         "FontConfiguration" => font_configuration()
       }
-
+      
   """
   @type axis_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_form_layout_canvas_size_options() :: %{
         "ScreenCanvasSizeOptions" => free_form_layout_screen_canvas_size_options()
       }
-
+      
   """
   @type free_form_layout_canvas_size_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_iam_policy_assignments_for_user_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_iam_policy_assignments_for_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_error() :: %{
         "Message" => String.t(),
         "Type" => list(any()),
         "ViolatedEntities" => list(entity()())
       }
-
+      
   """
   @type dashboard_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_field_collapse_state_option() :: %{
         "State" => list(any()),
         "Target" => pivot_table_field_collapse_state_target()
       }
-
+      
   """
   @type pivot_table_field_collapse_state_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dashboard_embed_url_response() :: %{
         "EmbedUrl" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type get_dashboard_embed_url_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line_custom_label_configuration() :: %{
         "CustomLabel" => String.t()
       }
-
+      
   """
   @type reference_line_custom_label_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_analysis_definition_response() :: %{
         "AnalysisId" => String.t(),
         "Definition" => analysis_definition(),
@@ -323,14 +323,14 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "ThemeArn" => String.t()
       }
-
+      
   """
   @type describe_analysis_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_configuration() :: %{
         "FieldWells" => filled_map_field_wells(),
         "Interactions" => visual_interaction_options(),
@@ -340,14 +340,14 @@ defmodule AWS.QuickSight do
         "Tooltip" => tooltip_options(),
         "WindowOptions" => geospatial_window_options()
       }
-
+      
   """
   @type filled_map_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_date_time_picker_control() :: %{
         "DisplayOptions" => date_time_picker_control_display_options(),
         "FilterControlId" => String.t(),
@@ -355,14 +355,14 @@ defmodule AWS.QuickSight do
         "Title" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type filter_date_time_picker_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -371,28 +371,28 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "VersionArn" => String.t()
       }
-
+      
   """
   @type update_dashboard_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line_data_configuration() :: %{
         "AxisBinding" => list(any()),
         "DynamicConfiguration" => reference_line_dynamic_data_configuration(),
         "SeriesType" => list(any()),
         "StaticConfiguration" => reference_line_static_data_configuration()
       }
-
+      
   """
   @type reference_line_data_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_version() :: %{
         "CreatedTime" => non_neg_integer(),
         "DataSetConfigurations" => list(data_set_configuration()()),
@@ -404,25 +404,25 @@ defmodule AWS.QuickSight do
         "ThemeArn" => String.t(),
         "VersionNumber" => float()
       }
-
+      
   """
   @type template_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trend_arrow_options() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type trend_arrow_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       radar_chart_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => radar_chart_configuration(),
@@ -431,14 +431,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type radar_chart_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "DisplayOptions" => list_control_display_options(),
@@ -448,49 +448,49 @@ defmodule AWS.QuickSight do
         "Title" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type filter_list_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_aggregation() :: %{
         "DatasetRowDateGranularity" => list(any()),
         "DefaultDateColumnName" => String.t()
       }
-
+      
   """
   @type data_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_sort() :: %{
         "Direction" => list(any()),
         "FieldId" => String.t()
       }
-
+      
   """
   @type field_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_s_p_i_c_e_capacity_configuration_request() :: %{
         required("PurchaseMode") => list(any())
       }
-
+      
   """
   @type update_s_p_i_c_e_capacity_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_summary() :: %{
         "Arn" => String.t(),
         "AssetBundleImportJobId" => String.t(),
@@ -498,76 +498,76 @@ defmodule AWS.QuickSight do
         "FailureAction" => list(any()),
         "JobStatus" => list(any())
       }
-
+      
   """
   @type asset_bundle_import_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_point_menu_label_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type data_point_menu_label_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
         "StaticValues" => list(String.t()())
       }
-
+      
   """
   @type string_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_alias() :: %{
         "AliasName" => String.t(),
         "Arn" => String.t(),
         "TemplateVersionNumber" => float()
       }
-
+      
   """
   @type template_alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vpc_connection_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "VPCConnection" => vpc_connection()
       }
-
+      
   """
   @type describe_vpc_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_dashboard_snapshot_job_request() :: %{
         required("SnapshotConfiguration") => snapshot_configuration(),
         required("SnapshotJobId") => String.t(),
         required("UserConfiguration") => snapshot_user_configuration()
       }
-
+      
   """
   @type start_dashboard_snapshot_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_request() :: %{
         optional("DashboardPublishOptions") => dashboard_publish_options(),
         optional("Definition") => dashboard_version_definition(),
@@ -578,91 +578,91 @@ defmodule AWS.QuickSight do
         optional("VersionDescription") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_refresh_properties() :: %{
         "RefreshConfiguration" => refresh_configuration()
       }
-
+      
   """
   @type data_set_refresh_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_namespace_response() :: %{
         "Namespace" => namespace_info_v2(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_aggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "Colors" => list(dimension_field()()),
         "SmallMultiples" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type line_chart_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       drill_down_filter() :: %{
         "CategoryFilter" => category_drill_down_filter(),
         "NumericEqualityFilter" => numeric_equality_drill_down_filter(),
         "TimeRangeFilter" => time_range_drill_down_filter()
       }
-
+      
   """
   @type drill_down_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_category_filter_constant() :: %{
         "CollectiveConstant" => collective_constant(),
         "ConstantType" => list(any()),
         "SingularConstant" => String.t()
       }
-
+      
   """
   @type topic_category_filter_constant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       override_dataset_parameter_operation() :: %{
         "NewDefaultValues" => new_default_values(),
         "NewParameterName" => String.t(),
         "ParameterName" => String.t()
       }
-
+      
   """
   @type override_dataset_parameter_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bar_chart_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => bar_chart_configuration(),
@@ -671,119 +671,119 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type bar_chart_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_paginated_report_options() :: %{
         "OverflowColumnHeaderVisibility" => list(any()),
         "VerticalOverflowVisibility" => list(any())
       }
-
+      
   """
   @type table_paginated_report_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_set_refresh_properties_response() :: %{
         "DataSetRefreshProperties" => data_set_refresh_properties(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_data_set_refresh_properties_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_level_permission_rule() :: %{
         "ColumnNames" => list(String.t()()),
         "Principals" => list(String.t()())
       }
-
+      
   """
   @type column_level_permission_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_column_operation() :: %{
         "ColumnName" => String.t(),
         "TagNames" => list(list(any())())
       }
-
+      
   """
   @type untag_column_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_file_sheet_selection() :: %{
         "SelectionScope" => list(any()),
         "SheetId" => String.t(),
         "VisualIds" => list(String.t()())
       }
-
+      
   """
   @type snapshot_file_sheet_selection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_account_subscription_request() :: %{}
-
+      
   """
   @type delete_account_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_failure_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type internal_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_columns_operation() :: %{
         "Columns" => list(calculated_column()())
       }
-
+      
   """
   @type create_columns_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_definition_response() :: %{
         "DashboardId" => String.t(),
         "DashboardPublishOptions" => dashboard_publish_options(),
@@ -795,87 +795,87 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "ThemeArn" => String.t()
       }
-
+      
   """
   @type describe_dashboard_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_border_options() :: %{
         "Color" => String.t(),
         "Style" => list(any()),
         "Thickness" => integer()
       }
-
+      
   """
   @type table_border_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_chart_options() :: %{
         "TotalBarLabel" => String.t()
       }
-
+      
   """
   @type waterfall_chart_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       radar_chart_field_wells() :: %{
         "RadarChartAggregatedFieldWells" => radar_chart_aggregated_field_wells()
       }
-
+      
   """
   @type radar_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_alias_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateAlias" => template_alias()
       }
-
+      
   """
   @type create_template_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_identity_propagation_config_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_identity_propagation_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       label_options() :: %{
         "CustomLabel" => String.t(),
         "FontConfiguration" => font_configuration(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       legend_options() :: %{
         "Height" => String.t(),
         "Position" => list(any()),
@@ -883,46 +883,46 @@ defmodule AWS.QuickSight do
         "Visibility" => list(any()),
         "Width" => String.t()
       }
-
+      
   """
   @type legend_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_q_search_bar_embedding_configuration() :: %{
         "InitialTopicId" => String.t()
       }
-
+      
   """
   @type registered_user_q_search_bar_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_settings_request() :: %{}
-
+      
   """
   @type describe_account_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       string_parameter() :: %{
         "Name" => String.t(),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type string_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upload_settings() :: %{
         "ContainsHeader" => boolean(),
         "Delimiter" => String.t(),
@@ -930,14 +930,14 @@ defmodule AWS.QuickSight do
         "StartFromRow" => integer(),
         "TextQualifier" => list(any())
       }
-
+      
   """
   @type upload_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dashboard_embed_url_request() :: %{
         optional("AdditionalDashboardIds") => list(String.t()()),
         optional("Namespace") => String.t(),
@@ -948,14 +948,14 @@ defmodule AWS.QuickSight do
         optional("UserArn") => String.t(),
         required("IdentityType") => list(any())
       }
-
+      
   """
   @type get_dashboard_embed_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_control() :: %{
         "DateTimePicker" => parameter_date_time_picker_control(),
         "Dropdown" => parameter_drop_down_control(),
@@ -964,85 +964,85 @@ defmodule AWS.QuickSight do
         "TextArea" => parameter_text_area_control(),
         "TextField" => parameter_text_field_control()
       }
-
+      
   """
   @type parameter_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cell_value_synonym() :: %{
         "CellValue" => String.t(),
         "Synonyms" => list(String.t()())
       }
-
+      
   """
   @type cell_value_synonym() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_visual() :: %{
         "Ir" => topic_i_r(),
         "Role" => list(any()),
         "SupportingVisuals" => list(topic_visual()()),
         "VisualId" => String.t()
       }
-
+      
   """
   @type topic_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_source_request() :: %{}
-
+      
   """
   @type describe_data_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_configuration() :: %{
         "DestinationConfiguration" => snapshot_destination_configuration(),
         "FileGroups" => list(snapshot_file_group()()),
         "Parameters" => parameters()
       }
-
+      
   """
   @type snapshot_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numerical_aggregation_function() :: %{
         "PercentileAggregation" => percentile_aggregation(),
         "SimpleNumericalAggregation" => list(any())
       }
-
+      
   """
   @type numerical_aggregation_function() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_grid_layout_configuration() :: %{
         "CanvasSizeOptions" => grid_layout_canvas_size_options()
       }
-
+      
   """
   @type default_grid_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       period_to_date_computation() :: %{
         "ComputationId" => String.t(),
         "Name" => String.t(),
@@ -1050,37 +1050,37 @@ defmodule AWS.QuickSight do
         "Time" => dimension_field(),
         "Value" => measure_field()
       }
-
+      
   """
   @type period_to_date_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_folder_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_folder_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_folder_request() :: %{}
-
+      
   """
   @type describe_folder_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_vpc_connection_response() :: %{
         "Arn" => String.t(),
         "AvailabilityStatus" => list(any()),
@@ -1089,27 +1089,27 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "VPCConnectionId" => String.t()
       }
-
+      
   """
   @type create_vpc_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logical_table() :: %{
         "Alias" => String.t(),
         "DataTransforms" => list(list()()),
         "Source" => logical_table_source()
       }
-
+      
   """
   @type logical_table() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_snapshot_job_result_response() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -1120,37 +1120,37 @@ defmodule AWS.QuickSight do
         "Result" => snapshot_job_result(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_dashboard_snapshot_job_result_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       negative_format() :: %{
         "Prefix" => String.t(),
         "Suffix" => String.t()
       }
-
+      
   """
   @type negative_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anonymous_user_q_search_bar_embedding_configuration() :: %{
         "InitialTopicId" => String.t()
       }
-
+      
   """
   @type anonymous_user_q_search_bar_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_text_area_control() :: %{
         "Delimiter" => String.t(),
         "DisplayOptions" => text_area_control_display_options(),
@@ -1158,53 +1158,53 @@ defmodule AWS.QuickSight do
         "SourceParameterName" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type parameter_text_area_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_subtitle_label_options() :: %{
         "FormatText" => long_format_text(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type visual_subtitle_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_source() :: %{
         "DataSourceArn" => String.t(),
         "InputColumns" => list(input_column()()),
         "UploadSettings" => upload_settings()
       }
-
+      
   """
   @type s3_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_data_sets_response() :: %{
         "DataSetSummaries" => list(data_set_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_data_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_picker_control_display_options() :: %{
         "DateIconVisibility" => list(any()),
         "DateTimeFormat" => String.t(),
@@ -1212,247 +1212,247 @@ defmodule AWS.QuickSight do
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "TitleOptions" => label_options()
       }
-
+      
   """
   @type date_time_picker_control_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_rows_label_options() :: %{
         "CustomLabel" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type pivot_table_rows_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       combo_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()()),
         "ColorItemsLimit" => items_limit_configuration(),
         "ColorSort" => list(field_sort_options()())
       }
-
+      
   """
   @type combo_chart_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anchor() :: %{
         "AnchorType" => list(any()),
         "Offset" => integer(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type anchor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_numeric_equality_filter() :: %{
         "Aggregation" => list(any()),
         "Constant" => topic_singular_filter_constant()
       }
-
+      
   """
   @type topic_numeric_equality_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_subscription_request() :: %{}
-
+      
   """
   @type describe_account_subscription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_parameter() :: %{
         "Name" => String.t(),
         "Values" => list(float()())
       }
-
+      
   """
   @type integer_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_interactive_layout_configuration() :: %{
         "FreeForm" => default_free_form_layout_configuration(),
         "Grid" => default_grid_layout_configuration()
       }
-
+      
   """
   @type default_interactive_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_configuration() :: %{
         "Computations" => list(computation()()),
         "CustomNarrative" => custom_narrative_options(),
         "Interactions" => visual_interaction_options()
       }
-
+      
   """
   @type insight_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_field_wells() :: %{
         "PivotTableAggregatedFieldWells" => pivot_table_aggregated_field_wells()
       }
-
+      
   """
   @type pivot_table_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_refresh_schedule_request() :: %{}
-
+      
   """
   @type describe_refresh_schedule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       default_free_form_layout_configuration() :: %{
         "CanvasSizeOptions" => free_form_layout_canvas_size_options()
       }
-
+      
   """
   @type default_free_form_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numerical_measure_field() :: %{
         "AggregationFunction" => numerical_aggregation_function(),
         "Column" => column_identifier(),
         "FieldId" => String.t(),
         "FormatConfiguration" => number_format_configuration()
       }
-
+      
   """
   @type numerical_measure_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       schedule_refresh_on_entity() :: %{
         "DayOfMonth" => String.t(),
         "DayOfWeek" => list(any())
       }
-
+      
   """
   @type schedule_refresh_on_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_error() :: %{
         "Arn" => String.t(),
         "Message" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_vpc_connections_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "VPCConnectionSummaries" => list(vpc_connection_summary()())
       }
-
+      
   """
   @type list_vpc_connections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_refresh_schedule_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "ScheduleId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       predefined_hierarchy() :: %{
         "Columns" => list(column_identifier()()),
         "DrillDownFilters" => list(drill_down_filter()()),
         "HierarchyId" => String.t()
       }
-
+      
   """
   @type predefined_hierarchy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ingestions_response() :: %{
         "Ingestions" => list(ingestion()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_ingestions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quicksight_identifier() :: %{
         "Identity" => String.t()
       }
-
+      
   """
   @type quicksight_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_ip_restriction_response() :: %{
         "AwsAccountId" => String.t(),
         "Enabled" => boolean(),
@@ -1462,71 +1462,71 @@ defmodule AWS.QuickSight do
         "VpcEndpointIdRestrictionRuleMap" => map(),
         "VpcIdRestrictionRuleMap" => map()
       }
-
+      
   """
   @type describe_ip_restriction_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aurora_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type aurora_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis_source_template() :: %{
         "Arn" => String.t(),
         "DataSetReferences" => list(data_set_reference()())
       }
-
+      
   """
   @type analysis_source_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_refresh_schedule_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "ScheduleId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ingestion_request() :: %{}
-
+      
   """
   @type cancel_ingestion_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_theme_alias_request() :: %{}
-
+      
   """
   @type delete_theme_alias_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_version_definition() :: %{
         "AnalysisDefaults" => analysis_defaults(),
         "CalculatedFields" => list(calculated_field()()),
@@ -1537,27 +1537,27 @@ defmodule AWS.QuickSight do
         "ParameterDeclarations" => list(parameter_declaration()()),
         "Sheets" => list(sheet_definition()())
       }
-
+      
   """
   @type dashboard_version_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "User" => user()
       }
-
+      
   """
   @type update_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_data_source_request() :: %{
         optional("Credentials") => data_source_credentials(),
         optional("DataSourceParameters") => list(),
@@ -1570,14 +1570,14 @@ defmodule AWS.QuickSight do
         required("Name") => String.t(),
         required("Type") => list(any())
       }
-
+      
   """
   @type create_data_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_topic_refresh_schedules_response() :: %{
         "RefreshSchedules" => list(topic_refresh_schedule_summary()()),
         "RequestId" => String.t(),
@@ -1585,26 +1585,26 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type list_topic_refresh_schedules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_resource_permissions() :: %{
         "Actions" => list(String.t()()),
         "Principals" => list(String.t()())
       }
-
+      
   """
   @type asset_bundle_resource_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_chart_configuration() :: %{
         "CategoryAxisDisplayOptions" => axis_display_options(),
         "CategoryAxisLabelOptions" => chart_axis_label_options(),
@@ -1619,28 +1619,28 @@ defmodule AWS.QuickSight do
         "VisualPalette" => visual_palette(),
         "WaterfallChartOptions" => waterfall_chart_options()
       }
-
+      
   """
   @type waterfall_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_folders_response() :: %{
         "FolderSummaryList" => list(folder_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type search_folders_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_configuration() :: %{
         "ColorConfiguration" => gauge_chart_color_configuration(),
         "DataLabels" => data_label_options(),
@@ -1650,26 +1650,26 @@ defmodule AWS.QuickSight do
         "TooltipOptions" => tooltip_options(),
         "VisualPalette" => visual_palette()
       }
-
+      
   """
   @type gauge_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_data_set_refresh_properties_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type put_data_set_refresh_properties_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_source_permissions_response() :: %{
         "DataSourceArn" => String.t(),
         "DataSourceId" => String.t(),
@@ -1677,75 +1677,75 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_data_source_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       folder_member() :: %{
         "MemberId" => String.t(),
         "MemberType" => list(any())
       }
-
+      
   """
   @type folder_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decimal_dataset_parameter() :: %{
         "DefaultValues" => decimal_dataset_parameter_default_values(),
         "Id" => String.t(),
         "Name" => String.t(),
         "ValueType" => list(any())
       }
-
+      
   """
   @type decimal_dataset_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_request() :: %{
         optional("AliasName") => String.t(),
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type describe_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_text_box() :: %{
         "Content" => String.t(),
         "SheetTextBoxId" => String.t()
       }
-
+      
   """
   @type sheet_text_box() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_layout_element_maximization_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type sheet_layout_element_maximization_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       relational_table() :: %{
         "Catalog" => String.t(),
         "DataSourceArn" => String.t(),
@@ -1753,27 +1753,27 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "Schema" => String.t()
       }
-
+      
   """
   @type relational_table() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_options() :: %{
         "Order" => list(String.t()()),
         "PinnedFieldOptions" => table_pinned_field_options(),
         "SelectedFieldOptions" => list(table_field_option()())
       }
-
+      
   """
   @type table_field_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_options() :: %{
         "Comparison" => comparison_configuration(),
         "PrimaryValueDisplayType" => list(any()),
@@ -1785,83 +1785,83 @@ defmodule AWS.QuickSight do
         "TrendArrows" => trend_arrow_options(),
         "VisualLayoutOptions" => k_p_i_visual_layout_options()
       }
-
+      
   """
   @type k_p_i_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_controls_option() :: %{
         "VisibilityState" => list(any())
       }
-
+      
   """
   @type sheet_controls_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tile_layout_style() :: %{
         "Gutter" => gutter_style(),
         "Margin" => margin_style()
       }
-
+      
   """
   @type tile_layout_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       percentile_aggregation() :: %{
         "PercentileValue" => float()
       }
-
+      
   """
   @type percentile_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type untag_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity() :: %{
         "Path" => String.t()
       }
-
+      
   """
   @type entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_analysis_response() :: %{
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
@@ -1869,221 +1869,221 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "UpdateStatus" => list(any())
       }
-
+      
   """
   @type update_analysis_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_chart_color_configuration() :: %{
         "GroupColorConfiguration" => waterfall_chart_group_color_configuration()
       }
-
+      
   """
   @type waterfall_chart_color_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_label_reference_options() :: %{
         "Column" => column_identifier(),
         "FieldId" => String.t()
       }
-
+      
   """
   @type axis_label_reference_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_custom_icon_content() :: %{
         "Icon" => list(any())
       }
-
+      
   """
   @type table_field_custom_icon_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_description() :: %{
         "Text" => String.t()
       }
-
+      
   """
   @type column_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_field_wells() :: %{
         "TargetValues" => list(measure_field()()),
         "TrendGroups" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type k_p_i_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       text_field_control_display_options() :: %{
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "PlaceholderOptions" => text_control_placeholder_options(),
         "TitleOptions" => label_options()
       }
-
+      
   """
   @type text_field_control_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_theme_override_parameters() :: %{
         "Name" => String.t(),
         "ThemeId" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_theme_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tooltip_options() :: %{
         "FieldBasedTooltip" => field_based_tooltip(),
         "SelectedTooltipType" => list(any()),
         "TooltipVisibility" => list(any())
       }
-
+      
   """
   @type tooltip_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_arc_conditional_formatting() :: %{
         "ForegroundColor" => conditional_formatting_color()
       }
-
+      
   """
   @type gauge_chart_arc_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_tick_label_options() :: %{
         "LabelOptions" => label_options(),
         "RotationAngle" => float()
       }
-
+      
   """
   @type axis_tick_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ingestions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_ingestions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_namespaces_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_namespaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_identity_propagation_configs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_identity_propagation_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pie_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()()),
         "SmallMultiplesLimitConfiguration" => items_limit_configuration(),
         "SmallMultiplesSort" => list(field_sort_options()())
       }
-
+      
   """
   @type pie_chart_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_data_set_refresh_properties_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_data_set_refresh_properties_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_conditional_formatting_option() :: %{
         "ActualValue" => k_p_i_actual_value_conditional_formatting(),
         "ComparisonValue" => k_p_i_comparison_value_conditional_formatting(),
         "PrimaryValue" => k_p_iprimary_value_conditional_formatting(),
         "ProgressBar" => k_p_iprogress_bar_conditional_formatting()
       }
-
+      
   """
   @type k_p_i_conditional_formatting_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_vpc_connection_override_properties() :: %{
         "Arn" => String.t(),
         "Properties" => list(list(any())())
       }
-
+      
   """
   @type asset_bundle_export_job_vpc_connection_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_sort_configuration() :: %{
         "CategoryItemsLimitConfiguration" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()()),
@@ -2091,14 +2091,14 @@ defmodule AWS.QuickSight do
         "SmallMultiplesLimitConfiguration" => items_limit_configuration(),
         "SmallMultiplesSort" => list(field_sort_options()())
       }
-
+      
   """
   @type line_chart_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_permissions_response() :: %{
         "Permissions" => list(resource_permission()()),
         "RequestId" => String.t(),
@@ -2106,27 +2106,27 @@ defmodule AWS.QuickSight do
         "TemplateArn" => String.t(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type update_template_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_theme_alias_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeAlias" => theme_alias()
       }
-
+      
   """
   @type create_theme_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set() :: %{
         "Arn" => String.t(),
         "ColumnGroups" => list(column_group()()),
@@ -2146,161 +2146,161 @@ defmodule AWS.QuickSight do
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
         "RowLevelPermissionTagConfiguration" => row_level_permission_tag_configuration()
       }
-
+      
   """
   @type data_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       radar_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()()),
         "ColorItemsLimit" => items_limit_configuration(),
         "ColorSort" => list(field_sort_options()())
       }
-
+      
   """
   @type radar_chart_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_ingestion_request() :: %{
         optional("IngestionType") => list(any())
       }
-
+      
   """
   @type create_ingestion_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_heatmap_data_color() :: %{
         "Color" => String.t()
       }
-
+      
   """
   @type geospatial_heatmap_data_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_iam_policy_assignment_request() :: %{
         optional("Identities") => map(),
         optional("PolicyArn") => String.t(),
         required("AssignmentName") => String.t(),
         required("AssignmentStatus") => list(any())
       }
-
+      
   """
   @type create_iam_policy_assignment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_alias_request() :: %{
         required("TemplateVersionNumber") => float()
       }
-
+      
   """
   @type update_template_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_bundle_import_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_asset_bundle_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lookback_window() :: %{
         "ColumnName" => String.t(),
         "Size" => float(),
         "SizeUnit" => list(any())
       }
-
+      
   """
   @type lookback_window() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_marker() :: %{
         "SimpleClusterMarker" => simple_cluster_marker()
       }
-
+      
   """
   @type cluster_marker() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_sort_configuration() :: %{
         "FieldSortOptions" => list(pivot_field_sort_options()())
       }
-
+      
   """
   @type pivot_table_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_user_groups_response() :: %{
         "GroupList" => list(group()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_user_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authorized_targets_by_service() :: %{
         "AuthorizedTargets" => list(String.t()()),
         "Service" => list(any())
       }
-
+      
   """
   @type authorized_targets_by_service() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type data_set_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecast_computation() :: %{
         "ComputationId" => String.t(),
         "CustomSeasonalityValue" => integer(),
@@ -2314,74 +2314,74 @@ defmodule AWS.QuickSight do
         "UpperBoundary" => float(),
         "Value" => measure_field()
       }
-
+      
   """
   @type forecast_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_field_wells() :: %{
         "FilledMapAggregatedFieldWells" => filled_map_aggregated_field_wells()
       }
-
+      
   """
   @type filled_map_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_file_group() :: %{
         "Files" => list(snapshot_file()())
       }
-
+      
   """
   @type snapshot_file_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_folders_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Filters") => list(folder_search_filter()())
       }
-
+      
   """
   @type search_folders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_topic_refresh_schedule_request() :: %{
         required("RefreshSchedule") => topic_refresh_schedule()
       }
-
+      
   """
   @type update_topic_refresh_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_aliases_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateAliasList" => list(template_alias()())
       }
-
+      
   """
   @type list_template_aliases_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_based_forecast_properties() :: %{
         "LowerBoundary" => float(),
         "PeriodsBackward" => integer(),
@@ -2390,77 +2390,77 @@ defmodule AWS.QuickSight do
         "Seasonality" => integer(),
         "UpperBoundary" => float()
       }
-
+      
   """
   @type time_based_forecast_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_source_credential_pair() :: %{
         "Password" => String.t(),
         "Username" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_data_source_credential_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       header_footer_section_configuration() :: %{
         "Layout" => section_layout_configuration(),
         "SectionId" => String.t(),
         "Style" => section_style()
       }
-
+      
   """
   @type header_footer_section_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_folder() :: %{
         "columns" => list(String.t()()),
         "description" => String.t()
       }
-
+      
   """
   @type field_folder() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_vpc_connection_override_tags() :: %{
         "Tags" => list(tag()()),
         "VPCConnectionIds" => list(String.t()())
       }
-
+      
   """
   @type asset_bundle_import_job_vpc_connection_override_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_iam_policy_assignments_response() :: %{
         "IAMPolicyAssignments" => list(iam_policy_assignment_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_iam_policy_assignments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       namespace_info_v2() :: %{
         "Arn" => String.t(),
         "CapacityRegion" => String.t(),
@@ -2469,38 +2469,38 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "NamespaceError" => namespace_error()
       }
-
+      
   """
   @type namespace_info_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quick_sight_user_not_found_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type quick_sight_user_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       funnel_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()())
       }
-
+      
   """
   @type funnel_chart_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       font_configuration() :: %{
         "FontColor" => String.t(),
         "FontDecoration" => list(any()),
@@ -2508,83 +2508,83 @@ defmodule AWS.QuickSight do
         "FontStyle" => list(any()),
         "FontWeight" => font_weight()
       }
-
+      
   """
   @type font_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_conditional_formatting() :: %{
         "ConditionalFormattingOptions" => list(gauge_chart_conditional_formatting_option()())
       }
-
+      
   """
   @type gauge_chart_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_range_drill_down_filter() :: %{
         "Column" => column_identifier(),
         "RangeMaximum" => non_neg_integer(),
         "RangeMinimum" => non_neg_integer(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type time_range_drill_down_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_source_description() :: %{
         "Body" => String.t(),
         "S3Uri" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_source_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       athena_parameters() :: %{
         "RoleArn" => String.t(),
         "WorkGroup" => String.t()
       }
-
+      
   """
   @type athena_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_iam_policy_assignment_request() :: %{}
-
+      
   """
   @type describe_iam_policy_assignment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       bin_count_options() :: %{
         "Value" => integer()
       }
-
+      
   """
   @type bin_count_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_bundle_export_job_response() :: %{
         "Arn" => String.t(),
         "AssetBundleExportJobId" => String.t(),
@@ -2604,46 +2604,46 @@ defmodule AWS.QuickSight do
         "ValidationStrategy" => asset_bundle_export_job_validation_strategy(),
         "Warnings" => list(asset_bundle_export_job_warning()())
       }
-
+      
   """
   @type describe_asset_bundle_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_analysis_request() :: %{}
-
+      
   """
   @type restore_analysis_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       body_section_repeat_dimension_configuration() :: %{
         "DynamicCategoryDimensionConfiguration" => body_section_dynamic_category_dimension_configuration(),
         "DynamicNumericDimensionConfiguration" => body_section_dynamic_numeric_dimension_configuration()
       }
-
+      
   """
   @type body_section_repeat_dimension_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_form_section_layout_configuration() :: %{
         "Elements" => list(free_form_layout_element()())
       }
-
+      
   """
   @type free_form_section_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_source_override_parameters() :: %{
         "Credentials" => asset_bundle_import_job_data_source_credentials(),
         "DataSourceId" => String.t(),
@@ -2652,179 +2652,179 @@ defmodule AWS.QuickSight do
         "SslProperties" => ssl_properties(),
         "VpcConnectionProperties" => vpc_connection_properties()
       }
-
+      
   """
   @type asset_bundle_import_job_data_source_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_coordinate_bounds() :: %{
         "East" => float(),
         "North" => float(),
         "South" => float(),
         "West" => float()
       }
-
+      
   """
   @type geospatial_coordinate_bounds() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_color() :: %{
         "Gradient" => conditional_formatting_gradient_color(),
         "Solid" => conditional_formatting_solid_color()
       }
-
+      
   """
   @type conditional_formatting_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_text_field_control() :: %{
         "DisplayOptions" => text_field_control_display_options(),
         "ParameterControlId" => String.t(),
         "SourceParameterName" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type parameter_text_field_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_unavailable_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type resource_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_heatmap_configuration() :: %{
         "HeatmapColor" => geospatial_heatmap_color_scale()
       }
-
+      
   """
   @type geospatial_heatmap_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_theme_override_permissions() :: %{
         "Permissions" => asset_bundle_resource_permissions(),
         "ThemeIds" => list(String.t()())
       }
-
+      
   """
   @type asset_bundle_import_job_theme_override_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_primary_value_conditional_formatting() :: %{
         "Icon" => conditional_formatting_icon(),
         "TextColor" => conditional_formatting_color()
       }
-
+      
   """
   @type gauge_chart_primary_value_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_element_rendering_rule() :: %{
         "ConfigurationOverrides" => sheet_element_configuration_overrides(),
         "Expression" => String.t()
       }
-
+      
   """
   @type sheet_element_rendering_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_asset_bundle_import_job_response() :: %{
         "Arn" => String.t(),
         "AssetBundleImportJobId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type start_asset_bundle_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_link_content_configuration() :: %{
         "CustomIconContent" => table_field_custom_icon_content(),
         "CustomTextContent" => table_field_custom_text_content()
       }
-
+      
   """
   @type table_field_link_content_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slot() :: %{
         "SlotId" => String.t(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type slot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_refresh_schedule_response() :: %{
         "Arn" => String.t(),
         "RefreshSchedule" => refresh_schedule(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       category_filter_configuration() :: %{
         "CustomFilterConfiguration" => custom_filter_configuration(),
         "CustomFilterListConfiguration" => custom_filter_list_configuration(),
         "FilterListConfiguration" => filter_list_configuration()
       }
-
+      
   """
   @type category_filter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_definition_response() :: %{
         "Definition" => template_version_definition(),
         "Errors" => list(template_error()()),
@@ -2835,14 +2835,14 @@ defmodule AWS.QuickSight do
         "TemplateId" => String.t(),
         "ThemeArn" => String.t()
       }
-
+      
   """
   @type describe_template_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_refresh_schedule() :: %{
         "BasedOnSpiceSchedule" => boolean(),
         "IsEnabled" => boolean(),
@@ -2851,87 +2851,87 @@ defmodule AWS.QuickSight do
         "Timezone" => String.t(),
         "TopicScheduleType" => list(any())
       }
-
+      
   """
   @type topic_refresh_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_sort() :: %{
         "AggregationFunction" => aggregation_function(),
         "Direction" => list(any()),
         "SortBy" => column_identifier()
       }
-
+      
   """
   @type column_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       input_column() :: %{
         "Name" => String.t(),
         "SubType" => list(any()),
         "Type" => list(any())
       }
-
+      
   """
   @type input_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_settings_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_account_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_resource_id_override_configuration() :: %{
         "PrefixForAllResources" => boolean()
       }
-
+      
   """
   @type asset_bundle_export_job_resource_id_override_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_display_range() :: %{
         "DataDriven" => axis_display_data_driven_range(),
         "MinMax" => axis_display_min_max_range()
       }
-
+      
   """
   @type axis_display_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_shape_conditional_formatting() :: %{
         "FieldId" => String.t(),
         "Format" => shape_conditional_format()
       }
-
+      
   """
   @type filled_map_shape_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_interface() :: %{
         "AvailabilityZone" => String.t(),
         "ErrorMessage" => String.t(),
@@ -2939,14 +2939,14 @@ defmodule AWS.QuickSight do
         "Status" => list(any()),
         "SubnetId" => String.t()
       }
-
+      
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_iam_policy_assignment_response() :: %{
         "AssignmentId" => String.t(),
         "AssignmentName" => String.t(),
@@ -2956,37 +2956,37 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_iam_policy_assignment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_field_wells() :: %{
         "LineChartAggregatedFieldWells" => line_chart_aggregated_field_wells()
       }
-
+      
   """
   @type line_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_color_configuration() :: %{
         "BackgroundColor" => String.t(),
         "ForegroundColor" => String.t()
       }
-
+      
   """
   @type gauge_chart_color_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_version() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -2999,25 +2999,25 @@ defmodule AWS.QuickSight do
         "ThemeArn" => String.t(),
         "VersionNumber" => float()
       }
-
+      
   """
   @type dashboard_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_unaggregated_field_wells() :: %{
         "Values" => list(unaggregated_field()())
       }
-
+      
   """
   @type table_unaggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis_summary() :: %{
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
@@ -3026,49 +3026,49 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type analysis_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
         "StaticValues" => list(float()())
       }
-
+      
   """
   @type integer_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_analysis_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_analysis_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pie_chart_field_wells() :: %{
         "PieChartAggregatedFieldWells" => pie_chart_aggregated_field_wells()
       }
-
+      
   """
   @type pie_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_request() :: %{
         optional("Definition") => template_version_definition(),
         optional("Name") => String.t(),
@@ -3078,89 +3078,89 @@ defmodule AWS.QuickSight do
         optional("ValidationStrategy") => validation_strategy(),
         optional("VersionDescription") => String.t()
       }
-
+      
   """
   @type create_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       named_entity_ref() :: %{
         "NamedEntityName" => String.t()
       }
-
+      
   """
   @type named_entity_ref() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anonymous_user_dashboard_embedding_configuration() :: %{
         "InitialDashboardId" => String.t()
       }
-
+      
   """
   @type anonymous_user_dashboard_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_published_version_response() :: %{
         "DashboardArn" => String.t(),
         "DashboardId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_dashboard_published_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_link_configuration() :: %{
         "Content" => table_field_link_content_configuration(),
         "Target" => list(any())
       }
-
+      
   """
   @type table_field_link_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_embed_url_for_registered_user_request() :: %{
         optional("AllowedDomains") => list(String.t()()),
         optional("SessionLifetimeInMinutes") => float(),
         required("ExperienceConfiguration") => registered_user_embedding_experience_configuration(),
         required("UserArn") => String.t()
       }
-
+      
   """
   @type generate_embed_url_for_registered_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_data_sources_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Filters") => list(data_source_search_filter()())
       }
-
+      
   """
   @type search_data_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_info() :: %{
         "AccountName" => String.t(),
         "AccountSubscriptionStatus" => String.t(),
@@ -3169,26 +3169,26 @@ defmodule AWS.QuickSight do
         "IAMIdentityCenterInstanceArn" => String.t(),
         "NotificationEmail" => String.t()
       }
-
+      
   """
   @type account_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       global_table_border_options() :: %{
         "SideSpecificBorder" => table_side_border_options(),
         "UniformBorder" => table_border_options()
       }
-
+      
   """
   @type global_table_border_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_slider_control() :: %{
         "DisplayOptions" => slider_control_display_options(),
         "FilterControlId" => String.t(),
@@ -3199,50 +3199,50 @@ defmodule AWS.QuickSight do
         "Title" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type filter_slider_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       histogram_field_wells() :: %{
         "HistogramAggregatedFieldWells" => histogram_aggregated_field_wells()
       }
-
+      
   """
   @type histogram_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       loading_animation() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type loading_animation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_control_display_options() :: %{
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "SearchOptions" => list_control_search_options(),
         "SelectAllOptions" => list_control_select_all_options(),
         "TitleOptions" => label_options()
       }
-
+      
   """
   @type list_control_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_customization_response() :: %{
         "AccountCustomization" => account_customization(),
         "Arn" => String.t(),
@@ -3251,271 +3251,271 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_account_customization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_dataset_parameter() :: %{
         "DefaultValues" => integer_dataset_parameter_default_values(),
         "Id" => String.t(),
         "Name" => String.t(),
         "ValueType" => list(any())
       }
-
+      
   """
   @type integer_dataset_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_s3_destination_configuration() :: %{
         "BucketConfiguration" => s3_bucket_configuration()
       }
-
+      
   """
   @type snapshot_s3_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_links_request() :: %{
         required("LinkEntities") => list(String.t()())
       }
-
+      
   """
   @type update_dashboard_links_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geo_spatial_column_group() :: %{
         "Columns" => list(String.t()()),
         "CountryCode" => list(any()),
         "Name" => String.t()
       }
-
+      
   """
   @type geo_spatial_column_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_topic_request() :: %{
         optional("Tags") => list(tag()()),
         required("Topic") => topic_details(),
         required("TopicId") => String.t()
       }
-
+      
   """
   @type create_topic_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_data_sets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_data_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decimal_value_when_unset_configuration() :: %{
         "CustomValue" => float(),
         "ValueWhenUnsetOption" => list(any())
       }
-
+      
   """
   @type decimal_value_when_unset_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       font() :: %{
         "FontFamily" => String.t()
       }
-
+      
   """
   @type font() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_pricing_plan_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type unsupported_pricing_plan_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_point_style_options() :: %{
         "ClusterMarkerConfiguration" => cluster_marker_configuration(),
         "HeatmapConfiguration" => geospatial_heatmap_configuration(),
         "SelectedPointStyle" => list(any())
       }
-
+      
   """
   @type geospatial_point_style_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       radar_chart_series_settings() :: %{
         "AreaStyleSettings" => radar_chart_area_style_settings()
       }
-
+      
   """
   @type radar_chart_series_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_data_set_refresh_properties_request() :: %{
         required("DataSetRefreshProperties") => data_set_refresh_properties()
       }
-
+      
   """
   @type put_data_set_refresh_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scroll_bar_options() :: %{
         "Visibility" => list(any()),
         "VisibleRange" => visible_range_options()
       }
-
+      
   """
   @type scroll_bar_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_data_sources_response() :: %{
         "DataSourceSummaries" => list(data_source_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type search_data_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_topic_request() :: %{
         required("Topic") => topic_details()
       }
-
+      
   """
   @type update_topic_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       theme_alias() :: %{
         "AliasName" => String.t(),
         "Arn" => String.t(),
         "ThemeVersionNumber" => float()
       }
-
+      
   """
   @type theme_alias() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_published_version_request() :: %{}
-
+      
   """
   @type update_dashboard_published_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_bundle_import_job_request() :: %{}
-
+      
   """
   @type describe_asset_bundle_import_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       layout() :: %{
         "Configuration" => layout_configuration()
       }
-
+      
   """
   @type layout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_registration_request() :: %{
         required("KeyRegistration") => list(registered_customer_managed_key()())
       }
-
+      
   """
   @type update_key_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line_static_data_configuration() :: %{
         "Value" => float()
       }
-
+      
   """
   @type reference_line_static_data_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_form_layout_element_border_style() :: %{
         "Color" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type free_form_layout_element_border_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_group() :: %{
         "CrossDataset" => list(any()),
         "FilterGroupId" => String.t(),
@@ -3523,36 +3523,36 @@ defmodule AWS.QuickSight do
         "ScopeConfiguration" => filter_scope_configuration(),
         "Status" => list(any())
       }
-
+      
   """
   @type filter_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_iam_policy_assignment_request() :: %{
         optional("AssignmentStatus") => list(any()),
         optional("Identities") => map(),
         optional("PolicyArn") => String.t()
       }
-
+      
   """
   @type update_iam_policy_assignment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_namespace_request() :: %{}
-
+      
   """
   @type describe_namespace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_ingestion_response() :: %{
         "Arn" => String.t(),
         "IngestionId" => String.t(),
@@ -3560,37 +3560,37 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_ingestion_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_customization_request() :: %{
         optional("Namespace") => String.t(),
         optional("Resolved") => boolean()
       }
-
+      
   """
   @type describe_account_customization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_iot_analytics_parameters() :: %{
         "DataSetName" => String.t()
       }
-
+      
   """
   @type aws_iot_analytics_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_request() :: %{
         optional("Definition") => template_version_definition(),
         optional("Name") => String.t(),
@@ -3598,39 +3598,39 @@ defmodule AWS.QuickSight do
         optional("ValidationStrategy") => validation_strategy(),
         optional("VersionDescription") => String.t()
       }
-
+      
   """
   @type update_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       context_menu_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type context_menu_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_filter_list_configuration() :: %{
         "CategoryValues" => list(String.t()()),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
         "SelectAllOptions" => list(any())
       }
-
+      
   """
   @type custom_filter_list_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scatter_plot_categorically_aggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "Label" => list(dimension_field()()),
@@ -3638,36 +3638,36 @@ defmodule AWS.QuickSight do
         "XAxis" => list(measure_field()()),
         "YAxis" => list(measure_field()())
       }
-
+      
   """
   @type scatter_plot_categorically_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_theme_alias_request() :: %{
         required("ThemeVersionNumber") => float()
       }
-
+      
   """
   @type create_theme_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bookmarks_configurations() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type bookmarks_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_source_response() :: %{
         "Arn" => String.t(),
         "DataSourceId" => String.t(),
@@ -3675,14 +3675,14 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "UpdateStatus" => list(any())
       }
-
+      
   """
   @type update_data_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_options() :: %{
         "Arc" => arc_configuration(),
         "ArcAxis" => arc_axis_configuration(),
@@ -3690,23 +3690,23 @@ defmodule AWS.QuickSight do
         "PrimaryValueDisplayType" => list(any()),
         "PrimaryValueFontConfiguration" => font_configuration()
       }
-
+      
   """
   @type gauge_chart_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_request() :: %{}
-
+      
   """
   @type describe_topic_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       top_bottom_filter() :: %{
         "AggregationSortConfigurations" => list(aggregation_sort_configuration()()),
         "Column" => column_identifier(),
@@ -3716,26 +3716,26 @@ defmodule AWS.QuickSight do
         "ParameterName" => String.t(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type top_bottom_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_info() :: %{
         "Message" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       maximum_minimum_computation() :: %{
         "ComputationId" => String.t(),
         "Name" => String.t(),
@@ -3743,49 +3743,49 @@ defmodule AWS.QuickSight do
         "Type" => list(any()),
         "Value" => measure_field()
       }
-
+      
   """
   @type maximum_minimum_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_account_customization_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_account_customization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_sort_options() :: %{
         "ColumnSort" => column_sort(),
         "FieldSort" => field_sort()
       }
-
+      
   """
   @type field_sort_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connection() :: %{
         "Arn" => String.t(),
         "AvailabilityStatus" => list(any()),
@@ -3800,14 +3800,14 @@ defmodule AWS.QuickSight do
         "VPCConnectionId" => String.t(),
         "VPCId" => String.t()
       }
-
+      
   """
   @type vpc_connection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_vpc_connection_request() :: %{
         optional("DnsResolvers") => list(String.t()()),
         optional("Tags") => list(tag()()),
@@ -3817,142 +3817,142 @@ defmodule AWS.QuickSight do
         required("SubnetIds") => list(String.t()()),
         required("VPCConnectionId") => String.t()
       }
-
+      
   """
   @type create_vpc_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unaggregated_field() :: %{
         "Column" => column_identifier(),
         "FieldId" => String.t(),
         "FormatConfiguration" => format_configuration()
       }
-
+      
   """
   @type unaggregated_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_series_axis_display_options() :: %{
         "AxisOptions" => axis_display_options(),
         "MissingDataConfigurations" => list(missing_data_configuration()())
       }
-
+      
   """
   @type line_series_axis_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_visual_scoping_configuration() :: %{
         "Scope" => list(any()),
         "SheetId" => String.t(),
         "VisualIds" => list(String.t()())
       }
-
+      
   """
   @type sheet_visual_scoping_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dynamic_default_value() :: %{
         "DefaultValueColumn" => column_identifier(),
         "GroupNameColumn" => column_identifier(),
         "UserNameColumn" => column_identifier()
       }
-
+      
   """
   @type dynamic_default_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_display_min_max_range() :: %{
         "Maximum" => float(),
         "Minimum" => float()
       }
-
+      
   """
   @type axis_display_min_max_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_cell_conditional_formatting() :: %{
         "FieldId" => String.t(),
         "Scope" => pivot_table_conditional_formatting_scope(),
         "Scopes" => list(pivot_table_conditional_formatting_scope()()),
         "TextFormat" => text_conditional_format()
       }
-
+      
   """
   @type pivot_table_cell_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_analyses_response() :: %{
         "AnalysisSummaryList" => list(analysis_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type search_analyses_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameters() :: %{
         "DateTimeParameters" => list(date_time_parameter()()),
         "DecimalParameters" => list(decimal_parameter()()),
         "IntegerParameters" => list(integer_parameter()()),
         "StringParameters" => list(string_parameter()())
       }
-
+      
   """
   @type parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grid_layout_configuration() :: %{
         "CanvasSizeOptions" => grid_layout_canvas_size_options(),
         "Elements" => list(grid_layout_element()())
       }
-
+      
   """
   @type grid_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_theme_request() :: %{
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type delete_theme_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_version_definition() :: %{
         "AnalysisDefaults" => analysis_defaults(),
         "CalculatedFields" => list(calculated_field()()),
@@ -3963,58 +3963,58 @@ defmodule AWS.QuickSight do
         "ParameterDeclarations" => list(parameter_declaration()()),
         "Sheets" => list(sheet_definition()())
       }
-
+      
   """
   @type template_version_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       named_entity_definition_metric() :: %{
         "Aggregation" => list(any()),
         "AggregationFunctionParameters" => map()
       }
-
+      
   """
   @type named_entity_definition_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_form_layout_screen_canvas_size_options() :: %{
         "OptimizedViewPortWidth" => String.t()
       }
-
+      
   """
   @type free_form_layout_screen_canvas_size_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_label_type() :: %{
         "FieldId" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type field_label_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_set_permissions_request() :: %{}
-
+      
   """
   @type describe_data_set_permissions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_definition() :: %{
         "ContentType" => list(any()),
         "Description" => String.t(),
@@ -4028,14 +4028,14 @@ defmodule AWS.QuickSight do
         "Title" => String.t(),
         "Visuals" => list(visual()())
       }
-
+      
   """
   @type sheet_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       relative_dates_filter() :: %{
         "AnchorDateConfiguration" => anchor_date_configuration(),
         "Column" => column_identifier(),
@@ -4049,74 +4049,74 @@ defmodule AWS.QuickSight do
         "RelativeDateValue" => integer(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type relative_dates_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_series_settings() :: %{
         "LineStyleSettings" => line_chart_line_style_settings(),
         "MarkerStyleSettings" => line_chart_marker_style_settings()
       }
-
+      
   """
   @type line_chart_series_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_field_sort_options() :: %{
         "FieldId" => String.t(),
         "SortBy" => pivot_table_sort_by()
       }
-
+      
   """
   @type pivot_field_sort_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       queue_info() :: %{
         "QueuedIngestion" => String.t(),
         "WaitingOnIngestion" => String.t()
       }
-
+      
   """
   @type queue_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rename_column_operation() :: %{
         "ColumnName" => String.t(),
         "NewColumnName" => String.t()
       }
-
+      
   """
   @type rename_column_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       long_format_text() :: %{
         "PlainText" => String.t(),
         "RichText" => String.t()
       }
-
+      
   """
   @type long_format_text() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_constant_value() :: %{
         "ConstantType" => list(any()),
         "Maximum" => String.t(),
@@ -4124,25 +4124,25 @@ defmodule AWS.QuickSight do
         "Value" => String.t(),
         "ValueList" => list(collective_constant_entry()())
       }
-
+      
   """
   @type topic_constant_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tree_map_field_wells() :: %{
         "TreeMapAggregatedFieldWells" => tree_map_aggregated_field_wells()
       }
-
+      
   """
   @type tree_map_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grid_layout_element() :: %{
         "ColumnIndex" => integer(),
         "ColumnSpan" => integer(),
@@ -4151,66 +4151,66 @@ defmodule AWS.QuickSight do
         "RowIndex" => integer(),
         "RowSpan" => integer()
       }
-
+      
   """
   @type grid_layout_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_identifier() :: %{
         "ColumnName" => String.t(),
         "DataSetIdentifier" => String.t()
       }
-
+      
   """
   @type column_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       heat_map_field_wells() :: %{
         "HeatMapAggregatedFieldWells" => heat_map_aggregated_field_wells()
       }
-
+      
   """
   @type heat_map_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_role_custom_permission_request() :: %{}
-
+      
   """
   @type delete_role_custom_permission_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       ssl_properties() :: %{
         "DisableSsl" => boolean()
       }
-
+      
   """
   @type ssl_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_permissions_request() :: %{}
-
+      
   """
   @type describe_topic_permissions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_option() :: %{
         "CustomLabel" => String.t(),
         "FieldId" => String.t(),
@@ -4218,52 +4218,52 @@ defmodule AWS.QuickSight do
         "Visibility" => list(any()),
         "Width" => String.t()
       }
-
+      
   """
   @type table_field_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       arc_axis_display_range() :: %{
         "Max" => float(),
         "Min" => float()
       }
-
+      
   """
   @type arc_axis_display_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_customization_request() :: %{
         optional("Namespace") => String.t(),
         required("AccountCustomization") => account_customization()
       }
-
+      
   """
   @type update_account_customization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_registration_response() :: %{
         "AwsAccountId" => String.t(),
         "KeyRegistration" => list(registered_customer_managed_key()()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_key_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       word_cloud_chart_configuration() :: %{
         "CategoryLabelOptions" => chart_axis_label_options(),
         "FieldWells" => word_cloud_field_wells(),
@@ -4271,14 +4271,14 @@ defmodule AWS.QuickSight do
         "SortConfiguration" => word_cloud_sort_configuration(),
         "WordCloudOptions" => word_cloud_options()
       }
-
+      
   """
   @type word_cloud_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       histogram_configuration() :: %{
         "BinOptions" => histogram_bin_options(),
         "DataLabels" => data_label_options(),
@@ -4290,88 +4290,88 @@ defmodule AWS.QuickSight do
         "XAxisLabelOptions" => chart_axis_label_options(),
         "YAxisDisplayOptions" => axis_display_options()
       }
-
+      
   """
   @type histogram_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_dataset_parameter() :: %{
         "DefaultValues" => string_dataset_parameter_default_values(),
         "Id" => String.t(),
         "Name" => String.t(),
         "ValueType" => list(any())
       }
-
+      
   """
   @type string_dataset_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_analysis_request() :: %{
         optional("ForceDeleteWithoutRecovery") => boolean(),
         optional("RecoveryWindowInDays") => float()
       }
-
+      
   """
   @type delete_analysis_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_request() :: %{
         optional("Description") => String.t()
       }
-
+      
   """
   @type update_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_sql() :: %{
         "Columns" => list(input_column()()),
         "DataSourceArn" => String.t(),
         "Name" => String.t(),
         "SqlQuery" => String.t()
       }
-
+      
   """
   @type custom_sql() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_selectable_values() :: %{
         "Values" => list(String.t()())
       }
-
+      
   """
   @type filter_selectable_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       donut_options() :: %{
         "ArcOptions" => arc_options(),
         "DonutCenterOptions" => donut_center_options()
       }
-
+      
   """
   @type donut_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_analysis_response() :: %{
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
@@ -4379,27 +4379,27 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_analysis_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_analyses_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Filters") => list(analysis_search_filter()())
       }
-
+      
   """
   @type search_analyses_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_theme_permissions_response() :: %{
         "Permissions" => list(resource_permission()()),
         "RequestId" => String.t(),
@@ -4407,14 +4407,14 @@ defmodule AWS.QuickSight do
         "ThemeArn" => String.t(),
         "ThemeId" => String.t()
       }
-
+      
   """
   @type describe_theme_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_parameter_declaration() :: %{
         "DefaultValues" => integer_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
@@ -4422,25 +4422,25 @@ defmodule AWS.QuickSight do
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => integer_value_when_unset_configuration()
       }
-
+      
   """
   @type integer_parameter_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_relative_date_time_control_options() :: %{
         "DisplayOptions" => relative_date_time_control_display_options()
       }
-
+      
   """
   @type default_relative_date_time_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_folder_permissions_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
@@ -4448,105 +4448,105 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_folder_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_set_refresh_properties_request() :: %{}
-
+      
   """
   @type describe_data_set_refresh_properties_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_theme_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "Theme" => theme()
       }
-
+      
   """
   @type describe_theme_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       state_persistence_configurations() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type state_persistence_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_path_sort() :: %{
         "Direction" => list(any()),
         "SortPaths" => list(data_path_value()())
       }
-
+      
   """
   @type data_path_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       folder_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type folder_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       arc_options() :: %{
         "ArcThickness" => list(any())
       }
-
+      
   """
   @type arc_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       combo_chart_field_wells() :: %{
         "ComboChartAggregatedFieldWells" => combo_chart_aggregated_field_wells()
       }
-
+      
   """
   @type combo_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_identity_propagation_config_request() :: %{
         optional("AuthorizedTargets") => list(String.t()())
       }
-
+      
   """
   @type update_identity_propagation_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_permissions_response() :: %{
         "Permissions" => list(resource_permission()()),
         "RequestId" => String.t(),
@@ -4554,54 +4554,54 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type describe_topic_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_content_configuration() :: %{
         "ContentType" => list(any()),
         "ContentUrl" => String.t(),
         "ImageScaling" => list(any()),
         "Interactions" => visual_interaction_options()
       }
-
+      
   """
   @type custom_content_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_error() :: %{
         "Message" => String.t(),
         "Type" => list(any()),
         "ViolatedEntities" => list(entity()())
       }
-
+      
   """
   @type template_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_source_response() :: %{
         "DataSource" => data_source(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_data_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_version_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -4610,27 +4610,27 @@ defmodule AWS.QuickSight do
         "Status" => list(any()),
         "VersionNumber" => float()
       }
-
+      
   """
   @type dashboard_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_i_r_comparison_method() :: %{
         "Period" => list(any()),
         "Type" => list(any()),
         "WindowSize" => integer()
       }
-
+      
   """
   @type topic_i_r_comparison_method() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_topic_response() :: %{
         "Arn" => String.t(),
         "RefreshArn" => String.t(),
@@ -4638,25 +4638,25 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type create_topic_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_axis_options() :: %{
         "MissingDateVisibility" => list(any())
       }
-
+      
   """
   @type date_axis_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       join_instruction() :: %{
         "LeftJoinKeyProperties" => join_key_properties(),
         "LeftOperand" => String.t(),
@@ -4665,50 +4665,50 @@ defmodule AWS.QuickSight do
         "RightOperand" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type join_instruction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       comparison_format_configuration() :: %{
         "NumberDisplayFormatConfiguration" => number_display_format_configuration(),
         "PercentageDisplayFormatConfiguration" => percentage_display_format_configuration()
       }
-
+      
   """
   @type comparison_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_resource_id_override_configuration() :: %{
         "PrefixForAllResources" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_resource_id_override_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_theme_alias_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeAlias" => theme_alias()
       }
-
+      
   """
   @type describe_theme_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis_definition() :: %{
         "AnalysisDefaults" => analysis_defaults(),
         "CalculatedFields" => list(calculated_field()()),
@@ -4719,26 +4719,26 @@ defmodule AWS.QuickSight do
         "ParameterDeclarations" => list(parameter_declaration()()),
         "Sheets" => list(sheet_definition()())
       }
-
+      
   """
   @type analysis_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_value_when_unset_configuration() :: %{
         "CustomValue" => float(),
         "ValueWhenUnsetOption" => list(any())
       }
-
+      
   """
   @type integer_value_when_unset_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_set_response() :: %{
         "Arn" => String.t(),
         "DataSetId" => String.t(),
@@ -4747,14 +4747,14 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_data_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_theme_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -4763,26 +4763,26 @@ defmodule AWS.QuickSight do
         "ThemeId" => String.t(),
         "VersionArn" => String.t()
       }
-
+      
   """
   @type create_theme_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_definition_request() :: %{
         optional("AliasName") => String.t(),
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type describe_template_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_total_options() :: %{
         "CustomLabel" => String.t(),
         "MetricHeaderCellStyle" => table_cell_style(),
@@ -4793,25 +4793,25 @@ defmodule AWS.QuickSight do
         "TotalsVisibility" => list(any()),
         "ValueCellStyle" => table_cell_style()
       }
-
+      
   """
   @type pivot_total_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_inline_visualization() :: %{
         "DataBars" => data_bars_options()
       }
-
+      
   """
   @type table_inline_visualization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       named_entity_definition() :: %{
         "FieldName" => String.t(),
         "Metric" => named_entity_definition_metric(),
@@ -4819,84 +4819,84 @@ defmodule AWS.QuickSight do
         "PropertyRole" => list(any()),
         "PropertyUsage" => list(any())
       }
-
+      
   """
   @type named_entity_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vpc_connection_request() :: %{}
-
+      
   """
   @type delete_vpc_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_job_result() :: %{
         "AnonymousUsers" => list(anonymous_user_snapshot_job_result()())
       }
-
+      
   """
   @type snapshot_job_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type dashboard_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       small_multiples_axis_properties() :: %{
         "Placement" => list(any()),
         "Scale" => list(any())
       }
-
+      
   """
   @type small_multiples_axis_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       maria_db_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type maria_db_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_customer_managed_key() :: %{
         "DefaultKey" => boolean(),
         "KeyArn" => String.t()
       }
-
+      
   """
   @type registered_customer_managed_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_analysis_permissions_response() :: %{
         "AnalysisArn" => String.t(),
         "AnalysisId" => String.t(),
@@ -4904,26 +4904,26 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_analysis_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_linear_scale() :: %{
         "StepCount" => integer(),
         "StepSize" => float()
       }
-
+      
   """
   @type axis_linear_scale() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "DisplayOptions" => list_control_display_options(),
@@ -4933,38 +4933,38 @@ defmodule AWS.QuickSight do
         "Title" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type parameter_list_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_role_custom_permission_response() :: %{
         "CustomPermissionsName" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_role_custom_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_control_layout_configuration() :: %{
         "GridLayout" => grid_layout_configuration()
       }
-
+      
   """
   @type sheet_control_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_configuration() :: %{
         "ContributionAnalysisDefaults" => list(contribution_analysis_default()()),
         "DataLabels" => data_label_options(),
@@ -4988,25 +4988,25 @@ defmodule AWS.QuickSight do
         "XAxisDisplayOptions" => axis_display_options(),
         "XAxisLabelOptions" => chart_axis_label_options()
       }
-
+      
   """
   @type line_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_axis_sort_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type visual_axis_sort_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_named_entity() :: %{
         "Definition" => list(named_entity_definition()()),
         "EntityDescription" => String.t(),
@@ -5014,14 +5014,14 @@ defmodule AWS.QuickSight do
         "EntitySynonyms" => list(String.t()()),
         "SemanticEntityType" => semantic_entity_type()
       }
-
+      
   """
   @type topic_named_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_filter_control_options() :: %{
         "DefaultDateTimePickerOptions" => default_date_time_picker_control_options(),
         "DefaultDropdownOptions" => default_filter_drop_down_control_options(),
@@ -5031,54 +5031,54 @@ defmodule AWS.QuickSight do
         "DefaultTextAreaOptions" => default_text_area_control_options(),
         "DefaultTextFieldOptions" => default_text_field_control_options()
       }
-
+      
   """
   @type default_filter_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_total_options() :: %{
         "ColumnSubtotalOptions" => subtotal_options(),
         "ColumnTotalOptions" => pivot_total_options(),
         "RowSubtotalOptions" => subtotal_options(),
         "RowTotalOptions" => pivot_total_options()
       }
-
+      
   """
   @type pivot_table_total_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bar_chart_aggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "Colors" => list(dimension_field()()),
         "SmallMultiples" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type bar_chart_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_user_edition_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type unsupported_user_edition_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_i_r_metric() :: %{
         "CalculatedFieldReferences" => list(quicksight_identifier()()),
         "ComparisonMethod" => topic_i_r_comparison_method(),
@@ -5090,14 +5090,14 @@ defmodule AWS.QuickSight do
         "NamedEntity" => named_entity_ref(),
         "Operands" => list(quicksight_identifier()())
       }
-
+      
   """
   @type topic_i_r_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       display_format_options() :: %{
         "BlankCellFormat" => String.t(),
         "CurrencySymbol" => String.t(),
@@ -5112,110 +5112,110 @@ defmodule AWS.QuickSight do
         "UseBlankCellFormat" => boolean(),
         "UseGrouping" => boolean()
       }
-
+      
   """
   @type display_format_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       total_aggregation_function() :: %{
         "SimpleTotalAggregationFunction" => list(any())
       }
-
+      
   """
   @type total_aggregation_function() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       body_section_dynamic_numeric_dimension_configuration() :: %{
         "Column" => column_identifier(),
         "Limit" => integer(),
         "SortByMetrics" => list(column_sort()())
       }
-
+      
   """
   @type body_section_dynamic_numeric_dimension_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       link_sharing_configuration() :: %{
         "Permissions" => list(resource_permission()())
       }
-
+      
   """
   @type link_sharing_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_vpc_connections_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_vpc_connections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mapped_data_set_parameter() :: %{
         "DataSetIdentifier" => String.t(),
         "DataSetParameterName" => String.t()
       }
-
+      
   """
   @type mapped_data_set_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       starburst_parameters() :: %{
         "Catalog" => String.t(),
         "Host" => String.t(),
         "Port" => integer(),
         "ProductType" => list(any())
       }
-
+      
   """
   @type starburst_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       shape_conditional_format() :: %{
         "BackgroundColor" => conditional_formatting_color()
       }
-
+      
   """
   @type shape_conditional_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_data_sources_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_data_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tree_map_configuration() :: %{
         "ColorLabelOptions" => chart_axis_label_options(),
         "ColorScale" => color_scale(),
@@ -5228,166 +5228,166 @@ defmodule AWS.QuickSight do
         "SortConfiguration" => tree_map_sort_configuration(),
         "Tooltip" => tooltip_options()
       }
-
+      
   """
   @type tree_map_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_role_custom_permission_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_role_custom_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       active_iam_policy_assignment() :: %{
         "AssignmentName" => String.t(),
         "PolicyArn" => String.t()
       }
-
+      
   """
   @type active_iam_policy_assignment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_analysis_override_tags() :: %{
         "AnalysisIds" => list(String.t()()),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type asset_bundle_import_job_analysis_override_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_namespace_request() :: %{
         optional("Tags") => list(tag()()),
         required("IdentityStore") => list(any()),
         required("Namespace") => String.t()
       }
-
+      
   """
   @type create_namespace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_bars_options() :: %{
         "FieldId" => String.t(),
         "NegativeColor" => String.t(),
         "PositiveColor" => String.t()
       }
-
+      
   """
   @type data_bars_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_configuration() :: %{
         "ColumnGroupSchemaList" => list(column_group_schema()()),
         "DataSetSchema" => data_set_schema(),
         "Placeholder" => String.t()
       }
-
+      
   """
   @type data_set_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_source_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type data_source_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       heat_map_aggregated_field_wells() :: %{
         "Columns" => list(dimension_field()()),
         "Rows" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type heat_map_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_paginated_layout_configuration() :: %{
         "SectionBased" => default_section_based_layout_configuration()
       }
-
+      
   """
   @type default_paginated_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_iam_policy_assignments_for_user_response() :: %{
         "ActiveAssignments" => list(active_iam_policy_assignment()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_iam_policy_assignments_for_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_data_source_response() :: %{
         "Arn" => String.t(),
         "DataSourceId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_data_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_scale() :: %{
         "Linear" => axis_linear_scale(),
         "Logarithmic" => axis_logarithmic_scale()
       }
-
+      
   """
   @type axis_scale() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_topic_reviewed_answers_response() :: %{
         "Answers" => list(topic_reviewed_answer()()),
         "RequestId" => String.t(),
@@ -5395,25 +5395,25 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type list_topic_reviewed_answers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       missing_data_configuration() :: %{
         "TreatmentOption" => list(any())
       }
-
+      
   """
   @type missing_data_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_snapshot_job_response() :: %{
         "Arn" => String.t(),
         "AwsAccountId" => String.t(),
@@ -5427,104 +5427,104 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "UserConfiguration" => snapshot_user_configuration_redacted()
       }
-
+      
   """
   @type describe_dashboard_snapshot_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       text_area_control_display_options() :: %{
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "PlaceholderOptions" => text_control_placeholder_options(),
         "TitleOptions" => label_options()
       }
-
+      
   """
   @type text_area_control_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_request() :: %{
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type delete_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       nested_filter() :: %{
         "Column" => column_identifier(),
         "FilterId" => String.t(),
         "IncludeInnerSet" => boolean(),
         "InnerFilter" => inner_filter()
       }
-
+      
   """
   @type nested_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_folder_membership_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_folder_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_conditional_formatting_option() :: %{
         "Shape" => filled_map_shape_conditional_formatting()
       }
-
+      
   """
   @type filled_map_conditional_formatting_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_set_request() :: %{}
-
+      
   """
   @type describe_data_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_data_set_refresh_properties_request() :: %{}
-
+      
   """
   @type delete_data_set_refresh_properties_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_icon_display_configuration() :: %{
         "IconDisplayOption" => list(any())
       }
-
+      
   """
   @type conditional_formatting_icon_display_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_i_r_filter_option() :: %{
         "AggMetrics" => list(filter_agg_metrics()()),
         "Aggregation" => list(any()),
@@ -5545,59 +5545,59 @@ defmodule AWS.QuickSight do
         "TimeGranularity" => list(any()),
         "TopBottomLimit" => topic_constant_value()
       }
-
+      
   """
   @type topic_i_r_filter_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       arc_configuration() :: %{
         "ArcAngle" => float(),
         "ArcThickness" => list(any())
       }
-
+      
   """
   @type arc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       box_plot_style_options() :: %{
         "FillStyle" => list(any())
       }
-
+      
   """
   @type box_plot_style_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       minimum_label_type() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type minimum_label_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anonymous_user_dashboard_visual_embedding_configuration() :: %{
         "InitialDashboardVisualId" => dashboard_visual_id()
       }
-
+      
   """
   @type anonymous_user_dashboard_visual_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
@@ -5605,37 +5605,37 @@ defmodule AWS.QuickSight do
         "Topic" => topic_details(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type describe_topic_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       body_section_repeat_page_break_configuration() :: %{
         "After" => section_after_page_break()
       }
-
+      
   """
   @type body_section_repeat_page_break_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_dashboard_embedding_configuration() :: %{
         "FeatureConfigurations" => registered_user_dashboard_feature_configurations(),
         "InitialDashboardId" => String.t()
       }
-
+      
   """
   @type registered_user_dashboard_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_range_filter() :: %{
         "AggregationFunction" => aggregation_function(),
         "Column" => column_identifier(),
@@ -5648,113 +5648,113 @@ defmodule AWS.QuickSight do
         "RangeMinimum" => numeric_range_filter_value(),
         "SelectAllOptions" => list(any())
       }
-
+      
   """
   @type numeric_range_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_data_sets_response() :: %{
         "DataSetSummaries" => list(data_set_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type search_data_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_identity_propagation_configs_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Services" => list(authorized_targets_by_service()()),
         "Status" => integer()
       }
-
+      
   """
   @type list_identity_propagation_configs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       box_plot_field_wells() :: %{
         "BoxPlotAggregatedFieldWells" => box_plot_aggregated_field_wells()
       }
-
+      
   """
   @type box_plot_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_resource_link_sharing_configuration() :: %{
         "Permissions" => asset_bundle_resource_permissions()
       }
-
+      
   """
   @type asset_bundle_resource_link_sharing_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       category_inner_filter() :: %{
         "Column" => column_identifier(),
         "Configuration" => category_filter_configuration(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration()
       }
-
+      
   """
   @type category_inner_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_themes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type list_themes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_group_column_schema() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type column_group_column_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_reviewed_answer() :: %{
         "AnswerId" => String.t(),
         "Arn" => String.t(),
@@ -5764,155 +5764,155 @@ defmodule AWS.QuickSight do
         "Question" => String.t(),
         "Template" => topic_template()
       }
-
+      
   """
   @type topic_reviewed_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_relative_date_time_control() :: %{
         "DisplayOptions" => relative_date_time_control_display_options(),
         "FilterControlId" => String.t(),
         "SourceFilterId" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type filter_relative_date_time_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cluster_marker_configuration() :: %{
         "ClusterMarker" => cluster_marker()
       }
-
+      
   """
   @type cluster_marker_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_dataset_parameter_default_values() :: %{
         "StaticValues" => list(String.t()())
       }
-
+      
   """
   @type string_dataset_parameter_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_definition_request() :: %{
         optional("AliasName") => String.t(),
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type describe_dashboard_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_analyses_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_analyses_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_range_filter_value() :: %{
         "Parameter" => String.t(),
         "StaticValue" => float()
       }
-
+      
   """
   @type numeric_range_filter_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_analysis_request() :: %{}
-
+      
   """
   @type describe_analysis_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       section_style() :: %{
         "Height" => String.t(),
         "Padding" => spacing()
       }
-
+      
   """
   @type section_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       colors_configuration() :: %{
         "CustomColors" => list(custom_color()())
       }
-
+      
   """
   @type colors_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       section_after_page_break() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type section_after_page_break() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type analysis_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => pivot_table_configuration(),
@@ -5921,51 +5921,51 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type pivot_table_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       text_control_placeholder_options() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type text_control_placeholder_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       text_conditional_format() :: %{
         "BackgroundColor" => conditional_formatting_color(),
         "Icon" => conditional_formatting_icon(),
         "TextColor" => conditional_formatting_color()
       }
-
+      
   """
   @type text_conditional_format() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unique_values_computation() :: %{
         "Category" => dimension_field(),
         "ComputationId" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type unique_values_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       funnel_chart_data_label_options() :: %{
         "CategoryLabelVisibility" => list(any()),
         "LabelColor" => String.t(),
@@ -5975,25 +5975,25 @@ defmodule AWS.QuickSight do
         "Position" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type funnel_chart_data_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_logarithmic_scale() :: %{
         "Base" => float()
       }
-
+      
   """
   @type axis_logarithmic_scale() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_permissions_response() :: %{
         "Permissions" => list(resource_permission()()),
         "RequestId" => String.t(),
@@ -6001,14 +6001,14 @@ defmodule AWS.QuickSight do
         "TemplateArn" => String.t(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type describe_template_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ingestion() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -6022,14 +6022,14 @@ defmodule AWS.QuickSight do
         "RequestType" => list(any()),
         "RowInfo" => row_info()
       }
-
+      
   """
   @type ingestion() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subtotal_options() :: %{
         "CustomLabel" => String.t(),
         "FieldLevel" => list(any()),
@@ -6040,23 +6040,23 @@ defmodule AWS.QuickSight do
         "TotalsVisibility" => list(any()),
         "ValueCellStyle" => table_cell_style()
       }
-
+      
   """
   @type subtotal_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_theme_permissions_request() :: %{}
-
+      
   """
   @type describe_theme_permissions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_display_options() :: %{
         "AxisLineVisibility" => list(any()),
         "AxisOffset" => String.t(),
@@ -6065,50 +6065,50 @@ defmodule AWS.QuickSight do
         "ScrollbarOptions" => scroll_bar_options(),
         "TickLabelOptions" => axis_tick_label_options()
       }
-
+      
   """
   @type axis_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_analysis_override_parameters() :: %{
         "AnalysisId" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_analysis_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_field_collapse_state_target() :: %{
         "FieldDataPathValues" => list(data_path_value()()),
         "FieldId" => String.t()
       }
-
+      
   """
   @type pivot_table_field_collapse_state_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_data_set_request() :: %{
         optional("ColumnGroups") => list(column_group()()),
         optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()()),
@@ -6126,110 +6126,110 @@ defmodule AWS.QuickSight do
         required("Name") => String.t(),
         required("PhysicalTableMap") => map()
       }
-
+      
   """
   @type create_data_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_dashboard_feature_configurations() :: %{
         "Bookmarks" => bookmarks_configurations(),
         "StatePersistence" => state_persistence_configurations()
       }
-
+      
   """
   @type registered_user_dashboard_feature_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_operation() :: %{
         "ConditionExpression" => String.t()
       }
-
+      
   """
   @type filter_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_data_set_override_properties() :: %{
         "Arn" => String.t(),
         "Properties" => list(list(any())())
       }
-
+      
   """
   @type asset_bundle_export_job_data_set_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_data_sets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Filters") => list(data_set_search_filter()())
       }
-
+      
   """
   @type search_data_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_palette() :: %{
         "ChartColor" => String.t(),
         "ColorMap" => list(data_path_color()())
       }
-
+      
   """
   @type visual_palette() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visible_range_options() :: %{
         "PercentRange" => percent_visible_range()
       }
-
+      
   """
   @type visible_range_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_error() :: %{
         "Arn" => String.t(),
         "Message" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type asset_bundle_export_job_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scatter_plot_unaggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "Label" => list(dimension_field()()),
@@ -6237,42 +6237,42 @@ defmodule AWS.QuickSight do
         "XAxis" => list(dimension_field()()),
         "YAxis" => list(dimension_field()())
       }
-
+      
   """
   @type scatter_plot_unaggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_user_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "User" => user(),
         "UserInvitationUrl" => String.t()
       }
-
+      
   """
   @type register_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_category_filter() :: %{
         "CategoryFilterFunction" => list(any()),
         "CategoryFilterType" => list(any()),
         "Constant" => topic_category_filter_constant(),
         "Inverse" => boolean()
       }
-
+      
   """
   @type topic_category_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_folder_permissions_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
@@ -6281,136 +6281,136 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_folder_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       semantic_entity_type() :: %{
         "SubTypeName" => String.t(),
         "TypeName" => String.t(),
         "TypeParameters" => map()
       }
-
+      
   """
   @type semantic_entity_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_sort_configuration() :: %{
         "CategorySort" => list(field_sort_options()())
       }
-
+      
   """
   @type filled_map_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snowflake_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Warehouse" => String.t()
       }
-
+      
   """
   @type snowflake_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_source_analysis() :: %{
         "Arn" => String.t(),
         "DataSetReferences" => list(data_set_reference()())
       }
-
+      
   """
   @type template_source_analysis() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_tooltip_item() :: %{
         "FieldId" => String.t(),
         "Label" => String.t(),
         "TooltipTarget" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type field_tooltip_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scatter_plot_sort_configuration() :: %{
         "ScatterPlotLimitConfiguration" => items_limit_configuration()
       }
-
+      
   """
   @type scatter_plot_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_window_options() :: %{
         "Bounds" => geospatial_coordinate_bounds(),
         "MapZoomMode" => list(any())
       }
-
+      
   """
   @type geospatial_window_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_alias_request() :: %{}
-
+      
   """
   @type describe_template_alias_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_subscription_response() :: %{
         "AccountInfo" => account_info(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_account_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_bundle_export_jobs_response() :: %{
         "AssetBundleExportJobSummaryList" => list(asset_bundle_export_job_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_asset_bundle_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => k_p_i_configuration(),
@@ -6420,14 +6420,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type k_p_i_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -6438,39 +6438,39 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "Version" => dashboard_version()
       }
-
+      
   """
   @type dashboard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_refresh_response() :: %{
         "RefreshDetails" => topic_refresh_details(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_topic_refresh_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_custom_icon_options() :: %{
         "Icon" => list(any()),
         "UnicodeIcon" => String.t()
       }
-
+      
   """
   @type conditional_formatting_custom_icon_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       panel_configuration() :: %{
         "BackgroundColor" => String.t(),
         "BackgroundVisibility" => list(any()),
@@ -6482,61 +6482,61 @@ defmodule AWS.QuickSight do
         "GutterVisibility" => list(any()),
         "Title" => panel_title_options()
       }
-
+      
   """
   @type panel_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contribution_analysis_factor() :: %{
         "FieldName" => String.t()
       }
-
+      
   """
   @type contribution_analysis_factor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_topic_reviewed_answer() :: %{
         "AnswerId" => String.t(),
         "Error" => list(any())
       }
-
+      
   """
   @type invalid_topic_reviewed_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_source_override_tags() :: %{
         "DataSourceIds" => list(String.t()()),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type asset_bundle_import_job_data_source_override_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_not_whitelisted_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type domain_not_whitelisted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       semantic_type() :: %{
         "FalseyCellValue" => String.t(),
         "FalseyCellValueSynonyms" => list(String.t()()),
@@ -6546,14 +6546,14 @@ defmodule AWS.QuickSight do
         "TypeName" => String.t(),
         "TypeParameters" => map()
       }
-
+      
   """
   @type semantic_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => table_configuration(),
@@ -6562,48 +6562,48 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type table_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_menu_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type visual_menu_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_visual_publish_options() :: %{
         "ExportHiddenFieldsOption" => export_hidden_fields_option()
       }
-
+      
   """
   @type dashboard_visual_publish_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_template() :: %{
         "Slots" => list(slot()()),
         "TemplateType" => String.t()
       }
-
+      
   """
   @type topic_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       computation() :: %{
         "Forecast" => forecast_computation(),
         "GrowthRate" => growth_rate_computation(),
@@ -6616,85 +6616,85 @@ defmodule AWS.QuickSight do
         "TotalAggregation" => total_aggregation_computation(),
         "UniqueValues" => unique_values_computation()
       }
-
+      
   """
   @type computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_to_csv_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type export_to_csv_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_formatting() :: %{
         "DisplayFormat" => list(any()),
         "DisplayFormatOptions" => display_format_options()
       }
-
+      
   """
   @type default_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis_source_entity() :: %{
         "SourceTemplate" => analysis_source_template()
       }
-
+      
   """
   @type analysis_source_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_custom_icon_condition() :: %{
         "Color" => String.t(),
         "DisplayConfiguration" => conditional_formatting_icon_display_configuration(),
         "Expression" => String.t(),
         "IconOptions" => conditional_formatting_custom_icon_options()
       }
-
+      
   """
   @type conditional_formatting_custom_icon_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_anonymous_user_redacted() :: %{
         "RowLevelPermissionTagKeys" => list(String.t()())
       }
-
+      
   """
   @type snapshot_anonymous_user_redacted() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_next_token_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type invalid_next_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_comparison_computation() :: %{
         "ComputationId" => String.t(),
         "FromValue" => measure_field(),
@@ -6702,51 +6702,51 @@ defmodule AWS.QuickSight do
         "TargetValue" => measure_field(),
         "Time" => dimension_field()
       }
-
+      
   """
   @type metric_comparison_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_analysis_response() :: %{
         "Analysis" => analysis(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_analysis_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_value_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type invalid_parameter_value_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       namespace_error() :: %{
         "Message" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type namespace_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -6755,76 +6755,76 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_path_label_type() :: %{
         "FieldId" => String.t(),
         "FieldValue" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type data_path_label_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_template_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_theme_override_properties() :: %{
         "Arn" => String.t(),
         "Properties" => list(list(any())())
       }
-
+      
   """
   @type asset_bundle_export_job_theme_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_agg_metrics() :: %{
         "Function" => list(any()),
         "MetricOperand" => quicksight_identifier(),
         "SortDirection" => list(any())
       }
-
+      
   """
   @type filter_agg_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slider_control_display_options() :: %{
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "TitleOptions" => label_options()
       }
-
+      
   """
   @type slider_control_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_analysis_request() :: %{
         optional("Definition") => analysis_definition(),
         optional("Parameters") => parameters(),
@@ -6833,100 +6833,100 @@ defmodule AWS.QuickSight do
         optional("ValidationStrategy") => validation_strategy(),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_analysis_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       total_aggregation_computation() :: %{
         "ComputationId" => String.t(),
         "Name" => String.t(),
         "Value" => measure_field()
       }
-
+      
   """
   @type total_aggregation_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_refresh_schedule_request() :: %{
         required("Schedule") => refresh_schedule()
       }
-
+      
   """
   @type update_refresh_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "UserList" => list(user()())
       }
-
+      
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_role_memberships_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_role_memberships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_operation() :: %{
         "ProjectedColumns" => list(String.t()())
       }
-
+      
   """
   @type project_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_theme_request() :: %{
         optional("Configuration") => theme_configuration(),
         optional("Name") => String.t(),
         optional("VersionDescription") => String.t(),
         required("BaseThemeId") => String.t()
       }
-
+      
   """
   @type update_theme_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_theme_alias_request() :: %{
         required("ThemeVersionNumber") => float()
       }
-
+      
   """
   @type update_theme_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_theme_request() :: %{
         optional("Permissions") => list(resource_permission()()),
         optional("Tags") => list(tag()()),
@@ -6935,52 +6935,52 @@ defmodule AWS.QuickSight do
         required("Configuration") => theme_configuration(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_theme_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_data_options() :: %{
         "DateAxisOptions" => date_axis_options(),
         "NumericAxisOptions" => numeric_axis_options()
       }
-
+      
   """
   @type axis_data_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       body_section_repeat_configuration() :: %{
         "DimensionConfigurations" => list(body_section_repeat_dimension_configuration()()),
         "NonRepeatingVisuals" => list(String.t()()),
         "PageBreakConfiguration" => body_section_repeat_page_break_configuration()
       }
-
+      
   """
   @type body_section_repeat_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Filters") => list(group_search_filter()())
       }
-
+      
   """
   @type search_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       radar_chart_configuration() :: %{
         "AlternateBandColorsVisibility" => list(any()),
         "AlternateBandEvenColor" => String.t(),
@@ -6999,49 +6999,49 @@ defmodule AWS.QuickSight do
         "StartAngle" => float(),
         "VisualPalette" => visual_palette()
       }
-
+      
   """
   @type radar_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_response() :: %{
         "Dashboard" => dashboard(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_dashboard_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amazon_elasticsearch_parameters() :: %{
         "Domain" => String.t()
       }
-
+      
   """
   @type amazon_elasticsearch_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_conditional_formatting_option() :: %{
         "Cell" => pivot_table_cell_conditional_formatting()
       }
-
+      
   """
   @type pivot_table_conditional_formatting_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sankey_diagram_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => sankey_diagram_chart_configuration(),
@@ -7049,14 +7049,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type sankey_diagram_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_permissions_response() :: %{
         "DashboardArn" => String.t(),
         "DashboardId" => String.t(),
@@ -7065,14 +7065,14 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_dashboard_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_data_set_response() :: %{
         "Arn" => String.t(),
         "DataSetId" => String.t(),
@@ -7081,46 +7081,46 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_data_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_topics_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_topics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_visual_layout_options() :: %{
         "StandardLayout" => k_p_i_visual_standard_layout()
       }
-
+      
   """
   @type k_p_i_visual_layout_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_topic_refresh_schedule_request() :: %{}
-
+      
   """
   @type delete_topic_refresh_schedule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       theme_version() :: %{
         "Arn" => String.t(),
         "BaseThemeId" => String.t(),
@@ -7131,184 +7131,184 @@ defmodule AWS.QuickSight do
         "Status" => list(any()),
         "VersionNumber" => float()
       }
-
+      
   """
   @type theme_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       postgre_sql_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type postgre_sql_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_date_time_picker_control() :: %{
         "DisplayOptions" => date_time_picker_control_display_options(),
         "ParameterControlId" => String.t(),
         "SourceParameterName" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type parameter_date_time_picker_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       refresh_configuration() :: %{
         "IncrementalRefresh" => incremental_refresh()
       }
-
+      
   """
   @type refresh_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_actual_value_conditional_formatting() :: %{
         "Icon" => conditional_formatting_icon(),
         "TextColor" => conditional_formatting_color()
       }
-
+      
   """
   @type k_p_i_actual_value_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       combo_chart_aggregated_field_wells() :: %{
         "BarValues" => list(measure_field()()),
         "Category" => list(dimension_field()()),
         "Colors" => list(dimension_field()()),
         "LineValues" => list(measure_field()())
       }
-
+      
   """
   @type combo_chart_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_versions_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateVersionSummaryList" => list(template_version_summary()())
       }
-
+      
   """
   @type list_template_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       secondary_value_options() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type secondary_value_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_refresh_schedule_request() :: %{}
-
+      
   """
   @type delete_refresh_schedule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_refresh_schedules_request() :: %{}
-
+      
   """
   @type list_refresh_schedules_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_data_sources_response() :: %{
         "DataSources" => list(data_source()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_data_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_data_source_request() :: %{}
-
+      
   """
   @type delete_data_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       member_id_arn_pair() :: %{
         "MemberArn" => String.t(),
         "MemberId" => String.t()
       }
-
+      
   """
   @type member_id_arn_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_theme_aliases_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeAliasList" => list(theme_alias()())
       }
-
+      
   """
   @type list_theme_aliases_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_refresh_schedule_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "ScheduleId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_slider_control() :: %{
         "DisplayOptions" => slider_control_display_options(),
         "MaximumValue" => float(),
@@ -7318,26 +7318,26 @@ defmodule AWS.QuickSight do
         "StepSize" => float(),
         "Title" => String.t()
       }
-
+      
   """
   @type parameter_slider_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_value_when_unset_configuration() :: %{
         "CustomValue" => String.t(),
         "ValueWhenUnsetOption" => list(any())
       }
-
+      
   """
   @type string_value_when_unset_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_filter_configuration() :: %{
         "CategoryValue" => String.t(),
         "MatchOperator" => list(any()),
@@ -7345,34 +7345,34 @@ defmodule AWS.QuickSight do
         "ParameterName" => String.t(),
         "SelectAllOptions" => list(any())
       }
-
+      
   """
   @type custom_filter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_permissions_request() :: %{}
-
+      
   """
   @type describe_template_permissions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_registration_request() :: %{
         optional("DefaultKeyOnly") => boolean()
       }
-
+      
   """
   @type describe_key_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_summary() :: %{
         "Arn" => String.t(),
         "ColumnLevelPermissionRulesApplied" => boolean(),
@@ -7384,14 +7384,14 @@ defmodule AWS.QuickSight do
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
         "RowLevelPermissionTagConfigurationApplied" => boolean()
       }
-
+      
   """
   @type data_set_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tree_map_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => tree_map_configuration(),
@@ -7400,52 +7400,52 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type tree_map_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       empty_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "DataSetIdentifier" => String.t(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type empty_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_set_override_tags() :: %{
         "DataSetIds" => list(String.t()()),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type asset_bundle_import_job_data_set_override_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_field_option() :: %{
         "CustomLabel" => String.t(),
         "FieldId" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type pivot_table_field_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_asset_bundle_export_job_request() :: %{
         optional("CloudFormationOverridePropertyConfiguration") => asset_bundle_cloud_formation_override_property_configuration(),
         optional("IncludeAllDependencies") => boolean(),
@@ -7456,39 +7456,39 @@ defmodule AWS.QuickSight do
         required("ExportFormat") => list(any()),
         required("ResourceArns") => list(String.t()())
       }
-
+      
   """
   @type start_asset_bundle_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_icon_set() :: %{
         "Expression" => String.t(),
         "IconSetType" => list(any())
       }
-
+      
   """
   @type conditional_formatting_icon_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_field_options() :: %{
         "CollapseStateOptions" => list(pivot_table_field_collapse_state_option()()),
         "DataPathOptions" => list(pivot_table_data_path_option()()),
         "SelectedFieldOptions" => list(pivot_table_field_option()())
       }
-
+      
   """
   @type pivot_table_field_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_drop_down_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "DisplayOptions" => drop_down_control_display_options(),
@@ -7498,71 +7498,71 @@ defmodule AWS.QuickSight do
         "Title" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type parameter_drop_down_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       refresh_frequency() :: %{
         "Interval" => list(any()),
         "RefreshOnDay" => schedule_refresh_on_entity(),
         "TimeOfTheDay" => String.t(),
         "Timezone" => String.t()
       }
-
+      
   """
   @type refresh_frequency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tree_map_sort_configuration() :: %{
         "TreeMapGroupItemsLimitConfiguration" => items_limit_configuration(),
         "TreeMapSort" => list(field_sort_options()())
       }
-
+      
   """
   @type tree_map_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grid_layout_canvas_size_options() :: %{
         "ScreenCanvasSizeOptions" => grid_layout_screen_canvas_size_options()
       }
-
+      
   """
   @type grid_layout_canvas_size_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_folder_request() :: %{}
-
+      
   """
   @type delete_folder_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       template_source_template() :: %{
         "Arn" => String.t()
       }
-
+      
   """
   @type template_source_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       row_level_permission_data_set() :: %{
         "Arn" => String.t(),
         "FormatVersion" => list(any()),
@@ -7570,80 +7570,80 @@ defmodule AWS.QuickSight do
         "PermissionPolicy" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type row_level_permission_data_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_permissions_request() :: %{
         optional("GrantLinkPermissions") => list(resource_permission()()),
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokeLinkPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_dashboard_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       row_info() :: %{
         "RowsDropped" => float(),
         "RowsIngested" => float(),
         "TotalRowsInDataset" => float()
       }
-
+      
   """
   @type row_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_group_memberships_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_group_memberships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       row_level_permission_tag_rule() :: %{
         "ColumnName" => String.t(),
         "MatchAllValue" => String.t(),
         "TagKey" => String.t(),
         "TagMultiValueDelimiter" => String.t()
       }
-
+      
   """
   @type row_level_permission_tag_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_control() :: %{
         "CrossSheet" => filter_cross_sheet_control(),
         "DateTimePicker" => filter_date_time_picker_control(),
@@ -7654,74 +7654,74 @@ defmodule AWS.QuickSight do
         "TextArea" => filter_text_area_control(),
         "TextField" => filter_text_field_control()
       }
-
+      
   """
   @type filter_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       my_sql_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type my_sql_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_iprogress_bar_conditional_formatting() :: %{
         "ForegroundColor" => conditional_formatting_color()
       }
-
+      
   """
   @type k_p_iprogress_bar_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_tag() :: %{
         "ColumnDescription" => column_description(),
         "ColumnGeographicRole" => list(any())
       }
-
+      
   """
   @type column_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_form_layout_configuration() :: %{
         "CanvasSizeOptions" => free_form_layout_canvas_size_options(),
         "Elements" => list(free_form_layout_element()())
       }
-
+      
   """
   @type free_form_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       funnel_chart_aggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type funnel_chart_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_parameter_declaration() :: %{
         "DefaultValues" => date_time_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
@@ -7729,38 +7729,38 @@ defmodule AWS.QuickSight do
         "TimeGranularity" => list(any()),
         "ValueWhenUnset" => date_time_value_when_unset_configuration()
       }
-
+      
   """
   @type date_time_parameter_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       panel_title_options() :: %{
         "FontConfiguration" => font_configuration(),
         "HorizontalTextAlignment" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type panel_title_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_hidden_fields_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type export_hidden_fields_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       top_bottom_movers_computation() :: %{
         "Category" => dimension_field(),
         "ComputationId" => String.t(),
@@ -7771,40 +7771,40 @@ defmodule AWS.QuickSight do
         "Type" => list(any()),
         "Value" => measure_field()
       }
-
+      
   """
   @type top_bottom_movers_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_topics_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TopicsSummaries" => list(topic_summary()())
       }
-
+      
   """
   @type list_topics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contribution_analysis_time_ranges() :: %{
         "EndRange" => topic_i_r_filter_option(),
         "StartRange" => topic_i_r_filter_option()
       }
-
+      
   """
   @type contribution_analysis_time_ranges() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       word_cloud_options() :: %{
         "CloudLayout" => list(any()),
         "MaximumStringLength" => integer(),
@@ -7813,249 +7813,249 @@ defmodule AWS.QuickSight do
         "WordPadding" => list(any()),
         "WordScaling" => list(any())
       }
-
+      
   """
   @type word_cloud_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_topic_reviewed_answer_request() :: %{
         optional("AnswerIds") => list(String.t()())
       }
-
+      
   """
   @type batch_delete_topic_reviewed_answer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_filter_control_configuration() :: %{
         "ControlOptions" => default_filter_control_options(),
         "Title" => String.t()
       }
-
+      
   """
   @type default_filter_control_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       total_aggregation_option() :: %{
         "FieldId" => String.t(),
         "TotalAggregationFunction" => total_aggregation_function()
       }
-
+      
   """
   @type total_aggregation_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_analysis_override_permissions() :: %{
         "AnalysisIds" => list(String.t()()),
         "Permissions" => asset_bundle_resource_permissions()
       }
-
+      
   """
   @type asset_bundle_import_job_analysis_override_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       radar_chart_aggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "Color" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type radar_chart_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_refresh_schedule_override_parameters() :: %{
         "DataSetId" => String.t(),
         "ScheduleId" => String.t(),
         "StartAfterDateTime" => non_neg_integer()
       }
-
+      
   """
   @type asset_bundle_import_job_refresh_schedule_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pie_chart_aggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "SmallMultiples" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type pie_chart_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       grid_layout_screen_canvas_size_options() :: %{
         "OptimizedViewPortWidth" => String.t(),
         "ResizeOption" => list(any())
       }
-
+      
   """
   @type grid_layout_screen_canvas_size_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       what_if_range_scenario() :: %{
         "EndDate" => non_neg_integer(),
         "StartDate" => non_neg_integer(),
         "Value" => float()
       }
-
+      
   """
   @type what_if_range_scenario() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_role_custom_permission_request() :: %{}
-
+      
   """
   @type describe_role_custom_permission_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_request() :: %{
         optional("Description") => String.t(),
         required("GroupName") => String.t()
       }
-
+      
   """
   @type create_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_template_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_settings_request() :: %{
         optional("NotificationEmail") => String.t(),
         optional("TerminationProtectionEnabled") => boolean(),
         required("DefaultNamespace") => String.t()
       }
-
+      
   """
   @type update_account_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_folder_membership_request() :: %{}
-
+      
   """
   @type create_folder_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_refresh_schedule_override_properties() :: %{
         "Arn" => String.t(),
         "Properties" => list(list(any())())
       }
-
+      
   """
   @type asset_bundle_export_job_refresh_schedule_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_group() :: %{
         "GeoSpatialColumnGroup" => geo_spatial_column_group()
       }
-
+      
   """
   @type column_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_alias_request() :: %{
         required("TemplateVersionNumber") => float()
       }
-
+      
   """
   @type create_template_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis_error() :: %{
         "Message" => String.t(),
         "Type" => list(any()),
         "ViolatedEntities" => list(entity()())
       }
-
+      
   """
   @type analysis_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_dashboard_visual_embedding_configuration() :: %{
         "InitialDashboardVisualId" => dashboard_visual_id()
       }
-
+      
   """
   @type registered_user_dashboard_visual_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_action_navigation_operation() :: %{
         "LocalNavigationConfiguration" => local_navigation_configuration()
       }
-
+      
   """
   @type custom_action_navigation_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bar_chart_configuration() :: %{
         "BarsArrangement" => list(any()),
         "CategoryAxis" => axis_display_options(),
@@ -8075,28 +8075,28 @@ defmodule AWS.QuickSight do
         "ValueLabelOptions" => chart_axis_label_options(),
         "VisualPalette" => visual_palette()
       }
-
+      
   """
   @type bar_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_measure_field() :: %{
         "AggregationFunction" => list(any()),
         "Column" => column_identifier(),
         "FieldId" => String.t(),
         "FormatConfiguration" => date_time_format_configuration()
       }
-
+      
   """
   @type date_measure_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_iam_policy_assignment_response() :: %{
         "AssignmentId" => String.t(),
         "AssignmentName" => String.t(),
@@ -8106,32 +8106,32 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_iam_policy_assignment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_membership_request() :: %{}
-
+      
   """
   @type create_group_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_group_membership_request() :: %{}
-
+      
   """
   @type describe_group_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_embed_url_for_anonymous_user_request() :: %{
         optional("AllowedDomains") => list(String.t()()),
         optional("SessionLifetimeInMinutes") => float(),
@@ -8140,83 +8140,83 @@ defmodule AWS.QuickSight do
         required("ExperienceConfiguration") => anonymous_user_embedding_experience_configuration(),
         required("Namespace") => String.t()
       }
-
+      
   """
   @type generate_embed_url_for_anonymous_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_dataset_parameter_default_values() :: %{
         "StaticValues" => list(non_neg_integer()())
       }
-
+      
   """
   @type date_time_dataset_parameter_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_interaction_options() :: %{
         "ContextMenuOption" => context_menu_option(),
         "VisualMenuOption" => visual_menu_option()
       }
-
+      
   """
   @type visual_interaction_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_source_permissions_request() :: %{}
-
+      
   """
   @type describe_data_source_permissions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_dashboard_override_tags() :: %{
         "DashboardIds" => list(String.t()()),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type asset_bundle_import_job_dashboard_override_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_text_field_control() :: %{
         "DisplayOptions" => text_field_control_display_options(),
         "FilterControlId" => String.t(),
         "SourceFilterId" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type filter_text_field_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tile_style() :: %{
         "Border" => border_style()
       }
-
+      
   """
   @type tile_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_topic_reviewed_answer_response() :: %{
         "InvalidAnswers" => list(invalid_topic_reviewed_answer()()),
         "RequestId" => String.t(),
@@ -8225,25 +8225,25 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type batch_create_topic_reviewed_answer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_path_type() :: %{
         "PivotTableDataPathType" => list(any())
       }
-
+      
   """
   @type data_path_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_dataset_parameter() :: %{
         "DefaultValues" => date_time_dataset_parameter_default_values(),
         "Id" => String.t(),
@@ -8251,27 +8251,27 @@ defmodule AWS.QuickSight do
         "TimeGranularity" => list(any()),
         "ValueType" => list(any())
       }
-
+      
   """
   @type date_time_dataset_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_registration_response() :: %{
         "FailedKeyRegistration" => list(failed_key_registration_entry()()),
         "RequestId" => String.t(),
         "SuccessfulKeyRegistration" => list(successful_key_registration_entry()())
       }
-
+      
   """
   @type update_key_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       currency_display_format_configuration() :: %{
         "DecimalPlacesConfiguration" => decimal_places_configuration(),
         "NegativeValueConfiguration" => negative_value_configuration(),
@@ -8282,14 +8282,14 @@ defmodule AWS.QuickSight do
         "Suffix" => String.t(),
         "Symbol" => String.t()
       }
-
+      
   """
   @type currency_display_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_asset_bundle_import_job_request() :: %{
         optional("FailureAction") => list(any()),
         optional("OverrideParameters") => asset_bundle_import_job_override_parameters(),
@@ -8299,209 +8299,209 @@ defmodule AWS.QuickSight do
         required("AssetBundleImportJobId") => String.t(),
         required("AssetBundleImportSource") => asset_bundle_import_source()
       }
-
+      
   """
   @type start_asset_bundle_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_session_embed_url_response() :: %{
         "EmbedUrl" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type get_session_embed_url_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_bundle_import_jobs_response() :: %{
         "AssetBundleImportJobSummaryList" => list(asset_bundle_import_job_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_asset_bundle_import_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_member() :: %{
         "Arn" => String.t(),
         "MemberName" => String.t()
       }
-
+      
   """
   @type group_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       category_drill_down_filter() :: %{
         "CategoryValues" => list(String.t()()),
         "Column" => column_identifier()
       }
-
+      
   """
   @type category_drill_down_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       signup_response() :: %{
         "IAMUser" => boolean(),
         "accountName" => String.t(),
         "directoryType" => String.t(),
         "userLoginName" => String.t()
       }
-
+      
   """
   @type signup_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       section_based_layout_paper_canvas_size_options() :: %{
         "PaperMargin" => spacing(),
         "PaperOrientation" => list(any()),
         "PaperSize" => list(any())
       }
-
+      
   """
   @type section_based_layout_paper_canvas_size_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_source_credentials() :: %{
         "CopySourceArn" => String.t(),
         "CredentialPair" => credential_pair(),
         "SecretArn" => String.t()
       }
-
+      
   """
   @type data_source_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_customization() :: %{
         "DefaultEmailCustomizationTemplate" => String.t(),
         "DefaultTheme" => String.t()
       }
-
+      
   """
   @type account_customization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_theme_request() :: %{
         optional("AliasName") => String.t(),
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type describe_theme_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       series_item() :: %{
         "DataFieldSeriesItem" => data_field_series_item(),
         "FieldSeriesItem" => field_series_item()
       }
-
+      
   """
   @type series_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_role_custom_permission_request() :: %{
         required("CustomPermissionsName") => String.t()
       }
-
+      
   """
   @type update_role_custom_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_embed_url_for_registered_user_response() :: %{
         "EmbedUrl" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type generate_embed_url_for_registered_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_strategy() :: %{
         "Mode" => list(any())
       }
-
+      
   """
   @type validation_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_request() :: %{}
-
+      
   """
   @type delete_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       jira_parameters() :: %{
         "SiteBaseUrl" => String.t()
       }
-
+      
   """
   @type jira_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_folder_permissions_request() :: %{
         optional("MaxResults") => integer(),
         optional("Namespace") => String.t(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_folder_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter() :: %{
         "CategoryFilter" => category_filter(),
         "NestedFilter" => nested_filter(),
@@ -8512,123 +8512,123 @@ defmodule AWS.QuickSight do
         "TimeRangeFilter" => time_range_filter(),
         "TopBottomFilter" => top_bottom_filter()
       }
-
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       progress_bar_options() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type progress_bar_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_range_filter_value() :: %{
         "Parameter" => String.t(),
         "RollingDate" => rolling_date_configuration(),
         "StaticValue" => non_neg_integer()
       }
-
+      
   """
   @type time_range_filter_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_format_configuration() :: %{
         "CurrencyDisplayFormatConfiguration" => currency_display_format_configuration(),
         "NumberDisplayFormatConfiguration" => number_display_format_configuration(),
         "PercentageDisplayFormatConfiguration" => percentage_display_format_configuration()
       }
-
+      
   """
   @type numeric_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_operation_selected_fields_configuration() :: %{
         "SelectedColumns" => list(column_identifier()()),
         "SelectedFieldOptions" => list(any()),
         "SelectedFields" => list(String.t()())
       }
-
+      
   """
   @type filter_operation_selected_fields_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anchor_date_configuration() :: %{
         "AnchorOption" => list(any()),
         "ParameterName" => String.t()
       }
-
+      
   """
   @type anchor_date_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_map_style_options() :: %{
         "BaseMapStyle" => list(any())
       }
-
+      
   """
   @type geospatial_map_style_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_aggregation_function() :: %{
         "SimpleAttributeAggregation" => list(any()),
         "ValueForMultipleValues" => String.t()
       }
-
+      
   """
   @type attribute_aggregation_function() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_role_membership_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_role_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_identifier_declaration() :: %{
         "DataSetArn" => String.t(),
         "Identifier" => String.t()
       }
-
+      
   """
   @type data_set_identifier_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_topic_permissions_response() :: %{
         "Permissions" => list(resource_permission()()),
         "RequestId" => String.t(),
@@ -8636,220 +8636,220 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type update_topic_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_topic_reviewed_answers_request() :: %{}
-
+      
   """
   @type list_topic_reviewed_answers_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       set_parameter_value_configuration() :: %{
         "DestinationParameterName" => String.t(),
         "Value" => destination_parameter_value_configuration()
       }
-
+      
   """
   @type set_parameter_value_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_i_r_contribution_analysis() :: %{
         "Direction" => list(any()),
         "Factors" => list(contribution_analysis_factor()()),
         "SortType" => list(any()),
         "TimeRanges" => contribution_analysis_time_ranges()
       }
-
+      
   """
   @type topic_i_r_contribution_analysis() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       null_value_format_configuration() :: %{
         "NullString" => String.t()
       }
-
+      
   """
   @type null_value_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       teradata_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type teradata_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       axis_display_data_driven_range() :: %{}
-
+      
   """
   @type axis_display_data_driven_range() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_visual_id() :: %{
         "DashboardId" => String.t(),
         "SheetId" => String.t(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type dashboard_visual_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       range_ends_label_type() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type range_ends_label_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       concurrent_updating_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type concurrent_updating_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inner_filter() :: %{
         "CategoryInnerFilter" => category_inner_filter()
       }
-
+      
   """
   @type inner_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       items_limit_configuration() :: %{
         "ItemsLimit" => float(),
         "OtherCategories" => list(any())
       }
-
+      
   """
   @type items_limit_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dashboard_request() :: %{
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type delete_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_configuration() :: %{
         "FieldWells" => k_p_i_field_wells(),
         "Interactions" => visual_interaction_options(),
         "KPIOptions" => k_p_i_options(),
         "SortConfiguration" => k_p_i_sort_configuration()
       }
-
+      
   """
   @type k_p_i_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_point_tooltip_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type data_point_tooltip_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_snapshot_job_result_request() :: %{}
-
+      
   """
   @type describe_dashboard_snapshot_job_result_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       negative_value_configuration() :: %{
         "DisplayMode" => list(any())
       }
-
+      
   """
   @type negative_value_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_control_layout() :: %{
         "Configuration" => sheet_control_layout_configuration()
       }
-
+      
   """
   @type sheet_control_layout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_theme_alias_response() :: %{
         "AliasName" => String.t(),
         "Arn" => String.t(),
@@ -8857,14 +8857,14 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "ThemeId" => String.t()
       }
-
+      
   """
   @type delete_theme_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       iam_policy_assignment() :: %{
         "AssignmentId" => String.t(),
         "AssignmentName" => String.t(),
@@ -8873,39 +8873,39 @@ defmodule AWS.QuickSight do
         "Identities" => map(),
         "PolicyArn" => String.t()
       }
-
+      
   """
   @type iam_policy_assignment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_filter_drop_down_control_options() :: %{
         "DisplayOptions" => drop_down_control_display_options(),
         "SelectableValues" => filter_selectable_values(),
         "Type" => list(any())
       }
-
+      
   """
   @type default_filter_drop_down_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_account_subscription_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_account_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_side_border_options() :: %{
         "Bottom" => table_border_options(),
         "InnerHorizontal" => table_border_options(),
@@ -8914,54 +8914,54 @@ defmodule AWS.QuickSight do
         "Right" => table_border_options(),
         "Top" => table_border_options()
       }
-
+      
   """
   @type table_side_border_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_field_wells() :: %{
         "TargetValues" => list(measure_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type gauge_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_details() :: %{
         "DataSets" => list(dataset_metadata()()),
         "Description" => String.t(),
         "Name" => String.t(),
         "UserExperienceVersion" => list(any())
       }
-
+      
   """
   @type topic_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_parameter() :: %{
         "DateTimeDatasetParameter" => date_time_dataset_parameter(),
         "DecimalDatasetParameter" => decimal_dataset_parameter(),
         "IntegerDatasetParameter" => integer_dataset_parameter(),
         "StringDatasetParameter" => string_dataset_parameter()
       }
-
+      
   """
   @type dataset_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_vpc_connection_response() :: %{
         "Arn" => String.t(),
         "AvailabilityStatus" => list(any()),
@@ -8970,25 +8970,25 @@ defmodule AWS.QuickSight do
         "UpdateStatus" => list(any()),
         "VPCConnectionId" => String.t()
       }
-
+      
   """
   @type update_vpc_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ad_hoc_filtering_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type ad_hoc_filtering_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_account_subscription_request() :: %{
         optional("ActiveDirectoryName") => String.t(),
         optional("AdminGroup") => list(String.t()()),
@@ -9009,26 +9009,26 @@ defmodule AWS.QuickSight do
         required("AuthenticationMethod") => list(any()),
         required("NotificationEmail") => String.t()
       }
-
+      
   """
   @type create_account_subscription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_column_operation() :: %{
         "ColumnName" => String.t(),
         "Tags" => list(column_tag()())
       }
-
+      
   """
   @type tag_column_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bar_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()()),
@@ -9037,14 +9037,14 @@ defmodule AWS.QuickSight do
         "SmallMultiplesLimitConfiguration" => items_limit_configuration(),
         "SmallMultiplesSort" => list(field_sort_options()())
       }
-
+      
   """
   @type bar_chart_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_drop_down_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "DisplayOptions" => drop_down_control_display_options(),
@@ -9054,14 +9054,14 @@ defmodule AWS.QuickSight do
         "Title" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type filter_drop_down_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pie_chart_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => pie_chart_configuration(),
@@ -9070,14 +9070,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type pie_chart_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       refresh_schedule() :: %{
         "Arn" => String.t(),
         "RefreshType" => list(any()),
@@ -9085,78 +9085,78 @@ defmodule AWS.QuickSight do
         "ScheduleId" => String.t(),
         "StartAfterDateTime" => non_neg_integer()
       }
-
+      
   """
   @type refresh_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_folders_response() :: %{
         "FolderSummaryList" => list(folder_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_folders_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_aggregated_field_wells() :: %{
         "GroupBy" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type table_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dashboard_response() :: %{
         "Arn" => String.t(),
         "DashboardId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_dashboard_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_now_parameters() :: %{
         "SiteBaseUrl" => String.t()
       }
-
+      
   """
   @type service_now_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_alias_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateAlias" => template_alias()
       }
-
+      
   """
   @type update_template_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_parameter_value_configuration() :: %{
         "CustomValuesConfiguration" => custom_values_configuration(),
         "SelectAllValueOptions" => list(any()),
@@ -9164,63 +9164,63 @@ defmodule AWS.QuickSight do
         "SourceField" => String.t(),
         "SourceParameterName" => String.t()
       }
-
+      
   """
   @type destination_parameter_value_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rds_parameters() :: %{
         "Database" => String.t(),
         "InstanceId" => String.t()
       }
-
+      
   """
   @type rds_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_folders_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_folders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       thousand_separator_options() :: %{
         "Symbol" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type thousand_separator_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aurora_postgre_sql_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type aurora_postgre_sql_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -9229,66 +9229,66 @@ defmodule AWS.QuickSight do
         "TemplateId" => String.t(),
         "VersionArn" => String.t()
       }
-
+      
   """
   @type update_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_separator_configuration() :: %{
         "DecimalSeparator" => list(any()),
         "ThousandsSeparator" => thousand_separator_options()
       }
-
+      
   """
   @type numeric_separator_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_icon() :: %{
         "CustomCondition" => conditional_formatting_custom_icon_condition(),
         "IconSet" => conditional_formatting_icon_set()
       }
-
+      
   """
   @type conditional_formatting_icon() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_list_configuration() :: %{
         "CategoryValues" => list(String.t()()),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
         "SelectAllOptions" => list(any())
       }
-
+      
   """
   @type filter_list_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_declaration() :: %{
         "DateTimeParameterDeclaration" => date_time_parameter_declaration(),
         "DecimalParameterDeclaration" => decimal_parameter_declaration(),
         "IntegerParameterDeclaration" => integer_parameter_declaration(),
         "StringParameterDeclaration" => string_parameter_declaration()
       }
-
+      
   """
   @type parameter_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_content_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => custom_content_configuration(),
@@ -9297,127 +9297,127 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type custom_content_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_chart_aggregated_field_wells() :: %{
         "Breakdowns" => list(dimension_field()()),
         "Categories" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type waterfall_chart_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vpc_connection_request() :: %{}
-
+      
   """
   @type describe_vpc_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_data_set_request() :: %{}
-
+      
   """
   @type delete_data_set_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sankey_diagram_field_wells() :: %{
         "SankeyDiagramAggregatedFieldWells" => sankey_diagram_aggregated_field_wells()
       }
-
+      
   """
   @type sankey_diagram_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_warning() :: %{
         "Arn" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_warning() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       range_constant() :: %{
         "Maximum" => String.t(),
         "Minimum" => String.t()
       }
-
+      
   """
   @type range_constant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_row_conditional_formatting() :: %{
         "BackgroundColor" => conditional_formatting_color(),
         "TextColor" => conditional_formatting_color()
       }
-
+      
   """
   @type table_row_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_equality_drill_down_filter() :: %{
         "Column" => column_identifier(),
         "Value" => float()
       }
-
+      
   """
   @type numeric_equality_drill_down_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_destination_configuration() :: %{
         "S3Destinations" => list(snapshot_s3_destination_configuration()())
       }
-
+      
   """
   @type snapshot_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_singular_filter_constant() :: %{
         "ConstantType" => list(any()),
         "SingularConstant" => String.t()
       }
-
+      
   """
   @type topic_singular_filter_constant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis() :: %{
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
@@ -9430,73 +9430,73 @@ defmodule AWS.QuickSight do
         "Status" => list(any()),
         "ThemeArn" => String.t()
       }
-
+      
   """
   @type analysis() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_section_based_layout_configuration() :: %{
         "CanvasSizeOptions" => section_based_layout_canvas_size_options()
       }
-
+      
   """
   @type default_section_based_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_default_values() :: %{
         "DateTimeStaticValues" => list(non_neg_integer()()),
         "DecimalStaticValues" => list(float()()),
         "IntegerStaticValues" => list(float()()),
         "StringStaticValues" => list(String.t()())
       }
-
+      
   """
   @type new_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_sort_configuration() :: %{
         "TrendGroupSort" => list(field_sort_options()())
       }
-
+      
   """
   @type k_p_i_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_lifetime_in_minutes_invalid_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type session_lifetime_in_minutes_invalid_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_heatmap_color_scale() :: %{
         "Colors" => list(geospatial_heatmap_data_color()())
       }
-
+      
   """
   @type geospatial_heatmap_color_scale() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       theme_version_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -9504,14 +9504,14 @@ defmodule AWS.QuickSight do
         "Status" => list(any()),
         "VersionNumber" => float()
       }
-
+      
   """
   @type theme_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_data_source_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -9519,52 +9519,52 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_data_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_wells() :: %{
         "TableAggregatedFieldWells" => table_aggregated_field_wells(),
         "TableUnaggregatedFieldWells" => table_unaggregated_field_wells()
       }
-
+      
   """
   @type table_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_sort_clause() :: %{
         "Operand" => quicksight_identifier(),
         "SortDirection" => list(any())
       }
-
+      
   """
   @type topic_sort_clause() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       theme_configuration() :: %{
         "DataColorPalette" => data_color_palette(),
         "Sheet" => sheet_style(),
         "Typography" => typography(),
         "UIColorPalette" => ui_color_palette()
       }
-
+      
   """
   @type theme_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       combo_chart_configuration() :: %{
         "BarDataLabels" => data_label_options(),
         "BarsArrangement" => list(any()),
@@ -9585,62 +9585,62 @@ defmodule AWS.QuickSight do
         "Tooltip" => tooltip_options(),
         "VisualPalette" => visual_palette()
       }
-
+      
   """
   @type combo_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_bundle_export_job_request() :: %{}
-
+      
   """
   @type describe_asset_bundle_export_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "User" => user()
       }
-
+      
   """
   @type describe_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_role_memberships_response() :: %{
         "MembersList" => list(String.t()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_role_memberships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_date_range_filter() :: %{
         "Constant" => topic_range_filter_constant(),
         "Inclusive" => boolean()
       }
-
+      
   """
   @type topic_date_range_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       funnel_chart_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => funnel_chart_configuration(),
@@ -9649,14 +9649,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type funnel_chart_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dashboard_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -9665,89 +9665,89 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "VersionArn" => String.t()
       }
-
+      
   """
   @type create_dashboard_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_analyses_response() :: %{
         "AnalysisSummaryList" => list(analysis_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_analyses_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tooltip_item() :: %{
         "ColumnTooltipItem" => column_tooltip_item(),
         "FieldTooltipItem" => field_tooltip_item()
       }
-
+      
   """
   @type tooltip_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_data_source_override_properties() :: %{
         "Arn" => String.t(),
         "Properties" => list(list(any())())
       }
-
+      
   """
   @type asset_bundle_export_job_data_source_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_custom_text_content() :: %{
         "FontConfiguration" => font_configuration(),
         "Value" => String.t()
       }
-
+      
   """
   @type table_field_custom_text_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_format_configuration() :: %{
         "NullValueFormatConfiguration" => null_value_format_configuration(),
         "NumericFormatConfiguration" => numeric_format_configuration()
       }
-
+      
   """
   @type string_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregation_sort_configuration() :: %{
         "AggregationFunction" => aggregation_function(),
         "Column" => column_identifier(),
         "SortDirection" => list(any())
       }
-
+      
   """
   @type aggregation_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => line_chart_configuration(),
@@ -9756,51 +9756,51 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type line_chart_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_cross_sheet_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "FilterControlId" => String.t(),
         "SourceFilterId" => String.t()
       }
-
+      
   """
   @type filter_cross_sheet_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       row_alternate_color_options() :: %{
         "RowAlternateColors" => list(String.t()()),
         "Status" => list(any()),
         "UsePrimaryBackgroundColor" => list(any())
       }
-
+      
   """
   @type row_alternate_color_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_dataset_parameter_default_values() :: %{
         "StaticValues" => list(float()())
       }
-
+      
   """
   @type integer_dataset_parameter_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_theme_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -9809,14 +9809,14 @@ defmodule AWS.QuickSight do
         "ThemeId" => String.t(),
         "VersionArn" => String.t()
       }
-
+      
   """
   @type update_theme_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_topic_reviewed_answer() :: %{
         "AnswerId" => String.t(),
         "DatasetArn" => String.t(),
@@ -9825,14 +9825,14 @@ defmodule AWS.QuickSight do
         "Question" => String.t(),
         "Template" => topic_template()
       }
-
+      
   """
   @type create_topic_reviewed_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_topic_response() :: %{
         "Arn" => String.t(),
         "RefreshArn" => String.t(),
@@ -9840,37 +9840,37 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type update_topic_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_conditional_formatting_option() :: %{
         "Arc" => gauge_chart_arc_conditional_formatting(),
         "PrimaryValue" => gauge_chart_primary_value_conditional_formatting()
       }
-
+      
   """
   @type gauge_chart_conditional_formatting_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_generative_qn_a_embedding_configuration() :: %{
         "InitialTopicId" => String.t()
       }
-
+      
   """
   @type registered_user_generative_qn_a_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_tooltip_item() :: %{
         "Aggregation" => aggregation_function(),
         "Column" => column_identifier(),
@@ -9878,14 +9878,14 @@ defmodule AWS.QuickSight do
         "TooltipTarget" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type column_tooltip_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_source_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -9894,107 +9894,107 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type data_source_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anonymous_user_snapshot_job_result() :: %{
         "FileGroups" => list(snapshot_job_result_file_group()())
       }
-
+      
   """
   @type anonymous_user_snapshot_job_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dashboard_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_dashboard_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_identity_propagation_config_request() :: %{}
-
+      
   """
   @type delete_identity_propagation_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cast_column_type_operation() :: %{
         "ColumnName" => String.t(),
         "Format" => String.t(),
         "NewColumnType" => list(any()),
         "SubType" => list(any())
       }
-
+      
   """
   @type cast_column_type_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_action_url_operation() :: %{
         "URLTarget" => list(any()),
         "URLTemplate" => String.t()
       }
-
+      
   """
   @type custom_action_url_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       selected_sheets_filter_scope_configuration() :: %{
         "SheetVisualScopingConfigurations" => list(sheet_visual_scoping_configuration()())
       }
-
+      
   """
   @type selected_sheets_filter_scope_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_topic_reviewed_answer_request() :: %{
         required("Answers") => list(create_topic_reviewed_answer()())
       }
-
+      
   """
   @type batch_create_topic_reviewed_answer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_filter_list_control_options() :: %{
         "DisplayOptions" => list_control_display_options(),
         "SelectableValues" => filter_selectable_values(),
         "Type" => list(any())
       }
-
+      
   """
   @type default_filter_list_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_set_permissions_response() :: %{
         "DataSetArn" => String.t(),
         "DataSetId" => String.t(),
@@ -10002,50 +10002,50 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_data_set_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_cell_image_sizing_configuration() :: %{
         "TableCellImageScalingConfiguration" => list(any())
       }
-
+      
   """
   @type table_cell_image_sizing_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_numeric_range_filter() :: %{
         "Aggregation" => list(any()),
         "Constant" => topic_range_filter_constant(),
         "Inclusive" => boolean()
       }
-
+      
   """
   @type topic_numeric_range_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_source() :: %{
         "Body" => binary(),
         "S3Uri" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_map_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => geospatial_map_configuration(),
@@ -10054,25 +10054,25 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type geospatial_map_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_console_feature_configurations() :: %{
         "StatePersistence" => state_persistence_configurations()
       }
-
+      
   """
   @type registered_user_console_feature_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_i_r() :: %{
         "ContributionAnalysis" => topic_i_r_contribution_analysis(),
         "Filters" => list(list(topic_i_r_filter_option()())()),
@@ -10081,171 +10081,171 @@ defmodule AWS.QuickSight do
         "Sort" => topic_sort_clause(),
         "Visual" => visual_options()
       }
-
+      
   """
   @type topic_i_r() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_job_result_file_group() :: %{
         "Files" => list(snapshot_file()()),
         "S3Results" => list(snapshot_job_s3_result()())
       }
-
+      
   """
   @type snapshot_job_result_file_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_dashboard_links_response() :: %{
         "DashboardArn" => String.t(),
         "LinkEntities" => list(String.t()()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_dashboard_links_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_source_entity() :: %{
         "SourceAnalysis" => template_source_analysis(),
         "SourceTemplate" => template_source_template()
       }
-
+      
   """
   @type template_source_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_public_sharing_settings_request() :: %{
         optional("PublicSharingEnabled") => boolean()
       }
-
+      
   """
   @type update_public_sharing_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_account_subscription_response() :: %{
         "RequestId" => String.t(),
         "SignupResponse" => signup_response(),
         "Status" => integer()
       }
-
+      
   """
   @type create_account_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       collective_constant_entry() :: %{
         "ConstantType" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type collective_constant_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       spacing() :: %{
         "Bottom" => String.t(),
         "Left" => String.t(),
         "Right" => String.t(),
         "Top" => String.t()
       }
-
+      
   """
   @type spacing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_exists_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type resource_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_user_configuration() :: %{
         "AnonymousUsers" => list(snapshot_anonymous_user()())
       }
-
+      
   """
   @type snapshot_user_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_theme_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_theme_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       donut_center_options() :: %{
         "LabelVisibility" => list(any())
       }
-
+      
   """
   @type donut_center_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_topic_refresh_schedules_request() :: %{}
-
+      
   """
   @type list_topic_refresh_schedules_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_group_membership_response() :: %{
         "GroupMember" => group_member(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_group_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_label_options() :: %{
         "CategoryLabelVisibility" => list(any()),
         "DataLabelTypes" => list(data_label_type()()),
@@ -10258,78 +10258,78 @@ defmodule AWS.QuickSight do
         "TotalsVisibility" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type data_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_configuration() :: %{
         "ColorsConfiguration" => colors_configuration(),
         "Column" => column_identifier(),
         "FormatConfiguration" => format_configuration(),
         "Role" => list(any())
       }
-
+      
   """
   @type column_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       row_level_permission_tag_configuration() :: %{
         "Status" => list(any()),
         "TagRuleConfigurations" => list(list(String.t()())()),
         "TagRules" => list(row_level_permission_tag_rule()())
       }
-
+      
   """
   @type row_level_permission_tag_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       what_if_point_scenario() :: %{
         "Date" => non_neg_integer(),
         "Value" => float()
       }
-
+      
   """
   @type what_if_point_scenario() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       exasol_parameters() :: %{
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type exasol_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_theme_alias_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeAlias" => theme_alias()
       }
-
+      
   """
   @type update_theme_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_publish_options() :: %{
         "AdHocFilteringOption" => ad_hoc_filtering_option(),
         "DataPointDrillUpDownOption" => data_point_drill_up_down_option(),
@@ -10343,149 +10343,149 @@ defmodule AWS.QuickSight do
         "VisualMenuOption" => visual_menu_option(),
         "VisualPublishOptions" => dashboard_visual_publish_options()
       }
-
+      
   """
   @type dashboard_publish_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_aliases_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_template_aliases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bar_chart_field_wells() :: %{
         "BarChartAggregatedFieldWells" => bar_chart_aggregated_field_wells()
       }
-
+      
   """
   @type bar_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_folder_membership_request() :: %{}
-
+      
   """
   @type delete_folder_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_role_membership_request() :: %{}
-
+      
   """
   @type delete_role_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_dashboard_override_parameters() :: %{
         "DashboardId" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_dashboard_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_alias_request() :: %{}
-
+      
   """
   @type delete_template_alias_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       explicit_hierarchy() :: %{
         "Columns" => list(column_identifier()()),
         "DrillDownFilters" => list(drill_down_filter()()),
         "HierarchyId" => String.t()
       }
-
+      
   """
   @type explicit_hierarchy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_membership_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_group_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       exclude_period_configuration() :: %{
         "Amount" => integer(),
         "Granularity" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type exclude_period_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       maximum_label_type() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type maximum_label_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_embedding_experience_configuration() :: %{
         "Dashboard" => registered_user_dashboard_embedding_configuration(),
         "DashboardVisual" => registered_user_dashboard_visual_embedding_configuration(),
@@ -10493,101 +10493,101 @@ defmodule AWS.QuickSight do
         "QSearchBar" => registered_user_q_search_bar_embedding_configuration(),
         "QuickSightConsole" => registered_user_quick_sight_console_embedding_configuration()
       }
-
+      
   """
   @type registered_user_embedding_experience_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       categorical_dimension_field() :: %{
         "Column" => column_identifier(),
         "FieldId" => String.t(),
         "FormatConfiguration" => string_format_configuration(),
         "HierarchyId" => String.t()
       }
-
+      
   """
   @type categorical_dimension_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_analysis_override_properties() :: %{
         "Arn" => String.t(),
         "Properties" => list(list(any())())
       }
-
+      
   """
   @type asset_bundle_export_job_analysis_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_pinned_field_options() :: %{
         "PinnedLeftFields" => list(String.t()())
       }
-
+      
   """
   @type table_pinned_field_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter_selectable_values() :: %{
         "LinkToDataSetColumn" => column_identifier(),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type parameter_selectable_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line_dynamic_data_configuration() :: %{
         "Calculation" => numerical_aggregation_function(),
         "Column" => column_identifier(),
         "MeasureAggregationFunction" => aggregation_function()
       }
-
+      
   """
   @type reference_line_dynamic_data_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_ingestion_response() :: %{
         "Ingestion" => ingestion(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_ingestion_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_date_time_picker_control_options() :: %{
         "DisplayOptions" => date_time_picker_control_display_options(),
         "Type" => list(any())
       }
-
+      
   """
   @type default_date_time_picker_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_equality_filter() :: %{
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
@@ -10597,51 +10597,51 @@ defmodule AWS.QuickSight do
         "TimeGranularity" => list(any()),
         "Value" => non_neg_integer()
       }
-
+      
   """
   @type time_equality_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecast_scenario() :: %{
         "WhatIfPointScenario" => what_if_point_scenario(),
         "WhatIfRangeScenario" => what_if_range_scenario()
       }
-
+      
   """
   @type forecast_scenario() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_conditional_formatting_option() :: %{
         "Cell" => table_cell_conditional_formatting(),
         "Row" => table_row_conditional_formatting()
       }
-
+      
   """
   @type table_conditional_formatting_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_relative_date_filter() :: %{
         "Constant" => topic_singular_filter_constant(),
         "RelativeDateFilterFunction" => list(any()),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type topic_relative_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_asset_bundle_import_job_response() :: %{
         "Arn" => String.t(),
         "AssetBundleImportJobId" => String.t(),
@@ -10660,25 +10660,25 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "Warnings" => list(asset_bundle_import_job_warning()())
       }
-
+      
   """
   @type describe_asset_bundle_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_folder_request() :: %{
         required("Name") => String.t()
       }
-
+      
   """
   @type update_folder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => filled_map_configuration(),
@@ -10688,14 +10688,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type filled_map_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_configuration() :: %{
         "FieldOptions" => table_field_options(),
         "FieldWells" => table_field_wells(),
@@ -10706,37 +10706,37 @@ defmodule AWS.QuickSight do
         "TableOptions" => table_options(),
         "TotalOptions" => total_options()
       }
-
+      
   """
   @type table_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contribution_analysis_default() :: %{
         "ContributorDimensions" => list(column_identifier()()),
         "MeasureFieldId" => String.t()
       }
-
+      
   """
   @type contribution_analysis_default() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       word_cloud_field_wells() :: %{
         "WordCloudAggregatedFieldWells" => word_cloud_aggregated_field_wells()
       }
-
+      
   """
   @type word_cloud_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gauge_chart_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => gauge_chart_configuration(),
@@ -10745,38 +10745,38 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type gauge_chart_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_value_when_unset_configuration() :: %{
         "CustomValue" => non_neg_integer(),
         "ValueWhenUnsetOption" => list(any())
       }
-
+      
   """
   @type date_time_value_when_unset_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       percent_visible_range() :: %{
         "From" => float(),
         "To" => float()
       }
-
+      
   """
   @type percent_visible_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_vpc_connection_override_parameters() :: %{
         "DnsResolvers" => list(String.t()()),
         "Name" => String.t(),
@@ -10785,14 +10785,14 @@ defmodule AWS.QuickSight do
         "SubnetIds" => list(String.t()()),
         "VPCConnectionId" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_vpc_connection_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       histogram_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => histogram_configuration(),
@@ -10800,39 +10800,39 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type histogram_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gradient_stop() :: %{
         "Color" => String.t(),
         "DataValue" => float(),
         "GradientOffset" => float()
       }
-
+      
   """
   @type gradient_stop() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type tag_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       box_plot_chart_configuration() :: %{
         "BoxPlotOptions" => box_plot_options(),
         "CategoryAxis" => axis_display_options(),
@@ -10847,14 +10847,14 @@ defmodule AWS.QuickSight do
         "Tooltip" => tooltip_options(),
         "VisualPalette" => visual_palette()
       }
-
+      
   """
   @type box_plot_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -10864,27 +10864,27 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "PublishedVersionNumber" => float()
       }
-
+      
   """
   @type dashboard_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_format_configuration() :: %{
         "DateTimeFormat" => String.t(),
         "NullValueFormatConfiguration" => null_value_format_configuration(),
         "NumericFormatConfiguration" => numeric_format_configuration()
       }
-
+      
   """
   @type date_time_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_alias_response() :: %{
         "AliasName" => String.t(),
         "Arn" => String.t(),
@@ -10892,90 +10892,90 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type delete_template_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       short_format_text() :: %{
         "PlainText" => String.t(),
         "RichText" => String.t()
       }
-
+      
   """
   @type short_format_text() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tree_map_aggregated_field_wells() :: %{
         "Colors" => list(measure_field()()),
         "Groups" => list(dimension_field()()),
         "Sizes" => list(measure_field()())
       }
-
+      
   """
   @type tree_map_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       big_query_parameters() :: %{
         "DataSetRegion" => String.t(),
         "ProjectId" => String.t()
       }
-
+      
   """
   @type big_query_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_dashboard_snapshot_job_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "SnapshotJobId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type start_dashboard_snapshot_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_series_item() :: %{
         "AxisBinding" => list(any()),
         "FieldId" => String.t(),
         "Settings" => line_chart_series_settings()
       }
-
+      
   """
   @type field_series_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_title_label_options() :: %{
         "FormatText" => short_format_text(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type visual_title_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_slider_control_options() :: %{
         "DisplayOptions" => slider_control_display_options(),
         "MaximumValue" => float(),
@@ -10983,48 +10983,48 @@ defmodule AWS.QuickSight do
         "StepSize" => float(),
         "Type" => list(any())
       }
-
+      
   """
   @type default_slider_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       join_key_properties() :: %{
         "UniqueKey" => boolean()
       }
-
+      
   """
   @type join_key_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_permissions_request() :: %{}
-
+      
   """
   @type describe_dashboard_permissions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_theme_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeId" => String.t()
       }
-
+      
   """
   @type delete_theme_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       theme_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -11033,14 +11033,14 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "ThemeId" => String.t()
       }
-
+      
   """
   @type theme_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_column() :: %{
         "Aggregation" => list(any()),
         "AllowedAggregations" => list(list(any())()),
@@ -11060,125 +11060,125 @@ defmodule AWS.QuickSight do
         "SemanticType" => semantic_type(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type topic_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_options() :: %{
         "Timezone" => String.t(),
         "WeekStart" => list(any())
       }
-
+      
   """
   @type asset_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       presto_parameters() :: %{
         "Catalog" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type presto_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_sort_by() :: %{
         "Column" => column_sort(),
         "DataPath" => data_path_sort(),
         "Field" => field_sort()
       }
-
+      
   """
   @type pivot_table_sort_by() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_request() :: %{}
-
+      
   """
   @type describe_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       period_over_period_computation() :: %{
         "ComputationId" => String.t(),
         "Name" => String.t(),
         "Time" => dimension_field(),
         "Value" => measure_field()
       }
-
+      
   """
   @type period_over_period_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       chart_axis_label_options() :: %{
         "AxisLabelOptions" => list(axis_label_options()()),
         "SortIconVisibility" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type chart_axis_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_options() :: %{
         "type" => String.t()
       }
-
+      
   """
   @type visual_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_set_permissions_response() :: %{
         "DataSetArn" => String.t(),
         "DataSetId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_data_set_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_topic_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_topic_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => waterfall_chart_configuration(),
@@ -11187,25 +11187,25 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type waterfall_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_element_configuration_overrides() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type sheet_element_configuration_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_settings() :: %{
         "AccountName" => String.t(),
         "DefaultNamespace" => String.t(),
@@ -11214,14 +11214,14 @@ defmodule AWS.QuickSight do
         "PublicSharingEnabled" => boolean(),
         "TerminationProtectionEnabled" => boolean()
       }
-
+      
   """
   @type account_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       number_display_format_configuration() :: %{
         "DecimalPlacesConfiguration" => decimal_places_configuration(),
         "NegativeValueConfiguration" => negative_value_configuration(),
@@ -11231,65 +11231,65 @@ defmodule AWS.QuickSight do
         "SeparatorConfiguration" => numeric_separator_configuration(),
         "Suffix" => String.t()
       }
-
+      
   """
   @type number_display_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       failed_key_registration_entry() :: %{
         "KeyArn" => String.t(),
         "Message" => String.t(),
         "SenderFault" => boolean(),
         "StatusCode" => integer()
       }
-
+      
   """
   @type failed_key_registration_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculated_measure_field() :: %{
         "Expression" => String.t(),
         "FieldId" => String.t()
       }
-
+      
   """
   @type calculated_measure_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       category_filter() :: %{
         "Column" => column_identifier(),
         "Configuration" => category_filter_configuration(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
         "FilterId" => String.t()
       }
-
+      
   """
   @type category_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connection_properties() :: %{
         "VpcConnectionArn" => String.t()
       }
-
+      
   """
   @type vpc_connection_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       percentage_display_format_configuration() :: %{
         "DecimalPlacesConfiguration" => decimal_places_configuration(),
         "NegativeValueConfiguration" => negative_value_configuration(),
@@ -11298,14 +11298,14 @@ defmodule AWS.QuickSight do
         "SeparatorConfiguration" => numeric_separator_configuration(),
         "Suffix" => String.t()
       }
-
+      
   """
   @type percentage_display_format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_namespace_response() :: %{
         "Arn" => String.t(),
         "CapacityRegion" => String.t(),
@@ -11315,14 +11315,14 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_request() :: %{
         optional("CustomFederationProviderUrl") => String.t(),
         optional("CustomPermissionsName") => String.t(),
@@ -11332,14 +11332,14 @@ defmodule AWS.QuickSight do
         required("Email") => String.t(),
         required("Role") => list(any())
       }
-
+      
   """
   @type update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_i_r_group_by() :: %{
         "DisplayFormat" => list(any()),
         "DisplayFormatOptions" => display_format_options(),
@@ -11348,66 +11348,66 @@ defmodule AWS.QuickSight do
         "Sort" => topic_sort_clause(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type topic_i_r_group_by() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_role_membership_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_role_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_control_info_icon_label_options() :: %{
         "InfoIconText" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type sheet_control_info_icon_label_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateSummaryList" => list(template_summary()())
       }
-
+      
   """
   @type list_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_source_permissions_response() :: %{
         "DataSourceArn" => String.t(),
         "DataSourceId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_data_source_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_analysis_response() :: %{
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
@@ -11415,75 +11415,75 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_analysis_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_bucket_configuration() :: %{
         "BucketName" => String.t(),
         "BucketPrefix" => String.t(),
         "BucketRegion" => String.t()
       }
-
+      
   """
   @type s3_bucket_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       credential_pair() :: %{
         "AlternateDataSourceParameters" => list(list()()),
         "Password" => String.t(),
         "Username" => String.t()
       }
-
+      
   """
   @type credential_pair() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_group_schema() :: %{
         "ColumnGroupColumnSchemaList" => list(column_group_column_schema()()),
         "Name" => String.t()
       }
-
+      
   """
   @type column_group_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amazon_open_search_parameters() :: %{
         "Domain" => String.t()
       }
-
+      
   """
   @type amazon_open_search_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet() :: %{
         "Name" => String.t(),
         "SheetId" => String.t()
       }
-
+      
   """
   @type sheet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       heat_map_configuration() :: %{
         "ColorScale" => color_scale(),
         "ColumnLabelOptions" => chart_axis_label_options(),
@@ -11495,216 +11495,216 @@ defmodule AWS.QuickSight do
         "SortConfiguration" => heat_map_sort_configuration(),
         "Tooltip" => tooltip_options()
       }
-
+      
   """
   @type heat_map_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       group_search_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type group_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decimal_parameter() :: %{
         "Name" => String.t(),
         "Values" => list(float()())
       }
-
+      
   """
   @type decimal_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       categorical_measure_field() :: %{
         "AggregationFunction" => list(any()),
         "Column" => column_identifier(),
         "FieldId" => String.t(),
         "FormatConfiguration" => string_format_configuration()
       }
-
+      
   """
   @type categorical_measure_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gradient_color() :: %{
         "Stops" => list(gradient_stop()())
       }
-
+      
   """
   @type gradient_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_summary() :: %{
         "Arn" => String.t(),
         "Name" => String.t(),
         "TopicId" => String.t(),
         "UserExperienceVersion" => list(any())
       }
-
+      
   """
   @type topic_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_folder_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_folder_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_session_embed_url_request() :: %{
         optional("EntryPoint") => String.t(),
         optional("SessionLifetimeInMinutes") => float(),
         optional("UserArn") => String.t()
       }
-
+      
   """
   @type get_session_embed_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_user_configuration_redacted() :: %{
         "AnonymousUsers" => list(snapshot_anonymous_user_redacted()())
       }
-
+      
   """
   @type snapshot_user_configuration_redacted() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       border_style() :: %{
         "Show" => boolean()
       }
-
+      
   """
   @type border_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logical_table_source() :: %{
         "DataSetArn" => String.t(),
         "JoinInstruction" => join_instruction(),
         "PhysicalTableId" => String.t()
       }
-
+      
   """
   @type logical_table_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_refresh_request() :: %{}
-
+      
   """
   @type describe_topic_refresh_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sankey_diagram_aggregated_field_wells() :: %{
         "Destination" => list(dimension_field()()),
         "Source" => list(dimension_field()()),
         "Weight" => list(measure_field()())
       }
-
+      
   """
   @type sankey_diagram_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_membership_request() :: %{}
-
+      
   """
   @type delete_group_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_data_path_option() :: %{
         "DataPathList" => list(data_path_value()()),
         "Width" => String.t()
       }
-
+      
   """
   @type pivot_table_data_path_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       identity_center_configuration() :: %{
         "EnableIdentityPropagation" => boolean()
       }
-
+      
   """
   @type identity_center_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_iam_policy_assignment_response() :: %{
         "IAMPolicyAssignment" => iam_policy_assignment(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_iam_policy_assignment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_options() :: %{
         "CellStyle" => table_cell_style(),
         "CollapsedRowDimensionsVisibility" => list(any()),
@@ -11720,26 +11720,26 @@ defmodule AWS.QuickSight do
         "SingleMetricVisibility" => list(any()),
         "ToggleButtonsVisibility" => list(any())
       }
-
+      
   """
   @type pivot_table_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       successful_key_registration_entry() :: %{
         "KeyArn" => String.t(),
         "StatusCode" => integer()
       }
-
+      
   """
   @type successful_key_registration_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_topic_refresh_schedule_response() :: %{
         "DatasetArn" => String.t(),
         "RequestId" => String.t(),
@@ -11747,84 +11747,84 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type delete_topic_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_url_configuration() :: %{
         "ImageConfiguration" => table_field_image_configuration(),
         "LinkConfiguration" => table_field_link_configuration()
       }
-
+      
   """
   @type table_field_url_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       collective_constant() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type collective_constant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       section_layout_configuration() :: %{
         "FreeFormLayout" => free_form_section_layout_configuration()
       }
-
+      
   """
   @type section_layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_conditional_formatting() :: %{
         "ConditionalFormattingOptions" => list(k_p_i_conditional_formatting_option()())
       }
-
+      
   """
   @type k_p_i_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_alias_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateAlias" => template_alias()
       }
-
+      
   """
   @type describe_template_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sheet_style() :: %{
         "Tile" => tile_style(),
         "TileLayout" => tile_layout_style()
       }
-
+      
   """
   @type sheet_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_source_request() :: %{
         optional("Credentials") => data_source_credentials(),
         optional("DataSourceParameters") => list(),
@@ -11832,26 +11832,26 @@ defmodule AWS.QuickSight do
         optional("VpcConnectionProperties") => vpc_connection_properties(),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_data_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_s_p_i_c_e_capacity_configuration_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_s_p_i_c_e_capacity_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_range_filter() :: %{
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
@@ -11864,14 +11864,14 @@ defmodule AWS.QuickSight do
         "RangeMinimumValue" => time_range_filter_value(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type time_range_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_refresh_schedule_response() :: %{
         "DatasetArn" => String.t(),
         "RefreshSchedule" => topic_refresh_schedule(),
@@ -11880,51 +11880,51 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type describe_topic_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ingestion_response() :: %{
         "Arn" => String.t(),
         "IngestionId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type cancel_ingestion_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_control_search_options() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type list_control_search_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_theme_aliases_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_theme_aliases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_cell_style() :: %{
         "BackgroundColor" => String.t(),
         "Border" => global_table_border_options(),
@@ -11935,129 +11935,129 @@ defmodule AWS.QuickSight do
         "VerticalTextAlignment" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type table_cell_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_namespaces_response() :: %{
         "Namespaces" => list(namespace_info_v2()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_namespaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_color() :: %{
         "Color" => String.t(),
         "DataValue" => float()
       }
-
+      
   """
   @type data_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       font_weight() :: %{
         "Name" => list(any())
       }
-
+      
   """
   @type font_weight() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
         "GroupName" => String.t(),
         "PrincipalId" => String.t()
       }
-
+      
   """
   @type group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_topic_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type delete_topic_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_source_template() :: %{
         "Arn" => String.t(),
         "DataSetReferences" => list(data_set_reference()())
       }
-
+      
   """
   @type dashboard_source_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_folder_members_response() :: %{
         "FolderMemberList" => list(member_id_arn_pair()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_folder_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       word_cloud_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()())
       }
-
+      
   """
   @type word_cloud_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user() :: %{
         "Active" => boolean(),
         "Arn" => String.t(),
@@ -12071,137 +12071,137 @@ defmodule AWS.QuickSight do
         "Role" => list(any()),
         "UserName" => String.t()
       }
-
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       arc_axis_configuration() :: %{
         "Range" => arc_axis_display_range(),
         "ReserveRange" => integer()
       }
-
+      
   """
   @type arc_axis_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_job_result_error_info() :: %{
         "ErrorMessage" => String.t(),
         "ErrorType" => String.t()
       }
-
+      
   """
   @type snapshot_job_result_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_group_request() :: %{}
-
+      
   """
   @type describe_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_user_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_user_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       radar_chart_area_style_settings() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type radar_chart_area_style_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_folder_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_folder_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       databricks_parameters() :: %{
         "Host" => String.t(),
         "Port" => integer(),
         "SqlEndpointPath" => String.t()
       }
-
+      
   """
   @type databricks_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sankey_diagram_sort_configuration() :: %{
         "DestinationItemsLimit" => items_limit_configuration(),
         "SourceItemsLimit" => items_limit_configuration(),
         "WeightSort" => list(field_sort_options()())
       }
-
+      
   """
   @type sankey_diagram_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_settings_response() :: %{
         "AccountSettings" => account_settings(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_account_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_ip_restriction_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpRestrictionRuleMap") => map(),
         optional("VpcEndpointIdRestrictionRuleMap") => map(),
         optional("VpcIdRestrictionRuleMap") => map()
       }
-
+      
   """
   @type update_ip_restriction_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       folder() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -12212,48 +12212,48 @@ defmodule AWS.QuickSight do
         "Name" => String.t(),
         "SharingModel" => list(any())
       }
-
+      
   """
   @type folder() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_scope_configuration() :: %{
         "AllSheets" => all_sheets_filter_scope_configuration(),
         "SelectedSheets" => selected_sheets_filter_scope_configuration()
       }
-
+      
   """
   @type filter_scope_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_namespace_request() :: %{}
-
+      
   """
   @type delete_namespace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_map_aggregated_field_wells() :: %{
         "Colors" => list(dimension_field()()),
         "Geospatial" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type geospatial_map_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dashboard_request() :: %{
         optional("DashboardPublishOptions") => dashboard_publish_options(),
         optional("Definition") => dashboard_version_definition(),
@@ -12269,26 +12269,26 @@ defmodule AWS.QuickSight do
         optional("VersionDescription") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       iam_policy_assignment_summary() :: %{
         "AssignmentName" => String.t(),
         "AssignmentStatus" => list(any())
       }
-
+      
   """
   @type iam_policy_assignment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_custom_action() :: %{
         "ActionOperations" => list(visual_custom_action_operation()()),
         "CustomActionId" => String.t(),
@@ -12296,177 +12296,177 @@ defmodule AWS.QuickSight do
         "Status" => list(any()),
         "Trigger" => list(any())
       }
-
+      
   """
   @type visual_custom_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual_custom_action_operation() :: %{
         "FilterOperation" => custom_action_filter_operation(),
         "NavigationOperation" => custom_action_navigation_operation(),
         "SetParametersOperation" => custom_action_set_parameters_operation(),
         "URLOperation" => custom_action_url_operation()
       }
-
+      
   """
   @type visual_custom_action_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       measure_field() :: %{
         "CalculatedMeasureField" => calculated_measure_field(),
         "CategoricalMeasureField" => categorical_measure_field(),
         "DateMeasureField" => date_measure_field(),
         "NumericalMeasureField" => numerical_measure_field()
       }
-
+      
   """
   @type measure_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decimal_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
         "StaticValues" => list(float()())
       }
-
+      
   """
   @type decimal_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_refresh_schedules_response() :: %{
         "RefreshSchedules" => list(refresh_schedule()()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_refresh_schedules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_group_request() :: %{}
-
+      
   """
   @type delete_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_control_select_all_options() :: %{
         "Visibility" => list(any())
       }
-
+      
   """
   @type list_control_select_all_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numerical_dimension_field() :: %{
         "Column" => column_identifier(),
         "FieldId" => String.t(),
         "FormatConfiguration" => number_format_configuration(),
         "HierarchyId" => String.t()
       }
-
+      
   """
   @type numerical_dimension_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_analysis_response() :: %{
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type restore_analysis_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       twitter_parameters() :: %{
         "MaxRows" => integer(),
         "Query" => String.t()
       }
-
+      
   """
   @type twitter_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_usage_configuration() :: %{
         "DisableUseAsDirectQuerySource" => boolean(),
         "DisableUseAsImportedSource" => boolean()
       }
-
+      
   """
   @type data_set_usage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_dashboard_override_permissions() :: %{
         "DashboardIds" => list(String.t()()),
         "LinkSharingConfiguration" => asset_bundle_resource_link_sharing_configuration(),
         "Permissions" => asset_bundle_resource_permissions()
       }
-
+      
   """
   @type asset_bundle_import_job_dashboard_override_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       heat_map_sort_configuration() :: %{
         "HeatMapColumnItemsLimitConfiguration" => items_limit_configuration(),
         "HeatMapColumnSort" => list(field_sort_options()()),
         "HeatMapRowItemsLimitConfiguration" => items_limit_configuration(),
         "HeatMapRowSort" => list(field_sort_options()())
       }
-
+      
   """
   @type heat_map_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_style_target() :: %{
         "CellType" => list(any())
       }
-
+      
   """
   @type table_style_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_equality_filter() :: %{
         "AggregationFunction" => aggregation_function(),
         "Column" => column_identifier(),
@@ -12478,37 +12478,37 @@ defmodule AWS.QuickSight do
         "SelectAllOptions" => list(any()),
         "Value" => float()
       }
-
+      
   """
   @type numeric_equality_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       funnel_chart_field_wells() :: %{
         "FunnelChartAggregatedFieldWells" => funnel_chart_aggregated_field_wells()
       }
-
+      
   """
   @type funnel_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       spark_parameters() :: %{
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type spark_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_analysis_permissions_response() :: %{
         "AnalysisArn" => String.t(),
         "AnalysisId" => String.t(),
@@ -12516,52 +12516,52 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_analysis_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       theme_error() :: %{
         "Message" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type theme_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_line_style_settings() :: %{
         "LineInterpolation" => list(any()),
         "LineStyle" => list(any()),
         "LineVisibility" => list(any()),
         "LineWidth" => String.t()
       }
-
+      
   """
   @type line_chart_line_style_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line_style_configuration() :: %{
         "Color" => String.t(),
         "Pattern" => list(any())
       }
-
+      
   """
   @type reference_line_style_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_dimension_field() :: %{
         "Column" => column_identifier(),
         "DateGranularity" => list(any()),
@@ -12569,14 +12569,14 @@ defmodule AWS.QuickSight do
         "FormatConfiguration" => date_time_format_configuration(),
         "HierarchyId" => String.t()
       }
-
+      
   """
   @type date_dimension_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_account_customization_response() :: %{
         "AccountCustomization" => account_customization(),
         "Arn" => String.t(),
@@ -12585,26 +12585,26 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_account_customization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type session_tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pie_chart_configuration() :: %{
         "CategoryLabelOptions" => chart_axis_label_options(),
         "ContributionAnalysisDefaults" => list(contribution_analysis_default()()),
@@ -12619,86 +12619,86 @@ defmodule AWS.QuickSight do
         "ValueLabelOptions" => chart_axis_label_options(),
         "VisualPalette" => visual_palette()
       }
-
+      
   """
   @type pie_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_embed_url_for_anonymous_user_response() :: %{
         "AnonymousUserArn" => String.t(),
         "EmbedUrl" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type generate_embed_url_for_anonymous_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_theme_override_tags() :: %{
         "Tags" => list(tag()()),
         "ThemeIds" => list(String.t()())
       }
-
+      
   """
   @type asset_bundle_import_job_theme_override_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_dashboards_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Filters") => list(dashboard_search_filter()())
       }
-
+      
   """
   @type search_dashboards_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       all_sheets_filter_scope_configuration() :: %{}
-
+      
   """
   @type all_sheets_filter_scope_configuration() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_set_override_permissions() :: %{
         "DataSetIds" => list(String.t()()),
         "Permissions" => asset_bundle_resource_permissions()
       }
-
+      
   """
   @type asset_bundle_import_job_data_set_override_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vpc_connection_response() :: %{
         "Arn" => String.t(),
         "AvailabilityStatus" => list(any()),
@@ -12707,51 +12707,51 @@ defmodule AWS.QuickSight do
         "Status" => integer(),
         "VPCConnectionId" => String.t()
       }
-
+      
   """
   @type delete_vpc_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bin_width_options() :: %{
         "BinCountLimit" => float(),
         "Value" => float()
       }
-
+      
   """
   @type bin_width_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pagination_configuration() :: %{
         "PageNumber" => float(),
         "PageSize" => float()
       }
-
+      
   """
   @type pagination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_vpc_connection_request() :: %{
         optional("DnsResolvers") => list(String.t()()),
         required("Name") => String.t(),
@@ -12759,14 +12759,14 @@ defmodule AWS.QuickSight do
         required("SecurityGroupIds") => list(String.t()()),
         required("SubnetIds") => list(String.t()())
       }
-
+      
   """
   @type update_vpc_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scatter_plot_configuration() :: %{
         "DataLabels" => data_label_options(),
         "FieldWells" => scatter_plot_field_wells(),
@@ -12780,85 +12780,85 @@ defmodule AWS.QuickSight do
         "YAxisDisplayOptions" => axis_display_options(),
         "YAxisLabelOptions" => chart_axis_label_options()
       }
-
+      
   """
   @type scatter_plot_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_conditional_formatting() :: %{
         "ConditionalFormattingOptions" => list(table_conditional_formatting_option()())
       }
-
+      
   """
   @type table_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_folder_response() :: %{
         "Folder" => folder(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_folder_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_account_customization_request() :: %{
         optional("Namespace") => String.t(),
         optional("Tags") => list(tag()()),
         required("AccountCustomization") => account_customization()
       }
-
+      
   """
   @type create_account_customization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_map_field_wells() :: %{
         "GeospatialMapAggregatedFieldWells" => geospatial_map_aggregated_field_wells()
       }
-
+      
   """
   @type geospatial_map_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cascading_control_source() :: %{
         "ColumnToMatch" => column_identifier(),
         "SourceSheetControlId" => String.t()
       }
-
+      
   """
   @type cascading_control_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       single_axis_options() :: %{
         "YAxisOptions" => y_axis_options()
       }
-
+      
   """
   @type single_axis_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_connection_summary() :: %{
         "Arn" => String.t(),
         "AvailabilityStatus" => list(any()),
@@ -12873,47 +12873,47 @@ defmodule AWS.QuickSight do
         "VPCConnectionId" => String.t(),
         "VPCId" => String.t()
       }
-
+      
   """
   @type vpc_connection_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_aggregated_field_wells() :: %{
         "Columns" => list(dimension_field()()),
         "Rows" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type pivot_table_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       local_navigation_configuration() :: %{
         "TargetSheetId" => String.t()
       }
-
+      
   """
   @type local_navigation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_analysis_permissions_request() :: %{}
-
+      
   """
   @type describe_analysis_permissions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_summary() :: %{
         "Arn" => String.t(),
         "AssetBundleExportJobId" => String.t(),
@@ -12924,144 +12924,144 @@ defmodule AWS.QuickSight do
         "IncludeTags" => boolean(),
         "JobStatus" => list(any())
       }
-
+      
   """
   @type asset_bundle_export_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_topic_refresh_schedule_request() :: %{}
-
+      
   """
   @type describe_topic_refresh_schedule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       margin_style() :: %{
         "Show" => boolean()
       }
-
+      
   """
   @type margin_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_dashboard_override_properties() :: %{
         "Arn" => String.t(),
         "Properties" => list(list(any())())
       }
-
+      
   """
   @type asset_bundle_export_job_dashboard_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_ingestion_request() :: %{}
-
+      
   """
   @type describe_ingestion_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       default_text_field_control_options() :: %{
         "DisplayOptions" => text_field_control_display_options()
       }
-
+      
   """
   @type default_text_field_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anonymous_user_embedding_experience_configuration() :: %{
         "Dashboard" => anonymous_user_dashboard_embedding_configuration(),
         "DashboardVisual" => anonymous_user_dashboard_visual_embedding_configuration(),
         "GenerativeQnA" => anonymous_user_generative_qn_a_embedding_configuration(),
         "QSearchBar" => anonymous_user_q_search_bar_embedding_configuration()
       }
-
+      
   """
   @type anonymous_user_embedding_experience_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       y_axis_options() :: %{
         "YAxis" => list(any())
       }
-
+      
   """
   @type y_axis_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_topic_refresh_schedule_request() :: %{
         optional("DatasetName") => String.t(),
         required("DatasetArn") => String.t(),
         required("RefreshSchedule") => topic_refresh_schedule()
       }
-
+      
   """
   @type create_topic_refresh_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_schema() :: %{
         "DataType" => String.t(),
         "GeographicRole" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type column_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_ip_restriction_response() :: %{
         "AwsAccountId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_ip_restriction_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_sparkline_options() :: %{
         "Color" => String.t(),
         "TooltipVisibility" => list(any()),
         "Type" => list(any()),
         "Visibility" => list(any())
       }
-
+      
   """
   @type k_p_i_sparkline_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_theme_permissions_response() :: %{
         "Permissions" => list(resource_permission()()),
         "RequestId" => String.t(),
@@ -13069,126 +13069,126 @@ defmodule AWS.QuickSight do
         "ThemeArn" => String.t(),
         "ThemeId" => String.t()
       }
-
+      
   """
   @type update_theme_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_chart_sort_configuration() :: %{
         "BreakdownItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()())
       }
-
+      
   """
   @type waterfall_chart_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
         "RollingDate" => rolling_date_configuration(),
         "StaticValues" => list(non_neg_integer()())
       }
-
+      
   """
   @type date_time_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_schema() :: %{
         "ColumnSchemaList" => list(column_schema()())
       }
-
+      
   """
   @type data_set_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_field_image_configuration() :: %{
         "SizingOptions" => table_cell_image_sizing_configuration()
       }
-
+      
   """
   @type table_field_image_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_refresh_schedule_summary() :: %{
         "DatasetArn" => String.t(),
         "DatasetId" => String.t(),
         "DatasetName" => String.t(),
         "RefreshSchedule" => topic_refresh_schedule()
       }
-
+      
   """
   @type topic_refresh_schedule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_set_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_data_set_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_color() :: %{
         "Color" => String.t(),
         "FieldValue" => String.t(),
         "SpecialValue" => list(any())
       }
-
+      
   """
   @type custom_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregation_function() :: %{
         "AttributeAggregationFunction" => attribute_aggregation_function(),
         "CategoricalAggregationFunction" => list(any()),
         "DateAggregationFunction" => list(any()),
         "NumericalAggregationFunction" => numerical_aggregation_function()
       }
-
+      
   """
   @type aggregation_function() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dashboard_request() :: %{
         optional("AliasName") => String.t(),
         optional("VersionNumber") => float()
       }
-
+      
   """
   @type describe_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       total_options() :: %{
         "CustomLabel" => String.t(),
         "Placement" => list(any()),
@@ -13197,53 +13197,53 @@ defmodule AWS.QuickSight do
         "TotalCellStyle" => table_cell_style(),
         "TotalsVisibility" => list(any())
       }
-
+      
   """
   @type total_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_dashboards_response() :: %{
         "DashboardSummaryList" => list(dashboard_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type search_dashboards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       identity_type_not_supported_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type identity_type_not_supported_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       box_plot_options() :: %{
         "AllDataPointsVisibility" => list(any()),
         "OutlierVisibility" => list(any()),
         "StyleOptions" => box_plot_style_options()
       }
-
+      
   """
   @type box_plot_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -13252,27 +13252,27 @@ defmodule AWS.QuickSight do
         "TemplateId" => String.t(),
         "VersionArn" => String.t()
       }
-
+      
   """
   @type create_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_group_response() :: %{
         "Group" => group(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       funnel_chart_configuration() :: %{
         "CategoryLabelOptions" => chart_axis_label_options(),
         "DataLabelOptions" => funnel_chart_data_label_options(),
@@ -13283,14 +13283,14 @@ defmodule AWS.QuickSight do
         "ValueLabelOptions" => chart_axis_label_options(),
         "VisualPalette" => visual_palette()
       }
-
+      
   """
   @type funnel_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visual() :: %{
         "BarChartVisual" => bar_chart_visual(),
         "BoxPlotVisual" => box_plot_visual(),
@@ -13316,115 +13316,115 @@ defmodule AWS.QuickSight do
         "WaterfallVisual" => waterfall_visual(),
         "WordCloudVisual" => word_cloud_visual()
       }
-
+      
   """
   @type visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_permission() :: %{
         "Actions" => list(String.t()()),
         "Principal" => String.t()
       }
-
+      
   """
   @type resource_permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registered_user_quick_sight_console_embedding_configuration() :: %{
         "FeatureConfigurations" => registered_user_console_feature_configurations(),
         "InitialPath" => String.t()
       }
-
+      
   """
   @type registered_user_quick_sight_console_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_response() :: %{
         "Arn" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type delete_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_options() :: %{
         "CellStyle" => table_cell_style(),
         "HeaderStyle" => table_cell_style(),
         "Orientation" => list(any()),
         "RowAlternateColorOptions" => row_alternate_color_options()
       }
-
+      
   """
   @type table_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redshift_iam_parameters() :: %{
         "AutoCreateDatabaseUser" => boolean(),
         "DatabaseGroups" => list(String.t()()),
         "DatabaseUser" => String.t(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type redshift_iam_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_warning() :: %{
         "Arn" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type asset_bundle_export_job_warning() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_folder_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_folder_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       typography() :: %{
         "FontFamilies" => list(font()())
       }
-
+      
   """
   @type typography() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -13433,111 +13433,111 @@ defmodule AWS.QuickSight do
         "TemplateId" => String.t(),
         "Version" => template_version()
       }
-
+      
   """
   @type template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_aggregated_field_wells() :: %{
         "Geospatial" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type filled_map_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dashboard_source_entity() :: %{
         "SourceTemplate" => dashboard_source_template()
       }
-
+      
   """
   @type dashboard_source_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_ip_restriction_request() :: %{}
-
+      
   """
   @type describe_ip_restriction_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       table_cell_conditional_formatting() :: %{
         "FieldId" => String.t(),
         "TextFormat" => text_conditional_format()
       }
-
+      
   """
   @type table_cell_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       histogram_bin_options() :: %{
         "BinCount" => bin_count_options(),
         "BinWidth" => bin_width_options(),
         "SelectedBinType" => list(any()),
         "StartValue" => float()
       }
-
+      
   """
   @type histogram_bin_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trino_parameters() :: %{
         "Catalog" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type trino_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_membership_response() :: %{
         "GroupMember" => group_member(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_group_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_data_set_response() :: %{
         "DataSet" => data_set(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_data_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_override_permissions() :: %{
         "Analyses" => list(asset_bundle_import_job_analysis_override_permissions()()),
         "Dashboards" => list(asset_bundle_import_job_dashboard_override_permissions()()),
@@ -13545,142 +13545,142 @@ defmodule AWS.QuickSight do
         "DataSources" => list(asset_bundle_import_job_data_source_override_permissions()()),
         "Themes" => list(asset_bundle_import_job_theme_override_permissions()())
       }
-
+      
   """
   @type asset_bundle_import_job_override_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_hierarchy() :: %{
         "DateTimeHierarchy" => date_time_hierarchy(),
         "ExplicitHierarchy" => explicit_hierarchy(),
         "PredefinedHierarchy" => predefined_hierarchy()
       }
-
+      
   """
   @type column_hierarchy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simple_cluster_marker() :: %{
         "Color" => String.t()
       }
-
+      
   """
   @type simple_cluster_marker() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       font_size() :: %{
         "Relative" => list(any())
       }
-
+      
   """
   @type font_size() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_chart_field_wells() :: %{
         "WaterfallChartAggregatedFieldWells" => waterfall_chart_aggregated_field_wells()
       }
-
+      
   """
   @type waterfall_chart_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculated_field() :: %{
         "DataSetIdentifier" => String.t(),
         "Expression" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type calculated_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_with_hidden_fields_option() :: %{
         "AvailabilityStatus" => list(any())
       }
-
+      
   """
   @type export_with_hidden_fields_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decimal_dataset_parameter_default_values() :: %{
         "StaticValues" => list(float()())
       }
-
+      
   """
   @type decimal_dataset_parameter_default_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incremental_refresh() :: %{
         "LookbackWindow" => lookback_window()
       }
-
+      
   """
   @type incremental_refresh() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_paginated_report_options() :: %{
         "OverflowColumnHeaderVisibility" => list(any()),
         "VerticalOverflowVisibility" => list(any())
       }
-
+      
   """
   @type pivot_table_paginated_report_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_iprimary_value_conditional_formatting() :: %{
         "Icon" => conditional_formatting_icon(),
         "TextColor" => conditional_formatting_color()
       }
-
+      
   """
   @type k_p_iprimary_value_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_range_filter_constant() :: %{
         "ConstantType" => list(any()),
         "RangeConstant" => range_constant()
       }
-
+      
   """
   @type topic_range_filter_constant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_source() :: %{
         "AlternateDataSourceParameters" => list(list()()),
         "Arn" => String.t(),
@@ -13696,67 +13696,67 @@ defmodule AWS.QuickSight do
         "Type" => list(any()),
         "VpcConnectionProperties" => vpc_connection_properties()
       }
-
+      
   """
   @type data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_groups_response() :: %{
         "GroupList" => list(group()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type search_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculated_column() :: %{
         "ColumnId" => String.t(),
         "ColumnName" => String.t(),
         "Expression" => String.t()
       }
-
+      
   """
   @type calculated_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dimension_field() :: %{
         "CategoricalDimensionField" => categorical_dimension_field(),
         "DateDimensionField" => date_dimension_field(),
         "NumericalDimensionField" => numerical_dimension_field()
       }
-
+      
   """
   @type dimension_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       waterfall_chart_group_color_configuration() :: %{
         "NegativeBarColor" => String.t(),
         "PositiveBarColor" => String.t(),
         "TotalBarColor" => String.t()
       }
-
+      
   """
   @type waterfall_chart_group_color_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_parameter_declaration() :: %{
         "DefaultValues" => string_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
@@ -13764,40 +13764,40 @@ defmodule AWS.QuickSight do
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => string_value_when_unset_configuration()
       }
-
+      
   """
   @type string_parameter_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_set_reference() :: %{
         "DataSetArn" => String.t(),
         "DataSetPlaceholder" => String.t()
       }
-
+      
   """
   @type data_set_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_group_memberships_response() :: %{
         "GroupMemberList" => list(group_member()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_group_memberships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       combo_chart_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => combo_chart_configuration(),
@@ -13806,104 +13806,104 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type combo_chart_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       comparison_configuration() :: %{
         "ComparisonFormat" => comparison_format_configuration(),
         "ComparisonMethod" => list(any())
       }
-
+      
   """
   @type comparison_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_axis_options() :: %{
         "Range" => axis_display_range(),
         "Scale" => axis_scale()
       }
-
+      
   """
   @type numeric_axis_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecast_configuration() :: %{
         "ForecastProperties" => time_based_forecast_properties(),
         "Scenario" => forecast_scenario()
       }
-
+      
   """
   @type forecast_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_folder_membership_response() :: %{
         "FolderMember" => folder_member(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_folder_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sql_server_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type sql_server_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_groups_response() :: %{
         "GroupList" => list(group()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_asset_bundle_export_job_response() :: %{
         "Arn" => String.t(),
         "AssetBundleExportJobId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type start_asset_bundle_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_text_area_control() :: %{
         "Delimiter" => String.t(),
         "DisplayOptions" => text_area_control_display_options(),
@@ -13911,61 +13911,61 @@ defmodule AWS.QuickSight do
         "SourceFilterId" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type filter_text_area_control() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_solid_color() :: %{
         "Color" => String.t(),
         "Expression" => String.t()
       }
-
+      
   """
   @type conditional_formatting_solid_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_anonymous_user() :: %{
         "RowLevelPermissionTags" => list(session_tag()())
       }
-
+      
   """
   @type snapshot_anonymous_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rolling_date_configuration() :: %{
         "DataSetIdentifier" => String.t(),
         "Expression" => String.t()
       }
-
+      
   """
   @type rolling_date_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_formatting_gradient_color() :: %{
         "Color" => gradient_color(),
         "Expression" => String.t()
       }
-
+      
   """
   @type conditional_formatting_gradient_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ui_color_palette() :: %{
         "Accent" => String.t(),
         "AccentForeground" => String.t(),
@@ -13984,170 +13984,170 @@ defmodule AWS.QuickSight do
         "Warning" => String.t(),
         "WarningForeground" => String.t()
       }
-
+      
   """
   @type ui_color_palette() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       manifest_file_location() :: %{
         "Bucket" => String.t(),
         "Key" => String.t()
       }
-
+      
   """
   @type manifest_file_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       relative_date_time_control_display_options() :: %{
         "DateTimeFormat" => String.t(),
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "TitleOptions" => label_options()
       }
-
+      
   """
   @type relative_date_time_control_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_by_principal_id_request() :: %{}
-
+      
   """
   @type delete_user_by_principal_id_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_file() :: %{
         "FormatType" => list(any()),
         "SheetSelections" => list(snapshot_file_sheet_selection()())
       }
-
+      
   """
   @type snapshot_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       color_scale() :: %{
         "ColorFillType" => list(any()),
         "Colors" => list(data_color()()),
         "NullValueColor" => data_color()
       }
-
+      
   """
   @type color_scale() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_source_credentials() :: %{
         "CredentialPair" => asset_bundle_import_job_data_source_credential_pair(),
         "SecretArn" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_data_source_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       same_sheet_target_visual_configuration() :: %{
         "TargetVisualOptions" => list(any()),
         "TargetVisuals" => list(String.t()())
       }
-
+      
   """
   @type same_sheet_target_visual_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_by_principal_id_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_user_by_principal_id_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_conditional_formatting() :: %{
         "ConditionalFormattingOptions" => list(pivot_table_conditional_formatting_option()())
       }
-
+      
   """
   @type pivot_table_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_field_series_item() :: %{
         "AxisBinding" => list(any()),
         "FieldId" => String.t(),
         "FieldValue" => String.t(),
         "Settings" => line_chart_series_settings()
       }
-
+      
   """
   @type data_field_series_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_narrative_options() :: %{
         "Narrative" => String.t()
       }
-
+      
   """
   @type custom_narrative_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_iam_policy_assignment_response() :: %{
         "AssignmentName" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_iam_policy_assignment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_job_error_info() :: %{
         "ErrorMessage" => String.t(),
         "ErrorType" => String.t()
       }
-
+      
   """
   @type snapshot_job_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_folder_request() :: %{
         optional("FolderType") => list(any()),
         optional("Name") => String.t(),
@@ -14156,65 +14156,65 @@ defmodule AWS.QuickSight do
         optional("SharingModel") => list(any()),
         optional("Tags") => list(tag()())
       }
-
+      
   """
   @type create_folder_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_themes_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeSummaryList" => list(theme_summary()())
       }
-
+      
   """
   @type list_themes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_theme_versions_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeVersionSummaryList" => list(theme_version_summary()())
       }
-
+      
   """
   @type list_theme_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_time_hierarchy() :: %{
         "DrillDownFilters" => list(drill_down_filter()()),
         "HierarchyId" => String.t()
       }
-
+      
   """
   @type date_time_hierarchy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_override_validation_strategy() :: %{
         "StrictModeForAllResources" => boolean()
       }
-
+      
   """
   @type asset_bundle_import_job_override_validation_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       body_section_configuration() :: %{
         "Content" => body_section_content(),
         "PageBreakConfiguration" => section_page_break_configuration(),
@@ -14222,73 +14222,73 @@ defmodule AWS.QuickSight do
         "SectionId" => String.t(),
         "Style" => section_style()
       }
-
+      
   """
   @type body_section_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dashboards_response() :: %{
         "DashboardSummaryList" => list(dashboard_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_dashboards_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_field_subtotal_options() :: %{
         "FieldId" => String.t()
       }
-
+      
   """
   @type pivot_table_field_subtotal_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_export_job_validation_strategy() :: %{
         "StrictModeForAllResources" => boolean()
       }
-
+      
   """
   @type asset_bundle_export_job_validation_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregation_partition_by() :: %{
         "FieldName" => String.t(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type aggregation_partition_by() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analysis_defaults() :: %{
         "DefaultNewSheetConfiguration" => default_new_sheet_configuration()
       }
-
+      
   """
   @type analysis_defaults() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_topic_refresh_schedule_response() :: %{
         "DatasetArn" => String.t(),
         "RequestId" => String.t(),
@@ -14296,14 +14296,14 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type create_topic_refresh_schedule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       small_multiples_options() :: %{
         "MaxVisibleColumns" => float(),
         "MaxVisibleRows" => float(),
@@ -14311,38 +14311,38 @@ defmodule AWS.QuickSight do
         "XAxis" => small_multiples_axis_properties(),
         "YAxis" => small_multiples_axis_properties()
       }
-
+      
   """
   @type small_multiples_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line_value_label_configuration() :: %{
         "FormatConfiguration" => numeric_format_configuration(),
         "RelativePosition" => list(any())
       }
-
+      
   """
   @type reference_line_value_label_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_folder_resolved_permissions_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
@@ -14351,116 +14351,116 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_folder_resolved_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line() :: %{
         "DataConfiguration" => reference_line_data_configuration(),
         "LabelConfiguration" => reference_line_label_configuration(),
         "Status" => list(any()),
         "StyleConfiguration" => reference_line_style_configuration()
       }
-
+      
   """
   @type reference_line() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       body_section_dynamic_category_dimension_configuration() :: %{
         "Column" => column_identifier(),
         "Limit" => integer(),
         "SortByMetrics" => list(column_sort()())
       }
-
+      
   """
   @type body_section_dynamic_category_dimension_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       section_page_break_configuration() :: %{
         "After" => section_after_page_break()
       }
-
+      
   """
   @type section_page_break_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       snapshot_job_s3_result() :: %{
         "ErrorInfo" => list(snapshot_job_result_error_info()()),
         "S3DestinationConfiguration" => snapshot_s3_destination_configuration(),
         "S3Uri" => String.t()
       }
-
+      
   """
   @type snapshot_job_s3_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       precondition_not_met_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type precondition_not_met_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sankey_diagram_chart_configuration() :: %{
         "DataLabels" => data_label_options(),
         "FieldWells" => sankey_diagram_field_wells(),
         "Interactions" => visual_interaction_options(),
         "SortConfiguration" => sankey_diagram_sort_configuration()
       }
-
+      
   """
   @type sankey_diagram_chart_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_data_set_response() :: %{
         "Arn" => String.t(),
         "DataSetId" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_data_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_operation_target_visuals_configuration() :: %{
         "SameSheetTargetVisualConfiguration" => same_sheet_target_visual_configuration()
       }
-
+      
   """
   @type filter_operation_target_visuals_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_topic_reviewed_answer_response() :: %{
         "InvalidAnswers" => list(invalid_topic_reviewed_answer()()),
         "RequestId" => String.t(),
@@ -14469,40 +14469,40 @@ defmodule AWS.QuickSight do
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
-
+      
   """
   @type batch_delete_topic_reviewed_answer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_form_layout_element_background_style() :: %{
         "Color" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type free_form_layout_element_background_style() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       output_column() :: %{
         "Description" => String.t(),
         "Name" => String.t(),
         "SubType" => list(any()),
         "Type" => list(any())
       }
-
+      
   """
   @type output_column() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insight_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "DataSetIdentifier" => String.t(),
@@ -14511,27 +14511,27 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type insight_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       drop_down_control_display_options() :: %{
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "SelectAllOptions" => list_control_select_all_options(),
         "TitleOptions" => label_options()
       }
-
+      
   """
   @type drop_down_control_display_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_configuration() :: %{
         "FieldOptions" => pivot_table_field_options(),
         "FieldWells" => pivot_table_field_wells(),
@@ -14541,14 +14541,14 @@ defmodule AWS.QuickSight do
         "TableOptions" => pivot_table_options(),
         "TotalOptions" => pivot_table_total_options()
       }
-
+      
   """
   @type pivot_table_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_user_request() :: %{
         optional("CustomFederationProviderUrl") => String.t(),
         optional("CustomPermissionsName") => String.t(),
@@ -14562,25 +14562,25 @@ defmodule AWS.QuickSight do
         required("IdentityType") => list(any()),
         required("UserRole") => list(any())
       }
-
+      
   """
   @type register_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_refresh_schedule_request() :: %{
         required("Schedule") => refresh_schedule()
       }
-
+      
   """
   @type create_refresh_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_override_parameters() :: %{
         "Analyses" => list(asset_bundle_import_job_analysis_override_parameters()()),
         "Dashboards" => list(asset_bundle_import_job_dashboard_override_parameters()()),
@@ -14591,50 +14591,50 @@ defmodule AWS.QuickSight do
         "Themes" => list(asset_bundle_import_job_theme_override_parameters()()),
         "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_parameters()())
       }
-
+      
   """
   @type asset_bundle_import_job_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_source_error_info() :: %{
         "Message" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type data_source_error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_action_set_parameters_operation() :: %{
         "ParameterValueConfigurations" => list(set_parameter_value_configuration()())
       }
-
+      
   """
   @type custom_action_set_parameters_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       comparative_order() :: %{
         "SpecifedOrder" => list(String.t()()),
         "TreatUndefinedSpecifiedValues" => list(any()),
         "UseOrdering" => list(any())
       }
-
+      
   """
   @type comparative_order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scatter_plot_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => scatter_plot_configuration(),
@@ -14643,23 +14643,23 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type scatter_plot_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_analysis_definition_request() :: %{}
-
+      
   """
   @type describe_analysis_definition_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       heat_map_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => heat_map_configuration(),
@@ -14668,14 +14668,14 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type heat_map_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decimal_parameter_declaration() :: %{
         "DefaultValues" => decimal_default_values(),
         "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
@@ -14683,14 +14683,14 @@ defmodule AWS.QuickSight do
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => decimal_value_when_unset_configuration()
       }
-
+      
   """
   @type decimal_parameter_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_analysis_request() :: %{
         optional("Definition") => analysis_definition(),
         optional("FolderArns") => list(String.t()()),
@@ -14702,27 +14702,27 @@ defmodule AWS.QuickSight do
         optional("ValidationStrategy") => validation_strategy(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_analysis_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       oracle_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
         "Port" => integer()
       }
-
+      
   """
   @type oracle_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       top_bottom_ranked_computation() :: %{
         "Category" => dimension_field(),
         "ComputationId" => String.t(),
@@ -14731,86 +14731,86 @@ defmodule AWS.QuickSight do
         "Type" => list(any()),
         "Value" => measure_field()
       }
-
+      
   """
   @type top_bottom_ranked_computation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cascading_control_configuration() :: %{
         "SourceControls" => list(cascading_control_source()())
       }
-
+      
   """
   @type cascading_control_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_color_palette() :: %{
         "Colors" => list(String.t()()),
         "EmptyFillColor" => String.t(),
         "MinMaxGradient" => list(String.t()())
       }
-
+      
   """
   @type data_color_palette() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_parameter_values() :: %{
         "DateTimeValues" => list(non_neg_integer()()),
         "DecimalValues" => list(float()()),
         "IntegerValues" => list(float()()),
         "StringValues" => list(String.t()())
       }
-
+      
   """
   @type custom_parameter_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_group_response() :: %{
         "Group" => group(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_iam_policy_assignment_request() :: %{}
-
+      
   """
   @type delete_iam_policy_assignment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_identity_propagation_config_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type delete_identity_propagation_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       free_form_layout_element() :: %{
         "BackgroundStyle" => free_form_layout_element_background_style(),
         "BorderStyle" => free_form_layout_element_border_style(),
@@ -14825,25 +14825,25 @@ defmodule AWS.QuickSight do
         "XAxisLocation" => String.t(),
         "YAxisLocation" => String.t()
       }
-
+      
   """
   @type free_form_layout_element() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filled_map_conditional_formatting() :: %{
         "ConditionalFormattingOptions" => list(filled_map_conditional_formatting_option()())
       }
-
+      
   """
   @type filled_map_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_override_tags() :: %{
         "Analyses" => list(asset_bundle_import_job_analysis_override_tags()()),
         "Dashboards" => list(asset_bundle_import_job_dashboard_override_tags()()),
@@ -14852,14 +14852,14 @@ defmodule AWS.QuickSight do
         "Themes" => list(asset_bundle_import_job_theme_override_tags()()),
         "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_tags()())
       }
-
+      
   """
   @type asset_bundle_import_job_override_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_metadata() :: %{
         "CalculatedFields" => list(topic_calculated_field()()),
         "Columns" => list(topic_column()()),
@@ -14870,26 +14870,26 @@ defmodule AWS.QuickSight do
         "Filters" => list(topic_filter()()),
         "NamedEntities" => list(topic_named_entity()())
       }
-
+      
   """
   @type dataset_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       word_cloud_aggregated_field_wells() :: %{
         "GroupBy" => list(dimension_field()()),
         "Size" => list(measure_field()())
       }
-
+      
   """
   @type word_cloud_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_version_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -14897,40 +14897,40 @@ defmodule AWS.QuickSight do
         "Status" => list(any()),
         "VersionNumber" => float()
       }
-
+      
   """
   @type template_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agg_function() :: %{
         "Aggregation" => list(any()),
         "AggregationFunctionParameters" => map(),
         "Period" => list(any()),
         "PeriodField" => String.t()
       }
-
+      
   """
   @type agg_function() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_role_custom_permission_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_role_custom_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reference_line_label_configuration() :: %{
         "CustomLabelConfiguration" => reference_line_custom_label_configuration(),
         "FontColor" => String.t(),
@@ -14939,25 +14939,25 @@ defmodule AWS.QuickSight do
         "ValueLabelConfiguration" => reference_line_value_label_configuration(),
         "VerticalPosition" => list(any())
       }
-
+      
   """
   @type reference_line_label_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       section_based_layout_canvas_size_options() :: %{
         "PaperCanvasSizeOptions" => section_based_layout_paper_canvas_size_options()
       }
-
+      
   """
   @type section_based_layout_canvas_size_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_calculated_field() :: %{
         "Aggregation" => list(any()),
         "AllowedAggregations" => list(list(any())()),
@@ -14977,88 +14977,88 @@ defmodule AWS.QuickSight do
         "SemanticType" => semantic_type(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type topic_calculated_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_path_value() :: %{
         "DataPathType" => data_path_type(),
         "FieldId" => String.t(),
         "FieldValue" => String.t()
       }
-
+      
   """
   @type data_path_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       succeeded_topic_reviewed_answer() :: %{
         "AnswerId" => String.t()
       }
-
+      
   """
   @type succeeded_topic_reviewed_answer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_template_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
         "Template" => template()
       }
-
+      
   """
   @type describe_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_chart_marker_style_settings() :: %{
         "MarkerColor" => String.t(),
         "MarkerShape" => list(any()),
         "MarkerSize" => String.t(),
         "MarkerVisibility" => list(any())
       }
-
+      
   """
   @type line_chart_marker_style_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_asset_bundle_export_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_asset_bundle_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decimal_places_configuration() :: %{
         "DecimalPlaces" => float()
       }
-
+      
   """
   @type decimal_places_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_set_request() :: %{
         optional("ColumnGroups") => list(column_group()()),
         optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()()),
@@ -15072,117 +15072,117 @@ defmodule AWS.QuickSight do
         required("Name") => String.t(),
         required("PhysicalTableMap") => map()
       }
-
+      
   """
   @type update_data_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_theme_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_theme_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       body_section_content() :: %{
         "Layout" => section_layout_configuration()
       }
-
+      
   """
   @type body_section_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pivot_table_conditional_formatting_scope() :: %{
         "Role" => list(any())
       }
-
+      
   """
   @type pivot_table_conditional_formatting_scope() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_account_customization_request() :: %{
         optional("Namespace") => String.t()
       }
-
+      
   """
   @type delete_account_customization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_group_response() :: %{
         "Group" => group(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type create_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_theme_alias_request() :: %{}
-
+      
   """
   @type describe_theme_alias_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_comparison_value_conditional_formatting() :: %{
         "Icon" => conditional_formatting_icon(),
         "TextColor" => conditional_formatting_color()
       }
-
+      
   """
   @type k_p_i_comparison_value_conditional_formatting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       box_plot_sort_configuration() :: %{
         "CategorySort" => list(field_sort_options()()),
         "PaginationConfiguration" => pagination_configuration()
       }
-
+      
   """
   @type box_plot_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_folder_members_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_folder_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_cloud_formation_override_property_configuration() :: %{
         "Analyses" => list(asset_bundle_export_job_analysis_override_properties()()),
         "Dashboards" => list(asset_bundle_export_job_dashboard_override_properties()()),
@@ -15193,84 +15193,84 @@ defmodule AWS.QuickSight do
         "Themes" => list(asset_bundle_export_job_theme_override_properties()()),
         "VPCConnections" => list(asset_bundle_export_job_vpc_connection_override_properties()())
       }
-
+      
   """
   @type asset_bundle_cloud_formation_override_property_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       box_plot_aggregated_field_wells() :: %{
         "GroupBy" => list(dimension_field()()),
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type box_plot_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       k_p_i_visual_standard_layout() :: %{
         "Type" => list(any())
       }
-
+      
   """
   @type k_p_i_visual_standard_layout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_role_membership_request() :: %{}
-
+      
   """
   @type create_role_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       layout_configuration() :: %{
         "FreeFormLayout" => free_form_layout_configuration(),
         "GridLayout" => grid_layout_configuration(),
         "SectionBasedLayout" => section_based_layout_configuration()
       }
-
+      
   """
   @type layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_path_color() :: %{
         "Color" => String.t(),
         "Element" => data_path_value(),
         "TimeGranularity" => list(any())
       }
-
+      
   """
   @type data_path_color() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_set_override_parameters() :: %{
         "DataSetId" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type asset_bundle_import_job_data_set_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_filter() :: %{
         "CategoryFilter" => topic_category_filter(),
         "DateRangeFilter" => topic_date_range_filter(),
@@ -15284,14 +15284,14 @@ defmodule AWS.QuickSight do
         "OperandFieldName" => String.t(),
         "RelativeDateFilter" => topic_relative_date_filter()
       }
-
+      
   """
   @type topic_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redshift_parameters() :: %{
         "ClusterId" => String.t(),
         "Database" => String.t(),
@@ -15300,172 +15300,172 @@ defmodule AWS.QuickSight do
         "IdentityCenterConfiguration" => identity_center_configuration(),
         "Port" => integer()
       }
-
+      
   """
   @type redshift_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       histogram_aggregated_field_wells() :: %{
         "Values" => list(measure_field()())
       }
-
+      
   """
   @type histogram_aggregated_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_folder_resolved_permissions_request() :: %{
         optional("MaxResults") => integer(),
         optional("Namespace") => String.t(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_folder_resolved_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_public_sharing_settings_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type update_public_sharing_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scatter_plot_field_wells() :: %{
         "ScatterPlotCategoricallyAggregatedFieldWells" => scatter_plot_categorically_aggregated_field_wells(),
         "ScatterPlotUnaggregatedFieldWells" => scatter_plot_unaggregated_field_wells()
       }
-
+      
   """
   @type scatter_plot_field_wells() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_data_source_permissions_request() :: %{
         optional("GrantPermissions") => list(resource_permission()()),
         optional("RevokePermissions") => list(resource_permission()())
       }
-
+      
   """
   @type update_data_source_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       topic_refresh_details() :: %{
         "RefreshArn" => String.t(),
         "RefreshId" => String.t(),
         "RefreshStatus" => list(any())
       }
-
+      
   """
   @type topic_refresh_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anonymous_user_generative_qn_a_embedding_configuration() :: %{
         "InitialTopicId" => String.t()
       }
-
+      
   """
   @type anonymous_user_generative_qn_a_embedding_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_values_configuration() :: %{
         "CustomValues" => custom_parameter_values(),
         "IncludeNullValue" => boolean()
       }
-
+      
   """
   @type custom_values_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       table_sort_configuration() :: %{
         "PaginationConfiguration" => pagination_configuration(),
         "RowSort" => list(field_sort_options()())
       }
-
+      
   """
   @type table_sort_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_parameters() :: %{
         "ManifestFileLocation" => manifest_file_location(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type s3_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_iam_policy_assignments_request() :: %{
         optional("AssignmentStatus") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_iam_policy_assignments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_bundle_import_job_data_source_override_permissions() :: %{
         "DataSourceIds" => list(String.t()()),
         "Permissions" => asset_bundle_resource_permissions()
       }
-
+      
   """
   @type asset_bundle_import_job_data_source_override_permissions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_new_sheet_configuration() :: %{
         "InteractiveLayoutConfiguration" => default_interactive_layout_configuration(),
         "PaginatedLayoutConfiguration" => default_paginated_layout_configuration(),
         "SheetContentType" => list(any())
       }
-
+      
   """
   @type default_new_sheet_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_customization_response() :: %{
         "AccountCustomization" => account_customization(),
         "Arn" => String.t(),
@@ -15474,47 +15474,47 @@ defmodule AWS.QuickSight do
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type describe_account_customization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_topic_request() :: %{}
-
+      
   """
   @type delete_topic_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       default_text_area_control_options() :: %{
         "Delimiter" => String.t(),
         "DisplayOptions" => text_area_control_display_options()
       }
-
+      
   """
   @type default_text_area_control_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_action_filter_operation() :: %{
         "SelectedFieldsConfiguration" => filter_operation_selected_fields_configuration(),
         "TargetVisualsConfiguration" => filter_operation_target_visuals_configuration()
       }
-
+      
   """
   @type custom_action_filter_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       word_cloud_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "ChartConfiguration" => word_cloud_chart_configuration(),
@@ -15523,41 +15523,41 @@ defmodule AWS.QuickSight do
         "Title" => visual_title_label_options(),
         "VisualId" => String.t()
       }
-
+      
   """
   @type word_cloud_visual() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       format_configuration() :: %{
         "DateTimeFormatConfiguration" => date_time_format_configuration(),
         "NumberFormatConfiguration" => number_format_configuration(),
         "StringFormatConfiguration" => string_format_configuration()
       }
-
+      
   """
   @type format_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dashboard_versions_response() :: %{
         "DashboardVersionSummaryList" => list(dashboard_version_summary()()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
       }
-
+      
   """
   @type list_dashboard_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geospatial_map_configuration() :: %{
         "FieldWells" => geospatial_map_field_wells(),
         "Interactions" => visual_interaction_options(),
@@ -15568,21 +15568,21 @@ defmodule AWS.QuickSight do
         "VisualPalette" => visual_palette(),
         "WindowOptions" => geospatial_window_options()
       }
-
+      
   """
   @type geospatial_map_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       section_based_layout_configuration() :: %{
         "BodySections" => list(body_section_configuration()()),
         "CanvasSizeOptions" => section_based_layout_canvas_size_options(),
         "FooterSections" => list(header_footer_section_configuration()()),
         "HeaderSections" => list(header_footer_section_configuration()())
       }
-
+      
   """
   @type section_based_layout_configuration() :: %{String.t() => any()}
 
@@ -17145,50 +17145,53 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    you want to create a reviewed answer in.
+  you want to create a reviewed answer in.
   * `:topic_id` (`t:string`) The ID for the topic reviewed answer that you want to
-    create. This ID is unique per Amazon Web Services Region for each Amazon Web
-    Services account.
+  create. This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
-  @spec batch_create_topic_reviewed_answer(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          batch_create_topic_reviewed_answer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_create_topic_reviewed_answer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_topic_reviewed_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_topic_reviewed_answer_errors()}
+
   def batch_create_topic_reviewed_answer(
         %Client{} = client,
         aws_account_id,
         topic_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/batch-create-reviewed-answers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17198,50 +17201,53 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    you want to delete a reviewed answers in.
+  you want to delete a reviewed answers in.
   * `:topic_id` (`t:string`) The ID for the topic reviewed answer that you want to
-    delete. This ID is unique per Amazon Web Services Region for each Amazon Web
-    Services account.
+  delete. This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
-  @spec batch_delete_topic_reviewed_answer(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          batch_delete_topic_reviewed_answer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_topic_reviewed_answer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_topic_reviewed_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_topic_reviewed_answer_errors()}
+
   def batch_delete_topic_reviewed_answer(
         %Client{} = client,
         aws_account_id,
         topic_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/batch-delete-reviewed-answers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17256,33 +17262,45 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec cancel_ingestion(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          cancel_ingestion_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_ingestion(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_ingestion_errors()}
+
   def cancel_ingestion(
         %Client{} = client,
         aws_account_id,
         data_set_id,
         ingestion_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions/#{AWS.Util.encode_uri(ingestion_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -17291,7 +17309,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -17314,30 +17332,45 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to customize Amazon QuickSight for.
+  you want to customize Amazon QuickSight for.
 
   ## Optional parameters:
   * `:namespace` (`t:string`) The Amazon QuickSight namespace that you want to add
-    customizations to.
+  customizations to.
   """
-  @spec create_account_customization(
-          AWS.Client.t(),
-          String.t(),
-          create_account_customization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_customization_errors()}
-  def create_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def create_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
+
+    # Validate optional parameters
+    optional_params = [namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Namespace", "namespace"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -17347,17 +17380,9 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:namespace])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17369,38 +17394,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-    account that you're using to create your Amazon QuickSight account.
+  account that you're using to create your Amazon QuickSight account.
 
   ## Optional parameters:
   """
-  @spec create_account_subscription(
-          AWS.Client.t(),
-          String.t(),
-          create_account_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_account_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_subscription_errors()}
-  def create_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def create_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17411,43 +17442,47 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID for the analysis that you're creating. This
-    ID displays in the URL of the analysis.
+  ID displays in the URL of the analysis.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-    you are creating an analysis.
+  you are creating an analysis.
 
   ## Optional parameters:
   """
-  @spec create_analysis(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_analysis_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_analysis_errors()}
-  def create_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
+
+  def create_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17460,43 +17495,47 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-    you want to create the dashboard.
+  you want to create the dashboard.
   * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the IAM
-    policy.
+  policy.
 
   ## Optional parameters:
   """
-  @spec create_dashboard(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_dashboard_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dashboard_errors()}
-  def create_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
+
+  def create_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17510,29 +17549,40 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec create_data_set(AWS.Client.t(), String.t(), create_data_set_request(), Keyword.t()) ::
+
+  @spec create_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_set_errors()}
-  def create_data_set(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def create_data_set(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17545,29 +17595,40 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec create_data_source(AWS.Client.t(), String.t(), create_data_source_request(), Keyword.t()) ::
+
+  @spec create_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_source_errors()}
-  def create_data_source(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def create_data_source(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17577,42 +17638,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account
-    where you want to create the folder.
+  where you want to create the folder.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
-  @spec create_folder(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_folder_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_folder_errors()}
-  def create_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
+
+  def create_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17622,46 +17687,64 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
   * `:folder_id` (`t:string`) The ID of the folder.
   * `:member_id` (`t:string`) The ID of the asset that you want to add to the
-    folder.
+  folder.
   * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`) The
-    member type of the asset that you want to add to a folder.
+  member type of the asset that you want to add to a folder.
 
   ## Optional parameters:
   """
+
   @spec create_folder_membership(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          create_folder_membership_request(),
           Keyword.t()
         ) ::
           {:ok, create_folder_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_folder_membership_errors()}
+
   def create_folder_membership(
         %Client{} = client,
         aws_account_id,
         folder_id,
         member_id,
         member_type,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members/#{AWS.Util.encode_uri(member_type)}/#{AWS.Util.encode_uri(member_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17674,38 +17757,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace that you want the group to be a part
-    of.
+  of.
 
   ## Optional parameters:
   """
-  @spec create_group(AWS.Client.t(), String.t(), String.t(), create_group_request(), Keyword.t()) ::
+
+  @spec create_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_errors()}
-  def create_group(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
+
+  def create_group(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17715,48 +17808,66 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:group_name` (`t:string`) The name of the group that you want to add the user
-    to.
+  to.
   * `:member_name` (`t:string`) The name of the user that you want to add to the
-    group membership.
+  group membership.
   * `:namespace` (`t:string`) The namespace that you want the user to be a part
-    of.
+  of.
 
   ## Optional parameters:
   """
+
   @spec create_group_membership(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          create_group_membership_request(),
           Keyword.t()
         ) ::
           {:ok, create_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_group_membership_errors()}
+
   def create_group_membership(
         %Client{} = client,
         aws_account_id,
         group_name,
         member_name,
         namespace,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members/#{AWS.Util.encode_uri(member_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17770,48 +17881,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-    you want to assign an IAM policy to Amazon QuickSight users or groups.
+  you want to assign an IAM policy to Amazon QuickSight users or groups.
   * `:namespace` (`t:string`) The namespace that contains the assignment.
 
   ## Optional parameters:
   """
-  @spec create_iam_policy_assignment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_iam_policy_assignment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_iam_policy_assignment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_iam_policy_assignment_errors()}
-  def create_iam_policy_assignment(
-        %Client{} = client,
-        aws_account_id,
-        namespace,
-        input,
-        options \\ []
-      ) do
+
+  def create_iam_policy_assignment(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17830,35 +17939,47 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec create_ingestion(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          create_ingestion_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_ingestion(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ingestion_errors()}
+
   def create_ingestion(
         %Client{} = client,
         aws_account_id,
         data_set_id,
         ingestion_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions/#{AWS.Util.encode_uri(ingestion_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17869,33 +17990,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to create the Amazon QuickSight namespace in.
+  you want to create the Amazon QuickSight namespace in.
 
   ## Optional parameters:
   """
-  @spec create_namespace(AWS.Client.t(), String.t(), create_namespace_request(), Keyword.t()) ::
+
+  @spec create_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_namespace_errors()}
-  def create_namespace(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def create_namespace(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17910,43 +18042,41 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec create_refresh_schedule(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_refresh_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_refresh_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_refresh_schedule_errors()}
-  def create_refresh_schedule(
-        %Client{} = client,
-        aws_account_id,
-        data_set_id,
-        input,
-        options \\ []
-      ) do
+
+  def create_refresh_schedule(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17957,58 +18087,66 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to create a group in. The Amazon Web Services account ID that you
-    provide must be the same Amazon Web Services account that contains your
-    Amazon QuickSight account.
+  you want to create a group in. The Amazon Web Services account ID that you
+  provide must be the same Amazon Web Services account that contains your
+  Amazon QuickSight account.
   * `:member_name` (`t:string`) The name of the group that you want to add to the
-    role.
+  role.
   * `:namespace` (`t:string`) The namespace that the role belongs to.
   * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-    role that you want to add a group to.
+  role that you want to add a group to.
 
   ## Optional parameters:
   """
+
   @spec create_role_membership(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          create_role_membership_request(),
           Keyword.t()
         ) ::
           {:ok, create_role_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_role_membership_errors()}
+
   def create_role_membership(
         %Client{} = client,
         aws_account_id,
         member_name,
         namespace,
         role,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members/#{AWS.Util.encode_uri(member_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18020,45 +18158,49 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. You use the ID for the Amazon Web Services account that
-    contains your Amazon QuickSight account.
+  the group is in. You use the ID for the Amazon Web Services account that
+  contains your Amazon QuickSight account.
   * `:template_id` (`t:string`) An ID for the template that you want to create.
-    This template is unique per Amazon Web Services Region; in each Amazon Web
-    Services account.
+  This template is unique per Amazon Web Services Region; in each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
-  @spec create_template(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-  def create_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
+
+  def create_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18068,53 +18210,55 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:alias_name` (`t:string`) The name that you want to give to the template
-    alias that you're creating. Don't start the alias name with the $ character.
-    Alias names that start with $ are reserved by Amazon QuickSight.
+  alias that you're creating. Don't start the alias name with the $ character.
+  Alias names that start with $ are reserved by Amazon QuickSight.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template that you creating an alias for.
+  contains the template that you creating an alias for.
   * `:template_id` (`t:string`) An ID for the template.
 
   ## Optional parameters:
   """
-  @spec create_template_alias(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          create_template_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_alias_errors()}
+
   def create_template_alias(
         %Client{} = client,
         alias_name,
         aws_account_id,
         template_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18124,38 +18268,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-    you want to store the new theme.
+  you want to store the new theme.
   * `:theme_id` (`t:string`) An ID for the theme that you want to create. The
-    theme ID is unique per Amazon Web Services Region in each Amazon Web
-    Services account.
+  theme ID is unique per Amazon Web Services Region in each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
-  @spec create_theme(AWS.Client.t(), String.t(), String.t(), create_theme_request(), Keyword.t()) ::
+
+  @spec create_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_theme_errors()}
-  def create_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
+
+  def create_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18165,53 +18319,49 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:alias_name` (`t:string`) The name that you want to give to the theme alias
-    that you are creating. The alias name can't begin with a $. Alias names that
-    start with $ are reserved by Amazon QuickSight.
+  that you are creating. The alias name can't begin with a $. Alias names that
+  start with $ are reserved by Amazon QuickSight.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme for the new theme alias.
+  contains the theme for the new theme alias.
   * `:theme_id` (`t:string`) An ID for the theme alias.
 
   ## Optional parameters:
   """
-  @spec create_theme_alias(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          create_theme_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_theme_alias_errors()}
-  def create_theme_alias(
-        %Client{} = client,
-        alias_name,
-        aws_account_id,
-        theme_id,
-        input,
-        options \\ []
-      ) do
+
+  def create_theme_alias(%Client{} = client, alias_name, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18221,33 +18371,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    you want to create a topic in.
+  you want to create a topic in.
 
   ## Optional parameters:
   """
-  @spec create_topic(AWS.Client.t(), String.t(), create_topic_request(), Keyword.t()) ::
+
+  @spec create_topic(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_topic_errors()}
-  def create_topic(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def create_topic(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18257,50 +18418,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic you're creating a refresh schedule for.
+  contains the topic you're creating a refresh schedule for.
   * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-    is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
-  @spec create_topic_refresh_schedule(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_topic_refresh_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_topic_refresh_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_topic_refresh_schedule_errors()}
-  def create_topic_refresh_schedule(
-        %Client{} = client,
-        aws_account_id,
-        topic_id,
-        input,
-        options \\ []
-      ) do
+
+  def create_topic_refresh_schedule(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18310,38 +18469,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-    account where you want to create a new VPC connection.
+  account where you want to create a new VPC connection.
 
   ## Optional parameters:
   """
-  @spec create_vpc_connection(
-          AWS.Client.t(),
-          String.t(),
-          create_vpc_connection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_connection_errors()}
-  def create_vpc_connection(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def create_vpc_connection(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18352,31 +18517,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to delete Amazon QuickSight customizations from in this Amazon Web
-    Services Region.
+  you want to delete Amazon QuickSight customizations from in this Amazon Web
+  Services Region.
 
   ## Optional parameters:
   * `:namespace` (`t:string`) The Amazon QuickSight namespace that you're deleting
-    the customizations from.
+  the customizations from.
   """
-  @spec delete_account_customization(
-          AWS.Client.t(),
-          String.t(),
-          delete_account_customization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_customization_errors()}
-  def delete_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def delete_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
+
+    # Validate optional parameters
+    optional_params = [namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Namespace", "namespace"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -18386,6 +18566,8 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:namespace])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -18393,7 +18575,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18411,26 +18593,42 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-    account that you want to delete.
+  account that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_account_subscription(
-          AWS.Client.t(),
-          String.t(),
-          delete_account_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_account_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_subscription_errors()}
-  def delete_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def delete_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18439,7 +18637,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18462,40 +18660,59 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID of the analysis that you're deleting.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where
-    you want to delete an analysis.
+  you want to delete an analysis.
 
   ## Optional parameters:
   * `:force_delete_without_recovery` (`t:boolean`) This option defaults to the
-    value NoForceDeleteWithoutRecovery. To immediately delete the analysis, add
-    the ForceDeleteWithoutRecovery option. You can't restore an analysis after
-    it's deleted.
+  value NoForceDeleteWithoutRecovery. To immediately delete the analysis, add
+  the ForceDeleteWithoutRecovery option. You can't restore an analysis after
+  it's deleted.
   * `:recovery_window_in_days` (`t:long`) A value that specifies the number of
-    days that Amazon QuickSight waits before it deletes the analysis. You can't
-    use this parameter with the ForceDeleteWithoutRecovery option in the same
-    API call. The default value is 30.
+  days that Amazon QuickSight waits before it deletes the analysis. You can't
+  use this parameter with the ForceDeleteWithoutRecovery option in the same
+  API call. The default value is 30.
   """
-  @spec delete_analysis(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_analysis_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analysis_errors()}
-  def delete_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
+
+  def delete_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
+    # Validate optional parameters
+    optional_params = [force_delete_without_recovery: nil, recovery_window_in_days: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ForceDeleteWithoutRecovery", "force-delete-without-recovery"},
-        {"RecoveryWindowInDays", "recovery-window-in-days"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :recovery_window_in_days) do
+        [{"recovery-window-in-days", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :force_delete_without_recovery) do
+        [{"force-delete-without-recovery", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -18505,6 +18722,8 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:force_delete_without_recovery, :recovery_window_in_days])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -18512,7 +18731,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18525,35 +18744,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard that you're deleting.
+  contains the dashboard that you're deleting.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   * `:version_number` (`t:long`) The version number of the dashboard. If the
-    version number property is provided, only the specified version of the
-    dashboard is deleted.
+  version number property is provided, only the specified version of the
+  dashboard is deleted.
   """
-  @spec delete_dashboard(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_dashboard_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dashboard_errors()}
-  def delete_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
+
+  def delete_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
+    # Validate optional parameters
+    optional_params = [version_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"VersionNumber", "version-number"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version_number) do
+        [{"version-number", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -18563,6 +18795,8 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:version_number])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -18570,7 +18804,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18584,30 +18818,44 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_set_id` (`t:string`) The ID for the dataset that you want to create.
-    This ID is unique per Amazon Web Services Region for each Amazon Web
-    Services account.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
-  @spec delete_data_set(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_data_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_data_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_set_errors()}
-  def delete_data_set(%Client{} = client, aws_account_id, data_set_id, input, options \\ []) do
+
+  def delete_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18616,7 +18864,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18633,31 +18881,44 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec delete_data_set_refresh_properties(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_data_set_refresh_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_data_set_refresh_properties(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_set_refresh_properties_errors()}
+
   def delete_data_set_refresh_properties(
         %Client{} = client,
         aws_account_id,
         data_set_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18666,7 +18927,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18681,29 +18942,43 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-    per Amazon Web Services Region for each Amazon Web Services account.
+  per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
-  @spec delete_data_source(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_data_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_source_errors()}
-  def delete_data_source(%Client{} = client, aws_account_id, data_source_id, input, options \\ []) do
+
+  def delete_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18712,7 +18987,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18725,30 +19000,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
-  @spec delete_folder(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_folder_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_errors()}
-  def delete_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
+
+  def delete_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18757,7 +19046,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18770,43 +19059,61 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
   * `:folder_id` (`t:string`) The Folder ID.
   * `:member_id` (`t:string`) The ID of the asset that you want to delete.
   * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`) The
-    member type of the asset that you want to delete from a folder.
+  member type of the asset that you want to delete from a folder.
 
   ## Optional parameters:
   """
+
   @spec delete_folder_membership(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_folder_membership_request(),
           Keyword.t()
         ) ::
           {:ok, delete_folder_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_folder_membership_errors()}
+
   def delete_folder_membership(
         %Client{} = client,
         aws_account_id,
         folder_id,
         member_id,
         member_type,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members/#{AWS.Util.encode_uri(member_type)}/#{AWS.Util.encode_uri(member_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18815,7 +19122,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18828,40 +19135,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:group_name` (`t:string`) The name of the group that you want to delete.
   * `:namespace` (`t:string`) The namespace of the group that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_group(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_errors()}
-  def delete_group(
-        %Client{} = client,
-        aws_account_id,
-        group_name,
-        namespace,
-        input,
-        options \\ []
-      ) do
+
+  def delete_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18870,7 +19183,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18883,46 +19196,64 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:group_name` (`t:string`) The name of the group that you want to delete the
-    user from.
+  user from.
   * `:member_name` (`t:string`) The name of the user that you want to delete from
-    the group membership.
+  the group membership.
   * `:namespace` (`t:string`) The namespace of the group that you want to remove a
-    user from.
+  user from.
 
   ## Optional parameters:
   """
+
   @spec delete_group_membership(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_group_membership_request(),
           Keyword.t()
         ) ::
           {:ok, delete_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_group_membership_errors()}
+
   def delete_group_membership(
         %Client{} = client,
         aws_account_id,
         group_name,
         member_name,
         namespace,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members/#{AWS.Util.encode_uri(member_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18931,7 +19262,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18945,38 +19276,56 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:assignment_name` (`t:string`) The name of the assignment.
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID where you
-    want to delete the IAM policy assignment.
+  want to delete the IAM policy assignment.
   * `:namespace` (`t:string`) The namespace that contains the assignment.
 
   ## Optional parameters:
   """
+
   @spec delete_iam_policy_assignment(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_iam_policy_assignment_request(),
           Keyword.t()
         ) ::
           {:ok, delete_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_iam_policy_assignment_errors()}
+
   def delete_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
         aws_account_id,
         namespace,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespace/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/#{AWS.Util.encode_uri(assignment_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -18985,7 +19334,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -18999,38 +19348,51 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    you want to delete an identity propagation configuration from.
+  you want to delete an identity propagation configuration from.
   * `:service` (`t:enum["REDSHIFT"]`) The name of the Amazon Web Services service
-    that you want to delete the associated access scopes and authorized targets
-    from.
+  that you want to delete the associated access scopes and authorized targets
+  from.
 
   ## Optional parameters:
   """
-  @spec delete_identity_propagation_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_identity_propagation_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_identity_propagation_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_identity_propagation_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identity_propagation_config_errors()}
+
   def delete_identity_propagation_config(
         %Client{} = client,
         aws_account_id,
         service,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config/#{AWS.Util.encode_uri(service)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19039,7 +19401,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19055,30 +19417,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to delete the Amazon QuickSight namespace from.
+  you want to delete the Amazon QuickSight namespace from.
   * `:namespace` (`t:string`) The namespace that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_namespace(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_namespace_errors()}
-  def delete_namespace(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
+
+  def delete_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19087,7 +19463,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19105,33 +19481,45 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec delete_refresh_schedule(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_refresh_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_refresh_schedule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_refresh_schedule_errors()}
+
   def delete_refresh_schedule(
         %Client{} = client,
         aws_account_id,
         data_set_id,
         schedule_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19140,7 +19528,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19153,41 +19541,59 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace that includes the role.
   * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-    role that you want to remove permissions from.
+  role that you want to remove permissions from.
 
   ## Optional parameters:
   """
+
   @spec delete_role_custom_permission(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_role_custom_permission_request(),
           Keyword.t()
         ) ::
           {:ok, delete_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_custom_permission_errors()}
+
   def delete_role_custom_permission(
         %Client{} = client,
         aws_account_id,
         namespace,
         role,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19196,7 +19602,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19209,45 +19615,63 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to create a group in. The Amazon Web Services account ID that you
-    provide must be the same Amazon Web Services account that contains your
-    Amazon QuickSight account.
+  you want to create a group in. The Amazon Web Services account ID that you
+  provide must be the same Amazon Web Services account that contains your
+  Amazon QuickSight account.
   * `:member_name` (`t:string`) The name of the group.
   * `:namespace` (`t:string`) The namespace that contains the role.
   * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-    role that you want to remove permissions from.
+  role that you want to remove permissions from.
 
   ## Optional parameters:
   """
+
   @spec delete_role_membership(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_role_membership_request(),
           Keyword.t()
         ) ::
           {:ok, delete_role_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_role_membership_errors()}
+
   def delete_role_membership(
         %Client{} = client,
         aws_account_id,
         member_name,
         namespace,
         role,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members/#{AWS.Util.encode_uri(member_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19256,7 +19680,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19269,35 +19693,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template that you're deleting.
+  contains the template that you're deleting.
   * `:template_id` (`t:string`) An ID for the template you want to delete.
 
   ## Optional parameters:
   * `:version_number` (`t:long`) Specifies the version of the template that you
-    want to delete. If you don't provide a version number, DeleteTemplate
-    deletes all versions of the template.
+  want to delete. If you don't provide a version number, DeleteTemplate
+  deletes all versions of the template.
   """
-  @spec delete_template(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-  def delete_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
+
+  def delete_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
+    # Validate optional parameters
+    optional_params = [version_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"VersionNumber", "version-number"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version_number) do
+        [{"version-number", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -19307,6 +19744,8 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:version_number])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -19314,7 +19753,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19329,43 +19768,55 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:alias_name` (`t:string`) The name for the template alias. To delete a
-    specific alias, you delete the version that the alias points to. You can
-    specify the alias name, or specify the latest version of the template by
-    providing the keyword $LATEST in the AliasName parameter.
+  specific alias, you delete the version that the alias points to. You can
+  specify the alias name, or specify the latest version of the template by
+  providing the keyword $LATEST in the AliasName parameter.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the item to delete.
+  contains the item to delete.
   * `:template_id` (`t:string`) The ID for the template that the specified alias
-    is for.
+  is for.
 
   ## Optional parameters:
   """
-  @spec delete_template_alias(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_template_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_alias_errors()}
+
   def delete_template_alias(
         %Client{} = client,
         alias_name,
         aws_account_id,
         template_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19374,7 +19825,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19387,27 +19838,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme that you're deleting.
+  contains the theme that you're deleting.
   * `:theme_id` (`t:string`) An ID for the theme that you want to delete.
 
   ## Optional parameters:
   * `:version_number` (`t:long`) The version of the theme that you want to delete.
   """
-  @spec delete_theme(AWS.Client.t(), String.t(), String.t(), delete_theme_request(), Keyword.t()) ::
+
+  @spec delete_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_theme_errors()}
-  def delete_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
+
+  def delete_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
 
+    # Validate optional parameters
+    optional_params = [version_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"VersionNumber", "version-number"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version_number) do
+        [{"version-number", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -19417,6 +19887,8 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:version_number])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -19424,7 +19896,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19440,38 +19912,44 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:alias_name` (`t:string`) The unique name for the theme alias to delete.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme alias to delete.
+  contains the theme alias to delete.
   * `:theme_id` (`t:string`) The ID for the theme that the specified alias is for.
 
   ## Optional parameters:
   """
-  @spec delete_theme_alias(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_theme_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_theme_alias_errors()}
-  def delete_theme_alias(
-        %Client{} = client,
-        alias_name,
-        aws_account_id,
-        theme_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_theme_alias(%Client{} = client, alias_name, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19480,7 +19958,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19493,26 +19971,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic that you want to delete.
+  contains the topic that you want to delete.
   * `:topic_id` (`t:string`) The ID of the topic that you want to delete. This ID
-    is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
-  @spec delete_topic(AWS.Client.t(), String.t(), String.t(), delete_topic_request(), Keyword.t()) ::
+
+  @spec delete_topic(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_topic_errors()}
-  def delete_topic(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
+
+  def delete_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19521,7 +20019,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19536,38 +20034,56 @@ defmodule AWS.QuickSight do
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:dataset_id` (`t:string`) The ID of the dataset.
   * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-    is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
+
   @spec delete_topic_refresh_schedule(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_topic_refresh_schedule_request(),
           Keyword.t()
         ) ::
           {:ok, delete_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_topic_refresh_schedule_errors()}
+
   def delete_topic_refresh_schedule(
         %Client{} = client,
         aws_account_id,
         dataset_id,
         topic_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules/#{AWS.Util.encode_uri(dataset_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19576,7 +20092,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19591,34 +20107,47 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the user is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the user is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-    default.
+  default.
   * `:user_name` (`t:string`) The name of the user that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_user(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_user(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
+
+  def delete_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19627,7 +20156,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19640,41 +20169,59 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the user is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the user is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-    default.
+  default.
   * `:principal_id` (`t:string`) The principal ID of the user.
 
   ## Optional parameters:
   """
+
   @spec delete_user_by_principal_id(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_user_by_principal_id_request(),
           Keyword.t()
         ) ::
           {:ok, delete_user_by_principal_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_by_principal_id_errors()}
+
   def delete_user_by_principal_id(
         %Client{} = client,
         aws_account_id,
         namespace,
         principal_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/user-principals/#{AWS.Util.encode_uri(principal_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19683,7 +20230,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19696,38 +20243,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-    account where you want to delete a VPC connection.
+  account where you want to delete a VPC connection.
   * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that you're
-    creating. This ID is a unique identifier for each Amazon Web Services Region
-    in an Amazon Web Services account.
+  creating. This ID is a unique identifier for each Amazon Web Services Region
+  in an Amazon Web Services account.
 
   ## Optional parameters:
   """
-  @spec delete_vpc_connection(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_vpc_connection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_vpc_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_connection_errors()}
-  def delete_vpc_connection(
-        %Client{} = client,
-        aws_account_id,
-        vpc_connection_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_vpc_connection(%Client{} = client, aws_account_id, vpc_connection_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -19736,7 +20291,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19754,22 +20309,24 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to describe Amazon QuickSight customizations for.
+  you want to describe Amazon QuickSight customizations for.
 
   ## Optional parameters:
   * `:namespace` (`t:string`) The Amazon QuickSight namespace that you want to
-    describe Amazon QuickSight customizations for.
+  describe Amazon QuickSight customizations for.
   * `:resolved` (`t:boolean`) The Resolved flag works with the other parameters to
-    determine which view of Amazon QuickSight customizations is returned. You
-    can add this flag to your command to use the same view that Amazon
-    QuickSight uses to identify which customizations to apply to the console.
-    Omit this flag, or set it to no-resolved, to reveal customizations that are
-    configured at different levels.
+  determine which view of Amazon QuickSight customizations is returned. You
+  can add this flag to your command to use the same view that Amazon
+  QuickSight uses to identify which customizations to apply to the console.
+  Omit this flag, or set it to no-resolved, to reveal customizations that are
+  configured at different levels.
   """
+
   @spec describe_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_customization_errors()}
+
   def describe_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
 
@@ -19824,14 +20381,16 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the settings that you want to list.
+  contains the settings that you want to list.
 
   ## Optional parameters:
   """
+
   @spec describe_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_settings_errors()}
+
   def describe_account_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
 
@@ -19870,14 +20429,16 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID associated
-    with your Amazon QuickSight account.
+  with your Amazon QuickSight account.
 
   ## Optional parameters:
   """
+
   @spec describe_account_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_subscription_errors()}
+
   def describe_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
 
@@ -19913,17 +20474,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID of the analysis that you're describing. The
-    ID is part of the URL of the analysis.
+  ID is part of the URL of the analysis.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analysis. You must be using the Amazon Web Services account
-    that the analysis is in.
+  contains the analysis. You must be using the Amazon Web Services account
+  that the analysis is in.
 
   ## Optional parameters:
   """
+
   @spec describe_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_errors()}
+
   def describe_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
@@ -19960,17 +20523,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID of the analysis that you're describing. The
-    ID is part of the URL of the analysis.
+  ID is part of the URL of the analysis.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analysis. You must be using the Amazon Web Services account
-    that the analysis is in.
+  contains the analysis. You must be using the Amazon Web Services account
+  that the analysis is in.
 
   ## Optional parameters:
   """
+
   @spec describe_analysis_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_analysis_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_definition_errors()}
+
   def describe_analysis_definition(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/definition"
@@ -20007,17 +20572,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID of the analysis whose permissions you're
-    describing. The ID is part of the analysis URL.
+  describing. The ID is part of the analysis URL.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analysis whose permissions you're describing. You must be using
-    the Amazon Web Services account that the analysis is in.
+  contains the analysis whose permissions you're describing. You must be using
+  the Amazon Web Services account that the analysis is in.
 
   ## Optional parameters:
   """
+
   @spec describe_analysis_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_analysis_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_permissions_errors()}
+
   def describe_analysis_permissions(
         %Client{} = client,
         analysis_id,
@@ -20063,17 +20630,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:asset_bundle_export_job_id` (`t:string`) The ID of the job that you want
-    described. The job ID is set when you start a new job with a
-    StartAssetBundleExportJob API call.
+  described. The job ID is set when you start a new job with a
+  StartAssetBundleExportJob API call.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account the
-    export job is executed in.
+  export job is executed in.
 
   ## Optional parameters:
   """
+
   @spec describe_asset_bundle_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_bundle_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_bundle_export_job_errors()}
+
   def describe_asset_bundle_export_job(
         %Client{} = client,
         asset_bundle_export_job_id,
@@ -20115,16 +20684,18 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:asset_bundle_import_job_id` (`t:string`) The ID of the job. The job ID is
-    set when you start a new job with a StartAssetBundleImportJob API call.
+  set when you start a new job with a StartAssetBundleImportJob API call.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account the
-    import job was executed in.
+  import job was executed in.
 
   ## Optional parameters:
   """
+
   @spec describe_asset_bundle_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_bundle_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_bundle_import_job_errors()}
+
   def describe_asset_bundle_import_job(
         %Client{} = client,
         asset_bundle_import_job_id,
@@ -20166,19 +20737,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard that you're describing.
+  contains the dashboard that you're describing.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   * `:alias_name` (`t:string`) The alias name.
   * `:version_number` (`t:long`) The version number for the dashboard. If a
-    version number isn't passed, the latest published dashboard version is
-    described.
+  version number isn't passed, the latest published dashboard version is
+  described.
   """
+
   @spec describe_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_errors()}
+
   def describe_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -20233,19 +20806,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard that you're describing.
+  contains the dashboard that you're describing.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   * `:alias_name` (`t:string`) The alias name.
   * `:version_number` (`t:long`) The version number for the dashboard. If a
-    version number isn't passed, the latest published dashboard version is
-    described.
+  version number isn't passed, the latest published dashboard version is
+  described.
   """
+
   @spec describe_dashboard_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_definition_errors()}
+
   def describe_dashboard_definition(
         %Client{} = client,
         aws_account_id,
@@ -20305,16 +20880,18 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard that you're describing permissions for.
+  contains the dashboard that you're describing permissions for.
   * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the IAM
-    policy.
+  policy.
 
   ## Optional parameters:
   """
+
   @spec describe_dashboard_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_permissions_errors()}
+
   def describe_dashboard_permissions(
         %Client{} = client,
         aws_account_id,
@@ -20356,14 +20933,15 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    the dashboard snapshot job is executed in.
+  the dashboard snapshot job is executed in.
   * `:dashboard_id` (`t:string`) The ID of the dashboard that you have started a
-    snapshot job for.
+  snapshot job for.
   * `:snapshot_job_id` (`t:string`) The ID of the job to be described. The job ID
-    is set when you start a new job with a StartDashboardSnapshotJob API call.
+  is set when you start a new job with a StartDashboardSnapshotJob API call.
 
   ## Optional parameters:
   """
+
   @spec describe_dashboard_snapshot_job(
           AWS.Client.t(),
           String.t(),
@@ -20374,6 +20952,7 @@ defmodule AWS.QuickSight do
           {:ok, describe_dashboard_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_snapshot_job_errors()}
+
   def describe_dashboard_snapshot_job(
         %Client{} = client,
         aws_account_id,
@@ -20418,14 +20997,15 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    the dashboard snapshot job is executed in.
+  the dashboard snapshot job is executed in.
   * `:dashboard_id` (`t:string`) The ID of the dashboard that you have started a
-    snapshot job for.
+  snapshot job for.
   * `:snapshot_job_id` (`t:string`) The ID of the job to be described. The job ID
-    is set when you start a new job with a StartDashboardSnapshotJob API call.
+  is set when you start a new job with a StartDashboardSnapshotJob API call.
 
   ## Optional parameters:
   """
+
   @spec describe_dashboard_snapshot_job_result(
           AWS.Client.t(),
           String.t(),
@@ -20436,6 +21016,7 @@ defmodule AWS.QuickSight do
           {:ok, describe_dashboard_snapshot_job_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dashboard_snapshot_job_result_errors()}
+
   def describe_dashboard_snapshot_job_result(
         %Client{} = client,
         aws_account_id,
@@ -20480,15 +21061,17 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_set_id` (`t:string`) The ID for the dataset that you want to create.
-    This ID is unique per Amazon Web Services Region for each Amazon Web
-    Services account.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
+
   @spec describe_data_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_set_errors()}
+
   def describe_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
@@ -20526,15 +21109,17 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_set_id` (`t:string`) The ID for the dataset that you want to create.
-    This ID is unique per Amazon Web Services Region for each Amazon Web
-    Services account.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
+
   @spec describe_data_set_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_set_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_set_permissions_errors()}
+
   def describe_data_set_permissions(
         %Client{} = client,
         aws_account_id,
@@ -20580,10 +21165,12 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
+
   @spec describe_data_set_refresh_properties(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_set_refresh_properties_errors()}
+
   def describe_data_set_refresh_properties(
         %Client{} = client,
         aws_account_id,
@@ -20626,14 +21213,16 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-    per Amazon Web Services Region for each Amazon Web Services account.
+  per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
+
   @spec describe_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_source_errors()}
+
   def describe_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
@@ -20671,14 +21260,16 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-    per Amazon Web Services Region for each Amazon Web Services account.
+  per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
+
   @spec describe_data_source_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_data_source_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_source_permissions_errors()}
+
   def describe_data_source_permissions(
         %Client{} = client,
         aws_account_id,
@@ -20720,15 +21311,17 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
+
   @spec describe_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_errors()}
+
   def describe_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
@@ -20765,20 +21358,22 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:namespace` (`t:string`) The namespace of the folder whose permissions you
-    want described.
+  want described.
   * `:next_token` (`t:string`) A pagination token for the next set of results.
   """
+
   @spec describe_folder_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_permissions_errors()}
+
   def describe_folder_permissions(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
@@ -20841,20 +21436,22 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:namespace` (`t:string`) The namespace of the folder whose permissions you
-    want described.
+  want described.
   * `:next_token` (`t:string`) A pagination token for the next set of results.
   """
+
   @spec describe_folder_resolved_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_resolved_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_folder_resolved_permissions_errors()}
+
   def describe_folder_resolved_permissions(
         %Client{} = client,
         aws_account_id,
@@ -20921,17 +21518,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:group_name` (`t:string`) The name of the group that you want to describe.
   * `:namespace` (`t:string`) The namespace of the group that you want described.
 
   ## Optional parameters:
   """
+
   @spec describe_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_errors()}
+
   def describe_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
@@ -20970,16 +21569,17 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:group_name` (`t:string`) The name of the group that you want to search.
   * `:member_name` (`t:string`) The user name of the user that you want to search
-    for.
+  for.
   * `:namespace` (`t:string`) The namespace that includes the group you are
-    searching within.
+  searching within.
 
   ## Optional parameters:
   """
+
   @spec describe_group_membership(
           AWS.Client.t(),
           String.t(),
@@ -20991,6 +21591,7 @@ defmodule AWS.QuickSight do
           {:ok, describe_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_group_membership_errors()}
+
   def describe_group_membership(
         %Client{} = client,
         aws_account_id,
@@ -21035,13 +21636,14 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:assignment_name` (`t:string`) The name of the assignment, also called a
-    rule.
+  rule.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the assignment that you want to describe.
+  contains the assignment that you want to describe.
   * `:namespace` (`t:string`) The namespace that contains the assignment.
 
   ## Optional parameters:
   """
+
   @spec describe_iam_policy_assignment(
           AWS.Client.t(),
           String.t(),
@@ -21052,6 +21654,7 @@ defmodule AWS.QuickSight do
           {:ok, describe_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_iam_policy_assignment_errors()}
+
   def describe_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
@@ -21099,10 +21702,12 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
+
   @spec describe_ingestion(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ingestion_errors()}
+
   def describe_ingestion(
         %Client{} = client,
         aws_account_id,
@@ -21145,14 +21750,16 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the IP rules.
+  contains the IP rules.
 
   ## Optional parameters:
   """
+
   @spec describe_ip_restriction(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ip_restriction_errors()}
+
   def describe_ip_restriction(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
 
@@ -21188,16 +21795,18 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the customer managed key registration that you want to describe.
+  contains the customer managed key registration that you want to describe.
 
   ## Optional parameters:
   * `:default_key_only` (`t:boolean`) Determines whether the request returns the
-    default key only.
+  default key only.
   """
+
   @spec describe_key_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_registration_errors()}
+
   def describe_key_registration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
 
@@ -21244,15 +21853,17 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the Amazon QuickSight namespace that you want to describe.
+  contains the Amazon QuickSight namespace that you want to describe.
   * `:namespace` (`t:string`) The namespace that you want to describe.
 
   ## Optional parameters:
   """
+
   @spec describe_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_namespace_errors()}
+
   def describe_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
@@ -21294,10 +21905,12 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
+
   @spec describe_refresh_schedule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_refresh_schedule_errors()}
+
   def describe_refresh_schedule(
         %Client{} = client,
         aws_account_id,
@@ -21340,15 +21953,16 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to create a group in. The Amazon Web Services account ID that you
-    provide must be the same Amazon Web Services account that contains your
-    Amazon QuickSight account.
+  you want to create a group in. The Amazon Web Services account ID that you
+  provide must be the same Amazon Web Services account that contains your
+  Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace that contains the role.
   * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-    name of the role whose permissions you want described.
+  name of the role whose permissions you want described.
 
   ## Optional parameters:
   """
+
   @spec describe_role_custom_permission(
           AWS.Client.t(),
           String.t(),
@@ -21359,6 +21973,7 @@ defmodule AWS.QuickSight do
           {:ok, describe_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_role_custom_permission_errors()}
+
   def describe_role_custom_permission(
         %Client{} = client,
         aws_account_id,
@@ -21401,23 +22016,25 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template that you're describing.
+  contains the template that you're describing.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   * `:alias_name` (`t:string`) The alias of the template that you want to
-    describe. If you name a specific alias, you describe the version that the
-    alias points to. You can specify the latest version of the template by
-    providing the keyword $LATEST in the AliasName parameter. The keyword
-    $PUBLISHED doesn't apply to templates.
+  describe. If you name a specific alias, you describe the version that the
+  alias points to. You can specify the latest version of the template by
+  providing the keyword $LATEST in the AliasName parameter. The keyword
+  $PUBLISHED doesn't apply to templates.
   * `:version_number` (`t:long`) (Optional) The number for the version to
-    describe. If a VersionNumber parameter value isn't provided, the latest
-    version of the template is described.
+  describe. If a VersionNumber parameter value isn't provided, the latest
+  version of the template is described.
   """
+
   @spec describe_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_errors()}
+
   def describe_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -21472,20 +22089,22 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:alias_name` (`t:string`) The name of the template alias that you want to
-    describe. If you name a specific alias, you describe the version that the
-    alias points to. You can specify the latest version of the template by
-    providing the keyword $LATEST in the AliasName parameter. The keyword
-    $PUBLISHED doesn't apply to templates.
+  describe. If you name a specific alias, you describe the version that the
+  alias points to. You can specify the latest version of the template by
+  providing the keyword $LATEST in the AliasName parameter. The keyword
+  $PUBLISHED doesn't apply to templates.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template alias that you're describing.
+  contains the template alias that you're describing.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
+
   @spec describe_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_alias_errors()}
+
   def describe_template_alias(
         %Client{} = client,
         alias_name,
@@ -21528,22 +22147,24 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template. You must be using the Amazon Web Services account
-    that the template is in.
+  contains the template. You must be using the Amazon Web Services account
+  that the template is in.
   * `:template_id` (`t:string`) The ID of the template that you're describing.
 
   ## Optional parameters:
   * `:alias_name` (`t:string`) The alias of the template that you want to
-    describe. If you name a specific alias, you describe the version that the
-    alias points to. You can specify the latest version of the template by
-    providing the keyword $LATEST in the AliasName parameter. The keyword
-    $PUBLISHED doesn't apply to templates.
+  describe. If you name a specific alias, you describe the version that the
+  alias points to. You can specify the latest version of the template by
+  providing the keyword $LATEST in the AliasName parameter. The keyword
+  $PUBLISHED doesn't apply to templates.
   * `:version_number` (`t:long`) The version number of the template.
   """
+
   @spec describe_template_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_definition_errors()}
+
   def describe_template_definition(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/definition"
@@ -21598,15 +22219,17 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template that you're describing.
+  contains the template that you're describing.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
+
   @spec describe_template_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_template_permissions_errors()}
+
   def describe_template_permissions(
         %Client{} = client,
         aws_account_id,
@@ -21648,23 +22271,25 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme that you're describing.
+  contains the theme that you're describing.
   * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   * `:alias_name` (`t:string`) The alias of the theme that you want to describe.
-    If you name a specific alias, you describe the version that the alias points
-    to. You can specify the latest version of the theme by providing the keyword
-    $LATEST in the AliasName parameter. The keyword $PUBLISHED doesn't apply to
-    themes.
+  If you name a specific alias, you describe the version that the alias points
+  to. You can specify the latest version of the theme by providing the keyword
+  $LATEST in the AliasName parameter. The keyword $PUBLISHED doesn't apply to
+  themes.
   * `:version_number` (`t:long`) The version number for the version to describe.
-    If a VersionNumber parameter value isn't provided, the latest version of the
-    theme is described.
+  If a VersionNumber parameter value isn't provided, the latest version of the
+  theme is described.
   """
+
   @spec describe_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_theme_errors()}
+
   def describe_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
@@ -21719,17 +22344,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:alias_name` (`t:string`) The name of the theme alias that you want to
-    describe.
+  describe.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme alias that you're describing.
+  contains the theme alias that you're describing.
   * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
+
   @spec describe_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_theme_alias_errors()}
+
   def describe_theme_alias(
         %Client{} = client,
         alias_name,
@@ -21772,16 +22399,18 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme that you're describing.
+  contains the theme that you're describing.
   * `:theme_id` (`t:string`) The ID for the theme that you want to describe
-    permissions for.
+  permissions for.
 
   ## Optional parameters:
   """
+
   @spec describe_theme_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_theme_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_theme_permissions_errors()}
+
   def describe_theme_permissions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/permissions"
@@ -21819,15 +22448,17 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This
-    ID is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  ID is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
+
   @spec describe_topic(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_errors()}
+
   def describe_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
@@ -21864,17 +22495,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic that you want described.
+  contains the topic that you want described.
   * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This
-    ID is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  ID is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
+
   @spec describe_topic_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_topic_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_permissions_errors()}
+
   def describe_topic_permissions(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/permissions"
@@ -21911,19 +22544,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic whose refresh you want to describe.
+  contains the topic whose refresh you want to describe.
   * `:refresh_id` (`t:string`) The ID of the refresh, which is performed when the
-    topic is created or updated.
+  topic is created or updated.
   * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This
-    ID is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  ID is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
+
   @spec describe_topic_refresh(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_topic_refresh_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_refresh_errors()}
+
   def describe_topic_refresh(
         %Client{} = client,
         aws_account_id,
@@ -21968,11 +22603,12 @@ defmodule AWS.QuickSight do
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:dataset_id` (`t:string`) The ID of the dataset.
   * `:topic_id` (`t:string`) The ID of the topic that contains the refresh
-    schedule that you want to describe. This ID is unique per Amazon Web
-    Services Region for each Amazon Web Services account.
+  schedule that you want to describe. This ID is unique per Amazon Web
+  Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
+
   @spec describe_topic_refresh_schedule(
           AWS.Client.t(),
           String.t(),
@@ -21983,6 +22619,7 @@ defmodule AWS.QuickSight do
           {:ok, describe_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_topic_refresh_schedule_errors()}
+
   def describe_topic_refresh_schedule(
         %Client{} = client,
         aws_account_id,
@@ -22025,18 +22662,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the user is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the user is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-    default.
+  default.
   * `:user_name` (`t:string`) The name of the user that you want to describe.
 
   ## Optional parameters:
   """
+
   @spec describe_user(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
+
   def describe_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
@@ -22073,17 +22712,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-    account that contains the VPC connection that you want described.
+  account that contains the VPC connection that you want described.
   * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that you're
-    creating. This ID is a unique identifier for each Amazon Web Services Region
-    in an Amazon Web Services account.
+  creating. This ID is a unique identifier for each Amazon Web Services Region
+  in an Amazon Web Services account.
 
   ## Optional parameters:
   """
+
   @spec describe_vpc_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vpc_connection_errors()}
+
   def describe_vpc_connection(
         %Client{} = client,
         aws_account_id,
@@ -22128,43 +22769,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the dashboard that you're embedding.
+  contains the dashboard that you're embedding.
 
   ## Optional parameters:
   """
-  @spec generate_embed_url_for_anonymous_user(
-          AWS.Client.t(),
-          String.t(),
-          generate_embed_url_for_anonymous_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_embed_url_for_anonymous_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, generate_embed_url_for_anonymous_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_embed_url_for_anonymous_user_errors()}
-  def generate_embed_url_for_anonymous_user(
-        %Client{} = client,
-        aws_account_id,
-        input,
-        options \\ []
-      ) do
+
+  def generate_embed_url_for_anonymous_user(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/anonymous-user"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22178,43 +22820,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the dashboard that you're embedding.
+  contains the dashboard that you're embedding.
 
   ## Optional parameters:
   """
-  @spec generate_embed_url_for_registered_user(
-          AWS.Client.t(),
-          String.t(),
-          generate_embed_url_for_registered_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_embed_url_for_registered_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, generate_embed_url_for_registered_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_embed_url_for_registered_user_errors()}
-  def generate_embed_url_for_registered_user(
-        %Client{} = client,
-        aws_account_id,
-        input,
-        options \\ []
-      ) do
+
+  def generate_embed_url_for_registered_user(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/registered-user"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22229,55 +22872,58 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the dashboard that you're embedding.
+  contains the dashboard that you're embedding.
   * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the
-    Identity and Access Management (IAM) policy.
+  Identity and Access Management (IAM) policy.
   * `:identity_type` (`t:enum["ANONYMOUS|IAM|QUICKSIGHT"]`) The authentication
-    method that the user uses to sign in.
+  method that the user uses to sign in.
 
   ## Optional parameters:
   * `:additional_dashboard_ids`
-    (`t:list[com.amazonaws.quicksight#ShortRestrictiveResourceId]`) A list of
-    one or more dashboard IDs that you want anonymous users to have tempporary
-    access to. Currently, the IdentityType parameter must be set to ANONYMOUS
-    because other identity types authenticate as Amazon QuickSight or IAM users.
-    For example, if you set "--dashboard-id dash_id1 --dashboard-id dash_id2
-    dash_id3 identity-type ANONYMOUS", the session can access all three
-    dashboards.
+  (`t:list[com.amazonaws.quicksight#ShortRestrictiveResourceId]`) A list of
+  one or more dashboard IDs that you want anonymous users to have tempporary
+  access to. Currently, the IdentityType parameter must be set to ANONYMOUS
+  because other identity types authenticate as Amazon QuickSight or IAM users.
+  For example, if you set "--dashboard-id dash_id1 --dashboard-id dash_id2
+  dash_id3 identity-type ANONYMOUS", the session can access all three
+  dashboards.
   * `:namespace` (`t:string`) The Amazon QuickSight namespace that contains the
-    dashboard IDs in this request. If you're not using a custom namespace, set
-    Namespace = default.
+  dashboard IDs in this request. If you're not using a custom namespace, set
+  Namespace = default.
   * `:reset_disabled` (`t:boolean`) Remove the reset button on the embedded
-    dashboard. The default is FALSE, which enables the reset button.
+  dashboard. The default is FALSE, which enables the reset button.
   * `:session_lifetime_in_minutes` (`t:long`) How many minutes the session is
-    valid. The session lifetime must be 15-600 minutes.
+  valid. The session lifetime must be 15-600 minutes.
   * `:state_persistence_enabled` (`t:boolean`) Adds persistence of state for the
-    user session in an embedded dashboard. Persistence applies to the sheet and
-    the parameter settings. These are control settings that the dashboard
-    subscriber (Amazon QuickSight reader) chooses while viewing the dashboard.
-    If this is set to TRUE, the settings are the same when the subscriber
-    reopens the same dashboard URL. The state is stored in Amazon QuickSight,
-    not in a browser cookie. If this is set to FALSE, the state of the user
-    session is not persisted. The default is FALSE.
+  user session in an embedded dashboard. Persistence applies to the sheet and
+  the parameter settings. These are control settings that the dashboard
+  subscriber (Amazon QuickSight reader) chooses while viewing the dashboard.
+  If this is set to TRUE, the settings are the same when the subscriber
+  reopens the same dashboard URL. The state is stored in Amazon QuickSight,
+  not in a browser cookie. If this is set to FALSE, the state of the user
+  session is not persisted. The default is FALSE.
   * `:undo_redo_disabled` (`t:boolean`) Remove the undo/redo button on the
-    embedded dashboard. The default is FALSE, which enables the undo/redo
-    button.
+  embedded dashboard. The default is FALSE, which enables the undo/redo
+  button.
   * `:user_arn` (`t:string`) The Amazon QuickSight user's Amazon Resource Name
-    (ARN), for use with QUICKSIGHT identity type. You can use this for any
-    Amazon QuickSight users in your account (readers, authors, or admins)
-    authenticated as one of the following:
+  (ARN), for use with QUICKSIGHT identity type. You can use this for any
+  Amazon QuickSight users in your account (readers, authors, or admins)
+  authenticated as one of the following:
   """
+
   @spec get_dashboard_embed_url(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dashboard_embed_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_embed_url_errors()}
+
   def get_dashboard_embed_url(
         %Client{} = client,
         aws_account_id,
         dashboard_id,
         identity_type,
         options \\ []
-      ) do
+      )
+      when is_binary(identity_type) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/embed-url"
 
@@ -22394,22 +23040,24 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account
-    associated with your Amazon QuickSight subscription.
+  associated with your Amazon QuickSight subscription.
 
   ## Optional parameters:
   * `:entry_point` (`t:string`) The URL you use to access the embedded session.
-    The entry point URL is constrained to the following paths:
+  The entry point URL is constrained to the following paths:
   * `:session_lifetime_in_minutes` (`t:long`) How many minutes the session is
-    valid. The session lifetime must be 15-600 minutes.
+  valid. The session lifetime must be 15-600 minutes.
   * `:user_arn` (`t:string`) The Amazon QuickSight user's Amazon Resource Name
-    (ARN), for use with QUICKSIGHT identity type. You can use this for any type
-    of Amazon QuickSight users in your account (readers, authors, or admins).
-    They need to be authenticated as one of the following:
+  (ARN), for use with QUICKSIGHT identity type. You can use this for any type
+  of Amazon QuickSight users in your account (readers, authors, or admins).
+  They need to be authenticated as one of the following:
   """
+
   @spec get_session_embed_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_embed_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_embed_url_errors()}
+
   def get_session_embed_url(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/session-embed-url"
 
@@ -22471,17 +23119,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analyses.
+  contains the analyses.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
-    request.
+  request.
   """
+
   @spec list_analyses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyses_errors()}
+
   def list_analyses(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses"
 
@@ -22539,18 +23189,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    the export jobs were executed in.
+  the export jobs were executed in.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_asset_bundle_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_bundle_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_bundle_export_jobs_errors()}
+
   def list_asset_bundle_export_jobs(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs"
 
@@ -22608,18 +23260,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    the import jobs were executed in.
+  the import jobs were executed in.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_asset_bundle_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_bundle_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_bundle_import_jobs_errors()}
+
   def list_asset_bundle_import_jobs(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs"
 
@@ -22673,19 +23327,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard that you're listing versions for.
+  contains the dashboard that you're listing versions for.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_dashboard_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboard_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboard_versions_errors()}
+
   def list_dashboard_versions(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/versions"
@@ -22740,18 +23396,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboards that you're listing.
+  contains the dashboards that you're listing.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dashboards_errors()}
+
   def list_dashboards(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards"
 
@@ -22809,14 +23467,16 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sets_errors()}
+
   def list_data_sets(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
 
@@ -22874,14 +23534,16 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_sources_errors()}
+
   def list_data_sources(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
 
@@ -22935,19 +23597,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_folder_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_folder_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_folder_members_errors()}
+
   def list_folder_members(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members"
@@ -23002,18 +23666,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_folders_errors()}
+
   def list_folders(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders"
 
@@ -23067,23 +23733,25 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:group_name` (`t:string`) The name of the group that you want to see a
-    membership list of.
+  membership list of.
   * `:namespace` (`t:string`) The namespace of the group that you want a list of
-    users from.
+  users from.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
-    request.
+  request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
-    request.
+  request.
   """
+
   @spec list_group_memberships(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_group_memberships_errors()}
+
   def list_group_memberships(
         %Client{} = client,
         aws_account_id,
@@ -23144,19 +23812,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace that you want a list of groups from.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
-    request.
+  request.
   """
+
   @spec list_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_groups_errors()}
+
   def list_groups(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups"
@@ -23211,21 +23881,23 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains these IAM policy assignments.
+  contains these IAM policy assignments.
   * `:namespace` (`t:string`) The namespace for the assignments.
 
   ## Optional parameters:
   * `:assignment_status` (`t:enum["DISABLED|DRAFT|ENABLED"]`) The status of the
-    assignments.
+  assignments.
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_iam_policy_assignments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_iam_policy_assignments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_iam_policy_assignments_errors()}
+
   def list_iam_policy_assignments(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/v2/iam-policy-assignments"
@@ -23289,16 +23961,17 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the assignments.
+  contains the assignments.
   * `:namespace` (`t:string`) The namespace of the assignment.
   * `:user_name` (`t:string`) The name of the user.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_iam_policy_assignments_for_user(
           AWS.Client.t(),
           String.t(),
@@ -23309,6 +23982,7 @@ defmodule AWS.QuickSight do
           {:ok, list_iam_policy_assignments_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_iam_policy_assignments_for_user_errors()}
+
   def list_iam_policy_assignments_for_user(
         %Client{} = client,
         aws_account_id,
@@ -23370,17 +24044,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contain the identity propagation configurations of.
+  contain the identity propagation configurations of.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_identity_propagation_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_propagation_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_propagation_configs_errors()}
+
   def list_identity_propagation_configs(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config"
 
@@ -23438,14 +24114,16 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_ingestions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingestions_errors()}
+
   def list_ingestions(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions"
@@ -23501,22 +24179,24 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the Amazon QuickSight namespaces that you want to list.
+  contains the Amazon QuickSight namespaces that you want to list.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A unique pagination token that can be used in a
-    subsequent request. You will receive a pagination token in the response body
-    of a previous ListNameSpaces API call if there is more data that can be
-    returned. To receive the data, make another ListNamespaces API call with the
-    returned token to retrieve the next page of data. Each token is valid for 24
-    hours. If you try to make a ListNamespaces API call with an expired token,
-    you will receive a HTTP 400 InvalidNextTokenException error.
+  subsequent request. You will receive a pagination token in the response body
+  of a previous ListNameSpaces API call if there is more data that can be
+  returned. To receive the data, make another ListNamespaces API call with the
+  returned token to retrieve the next page of data. Each token is valid for 24
+  hours. If you try to make a ListNamespaces API call with an expired token,
+  you will receive a HTTP 400 InvalidNextTokenException error.
   """
+
   @spec list_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_namespaces_errors()}
+
   def list_namespaces(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces"
 
@@ -23575,10 +24255,12 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
+
   @spec list_refresh_schedules(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_refresh_schedules_errors()}
+
   def list_refresh_schedules(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
@@ -23615,22 +24297,24 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to create a group in. The Amazon Web Services account ID that you
-    provide must be the same Amazon Web Services account that contains your
-    Amazon QuickSight account.
+  you want to create a group in. The Amazon Web Services account ID that you
+  provide must be the same Amazon Web Services account that contains your
+  Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace that includes the role.
   * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-    name of the role.
+  name of the role.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
-    request.
+  request.
   """
+
   @spec list_role_memberships(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_role_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_role_memberships_errors()}
+
   def list_role_memberships(%Client{} = client, aws_account_id, namespace, role, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members"
@@ -23685,14 +24369,16 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want a list of tags for.
+  that you want a list of tags for.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
 
@@ -23728,19 +24414,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template aliases that you're listing.
+  contains the template aliases that you're listing.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_template_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_aliases_errors()}
+
   def list_template_aliases(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases"
@@ -23796,19 +24484,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the templates that you're listing.
+  contains the templates that you're listing.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_template_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_versions_errors()}
+
   def list_template_versions(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/versions"
@@ -23863,18 +24553,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the templates that you're listing.
+  contains the templates that you're listing.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
+
   def list_templates(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates"
 
@@ -23928,19 +24620,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme aliases that you're listing.
+  contains the theme aliases that you're listing.
   * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_theme_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_theme_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_theme_aliases_errors()}
+
   def list_theme_aliases(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases"
@@ -23995,19 +24689,21 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the themes that you're listing.
+  contains the themes that you're listing.
   * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_theme_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_theme_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_theme_versions_errors()}
+
   def list_theme_versions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/versions"
@@ -24062,20 +24758,22 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the themes that you're listing.
+  contains the themes that you're listing.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   * `:type` (`t:enum["ALL|CUSTOM|QUICKSIGHT"]`) The type of themes that you want
-    to list. Valid options include the following:
+  to list. Valid options include the following:
   """
+
   @spec list_themes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_themes_errors()}
+
   def list_themes(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes"
 
@@ -24136,17 +24834,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic whose refresh schedule you want described.
+  contains the topic whose refresh schedule you want described.
   * `:topic_id` (`t:string`) The ID for the topic that you want to describe. This
-    ID is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  ID is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
+
   @spec list_topic_refresh_schedules(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_topic_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topic_refresh_schedules_errors()}
+
   def list_topic_refresh_schedules(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
@@ -24183,17 +24883,19 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    containd the reviewed answers that you want listed.
+  containd the reviewed answers that you want listed.
   * `:topic_id` (`t:string`) The ID for the topic that contains the reviewed
-    answer that you want to list. This ID is unique per Amazon Web Services
-    Region for each Amazon Web Services account.
+  answer that you want to list. This ID is unique per Amazon Web Services
+  Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
+
   @spec list_topic_reviewed_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_topic_reviewed_answers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topic_reviewed_answers_errors()}
+
   def list_topic_reviewed_answers(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/reviewed-answers"
@@ -24230,18 +24932,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topics that you want to list.
+  contains the topics that you want to list.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_topics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_topics_errors()}
+
   def list_topics(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
 
@@ -24296,23 +25000,25 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID that the
-    user is in. Currently, you use the ID for the Amazon Web Services account
-    that contains your Amazon QuickSight account.
+  user is in. Currently, you use the ID for the Amazon Web Services account
+  that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-    default.
+  default.
   * `:user_name` (`t:string`) The Amazon QuickSight user name that you want to
-    list group memberships for.
+  list group memberships for.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
-    request.
+  request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
-    request.
+  request.
   """
+
   @spec list_user_groups(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_groups_errors()}
+
   def list_user_groups(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/groups"
@@ -24367,21 +25073,23 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the user is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the user is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-    default.
+  default.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
-    request.
+  request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
-    request.
+  request.
   """
+
   @spec list_users(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
+
   def list_users(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
@@ -24437,18 +25145,20 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-    account that contains the VPC connections that you want to list.
+  account that contains the VPC connections that you want to list.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-    request.
+  request.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_connections_errors()}
+
   def list_vpc_connections(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
 
@@ -24506,33 +25216,46 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec put_data_set_refresh_properties(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          put_data_set_refresh_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_data_set_refresh_properties(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_data_set_refresh_properties_errors()}
+
   def put_data_set_refresh_properties(
         %Client{} = client,
         aws_account_id,
         data_set_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24551,44 +25274,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the user is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the user is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-    default.
+  default.
 
   ## Optional parameters:
   """
-  @spec register_user(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          register_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, register_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_user_errors()}
-  def register_user(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
+
+  def register_user(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24599,41 +25326,45 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID of the analysis that you're restoring.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analysis.
+  contains the analysis.
 
   ## Optional parameters:
   """
-  @spec restore_analysis(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          restore_analysis_request(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, restore_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_analysis_errors()}
-  def restore_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
+
+  def restore_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/restore/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24643,33 +25374,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analyses that you're searching for.
+  contains the analyses that you're searching for.
 
   ## Optional parameters:
   """
-  @spec search_analyses(AWS.Client.t(), String.t(), search_analyses_request(), Keyword.t()) ::
+
+  @spec search_analyses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_analyses_errors()}
-  def search_analyses(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def search_analyses(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/analyses"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24679,33 +25421,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the user whose dashboards you're searching for.
+  contains the user whose dashboards you're searching for.
 
   ## Optional parameters:
   """
-  @spec search_dashboards(AWS.Client.t(), String.t(), search_dashboards_request(), Keyword.t()) ::
+
+  @spec search_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_dashboards_errors()}
-  def search_dashboards(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def search_dashboards(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/dashboards"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24719,29 +25472,40 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec search_data_sets(AWS.Client.t(), String.t(), search_data_sets_request(), Keyword.t()) ::
+
+  @spec search_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_data_sets_errors()}
-  def search_data_sets(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def search_data_sets(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24755,34 +25519,40 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec search_data_sources(
-          AWS.Client.t(),
-          String.t(),
-          search_data_sources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_data_sources_errors()}
-  def search_data_sources(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def search_data_sources(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24792,33 +25562,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder.
+  contains the folder.
 
   ## Optional parameters:
   """
-  @spec search_folders(AWS.Client.t(), String.t(), search_folders_request(), Keyword.t()) ::
+
+  @spec search_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_folders_errors()}
-  def search_folders(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def search_folders(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/folders"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24829,38 +25610,57 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace that you want to search.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return from this
-    request.
+  request.
   * `:next_token` (`t:string`) A pagination token that can be used in a subsequent
-    request.
+  request.
   """
-  @spec search_groups(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          search_groups_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_groups_errors()}
-  def search_groups(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
+
+  def search_groups(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups-search"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"MaxResults", "max-results"},
-        {"NextToken", "next-token"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -24870,17 +25670,9 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24896,38 +25688,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account to
-    export assets from.
+  export assets from.
 
   ## Optional parameters:
   """
-  @spec start_asset_bundle_export_job(
-          AWS.Client.t(),
-          String.t(),
-          start_asset_bundle_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_asset_bundle_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_asset_bundle_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_asset_bundle_export_job_errors()}
-  def start_asset_bundle_export_job(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def start_asset_bundle_export_job(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs/export"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24942,38 +25740,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account to
-    import assets into.
+  import assets into.
 
   ## Optional parameters:
   """
-  @spec start_asset_bundle_import_job(
-          AWS.Client.t(),
-          String.t(),
-          start_asset_bundle_import_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_asset_bundle_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_asset_bundle_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_asset_bundle_import_job_errors()}
-  def start_asset_bundle_import_job(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def start_asset_bundle_import_job(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/import"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -24985,49 +25789,52 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    the dashboard snapshot job is executed in.
+  the dashboard snapshot job is executed in.
   * `:dashboard_id` (`t:string`) The ID of the dashboard that you want to start a
-    snapshot job for.
+  snapshot job for.
 
   ## Optional parameters:
   """
-  @spec start_dashboard_snapshot_job(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          start_dashboard_snapshot_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_dashboard_snapshot_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_dashboard_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_dashboard_snapshot_job_errors()}
+
   def start_dashboard_snapshot_job(
         %Client{} = client,
         aws_account_id,
         dashboard_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/snapshot-jobs"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25045,33 +25852,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to tag.
+  that you want to tag.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25081,28 +25899,45 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to untag.
+  that you want to untag.
   * `:tag_keys` (`t:list[com.amazonaws.quicksight#TagKey]`) The keys of the
-    key-value pairs for the resource tag or tags assigned to the resource.
+  key-value pairs for the resource tag or tags assigned to the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "keys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"keys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -25111,7 +25946,7 @@ defmodule AWS.QuickSight do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -25125,30 +25960,45 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to update Amazon QuickSight customizations for.
+  you want to update Amazon QuickSight customizations for.
 
   ## Optional parameters:
   * `:namespace` (`t:string`) The namespace that you want to update Amazon
-    QuickSight customizations for.
+  QuickSight customizations for.
   """
-  @spec update_account_customization(
-          AWS.Client.t(),
-          String.t(),
-          update_account_customization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_customization_errors()}
-  def update_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def update_account_customization(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
+
+    # Validate optional parameters
+    optional_params = [namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Namespace", "namespace"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -25158,7 +26008,9 @@ defmodule AWS.QuickSight do
       options
       |> Keyword.drop([:namespace])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25168,28 +26020,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the Amazon QuickSight settings that you want to list.
+  contains the Amazon QuickSight settings that you want to list.
 
   ## Optional parameters:
   """
-  @spec update_account_settings(
-          AWS.Client.t(),
-          String.t(),
-          update_account_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-  def update_account_settings(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def update_account_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25199,33 +26067,47 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID for the analysis that you're updating. This
-    ID displays in the URL of the analysis.
+  ID displays in the URL of the analysis.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analysis that you're updating.
+  contains the analysis that you're updating.
 
   ## Optional parameters:
   """
-  @spec update_analysis(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_analysis_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_analysis_errors()}
-  def update_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
+
+  def update_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25235,40 +26117,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:analysis_id` (`t:string`) The ID of the analysis whose permissions you're
-    updating. The ID is part of the analysis URL.
+  updating. The ID is part of the analysis URL.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the analysis whose permissions you're updating. You must be using
-    the Amazon Web Services account that the analysis is in.
+  contains the analysis whose permissions you're updating. You must be using
+  the Amazon Web Services account that the analysis is in.
 
   ## Optional parameters:
   """
-  @spec update_analysis_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_analysis_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_analysis_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_analysis_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_analysis_permissions_errors()}
-  def update_analysis_permissions(
-        %Client{} = client,
-        analysis_id,
-        aws_account_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_analysis_permissions(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25278,32 +26168,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard that you're updating.
+  contains the dashboard that you're updating.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   """
-  @spec update_dashboard(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_dashboard_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_errors()}
-  def update_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
+
+  def update_dashboard(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25313,38 +26217,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard whose links you want to update.
+  contains the dashboard whose links you want to update.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   """
-  @spec update_dashboard_links(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_dashboard_links_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_dashboard_links(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_links_errors()}
-  def update_dashboard_links(
-        %Client{} = client,
-        aws_account_id,
-        dashboard_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_dashboard_links(%Client{} = client, aws_account_id, dashboard_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/linked-entities"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25354,38 +26266,51 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard whose permissions you're updating.
+  contains the dashboard whose permissions you're updating.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   """
-  @spec update_dashboard_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_dashboard_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_dashboard_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dashboard_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_permissions_errors()}
+
   def update_dashboard_permissions(
         %Client{} = client,
         aws_account_id,
         dashboard_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25395,41 +26320,59 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the dashboard that you're updating.
+  contains the dashboard that you're updating.
   * `:dashboard_id` (`t:string`) The ID for the dashboard.
   * `:version_number` (`t:long`) The version number of the dashboard.
 
   ## Optional parameters:
   """
+
   @spec update_dashboard_published_version(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_dashboard_published_version_request(),
           Keyword.t()
         ) ::
           {:ok, update_dashboard_published_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dashboard_published_version_errors()}
+
   def update_dashboard_published_version(
         %Client{} = client,
         aws_account_id,
         dashboard_id,
         version_number,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25441,32 +26384,46 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_set_id` (`t:string`) The ID for the dataset that you want to update.
-    This ID is unique per Amazon Web Services Region for each Amazon Web
-    Services account.
+  This ID is unique per Amazon Web Services Region for each Amazon Web
+  Services account.
 
   ## Optional parameters:
   """
-  @spec update_data_set(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_data_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_data_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_set_errors()}
-  def update_data_set(%Client{} = client, aws_account_id, data_set_id, input, options \\ []) do
+
+  def update_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25477,48 +26434,46 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_set_id` (`t:string`) The ID for the dataset whose permissions you want
-    to update. This ID is unique per Amazon Web Services Region for each Amazon
-    Web Services account.
+  to update. This ID is unique per Amazon Web Services Region for each Amazon
+  Web Services account.
 
   ## Optional parameters:
   """
-  @spec update_data_set_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_data_set_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_data_set_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_set_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_set_permissions_errors()}
-  def update_data_set_permissions(
-        %Client{} = client,
-        aws_account_id,
-        data_set_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_data_set_permissions(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25529,31 +26484,45 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-    per Amazon Web Services Region for each Amazon Web Services account.
+  per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
-  @spec update_data_source(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_data_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_errors()}
-  def update_data_source(%Client{} = client, aws_account_id, data_source_id, input, options \\ []) do
+
+  def update_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25564,47 +26533,50 @@ defmodule AWS.QuickSight do
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
   * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique
-    per Amazon Web Services Region for each Amazon Web Services account.
+  per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
-  @spec update_data_source_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_data_source_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_data_source_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_source_permissions_errors()}
+
   def update_data_source_permissions(
         %Client{} = client,
         aws_account_id,
         data_source_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25614,32 +26586,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder to update.
+  contains the folder to update.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
-  @spec update_folder(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_folder_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_folder(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_folder_errors()}
-  def update_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
+
+  def update_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25649,38 +26635,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    contains the folder to update.
+  contains the folder to update.
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
-  @spec update_folder_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_folder_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_folder_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_folder_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_folder_permissions_errors()}
-  def update_folder_permissions(
-        %Client{} = client,
-        aws_account_id,
-        folder_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_folder_permissions(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25690,42 +26684,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the group is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the group is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:group_name` (`t:string`) The name of the group that you want to update.
   * `:namespace` (`t:string`) The namespace of the group that you want to update.
 
   ## Optional parameters:
   """
-  @spec update_group(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_group_errors()}
-  def update_group(
-        %Client{} = client,
-        aws_account_id,
-        group_name,
-        namespace,
-        input,
-        options \\ []
-      ) do
+
+  def update_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25737,42 +26737,60 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:assignment_name` (`t:string`) The name of the assignment, also called a
-    rule. The name must be unique within the Amazon Web Services account.
+  rule. The name must be unique within the Amazon Web Services account.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the IAM policy assignment.
+  contains the IAM policy assignment.
   * `:namespace` (`t:string`) The namespace of the assignment.
 
   ## Optional parameters:
   """
+
   @spec update_iam_policy_assignment(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_iam_policy_assignment_request(),
           Keyword.t()
         ) ::
           {:ok, update_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_iam_policy_assignment_errors()}
+
   def update_iam_policy_assignment(
         %Client{} = client,
         assignment_name,
         aws_account_id,
         namespace,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/#{AWS.Util.encode_uri(assignment_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25783,49 +26801,52 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the identity propagation configuration that you want to update.
+  contains the identity propagation configuration that you want to update.
   * `:service` (`t:enum["REDSHIFT"]`) The name of the Amazon Web Services service
-    that contains the authorized targets that you want to add or update.
+  that contains the authorized targets that you want to add or update.
 
   ## Optional parameters:
   """
-  @spec update_identity_propagation_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_identity_propagation_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_identity_propagation_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_identity_propagation_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_propagation_config_errors()}
+
   def update_identity_propagation_config(
         %Client{} = client,
         aws_account_id,
         service,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config/#{AWS.Util.encode_uri(service)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25839,38 +26860,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the IP rules.
+  contains the IP rules.
 
   ## Optional parameters:
   """
-  @spec update_ip_restriction(
-          AWS.Client.t(),
-          String.t(),
-          update_ip_restriction_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_ip_restriction(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ip_restriction_errors()}
-  def update_ip_restriction(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def update_ip_restriction(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25880,38 +26907,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the customer managed key registration that you want to update.
+  contains the customer managed key registration that you want to update.
 
   ## Optional parameters:
   """
-  @spec update_key_registration(
-          AWS.Client.t(),
-          String.t(),
-          update_key_registration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_key_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_registration_errors()}
-  def update_key_registration(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def update_key_registration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25924,28 +26957,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID associated
-    with your Amazon QuickSight subscription.
+  with your Amazon QuickSight subscription.
 
   ## Optional parameters:
   """
-  @spec update_public_sharing_settings(
-          AWS.Client.t(),
-          String.t(),
-          update_public_sharing_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_public_sharing_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_public_sharing_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_public_sharing_settings_errors()}
-  def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
+
+  def update_public_sharing_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25959,33 +27008,41 @@ defmodule AWS.QuickSight do
 
   ## Optional parameters:
   """
-  @spec update_refresh_schedule(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_refresh_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_refresh_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_refresh_schedule_errors()}
-  def update_refresh_schedule(
-        %Client{} = client,
-        aws_account_id,
-        data_set_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_refresh_schedule(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -25995,45 +27052,63 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    you want to create a group in. The Amazon Web Services account ID that you
-    provide must be the same Amazon Web Services account that contains your
-    Amazon QuickSight account.
+  you want to create a group in. The Amazon Web Services account ID that you
+  provide must be the same Amazon Web Services account that contains your
+  Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace that contains the role that you want
-    to update.
+  to update.
   * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The
-    name of role tht you want to update.
+  name of role tht you want to update.
 
   ## Optional parameters:
   """
+
   @spec update_role_custom_permission(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_role_custom_permission_request(),
           Keyword.t()
         ) ::
           {:ok, update_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_role_custom_permission_errors()}
+
   def update_role_custom_permission(
         %Client{} = client,
         aws_account_id,
         namespace,
         role,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26043,43 +27118,44 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the SPICE configuration that you want to update.
+  contains the SPICE configuration that you want to update.
 
   ## Optional parameters:
   """
-  @spec update_s_p_i_c_e_capacity_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_s_p_i_c_e_capacity_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_s_p_i_c_e_capacity_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_s_p_i_c_e_capacity_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_s_p_i_c_e_capacity_configuration_errors()}
-  def update_s_p_i_c_e_capacity_configuration(
-        %Client{} = client,
-        aws_account_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_s_p_i_c_e_capacity_configuration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spice-capacity-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26090,32 +27166,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template that you're updating.
+  contains the template that you're updating.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
-  @spec update_template(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-  def update_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
+
+  def update_template(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26125,45 +27215,57 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:alias_name` (`t:string`) The alias of the template that you want to update.
-    If you name a specific alias, you update the version that the alias points
-    to. You can specify the latest version of the template by providing the
-    keyword $LATEST in the AliasName parameter. The keyword $PUBLISHED doesn't
-    apply to templates.
+  If you name a specific alias, you update the version that the alias points
+  to. You can specify the latest version of the template by providing the
+  keyword $LATEST in the AliasName parameter. The keyword $PUBLISHED doesn't
+  apply to templates.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template alias that you're updating.
+  contains the template alias that you're updating.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
-  @spec update_template_alias(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_template_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_template_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_alias_errors()}
+
   def update_template_alias(
         %Client{} = client,
         alias_name,
         aws_account_id,
         template_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26173,38 +27275,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the template.
+  contains the template.
   * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
-  @spec update_template_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_template_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_template_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_permissions_errors()}
-  def update_template_permissions(
-        %Client{} = client,
-        aws_account_id,
-        template_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_template_permissions(%Client{} = client, aws_account_id, template_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26214,26 +27324,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme that you're updating.
+  contains the theme that you're updating.
   * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
-  @spec update_theme(AWS.Client.t(), String.t(), String.t(), update_theme_request(), Keyword.t()) ::
+
+  @spec update_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_theme_errors()}
-  def update_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
+
+  def update_theme(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26243,42 +27373,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:alias_name` (`t:string`) The name of the theme alias that you want to
-    update.
+  update.
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme alias that you're updating.
+  contains the theme alias that you're updating.
   * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
-  @spec update_theme_alias(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_theme_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_theme_alias(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_theme_alias_errors()}
-  def update_theme_alias(
-        %Client{} = client,
-        alias_name,
-        aws_account_id,
-        theme_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_theme_alias(%Client{} = client, alias_name, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26291,32 +27427,46 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the theme.
+  contains the theme.
   * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
-  @spec update_theme_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_theme_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_theme_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_theme_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_theme_permissions_errors()}
-  def update_theme_permissions(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
+
+  def update_theme_permissions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26326,28 +27476,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic that you want to update.
+  contains the topic that you want to update.
   * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-    is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
-  @spec update_topic(AWS.Client.t(), String.t(), String.t(), update_topic_request(), Keyword.t()) ::
+
+  @spec update_topic(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_topic_errors()}
-  def update_topic(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
+
+  def update_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26357,34 +27527,48 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic that you want to update the permissions for.
+  contains the topic that you want to update the permissions for.
   * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-    is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
-  @spec update_topic_permissions(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_topic_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_topic_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_topic_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_topic_permissions_errors()}
-  def update_topic_permissions(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
+
+  def update_topic_permissions(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/permissions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26394,43 +27578,61 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that
-    contains the topic whose refresh schedule you want to update.
+  contains the topic whose refresh schedule you want to update.
   * `:dataset_id` (`t:string`) The ID of the dataset.
   * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID
-    is unique per Amazon Web Services Region for each Amazon Web Services
-    account.
+  is unique per Amazon Web Services Region for each Amazon Web Services
+  account.
 
   ## Optional parameters:
   """
+
   @spec update_topic_refresh_schedule(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_topic_refresh_schedule_request(),
           Keyword.t()
         ) ::
           {:ok, update_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_topic_refresh_schedule_errors()}
+
   def update_topic_refresh_schedule(
         %Client{} = client,
         aws_account_id,
         dataset_id,
         topic_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules/#{AWS.Util.encode_uri(dataset_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26440,37 +27642,50 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that
-    the user is in. Currently, you use the ID for the Amazon Web Services
-    account that contains your Amazon QuickSight account.
+  the user is in. Currently, you use the ID for the Amazon Web Services
+  account that contains your Amazon QuickSight account.
   * `:namespace` (`t:string`) The namespace. Currently, you should set this to
-    default.
+  default.
   * `:user_name` (`t:string`) The Amazon QuickSight user name that you want to
-    update.
+  update.
 
   ## Optional parameters:
   """
-  @spec update_user(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-  def update_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
+
+  def update_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -26480,39 +27695,47 @@ defmodule AWS.QuickSight do
 
   ## Parameters:
   * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the
-    account that contains the VPC connection that you want to update.
+  account that contains the VPC connection that you want to update.
   * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that you're
-    updating. This ID is a unique identifier for each Amazon Web Services Region
-    in an Amazon Web Services account.
+  updating. This ID is a unique identifier for each Amazon Web Services Region
+  in an Amazon Web Services account.
 
   ## Optional parameters:
   """
-  @spec update_vpc_connection(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_vpc_connection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_vpc_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_connection_errors()}
-  def update_vpc_connection(
-        %Client{} = client,
-        aws_account_id,
-        vpc_connection_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_vpc_connection(%Client{} = client, aws_account_id, vpc_connection_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

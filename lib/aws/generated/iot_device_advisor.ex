@@ -22,66 +22,66 @@ defmodule AWS.IotDeviceAdvisor do
   @typedoc """
 
   ## Example:
-
+      
       list_suite_definitions_response() :: %{
         "nextToken" => String.t(),
         "suiteDefinitionInformationList" => list(suite_definition_information()())
       }
-
+      
   """
   @type list_suite_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_suite_run_request() :: %{}
-
+      
   """
   @type get_suite_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_suite_run_response() :: %{
         "createdAt" => non_neg_integer(),
         "endpoint" => String.t(),
         "suiteRunArn" => String.t(),
         "suiteRunId" => String.t()
       }
-
+      
   """
   @type start_suite_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suite_run_configuration() :: %{
         "parallelRun" => boolean(),
         "primaryDevice" => device_under_test(),
         "selectedTestList" => list(String.t()())
       }
-
+      
   """
   @type suite_run_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suite_definition_information() :: %{
         "createdAt" => non_neg_integer(),
         "defaultDevices" => list(device_under_test()()),
@@ -91,48 +91,48 @@ defmodule AWS.IotDeviceAdvisor do
         "suiteDefinitionId" => String.t(),
         "suiteDefinitionName" => String.t()
       }
-
+      
   """
   @type suite_definition_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_suite_definition_response() :: %{
         "createdAt" => non_neg_integer(),
         "suiteDefinitionArn" => String.t(),
         "suiteDefinitionId" => String.t(),
         "suiteDefinitionName" => String.t()
       }
-
+      
   """
   @type create_suite_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       test_result() :: %{
         "groups" => list(group_result()())
       }
-
+      
   """
   @type test_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suite_run_information() :: %{
         "createdAt" => non_neg_integer(),
         "endAt" => non_neg_integer(),
@@ -145,112 +145,112 @@ defmodule AWS.IotDeviceAdvisor do
         "suiteDefinitionVersion" => String.t(),
         "suiteRunId" => String.t()
       }
-
+      
   """
   @type suite_run_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device_under_test() :: %{
         "certificateArn" => String.t(),
         "deviceRoleArn" => String.t(),
         "thingArn" => String.t()
       }
-
+      
   """
   @type device_under_test() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_suite_run_response() :: %{}
-
+      
   """
   @type stop_suite_run_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_suite_run_report_response() :: %{
         "qualificationReportDownloadUrl" => String.t()
       }
-
+      
   """
   @type get_suite_run_report_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_suite_definitions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_suite_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_suite_run_report_request() :: %{}
-
+      
   """
   @type get_suite_run_report_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_endpoint_response() :: %{
         "endpoint" => String.t()
       }
-
+      
   """
   @type get_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_suite_run_response() :: %{
         "endTime" => non_neg_integer(),
         "errorReason" => String.t(),
@@ -264,91 +264,91 @@ defmodule AWS.IotDeviceAdvisor do
         "tags" => map(),
         "testResult" => test_result()
       }
-
+      
   """
   @type get_suite_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_suite_definition_request() :: %{
         optional("tags") => map(),
         required("suiteDefinitionConfiguration") => suite_definition_configuration()
       }
-
+      
   """
   @type create_suite_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_suite_run_request() :: %{}
-
+      
   """
   @type stop_suite_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_suite_definition_request() :: %{
         optional("suiteDefinitionVersion") => String.t()
       }
-
+      
   """
   @type get_suite_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_suite_runs_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("suiteDefinitionId") => String.t(),
         optional("suiteDefinitionVersion") => String.t()
       }
-
+      
   """
   @type list_suite_runs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_suite_definition_request() :: %{}
-
+      
   """
   @type delete_suite_definition_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       suite_definition_configuration() :: %{
         "devicePermissionRoleArn" => String.t(),
         "devices" => list(device_under_test()()),
@@ -358,14 +358,14 @@ defmodule AWS.IotDeviceAdvisor do
         "rootGroup" => String.t(),
         "suiteDefinitionName" => String.t()
       }
-
+      
   """
   @type suite_definition_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_case_scenario() :: %{
         "failure" => String.t(),
         "status" => list(any()),
@@ -373,63 +373,63 @@ defmodule AWS.IotDeviceAdvisor do
         "testCaseScenarioId" => String.t(),
         "testCaseScenarioType" => list(any())
       }
-
+      
   """
   @type test_case_scenario() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_suite_definition_response() :: %{}
-
+      
   """
   @type delete_suite_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_suite_definition_request() :: %{
         required("suiteDefinitionConfiguration") => suite_definition_configuration()
       }
-
+      
   """
   @type update_suite_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_suite_definition_response() :: %{
         "createdAt" => non_neg_integer(),
         "lastModifiedAt" => non_neg_integer(),
@@ -440,52 +440,52 @@ defmodule AWS.IotDeviceAdvisor do
         "suiteDefinitionVersion" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type get_suite_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_suite_runs_response() :: %{
         "nextToken" => String.t(),
         "suiteRunsList" => list(suite_run_information()())
       }
-
+      
   """
   @type list_suite_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group_result() :: %{
         "groupId" => String.t(),
         "groupName" => String.t(),
         "tests" => list(test_case_run()())
       }
-
+      
   """
   @type group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_suite_run_request() :: %{
         optional("suiteDefinitionVersion") => String.t(),
         optional("tags") => map(),
         required("suiteRunConfiguration") => suite_run_configuration()
       }
-
+      
   """
   @type start_suite_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       test_case_run() :: %{
         "endTime" => non_neg_integer(),
         "failure" => String.t(),
@@ -498,28 +498,28 @@ defmodule AWS.IotDeviceAdvisor do
         "testScenarios" => list(test_case_scenario()()),
         "warnings" => String.t()
       }
-
+      
   """
   @type test_case_run() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_endpoint_request() :: %{
         optional("authenticationMethod") => list(any()),
         optional("certificateArn") => String.t(),
         optional("deviceRoleArn") => String.t(),
         optional("thingArn") => String.t()
       }
-
+      
   """
   @type get_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_suite_definition_response() :: %{
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
@@ -528,7 +528,7 @@ defmodule AWS.IotDeviceAdvisor do
         "suiteDefinitionName" => String.t(),
         "suiteDefinitionVersion" => String.t()
       }
-
+      
   """
   @type update_suite_definition_response() :: %{String.t() => any()}
 
@@ -594,29 +594,40 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Optional parameters:
   """
-  @spec create_suite_definition(AWS.Client.t(), create_suite_definition_request(), Keyword.t()) ::
+
+  @spec create_suite_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_suite_definition_errors()}
-  def create_suite_definition(%Client{} = client, input, options \\ []) do
+
+  def create_suite_definition(%Client{} = client, options \\ []) do
     url_path = "/suiteDefinitions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -626,26 +637,42 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
-    be deleted.
+  be deleted.
 
   ## Optional parameters:
   """
-  @spec delete_suite_definition(
-          AWS.Client.t(),
-          String.t(),
-          delete_suite_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_suite_definition_errors()}
-  def delete_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
+
+  def delete_suite_definition(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -654,7 +681,7 @@ defmodule AWS.IotDeviceAdvisor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -669,18 +696,20 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Optional parameters:
   * `:authentication_method` (`t:enum["SignatureVersion4|X509ClientCertificate"]`)
-    The authentication method used during the device connection.
+  The authentication method used during the device connection.
   * `:certificate_arn` (`t:string`) The certificate ARN of the device. This is an
-    optional parameter.
+  optional parameter.
   * `:device_role_arn` (`t:string`) The device role ARN of the device. This is an
-    optional parameter.
+  optional parameter.
   * `:thing_arn` (`t:string`) The thing ARN of the device. This is an optional
-    parameter.
+  parameter.
   """
+
   @spec get_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_endpoint_errors()}
+
   def get_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoint"
 
@@ -753,16 +782,18 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
-    get.
+  get.
 
   ## Optional parameters:
   * `:suite_definition_version` (`t:string`) Suite definition version of the test
-    suite to get.
+  suite to get.
   """
+
   @spec get_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_definition_errors()}
+
   def get_suite_definition(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
 
@@ -809,15 +840,17 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string`) Suite definition ID for the test suite
-    run.
+  run.
   * `:suite_run_id` (`t:string`) Suite run ID for the test suite run.
 
   ## Optional parameters:
   """
+
   @spec get_suite_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_run_errors()}
+
   def get_suite_run(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}"
@@ -859,10 +892,12 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Optional parameters:
   """
+
   @spec get_suite_run_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_suite_run_report_errors()}
+
   def get_suite_run_report(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/report"
@@ -903,10 +938,12 @@ defmodule AWS.IotDeviceAdvisor do
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
   * `:next_token` (`t:string`) A token used to get the next set of results.
   """
+
   @spec list_suite_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suite_definitions_errors()}
+
   def list_suite_definitions(%Client{} = client, options \\ []) do
     url_path = "/suiteDefinitions"
 
@@ -965,15 +1002,17 @@ defmodule AWS.IotDeviceAdvisor do
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
   * `:next_token` (`t:string`) A token to retrieve the next set of results.
   * `:suite_definition_id` (`t:string`) Lists the test suite runs of the specified
-    test suite based on suite definition ID.
+  test suite based on suite definition ID.
   * `:suite_definition_version` (`t:string`) Must be passed along with
-    suiteDefinitionId. Lists the test suite runs of the specified test suite
-    based on suite definition version.
+  suiteDefinitionId. Lists the test suite runs of the specified test suite
+  based on suite definition version.
   """
+
   @spec list_suite_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_suite_runs_errors()}
+
   def list_suite_runs(%Client{} = client, options \\ []) do
     url_path = "/suiteRuns"
 
@@ -1046,14 +1085,16 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN of the IoT Device Advisor
-    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+  resource. This can be SuiteDefinition ARN or SuiteRun ARN.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1092,29 +1133,40 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Optional parameters:
   """
-  @spec start_suite_run(AWS.Client.t(), String.t(), start_suite_run_request(), Keyword.t()) ::
+
+  @spec start_suite_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_suite_run_errors()}
-  def start_suite_run(%Client{} = client, suite_definition_id, input, options \\ []) do
+
+  def start_suite_run(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1124,42 +1176,46 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite run
-    to be stopped.
+  to be stopped.
   * `:suite_run_id` (`t:string`) Suite run ID of the test suite run to be stopped.
 
   ## Optional parameters:
   """
-  @spec stop_suite_run(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          stop_suite_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_suite_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_suite_run_errors()}
-  def stop_suite_run(%Client{} = client, suite_definition_id, suite_run_id, input, options \\ []) do
+
+  def stop_suite_run(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/stop"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1169,33 +1225,44 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
-    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+  resource. This can be SuiteDefinition ARN or SuiteRun ARN.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1205,28 +1272,45 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
-    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+  resource. This can be SuiteDefinition ARN or SuiteRun ARN.
   * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]`) List of tag
-    keys to remove from the IoT Device Advisor resource.
+  keys to remove from the IoT Device Advisor resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1235,7 +1319,7 @@ defmodule AWS.IotDeviceAdvisor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1248,26 +1332,42 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
-    be updated.
+  be updated.
 
   ## Optional parameters:
   """
-  @spec update_suite_definition(
-          AWS.Client.t(),
-          String.t(),
-          update_suite_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_suite_definition_errors()}
-  def update_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
+
+  def update_suite_definition(%Client{} = client, suite_definition_id, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1276,7 +1376,7 @@ defmodule AWS.IotDeviceAdvisor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

@@ -1659,12 +1659,23 @@ defmodule AWS.OpenSearchServerless do
   endpoint and the OpenSearch Dashboards endpoint. For more information, see
   [Creating and managing Amazon OpenSearch Serverless
   collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20BatchGetCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_collection_request`)
+    %{
+      optional("ids") => list(String.t()()),
+      optional("names") => list(String.t()())
+    }
   """
-  @spec batch_get_collection(AWS.Client.t(), batch_get_collection_request(), Keyword.t()) ::
+
+  @spec batch_get_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_collection_errors()}
-  def batch_get_collection(%Client{} = client, input, options \\ []) do
+
+  def batch_get_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1675,16 +1686,23 @@ defmodule AWS.OpenSearchServerless do
   Returns a list of successful and failed retrievals for the OpenSearch Serverless
   indexes. For more information, see [Viewing data lifecycle
   policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20BatchGetEffectiveLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_effective_lifecycle_policy_request`)
+    %{
+      required("resourceIdentifiers") => list(lifecycle_policy_resource_identifier()())
+    }
   """
-  @spec batch_get_effective_lifecycle_policy(
-          AWS.Client.t(),
-          batch_get_effective_lifecycle_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_effective_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_effective_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_effective_lifecycle_policy_errors()}
-  def batch_get_effective_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def batch_get_effective_lifecycle_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1695,16 +1713,22 @@ defmodule AWS.OpenSearchServerless do
   Returns one or more configured OpenSearch Serverless lifecycle policies. For
   more information, see [Viewing data lifecycle
   policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20BatchGetLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_lifecycle_policy_request`)
+    %{
+      required("identifiers") => list(lifecycle_policy_identifier()())
+    }
   """
-  @spec batch_get_lifecycle_policy(
-          AWS.Client.t(),
-          batch_get_lifecycle_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_lifecycle_policy_errors()}
-  def batch_get_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def batch_get_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1716,12 +1740,22 @@ defmodule AWS.OpenSearchServerless do
   account. For more information, see [Access Amazon OpenSearch Serverless using
   an interface
   endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20BatchGetVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_vpc_endpoint_request`)
+    %{
+      required("ids") => list(String.t()())
+    }
   """
-  @spec batch_get_vpc_endpoint(AWS.Client.t(), batch_get_vpc_endpoint_request(), Keyword.t()) ::
+
+  @spec batch_get_vpc_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_vpc_endpoint_errors()}
-  def batch_get_vpc_endpoint(%Client{} = client, input, options \\ []) do
+
+  def batch_get_vpc_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1734,12 +1768,26 @@ defmodule AWS.OpenSearchServerless do
   access that data irrespective of the access mechanism or network source. For
   more information, see [Data access control for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20CreateAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_access_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      required("name") => String.t(),
+      required("policy") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec create_access_policy(AWS.Client.t(), create_access_policy_request(), Keyword.t()) ::
+
+  @spec create_access_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_policy_errors()}
-  def create_access_policy(%Client{} = client, input, options \\ []) do
+
+  def create_access_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1750,12 +1798,27 @@ defmodule AWS.OpenSearchServerless do
   Creates a new OpenSearch Serverless collection. For more information, see
   [Creating and managing Amazon OpenSearch Serverless
   collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20CreateCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_collection_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => [String.t()],
+      optional("standbyReplicas") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("type") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec create_collection(AWS.Client.t(), create_collection_request(), Keyword.t()) ::
+
+  @spec create_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_collection_errors()}
-  def create_collection(%Client{} = client, input, options \\ []) do
+
+  def create_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1768,12 +1831,26 @@ defmodule AWS.OpenSearchServerless do
   OpenSearch Serverless index. For more information, see [Creating data
   lifecycle
   policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_lifecycle_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      required("name") => String.t(),
+      required("policy") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec create_lifecycle_policy(AWS.Client.t(), create_lifecycle_policy_request(), Keyword.t()) ::
+
+  @spec create_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lifecycle_policy_errors()}
-  def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def create_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1784,12 +1861,26 @@ defmodule AWS.OpenSearchServerless do
   Specifies a security configuration for OpenSearch Serverless. For more
   information, see [SAML authentication for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20CreateSecurityConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_security_config_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      optional("samlOptions") => saml_config_options(),
+      required("name") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec create_security_config(AWS.Client.t(), create_security_config_request(), Keyword.t()) ::
+
+  @spec create_security_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_config_errors()}
-  def create_security_config(%Client{} = client, input, options \\ []) do
+
+  def create_security_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1805,12 +1896,26 @@ defmodule AWS.OpenSearchServerless do
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
   and [Encryption at rest for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20CreateSecurityPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_security_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      required("name") => String.t(),
+      required("policy") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec create_security_policy(AWS.Client.t(), create_security_policy_request(), Keyword.t()) ::
+
+  @spec create_security_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_policy_errors()}
-  def create_security_policy(%Client{} = client, input, options \\ []) do
+
+  def create_security_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1821,12 +1926,26 @@ defmodule AWS.OpenSearchServerless do
   Creates an OpenSearch Serverless-managed interface VPC endpoint. For more
   information, see [Access Amazon OpenSearch Serverless using an interface
   endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_vpc_endpoint_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("securityGroupIds") => list(String.t()()),
+      required("name") => String.t(),
+      required("subnetIds") => list(String.t()()),
+      required("vpcId") => String.t()
+    }
   """
-  @spec create_vpc_endpoint(AWS.Client.t(), create_vpc_endpoint_request(), Keyword.t()) ::
+
+  @spec create_vpc_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vpc_endpoint_errors()}
-  def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
+
+  def create_vpc_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1837,12 +1956,24 @@ defmodule AWS.OpenSearchServerless do
   Deletes an OpenSearch Serverless access policy. For more information, see [Data
   access control for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20DeleteAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_access_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      required("name") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec delete_access_policy(AWS.Client.t(), delete_access_policy_request(), Keyword.t()) ::
+
+  @spec delete_access_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_policy_errors()}
-  def delete_access_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_access_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1853,12 +1984,23 @@ defmodule AWS.OpenSearchServerless do
   Deletes an OpenSearch Serverless collection. For more information, see [Creating
   and managing Amazon OpenSearch Serverless
   collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20DeleteCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_collection_request`)
+    %{
+      optional("clientToken") => String.t(),
+      required("id") => String.t()
+    }
   """
-  @spec delete_collection(AWS.Client.t(), delete_collection_request(), Keyword.t()) ::
+
+  @spec delete_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_collection_errors()}
-  def delete_collection(%Client{} = client, input, options \\ []) do
+
+  def delete_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1869,12 +2011,24 @@ defmodule AWS.OpenSearchServerless do
   Deletes an OpenSearch Serverless lifecycle policy. For more information, see
   [Deleting data lifecycle
   policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_lifecycle_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      required("name") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec delete_lifecycle_policy(AWS.Client.t(), delete_lifecycle_policy_request(), Keyword.t()) ::
+
+  @spec delete_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
-  def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1885,12 +2039,23 @@ defmodule AWS.OpenSearchServerless do
   Deletes a security configuration for OpenSearch Serverless. For more
   information, see [SAML authentication for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20DeleteSecurityConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_security_config_request`)
+    %{
+      optional("clientToken") => String.t(),
+      required("id") => String.t()
+    }
   """
-  @spec delete_security_config(AWS.Client.t(), delete_security_config_request(), Keyword.t()) ::
+
+  @spec delete_security_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_config_errors()}
-  def delete_security_config(%Client{} = client, input, options \\ []) do
+
+  def delete_security_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1899,12 +2064,24 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Deletes an OpenSearch Serverless security policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20DeleteSecurityPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_security_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      required("name") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec delete_security_policy(AWS.Client.t(), delete_security_policy_request(), Keyword.t()) ::
+
+  @spec delete_security_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_policy_errors()}
-  def delete_security_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_security_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1915,12 +2092,23 @@ defmodule AWS.OpenSearchServerless do
   Deletes an OpenSearch Serverless-managed interface endpoint. For more
   information, see [Access Amazon OpenSearch Serverless using an interface
   endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20DeleteVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_vpc_endpoint_request`)
+    %{
+      optional("clientToken") => String.t(),
+      required("id") => String.t()
+    }
   """
-  @spec delete_vpc_endpoint(AWS.Client.t(), delete_vpc_endpoint_request(), Keyword.t()) ::
+
+  @spec delete_vpc_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vpc_endpoint_errors()}
-  def delete_vpc_endpoint(%Client{} = client, input, options \\ []) do
+
+  def delete_vpc_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1931,12 +2119,23 @@ defmodule AWS.OpenSearchServerless do
   Returns an OpenSearch Serverless access policy. For more information, see [Data
   access control for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20GetAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_access_policy_request`)
+    %{
+      required("name") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec get_access_policy(AWS.Client.t(), get_access_policy_request(), Keyword.t()) ::
+
+  @spec get_access_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_access_policy_errors()}
-  def get_access_policy(%Client{} = client, input, options \\ []) do
+
+  def get_access_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1945,12 +2144,22 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns account-level settings related to OpenSearch Serverless.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20GetAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_account_settings_request`)
+    %{
+      
+    }
   """
-  @spec get_account_settings(AWS.Client.t(), get_account_settings_request(), Keyword.t()) ::
+
+  @spec get_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
-  def get_account_settings(%Client{} = client, input, options \\ []) do
+
+  def get_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1960,12 +2169,22 @@ defmodule AWS.OpenSearchServerless do
   @doc """
   Returns statistical information about your OpenSearch Serverless access
   policies, security configurations, and security policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20GetPoliciesStats&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_policies_stats_request`)
+    %{
+      
+    }
   """
-  @spec get_policies_stats(AWS.Client.t(), get_policies_stats_request(), Keyword.t()) ::
+
+  @spec get_policies_stats(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_policies_stats_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policies_stats_errors()}
-  def get_policies_stats(%Client{} = client, input, options \\ []) do
+
+  def get_policies_stats(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1976,12 +2195,22 @@ defmodule AWS.OpenSearchServerless do
   Returns information about an OpenSearch Serverless security configuration. For
   more information, see [SAML authentication for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20GetSecurityConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_security_config_request`)
+    %{
+      required("id") => String.t()
+    }
   """
-  @spec get_security_config(AWS.Client.t(), get_security_config_request(), Keyword.t()) ::
+
+  @spec get_security_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_config_errors()}
-  def get_security_config(%Client{} = client, input, options \\ []) do
+
+  def get_security_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1994,12 +2223,23 @@ defmodule AWS.OpenSearchServerless do
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
   and [Encryption at rest for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20GetSecurityPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_security_policy_request`)
+    %{
+      required("name") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec get_security_policy(AWS.Client.t(), get_security_policy_request(), Keyword.t()) ::
+
+  @spec get_security_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_policy_errors()}
-  def get_security_policy(%Client{} = client, input, options \\ []) do
+
+  def get_security_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2008,12 +2248,25 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns information about a list of OpenSearch Serverless access policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20ListAccessPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_access_policies_request`)
+    %{
+      optional("maxResults") => [integer()],
+      optional("nextToken") => [String.t()],
+      optional("resource") => list(String.t()()),
+      required("type") => String.t()
+    }
   """
-  @spec list_access_policies(AWS.Client.t(), list_access_policies_request(), Keyword.t()) ::
+
+  @spec list_access_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_access_policies_errors()}
-  def list_access_policies(%Client{} = client, input, options \\ []) do
+
+  def list_access_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2024,12 +2277,24 @@ defmodule AWS.OpenSearchServerless do
   Lists all OpenSearch Serverless collections. For more information, see [Creating
   and managing Amazon OpenSearch Serverless
   collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20ListCollections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_collections_request`)
+    %{
+      optional("collectionFilters") => collection_filters(),
+      optional("maxResults") => [integer()],
+      optional("nextToken") => [String.t()]
+    }
   """
-  @spec list_collections(AWS.Client.t(), list_collections_request(), Keyword.t()) ::
+
+  @spec list_collections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collections_errors()}
-  def list_collections(%Client{} = client, input, options \\ []) do
+
+  def list_collections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2040,12 +2305,25 @@ defmodule AWS.OpenSearchServerless do
   Returns a list of OpenSearch Serverless lifecycle policies. For more
   information, see [Viewing data lifecycle
   policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20ListLifecyclePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_lifecycle_policies_request`)
+    %{
+      optional("maxResults") => [integer()],
+      optional("nextToken") => [String.t()],
+      optional("resources") => list(String.t()()),
+      required("type") => String.t()
+    }
   """
-  @spec list_lifecycle_policies(AWS.Client.t(), list_lifecycle_policies_request(), Keyword.t()) ::
+
+  @spec list_lifecycle_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_policies_errors()}
-  def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
+
+  def list_lifecycle_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2057,12 +2335,24 @@ defmodule AWS.OpenSearchServerless do
   configurations. For more information, see [SAML authentication for Amazon
   OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20ListSecurityConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_security_configs_request`)
+    %{
+      optional("maxResults") => [integer()],
+      optional("nextToken") => [String.t()],
+      required("type") => String.t()
+    }
   """
-  @spec list_security_configs(AWS.Client.t(), list_security_configs_request(), Keyword.t()) ::
+
+  @spec list_security_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_security_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_configs_errors()}
-  def list_security_configs(%Client{} = client, input, options \\ []) do
+
+  def list_security_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2071,12 +2361,25 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Returns information about configured OpenSearch Serverless security policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20ListSecurityPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_security_policies_request`)
+    %{
+      optional("maxResults") => [integer()],
+      optional("nextToken") => [String.t()],
+      optional("resource") => list(String.t()()),
+      required("type") => String.t()
+    }
   """
-  @spec list_security_policies(AWS.Client.t(), list_security_policies_request(), Keyword.t()) ::
+
+  @spec list_security_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_security_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_policies_errors()}
-  def list_security_policies(%Client{} = client, input, options \\ []) do
+
+  def list_security_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2087,12 +2390,22 @@ defmodule AWS.OpenSearchServerless do
   Returns the tags for an OpenSearch Serverless resource. For more information,
   see [Tagging Amazon OpenSearch Serverless
   collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2104,12 +2417,24 @@ defmodule AWS.OpenSearchServerless do
   with the current account. For more information, see [Access Amazon OpenSearch
   Serverless using an interface
   endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_vpc_endpoints_request`)
+    %{
+      optional("maxResults") => [integer()],
+      optional("nextToken") => [String.t()],
+      optional("vpcEndpointFilters") => vpc_endpoint_filters()
+    }
   """
-  @spec list_vpc_endpoints(AWS.Client.t(), list_vpc_endpoints_request(), Keyword.t()) ::
+
+  @spec list_vpc_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vpc_endpoints_errors()}
-  def list_vpc_endpoints(%Client{} = client, input, options \\ []) do
+
+  def list_vpc_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2120,12 +2445,23 @@ defmodule AWS.OpenSearchServerless do
   Associates tags with an OpenSearch Serverless resource. For more information,
   see [Tagging Amazon OpenSearch Serverless
   collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2136,12 +2472,23 @@ defmodule AWS.OpenSearchServerless do
   Removes a tag or set of tags from an OpenSearch Serverless resource. For more
   information, see [Tagging Amazon OpenSearch Serverless
   collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2152,12 +2499,27 @@ defmodule AWS.OpenSearchServerless do
   Updates an OpenSearch Serverless access policy. For more information, see [Data
   access control for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UpdateAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_access_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      optional("policy") => String.t(),
+      required("name") => String.t(),
+      required("policyVersion") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec update_access_policy(AWS.Client.t(), update_access_policy_request(), Keyword.t()) ::
+
+  @spec update_access_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_policy_errors()}
-  def update_access_policy(%Client{} = client, input, options \\ []) do
+
+  def update_access_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2169,12 +2531,22 @@ defmodule AWS.OpenSearchServerless do
   account. For more information, see [Managing capacity limits for Amazon
   OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UpdateAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_account_settings_request`)
+    %{
+      optional("capacityLimits") => capacity_limits()
+    }
   """
-  @spec update_account_settings(AWS.Client.t(), update_account_settings_request(), Keyword.t()) ::
+
+  @spec update_account_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-  def update_account_settings(%Client{} = client, input, options \\ []) do
+
+  def update_account_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2183,12 +2555,24 @@ defmodule AWS.OpenSearchServerless do
 
   @doc """
   Updates an OpenSearch Serverless collection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UpdateCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_collection_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => [String.t()],
+      required("id") => String.t()
+    }
   """
-  @spec update_collection(AWS.Client.t(), update_collection_request(), Keyword.t()) ::
+
+  @spec update_collection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_collection_errors()}
-  def update_collection(%Client{} = client, input, options \\ []) do
+
+  def update_collection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2199,12 +2583,27 @@ defmodule AWS.OpenSearchServerless do
   Updates an OpenSearch Serverless access policy. For more information, see
   [Updating data lifecycle
   policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-update).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_lifecycle_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      optional("policy") => String.t(),
+      required("name") => String.t(),
+      required("policyVersion") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec update_lifecycle_policy(AWS.Client.t(), update_lifecycle_policy_request(), Keyword.t()) ::
+
+  @spec update_lifecycle_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lifecycle_policy_errors()}
-  def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def update_lifecycle_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2215,12 +2614,26 @@ defmodule AWS.OpenSearchServerless do
   Updates a security configuration for OpenSearch Serverless. For more
   information, see [SAML authentication for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UpdateSecurityConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_security_config_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      optional("samlOptions") => saml_config_options(),
+      required("configVersion") => String.t(),
+      required("id") => String.t()
+    }
   """
-  @spec update_security_config(AWS.Client.t(), update_security_config_request(), Keyword.t()) ::
+
+  @spec update_security_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_config_errors()}
-  def update_security_config(%Client{} = client, input, options \\ []) do
+
+  def update_security_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2233,12 +2646,27 @@ defmodule AWS.OpenSearchServerless do
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
   and [Encryption at rest for Amazon OpenSearch
   Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UpdateSecurityPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_security_policy_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      optional("policy") => String.t(),
+      required("name") => String.t(),
+      required("policyVersion") => String.t(),
+      required("type") => String.t()
+    }
   """
-  @spec update_security_policy(AWS.Client.t(), update_security_policy_request(), Keyword.t()) ::
+
+  @spec update_security_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_policy_errors()}
-  def update_security_policy(%Client{} = client, input, options \\ []) do
+
+  def update_security_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2249,12 +2677,27 @@ defmodule AWS.OpenSearchServerless do
   Updates an OpenSearch Serverless-managed interface endpoint. For more
   information, see [Access Amazon OpenSearch Serverless using an interface
   endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearchserverless%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_vpc_endpoint_request`)
+    %{
+      optional("addSecurityGroupIds") => list(String.t()()),
+      optional("addSubnetIds") => list(String.t()()),
+      optional("clientToken") => String.t(),
+      optional("removeSecurityGroupIds") => list(String.t()()),
+      optional("removeSubnetIds") => list(String.t()()),
+      required("id") => String.t()
+    }
   """
-  @spec update_vpc_endpoint(AWS.Client.t(), update_vpc_endpoint_request(), Keyword.t()) ::
+
+  @spec update_vpc_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vpc_endpoint_errors()}
-  def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
+
+  def update_vpc_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

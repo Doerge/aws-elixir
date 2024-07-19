@@ -18,96 +18,96 @@ defmodule AWS.ConnectCases do
   @typedoc """
 
   ## Example:
-
+      
       contact_filter() :: %{
         "channel" => list(String.t()()),
         "contactArn" => String.t()
       }
-
+      
   """
   @type contact_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_request() :: %{}
-
+      
   """
   @type get_domain_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_domain_response() :: %{}
-
+      
   """
   @type delete_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_layout_request() :: %{
         optional("content") => list(),
         optional("name") => String.t()
       }
-
+      
   """
   @type update_layout_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_case_audit_events_response() :: %{
         "auditEvents" => list(audit_event()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type get_case_audit_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_related_items_response() :: %{
         optional("nextToken") => String.t(),
         required("relatedItems") => list(search_related_items_response_item()())
       }
-
+      
   """
   @type search_related_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_fields_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_fields_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_cases_request() :: %{
         optional("fields") => list(field_identifier()()),
         optional("filter") => list(),
@@ -116,91 +116,91 @@ defmodule AWS.ConnectCases do
         optional("searchTerm") => [String.t()],
         optional("sorts") => list(sort()())
       }
-
+      
   """
   @type search_cases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_case_audit_events_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type get_case_audit_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => list(String.t()())
       }
-
+      
   """
   @type list_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_case_request() :: %{
         optional("clientToken") => [String.t()],
         optional("performedBy") => list(),
         required("fields") => list(field_value()()),
         required("templateId") => String.t()
       }
-
+      
   """
   @type create_case_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_option_error() :: %{
         "errorCode" => [String.t()],
         "message" => [String.t()],
         "value" => String.t()
       }
-
+      
   """
   @type field_option_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_layouts_response() :: %{
         optional("nextToken") => String.t(),
         required("layouts") => list(layout_summary()())
       }
-
+      
   """
   @type list_layouts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_summary() :: %{
         "domainArn" => String.t(),
         "domainId" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_request() :: %{
         optional("description") => String.t(),
         optional("layoutConfiguration") => layout_configuration(),
@@ -208,14 +208,14 @@ defmodule AWS.ConnectCases do
         optional("status") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_response() :: %{
         optional("createdTime") => non_neg_integer(),
         optional("deleted") => boolean(),
@@ -229,91 +229,91 @@ defmodule AWS.ConnectCases do
         required("templateArn") => String.t(),
         required("templateId") => String.t()
       }
-
+      
   """
   @type get_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_field_options_request() :: %{
         required("options") => list(field_option()())
       }
-
+      
   """
   @type batch_put_field_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_field_request() :: %{}
-
+      
   """
   @type delete_field_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_case_response() :: %{
         required("caseArn") => String.t(),
         required("caseId") => String.t()
       }
-
+      
   """
   @type create_case_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_filter() :: %{
         "fileArn" => String.t()
       }
-
+      
   """
   @type file_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       comment_filter() :: %{}
-
+      
   """
   @type comment_filter() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_field_options_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("values") => list(String.t()())
       }
-
+      
   """
   @type list_field_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_layout_request() :: %{
         required("content") => list(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_layout_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_request() :: %{
         optional("description") => String.t(),
         optional("layoutConfiguration") => layout_configuration(),
@@ -321,263 +321,263 @@ defmodule AWS.ConnectCases do
         optional("requiredFields") => list(required_field()()),
         optional("status") => String.t()
       }
-
+      
   """
   @type update_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cases_for_contact_response() :: %{
         optional("nextToken") => String.t(),
         required("cases") => list(case_summary()())
       }
-
+      
   """
   @type list_cases_for_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_field_response() :: %{
         required("fieldArn") => String.t(),
         required("fieldId") => String.t()
       }
-
+      
   """
   @type create_field_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_case_response() :: %{
         optional("nextToken") => String.t(),
         optional("tags") => map(),
         required("fields") => list(field_value()()),
         required("templateId") => String.t()
       }
-
+      
   """
   @type get_case_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       comment_content() :: %{
         "body" => String.t(),
         "contentType" => String.t()
       }
-
+      
   """
   @type comment_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       required_field() :: %{
         "fieldId" => String.t()
       }
-
+      
   """
   @type required_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_layout_response() :: %{}
-
+      
   """
   @type delete_layout_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_cases_response_item() :: %{
         "caseId" => String.t(),
         "fields" => list(field_value()()),
         "tags" => map(),
         "templateId" => String.t()
       }
-
+      
   """
   @type search_cases_response_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_related_items_request() :: %{
         optional("filters") => list(list()()),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type search_related_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_domain_request() :: %{}
-
+      
   """
   @type delete_domain_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       basic_layout() :: %{
         "moreInfo" => layout_sections(),
         "topPanel" => layout_sections()
       }
-
+      
   """
   @type basic_layout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       empty_field_value() :: %{}
-
+      
   """
   @type empty_field_value() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_request() :: %{}
-
+      
   """
   @type delete_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_case_event_configuration_request() :: %{}
-
+      
   """
   @type get_case_event_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_domain_request() :: %{
         required("name") => String.t()
       }
-
+      
   """
   @type create_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_field_request() :: %{
         required("fields") => list(field_identifier()())
       }
-
+      
   """
   @type batch_get_field_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_case_event_configuration_response() :: %{
         required("eventBridge") => event_bridge_configuration()
       }
-
+      
   """
   @type get_case_event_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audit_event_field() :: %{
         "eventFieldId" => String.t(),
         "newValue" => list(),
         "oldValue" => list()
       }
-
+      
   """
   @type audit_event_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_case_request() :: %{
         optional("nextToken") => String.t(),
         required("fields") => list(field_identifier()())
       }
-
+      
   """
   @type get_case_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_related_items_response_item() :: %{
         "associationTime" => non_neg_integer(),
         "content" => list(),
@@ -586,153 +586,153 @@ defmodule AWS.ConnectCases do
         "tags" => map(),
         "type" => String.t()
       }
-
+      
   """
   @type search_related_items_response_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domains_response() :: %{
         optional("nextToken") => String.t(),
         required("domains") => list(domain_summary()())
       }
-
+      
   """
   @type list_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_field_response() :: %{}
-
+      
   """
   @type update_field_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       template_summary() :: %{
         "name" => String.t(),
         "status" => String.t(),
         "templateArn" => String.t(),
         "templateId" => String.t()
       }
-
+      
   """
   @type template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_field_request() :: %{
         optional("description") => String.t(),
         required("name") => String.t(),
         required("type") => String.t()
       }
-
+      
   """
   @type create_field_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_field_response() :: %{
         required("errors") => list(field_error()()),
         required("fields") => list(get_field_response()())
       }
-
+      
   """
   @type batch_get_field_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_layout_response() :: %{
         required("layoutArn") => String.t(),
         required("layoutId") => String.t()
       }
-
+      
   """
   @type create_layout_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_case_event_configuration_response() :: %{}
-
+      
   """
   @type put_case_event_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_fields_response() :: %{
         optional("nextToken") => String.t(),
         required("fields") => list(field_summary()())
       }
-
+      
   """
   @type list_fields_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sort() :: %{
         "fieldId" => String.t(),
         "sortOrder" => String.t()
       }
-
+      
   """
   @type sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact() :: %{
         "contactArn" => String.t()
       }
-
+      
   """
   @type contact() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_related_item_response() :: %{
         required("relatedItemArn") => String.t(),
         required("relatedItemId") => String.t()
       }
-
+      
   """
   @type create_related_item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_response() :: %{
         optional("tags") => map(),
         required("createdTime") => non_neg_integer(),
@@ -741,38 +741,38 @@ defmodule AWS.ConnectCases do
         required("domainStatus") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type get_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_item() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type field_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_error() :: %{
         "errorCode" => [String.t()],
         "id" => String.t(),
         "message" => [String.t()]
       }
-
+      
   """
   @type field_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_summary() :: %{
         "fieldArn" => String.t(),
         "fieldId" => String.t(),
@@ -780,261 +780,261 @@ defmodule AWS.ConnectCases do
         "namespace" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type field_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_layouts_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_layouts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_response() :: %{}
-
+      
   """
   @type update_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domains_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_included_data() :: %{
         "caseData" => case_event_included_data(),
         "relatedItemData" => related_item_event_included_data()
       }
-
+      
   """
   @type event_included_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_case_request() :: %{
         optional("performedBy") => list(),
         required("fields") => list(field_value()())
       }
-
+      
   """
   @type update_case_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_bridge_configuration() :: %{
         "enabled" => [boolean()],
         "includedData" => event_included_data()
       }
-
+      
   """
   @type event_bridge_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_field_response() :: %{}
-
+      
   """
   @type delete_field_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_layout_request() :: %{}
-
+      
   """
   @type get_layout_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_value() :: %{
         "id" => String.t(),
         "value" => list()
       }
-
+      
   """
   @type field_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_field_request() :: %{
         optional("description") => String.t(),
         optional("name") => String.t()
       }
-
+      
   """
   @type update_field_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_option() :: %{
         "active" => [boolean()],
         "name" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type field_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       layout_summary() :: %{
         "layoutArn" => String.t(),
         "layoutId" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type layout_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_response() :: %{
         optional("nextToken") => String.t(),
         required("templates") => list(template_summary()())
       }
-
+      
   """
   @type list_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_case_event_configuration_request() :: %{
         required("eventBridge") => event_bridge_configuration()
       }
-
+      
   """
   @type put_case_event_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       layout_sections() :: %{
         "sections" => list(list()())
       }
-
+      
   """
   @type layout_sections() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_request() :: %{}
-
+      
   """
   @type get_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_domain_response() :: %{
         required("domainArn") => String.t(),
         required("domainId") => String.t(),
         required("domainStatus") => String.t()
       }
-
+      
   """
   @type create_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_layout_response() :: %{
         optional("createdTime") => non_neg_integer(),
         optional("deleted") => boolean(),
@@ -1045,145 +1045,145 @@ defmodule AWS.ConnectCases do
         required("layoutId") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type get_layout_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_cases_response() :: %{
         optional("nextToken") => String.t(),
         required("cases") => list(search_cases_response_item()())
       }
-
+      
   """
   @type search_cases_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_field_options_response() :: %{
         optional("errors") => list(field_option_error()())
       }
-
+      
   """
   @type batch_put_field_options_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_case_response() :: %{}
-
+      
   """
   @type update_case_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_response() :: %{
         required("templateArn") => String.t(),
         required("templateId") => String.t()
       }
-
+      
   """
   @type create_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_layout_response() :: %{}
-
+      
   """
   @type update_layout_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_response() :: %{}
-
+      
   """
   @type delete_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       field_identifier() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type field_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_content() :: %{
         "fileArn" => String.t()
       }
-
+      
   """
   @type file_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_layout_request() :: %{}
-
+      
   """
   @type delete_layout_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_field_options_response() :: %{
         optional("nextToken") => String.t(),
         required("options") => list(field_option()())
       }
-
+      
   """
   @type list_field_options_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_cases_for_contact_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         required("contactArn") => String.t()
       }
-
+      
   """
   @type list_cases_for_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_related_item_request() :: %{
         optional("performedBy") => list(),
         required("content") => list(),
         required("type") => String.t()
       }
-
+      
   """
   @type create_related_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_field_response() :: %{
         "createdTime" => non_neg_integer(),
         "deleted" => boolean(),
@@ -1196,38 +1196,38 @@ defmodule AWS.ConnectCases do
         "tags" => map(),
         "type" => String.t()
       }
-
+      
   """
   @type get_field_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       case_summary() :: %{
         "caseId" => String.t(),
         "templateId" => String.t()
       }
-
+      
   """
   @type case_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_group() :: %{
         "fields" => list(field_item()()),
         "name" => [String.t()]
       }
-
+      
   """
   @type field_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audit_event() :: %{
         "eventId" => String.t(),
         "fields" => list(audit_event_field()()),
@@ -1236,65 +1236,65 @@ defmodule AWS.ConnectCases do
         "relatedItemType" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type audit_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       case_event_included_data() :: %{
         "fields" => list(field_identifier()())
       }
-
+      
   """
   @type case_event_included_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       layout_configuration() :: %{
         "defaultLayout" => String.t()
       }
-
+      
   """
   @type layout_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       related_item_event_included_data() :: %{
         "includeContent" => [boolean()]
       }
-
+      
   """
   @type related_item_event_included_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_content() :: %{
         "channel" => String.t(),
         "connectedToSystemTime" => non_neg_integer(),
         "contactArn" => String.t()
       }
-
+      
   """
   @type contact_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audit_event_performed_by() :: %{
         "iamPrincipalArn" => String.t(),
         "user" => list()
       }
-
+      
   """
   @type audit_event_performed_by() :: %{String.t() => any()}
 
@@ -1580,29 +1580,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec batch_get_field(AWS.Client.t(), String.t(), batch_get_field_request(), Keyword.t()) ::
+
+  @spec batch_get_field(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_field_errors()}
-  def batch_get_field(%Client{} = client, domain_id, input, options \\ []) do
+
+  def batch_get_field(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-batch"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1617,27 +1628,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec batch_put_field_options(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          batch_put_field_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_put_field_options(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_field_options_errors()}
-  def batch_put_field_options(%Client{} = client, domain_id, field_id, input, options \\ []) do
+
+  def batch_put_field_options(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1654,29 +1679,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec create_case(AWS.Client.t(), String.t(), create_case_request(), Keyword.t()) ::
+
+  @spec create_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_case_errors()}
-  def create_case(%Client{} = client, domain_id, input, options \\ []) do
+
+  def create_case(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1690,29 +1726,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
+
+  @spec create_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-  def create_domain(%Client{} = client, input, options \\ []) do
+
+  def create_domain(%Client{} = client, options \\ []) do
     url_path = "/domains"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1727,29 +1774,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec create_field(AWS.Client.t(), String.t(), create_field_request(), Keyword.t()) ::
+
+  @spec create_field(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_field_errors()}
-  def create_field(%Client{} = client, domain_id, input, options \\ []) do
+
+  def create_field(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1763,29 +1821,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec create_layout(AWS.Client.t(), String.t(), create_layout_request(), Keyword.t()) ::
+
+  @spec create_layout(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_layout_errors()}
-  def create_layout(%Client{} = client, domain_id, input, options \\ []) do
+
+  def create_layout(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1800,37 +1869,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec create_related_item(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_related_item_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_related_item(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_related_item_errors()}
-  def create_related_item(%Client{} = client, case_id, domain_id, input, options \\ []) do
+
+  def create_related_item(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items/"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1849,29 +1922,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec create_template(AWS.Client.t(), String.t(), create_template_request(), Keyword.t()) ::
+
+  @spec create_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-  def create_template(%Client{} = client, domain_id, input, options \\ []) do
+
+  def create_template(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1884,17 +1968,38 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec delete_domain(AWS.Client.t(), String.t(), delete_domain_request(), Keyword.t()) ::
+
+  @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-  def delete_domain(%Client{} = client, domain_id, input, options \\ []) do
+
+  def delete_domain(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1903,7 +2008,7 @@ defmodule AWS.ConnectCases do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1921,19 +2026,39 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec delete_field(AWS.Client.t(), String.t(), String.t(), delete_field_request(), Keyword.t()) ::
+
+  @spec delete_field(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_field_errors()}
-  def delete_field(%Client{} = client, domain_id, field_id, input, options \\ []) do
+
+  def delete_field(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1942,7 +2067,7 @@ defmodule AWS.ConnectCases do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1960,25 +2085,39 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec delete_layout(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_layout_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_layout_errors()}
-  def delete_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
+
+  def delete_layout(%Client{} = client, domain_id, layout_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1987,7 +2126,7 @@ defmodule AWS.ConnectCases do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2004,25 +2143,39 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec delete_template(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-  def delete_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
+
+  def delete_template(%Client{} = client, domain_id, template_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2031,7 +2184,7 @@ defmodule AWS.ConnectCases do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2048,29 +2201,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec get_case(AWS.Client.t(), String.t(), String.t(), get_case_request(), Keyword.t()) ::
+
+  @spec get_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_case_errors()}
-  def get_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
+
+  def get_case(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2084,37 +2248,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec get_case_audit_events(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          get_case_audit_events_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_case_audit_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_case_audit_events_errors()}
-  def get_case_audit_events(%Client{} = client, case_id, domain_id, input, options \\ []) do
+
+  def get_case_audit_events(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/audit-history"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2127,34 +2295,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec get_case_event_configuration(
-          AWS.Client.t(),
-          String.t(),
-          get_case_event_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_case_event_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_case_event_configuration_errors()}
-  def get_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
+
+  def get_case_event_configuration(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2167,29 +2341,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec get_domain(AWS.Client.t(), String.t(), get_domain_request(), Keyword.t()) ::
+
+  @spec get_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_errors()}
-  def get_domain(%Client{} = client, domain_id, input, options \\ []) do
+
+  def get_domain(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2203,31 +2388,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec get_layout(AWS.Client.t(), String.t(), String.t(), get_layout_request(), Keyword.t()) ::
+
+  @spec get_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_layout_errors()}
-  def get_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
+
+  def get_layout(%Client{} = client, domain_id, layout_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2241,31 +2436,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec get_template(AWS.Client.t(), String.t(), String.t(), get_template_request(), Keyword.t()) ::
+
+  @spec get_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
-  def get_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
+
+  def get_template(%Client{} = client, domain_id, template_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2278,34 +2483,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec list_cases_for_contact(
-          AWS.Client.t(),
-          String.t(),
-          list_cases_for_contact_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_cases_for_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cases_for_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cases_for_contact_errors()}
-  def list_cases_for_contact(%Client{} = client, domain_id, input, options \\ []) do
+
+  def list_cases_for_contact(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/list-cases-for-contact"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2319,23 +2530,49 @@ defmodule AWS.ConnectCases do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
-  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
+
+  @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-  def list_domains(%Client{} = client, input, options \\ []) do
+
+  def list_domains(%Client{} = client, options \\ []) do
     url_path = "/domains-list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2345,17 +2582,9 @@ defmodule AWS.ConnectCases do
       options
       |> Keyword.drop([:max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2370,34 +2599,59 @@ defmodule AWS.ConnectCases do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:values` (`t:list[com.amazonaws.connectcases#Value]`) A list of FieldOption
-    values to filter on for ListFieldOptions.
+  values to filter on for ListFieldOptions.
   """
-  @spec list_field_options(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          list_field_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_field_options(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_field_options_errors()}
-  def list_field_options(%Client{} = client, domain_id, field_id, input, options \\ []) do
+
+  def list_field_options(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options-list"
 
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, values: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"},
-        {"values", "values"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :values) do
+        [{"values", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2407,17 +2661,9 @@ defmodule AWS.ConnectCases do
       options
       |> Keyword.drop([:max_results, :next_token, :values])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2431,23 +2677,49 @@ defmodule AWS.ConnectCases do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
-  @spec list_fields(AWS.Client.t(), String.t(), list_fields_request(), Keyword.t()) ::
+
+  @spec list_fields(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fields_errors()}
-  def list_fields(%Client{} = client, domain_id, input, options \\ []) do
+
+  def list_fields(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2457,17 +2729,9 @@ defmodule AWS.ConnectCases do
       options
       |> Keyword.drop([:max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2482,23 +2746,49 @@ defmodule AWS.ConnectCases do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
-  @spec list_layouts(AWS.Client.t(), String.t(), list_layouts_request(), Keyword.t()) ::
+
+  @spec list_layouts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_layouts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_layouts_errors()}
-  def list_layouts(%Client{} = client, domain_id, input, options \\ []) do
+
+  def list_layouts(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts-list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2508,17 +2798,9 @@ defmodule AWS.ConnectCases do
       options
       |> Keyword.drop([:max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2531,10 +2813,12 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
 
@@ -2575,26 +2859,58 @@ defmodule AWS.ConnectCases do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:status` (`t:list[com.amazonaws.connectcases#TemplateStatus]`) A list of
-    status values to filter on.
+  status values to filter on.
   """
-  @spec list_templates(AWS.Client.t(), String.t(), list_templates_request(), Keyword.t()) ::
+
+  @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-  def list_templates(%Client{} = client, domain_id, input, options \\ []) do
+
+  def list_templates(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates-list"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, status: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"},
-        {"status", "status"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2604,17 +2920,9 @@ defmodule AWS.ConnectCases do
       options
       |> Keyword.drop([:max_results, :next_token, :status])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2630,24 +2938,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec put_case_event_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_case_event_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_case_event_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_case_event_configuration_errors()}
-  def put_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
+
+  def put_case_event_configuration(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2661,29 +2985,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec search_cases(AWS.Client.t(), String.t(), search_cases_request(), Keyword.t()) ::
+
+  @spec search_cases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_cases_errors()}
-  def search_cases(%Client{} = client, domain_id, input, options \\ []) do
+
+  def search_cases(%Client{} = client, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases-search"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2697,37 +3032,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec search_related_items(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          search_related_items_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_related_items(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_related_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_related_items_errors()}
-  def search_related_items(%Client{} = client, case_id, domain_id, input, options \\ []) do
+
+  def search_related_items(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items-search"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2740,29 +3079,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2776,22 +3126,38 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, arn, tag_keys, options \\ []) when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2800,7 +3166,7 @@ defmodule AWS.ConnectCases do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2821,19 +3187,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec update_case(AWS.Client.t(), String.t(), String.t(), update_case_request(), Keyword.t()) ::
+
+  @spec update_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_case_errors()}
-  def update_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
+
+  def update_case(%Client{} = client, case_id, domain_id, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2847,21 +3234,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec update_field(AWS.Client.t(), String.t(), String.t(), update_field_request(), Keyword.t()) ::
+
+  @spec update_field(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_field_errors()}
-  def update_field(%Client{} = client, domain_id, field_id, input, options \\ []) do
+
+  def update_field(%Client{} = client, domain_id, field_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2876,27 +3283,41 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec update_layout(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_layout_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_layout_errors()}
-  def update_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
+
+  def update_layout(%Client{} = client, domain_id, layout_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2914,26 +3335,40 @@ defmodule AWS.ConnectCases do
 
   ## Optional parameters:
   """
-  @spec update_template(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-  def update_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
+
+  def update_template(%Client{} = client, domain_id, template_id, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

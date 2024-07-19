@@ -19,7 +19,7 @@ defmodule AWS.SimSpaceWeaver do
   @typedoc """
 
   ## Example:
-
+      
       start_app_input() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -28,76 +28,76 @@ defmodule AWS.SimSpaceWeaver do
         required("Name") => String.t(),
         required("Simulation") => String.t()
       }
-
+      
   """
   @type start_app_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_simulation_output() :: %{
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
         optional("ExecutionId") => String.t()
       }
-
+      
   """
   @type start_simulation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simulation_clock() :: %{
         "Status" => String.t(),
         "TargetStatus" => String.t()
       }
-
+      
   """
   @type simulation_clock() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_simulations_output() :: %{
         optional("NextToken") => String.t(),
         optional("Simulations") => list(simulation_metadata()())
       }
-
+      
   """
   @type list_simulations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_app_input() :: %{
         required("App") => String.t(),
         required("Domain") => String.t(),
         required("Simulation") => String.t()
       }
-
+      
   """
   @type stop_app_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simulation_app_endpoint_info() :: %{
         "Address" => String.t(),
         "IngressPortMappings" => list(simulation_app_port_mapping()())
       }
-
+      
   """
   @type simulation_app_endpoint_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simulation_app_metadata() :: %{
         "Domain" => String.t(),
         "Name" => String.t(),
@@ -105,176 +105,176 @@ defmodule AWS.SimSpaceWeaver do
         "Status" => String.t(),
         "TargetStatus" => String.t()
       }
-
+      
   """
   @type simulation_app_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_simulations_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_simulations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_clock_output() :: %{}
-
+      
   """
   @type stop_clock_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       domain() :: %{
         "Lifecycle" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type domain() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_clock_input() :: %{
         required("Simulation") => String.t()
       }
-
+      
   """
   @type start_clock_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration() :: %{
         "Destinations" => list(log_destination()())
       }
-
+      
   """
   @type logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_snapshot_output() :: %{}
-
+      
   """
   @type create_snapshot_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_clock_input() :: %{
         required("Simulation") => String.t()
       }
-
+      
   """
   @type stop_clock_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_simulation_output() :: %{}
-
+      
   """
   @type delete_simulation_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_simulation_input() :: %{
         required("Simulation") => String.t()
       }
-
+      
   """
   @type stop_simulation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_snapshot_input() :: %{
         required("Destination") => s3_destination(),
         required("Simulation") => String.t()
       }
-
+      
   """
   @type create_snapshot_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       log_destination() :: %{
         "CloudWatchLogsLogGroup" => cloud_watch_logs_log_group()
       }
-
+      
   """
   @type log_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_output() :: %{
         optional("Description") => String.t(),
         optional("Domain") => String.t(),
@@ -285,125 +285,125 @@ defmodule AWS.SimSpaceWeaver do
         optional("Status") => String.t(),
         optional("TargetStatus") => String.t()
       }
-
+      
   """
   @type describe_app_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logs_log_group() :: %{
         "LogGroupArn" => String.t()
       }
-
+      
   """
   @type cloud_watch_logs_log_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_simulation_input() :: %{
         required("Simulation") => String.t()
       }
-
+      
   """
   @type describe_simulation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_location() :: %{
         "BucketName" => String.t(),
         "ObjectKey" => String.t()
       }
-
+      
   """
   @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_destination() :: %{
         "BucketName" => String.t(),
         "ObjectKeyPrefix" => String.t()
       }
-
+      
   """
   @type s3_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_apps_output() :: %{
         optional("Apps") => list(simulation_app_metadata()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_apps_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_overrides() :: %{
         "LaunchCommands" => list(String.t()())
       }
-
+      
   """
   @type launch_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_simulation_input() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -414,176 +414,176 @@ defmodule AWS.SimSpaceWeaver do
         required("Name") => String.t(),
         required("RoleArn") => String.t()
       }
-
+      
   """
   @type start_simulation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         "TagKeys" => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simulation_app_port_mapping() :: %{
         "Actual" => integer(),
         "Declared" => integer()
       }
-
+      
   """
   @type simulation_app_port_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_app_output() :: %{}
-
+      
   """
   @type stop_app_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_output() :: %{}
-
+      
   """
   @type delete_app_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_simulation_output() :: %{}
-
+      
   """
   @type stop_simulation_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_simulation_input() :: %{
         required("Simulation") => String.t()
       }
-
+      
   """
   @type delete_simulation_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_input() :: %{
         required("App") => String.t(),
         required("Domain") => String.t(),
         required("Simulation") => String.t()
       }
-
+      
   """
   @type describe_app_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_apps_input() :: %{
         optional("Domain") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Simulation") => String.t()
       }
-
+      
   """
   @type list_apps_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       live_simulation_state() :: %{
         "Clocks" => list(simulation_clock()()),
         "Domains" => list(domain()())
       }
-
+      
   """
   @type live_simulation_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_app_output() :: %{
         optional("Domain") => String.t(),
         optional("Name") => String.t(),
         optional("Simulation") => String.t()
       }
-
+      
   """
   @type start_app_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_clock_output() :: %{}
-
+      
   """
   @type start_clock_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_simulation_output() :: %{
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
@@ -601,27 +601,27 @@ defmodule AWS.SimSpaceWeaver do
         optional("Status") => String.t(),
         optional("TargetStatus") => String.t()
       }
-
+      
   """
   @type describe_simulation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_input() :: %{
         required("App") => String.t(),
         required("Domain") => String.t(),
         required("Simulation") => String.t()
       }
-
+      
   """
   @type delete_app_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simulation_metadata() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -629,7 +629,7 @@ defmodule AWS.SimSpaceWeaver do
         "Status" => String.t(),
         "TargetStatus" => String.t()
       }
-
+      
   """
   @type simulation_metadata() :: %{String.t() => any()}
 
@@ -760,29 +760,40 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec create_snapshot(AWS.Client.t(), create_snapshot_input(), Keyword.t()) ::
+
+  @spec create_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-  def create_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_snapshot(%Client{} = client, options \\ []) do
     url_path = "/createsnapshot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -797,24 +808,39 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec delete_app(AWS.Client.t(), delete_app_input(), Keyword.t()) ::
+
+  @spec delete_app(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-  def delete_app(%Client{} = client, input, options \\ []) do
+
+  def delete_app(%Client{} = client, app, domain, simulation, options \\ [])
+      when is_binary(app) and is_binary(domain) and is_binary(simulation) do
     url_path = "/deleteapp"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"App", "app"},
-        {"Domain", "domain"},
-        {"Simulation", "simulation"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"app", app}, {"domain", domain}, {"simulation", simulation}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -823,7 +849,7 @@ defmodule AWS.SimSpaceWeaver do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -839,22 +865,39 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec delete_simulation(AWS.Client.t(), delete_simulation_input(), Keyword.t()) ::
+
+  @spec delete_simulation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_simulation_errors()}
-  def delete_simulation(%Client{} = client, input, options \\ []) do
+
+  def delete_simulation(%Client{} = client, simulation, options \\ [])
+      when is_binary(simulation) do
     url_path = "/deletesimulation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Simulation", "simulation"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"simulation", simulation}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -863,7 +906,7 @@ defmodule AWS.SimSpaceWeaver do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -881,11 +924,14 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
+
   @spec describe_app(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_errors()}
-  def describe_app(%Client{} = client, app, domain, simulation, options \\ []) do
+
+  def describe_app(%Client{} = client, app, domain, simulation, options \\ [])
+      when is_binary(app) and is_binary(domain) and is_binary(simulation) do
     url_path = "/describeapp"
 
     # Validate optional parameters
@@ -923,11 +969,14 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
+
   @spec describe_simulation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_simulation_errors()}
-  def describe_simulation(%Client{} = client, simulation, options \\ []) do
+
+  def describe_simulation(%Client{} = client, simulation, options \\ [])
+      when is_binary(simulation) do
     url_path = "/describesimulation"
 
     # Validate optional parameters
@@ -962,24 +1011,26 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:simulation` (`t:string`) The name of the simulation that you want to list
-    apps for.
+  apps for.
 
   ## Optional parameters:
   * `:domain` (`t:string`) The name of the domain that you want to list apps for.
   * `:max_results` (`t:integer`) The maximum number of apps to list.
   * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
-    are more results available. The value of nextToken is a unique pagination
-    token for each page. To retrieve the next page, call the operation again
-    using the returned token. Keep all other arguments unchanged. If no results
-    remain, then nextToken is set to null. Each pagination token expires after
-    24 hours. If you provide a token that isn't valid, then you receive an HTTP
-    400 ValidationException error.
+  are more results available. The value of nextToken is a unique pagination
+  token for each page. To retrieve the next page, call the operation again
+  using the returned token. Keep all other arguments unchanged. If no results
+  remain, then nextToken is set to null. Each pagination token expires after
+  24 hours. If you provide a token that isn't valid, then you receive an HTTP
+  400 ValidationException error.
   """
+
   @spec list_apps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_apps_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
-  def list_apps(%Client{} = client, simulation, options \\ []) do
+
+  def list_apps(%Client{} = client, simulation, options \\ []) when is_binary(simulation) do
     url_path = "/listapps"
 
     # Validate optional parameters
@@ -1043,17 +1094,19 @@ defmodule AWS.SimSpaceWeaver do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of simulations to list.
   * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
-    are more results available. The value of nextToken is a unique pagination
-    token for each page. To retrieve the next page, call the operation again
-    using the returned token. Keep all other arguments unchanged. If no results
-    remain, then nextToken is set to null. Each pagination token expires after
-    24 hours. If you provide a token that isn't valid, then you receive an HTTP
-    400 ValidationException error.
+  are more results available. The value of nextToken is a unique pagination
+  token for each page. To retrieve the next page, call the operation again
+  using the returned token. Keep all other arguments unchanged. If no results
+  remain, then nextToken is set to null. Each pagination token expires after
+  24 hours. If you provide a token that isn't valid, then you receive an HTTP
+  400 ValidationException error.
   """
+
   @spec list_simulations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_simulations_errors()}
+
   def list_simulations(%Client{} = client, options \\ []) do
     url_path = "/listsimulations"
 
@@ -1107,15 +1160,17 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-    For more information about ARNs, see Amazon Resource Names (ARNs) in the
-    Amazon Web Services General Reference.
+  For more information about ARNs, see Amazon Resource Names (ARNs) in the
+  Amazon Web Services General Reference.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1153,29 +1208,40 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec start_app(AWS.Client.t(), start_app_input(), Keyword.t()) ::
+
+  @spec start_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_errors()}
-  def start_app(%Client{} = client, input, options \\ []) do
+
+  def start_app(%Client{} = client, options \\ []) do
     url_path = "/startapp"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1187,29 +1253,40 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec start_clock(AWS.Client.t(), start_clock_input(), Keyword.t()) ::
+
+  @spec start_clock(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_clock_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_clock_errors()}
-  def start_clock(%Client{} = client, input, options \\ []) do
+
+  def start_clock(%Client{} = client, options \\ []) do
     url_path = "/startclock"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1227,29 +1304,40 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec start_simulation(AWS.Client.t(), start_simulation_input(), Keyword.t()) ::
+
+  @spec start_simulation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_simulation_errors()}
-  def start_simulation(%Client{} = client, input, options \\ []) do
+
+  def start_simulation(%Client{} = client, options \\ []) do
     url_path = "/startsimulation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1262,29 +1350,40 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec stop_app(AWS.Client.t(), stop_app_input(), Keyword.t()) ::
+
+  @spec stop_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_app_errors()}
-  def stop_app(%Client{} = client, input, options \\ []) do
+
+  def stop_app(%Client{} = client, options \\ []) do
     url_path = "/stopapp"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1296,29 +1395,40 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec stop_clock(AWS.Client.t(), stop_clock_input(), Keyword.t()) ::
+
+  @spec stop_clock(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_clock_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_clock_errors()}
-  def stop_clock(%Client{} = client, input, options \\ []) do
+
+  def stop_clock(%Client{} = client, options \\ []) do
     url_path = "/stopclock"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1330,29 +1440,40 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Optional parameters:
   """
-  @spec stop_simulation(AWS.Client.t(), stop_simulation_input(), Keyword.t()) ::
+
+  @spec stop_simulation(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_simulation_errors()}
-  def stop_simulation(%Client{} = client, input, options \\ []) do
+
+  def stop_simulation(%Client{} = client, options \\ []) do
     url_path = "/stopsimulation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1365,34 +1486,45 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to add tags to. For more information about ARNs, see Amazon
-    Resource Names (ARNs) in the Amazon Web Services General Reference.
+  that you want to add tags to. For more information about ARNs, see Amazon
+  Resource Names (ARNs) in the Amazon Web Services General Reference.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1405,29 +1537,46 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to remove tags from. For more information about ARNs, see
-    Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
+  that you want to remove tags from. For more information about ARNs, see
+  Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
   * `:tag_keys` (`t:list[com.amazonaws.simspaceweaver#TagKey]`) A list of tag keys
-    to remove from the resource.
+  to remove from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1436,7 +1585,7 @@ defmodule AWS.SimSpaceWeaver do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

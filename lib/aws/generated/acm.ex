@@ -756,12 +756,23 @@ defmodule AWS.ACM do
   balancer to indicate that they are both used by the same website. For more
   information, see [Tagging ACM
   certificates](https://docs.aws.amazon.com/acm/latest/userguide/tags.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20AddTagsToCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_certificate_request`)
+    %{
+      required("CertificateArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec add_tags_to_certificate(AWS.Client.t(), add_tags_to_certificate_request(), Keyword.t()) ::
+
+  @spec add_tags_to_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_certificate_errors()}
-  def add_tags_to_certificate(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -774,12 +785,22 @@ defmodule AWS.ACM do
   the `ListCertificates` action or be retrieved by calling the `GetCertificate`
   action. The certificate will not be available for use by Amazon Web Services
   services integrated with ACM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20DeleteCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_certificate_request`)
+    %{
+      required("CertificateArn") => String.t()
+    }
   """
-  @spec delete_certificate(AWS.Client.t(), delete_certificate_request(), Keyword.t()) ::
+
+  @spec delete_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_errors()}
-  def delete_certificate(%Client{} = client, input, options \\ []) do
+
+  def delete_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -788,12 +809,22 @@ defmodule AWS.ACM do
 
   @doc """
   Returns detailed metadata about the specified ACM certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20DescribeCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_certificate_request`)
+    %{
+      required("CertificateArn") => String.t()
+    }
   """
-  @spec describe_certificate(AWS.Client.t(), describe_certificate_request(), Keyword.t()) ::
+
+  @spec describe_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_errors()}
-  def describe_certificate(%Client{} = client, input, options \\ []) do
+
+  def describe_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -806,12 +837,23 @@ defmodule AWS.ACM do
   chain, and the encrypted private 2048-bit RSA key associated with the public
   key that is embedded in the certificate. For security, you must assign a
   passphrase for the private key when exporting it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20ExportCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_certificate_request`)
+    %{
+      required("CertificateArn") => String.t(),
+      required("Passphrase") => binary()
+    }
   """
-  @spec export_certificate(AWS.Client.t(), export_certificate_request(), Keyword.t()) ::
+
+  @spec export_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_certificate_errors()}
-  def export_certificate(%Client{} = client, input, options \\ []) do
+
+  def export_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -821,12 +863,19 @@ defmodule AWS.ACM do
   @doc """
   Returns the account configuration options associated with an Amazon Web Services
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20GetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec get_account_configuration(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_account_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_configuration_errors()}
-  def get_account_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_account_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -842,12 +891,22 @@ defmodule AWS.ACM do
   certificates are base64 encoded. You can use
   [OpenSSL](https://wiki.openssl.org/index.php/Command_Line_Utilities) to decode
   the certificates and inspect individual fields.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20GetCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_certificate_request`)
+    %{
+      required("CertificateArn") => String.t()
+    }
   """
-  @spec get_certificate(AWS.Client.t(), get_certificate_request(), Keyword.t()) ::
+
+  @spec get_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificate_errors()}
-  def get_certificate(%Client{} = client, input, options \\ []) do
+
+  def get_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -868,12 +927,26 @@ defmodule AWS.ACM do
   renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html)
   for certificates that you import. Note the following guidelines when importing
   third party certificates:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20ImportCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_certificate_request`)
+    %{
+      optional("CertificateArn") => String.t(),
+      optional("CertificateChain") => binary(),
+      optional("Tags") => list(tag()()),
+      required("Certificate") => binary(),
+      required("PrivateKey") => binary()
+    }
   """
-  @spec import_certificate(AWS.Client.t(), import_certificate_request(), Keyword.t()) ::
+
+  @spec import_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_certificate_errors()}
-  def import_certificate(%Client{} = client, input, options \\ []) do
+
+  def import_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -885,12 +958,27 @@ defmodule AWS.ACM do
   returns RSA_2048 certificates. To return all certificates in the account,
   include the `keyType` filter with the values `[RSA_1024, RSA_2048, RSA_3072,
   RSA_4096, EC_prime256v1, EC_secp384r1, EC_secp521r1]`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20ListCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_certificates_request`)
+    %{
+      optional("CertificateStatuses") => list(list(any())()),
+      optional("Includes") => filters(),
+      optional("MaxItems") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_certificates(AWS.Client.t(), list_certificates_request(), Keyword.t()) ::
+
+  @spec list_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificates_errors()}
-  def list_certificates(%Client{} = client, input, options \\ []) do
+
+  def list_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -902,16 +990,22 @@ defmodule AWS.ACM do
   certificate's Amazon Resource Name (ARN) to specify the certificate. To add a
   tag to an ACM certificate, use the `AddTagsToCertificate` action. To delete a
   tag, use the `RemoveTagsFromCertificate` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20ListTagsForCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_certificate_request`)
+    %{
+      required("CertificateArn") => String.t()
+    }
   """
-  @spec list_tags_for_certificate(
-          AWS.Client.t(),
-          list_tags_for_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_tags_for_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_certificate_errors()}
-  def list_tags_for_certificate(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -920,16 +1014,23 @@ defmodule AWS.ACM do
 
   @doc """
   Adds or modifies account-level configurations in ACM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20PutAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_account_configuration_request`)
+    %{
+      optional("ExpiryEvents") => expiry_events_configuration(),
+      required("IdempotencyToken") => String.t()
+    }
   """
-  @spec put_account_configuration(
-          AWS.Client.t(),
-          put_account_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_account_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_configuration_errors()}
-  def put_account_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_account_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -941,16 +1042,23 @@ defmodule AWS.ACM do
   pair. If you do not specify the value portion of the tag when calling this
   function, the tag will be removed regardless of value. If you specify a value,
   the tag is removed only if it is associated with the specified value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20RemoveTagsFromCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_certificate_request`)
+    %{
+      required("CertificateArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec remove_tags_from_certificate(
-          AWS.Client.t(),
-          remove_tags_from_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_tags_from_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_certificate_errors()}
-  def remove_tags_from_certificate(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -966,12 +1074,22 @@ defmodule AWS.ACM do
   For more information, see [Testing Managed
   Renewal](https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html)
   in the ACM User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20RenewCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:renew_certificate_request`)
+    %{
+      required("CertificateArn") => String.t()
+    }
   """
-  @spec renew_certificate(AWS.Client.t(), renew_certificate_request(), Keyword.t()) ::
+
+  @spec renew_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, renew_certificate_errors()}
-  def renew_certificate(%Client{} = client, input, options \\ []) do
+
+  def renew_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -994,12 +1112,30 @@ defmodule AWS.ACM do
   6125](https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2)
   specification of the certificate validation process. ACM first checks for a
   Subject Alternative Name, and, if it finds one, ignores the common name (CN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20RequestCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:request_certificate_request`)
+    %{
+      optional("CertificateAuthorityArn") => String.t(),
+      optional("DomainValidationOptions") => list(domain_validation_option()()),
+      optional("IdempotencyToken") => String.t(),
+      optional("KeyAlgorithm") => list(any()),
+      optional("Options") => certificate_options(),
+      optional("SubjectAlternativeNames") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("ValidationMethod") => list(any()),
+      required("DomainName") => String.t()
+    }
   """
-  @spec request_certificate(AWS.Client.t(), request_certificate_request(), Keyword.t()) ::
+
+  @spec request_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, request_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, request_certificate_errors()}
-  def request_certificate(%Client{} = client, input, options \\ []) do
+
+  def request_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1019,12 +1155,24 @@ defmodule AWS.ACM do
   information about setting up your contact email addresses, see [Configure
   Email for your
   Domain](https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20ResendValidationEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:resend_validation_email_request`)
+    %{
+      required("CertificateArn") => String.t(),
+      required("Domain") => String.t(),
+      required("ValidationDomain") => String.t()
+    }
   """
-  @spec resend_validation_email(AWS.Client.t(), resend_validation_email_request(), Keyword.t()) ::
+
+  @spec resend_validation_email(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resend_validation_email_errors()}
-  def resend_validation_email(%Client{} = client, input, options \\ []) do
+
+  def resend_validation_email(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1037,16 +1185,23 @@ defmodule AWS.ACM do
   transparency log. For more information, see [ Opting Out of Certificate
   Transparency
   Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=acm%20UpdateCertificateOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_certificate_options_request`)
+    %{
+      required("CertificateArn") => String.t(),
+      required("Options") => certificate_options()
+    }
   """
-  @spec update_certificate_options(
-          AWS.Client.t(),
-          update_certificate_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_certificate_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_certificate_options_errors()}
-  def update_certificate_options(%Client{} = client, input, options \\ []) do
+
+  def update_certificate_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

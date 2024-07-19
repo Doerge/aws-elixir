@@ -8,105 +8,105 @@ defmodule AWS.KinesisVideoMedia do
   @typedoc """
 
   ## Example:
-
+      
       client_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type client_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connection_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type connection_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_media_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
         required("StartSelector") => start_selector()
       }
-
+      
   """
   @type get_media_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_media_output() :: %{
         "ContentType" => String.t(),
         "Payload" => binary()
       }
-
+      
   """
   @type get_media_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_argument_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_endpoint_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_endpoint_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_authorized_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_authorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_selector() :: %{
         "AfterFragmentNumber" => String.t(),
         "ContinuationToken" => String.t(),
         "StartSelectorType" => list(any()),
         "StartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type start_selector() :: %{String.t() => any()}
 
@@ -154,14 +154,39 @@ defmodule AWS.KinesisVideoMedia do
 
   ## Optional parameters:
   """
-  @spec get_media(AWS.Client.t(), get_media_input(), Keyword.t()) ::
+
+  @spec get_media(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_media_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_errors()}
-  def get_media(%Client{} = client, input, options \\ []) do
+
+  def get_media(%Client{} = client, options \\ []) do
     url_path = "/getMedia"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Content-Type", "ContentType"}]
+      )
 
     options =
       Keyword.put(
@@ -173,16 +198,8 @@ defmodule AWS.KinesisVideoMedia do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

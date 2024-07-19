@@ -591,12 +591,22 @@ defmodule AWS.MarketplaceAgreement do
   @doc """
   Provides details about an agreement, such as the proposer, acceptor, start date,
   and end date.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplaceagreement%20DescribeAgreement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_agreement_input`)
+    %{
+      required("agreementId") => String.t()
+    }
   """
-  @spec describe_agreement(AWS.Client.t(), describe_agreement_input(), Keyword.t()) ::
+
+  @spec describe_agreement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_agreement_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agreement_errors()}
-  def describe_agreement(%Client{} = client, input, options \\ []) do
+
+  def describe_agreement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -606,12 +616,24 @@ defmodule AWS.MarketplaceAgreement do
   @doc """
   Obtains details about the terms in an agreement that you participated in as
   proposer or acceptor. The details include:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplaceagreement%20GetAgreementTerms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_agreement_terms_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("agreementId") => String.t()
+    }
   """
-  @spec get_agreement_terms(AWS.Client.t(), get_agreement_terms_input(), Keyword.t()) ::
+
+  @spec get_agreement_terms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_agreement_terms_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agreement_terms_errors()}
-  def get_agreement_terms(%Client{} = client, input, options \\ []) do
+
+  def get_agreement_terms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -622,12 +644,26 @@ defmodule AWS.MarketplaceAgreement do
   Searches across all agreements that a proposer or an acceptor has in AWS
   Marketplace. The search returns a list of agreements with basic agreement
   information. The following filter combinations are supported:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplaceagreement%20SearchAgreements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:search_agreements_input`)
+    %{
+      optional("catalog") => String.t(),
+      optional("filters") => list(filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("sort") => sort()
+    }
   """
-  @spec search_agreements(AWS.Client.t(), search_agreements_input(), Keyword.t()) ::
+
+  @spec search_agreements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_agreements_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_agreements_errors()}
-  def search_agreements(%Client{} = client, input, options \\ []) do
+
+  def search_agreements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

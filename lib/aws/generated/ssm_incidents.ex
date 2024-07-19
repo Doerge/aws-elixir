@@ -15,143 +15,143 @@ defmodule AWS.SSMIncidents do
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policies_output() :: %{
         optional("nextToken") => String.t(),
         required("resourcePolicies") => list(resource_policy()())
       }
-
+      
   """
   @type get_resource_policies_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_response_plan_output() :: %{}
-
+      
   """
   @type update_response_plan_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_timeline_events_output() :: %{
         optional("nextToken") => String.t(),
         required("eventSummaries") => list(event_summary()())
       }
-
+      
   """
   @type list_timeline_events_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_incident_findings_error() :: %{
         "code" => [String.t()],
         "findingId" => String.t(),
         "message" => [String.t()]
       }
-
+      
   """
   @type batch_get_incident_findings_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replication_set_output() :: %{}
-
+      
   """
   @type delete_replication_set_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_related_items_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type list_related_items_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_timeline_event_output() :: %{}
-
+      
   """
   @type delete_timeline_event_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_replication_sets_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_replication_sets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       related_item() :: %{
         "generatedId" => String.t(),
         "identifier" => item_identifier(),
         "title" => [String.t()]
       }
-
+      
   """
   @type related_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incident_record_source() :: %{
         "createdBy" => String.t(),
         "invokedBy" => String.t(),
         "resourceArn" => String.t(),
         "source" => String.t()
       }
-
+      
   """
   @type incident_record_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_incident_input() :: %{
         optional("clientToken") => String.t(),
         optional("impact") => integer(),
@@ -160,130 +160,130 @@ defmodule AWS.SSMIncidents do
         optional("triggerDetails") => trigger_details(),
         required("responsePlanArn") => String.t()
       }
-
+      
   """
   @type start_incident_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_incident_record_input() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_incident_record_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_deletion_protection_input() :: %{
         optional("clientToken") => String.t(),
         required("arn") => String.t(),
         required("deletionProtected") => [boolean()]
       }
-
+      
   """
   @type update_deletion_protection_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_incident_findings_output() :: %{
         "errors" => list(batch_get_incident_findings_error()()),
         "findings" => list(finding()())
       }
-
+      
   """
   @type batch_get_incident_findings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_region_action() :: %{
         "regionName" => String.t()
       }
-
+      
   """
   @type delete_region_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding_summary() :: %{
         "id" => String.t(),
         "lastModifiedTime" => [non_neg_integer()]
       }
-
+      
   """
   @type finding_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_response_plan_output() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type create_response_plan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_incident_findings_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type list_incident_findings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_response_plan_input() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_response_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_incident_output() :: %{
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type start_incident_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_output() :: %{
         required("policyId") => String.t()
       }
-
+      
   """
   @type put_resource_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       timeline_event() :: %{
         "eventData" => String.t(),
         "eventId" => String.t(),
@@ -293,130 +293,130 @@ defmodule AWS.SSMIncidents do
         "eventUpdatedTime" => [non_neg_integer()],
         "incidentRecordArn" => String.t()
       }
-
+      
   """
   @type timeline_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_replication_set_input() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_replication_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_input() :: %{
         required("policyId") => String.t(),
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type delete_resource_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_deletion_protection_output() :: %{}
-
+      
   """
   @type update_deletion_protection_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       pager_duty_incident_detail() :: %{
         "autoResolve" => [boolean()],
         "id" => [String.t()],
         "secretId" => [String.t()]
       }
-
+      
   """
   @type pager_duty_incident_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_set_input() :: %{
         optional("clientToken") => String.t(),
         required("actions") => list(list()()),
         required("arn") => String.t()
       }
-
+      
   """
   @type update_replication_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_incident_findings_input() :: %{
         required("findingIds") => list(String.t()()),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type batch_get_incident_findings_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       code_deploy_deployment() :: %{
         "deploymentGroupArn" => String.t(),
         "deploymentId" => [String.t()],
         "endTime" => [non_neg_integer()],
         "startTime" => [non_neg_integer()]
       }
-
+      
   """
   @type code_deploy_deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_incident_records_output() :: %{
         optional("nextToken") => String.t(),
         required("incidentRecordSummaries") => list(incident_record_summary()())
       }
-
+      
   """
   @type list_incident_records_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_incident_record_output() :: %{}
-
+      
   """
   @type update_incident_record_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_response_plan_input() :: %{
         optional("actions") => list(list()()),
         optional("chatChannel") => list(),
@@ -432,14 +432,14 @@ defmodule AWS.SSMIncidents do
         optional("integrations") => list(list()()),
         required("arn") => String.t()
       }
-
+      
   """
   @type update_response_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_set() :: %{
         "arn" => String.t(),
         "createdBy" => String.t(),
@@ -450,101 +450,101 @@ defmodule AWS.SSMIncidents do
         "regionMap" => map(),
         "status" => String.t()
       }
-
+      
   """
   @type replication_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t(),
         "resourceIdentifier" => [String.t()],
         "resourceType" => String.t(),
         "retryAfter" => [non_neg_integer()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t(),
         "resourceIdentifier" => [String.t()],
         "resourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_incident_record_output() :: %{
         required("incidentRecord") => incident_record()
       }
-
+      
   """
   @type get_incident_record_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_input() :: %{
         required("policy") => String.t(),
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type put_resource_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policies_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type get_resource_policies_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       item_identifier() :: %{
         "type" => String.t(),
         "value" => list()
       }
-
+      
   """
   @type item_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_replication_sets_output() :: %{
         optional("nextToken") => String.t(),
         required("replicationSetArns") => list(String.t()())
       }
-
+      
   """
   @type list_replication_sets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t(),
         "quotaCode" => [String.t()],
@@ -552,46 +552,46 @@ defmodule AWS.SSMIncidents do
         "resourceType" => String.t(),
         "serviceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_incident_findings_output() :: %{
         "findings" => list(finding_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_incident_findings_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pager_duty_incident_configuration() :: %{
         "serviceId" => [String.t()]
       }
-
+      
   """
   @type pager_duty_incident_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_timeline_event_output() :: %{}
-
+      
   """
   @type update_timeline_event_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_incident_record_input() :: %{
         optional("chatChannel") => list(),
         optional("clientToken") => String.t(),
@@ -602,115 +602,115 @@ defmodule AWS.SSMIncidents do
         optional("title") => String.t(),
         required("arn") => String.t()
       }
-
+      
   """
   @type update_incident_record_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finding() :: %{
         "creationTime" => [non_neg_integer()],
         "details" => list(),
         "id" => String.t(),
         "lastModifiedTime" => [non_neg_integer()]
       }
-
+      
   """
   @type finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_related_items_input() :: %{
         optional("clientToken") => String.t(),
         required("incidentRecordArn") => String.t(),
         required("relatedItemsUpdate") => list()
       }
-
+      
   """
   @type update_related_items_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pager_duty_configuration() :: %{
         "name" => [String.t()],
         "pagerDutyIncidentConfiguration" => pager_duty_incident_configuration(),
         "secretId" => [String.t()]
       }
-
+      
   """
   @type pager_duty_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trigger_details() :: %{
         "rawData" => String.t(),
         "source" => String.t(),
         "timestamp" => [non_neg_integer()],
         "triggerArn" => String.t()
       }
-
+      
   """
   @type trigger_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_timeline_event_input() :: %{
         required("eventId") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type get_timeline_event_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_response_plans_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_response_plans_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter() :: %{
         "condition" => list(),
         "key" => [String.t()]
       }
-
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_summary() :: %{
         "eventId" => String.t(),
         "eventReferences" => list(list()()),
@@ -719,58 +719,58 @@ defmodule AWS.SSMIncidents do
         "eventUpdatedTime" => [non_neg_integer()],
         "incidentRecordArn" => String.t()
       }
-
+      
   """
   @type event_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_policy() :: %{
         "policyDocument" => String.t(),
         "policyId" => String.t(),
         "ramResourceShareRegion" => [String.t()]
       }
-
+      
   """
   @type resource_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_timeline_event_output() :: %{
         required("event") => timeline_event()
       }
-
+      
   """
   @type get_timeline_event_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_output() :: %{}
-
+      
   """
   @type delete_resource_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_response_plan_output() :: %{
         optional("actions") => list(list()()),
         optional("chatChannel") => list(),
@@ -781,14 +781,14 @@ defmodule AWS.SSMIncidents do
         required("incidentTemplate") => incident_template(),
         required("name") => String.t()
       }
-
+      
   """
   @type get_response_plan_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_timeline_events_input() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
@@ -797,14 +797,14 @@ defmodule AWS.SSMIncidents do
         optional("sortOrder") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type list_timeline_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incident_record_summary() :: %{
         "arn" => String.t(),
         "creationTime" => [non_neg_integer()],
@@ -814,57 +814,57 @@ defmodule AWS.SSMIncidents do
         "status" => String.t(),
         "title" => String.t()
       }
-
+      
   """
   @type incident_record_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_related_items_output() :: %{}
-
+      
   """
   @type update_related_items_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       region_info() :: %{
         "sseKmsKeyId" => String.t(),
         "status" => String.t(),
         "statusMessage" => [String.t()],
         "statusUpdateDateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type region_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ssm_automation() :: %{
         "documentName" => [String.t()],
         "documentVersion" => [String.t()],
@@ -873,83 +873,83 @@ defmodule AWS.SSMIncidents do
         "roleArn" => String.t(),
         "targetAccount" => String.t()
       }
-
+      
   """
   @type ssm_automation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       region_map_input_value() :: %{
         "sseKmsKeyId" => String.t()
       }
-
+      
   """
   @type region_map_input_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_replication_set_input() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
         required("regions") => map()
       }
-
+      
   """
   @type create_replication_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_timeline_event_output() :: %{
         required("eventId") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type create_timeline_event_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "quotaCode" => [String.t()],
         "serviceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incident_template() :: %{
         "dedupeString" => String.t(),
         "impact" => integer(),
@@ -958,84 +958,84 @@ defmodule AWS.SSMIncidents do
         "summary" => String.t(),
         "title" => String.t()
       }
-
+      
   """
   @type incident_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_incident_records_input() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_incident_records_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_plan_summary() :: %{
         "arn" => String.t(),
         "displayName" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type response_plan_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_region_action() :: %{
         "regionName" => String.t(),
         "sseKmsKeyId" => String.t()
       }
-
+      
   """
   @type add_region_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_response_plan_output() :: %{}
-
+      
   """
   @type delete_response_plan_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_response_plans_output() :: %{
         optional("nextToken") => String.t(),
         required("responsePlanSummaries") => list(response_plan_summary()())
       }
-
+      
   """
   @type list_response_plans_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_response_plan_input() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_response_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_timeline_event_input() :: %{
         optional("clientToken") => String.t(),
         optional("eventData") => String.t(),
@@ -1045,46 +1045,46 @@ defmodule AWS.SSMIncidents do
         required("eventId") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type update_timeline_event_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replication_set_input() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type delete_replication_set_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_related_items_output() :: %{
         optional("nextToken") => String.t(),
         required("relatedItems") => list(related_item()())
       }
-
+      
   """
   @type list_related_items_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_set_output() :: %{}
-
+      
   """
   @type update_replication_set_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_timeline_event_input() :: %{
         optional("clientToken") => String.t(),
         optional("eventReferences") => list(list()()),
@@ -1093,36 +1093,36 @@ defmodule AWS.SSMIncidents do
         required("eventType") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type create_timeline_event_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_replication_set_output() :: %{
         required("replicationSet") => replication_set()
       }
-
+      
   """
   @type get_replication_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_incident_record_input() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type get_incident_record_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_response_plan_input() :: %{
         optional("actions") => list(list()()),
         optional("chatChannel") => list(),
@@ -1134,47 +1134,47 @@ defmodule AWS.SSMIncidents do
         required("incidentTemplate") => incident_template(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_response_plan_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       empty_chat_channel() :: %{}
-
+      
   """
   @type empty_chat_channel() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_formation_stack_update() :: %{
         "endTime" => [non_neg_integer()],
         "stackArn" => String.t(),
         "startTime" => [non_neg_integer()]
       }
-
+      
   """
   @type cloud_formation_stack_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_replication_set_output() :: %{
         required("arn") => String.t()
       }
-
+      
   """
   @type create_replication_set_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incident_record() :: %{
         "arn" => String.t(),
         "automationExecutions" => list(list()()),
@@ -1191,28 +1191,28 @@ defmodule AWS.SSMIncidents do
         "summary" => String.t(),
         "title" => String.t()
       }
-
+      
   """
   @type incident_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_incident_record_output() :: %{}
-
+      
   """
   @type delete_incident_record_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_timeline_event_input() :: %{
         required("eventId") => String.t(),
         required("incidentRecordArn") => String.t()
       }
-
+      
   """
   @type delete_timeline_event_input() :: %{String.t() => any()}
 
@@ -1466,33 +1466,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec batch_get_incident_findings(
-          AWS.Client.t(),
-          batch_get_incident_findings_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_incident_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_incident_findings_errors()}
-  def batch_get_incident_findings(%Client{} = client, input, options \\ []) do
+
+  def batch_get_incident_findings(%Client{} = client, options \\ []) do
     url_path = "/batchGetIncidentFindings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1505,29 +1512,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec create_replication_set(AWS.Client.t(), create_replication_set_input(), Keyword.t()) ::
+
+  @spec create_replication_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_set_errors()}
-  def create_replication_set(%Client{} = client, input, options \\ []) do
+
+  def create_replication_set(%Client{} = client, options \\ []) do
     url_path = "/createReplicationSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1541,29 +1559,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec create_response_plan(AWS.Client.t(), create_response_plan_input(), Keyword.t()) ::
+
+  @spec create_response_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_response_plan_errors()}
-  def create_response_plan(%Client{} = client, input, options \\ []) do
+
+  def create_response_plan(%Client{} = client, options \\ []) do
     url_path = "/createResponsePlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1578,29 +1607,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec create_timeline_event(AWS.Client.t(), create_timeline_event_input(), Keyword.t()) ::
+
+  @spec create_timeline_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_timeline_event_errors()}
-  def create_timeline_event(%Client{} = client, input, options \\ []) do
+
+  def create_timeline_event(%Client{} = client, options \\ []) do
     url_path = "/createTimelineEvent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1612,29 +1652,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec delete_incident_record(AWS.Client.t(), delete_incident_record_input(), Keyword.t()) ::
+
+  @spec delete_incident_record(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_incident_record_errors()}
-  def delete_incident_record(%Client{} = client, input, options \\ []) do
+
+  def delete_incident_record(%Client{} = client, options \\ []) do
     url_path = "/deleteIncidentRecord"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1645,38 +1696,44 @@ defmodule AWS.SSMIncidents do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set
-    you're deleting.
+  you're deleting.
 
   ## Optional parameters:
   """
-  @spec delete_replication_set(AWS.Client.t(), delete_replication_set_input(), Keyword.t()) ::
+
+  @spec delete_replication_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_set_errors()}
-  def delete_replication_set(%Client{} = client, input, options \\ []) do
+
+  def delete_replication_set(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/deleteReplicationSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"arn", "arn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"arn", arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1689,29 +1746,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_input(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/deleteResourcePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1725,29 +1793,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec delete_response_plan(AWS.Client.t(), delete_response_plan_input(), Keyword.t()) ::
+
+  @spec delete_response_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_response_plan_errors()}
-  def delete_response_plan(%Client{} = client, input, options \\ []) do
+
+  def delete_response_plan(%Client{} = client, options \\ []) do
     url_path = "/deleteResponsePlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1759,29 +1838,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec delete_timeline_event(AWS.Client.t(), delete_timeline_event_input(), Keyword.t()) ::
+
+  @spec delete_timeline_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_timeline_event_errors()}
-  def delete_timeline_event(%Client{} = client, input, options \\ []) do
+
+  def delete_timeline_event(%Client{} = client, options \\ []) do
     url_path = "/deleteTimelineEvent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1794,11 +1884,13 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
+
   @spec get_incident_record(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_incident_record_errors()}
-  def get_incident_record(%Client{} = client, arn, options \\ []) do
+
+  def get_incident_record(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/getIncidentRecord"
 
     # Validate optional parameters
@@ -1833,15 +1925,17 @@ defmodule AWS.SSMIncidents do
 
   ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you
-    want to retrieve.
+  want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_replication_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_set_errors()}
-  def get_replication_set(%Client{} = client, arn, options \\ []) do
+
+  def get_replication_set(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/getReplicationSet"
 
     # Validate optional parameters
@@ -1876,38 +1970,45 @@ defmodule AWS.SSMIncidents do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
-    plan with the attached resource policy.
+  plan with the attached resource policy.
 
   ## Optional parameters:
   """
-  @spec get_resource_policies(AWS.Client.t(), get_resource_policies_input(), Keyword.t()) ::
+
+  @spec get_resource_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
-  def get_resource_policies(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policies(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/getResourcePolicies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceArn", "resourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1920,11 +2021,13 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
+
   @spec get_response_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_response_plan_errors()}
-  def get_response_plan(%Client{} = client, arn, options \\ []) do
+
+  def get_response_plan(%Client{} = client, arn, options \\ []) when is_binary(arn) do
     url_path = "/getResponsePlan"
 
     # Validate optional parameters
@@ -1959,17 +2062,20 @@ defmodule AWS.SSMIncidents do
 
   ## Parameters:
   * `:event_id` (`t:string`) The ID of the event. You can get an event's ID when
-    you create it, or by using ListTimelineEvents.
+  you create it, or by using ListTimelineEvents.
   * `:incident_record_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    incident that includes the timeline event.
+  incident that includes the timeline event.
 
   ## Optional parameters:
   """
+
   @spec get_timeline_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_timeline_event_errors()}
-  def get_timeline_event(%Client{} = client, event_id, incident_record_arn, options \\ []) do
+
+  def get_timeline_event(%Client{} = client, event_id, incident_record_arn, options \\ [])
+      when is_binary(event_id) and is_binary(incident_record_arn) do
     url_path = "/getTimelineEvent"
 
     # Validate optional parameters
@@ -2010,29 +2116,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec list_incident_findings(AWS.Client.t(), list_incident_findings_input(), Keyword.t()) ::
+
+  @spec list_incident_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incident_findings_errors()}
-  def list_incident_findings(%Client{} = client, input, options \\ []) do
+
+  def list_incident_findings(%Client{} = client, options \\ []) do
     url_path = "/listIncidentFindings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2045,29 +2162,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec list_incident_records(AWS.Client.t(), list_incident_records_input(), Keyword.t()) ::
+
+  @spec list_incident_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_incident_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_incident_records_errors()}
-  def list_incident_records(%Client{} = client, input, options \\ []) do
+
+  def list_incident_records(%Client{} = client, options \\ []) do
     url_path = "/listIncidentRecords"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2079,29 +2207,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec list_related_items(AWS.Client.t(), list_related_items_input(), Keyword.t()) ::
+
+  @spec list_related_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_related_items_errors()}
-  def list_related_items(%Client{} = client, input, options \\ []) do
+
+  def list_related_items(%Client{} = client, options \\ []) do
     url_path = "/listRelatedItems"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2113,29 +2252,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec list_replication_sets(AWS.Client.t(), list_replication_sets_input(), Keyword.t()) ::
+
+  @spec list_replication_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replication_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replication_sets_errors()}
-  def list_replication_sets(%Client{} = client, input, options \\ []) do
+
+  def list_replication_sets(%Client{} = client, options \\ []) do
     url_path = "/listReplicationSets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2147,29 +2297,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec list_response_plans(AWS.Client.t(), list_response_plans_input(), Keyword.t()) ::
+
+  @spec list_response_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_response_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_response_plans_errors()}
-  def list_response_plans(%Client{} = client, input, options \\ []) do
+
+  def list_response_plans(%Client{} = client, options \\ []) do
     url_path = "/listResponsePlans"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2178,15 +2339,17 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan or
-    incident.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
+  plan or incident.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2224,29 +2387,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec list_timeline_events(AWS.Client.t(), list_timeline_events_input(), Keyword.t()) ::
+
+  @spec list_timeline_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_timeline_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_timeline_events_errors()}
-  def list_timeline_events(%Client{} = client, input, options \\ []) do
+
+  def list_timeline_events(%Client{} = client, options \\ []) do
     url_path = "/listTimelineEvents"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2262,29 +2436,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_input(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/putResourcePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2297,29 +2482,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec start_incident(AWS.Client.t(), start_incident_input(), Keyword.t()) ::
+
+  @spec start_incident(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_incident_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_incident_errors()}
-  def start_incident(%Client{} = client, input, options \\ []) do
+
+  def start_incident(%Client{} = client, options \\ []) do
     url_path = "/startIncident"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2328,34 +2524,45 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan
-    you're adding the tags to.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
+  plan you're adding the tags to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2364,29 +2571,46 @@ defmodule AWS.SSMIncidents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan
-    you're removing a tag from.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
+  plan you're removing a tag from.
   * `:tag_keys` (`t:list[com.amazonaws.ssmincidents#TagKey]`) The name of the tag
-    to remove from the response plan.
+  to remove from the response plan.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2395,7 +2619,7 @@ defmodule AWS.SSMIncidents do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2411,33 +2635,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec update_deletion_protection(
-          AWS.Client.t(),
-          update_deletion_protection_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_deletion_protection(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_deletion_protection_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deletion_protection_errors()}
-  def update_deletion_protection(%Client{} = client, input, options \\ []) do
+
+  def update_deletion_protection(%Client{} = client, options \\ []) do
     url_path = "/updateDeletionProtection"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2452,29 +2683,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec update_incident_record(AWS.Client.t(), update_incident_record_input(), Keyword.t()) ::
+
+  @spec update_incident_record(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_incident_record_errors()}
-  def update_incident_record(%Client{} = client, input, options \\ []) do
+
+  def update_incident_record(%Client{} = client, options \\ []) do
     url_path = "/updateIncidentRecord"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2486,29 +2728,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec update_related_items(AWS.Client.t(), update_related_items_input(), Keyword.t()) ::
+
+  @spec update_related_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_related_items_errors()}
-  def update_related_items(%Client{} = client, input, options \\ []) do
+
+  def update_related_items(%Client{} = client, options \\ []) do
     url_path = "/updateRelatedItems"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2520,29 +2773,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec update_replication_set(AWS.Client.t(), update_replication_set_input(), Keyword.t()) ::
+
+  @spec update_replication_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_set_errors()}
-  def update_replication_set(%Client{} = client, input, options \\ []) do
+
+  def update_replication_set(%Client{} = client, options \\ []) do
     url_path = "/updateReplicationSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2554,29 +2818,40 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec update_response_plan(AWS.Client.t(), update_response_plan_input(), Keyword.t()) ::
+
+  @spec update_response_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_response_plan_errors()}
-  def update_response_plan(%Client{} = client, input, options \\ []) do
+
+  def update_response_plan(%Client{} = client, options \\ []) do
     url_path = "/updateResponsePlan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2588,28 +2863,39 @@ defmodule AWS.SSMIncidents do
 
   ## Optional parameters:
   """
-  @spec update_timeline_event(AWS.Client.t(), update_timeline_event_input(), Keyword.t()) ::
+
+  @spec update_timeline_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_timeline_event_errors()}
-  def update_timeline_event(%Client{} = client, input, options \\ []) do
+
+  def update_timeline_event(%Client{} = client, options \\ []) do
     url_path = "/updateTimelineEvent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 end

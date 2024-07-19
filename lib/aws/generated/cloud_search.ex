@@ -1306,12 +1306,22 @@ defmodule AWS.CloudSearch do
   Indexes the search suggestions. For more information, see [Configuring
   Suggesters](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20BuildSuggesters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:build_suggesters_request`)
+    %{
+      required("DomainName") => String.t()
+    }
   """
-  @spec build_suggesters(AWS.Client.t(), build_suggesters_request(), Keyword.t()) ::
+
+  @spec build_suggesters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, build_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, build_suggesters_errors()}
-  def build_suggesters(%Client{} = client, input, options \\ []) do
+
+  def build_suggesters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1322,12 +1332,22 @@ defmodule AWS.CloudSearch do
   Creates a new search domain. For more information, see [Creating a Search
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20CreateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_domain_request`)
+    %{
+      required("DomainName") => String.t()
+    }
   """
-  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
+
+  @spec create_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-  def create_domain(%Client{} = client, input, options \\ []) do
+
+  def create_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1340,12 +1360,23 @@ defmodule AWS.CloudSearch do
   information, see [Configuring Analysis
   Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DefineAnalysisScheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:define_analysis_scheme_request`)
+    %{
+      required("AnalysisScheme") => analysis_scheme(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec define_analysis_scheme(AWS.Client.t(), define_analysis_scheme_request(), Keyword.t()) ::
+
+  @spec define_analysis_scheme(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_analysis_scheme_errors()}
-  def define_analysis_scheme(%Client{} = client, input, options \\ []) do
+
+  def define_analysis_scheme(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1358,12 +1389,23 @@ defmodule AWS.CloudSearch do
   configuration replaces the old one. For more information, see [Configuring
   Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DefineExpression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:define_expression_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("Expression") => expression()
+    }
   """
-  @spec define_expression(AWS.Client.t(), define_expression_request(), Keyword.t()) ::
+
+  @spec define_expression(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_expression_errors()}
-  def define_expression(%Client{} = client, input, options \\ []) do
+
+  def define_expression(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1380,12 +1422,23 @@ defmodule AWS.CloudSearch do
   old one. For more information, see [Configuring Index
   Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DefineIndexField&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:define_index_field_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("IndexField") => index_field()
+    }
   """
-  @spec define_index_field(AWS.Client.t(), define_index_field_request(), Keyword.t()) ::
+
+  @spec define_index_field(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_index_field_errors()}
-  def define_index_field(%Client{} = client, input, options \\ []) do
+
+  def define_index_field(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1400,12 +1453,23 @@ defmodule AWS.CloudSearch do
   see [Getting Search
   Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DefineSuggester&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:define_suggester_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("Suggester") => suggester()
+    }
   """
-  @spec define_suggester(AWS.Client.t(), define_suggester_request(), Keyword.t()) ::
+
+  @spec define_suggester(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, define_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, define_suggester_errors()}
-  def define_suggester(%Client{} = client, input, options \\ []) do
+
+  def define_suggester(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1416,12 +1480,23 @@ defmodule AWS.CloudSearch do
   Deletes an analysis scheme. For more information, see [Configuring Analysis
   Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DeleteAnalysisScheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_analysis_scheme_request`)
+    %{
+      required("AnalysisSchemeName") => String.t(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec delete_analysis_scheme(AWS.Client.t(), delete_analysis_scheme_request(), Keyword.t()) ::
+
+  @spec delete_analysis_scheme(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_analysis_scheme_errors()}
-  def delete_analysis_scheme(%Client{} = client, input, options \\ []) do
+
+  def delete_analysis_scheme(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1433,12 +1508,22 @@ defmodule AWS.CloudSearch do
   deleted, it cannot be recovered. For more information, see [Deleting a Search
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_domain_request`)
+    %{
+      required("DomainName") => String.t()
+    }
   """
-  @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
+
+  @spec delete_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-  def delete_domain(%Client{} = client, input, options \\ []) do
+
+  def delete_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1450,12 +1535,23 @@ defmodule AWS.CloudSearch do
   [Configuring
   Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DeleteExpression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_expression_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("ExpressionName") => String.t()
+    }
   """
-  @spec delete_expression(AWS.Client.t(), delete_expression_request(), Keyword.t()) ::
+
+  @spec delete_expression(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_expression_errors()}
-  def delete_expression(%Client{} = client, input, options \\ []) do
+
+  def delete_expression(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1467,12 +1563,23 @@ defmodule AWS.CloudSearch do
   [Configuring Index
   Fields](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DeleteIndexField&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_index_field_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("IndexFieldName") => String.t()
+    }
   """
-  @spec delete_index_field(AWS.Client.t(), delete_index_field_request(), Keyword.t()) ::
+
+  @spec delete_index_field(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_field_errors()}
-  def delete_index_field(%Client{} = client, input, options \\ []) do
+
+  def delete_index_field(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1483,12 +1590,23 @@ defmodule AWS.CloudSearch do
   Deletes a suggester. For more information, see [Getting Search
   Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DeleteSuggester&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_suggester_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("SuggesterName") => String.t()
+    }
   """
-  @spec delete_suggester(AWS.Client.t(), delete_suggester_request(), Keyword.t()) ::
+
+  @spec delete_suggester(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_suggester_errors()}
-  def delete_suggester(%Client{} = client, input, options \\ []) do
+
+  def delete_suggester(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1504,16 +1622,24 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Analysis
   Schemes](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeAnalysisSchemes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_analysis_schemes_request`)
+    %{
+      optional("AnalysisSchemeNames") => list(String.t()()),
+      optional("Deployed") => boolean(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_analysis_schemes(
-          AWS.Client.t(),
-          describe_analysis_schemes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_analysis_schemes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_analysis_schemes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_analysis_schemes_errors()}
-  def describe_analysis_schemes(%Client{} = client, input, options \\ []) do
+
+  def describe_analysis_schemes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1527,16 +1653,24 @@ defmodule AWS.CloudSearch do
   information, see [Configuring Availability
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeAvailabilityOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_availability_options_request`)
+    %{
+      optional("Deployed") => boolean(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_availability_options(
-          AWS.Client.t(),
-          describe_availability_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_availability_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_availability_options_errors()}
-  def describe_availability_options(%Client{} = client, input, options \\ []) do
+
+  def describe_availability_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1549,16 +1683,24 @@ defmodule AWS.CloudSearch do
   Endpoint
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeDomainEndpointOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_domain_endpoint_options_request`)
+    %{
+      optional("Deployed") => boolean(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_domain_endpoint_options(
-          AWS.Client.t(),
-          describe_domain_endpoint_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_domain_endpoint_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_endpoint_options_errors()}
-  def describe_domain_endpoint_options(%Client{} = client, input, options \\ []) do
+
+  def describe_domain_endpoint_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1574,12 +1716,22 @@ defmodule AWS.CloudSearch do
   Information about a Search
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_domains_request`)
+    %{
+      optional("DomainNames") => list(String.t()())
+    }
   """
-  @spec describe_domains(AWS.Client.t(), describe_domains_request(), Keyword.t()) ::
+
+  @spec describe_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domains_errors()}
-  def describe_domains(%Client{} = client, input, options \\ []) do
+
+  def describe_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1594,12 +1746,24 @@ defmodule AWS.CloudSearch do
   information, see [Configuring
   Expressions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeExpressions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_expressions_request`)
+    %{
+      optional("Deployed") => boolean(),
+      optional("ExpressionNames") => list(String.t()()),
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_expressions(AWS.Client.t(), describe_expressions_request(), Keyword.t()) ::
+
+  @spec describe_expressions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_expressions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_expressions_errors()}
-  def describe_expressions(%Client{} = client, input, options \\ []) do
+
+  def describe_expressions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1614,12 +1778,24 @@ defmodule AWS.CloudSearch do
   information, see [Getting Domain
   Information](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeIndexFields&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_index_fields_request`)
+    %{
+      optional("Deployed") => boolean(),
+      optional("FieldNames") => list(String.t()()),
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_index_fields(AWS.Client.t(), describe_index_fields_request(), Keyword.t()) ::
+
+  @spec describe_index_fields(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_index_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_index_fields_errors()}
-  def describe_index_fields(%Client{} = client, input, options \\ []) do
+
+  def describe_index_fields(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1632,16 +1808,22 @@ defmodule AWS.CloudSearch do
   more information, see [Configuring Scaling
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeScalingParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_scaling_parameters_request`)
+    %{
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_scaling_parameters(
-          AWS.Client.t(),
-          describe_scaling_parameters_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_scaling_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_parameters_errors()}
-  def describe_scaling_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_scaling_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1656,16 +1838,24 @@ defmodule AWS.CloudSearch do
   [Configuring Access for a Search
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeServiceAccessPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_service_access_policies_request`)
+    %{
+      optional("Deployed") => boolean(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_service_access_policies(
-          AWS.Client.t(),
-          describe_service_access_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_service_access_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_access_policies_errors()}
-  def describe_service_access_policies(%Client{} = client, input, options \\ []) do
+
+  def describe_service_access_policies(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1681,12 +1871,24 @@ defmodule AWS.CloudSearch do
   information, see [Getting Search
   Suggestions](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20DescribeSuggesters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_suggesters_request`)
+    %{
+      optional("Deployed") => boolean(),
+      optional("SuggesterNames") => list(String.t()()),
+      required("DomainName") => String.t()
+    }
   """
-  @spec describe_suggesters(AWS.Client.t(), describe_suggesters_request(), Keyword.t()) ::
+
+  @spec describe_suggesters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_suggesters_errors()}
-  def describe_suggesters(%Client{} = client, input, options \\ []) do
+
+  def describe_suggesters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1697,12 +1899,22 @@ defmodule AWS.CloudSearch do
   Tells the search domain to start indexing its documents using the latest
   indexing options. This operation must be invoked to activate options whose
   `OptionStatus` is `RequiresIndexDocuments`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20IndexDocuments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:index_documents_request`)
+    %{
+      required("DomainName") => String.t()
+    }
   """
-  @spec index_documents(AWS.Client.t(), index_documents_request(), Keyword.t()) ::
+
+  @spec index_documents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, index_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, index_documents_errors()}
-  def index_documents(%Client{} = client, input, options \\ []) do
+
+  def index_documents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1711,12 +1923,19 @@ defmodule AWS.CloudSearch do
 
   @doc """
   Lists all search domains owned by an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20ListDomainNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec list_domain_names(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec list_domain_names(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domain_names_errors()}
-  def list_domain_names(%Client{} = client, input, options \\ []) do
+
+  def list_domain_names(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1731,16 +1950,23 @@ defmodule AWS.CloudSearch do
   For more information, see [Configuring Availability
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20UpdateAvailabilityOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_availability_options_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("MultiAZ") => boolean()
+    }
   """
-  @spec update_availability_options(
-          AWS.Client.t(),
-          update_availability_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_availability_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_availability_options_errors()}
-  def update_availability_options(%Client{} = client, input, options \\ []) do
+
+  def update_availability_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1753,16 +1979,24 @@ defmodule AWS.CloudSearch do
   Endpoint
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20UpdateDomainEndpointOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_domain_endpoint_options_request`)
+    %{
+      required("DomainEndpointOptions") => domain_endpoint_options(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec update_domain_endpoint_options(
-          AWS.Client.t(),
-          update_domain_endpoint_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_domain_endpoint_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_endpoint_options_errors()}
-  def update_domain_endpoint_options(%Client{} = client, input, options \\ []) do
+
+  def update_domain_endpoint_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1778,16 +2012,23 @@ defmodule AWS.CloudSearch do
   used per Availability Zone. For more information, see [Configuring Scaling
   Options](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20UpdateScalingParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_scaling_parameters_request`)
+    %{
+      required("DomainName") => String.t(),
+      required("ScalingParameters") => scaling_parameters()
+    }
   """
-  @spec update_scaling_parameters(
-          AWS.Client.t(),
-          update_scaling_parameters_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_scaling_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scaling_parameters_errors()}
-  def update_scaling_parameters(%Client{} = client, input, options \\ []) do
+
+  def update_scaling_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1799,16 +2040,24 @@ defmodule AWS.CloudSearch do
   search endpoints. For more information, see [ Configuring Access for an Amazon
   CloudSearch
   Domain](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudsearch%20UpdateServiceAccessPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_service_access_policies_request`)
+    %{
+      required("AccessPolicies") => String.t(),
+      required("DomainName") => String.t()
+    }
   """
-  @spec update_service_access_policies(
-          AWS.Client.t(),
-          update_service_access_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_service_access_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_access_policies_errors()}
-  def update_service_access_policies(%Client{} = client, input, options \\ []) do
+
+  def update_service_access_policies(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 

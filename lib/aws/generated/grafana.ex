@@ -16,123 +16,123 @@ defmodule AWS.Grafana do
   @typedoc """
 
   ## Example:
-
+      
       list_permissions_response() :: %{
         optional("nextToken") => String.t(),
         required("permissions") => list(permission_entry()())
       }
-
+      
   """
   @type list_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_configuration() :: %{
         "securityGroupIds" => list(String.t()()),
         "subnetIds" => list(String.t()())
       }
-
+      
   """
   @type vpc_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_configuration_request() :: %{
         optional("grafanaVersion") => String.t(),
         required("configuration") => String.t()
       }
-
+      
   """
   @type update_workspace_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_api_key_response() :: %{
         required("key") => String.t(),
         required("keyName") => String.t(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type create_workspace_api_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspace_service_accounts_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_workspace_service_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_authentication_response() :: %{
         required("authentication") => authentication_description()
       }
-
+      
   """
   @type describe_workspace_authentication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_access_configuration() :: %{
         "prefixListIds" => list(String.t()()),
         "vpceIds" => list(String.t()())
       }
-
+      
   """
   @type network_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saml_authentication() :: %{
         "configuration" => saml_configuration(),
         "status" => String.t()
       }
-
+      
   """
   @type saml_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workspace_summary() :: %{
         "authentication" => authentication_summary(),
         "created" => [non_neg_integer()],
@@ -148,204 +148,204 @@ defmodule AWS.Grafana do
         "status" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type workspace_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_configuration_request() :: %{}
-
+      
   """
   @type describe_workspace_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_service_account_token_response() :: %{
         "serviceAccountId" => [String.t()],
         "tokenId" => [String.t()],
         "workspaceId" => String.t()
       }
-
+      
   """
   @type delete_workspace_service_account_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_api_key_request() :: %{
         required("keyName") => String.t(),
         required("keyRole") => [String.t()],
         required("secondsToLive") => [integer()]
       }
-
+      
   """
   @type create_workspace_api_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_response() :: %{
         required("workspace") => workspace_description()
       }
-
+      
   """
   @type delete_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_configuration_response() :: %{}
-
+      
   """
   @type update_workspace_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_account_summary() :: %{
         "grafanaRole" => String.t(),
         "id" => [String.t()],
         "isDisabled" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type service_account_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authentication_description() :: %{
         "awsSso" => aws_sso_authentication(),
         "providers" => list(String.t()()),
         "saml" => saml_authentication()
       }
-
+      
   """
   @type authentication_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_service_account_response() :: %{
         "serviceAccountId" => [String.t()],
         "workspaceId" => String.t()
       }
-
+      
   """
   @type delete_workspace_service_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_authentication_response() :: %{
         required("authentication") => authentication_description()
       }
-
+      
   """
   @type update_workspace_authentication_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_error() :: %{
         "causedBy" => update_instruction(),
         "code" => [integer()],
         "message" => [String.t()]
       }
-
+      
   """
   @type update_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_response() :: %{
         required("workspace") => workspace_description()
       }
-
+      
   """
   @type describe_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_configuration_response() :: %{
         optional("grafanaVersion") => String.t(),
         required("configuration") => String.t()
       }
-
+      
   """
   @type describe_workspace_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_authentication_request() :: %{
         optional("samlConfiguration") => saml_configuration(),
         required("authenticationProviders") => list(String.t()())
       }
-
+      
   """
   @type update_workspace_authentication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -353,105 +353,105 @@ defmodule AWS.Grafana do
         "resourceType" => [String.t()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_service_account_token_response() :: %{
         "serviceAccountId" => [String.t()],
         "serviceAccountToken" => service_account_token_summary_with_key(),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type create_workspace_service_account_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authentication_summary() :: %{
         "providers" => list(String.t()()),
         "samlConfigurationStatus" => String.t()
       }
-
+      
   """
   @type authentication_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_license_response() :: %{
         required("workspace") => workspace_description()
       }
-
+      
   """
   @type associate_license_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_service_account_response() :: %{
         "grafanaRole" => String.t(),
         "id" => [String.t()],
         "name" => [String.t()],
         "workspaceId" => String.t()
       }
-
+      
   """
   @type create_workspace_service_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_request() :: %{}
-
+      
   """
   @type describe_workspace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_authentication_request() :: %{}
-
+      
   """
   @type describe_workspace_authentication_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_account_token_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
@@ -459,60 +459,60 @@ defmodule AWS.Grafana do
         "lastUsedAt" => [non_neg_integer()],
         "name" => [String.t()]
       }
-
+      
   """
   @type service_account_token_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_response() :: %{
         required("workspace") => workspace_description()
       }
-
+      
   """
   @type update_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_versions_response() :: %{
         "grafanaVersions" => list(String.t()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspace_service_account_tokens_response() :: %{
         "nextToken" => String.t(),
         "serviceAccountId" => [String.t()],
         "serviceAccountTokens" => list(service_account_token_summary()()),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type list_workspace_service_account_tokens_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_request() :: %{}
-
+      
   """
   @type delete_workspace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_request() :: %{
         optional("accountAccessType") => String.t(),
         optional("networkAccessControl") => network_access_configuration(),
@@ -529,14 +529,14 @@ defmodule AWS.Grafana do
         optional("workspaceOrganizationalUnits") => list(String.t()()),
         optional("workspaceRoleArn") => String.t()
       }
-
+      
   """
   @type update_workspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_permissions_request() :: %{
         optional("groupId") => String.t(),
         optional("maxResults") => [integer()],
@@ -544,14 +544,14 @@ defmodule AWS.Grafana do
         optional("userId") => String.t(),
         optional("userType") => String.t()
       }
-
+      
   """
   @type list_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workspace_description() :: %{
         "accountAccessType" => String.t(),
         "authentication" => authentication_summary(),
@@ -579,227 +579,227 @@ defmodule AWS.Grafana do
         "vpcConfiguration" => vpc_configuration(),
         "workspaceRoleArn" => String.t()
       }
-
+      
   """
   @type workspace_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_response() :: %{
         required("workspace") => workspace_description()
       }
-
+      
   """
   @type create_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspaces_response() :: %{
         optional("nextToken") => String.t(),
         required("workspaces") => list(workspace_summary()())
       }
-
+      
   """
   @type list_workspaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_license_request() :: %{
         optional("grafanaToken") => String.t()
       }
-
+      
   """
   @type associate_license_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_permissions_response() :: %{
         required("errors") => list(update_error()())
       }
-
+      
   """
   @type update_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_service_account_request() :: %{}
-
+      
   """
   @type delete_workspace_service_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_service_account_token_request() :: %{}
-
+      
   """
   @type delete_workspace_service_account_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       permission_entry() :: %{
         "role" => String.t(),
         "user" => user()
       }
-
+      
   """
   @type permission_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_sso_authentication() :: %{
         "ssoClientId" => String.t()
       }
-
+      
   """
   @type aws_sso_authentication() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspaces_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_workspaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
         "retryAfterSeconds" => [integer()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_instruction() :: %{
         "action" => String.t(),
         "role" => String.t(),
         "users" => list(user()())
       }
-
+      
   """
   @type update_instruction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user() :: %{
         "id" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_api_key_request() :: %{}
-
+      
   """
   @type delete_workspace_api_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_versions_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         optional("workspaceId") => String.t()
       }
-
+      
   """
   @type list_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       assertion_attributes() :: %{
         "email" => String.t(),
         "groups" => String.t(),
@@ -808,131 +808,131 @@ defmodule AWS.Grafana do
         "org" => String.t(),
         "role" => String.t()
       }
-
+      
   """
   @type assertion_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspace_service_account_tokens_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_workspace_service_account_tokens_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       role_values() :: %{
         "admin" => list(String.t()()),
         "editor" => list(String.t()())
       }
-
+      
   """
   @type role_values() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_license_response() :: %{
         required("workspace") => workspace_description()
       }
-
+      
   """
   @type disassociate_license_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_service_account_request() :: %{
         required("grafanaRole") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_workspace_service_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_permissions_request() :: %{
         required("updateInstructionBatch") => list(update_instruction()())
       }
-
+      
   """
   @type update_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_account_token_summary_with_key() :: %{
         "id" => [String.t()],
         "key" => String.t(),
         "name" => [String.t()]
       }
-
+      
   """
   @type service_account_token_summary_with_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_api_key_response() :: %{
         required("keyName") => String.t(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type delete_workspace_api_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_license_request() :: %{}
-
+      
   """
   @type disassociate_license_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspace_service_accounts_response() :: %{
         "nextToken" => String.t(),
         "serviceAccounts" => list(service_account_summary()()),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type list_workspace_service_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_service_account_token_request() :: %{
         required("name") => String.t(),
         required("secondsToLive") => [integer()]
       }
-
+      
   """
   @type create_workspace_service_account_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saml_configuration() :: %{
         "allowedOrganizations" => list(String.t()()),
         "assertionAttributes" => assertion_attributes(),
@@ -940,14 +940,14 @@ defmodule AWS.Grafana do
         "loginValidityDuration" => integer(),
         "roleValues" => role_values()
       }
-
+      
   """
   @type saml_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_request() :: %{
         optional("clientToken") => String.t(),
         optional("configuration") => String.t(),
@@ -967,7 +967,7 @@ defmodule AWS.Grafana do
         required("authenticationProviders") => list(String.t()()),
         required("permissionType") => String.t()
       }
-
+      
   """
   @type create_workspace_request() :: %{String.t() => any()}
 
@@ -1185,29 +1185,26 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:license_type` (`t:string`) The type of license to associate with the
-    workspace.
+  workspace.
   * `:workspace_id` (`t:string`) The ID of the workspace to associate the license
-    with.
+  with.
 
   ## Optional parameters:
   * `:grafana_token` (`t:string`) A token from Grafana Labs that ties your Amazon
-    Web Services account with a Grafana Labs account. For more information, see
-    Link your account with Grafana Labs.
+  Web Services account with a Grafana Labs account. For more information, see
+  Link your account with Grafana Labs.
   """
-  @spec associate_license(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          associate_license_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_license(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_license_errors()}
-  def associate_license(%Client{} = client, license_type, workspace_id, input, options \\ []) do
+
+  def associate_license(%Client{} = client, license_type, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
 
+    # Validate optional parameters
     optional_params = [grafana_token: nil]
 
     options =
@@ -1216,13 +1213,21 @@ defmodule AWS.Grafana do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"grafanaToken", "Grafana-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :grafana_token) do
+        [{"Grafana-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1232,17 +1237,9 @@ defmodule AWS.Grafana do
       options
       |> Keyword.drop([:grafana_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1256,29 +1253,40 @@ defmodule AWS.Grafana do
 
   ## Optional parameters:
   """
-  @spec create_workspace(AWS.Client.t(), create_workspace_request(), Keyword.t()) ::
+
+  @spec create_workspace(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_errors()}
-  def create_workspace(%Client{} = client, input, options \\ []) do
+
+  def create_workspace(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1294,34 +1302,40 @@ defmodule AWS.Grafana do
 
   ## Optional parameters:
   """
-  @spec create_workspace_api_key(
-          AWS.Client.t(),
-          String.t(),
-          create_workspace_api_key_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_workspace_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_api_key_errors()}
-  def create_workspace_api_key(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_workspace_api_key(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1336,38 +1350,44 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace within which to create
-    the service account.
+  the service account.
 
   ## Optional parameters:
   """
-  @spec create_workspace_service_account(
-          AWS.Client.t(),
-          String.t(),
-          create_workspace_service_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_workspace_service_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_service_account_errors()}
-  def create_workspace_service_account(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_workspace_service_account(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1384,50 +1404,58 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:`) The ID of the service account for which to create
-    a token.
+  * `:service_account_id` (`t:string`) The ID of the service account for which to
+  create a token.
   * `:workspace_id` (`t:string`) The ID of the workspace the service account
-    resides within.
+  resides within.
 
   ## Optional parameters:
   """
+
   @spec create_workspace_service_account_token(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          create_workspace_service_account_token_request(),
           Keyword.t()
         ) ::
           {:ok, create_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_service_account_token_errors()}
+
   def create_workspace_service_account_token(
         %Client{} = client,
         service_account_id,
         workspace_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1440,17 +1468,38 @@ defmodule AWS.Grafana do
 
   ## Optional parameters:
   """
-  @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
+
+  @spec delete_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_errors()}
-  def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def delete_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1459,7 +1508,7 @@ defmodule AWS.Grafana do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1476,25 +1525,39 @@ defmodule AWS.Grafana do
 
   ## Optional parameters:
   """
-  @spec delete_workspace_api_key(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_workspace_api_key_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_workspace_api_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_api_key_errors()}
-  def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, input, options \\ []) do
+
+  def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys/#{AWS.Util.encode_uri(key_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1503,7 +1566,7 @@ defmodule AWS.Grafana do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1517,37 +1580,50 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:`) The ID of the service account to delete.
+  * `:service_account_id` (`t:string`) The ID of the service account to delete.
   * `:workspace_id` (`t:string`) The ID of the workspace where the service account
-    resides.
+  resides.
 
   ## Optional parameters:
   """
-  @spec delete_workspace_service_account(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_workspace_service_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_workspace_service_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_service_account_errors()}
+
   def delete_workspace_service_account(
         %Client{} = client,
         service_account_id,
         workspace_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1556,7 +1632,7 @@ defmodule AWS.Grafana do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1571,41 +1647,59 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:`) The ID of the service account from which to
-    delete the token.
-  * `:token_id` (`t:`) The ID of the token to delete.
+  * `:service_account_id` (`t:string`) The ID of the service account from which to
+  delete the token.
+  * `:token_id` (`t:string`) The ID of the token to delete.
   * `:workspace_id` (`t:string`) The ID of the workspace from which to delete the
-    token.
+  token.
 
   ## Optional parameters:
   """
+
   @spec delete_workspace_service_account_token(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_workspace_service_account_token_request(),
           Keyword.t()
         ) ::
           {:ok, delete_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_service_account_token_errors()}
+
   def delete_workspace_service_account_token(
         %Client{} = client,
         service_account_id,
         token_id,
         workspace_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens/#{AWS.Util.encode_uri(token_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1614,7 +1708,7 @@ defmodule AWS.Grafana do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1627,14 +1721,16 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to display information
-    about.
+  about.
 
   ## Optional parameters:
   """
+
   @spec describe_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_errors()}
+
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
 
@@ -1671,14 +1767,16 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to return authentication
-    information about.
+  information about.
 
   ## Optional parameters:
   """
+
   @spec describe_workspace_authentication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_authentication_errors()}
+
   def describe_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
 
@@ -1714,14 +1812,16 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to get configuration
-    information for.
+  information for.
 
   ## Optional parameters:
   """
+
   @spec describe_workspace_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_configuration_errors()}
+
   def describe_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
 
@@ -1758,29 +1858,43 @@ defmodule AWS.Grafana do
   ## Parameters:
   * `:license_type` (`t:string`) The type of license to remove from the workspace.
   * `:workspace_id` (`t:string`) The ID of the workspace to remove the Grafana
-    Enterprise license from.
+  Enterprise license from.
 
   ## Optional parameters:
   """
-  @spec disassociate_license(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_license_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_license(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_license_errors()}
-  def disassociate_license(%Client{} = client, license_type, workspace_id, input, options \\ []) do
+
+  def disassociate_license(%Client{} = client, license_type, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1789,7 +1903,7 @@ defmodule AWS.Grafana do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1806,25 +1920,27 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to list permissions for.
-    This parameter is required.
+  This parameter is required.
 
   ## Optional parameters:
   * `:group_id` (`t:string`) (Optional) Limits the results to only the group that
-    matches this ID.
-  * `:max_results` (`t:`) The maximum number of results to include in the
-    response.
+  matches this ID.
+  * `:max_results` (`t:string`) The maximum number of results to include in the
+  response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You received this token from a previous ListPermissions operation.
+  results. You received this token from a previous ListPermissions operation.
   * `:user_id` (`t:string`) (Optional) Limits the results to only the user that
-    matches this ID.
+  matches this ID.
   * `:user_type` (`t:string`) (Optional) If you specify SSO_USER, then only the
-    permissions of IAM Identity Center users are returned. If you specify
-    SSO_GROUP, only the permissions of IAM Identity Center groups are returned.
+  permissions of IAM Identity Center users are returned. If you specify
+  SSO_GROUP, only the permissions of IAM Identity Center groups are returned.
   """
+
   @spec list_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_permissions_errors()}
+
   def list_permissions(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
 
@@ -1906,15 +2022,17 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource the list of tags are associated
-    with.
+  * `:resource_arn` (`t:string`) The ARN of the resource the list of tags are
+  associated with.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1953,18 +2071,20 @@ defmodule AWS.Grafana do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to include in the
-    response.
+  * `:max_results` (`t:string`) The maximum number of results to include in the
+  response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-    results. You receive this token from a previous ListVersions operation.
+  results. You receive this token from a previous ListVersions operation.
   * `:workspace_id` (`t:string`) The ID of the workspace to list the available
-    upgrade versions. If not included, lists all versions of Grafana that are
-    supported for CreateWorkspace.
+  upgrade versions. If not included, lists all versions of Grafana that are
+  supported for CreateWorkspace.
   """
+
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_versions_errors()}
+
   def list_versions(%Client{} = client, options \\ []) do
     url_path = "/versions"
 
@@ -2026,21 +2146,24 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaceServiceAccountTokens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:service_account_id` (`t:`) The ID of the service account for which to return
-    tokens.
+  * `:service_account_id` (`t:string`) The ID of the service account for which to
+  return tokens.
   * `:workspace_id` (`t:string`) The ID of the workspace for which to return
-    tokens.
+  tokens.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of tokens to include in the results.
+  * `:max_results` (`t:string`) The maximum number of tokens to include in the
+  results.
   * `:next_token` (`t:string`) The token for the next set of service accounts to
-    return. (You receive this token from a previous
-    ListWorkspaceServiceAccountTokens operation.)
+  return. (You receive this token from a previous
+  ListWorkspaceServiceAccountTokens operation.)
   """
+
   @spec list_workspace_service_account_tokens(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_account_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspace_service_account_tokens_errors()}
+
   def list_workspace_service_account_tokens(
         %Client{} = client,
         service_account_id,
@@ -2102,16 +2225,18 @@ defmodule AWS.Grafana do
   * `:workspace_id` (`t:string`) The workspace for which to list service accounts.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of service accounts to include in the
-    results.
+  * `:max_results` (`t:string`) The maximum number of service accounts to include
+  in the results.
   * `:next_token` (`t:string`) The token for the next set of service accounts to
-    return. (You receive this token from a previous ListWorkspaceServiceAccounts
-    operation.)
+  return. (You receive this token from a previous ListWorkspaceServiceAccounts
+  operation.)
   """
+
   @spec list_workspace_service_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspace_service_accounts_errors()}
+
   def list_workspace_service_accounts(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
 
@@ -2169,15 +2294,17 @@ defmodule AWS.Grafana do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of workspaces to include in the
-    results.
+  * `:max_results` (`t:string`) The maximum number of workspaces to include in the
+  results.
   * `:next_token` (`t:string`) The token for the next set of workspaces to return.
-    (You receive this token from a previous ListWorkspaces operation.)
+  (You receive this token from a previous ListWorkspaces operation.)
   """
+
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspaces_errors()}
+
   def list_workspaces(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
 
@@ -2231,33 +2358,45 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource the tag is associated with.
+  * `:resource_arn` (`t:string`) The ARN of the resource the tag is associated
+  with.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2267,29 +2406,46 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource the tag association is removed
-    from.
+  * `:resource_arn` (`t:string`) The ARN of the resource the tag association is
+  removed from.
   * `:tag_keys` (`t:list[com.amazonaws.grafana#TagKey]`) The key values of the tag
-    to be removed from the resource.
+  to be removed from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2298,7 +2454,7 @@ defmodule AWS.Grafana do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2314,17 +2470,38 @@ defmodule AWS.Grafana do
 
   ## Optional parameters:
   """
-  @spec update_permissions(AWS.Client.t(), String.t(), update_permissions_request(), Keyword.t()) ::
+
+  @spec update_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_permissions_errors()}
-  def update_permissions(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def update_permissions(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2333,7 +2510,7 @@ defmodule AWS.Grafana do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2351,19 +2528,40 @@ defmodule AWS.Grafana do
 
   ## Optional parameters:
   """
-  @spec update_workspace(AWS.Client.t(), String.t(), update_workspace_request(), Keyword.t()) ::
+
+  @spec update_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_errors()}
-  def update_workspace(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def update_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2377,38 +2575,44 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to update the
-    authentication for.
+  authentication for.
 
   ## Optional parameters:
   """
-  @spec update_workspace_authentication(
-          AWS.Client.t(),
-          String.t(),
-          update_workspace_authentication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workspace_authentication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_authentication_errors()}
-  def update_workspace_authentication(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def update_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2421,23 +2625,39 @@ defmodule AWS.Grafana do
 
   ## Optional parameters:
   """
-  @spec update_workspace_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_workspace_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workspace_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_configuration_errors()}
-  def update_workspace_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def update_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 end

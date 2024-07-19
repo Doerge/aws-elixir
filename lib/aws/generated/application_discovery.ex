@@ -1403,16 +1403,24 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Associates one or more configuration items with an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20AssociateConfigurationItemsToApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_configuration_items_to_application_request`)
+    %{
+      required("applicationConfigurationId") => String.t(),
+      required("configurationIds") => list(String.t()())
+    }
   """
-  @spec associate_configuration_items_to_application(
-          AWS.Client.t(),
-          associate_configuration_items_to_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_configuration_items_to_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_configuration_items_to_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_configuration_items_to_application_errors()}
-  def associate_configuration_items_to_application(%Client{} = client, input, options \\ []) do
+
+  def associate_configuration_items_to_application(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1423,12 +1431,22 @@ defmodule AWS.ApplicationDiscovery do
   Deletes one or more agents or collectors as specified by ID. Deleting an agent
   or collector does not delete the previously discovered data. To delete the
   data collected, use `StartBatchDeleteConfigurationTask`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20BatchDeleteAgents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_agents_request`)
+    %{
+      required("deleteAgents") => list(delete_agent()())
+    }
   """
-  @spec batch_delete_agents(AWS.Client.t(), batch_delete_agents_request(), Keyword.t()) ::
+
+  @spec batch_delete_agents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_agents_errors()}
-  def batch_delete_agents(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_agents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1438,12 +1456,23 @@ defmodule AWS.ApplicationDiscovery do
   @doc """
   Deletes one or more import tasks, each identified by their import ID. Each
   import task has a number of records that can identify servers or applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20BatchDeleteImportData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_import_data_request`)
+    %{
+      optional("deleteHistory") => boolean(),
+      required("importTaskIds") => list(String.t()())
+    }
   """
-  @spec batch_delete_import_data(AWS.Client.t(), batch_delete_import_data_request(), Keyword.t()) ::
+
+  @spec batch_delete_import_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_import_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_import_data_errors()}
-  def batch_delete_import_data(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_import_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1452,12 +1481,23 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Creates an application with the given name and description.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_application_request`)
+    %{
+      optional("description") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1468,12 +1508,23 @@ defmodule AWS.ApplicationDiscovery do
   Creates one or more tags for configuration items. Tags are metadata that help
   you categorize IT assets. This API accepts a list of multiple configuration
   items.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20CreateTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_tags_request`)
+    %{
+      required("configurationIds") => list(String.t()()),
+      required("tags") => list(tag()())
+    }
   """
-  @spec create_tags(AWS.Client.t(), create_tags_request(), Keyword.t()) ::
+
+  @spec create_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-  def create_tags(%Client{} = client, input, options \\ []) do
+
+  def create_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1482,12 +1533,22 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Deletes a list of applications and their associations with configuration items.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DeleteApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_applications_request`)
+    %{
+      required("configurationIds") => list(String.t()())
+    }
   """
-  @spec delete_applications(AWS.Client.t(), delete_applications_request(), Keyword.t()) ::
+
+  @spec delete_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_applications_errors()}
-  def delete_applications(%Client{} = client, input, options \\ []) do
+
+  def delete_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1497,12 +1558,23 @@ defmodule AWS.ApplicationDiscovery do
   @doc """
   Deletes the association between configuration items and one or more tags. This
   API accepts a list of multiple configuration items.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DeleteTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_tags_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("configurationIds") => list(String.t()())
+    }
   """
-  @spec delete_tags(AWS.Client.t(), delete_tags_request(), Keyword.t()) ::
+
+  @spec delete_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-  def delete_tags(%Client{} = client, input, options \\ []) do
+
+  def delete_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1513,12 +1585,25 @@ defmodule AWS.ApplicationDiscovery do
   Lists agents or collectors as specified by ID or other filters. All
   agents/collectors associated with your user can be listed if you call
   `DescribeAgents` as is without passing any parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeAgents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_agents_request`)
+    %{
+      optional("agentIds") => list(String.t()()),
+      optional("filters") => list(filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_agents(AWS.Client.t(), describe_agents_request(), Keyword.t()) ::
+
+  @spec describe_agents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agents_errors()}
-  def describe_agents(%Client{} = client, input, options \\ []) do
+
+  def describe_agents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1528,16 +1613,23 @@ defmodule AWS.ApplicationDiscovery do
   @doc """
   Takes a unique deletion task identifier as input and returns metadata about a
   configuration deletion task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeBatchDeleteConfigurationTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_batch_delete_configuration_task_request`)
+    %{
+      required("taskId") => String.t()
+    }
   """
-  @spec describe_batch_delete_configuration_task(
-          AWS.Client.t(),
-          describe_batch_delete_configuration_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_batch_delete_configuration_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_batch_delete_configuration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_batch_delete_configuration_task_errors()}
-  def describe_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
+
+  def describe_batch_delete_configuration_task(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1546,12 +1638,22 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Retrieves attributes for a list of configuration item IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_configurations_request`)
+    %{
+      required("configurationIds") => list(String.t()())
+    }
   """
-  @spec describe_configurations(AWS.Client.t(), describe_configurations_request(), Keyword.t()) ::
+
+  @spec describe_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_configurations_errors()}
-  def describe_configurations(%Client{} = client, input, options \\ []) do
+
+  def describe_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1562,16 +1664,24 @@ defmodule AWS.ApplicationDiscovery do
   Lists exports as specified by ID. All continuous exports associated with your
   user can be listed if you call `DescribeContinuousExports` as is without
   passing any parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeContinuousExports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_continuous_exports_request`)
+    %{
+      optional("exportIds") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_continuous_exports(
-          AWS.Client.t(),
-          describe_continuous_exports_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_continuous_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_continuous_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_continuous_exports_errors()}
-  def describe_continuous_exports(%Client{} = client, input, options \\ []) do
+
+  def describe_continuous_exports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1582,16 +1692,25 @@ defmodule AWS.ApplicationDiscovery do
   `DescribeExportConfigurations` is deprecated. Use
   [DescribeExportTasks](https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html),
   instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeExportConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_export_configurations_request`)
+    %{
+      optional("exportIds") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_export_configurations(
-          AWS.Client.t(),
-          describe_export_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_export_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_export_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_export_configurations_errors()}
-  def describe_export_configurations(%Client{} = client, input, options \\ []) do
+
+  def describe_export_configurations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1601,12 +1720,25 @@ defmodule AWS.ApplicationDiscovery do
   @doc """
   Retrieve status of one or more export tasks. You can retrieve the status of up
   to 100 export tasks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeExportTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_export_tasks_request`)
+    %{
+      optional("exportIds") => list(String.t()()),
+      optional("filters") => list(export_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_export_tasks(AWS.Client.t(), describe_export_tasks_request(), Keyword.t()) ::
+
+  @spec describe_export_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_export_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_export_tasks_errors()}
-  def describe_export_tasks(%Client{} = client, input, options \\ []) do
+
+  def describe_export_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1616,12 +1748,24 @@ defmodule AWS.ApplicationDiscovery do
   @doc """
   Returns an array of import tasks for your account, including status information,
   times, IDs, the Amazon S3 Object URL for the import file, and more.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeImportTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_import_tasks_request`)
+    %{
+      optional("filters") => list(import_task_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_import_tasks(AWS.Client.t(), describe_import_tasks_request(), Keyword.t()) ::
+
+  @spec describe_import_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_import_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_import_tasks_errors()}
-  def describe_import_tasks(%Client{} = client, input, options \\ []) do
+
+  def describe_import_tasks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1632,12 +1776,24 @@ defmodule AWS.ApplicationDiscovery do
   Retrieves a list of configuration items that have tags as specified by the
   key-value pairs, name and value, passed to the optional parameter `filters`.
   There are three valid tag filter names:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DescribeTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_tags_request`)
+    %{
+      optional("filters") => list(tag_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_tags(AWS.Client.t(), describe_tags_request(), Keyword.t()) ::
+
+  @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-  def describe_tags(%Client{} = client, input, options \\ []) do
+
+  def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1646,16 +1802,28 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Disassociates one or more configuration items from an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20DisassociateConfigurationItemsFromApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_configuration_items_from_application_request`)
+    %{
+      required("applicationConfigurationId") => String.t(),
+      required("configurationIds") => list(String.t()())
+    }
   """
+
   @spec disassociate_configuration_items_from_application(
           AWS.Client.t(),
-          disassociate_configuration_items_from_application_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, disassociate_configuration_items_from_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_configuration_items_from_application_errors()}
-  def disassociate_configuration_items_from_application(%Client{} = client, input, options \\ []) do
+
+  def disassociate_configuration_items_from_application(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1670,12 +1838,19 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Deprecated. Use `StartExportTask` instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20ExportConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec export_configurations(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec export_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_configurations_errors()}
-  def export_configurations(%Client{} = client, input, options \\ []) do
+
+  def export_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1684,12 +1859,22 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Retrieves a short summary of discovered assets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20GetDiscoverySummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_discovery_summary_request`)
+    %{
+      
+    }
   """
-  @spec get_discovery_summary(AWS.Client.t(), get_discovery_summary_request(), Keyword.t()) ::
+
+  @spec get_discovery_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_discovery_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_discovery_summary_errors()}
-  def get_discovery_summary(%Client{} = client, input, options \\ []) do
+
+  def get_discovery_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1700,12 +1885,26 @@ defmodule AWS.ApplicationDiscovery do
   Retrieves a list of configuration items as specified by the value passed to the
   required parameter `configurationType`. Optional filtering may be applied to
   refine search results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20ListConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_configurations_request`)
+    %{
+      optional("filters") => list(filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("orderBy") => list(order_by_element()()),
+      required("configurationType") => list(any())
+    }
   """
-  @spec list_configurations(AWS.Client.t(), list_configurations_request(), Keyword.t()) ::
+
+  @spec list_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configurations_errors()}
-  def list_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1715,12 +1914,26 @@ defmodule AWS.ApplicationDiscovery do
   @doc """
   Retrieves a list of servers that are one network hop away from a specified
   server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20ListServerNeighbors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_server_neighbors_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("neighborConfigurationIds") => list(String.t()()),
+      optional("nextToken") => String.t(),
+      optional("portInformationNeeded") => boolean(),
+      required("configurationId") => String.t()
+    }
   """
-  @spec list_server_neighbors(AWS.Client.t(), list_server_neighbors_request(), Keyword.t()) ::
+
+  @spec list_server_neighbors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_server_neighbors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_server_neighbors_errors()}
-  def list_server_neighbors(%Client{} = client, input, options \\ []) do
+
+  def list_server_neighbors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1731,16 +1944,24 @@ defmodule AWS.ApplicationDiscovery do
   Takes a list of configurationId as input and starts an asynchronous deletion
   task to remove the configurationItems. Returns a unique deletion task
   identifier.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20StartBatchDeleteConfigurationTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_batch_delete_configuration_task_request`)
+    %{
+      required("configurationIds") => list(String.t()()),
+      required("configurationType") => list(any())
+    }
   """
-  @spec start_batch_delete_configuration_task(
-          AWS.Client.t(),
-          start_batch_delete_configuration_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_batch_delete_configuration_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_batch_delete_configuration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_batch_delete_configuration_task_errors()}
-  def start_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
+
+  def start_batch_delete_configuration_task(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1749,12 +1970,22 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Start the continuous flow of agent's discovered data into Amazon Athena.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20StartContinuousExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_continuous_export_request`)
+    %{
+      
+    }
   """
-  @spec start_continuous_export(AWS.Client.t(), start_continuous_export_request(), Keyword.t()) ::
+
+  @spec start_continuous_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_continuous_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_continuous_export_errors()}
-  def start_continuous_export(%Client{} = client, input, options \\ []) do
+
+  def start_continuous_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1763,16 +1994,23 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Instructs the specified agents to start collecting data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20StartDataCollectionByAgentIds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_data_collection_by_agent_ids_request`)
+    %{
+      required("agentIds") => list(String.t()())
+    }
   """
-  @spec start_data_collection_by_agent_ids(
-          AWS.Client.t(),
-          start_data_collection_by_agent_ids_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_data_collection_by_agent_ids(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_data_collection_by_agent_ids_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_collection_by_agent_ids_errors()}
-  def start_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
+
+  def start_data_collection_by_agent_ids(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1786,12 +2024,26 @@ defmodule AWS.ApplicationDiscovery do
   any taxes that might apply. Your actual fees and savings depend on a variety
   of factors, including your actual usage of Amazon Web Services services, which
   might vary from the estimates provided in this report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20StartExportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_export_task_request`)
+    %{
+      optional("endTime") => non_neg_integer(),
+      optional("exportDataFormat") => list(list(any())()),
+      optional("filters") => list(export_filter()()),
+      optional("preferences") => list(),
+      optional("startTime") => non_neg_integer()
+    }
   """
-  @spec start_export_task(AWS.Client.t(), start_export_task_request(), Keyword.t()) ::
+
+  @spec start_export_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_export_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_export_task_errors()}
-  def start_export_task(%Client{} = client, input, options \\ []) do
+
+  def start_export_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1807,12 +2059,24 @@ defmodule AWS.ApplicationDiscovery do
   option to perform migration assessment and planning directly from your
   imported data, including the ability to group your devices as applications and
   track their migration status. To start an import request, do this:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20StartImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_import_task_request`)
+    %{
+      optional("clientRequestToken") => String.t(),
+      required("importUrl") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec start_import_task(AWS.Client.t(), start_import_task_request(), Keyword.t()) ::
+
+  @spec start_import_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_task_errors()}
-  def start_import_task(%Client{} = client, input, options \\ []) do
+
+  def start_import_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1821,12 +2085,22 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Stop the continuous flow of agent's discovered data into Amazon Athena.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20StopContinuousExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_continuous_export_request`)
+    %{
+      required("exportId") => String.t()
+    }
   """
-  @spec stop_continuous_export(AWS.Client.t(), stop_continuous_export_request(), Keyword.t()) ::
+
+  @spec stop_continuous_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_continuous_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_continuous_export_errors()}
-  def stop_continuous_export(%Client{} = client, input, options \\ []) do
+
+  def stop_continuous_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1835,16 +2109,23 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Instructs the specified agents to stop collecting data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20StopDataCollectionByAgentIds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_data_collection_by_agent_ids_request`)
+    %{
+      required("agentIds") => list(String.t()())
+    }
   """
-  @spec stop_data_collection_by_agent_ids(
-          AWS.Client.t(),
-          stop_data_collection_by_agent_ids_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_data_collection_by_agent_ids(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_data_collection_by_agent_ids_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_data_collection_by_agent_ids_errors()}
-  def stop_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
+
+  def stop_data_collection_by_agent_ids(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1853,12 +2134,24 @@ defmodule AWS.ApplicationDiscovery do
 
   @doc """
   Updates metadata about an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationdiscoveryservice%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_application_request`)
+    %{
+      optional("description") => String.t(),
+      optional("name") => String.t(),
+      required("configurationId") => String.t()
+    }
   """
-  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, input, options \\ []) do
+
+  def update_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -8,66 +8,66 @@ defmodule AWS.KinesisVideoArchivedMedia do
   @typedoc """
 
   ## Example:
-
+      
       client_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type client_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       clip_fragment_selector() :: %{
         "FragmentSelectorType" => list(any()),
         "TimestampRange" => clip_timestamp_range()
       }
-
+      
   """
   @type clip_fragment_selector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       clip_timestamp_range() :: %{
         "EndTimestamp" => non_neg_integer(),
         "StartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type clip_timestamp_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dash_fragment_selector() :: %{
         "FragmentSelectorType" => list(any()),
         "TimestampRange" => dash_timestamp_range()
       }
-
+      
   """
   @type dash_fragment_selector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dash_timestamp_range() :: %{
         "EndTimestamp" => non_neg_integer(),
         "StartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type dash_timestamp_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fragment() :: %{
         "FragmentLengthInMilliseconds" => float(),
         "FragmentNumber" => String.t(),
@@ -75,51 +75,51 @@ defmodule AWS.KinesisVideoArchivedMedia do
         "ProducerTimestamp" => non_neg_integer(),
         "ServerTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type fragment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fragment_selector() :: %{
         "FragmentSelectorType" => list(any()),
         "TimestampRange" => timestamp_range()
       }
-
+      
   """
   @type fragment_selector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_clip_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
         required("ClipFragmentSelector") => clip_fragment_selector()
       }
-
+      
   """
   @type get_clip_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_clip_output() :: %{
         "ContentType" => String.t(),
         "Payload" => binary()
       }
-
+      
   """
   @type get_clip_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dash_streaming_session_url_input() :: %{
         optional("DASHFragmentSelector") => dash_fragment_selector(),
         optional("DisplayFragmentNumber") => list(any()),
@@ -130,25 +130,25 @@ defmodule AWS.KinesisVideoArchivedMedia do
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t()
       }
-
+      
   """
   @type get_dash_streaming_session_url_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dash_streaming_session_url_output() :: %{
         "DASHStreamingSessionURL" => String.t()
       }
-
+      
   """
   @type get_dash_streaming_session_url_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_hls_streaming_session_url_input() :: %{
         optional("ContainerFormat") => list(any()),
         optional("DiscontinuityMode") => list(any()),
@@ -160,25 +160,25 @@ defmodule AWS.KinesisVideoArchivedMedia do
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t()
       }
-
+      
   """
   @type get_hls_streaming_session_url_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_hls_streaming_session_url_output() :: %{
         "HLSStreamingSessionURL" => String.t()
       }
-
+      
   """
   @type get_hls_streaming_session_url_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_images_input() :: %{
         optional("FormatConfig") => map(),
         optional("HeightPixels") => integer(),
@@ -193,121 +193,121 @@ defmodule AWS.KinesisVideoArchivedMedia do
         required("ImageSelectorType") => list(any()),
         required("StartTimestamp") => non_neg_integer()
       }
-
+      
   """
   @type get_images_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_images_output() :: %{
         "Images" => list(image()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_images_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_media_for_fragment_list_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
         required("Fragments") => list(String.t()())
       }
-
+      
   """
   @type get_media_for_fragment_list_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_media_for_fragment_list_output() :: %{
         "ContentType" => String.t(),
         "Payload" => binary()
       }
-
+      
   """
   @type get_media_for_fragment_list_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hls_fragment_selector() :: %{
         "FragmentSelectorType" => list(any()),
         "TimestampRange" => hls_timestamp_range()
       }
-
+      
   """
   @type hls_fragment_selector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hls_timestamp_range() :: %{
         "EndTimestamp" => non_neg_integer(),
         "StartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type hls_timestamp_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image() :: %{
         "Error" => list(any()),
         "ImageContent" => String.t(),
         "TimeStamp" => non_neg_integer()
       }
-
+      
   """
   @type image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_argument_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_codec_private_data_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_codec_private_data_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_media_frame_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_media_frame_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_fragments_input() :: %{
         optional("FragmentSelector") => fragment_selector(),
         optional("MaxResults") => float(),
@@ -315,86 +315,86 @@ defmodule AWS.KinesisVideoArchivedMedia do
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t()
       }
-
+      
   """
   @type list_fragments_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_fragments_output() :: %{
         "Fragments" => list(fragment()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_fragments_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       missing_codec_private_data_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type missing_codec_private_data_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_data_retention_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type no_data_retention_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_authorized_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_authorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       timestamp_range() :: %{
         "EndTimestamp" => non_neg_integer(),
         "StartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type timestamp_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_stream_media_type_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type unsupported_stream_media_type_exception() :: %{String.t() => any()}
 
@@ -476,14 +476,39 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Optional parameters:
   """
-  @spec get_clip(AWS.Client.t(), get_clip_input(), Keyword.t()) ::
+
+  @spec get_clip(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_clip_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_clip_errors()}
-  def get_clip(%Client{} = client, input, options \\ []) do
+
+  def get_clip(%Client{} = client, options \\ []) do
     url_path = "/getClip"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Content-Type", "ContentType"}]
+      )
 
     options =
       Keyword.put(
@@ -495,17 +520,9 @@ defmodule AWS.KinesisVideoArchivedMedia do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -521,33 +538,40 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Optional parameters:
   """
-  @spec get_dash_streaming_session_url(
-          AWS.Client.t(),
-          get_dash_streaming_session_url_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_dash_streaming_session_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dash_streaming_session_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dash_streaming_session_url_errors()}
-  def get_dash_streaming_session_url(%Client{} = client, input, options \\ []) do
+
+  def get_dash_streaming_session_url(%Client{} = client, options \\ []) do
     url_path = "/getDASHStreamingSessionURL"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -562,33 +586,40 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Optional parameters:
   """
-  @spec get_hls_streaming_session_url(
-          AWS.Client.t(),
-          get_hls_streaming_session_url_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_hls_streaming_session_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_hls_streaming_session_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hls_streaming_session_url_errors()}
-  def get_hls_streaming_session_url(%Client{} = client, input, options \\ []) do
+
+  def get_hls_streaming_session_url(%Client{} = client, options \\ []) do
     url_path = "/getHLSStreamingSessionURL"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -601,29 +632,40 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Optional parameters:
   """
-  @spec get_images(AWS.Client.t(), get_images_input(), Keyword.t()) ::
+
+  @spec get_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_images_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_images_errors()}
-  def get_images(%Client{} = client, input, options \\ []) do
+
+  def get_images(%Client{} = client, options \\ []) do
     url_path = "/getImages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -641,18 +683,39 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Optional parameters:
   """
-  @spec get_media_for_fragment_list(
-          AWS.Client.t(),
-          get_media_for_fragment_list_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_media_for_fragment_list(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_media_for_fragment_list_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_for_fragment_list_errors()}
-  def get_media_for_fragment_list(%Client{} = client, input, options \\ []) do
+
+  def get_media_for_fragment_list(%Client{} = client, options \\ []) do
     url_path = "/getMediaForFragmentList"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Content-Type", "ContentType"}]
+      )
 
     options =
       Keyword.put(
@@ -664,17 +727,9 @@ defmodule AWS.KinesisVideoArchivedMedia do
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -691,28 +746,39 @@ defmodule AWS.KinesisVideoArchivedMedia do
 
   ## Optional parameters:
   """
-  @spec list_fragments(AWS.Client.t(), list_fragments_input(), Keyword.t()) ::
+
+  @spec list_fragments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fragments_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fragments_errors()}
-  def list_fragments(%Client{} = client, input, options \\ []) do
+
+  def list_fragments(%Client{} = client, options \\ []) do
     url_path = "/listFragments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

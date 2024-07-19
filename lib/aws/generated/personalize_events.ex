@@ -15,19 +15,19 @@ defmodule AWS.PersonalizeEvents do
   @typedoc """
 
   ## Example:
-
+      
       action() :: %{
         "actionId" => String.t(),
         "properties" => String.t()
       }
-
+      
   """
   @type action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_interaction() :: %{
         "actionId" => String.t(),
         "eventId" => String.t(),
@@ -39,14 +39,14 @@ defmodule AWS.PersonalizeEvents do
         "timestamp" => non_neg_integer(),
         "userId" => String.t()
       }
-
+      
   """
   @type action_interaction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event() :: %{
         "eventId" => String.t(),
         "eventType" => String.t(),
@@ -58,137 +58,137 @@ defmodule AWS.PersonalizeEvents do
         "recommendationId" => String.t(),
         "sentAt" => non_neg_integer()
       }
-
+      
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_input_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_input_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       item() :: %{
         "itemId" => String.t(),
         "properties" => String.t()
       }
-
+      
   """
   @type item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_attribution() :: %{
         "eventAttributionSource" => String.t()
       }
-
+      
   """
   @type metric_attribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_action_interactions_request() :: %{
         required("actionInteractions") => list(action_interaction()()),
         required("trackingId") => String.t()
       }
-
+      
   """
   @type put_action_interactions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_actions_request() :: %{
         required("actions") => list(action()()),
         required("datasetArn") => String.t()
       }
-
+      
   """
   @type put_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_events_request() :: %{
         optional("userId") => String.t(),
         required("eventList") => list(event()()),
         required("sessionId") => String.t(),
         required("trackingId") => String.t()
       }
-
+      
   """
   @type put_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_items_request() :: %{
         required("datasetArn") => String.t(),
         required("items") => list(item()())
       }
-
+      
   """
   @type put_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_users_request() :: %{
         required("datasetArn") => String.t(),
         required("users") => list(user()())
       }
-
+      
   """
   @type put_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_in_use_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user() :: %{
         "properties" => String.t(),
         "userId" => String.t()
       }
-
+      
   """
   @type user() :: %{String.t() => any()}
 
@@ -233,29 +233,40 @@ defmodule AWS.PersonalizeEvents do
 
   ## Optional parameters:
   """
-  @spec put_action_interactions(AWS.Client.t(), put_action_interactions_request(), Keyword.t()) ::
+
+  @spec put_action_interactions(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_action_interactions_errors()}
-  def put_action_interactions(%Client{} = client, input, options \\ []) do
+
+  def put_action_interactions(%Client{} = client, options \\ []) do
     url_path = "/action-interactions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -269,29 +280,40 @@ defmodule AWS.PersonalizeEvents do
 
   ## Optional parameters:
   """
-  @spec put_actions(AWS.Client.t(), put_actions_request(), Keyword.t()) ::
+
+  @spec put_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_actions_errors()}
-  def put_actions(%Client{} = client, input, options \\ []) do
+
+  def put_actions(%Client{} = client, options \\ []) do
     url_path = "/actions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -305,29 +327,40 @@ defmodule AWS.PersonalizeEvents do
 
   ## Optional parameters:
   """
-  @spec put_events(AWS.Client.t(), put_events_request(), Keyword.t()) ::
+
+  @spec put_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_errors()}
-  def put_events(%Client{} = client, input, options \\ []) do
+
+  def put_events(%Client{} = client, options \\ []) do
     url_path = "/events"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -341,29 +374,40 @@ defmodule AWS.PersonalizeEvents do
 
   ## Optional parameters:
   """
-  @spec put_items(AWS.Client.t(), put_items_request(), Keyword.t()) ::
+
+  @spec put_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_items_errors()}
-  def put_items(%Client{} = client, input, options \\ []) do
+
+  def put_items(%Client{} = client, options \\ []) do
     url_path = "/items"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -377,28 +421,39 @@ defmodule AWS.PersonalizeEvents do
 
   ## Optional parameters:
   """
-  @spec put_users(AWS.Client.t(), put_users_request(), Keyword.t()) ::
+
+  @spec put_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_users_errors()}
-  def put_users(%Client{} = client, input, options \\ []) do
+
+  def put_users(%Client{} = client, options \\ []) do
     url_path = "/users"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

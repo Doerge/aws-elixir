@@ -3072,16 +3072,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Associates the specified app block builder with the specified app block.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20AssociateAppBlockBuilderAppBlock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_app_block_builder_app_block_request`)
+    %{
+      required("AppBlockArn") => String.t(),
+      required("AppBlockBuilderName") => String.t()
+    }
   """
-  @spec associate_app_block_builder_app_block(
-          AWS.Client.t(),
-          associate_app_block_builder_app_block_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_app_block_builder_app_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_app_block_builder_app_block_errors()}
-  def associate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
+
+  def associate_app_block_builder_app_block(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3091,16 +3099,23 @@ defmodule AWS.AppStream do
   @doc """
   Associates the specified application with the specified fleet. This is only
   supported for Elastic fleets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20AssociateApplicationFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_application_fleet_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("FleetName") => String.t()
+    }
   """
-  @spec associate_application_fleet(
-          AWS.Client.t(),
-          associate_application_fleet_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_application_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_application_fleet_errors()}
-  def associate_application_fleet(%Client{} = client, input, options \\ []) do
+
+  def associate_application_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3109,16 +3124,25 @@ defmodule AWS.AppStream do
 
   @doc """
   Associates an application to entitle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20AssociateApplicationToEntitlement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_application_to_entitlement_request`)
+    %{
+      required("ApplicationIdentifier") => String.t(),
+      required("EntitlementName") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec associate_application_to_entitlement(
-          AWS.Client.t(),
-          associate_application_to_entitlement_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_application_to_entitlement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_application_to_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_application_to_entitlement_errors()}
-  def associate_application_to_entitlement(%Client{} = client, input, options \\ []) do
+
+  def associate_application_to_entitlement(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3127,12 +3151,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Associates the specified fleet with the specified stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20AssociateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_fleet_request`)
+    %{
+      required("FleetName") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec associate_fleet(AWS.Client.t(), associate_fleet_request(), Keyword.t()) ::
+
+  @spec associate_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_fleet_errors()}
-  def associate_fleet(%Client{} = client, input, options \\ []) do
+
+  def associate_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3143,16 +3178,22 @@ defmodule AWS.AppStream do
   Associates the specified users with the specified stacks. Users in a user pool
   cannot be assigned to stacks with fleets that are joined to an Active
   Directory domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20BatchAssociateUserStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_associate_user_stack_request`)
+    %{
+      required("UserStackAssociations") => list(user_stack_association()())
+    }
   """
-  @spec batch_associate_user_stack(
-          AWS.Client.t(),
-          batch_associate_user_stack_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_associate_user_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_associate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_user_stack_errors()}
-  def batch_associate_user_stack(%Client{} = client, input, options \\ []) do
+
+  def batch_associate_user_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3161,16 +3202,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Disassociates the specified users from the specified stacks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20BatchDisassociateUserStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_disassociate_user_stack_request`)
+    %{
+      required("UserStackAssociations") => list(user_stack_association()())
+    }
   """
-  @spec batch_disassociate_user_stack(
-          AWS.Client.t(),
-          batch_disassociate_user_stack_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_disassociate_user_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_disassociate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_user_stack_errors()}
-  def batch_disassociate_user_stack(%Client{} = client, input, options \\ []) do
+
+  def batch_disassociate_user_stack(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3180,12 +3228,25 @@ defmodule AWS.AppStream do
   @doc """
   Copies the image within the same region or to a new region within the same AWS
   account. Note that any tags you added to the image will not be copied.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CopyImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_image_request`)
+    %{
+      optional("DestinationImageDescription") => String.t(),
+      required("DestinationImageName") => String.t(),
+      required("DestinationRegion") => String.t(),
+      required("SourceImageName") => String.t()
+    }
   """
-  @spec copy_image(AWS.Client.t(), copy_image_request(), Keyword.t()) ::
+
+  @spec copy_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_image_errors()}
-  def copy_image(%Client{} = client, input, options \\ []) do
+
+  def copy_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3199,12 +3260,29 @@ defmodule AWS.AppStream do
   virtual hard disk includes the application binaries and other files necessary
   to launch your applications. Multiple applications can be assigned to a single
   app block.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateAppBlock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_app_block_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("PackagingType") => list(any()),
+      optional("PostSetupScriptDetails") => script_details(),
+      optional("SetupScriptDetails") => script_details(),
+      optional("Tags") => map(),
+      required("Name") => String.t(),
+      required("SourceS3Location") => s3_location()
+    }
   """
-  @spec create_app_block(AWS.Client.t(), create_app_block_request(), Keyword.t()) ::
+
+  @spec create_app_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_block_errors()}
-  def create_app_block(%Client{} = client, input, options \\ []) do
+
+  def create_app_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3213,12 +3291,31 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates an app block builder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateAppBlockBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_app_block_builder_request`)
+    %{
+      optional("AccessEndpoints") => list(access_endpoint()()),
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("EnableDefaultInternetAccess") => boolean(),
+      optional("IamRoleArn") => String.t(),
+      optional("Tags") => map(),
+      required("InstanceType") => String.t(),
+      required("Name") => String.t(),
+      required("Platform") => list(any()),
+      required("VpcConfig") => vpc_config()
+    }
   """
-  @spec create_app_block_builder(AWS.Client.t(), create_app_block_builder_request(), Keyword.t()) ::
+
+  @spec create_app_block_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_block_builder_errors()}
-  def create_app_block_builder(%Client{} = client, input, options \\ []) do
+
+  def create_app_block_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3227,16 +3324,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates a URL to start a create app block builder streaming session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateAppBlockBuilderStreamingURL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_app_block_builder_streaming_url_request`)
+    %{
+      optional("Validity") => float(),
+      required("AppBlockBuilderName") => String.t()
+    }
   """
-  @spec create_app_block_builder_streaming_url(
-          AWS.Client.t(),
-          create_app_block_builder_streaming_url_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_app_block_builder_streaming_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_block_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_block_builder_streaming_url_errors()}
-  def create_app_block_builder_streaming_url(%Client{} = client, input, options \\ []) do
+
+  def create_app_block_builder_streaming_url(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3250,12 +3355,32 @@ defmodule AWS.AppStream do
   name. Applications are associated with an app block that contains the
   application binaries and other files. The applications assigned to an Elastic
   fleet are the applications users can launch.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_application_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("LaunchParameters") => String.t(),
+      optional("Tags") => map(),
+      optional("WorkingDirectory") => String.t(),
+      required("AppBlockArn") => String.t(),
+      required("IconS3Location") => s3_location(),
+      required("InstanceFamilies") => list(String.t()()),
+      required("LaunchPath") => String.t(),
+      required("Name") => String.t(),
+      required("Platforms") => list(list(any())())
+    }
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3266,12 +3391,25 @@ defmodule AWS.AppStream do
   Creates a Directory Config object in AppStream 2.0. This object includes the
   configuration information required to join fleets and image builders to
   Microsoft Active Directory domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateDirectoryConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_directory_config_request`)
+    %{
+      optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
+      optional("ServiceAccountCredentials") => service_account_credentials(),
+      required("DirectoryName") => String.t(),
+      required("OrganizationalUnitDistinguishedNames") => list(String.t()())
+    }
   """
-  @spec create_directory_config(AWS.Client.t(), create_directory_config_request(), Keyword.t()) ::
+
+  @spec create_directory_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_config_errors()}
-  def create_directory_config(%Client{} = client, input, options \\ []) do
+
+  def create_directory_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3285,12 +3423,26 @@ defmodule AWS.AppStream do
   users are entitled to all applications in a stack. Entitlements don't apply to
   the desktop stream view application, or to applications managed by a dynamic
   app provider using the Dynamic Application Framework.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateEntitlement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_entitlement_request`)
+    %{
+      optional("Description") => String.t(),
+      required("AppVisibility") => list(any()),
+      required("Attributes") => list(entitlement_attribute()()),
+      required("Name") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec create_entitlement(AWS.Client.t(), create_entitlement_request(), Keyword.t()) ::
+
+  @spec create_entitlement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_entitlement_errors()}
-  def create_entitlement(%Client{} = client, input, options \\ []) do
+
+  def create_entitlement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3300,12 +3452,43 @@ defmodule AWS.AppStream do
   @doc """
   Creates a fleet. A fleet consists of streaming instances that your users access
   for their applications and desktops.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_fleet_request`)
+    %{
+      optional("ComputeCapacity") => compute_capacity(),
+      optional("Description") => String.t(),
+      optional("DisconnectTimeoutInSeconds") => integer(),
+      optional("DisplayName") => String.t(),
+      optional("DomainJoinInfo") => domain_join_info(),
+      optional("EnableDefaultInternetAccess") => boolean(),
+      optional("FleetType") => list(any()),
+      optional("IamRoleArn") => String.t(),
+      optional("IdleDisconnectTimeoutInSeconds") => integer(),
+      optional("ImageArn") => String.t(),
+      optional("ImageName") => String.t(),
+      optional("MaxConcurrentSessions") => integer(),
+      optional("MaxSessionsPerInstance") => integer(),
+      optional("MaxUserDurationInSeconds") => integer(),
+      optional("Platform") => list(any()),
+      optional("SessionScriptS3Location") => s3_location(),
+      optional("StreamView") => list(any()),
+      optional("Tags") => map(),
+      optional("UsbDeviceFilterStrings") => list(String.t()()),
+      optional("VpcConfig") => vpc_config(),
+      required("InstanceType") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_fleet(AWS.Client.t(), create_fleet_request(), Keyword.t()) ::
+
+  @spec create_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-  def create_fleet(%Client{} = client, input, options \\ []) do
+
+  def create_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3315,12 +3498,34 @@ defmodule AWS.AppStream do
   @doc """
   Creates an image builder. An image builder is a virtual machine that is used to
   create an image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateImageBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_image_builder_request`)
+    %{
+      optional("AccessEndpoints") => list(access_endpoint()()),
+      optional("AppstreamAgentVersion") => String.t(),
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("DomainJoinInfo") => domain_join_info(),
+      optional("EnableDefaultInternetAccess") => boolean(),
+      optional("IamRoleArn") => String.t(),
+      optional("ImageArn") => String.t(),
+      optional("ImageName") => String.t(),
+      optional("Tags") => map(),
+      optional("VpcConfig") => vpc_config(),
+      required("InstanceType") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_image_builder(AWS.Client.t(), create_image_builder_request(), Keyword.t()) ::
+
+  @spec create_image_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_builder_errors()}
-  def create_image_builder(%Client{} = client, input, options \\ []) do
+
+  def create_image_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3329,16 +3534,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates a URL to start an image builder streaming session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateImageBuilderStreamingURL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_image_builder_streaming_url_request`)
+    %{
+      optional("Validity") => float(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_image_builder_streaming_url(
-          AWS.Client.t(),
-          create_image_builder_streaming_url_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_image_builder_streaming_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_image_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_builder_streaming_url_errors()}
-  def create_image_builder_streaming_url(%Client{} = client, input, options \\ []) do
+
+  def create_image_builder_streaming_url(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3348,12 +3561,33 @@ defmodule AWS.AppStream do
   @doc """
   Creates a stack to start streaming applications to users. A stack consists of an
   associated fleet, user access policies, and storage configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_stack_request`)
+    %{
+      optional("AccessEndpoints") => list(access_endpoint()()),
+      optional("ApplicationSettings") => application_settings(),
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("EmbedHostDomains") => list(String.t()()),
+      optional("FeedbackURL") => String.t(),
+      optional("RedirectURL") => String.t(),
+      optional("StorageConnectors") => list(storage_connector()()),
+      optional("StreamingExperienceSettings") => streaming_experience_settings(),
+      optional("Tags") => map(),
+      optional("UserSettings") => list(user_setting()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_stack(AWS.Client.t(), create_stack_request(), Keyword.t()) ::
+
+  @spec create_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stack_errors()}
-  def create_stack(%Client{} = client, input, options \\ []) do
+
+  def create_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3364,12 +3598,27 @@ defmodule AWS.AppStream do
   Creates a temporary URL to start an AppStream 2.0 streaming session for the
   specified user. A streaming URL enables application streaming to be tested
   without user setup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateStreamingURL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_streaming_url_request`)
+    %{
+      optional("ApplicationId") => String.t(),
+      optional("SessionContext") => String.t(),
+      optional("Validity") => float(),
+      required("FleetName") => String.t(),
+      required("StackName") => String.t(),
+      required("UserId") => String.t()
+    }
   """
-  @spec create_streaming_url(AWS.Client.t(), create_streaming_url_request(), Keyword.t()) ::
+
+  @spec create_streaming_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_url_errors()}
-  def create_streaming_url(%Client{} = client, input, options \\ []) do
+
+  def create_streaming_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3379,12 +3628,27 @@ defmodule AWS.AppStream do
   @doc """
   Creates a new image with the latest Windows operating system updates, driver
   updates, and AppStream 2.0 agent software.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateUpdatedImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_updated_image_request`)
+    %{
+      optional("dryRun") => boolean(),
+      optional("newImageDescription") => String.t(),
+      optional("newImageDisplayName") => String.t(),
+      optional("newImageTags") => map(),
+      required("existingImageName") => String.t(),
+      required("newImageName") => String.t()
+    }
   """
-  @spec create_updated_image(AWS.Client.t(), create_updated_image_request(), Keyword.t()) ::
+
+  @spec create_updated_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_updated_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_updated_image_errors()}
-  def create_updated_image(%Client{} = client, input, options \\ []) do
+
+  def create_updated_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3393,16 +3657,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates a usage report subscription. Usage reports are generated daily.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateUsageReportSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_usage_report_subscription_request`)
+    %{
+      
+    }
   """
-  @spec create_usage_report_subscription(
-          AWS.Client.t(),
-          create_usage_report_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_usage_report_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_report_subscription_errors()}
-  def create_usage_report_subscription(%Client{} = client, input, options \\ []) do
+
+  def create_usage_report_subscription(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3411,12 +3682,26 @@ defmodule AWS.AppStream do
 
   @doc """
   Creates a new user in the user pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_request`)
+    %{
+      optional("FirstName") => String.t(),
+      optional("LastName") => String.t(),
+      optional("MessageAction") => list(any()),
+      required("AuthenticationType") => list(any()),
+      required("UserName") => String.t()
+    }
   """
-  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, input, options \\ []) do
+
+  def create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3425,12 +3710,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes an app block.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteAppBlock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_block_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_app_block(AWS.Client.t(), delete_app_block_request(), Keyword.t()) ::
+
+  @spec delete_app_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_block_errors()}
-  def delete_app_block(%Client{} = client, input, options \\ []) do
+
+  def delete_app_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3439,12 +3734,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes an app block builder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteAppBlockBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_block_builder_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_app_block_builder(AWS.Client.t(), delete_app_block_builder_request(), Keyword.t()) ::
+
+  @spec delete_app_block_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_block_builder_errors()}
-  def delete_app_block_builder(%Client{} = client, input, options \\ []) do
+
+  def delete_app_block_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3453,12 +3758,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_application_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, input, options \\ []) do
+
+  def delete_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3469,12 +3784,22 @@ defmodule AWS.AppStream do
   Deletes the specified Directory Config object from AppStream 2.0. This object
   includes the information required to join streaming instances to an Active
   Directory domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteDirectoryConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_directory_config_request`)
+    %{
+      required("DirectoryName") => String.t()
+    }
   """
-  @spec delete_directory_config(AWS.Client.t(), delete_directory_config_request(), Keyword.t()) ::
+
+  @spec delete_directory_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_config_errors()}
-  def delete_directory_config(%Client{} = client, input, options \\ []) do
+
+  def delete_directory_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3483,12 +3808,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes the specified entitlement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteEntitlement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_entitlement_request`)
+    %{
+      required("Name") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec delete_entitlement(AWS.Client.t(), delete_entitlement_request(), Keyword.t()) ::
+
+  @spec delete_entitlement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_entitlement_errors()}
-  def delete_entitlement(%Client{} = client, input, options \\ []) do
+
+  def delete_entitlement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3497,12 +3833,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes the specified fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_fleet_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_fleet(AWS.Client.t(), delete_fleet_request(), Keyword.t()) ::
+
+  @spec delete_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-  def delete_fleet(%Client{} = client, input, options \\ []) do
+
+  def delete_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3512,12 +3858,22 @@ defmodule AWS.AppStream do
   @doc """
   Deletes the specified image. You cannot delete an image when it is in use. After
   you delete an image, you cannot provision new capacity using the image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_image_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
+
+  @spec delete_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_errors()}
-  def delete_image(%Client{} = client, input, options \\ []) do
+
+  def delete_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3526,12 +3882,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes the specified image builder and releases the capacity.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteImageBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_image_builder_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_image_builder(AWS.Client.t(), delete_image_builder_request(), Keyword.t()) ::
+
+  @spec delete_image_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_builder_errors()}
-  def delete_image_builder(%Client{} = client, input, options \\ []) do
+
+  def delete_image_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3542,12 +3908,23 @@ defmodule AWS.AppStream do
   Deletes permissions for the specified private image. After you delete
   permissions for an image, AWS accounts to which you previously granted these
   permissions can no longer use the image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteImagePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_image_permissions_request`)
+    %{
+      required("Name") => String.t(),
+      required("SharedAccountId") => String.t()
+    }
   """
-  @spec delete_image_permissions(AWS.Client.t(), delete_image_permissions_request(), Keyword.t()) ::
+
+  @spec delete_image_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_permissions_errors()}
-  def delete_image_permissions(%Client{} = client, input, options \\ []) do
+
+  def delete_image_permissions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3559,12 +3936,22 @@ defmodule AWS.AppStream do
   streaming environment provided by the stack is no longer available to users.
   Also, any reservations made for application streaming sessions for the stack
   are released.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_stack_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_stack(AWS.Client.t(), delete_stack_request(), Keyword.t()) ::
+
+  @spec delete_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stack_errors()}
-  def delete_stack(%Client{} = client, input, options \\ []) do
+
+  def delete_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3573,16 +3960,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Disables usage report generation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteUsageReportSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_usage_report_subscription_request`)
+    %{
+      
+    }
   """
-  @spec delete_usage_report_subscription(
-          AWS.Client.t(),
-          delete_usage_report_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_usage_report_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_report_subscription_errors()}
-  def delete_usage_report_subscription(%Client{} = client, input, options \\ []) do
+
+  def delete_usage_report_subscription(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3591,12 +3985,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes a user from the user pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_request`)
+    %{
+      required("AuthenticationType") => list(any()),
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, input, options \\ []) do
+
+  def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3605,16 +4010,30 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one or more app block builder associations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeAppBlockBuilderAppBlockAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_app_block_builder_app_block_associations_request`)
+    %{
+      optional("AppBlockArn") => String.t(),
+      optional("AppBlockBuilderName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
+
   @spec describe_app_block_builder_app_block_associations(
           AWS.Client.t(),
-          describe_app_block_builder_app_block_associations_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, describe_app_block_builder_app_block_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_block_builder_app_block_associations_errors()}
-  def describe_app_block_builder_app_block_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_app_block_builder_app_block_associations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3629,16 +4048,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one or more app block builders.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeAppBlockBuilders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_app_block_builders_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("Names") => list(String.t()()),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_app_block_builders(
-          AWS.Client.t(),
-          describe_app_block_builders_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_app_block_builders(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_app_block_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_block_builders_errors()}
-  def describe_app_block_builders(%Client{} = client, input, options \\ []) do
+
+  def describe_app_block_builders(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3647,12 +4074,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one or more app blocks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeAppBlocks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_app_blocks_request`)
+    %{
+      optional("Arns") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_app_blocks(AWS.Client.t(), describe_app_blocks_request(), Keyword.t()) ::
+
+  @spec describe_app_blocks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_app_blocks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_blocks_errors()}
-  def describe_app_blocks(%Client{} = client, input, options \\ []) do
+
+  def describe_app_blocks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3662,16 +4101,26 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one or more application fleet associations.
   Either ApplicationArn or FleetName must be specified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeApplicationFleetAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_application_fleet_associations_request`)
+    %{
+      optional("ApplicationArn") => String.t(),
+      optional("FleetName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_application_fleet_associations(
-          AWS.Client.t(),
-          describe_application_fleet_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_application_fleet_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_fleet_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_fleet_associations_errors()}
-  def describe_application_fleet_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_application_fleet_associations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3680,12 +4129,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one or more applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_applications_request`)
+    %{
+      optional("Arns") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_applications(AWS.Client.t(), describe_applications_request(), Keyword.t()) ::
+
+  @spec describe_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_applications_errors()}
-  def describe_applications(%Client{} = client, input, options \\ []) do
+
+  def describe_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3698,16 +4159,24 @@ defmodule AWS.AppStream do
   Directory Config objects in the account are described. These objects include
   the configuration information required to join fleets and image builders to
   Microsoft Active Directory domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeDirectoryConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_directory_configs_request`)
+    %{
+      optional("DirectoryNames") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_directory_configs(
-          AWS.Client.t(),
-          describe_directory_configs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_directory_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_directory_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_directory_configs_errors()}
-  def describe_directory_configs(%Client{} = client, input, options \\ []) do
+
+  def describe_directory_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3716,12 +4185,25 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one of more entitlements.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeEntitlements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_entitlements_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("Name") => String.t(),
+      optional("NextToken") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec describe_entitlements(AWS.Client.t(), describe_entitlements_request(), Keyword.t()) ::
+
+  @spec describe_entitlements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_entitlements_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entitlements_errors()}
-  def describe_entitlements(%Client{} = client, input, options \\ []) do
+
+  def describe_entitlements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3731,12 +4213,23 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one or more specified fleets, if the fleet names
   are provided. Otherwise, all fleets in the account are described.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeFleets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_fleets_request`)
+    %{
+      optional("Names") => list(String.t()()),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_fleets(AWS.Client.t(), describe_fleets_request(), Keyword.t()) ::
+
+  @spec describe_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleets_errors()}
-  def describe_fleets(%Client{} = client, input, options \\ []) do
+
+  def describe_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3747,12 +4240,24 @@ defmodule AWS.AppStream do
   Retrieves a list that describes one or more specified image builders, if the
   image builder names are provided. Otherwise, all image builders in the account
   are described.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeImageBuilders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_image_builders_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("Names") => list(String.t()()),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_image_builders(AWS.Client.t(), describe_image_builders_request(), Keyword.t()) ::
+
+  @spec describe_image_builders(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_builders_errors()}
-  def describe_image_builders(%Client{} = client, input, options \\ []) do
+
+  def describe_image_builders(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3762,16 +4267,25 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes the permissions for shared AWS account IDs on a
   private image that you own.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeImagePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_image_permissions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SharedAwsAccountIds") => list(String.t()()),
+      required("Name") => String.t()
+    }
   """
-  @spec describe_image_permissions(
-          AWS.Client.t(),
-          describe_image_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_image_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_permissions_errors()}
-  def describe_image_permissions(%Client{} = client, input, options \\ []) do
+
+  def describe_image_permissions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3782,12 +4296,26 @@ defmodule AWS.AppStream do
   Retrieves a list that describes one or more specified images, if the image names
   or image ARNs are provided. Otherwise, all images in the account are
   described.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeImages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_images_request`)
+    %{
+      optional("Arns") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("Names") => list(String.t()()),
+      optional("NextToken") => String.t(),
+      optional("Type") => list(any())
+    }
   """
-  @spec describe_images(AWS.Client.t(), describe_images_request(), Keyword.t()) ::
+
+  @spec describe_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_images_errors()}
-  def describe_images(%Client{} = client, input, options \\ []) do
+
+  def describe_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3799,12 +4327,28 @@ defmodule AWS.AppStream do
   fleet. If a UserId is provided for the stack and fleet, only streaming
   sessions for that user are described. If an authentication type is not
   provided, the default is to authenticate users using a streaming URL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_sessions_request`)
+    %{
+      optional("AuthenticationType") => list(any()),
+      optional("InstanceId") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("UserId") => String.t(),
+      required("FleetName") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec describe_sessions(AWS.Client.t(), describe_sessions_request(), Keyword.t()) ::
+
+  @spec describe_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_sessions_errors()}
-  def describe_sessions(%Client{} = client, input, options \\ []) do
+
+  def describe_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3814,12 +4358,23 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes one or more specified stacks, if the stack names
   are provided. Otherwise, all stacks in the account are described.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeStacks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stacks_request`)
+    %{
+      optional("Names") => list(String.t()()),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_stacks(AWS.Client.t(), describe_stacks_request(), Keyword.t()) ::
+
+  @spec describe_stacks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stacks_errors()}
-  def describe_stacks(%Client{} = client, input, options \\ []) do
+
+  def describe_stacks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3828,16 +4383,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one or more usage report subscriptions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeUsageReportSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_usage_report_subscriptions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_usage_report_subscriptions(
-          AWS.Client.t(),
-          describe_usage_report_subscriptions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_usage_report_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_usage_report_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_usage_report_subscriptions_errors()}
-  def describe_usage_report_subscriptions(%Client{} = client, input, options \\ []) do
+
+  def describe_usage_report_subscriptions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3847,16 +4410,27 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list that describes the UserStackAssociation objects. You must
   specify either or both of the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeUserStackAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_user_stack_associations_request`)
+    %{
+      optional("AuthenticationType") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StackName") => String.t(),
+      optional("UserName") => String.t()
+    }
   """
-  @spec describe_user_stack_associations(
-          AWS.Client.t(),
-          describe_user_stack_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_user_stack_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_stack_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_stack_associations_errors()}
-  def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_user_stack_associations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3865,12 +4439,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list that describes one or more specified users in the user pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DescribeUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_users_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AuthenticationType") => list(any())
+    }
   """
-  @spec describe_users(AWS.Client.t(), describe_users_request(), Keyword.t()) ::
+
+  @spec describe_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_users_errors()}
-  def describe_users(%Client{} = client, input, options \\ []) do
+
+  def describe_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3880,12 +4466,23 @@ defmodule AWS.AppStream do
   @doc """
   Disables the specified user in the user pool. Users can't sign in to AppStream
   2.0 until they are re-enabled. This action does not delete the user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DisableUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_user_request`)
+    %{
+      required("AuthenticationType") => list(any()),
+      required("UserName") => String.t()
+    }
   """
-  @spec disable_user(AWS.Client.t(), disable_user_request(), Keyword.t()) ::
+
+  @spec disable_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_user_errors()}
-  def disable_user(%Client{} = client, input, options \\ []) do
+
+  def disable_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3894,16 +4491,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Disassociates a specified app block builder from a specified app block.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DisassociateAppBlockBuilderAppBlock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_app_block_builder_app_block_request`)
+    %{
+      required("AppBlockArn") => String.t(),
+      required("AppBlockBuilderName") => String.t()
+    }
   """
-  @spec disassociate_app_block_builder_app_block(
-          AWS.Client.t(),
-          disassociate_app_block_builder_app_block_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_app_block_builder_app_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_app_block_builder_app_block_errors()}
-  def disassociate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
+
+  def disassociate_app_block_builder_app_block(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3912,16 +4517,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Disassociates the specified application from the fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DisassociateApplicationFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_application_fleet_request`)
+    %{
+      required("ApplicationArn") => String.t(),
+      required("FleetName") => String.t()
+    }
   """
-  @spec disassociate_application_fleet(
-          AWS.Client.t(),
-          disassociate_application_fleet_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_application_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_application_fleet_errors()}
-  def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
+
+  def disassociate_application_fleet(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3930,16 +4543,25 @@ defmodule AWS.AppStream do
 
   @doc """
   Deletes the specified application from the specified entitlement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DisassociateApplicationFromEntitlement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_application_from_entitlement_request`)
+    %{
+      required("ApplicationIdentifier") => String.t(),
+      required("EntitlementName") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec disassociate_application_from_entitlement(
-          AWS.Client.t(),
-          disassociate_application_from_entitlement_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_application_from_entitlement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_application_from_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_application_from_entitlement_errors()}
-  def disassociate_application_from_entitlement(%Client{} = client, input, options \\ []) do
+
+  def disassociate_application_from_entitlement(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3948,12 +4570,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Disassociates the specified fleet from the specified stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20DisassociateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_fleet_request`)
+    %{
+      required("FleetName") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec disassociate_fleet(AWS.Client.t(), disassociate_fleet_request(), Keyword.t()) ::
+
+  @spec disassociate_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_fleet_errors()}
-  def disassociate_fleet(%Client{} = client, input, options \\ []) do
+
+  def disassociate_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3964,12 +4597,23 @@ defmodule AWS.AppStream do
   Enables a user in the user pool. After being enabled, users can sign in to
   AppStream 2.0 and open applications from the stacks to which they are
   assigned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20EnableUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_user_request`)
+    %{
+      required("AuthenticationType") => list(any()),
+      required("UserName") => String.t()
+    }
   """
-  @spec enable_user(AWS.Client.t(), enable_user_request(), Keyword.t()) ::
+
+  @spec enable_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_user_errors()}
-  def enable_user(%Client{} = client, input, options \\ []) do
+
+  def enable_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3978,11 +4622,21 @@ defmodule AWS.AppStream do
 
   @doc """
   Immediately stops the specified streaming session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20ExpireSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:expire_session_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec expire_session(AWS.Client.t(), expire_session_request(), Keyword.t()) ::
+
+  @spec expire_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, expire_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def expire_session(%Client{} = client, input, options \\ []) do
+
+  def expire_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3991,11 +4645,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves the name of the fleet that is associated with the specified stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20ListAssociatedFleets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_associated_fleets_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec list_associated_fleets(AWS.Client.t(), list_associated_fleets_request(), Keyword.t()) ::
+
+  @spec list_associated_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_associated_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_associated_fleets(%Client{} = client, input, options \\ []) do
+
+  def list_associated_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4004,11 +4669,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves the name of the stack with which the specified fleet is associated.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20ListAssociatedStacks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_associated_stacks_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("FleetName") => String.t()
+    }
   """
-  @spec list_associated_stacks(AWS.Client.t(), list_associated_stacks_request(), Keyword.t()) ::
+
+  @spec list_associated_stacks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_associated_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_associated_stacks(%Client{} = client, input, options \\ []) do
+
+  def list_associated_stacks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4017,16 +4693,25 @@ defmodule AWS.AppStream do
 
   @doc """
   Retrieves a list of entitled applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20ListEntitledApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_entitled_applications_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("EntitlementName") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec list_entitled_applications(
-          AWS.Client.t(),
-          list_entitled_applications_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_entitled_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_entitled_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entitled_applications_errors()}
-  def list_entitled_applications(%Client{} = client, input, options \\ []) do
+
+  def list_entitled_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4036,12 +4721,22 @@ defmodule AWS.AppStream do
   @doc """
   Retrieves a list of all tags for the specified AppStream 2.0 resource. You can
   tag AppStream 2.0 image builders, images, fleets, and stacks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4051,12 +4746,22 @@ defmodule AWS.AppStream do
   @doc """
   Starts an app block builder. An app block builder can only be started when it's
   associated with an app block.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20StartAppBlockBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_app_block_builder_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec start_app_block_builder(AWS.Client.t(), start_app_block_builder_request(), Keyword.t()) ::
+
+  @spec start_app_block_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_block_builder_errors()}
-  def start_app_block_builder(%Client{} = client, input, options \\ []) do
+
+  def start_app_block_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4065,12 +4770,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Starts the specified fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20StartFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_fleet_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec start_fleet(AWS.Client.t(), start_fleet_request(), Keyword.t()) ::
+
+  @spec start_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_fleet_errors()}
-  def start_fleet(%Client{} = client, input, options \\ []) do
+
+  def start_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4079,12 +4794,23 @@ defmodule AWS.AppStream do
 
   @doc """
   Starts the specified image builder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20StartImageBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_image_builder_request`)
+    %{
+      optional("AppstreamAgentVersion") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec start_image_builder(AWS.Client.t(), start_image_builder_request(), Keyword.t()) ::
+
+  @spec start_image_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_image_builder_errors()}
-  def start_image_builder(%Client{} = client, input, options \\ []) do
+
+  def start_image_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4093,12 +4819,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Stops an app block builder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20StopAppBlockBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_app_block_builder_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec stop_app_block_builder(AWS.Client.t(), stop_app_block_builder_request(), Keyword.t()) ::
+
+  @spec stop_app_block_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_app_block_builder_errors()}
-  def stop_app_block_builder(%Client{} = client, input, options \\ []) do
+
+  def stop_app_block_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4107,12 +4843,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Stops the specified fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20StopFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_fleet_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec stop_fleet(AWS.Client.t(), stop_fleet_request(), Keyword.t()) ::
+
+  @spec stop_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_fleet_errors()}
-  def stop_fleet(%Client{} = client, input, options \\ []) do
+
+  def stop_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4121,12 +4867,22 @@ defmodule AWS.AppStream do
 
   @doc """
   Stops the specified image builder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20StopImageBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_image_builder_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec stop_image_builder(AWS.Client.t(), stop_image_builder_request(), Keyword.t()) ::
+
+  @spec stop_image_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_image_builder_errors()}
-  def stop_image_builder(%Client{} = client, input, options \\ []) do
+
+  def stop_image_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4138,12 +4894,23 @@ defmodule AWS.AppStream do
   You can tag AppStream 2.0 image builders, images, fleets, and stacks. Each tag
   consists of a key and an optional value. If a resource already has a tag with
   the same key, this operation updates its value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => map()
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4154,12 +4921,23 @@ defmodule AWS.AppStream do
   Disassociates one or more specified tags from the specified AppStream 2.0
   resource. To list the current tags for your resources, use
   `ListTagsForResource`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4168,12 +4946,31 @@ defmodule AWS.AppStream do
 
   @doc """
   Updates an app block builder.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UpdateAppBlockBuilder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_app_block_builder_request`)
+    %{
+      optional("AccessEndpoints") => list(access_endpoint()()),
+      optional("AttributesToDelete") => list(list(any())()),
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("EnableDefaultInternetAccess") => boolean(),
+      optional("IamRoleArn") => String.t(),
+      optional("InstanceType") => String.t(),
+      optional("Platform") => list(any()),
+      optional("VpcConfig") => vpc_config(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_app_block_builder(AWS.Client.t(), update_app_block_builder_request(), Keyword.t()) ::
+
+  @spec update_app_block_builder(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_block_builder_errors()}
-  def update_app_block_builder(%Client{} = client, input, options \\ []) do
+
+  def update_app_block_builder(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4182,12 +4979,30 @@ defmodule AWS.AppStream do
 
   @doc """
   Updates the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_application_request`)
+    %{
+      optional("AppBlockArn") => String.t(),
+      optional("AttributesToDelete") => list(list(any())()),
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("IconS3Location") => s3_location(),
+      optional("LaunchParameters") => String.t(),
+      optional("LaunchPath") => String.t(),
+      optional("WorkingDirectory") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, input, options \\ []) do
+
+  def update_application(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4198,12 +5013,25 @@ defmodule AWS.AppStream do
   Updates the specified Directory Config object in AppStream 2.0. This object
   includes the configuration information required to join fleets and image
   builders to Microsoft Active Directory domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UpdateDirectoryConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_directory_config_request`)
+    %{
+      optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
+      optional("OrganizationalUnitDistinguishedNames") => list(String.t()()),
+      optional("ServiceAccountCredentials") => service_account_credentials(),
+      required("DirectoryName") => String.t()
+    }
   """
-  @spec update_directory_config(AWS.Client.t(), update_directory_config_request(), Keyword.t()) ::
+
+  @spec update_directory_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_directory_config_errors()}
-  def update_directory_config(%Client{} = client, input, options \\ []) do
+
+  def update_directory_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4212,12 +5040,26 @@ defmodule AWS.AppStream do
 
   @doc """
   Updates the specified entitlement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UpdateEntitlement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_entitlement_request`)
+    %{
+      optional("AppVisibility") => list(any()),
+      optional("Attributes") => list(entitlement_attribute()()),
+      optional("Description") => String.t(),
+      required("Name") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec update_entitlement(AWS.Client.t(), update_entitlement_request(), Keyword.t()) ::
+
+  @spec update_entitlement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_entitlement_errors()}
-  def update_entitlement(%Client{} = client, input, options \\ []) do
+
+  def update_entitlement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4227,12 +5069,43 @@ defmodule AWS.AppStream do
   @doc """
   Updates the specified fleet. If the fleet is in the `STOPPED` state, you can
   update any attribute except the fleet name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UpdateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_fleet_request`)
+    %{
+      optional("AttributesToDelete") => list(list(any())()),
+      optional("ComputeCapacity") => compute_capacity(),
+      optional("DeleteVpcConfig") => boolean(),
+      optional("Description") => String.t(),
+      optional("DisconnectTimeoutInSeconds") => integer(),
+      optional("DisplayName") => String.t(),
+      optional("DomainJoinInfo") => domain_join_info(),
+      optional("EnableDefaultInternetAccess") => boolean(),
+      optional("IamRoleArn") => String.t(),
+      optional("IdleDisconnectTimeoutInSeconds") => integer(),
+      optional("ImageArn") => String.t(),
+      optional("ImageName") => String.t(),
+      optional("InstanceType") => String.t(),
+      optional("MaxConcurrentSessions") => integer(),
+      optional("MaxSessionsPerInstance") => integer(),
+      optional("MaxUserDurationInSeconds") => integer(),
+      optional("Name") => String.t(),
+      optional("Platform") => list(any()),
+      optional("SessionScriptS3Location") => s3_location(),
+      optional("StreamView") => list(any()),
+      optional("UsbDeviceFilterStrings") => list(String.t()()),
+      optional("VpcConfig") => vpc_config()
+    }
   """
-  @spec update_fleet(AWS.Client.t(), update_fleet_request(), Keyword.t()) ::
+
+  @spec update_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_errors()}
-  def update_fleet(%Client{} = client, input, options \\ []) do
+
+  def update_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4241,12 +5114,24 @@ defmodule AWS.AppStream do
 
   @doc """
   Adds or updates permissions for the specified private image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UpdateImagePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_image_permissions_request`)
+    %{
+      required("ImagePermissions") => image_permissions(),
+      required("Name") => String.t(),
+      required("SharedAccountId") => String.t()
+    }
   """
-  @spec update_image_permissions(AWS.Client.t(), update_image_permissions_request(), Keyword.t()) ::
+
+  @spec update_image_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_permissions_errors()}
-  def update_image_permissions(%Client{} = client, input, options \\ []) do
+
+  def update_image_permissions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4255,12 +5140,34 @@ defmodule AWS.AppStream do
 
   @doc """
   Updates the specified fields for the specified stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appstream%20UpdateStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_stack_request`)
+    %{
+      optional("AccessEndpoints") => list(access_endpoint()()),
+      optional("ApplicationSettings") => application_settings(),
+      optional("AttributesToDelete") => list(list(any())()),
+      optional("DeleteStorageConnectors") => boolean(),
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("EmbedHostDomains") => list(String.t()()),
+      optional("FeedbackURL") => String.t(),
+      optional("RedirectURL") => String.t(),
+      optional("StorageConnectors") => list(storage_connector()()),
+      optional("StreamingExperienceSettings") => streaming_experience_settings(),
+      optional("UserSettings") => list(user_setting()()),
+      required("Name") => String.t()
+    }
   """
-  @spec update_stack(AWS.Client.t(), update_stack_request(), Keyword.t()) ::
+
+  @spec update_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stack_errors()}
-  def update_stack(%Client{} = client, input, options \\ []) do
+
+  def update_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

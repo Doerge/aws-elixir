@@ -15,29 +15,29 @@ defmodule AWS.Mobile do
   @typedoc """
 
   ## Example:
-
+      
       account_action_required_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type account_action_required_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bundle_details() :: %{
         "availablePlatforms" => list(list(any())()),
         "bundleId" => String.t(),
@@ -46,230 +46,230 @@ defmodule AWS.Mobile do
         "title" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type bundle_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_request() :: %{
         optional("contents") => binary(),
         optional("name") => String.t(),
         optional("region") => String.t(),
         optional("snapshotId") => String.t()
       }
-
+      
   """
   @type create_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_project_result() :: %{
         "details" => project_details()
       }
-
+      
   """
   @type create_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_request() :: %{}
-
+      
   """
   @type delete_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_project_result() :: %{
         "deletedResources" => list(resource()()),
         "orphanedResources" => list(resource()())
       }
-
+      
   """
   @type delete_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_bundle_request() :: %{}
-
+      
   """
   @type describe_bundle_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_bundle_result() :: %{
         "details" => bundle_details()
       }
-
+      
   """
   @type describe_bundle_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_project_request() :: %{
         optional("syncFromResources") => boolean(),
         required("projectId") => String.t()
       }
-
+      
   """
   @type describe_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_project_result() :: %{
         "details" => project_details()
       }
-
+      
   """
   @type describe_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_bundle_request() :: %{
         optional("platform") => list(any()),
         optional("projectId") => String.t()
       }
-
+      
   """
   @type export_bundle_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_bundle_result() :: %{
         "downloadUrl" => String.t()
       }
-
+      
   """
   @type export_bundle_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_project_request() :: %{}
-
+      
   """
   @type export_project_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       export_project_result() :: %{
         "downloadUrl" => String.t(),
         "shareUrl" => String.t(),
         "snapshotId" => String.t()
       }
-
+      
   """
   @type export_project_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_failure_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bundles_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_bundles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bundles_result() :: %{
         "bundleList" => list(bundle_details()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_bundles_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_projects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_projects_result() :: %{
         "nextToken" => String.t(),
         "projects" => list(project_summary()())
       }
-
+      
   """
   @type list_projects_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_details() :: %{
         "consoleUrl" => String.t(),
         "createdDate" => non_neg_integer(),
@@ -280,26 +280,26 @@ defmodule AWS.Mobile do
         "resources" => list(resource()()),
         "state" => list(any())
       }
-
+      
   """
   @type project_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       project_summary() :: %{
         "name" => String.t(),
         "projectId" => String.t()
       }
-
+      
   """
   @type project_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "arn" => String.t(),
         "attributes" => map(),
@@ -307,65 +307,65 @@ defmodule AWS.Mobile do
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_request() :: %{
         optional("contents") => binary(),
         required("projectId") => String.t()
       }
-
+      
   """
   @type update_project_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_project_result() :: %{
         "details" => project_details()
       }
-
+      
   """
   @type update_project_result() :: %{String.t() => any()}
 
@@ -463,30 +463,67 @@ defmodule AWS.Mobile do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map | nil`):
+    * `:contents` (`t:blob`) ZIP or YAML file which contains configuration settings
+  to be used when creating the project. This may be the contents of the file
+  downloaded from the URL provided in an export project operation.
 
   ## Optional parameters:
   * `:name` (`t:string`) Name of the project.
   * `:region` (`t:string`) Default region where project resources should be
-    created.
+  created.
   * `:snapshot_id` (`t:string`) Unique identifier for an exported snapshot of
-    project configuration. This snapshot identifier is included in the share URL
-    when a project is exported.
+  project configuration. This snapshot identifier is included in the share URL
+  when a project is exported.
   """
-  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+
+  @spec create_project(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-  def create_project(%Client{} = client, input, options \\ []) do
+
+  def create_project(%Client{} = client, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/projects"
+
+    # Validate optional parameters
+    optional_params = [name: nil, region: nil, snapshot_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"name", "name"},
-        {"region", "region"},
-        {"snapshotId", "snapshotId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :snapshot_id) do
+        [{"snapshotId", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :region) do
+        [{"region", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :name) do
+        [{"name", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -496,17 +533,9 @@ defmodule AWS.Mobile do
       options
       |> Keyword.drop([:name, :region, :snapshot_id])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -519,17 +548,38 @@ defmodule AWS.Mobile do
 
   ## Optional parameters:
   """
-  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
+
+  @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-  def delete_project(%Client{} = client, project_id, input, options \\ []) do
+
+  def delete_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -538,7 +588,7 @@ defmodule AWS.Mobile do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -554,10 +604,12 @@ defmodule AWS.Mobile do
 
   ## Optional parameters:
   """
+
   @spec describe_bundle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bundle_errors()}
+
   def describe_bundle(%Client{} = client, bundle_id, options \\ []) do
     url_path = "/bundles/#{AWS.Util.encode_uri(bundle_id)}"
 
@@ -596,14 +648,17 @@ defmodule AWS.Mobile do
 
   ## Optional parameters:
   * `:sync_from_resources` (`t:boolean`) If set to true, causes AWS Mobile Hub to
-    synchronize information from other services, e.g., update state of AWS
-    CloudFormation stacks in the AWS Mobile Hub project.
+  synchronize information from other services, e.g., update state of AWS
+  CloudFormation stacks in the AWS Mobile Hub project.
   """
+
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
-  def describe_project(%Client{} = client, project_id, options \\ []) do
+
+  def describe_project(%Client{} = client, project_id, options \\ [])
+      when is_binary(project_id) do
     url_path = "/project"
 
     # Validate optional parameters
@@ -653,23 +708,49 @@ defmodule AWS.Mobile do
 
   ## Optional parameters:
   * `:platform` (`t:enum["ANDROID|JAVASCRIPT|LINUX|OBJC|OSX|SWIFT|WINDOWS"]`)
-    Developer desktop or target application platform.
+  Developer desktop or target application platform.
   * `:project_id` (`t:string`) Unique project identifier.
   """
-  @spec export_bundle(AWS.Client.t(), String.t(), export_bundle_request(), Keyword.t()) ::
+
+  @spec export_bundle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_bundle_errors()}
-  def export_bundle(%Client{} = client, bundle_id, input, options \\ []) do
+
+  def export_bundle(%Client{} = client, bundle_id, options \\ []) do
     url_path = "/bundles/#{AWS.Util.encode_uri(bundle_id)}"
+
+    # Validate optional parameters
+    optional_params = [platform: nil, project_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"platform", "platform"},
-        {"projectId", "projectId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :project_id) do
+        [{"projectId", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :platform) do
+        [{"platform", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -679,17 +760,9 @@ defmodule AWS.Mobile do
       options
       |> Keyword.drop([:platform, :project_id])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -704,29 +777,40 @@ defmodule AWS.Mobile do
 
   ## Optional parameters:
   """
-  @spec export_project(AWS.Client.t(), String.t(), export_project_request(), Keyword.t()) ::
+
+  @spec export_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_project_errors()}
-  def export_project(%Client{} = client, project_id, input, options \\ []) do
+
+  def export_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(project_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -738,15 +822,17 @@ defmodule AWS.Mobile do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of records to list in a single
-    response.
+  response.
   * `:next_token` (`t:string`) Pagination token. Set to null to start listing
-    bundles from start. If non-null pagination token is returned in a result,
-    then pass its value in here in another request to list more bundles.
+  bundles from start. If non-null pagination token is returned in a result,
+  then pass its value in here in another request to list more bundles.
   """
+
   @spec list_bundles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bundles_errors()}
+
   def list_bundles(%Client{} = client, options \\ []) do
     url_path = "/bundles"
 
@@ -802,15 +888,17 @@ defmodule AWS.Mobile do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of records to list in a single
-    response.
+  response.
   * `:next_token` (`t:string`) Pagination token. Set to null to start listing
-    projects from start. If non-null pagination token is returned in a result,
-    then pass its value in here in another request to list more projects.
+  projects from start. If non-null pagination token is returned in a result,
+  then pass its value in here in another request to list more projects.
   """
+
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
+
   def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
 
@@ -864,36 +952,47 @@ defmodule AWS.Mobile do
 
   ## Parameters:
   * `:project_id` (`t:string`) Unique project identifier.
+  * `:input` (`t:map | nil`):
+    * `:contents` (`t:blob`) ZIP or YAML file which contains project configuration
+  to be updated. This should be the contents of the file downloaded from the
+  URL provided in an export project operation.
 
   ## Optional parameters:
   """
-  @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
+
+  @spec update_project(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-  def update_project(%Client{} = client, input, options \\ []) do
+
+  def update_project(%Client{} = client, project_id, input, options \\ [])
+      when (is_map(input) or is_nil(input)) and is_binary(project_id) do
     url_path = "/update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"projectId", "projectId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"projectId", project_id}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

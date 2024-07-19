@@ -22,64 +22,64 @@ defmodule AWS.AppConfig do
   @typedoc """
 
   ## Example:
-
+      
       list_extensions_request() :: %{
         optional("MaxResults") => integer(),
         optional("Name") => String.t(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_extensions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       applications() :: %{
         optional("Items") => list(application()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type applications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_deployment_request() :: %{}
-
+      
   """
   @type stop_deployment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_deployments_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_deployments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extension() :: %{
         optional("Actions") => map(),
         optional("Arn") => String.t(),
@@ -89,14 +89,14 @@ defmodule AWS.AppConfig do
         optional("Parameters") => map(),
         optional("VersionNumber") => integer()
       }
-
+      
   """
   @type extension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment_summary() :: %{
         "CompletedAt" => non_neg_integer(),
         "ConfigurationName" => String.t(),
@@ -111,26 +111,26 @@ defmodule AWS.AppConfig do
         "State" => list(any()),
         "VersionLabel" => String.t()
       }
-
+      
   """
   @type deployment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extension_associations() :: %{
         optional("Items") => list(extension_association_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type extension_associations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment() :: %{
         optional("ApplicationId") => String.t(),
         optional("AppliedExtensions") => list(applied_extension()()),
@@ -155,14 +155,14 @@ defmodule AWS.AppConfig do
         optional("State") => list(any()),
         optional("VersionLabel") => String.t()
       }
-
+      
   """
   @type deployment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_configuration_detail() :: %{
         "Constraint" => String.t(),
         "Location" => String.t(),
@@ -170,57 +170,57 @@ defmodule AWS.AppConfig do
         "Type" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type invalid_configuration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_deployment_strategy_request() :: %{}
-
+      
   """
   @type delete_deployment_strategy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_request() :: %{
         optional("ClientConfigurationVersion") => String.t(),
         required("ClientId") => String.t()
       }
-
+      
   """
   @type get_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_configuration_request() :: %{
         required("ConfigurationVersion") => String.t()
       }
-
+      
   """
   @type validate_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_tags() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type resource_tags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_hosted_configuration_version_request() :: %{
         optional("Description") => String.t(),
         optional("LatestVersionNumber") => integer(),
@@ -228,23 +228,23 @@ defmodule AWS.AppConfig do
         required("Content") => binary(),
         required("ContentType") => String.t()
       }
-
+      
   """
   @type create_hosted_configuration_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_environment_request() :: %{}
-
+      
   """
   @type get_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configuration_profile_request() :: %{
         optional("Description") => String.t(),
         optional("KmsKeyIdentifier") => String.t(),
@@ -252,14 +252,14 @@ defmodule AWS.AppConfig do
         optional("RetrievalRoleArn") => String.t(),
         optional("Validators") => list(validator()())
       }
-
+      
   """
   @type update_configuration_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_deployment_strategy_request() :: %{
         optional("DeploymentDurationInMinutes") => integer(),
         optional("Description") => String.t(),
@@ -267,14 +267,14 @@ defmodule AWS.AppConfig do
         optional("GrowthFactor") => float(),
         optional("GrowthType") => list(any())
       }
-
+      
   """
   @type update_deployment_strategy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment_strategy() :: %{
         optional("DeploymentDurationInMinutes") => integer(),
         optional("Description") => String.t(),
@@ -285,89 +285,89 @@ defmodule AWS.AppConfig do
         optional("Name") => String.t(),
         optional("ReplicateTo") => list(any())
       }
-
+      
   """
   @type deployment_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration() :: %{
         optional("ConfigurationVersion") => String.t(),
         optional("Content") => binary(),
         optional("ContentType") => String.t()
       }
-
+      
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extension_association_summary() :: %{
         "ExtensionArn" => String.t(),
         "Id" => String.t(),
         "ResourceArn" => String.t()
       }
-
+      
   """
   @type extension_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hosted_configuration_versions() :: %{
         optional("Items") => list(hosted_configuration_version_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type hosted_configuration_versions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       applied_extension() :: %{
         "ExtensionAssociationId" => String.t(),
         "ExtensionId" => String.t(),
         "Parameters" => map(),
         "VersionNumber" => integer()
       }
-
+      
   """
   @type applied_extension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitor() :: %{
         "AlarmArn" => String.t(),
         "AlarmRoleArn" => String.t()
       }
-
+      
   """
   @type monitor() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extension_summary() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
@@ -375,60 +375,60 @@ defmodule AWS.AppConfig do
         "Name" => String.t(),
         "VersionNumber" => integer()
       }
-
+      
   """
   @type extension_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_hosted_configuration_version_request() :: %{}
-
+      
   """
   @type delete_hosted_configuration_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceName" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       payload_too_large_exception() :: %{
         "Limit" => float(),
         "Measure" => list(any()),
         "Message" => String.t(),
         "Size" => float()
       }
-
+      
   """
   @type payload_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       environment() :: %{
         optional("ApplicationId") => String.t(),
         optional("Description") => String.t(),
@@ -437,80 +437,80 @@ defmodule AWS.AppConfig do
         optional("Name") => String.t(),
         optional("State") => list(any())
       }
-
+      
   """
   @type environment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deployment_request() :: %{}
-
+      
   """
   @type get_deployment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configuration_profile_request() :: %{}
-
+      
   """
   @type delete_configuration_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       application() :: %{
         optional("Description") => String.t(),
         optional("Id") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_extension_association_request() :: %{
         optional("Parameters") => map()
       }
-
+      
   """
   @type update_extension_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parameter() :: %{
         "Description" => String.t(),
         "Dynamic" => boolean(),
         "Required" => boolean()
       }
-
+      
   """
   @type parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_deployment_strategy_request() :: %{
         optional("Description") => String.t(),
         optional("FinalBakeTimeInMinutes") => integer(),
@@ -521,14 +521,14 @@ defmodule AWS.AppConfig do
         required("GrowthFactor") => float(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_deployment_strategy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_profile() :: %{
         optional("ApplicationId") => String.t(),
         optional("Description") => String.t(),
@@ -541,59 +541,59 @@ defmodule AWS.AppConfig do
         optional("Type") => String.t(),
         optional("Validators") => list(validator()())
       }
-
+      
   """
   @type configuration_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_environments_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_environments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_extension_request() :: %{
         optional("VersionNumber") => integer()
       }
-
+      
   """
   @type get_extension_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_hosted_configuration_version_request() :: %{}
-
+      
   """
   @type get_hosted_configuration_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       action_invocation() :: %{
         "ActionName" => String.t(),
         "ErrorCode" => String.t(),
@@ -603,56 +603,56 @@ defmodule AWS.AppConfig do
         "RoleArn" => String.t(),
         "Uri" => String.t()
       }
-
+      
   """
   @type action_invocation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       environments() :: %{
         optional("Items") => list(environment()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type environments() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_profile_request() :: %{}
-
+      
   """
   @type get_configuration_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_deployment_strategy_request() :: %{}
-
+      
   """
   @type get_deployment_strategy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment_strategies() :: %{
         optional("Items") => list(deployment_strategy()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type deployment_strategies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hosted_configuration_version_summary() :: %{
         "ApplicationId" => String.t(),
         "ConfigurationProfileId" => String.t(),
@@ -662,59 +662,59 @@ defmodule AWS.AppConfig do
         "VersionLabel" => String.t(),
         "VersionNumber" => integer()
       }
-
+      
   """
   @type hosted_configuration_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configuration_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Type") => String.t()
       }
-
+      
   """
   @type list_configuration_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_environment_request() :: %{}
-
+      
   """
   @type delete_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_extension_association_request() :: %{
         optional("ExtensionVersionNumber") => integer(),
         optional("Parameters") => map(),
@@ -722,64 +722,64 @@ defmodule AWS.AppConfig do
         required("ExtensionIdentifier") => String.t(),
         required("ResourceIdentifier") => String.t()
       }
-
+      
   """
   @type create_extension_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_profiles() :: %{
         optional("Items") => list(configuration_profile_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type configuration_profiles() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action() :: %{
         "Description" => String.t(),
         "Name" => String.t(),
         "RoleArn" => String.t(),
         "Uri" => String.t()
       }
-
+      
   """
   @type action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extensions() :: %{
         optional("Items") => list(extension_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type extensions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configuration_profile_request() :: %{
         optional("Description") => String.t(),
         optional("KmsKeyIdentifier") => String.t(),
@@ -790,23 +790,23 @@ defmodule AWS.AppConfig do
         required("LocationUri") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_configuration_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_extension_associations_request() :: %{
         optional("ExtensionIdentifier") => String.t(),
         optional("ExtensionVersionNumber") => integer(),
@@ -814,23 +814,23 @@ defmodule AWS.AppConfig do
         optional("NextToken") => String.t(),
         optional("ResourceIdentifier") => String.t()
       }
-
+      
   """
   @type list_extension_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_extension_association_request() :: %{}
-
+      
   """
   @type get_extension_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_extension_request() :: %{
         optional("Description") => String.t(),
         optional("LatestVersionNumber") => integer(),
@@ -839,48 +839,48 @@ defmodule AWS.AppConfig do
         required("Actions") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_extension_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_deployment_strategies_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_deployment_strategies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_extension_association_request() :: %{}
-
+      
   """
   @type delete_extension_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Details" => list(),
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hosted_configuration_version() :: %{
         optional("ApplicationId") => String.t(),
         optional("ConfigurationProfileId") => String.t(),
@@ -891,54 +891,54 @@ defmodule AWS.AppConfig do
         optional("VersionLabel") => String.t(),
         optional("VersionNumber") => integer()
       }
-
+      
   """
   @type hosted_configuration_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validator() :: %{
         "Content" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type validator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_extension_request() :: %{
         optional("Actions") => map(),
         optional("Description") => String.t(),
         optional("Parameters") => map(),
         optional("VersionNumber") => integer()
       }
-
+      
   """
   @type update_extension_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_environment_request() :: %{
         optional("Description") => String.t(),
         optional("Monitors") => list(monitor()()),
         optional("Tags") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployment_event() :: %{
         "ActionInvocations" => list(action_invocation()()),
         "Description" => String.t(),
@@ -946,38 +946,38 @@ defmodule AWS.AppConfig do
         "OccurredAt" => non_neg_integer(),
         "TriggeredBy" => list(any())
       }
-
+      
   """
   @type deployment_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_environment_request() :: %{
         optional("Description") => String.t(),
         optional("Monitors") => list(monitor()()),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_extension_request() :: %{
         optional("VersionNumber") => integer()
       }
-
+      
   """
   @type delete_extension_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_profile_summary() :: %{
         "ApplicationId" => String.t(),
         "Id" => String.t(),
@@ -986,35 +986,35 @@ defmodule AWS.AppConfig do
         "Type" => String.t(),
         "ValidatorTypes" => list(list(any())())
       }
-
+      
   """
   @type configuration_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deployments() :: %{
         optional("Items") => list(deployment_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type deployments() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_request() :: %{}
-
+      
   """
   @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_deployment_request() :: %{
         optional("Description") => String.t(),
         optional("DynamicExtensionParameters") => map(),
@@ -1024,27 +1024,27 @@ defmodule AWS.AppConfig do
         required("ConfigurationVersion") => String.t(),
         required("DeploymentStrategyId") => String.t()
       }
-
+      
   """
   @type start_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_hosted_configuration_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("VersionLabel") => String.t()
       }
-
+      
   """
   @type list_hosted_configuration_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extension_association() :: %{
         optional("Arn") => String.t(),
         optional("ExtensionArn") => String.t(),
@@ -1053,16 +1053,16 @@ defmodule AWS.AppConfig do
         optional("Parameters") => map(),
         optional("ResourceArn") => String.t()
       }
-
+      
   """
   @type extension_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_request() :: %{}
-
+      
   """
   @type delete_application_request() :: %{}
 
@@ -1255,29 +1255,40 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1292,34 +1303,40 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec create_configuration_profile(
-          AWS.Client.t(),
-          String.t(),
-          create_configuration_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_configuration_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configuration_profile_errors()}
-  def create_configuration_profile(%Client{} = client, application_id, input, options \\ []) do
+
+  def create_configuration_profile(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1335,33 +1352,40 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec create_deployment_strategy(
-          AWS.Client.t(),
-          create_deployment_strategy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_deployment_strategy(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_deployment_strategy_errors()}
-  def create_deployment_strategy(%Client{} = client, input, options \\ []) do
+
+  def create_deployment_strategy(%Client{} = client, options \\ []) do
     url_path = "/deploymentstrategies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1381,29 +1405,40 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec create_environment(AWS.Client.t(), String.t(), create_environment_request(), Keyword.t()) ::
+
+  @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-  def create_environment(%Client{} = client, application_id, input, options \\ []) do
+
+  def create_environment(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1423,16 +1458,19 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:latest_version_number` (`t:integer`) You can omit this field when you create
-    an extension. When you create a new version, specify the most recent current
-    version number. For example, you create version 3, enter 2 for this field.
+  an extension. When you create a new version, specify the most recent current
+  version number. For example, you create version 3, enter 2 for this field.
   """
-  @spec create_extension(AWS.Client.t(), create_extension_request(), Keyword.t()) ::
+
+  @spec create_extension(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extension_errors()}
-  def create_extension(%Client{} = client, input, options \\ []) do
+
+  def create_extension(%Client{} = client, options \\ []) do
     url_path = "/extensions"
 
+    # Validate optional parameters
     optional_params = [latest_version_number: nil]
 
     options =
@@ -1441,13 +1479,21 @@ defmodule AWS.AppConfig do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"LatestVersionNumber", "Latest-Version-Number"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :latest_version_number) do
+        [{"Latest-Version-Number", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1457,17 +1503,9 @@ defmodule AWS.AppConfig do
       options
       |> Keyword.drop([:latest_version_number])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1491,33 +1529,40 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec create_extension_association(
-          AWS.Client.t(),
-          create_extension_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_extension_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_extension_association_errors()}
-  def create_extension_association(%Client{} = client, input, options \\ []) do
+
+  def create_extension_association(%Client{} = client, options \\ []) do
     url_path = "/extensionassociations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1529,45 +1574,49 @@ defmodule AWS.AppConfig do
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The configuration profile ID.
   * `:content_type` (`t:string`) A standard MIME type describing the format of the
-    configuration content. For more information, see Content-Type.
+  configuration content. For more information, see Content-Type.
+  * `:input` (`t:map`):
+    * `:content` (`t:blob`) The content of the configuration or the configuration
+  data.
 
   ## Optional parameters:
   * `:description` (`t:string`) A description of the configuration.
   * `:latest_version_number` (`t:integer`) An optional locking token used to
-    prevent race conditions from overwriting configuration updates when creating
-    a new version. To ensure your data is not overwritten when creating multiple
-    hosted configuration versions in rapid succession, specify the version
-    number of the latest hosted configuration version.
+  prevent race conditions from overwriting configuration updates when creating
+  a new version. To ensure your data is not overwritten when creating multiple
+  hosted configuration versions in rapid succession, specify the version
+  number of the latest hosted configuration version.
   * `:version_label` (`t:string`) An optional, user-defined label for the
-    AppConfig hosted configuration version. This value must contain at least one
-    non-numeric character. For example, "v2.2.0".
+  AppConfig hosted configuration version. This value must contain at least one
+  non-numeric character. For example, "v2.2.0".
   """
+
   @spec create_hosted_configuration_version(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          create_hosted_configuration_version_request(),
+          String.t(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hosted_configuration_version_errors()}
+
   def create_hosted_configuration_version(
         %Client{} = client,
         application_id,
         configuration_profile_id,
+        content_type,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) and is_binary(content_type) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions"
 
-    optional_params = [
-      content_type: nil,
-      description: nil,
-      latest_version_number: nil,
-      version_label: nil
-    ]
+    # Validate optional parameters
+    optional_params = [description: nil, latest_version_number: nil, version_label: nil]
 
     options =
       Keyword.validate!(
@@ -1575,16 +1624,49 @@ defmodule AWS.AppConfig do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ContentType", "Content-Type"},
-        {"Description", "Description"},
-        {"LatestVersionNumber", "Latest-Version-Number"},
-        {"VersionLabel", "VersionLabel"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"Content-Type", content_type}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :version_label) do
+        [{"VersionLabel", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :latest_version_number) do
+        [{"Latest-Version-Number", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :description) do
+        [{"Description", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Application-Id", "ApplicationId"},
+          {"Configuration-Profile-Id", "ConfigurationProfileId"},
+          {"Content-Type", "ContentType"},
+          {"Description", "Description"},
+          {"KmsKeyArn", "KmsKeyArn"},
+          {"VersionLabel", "VersionLabel"},
+          {"Version-Number", "VersionNumber"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -1609,17 +1691,9 @@ defmodule AWS.AppConfig do
       options
       |> Keyword.drop([:description, :latest_version_number, :version_label])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1633,17 +1707,38 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1652,7 +1747,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1666,37 +1761,50 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string`) The application ID that includes the
-    configuration profile you want to delete.
+  configuration profile you want to delete.
   * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
-    you want to delete.
+  you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_configuration_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_configuration_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configuration_profile_errors()}
+
   def delete_configuration_profile(
         %Client{} = client,
         application_id,
         configuration_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1705,7 +1813,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1719,26 +1827,42 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy you
-    want to delete.
+  want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_deployment_strategy(
-          AWS.Client.t(),
-          String.t(),
-          delete_deployment_strategy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_deployment_strategy_errors()}
-  def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
+
+  def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deployementstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1747,7 +1871,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1761,31 +1885,45 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string`) The application ID that includes the
-    environment that you want to delete.
+  environment that you want to delete.
   * `:environment_id` (`t:string`) The ID of the environment that you want to
-    delete.
+  delete.
 
   ## Optional parameters:
   """
-  @spec delete_environment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_environment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-  def delete_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
+
+  def delete_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1794,7 +1932,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1808,25 +1946,45 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_identifier` (`t:string`) The name, ID, or Amazon Resource Name
-    (ARN) of the extension you want to delete.
+  (ARN) of the extension you want to delete.
 
   ## Optional parameters:
   * `:version_number` (`t:integer`) A specific version of an extension to delete.
-    If omitted, the highest version is deleted.
+  If omitted, the highest version is deleted.
   """
-  @spec delete_extension(AWS.Client.t(), String.t(), delete_extension_request(), Keyword.t()) ::
+
+  @spec delete_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_extension_errors()}
-  def delete_extension(%Client{} = client, extension_identifier, input, options \\ []) do
+
+  def delete_extension(%Client{} = client, extension_identifier, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
+
+    # Validate optional parameters
+    optional_params = [version_number: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"VersionNumber", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version_number) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1836,6 +1994,8 @@ defmodule AWS.AppConfig do
       options
       |> Keyword.drop([:version_number])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1843,7 +2003,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1857,31 +2017,42 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_association_id` (`t:string`) The ID of the extension association
-    to delete.
+  to delete.
 
   ## Optional parameters:
   """
-  @spec delete_extension_association(
-          AWS.Client.t(),
-          String.t(),
-          delete_extension_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_extension_association_errors()}
-  def delete_extension_association(
-        %Client{} = client,
-        extension_association_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1890,7 +2061,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1909,33 +2080,51 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
+
   @spec delete_hosted_configuration_version(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_hosted_configuration_version_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hosted_configuration_version_errors()}
+
   def delete_hosted_configuration_version(
         %Client{} = client,
         application_id,
         configuration_profile_id,
         version_number,
-        input,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions/#{AWS.Util.encode_uri(version_number)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1944,7 +2133,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1960,10 +2149,12 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
+
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
+
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -1999,20 +2190,21 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application` (`t:string`) The application to get. Specify either the
-    application name or the application ID.
+  application name or the application ID.
   * `:configuration` (`t:string`) The configuration to get. Specify either the
-    configuration name or the configuration ID.
+  configuration name or the configuration ID.
   * `:environment` (`t:string`) The environment to get. Specify either the
-    environment name or the environment ID.
+  environment name or the environment ID.
   * `:client_id` (`t:string`) The clientId parameter in the following command is a
-    unique, user-specified ID to identify the client for the configuration. This
-    ID enables AppConfig to deploy the configuration in intervals, as defined in
-    the deployment strategy.
+  unique, user-specified ID to identify the client for the configuration. This
+  ID enables AppConfig to deploy the configuration in intervals, as defined in
+  the deployment strategy.
 
   ## Optional parameters:
   * `:client_configuration_version` (`t:string`) The configuration version
-    returned in the most recent GetConfiguration response.
+  returned in the most recent GetConfiguration response.
   """
+
   @spec get_configuration(
           AWS.Client.t(),
           String.t(),
@@ -2024,6 +2216,7 @@ defmodule AWS.AppConfig do
           {:ok, configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_errors()}
+
   def get_configuration(
         %Client{} = client,
         application,
@@ -2031,7 +2224,8 @@ defmodule AWS.AppConfig do
         environment,
         client_id,
         options \\ []
-      ) do
+      )
+      when is_binary(client_id) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/environments/#{AWS.Util.encode_uri(environment)}/configurations/#{AWS.Util.encode_uri(configuration)}"
 
@@ -2088,16 +2282,18 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application that includes the
-    configuration profile you want to get.
+  configuration profile you want to get.
   * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
-    that you want to get.
+  that you want to get.
 
   ## Optional parameters:
   """
+
   @spec get_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_profile_errors()}
+
   def get_configuration_profile(
         %Client{} = client,
         application_id,
@@ -2139,17 +2335,19 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application that includes the
-    deployment you want to get.
+  deployment you want to get.
   * `:deployment_number` (`t:integer`) The sequence number of the deployment.
   * `:environment_id` (`t:string`) The ID of the environment that includes the
-    deployment you want to get.
+  deployment you want to get.
 
   ## Optional parameters:
   """
+
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_errors()}
+
   def get_deployment(
         %Client{} = client,
         application_id,
@@ -2196,14 +2394,16 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy to
-    get.
+  get.
 
   ## Optional parameters:
   """
+
   @spec get_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_deployment_strategy_errors()}
+
   def get_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
 
@@ -2244,15 +2444,17 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application that includes the
-    environment you want to get.
+  environment you want to get.
   * `:environment_id` (`t:string`) The ID of the environment that you want to get.
 
   ## Optional parameters:
   """
+
   @spec get_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
+
   def get_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -2289,16 +2491,18 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
-    Name (ARN) of the extension.
+  Name (ARN) of the extension.
 
   ## Optional parameters:
   * `:version_number` (`t:integer`) The extension version number. If no version
-    number was defined, AppConfig uses the highest version.
+  number was defined, AppConfig uses the highest version.
   """
+
   @spec get_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_extension_errors()}
+
   def get_extension(%Client{} = client, extension_identifier, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
 
@@ -2351,10 +2555,12 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
+
   @spec get_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_extension_association_errors()}
+
   def get_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
 
@@ -2395,6 +2601,7 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
+
   @spec get_hosted_configuration_version(
           AWS.Client.t(),
           String.t(),
@@ -2405,6 +2612,7 @@ defmodule AWS.AppConfig do
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hosted_configuration_version_errors()}
+
   def get_hosted_configuration_version(
         %Client{} = client,
         application_id,
@@ -2463,19 +2671,21 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-    call. The call also returns a token that you can specify in a subsequent
-    call to get the next set of results.
+  call. The call also returns a token that you can specify in a subsequent
+  call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Next token is a
-    pagination token generated by AppConfig to describe what page the previous
-    List call ended on. For the first List request, the nextToken should not be
-    set. On subsequent calls, the nextToken parameter should be set to the
-    previous responses nextToken value. Use this token to get the next set of
-    results.
+  pagination token generated by AppConfig to describe what page the previous
+  List call ended on. For the first List request, the nextToken should not be
+  set. On subsequent calls, the nextToken parameter should be set to the
+  previous responses nextToken value. Use this token to get the next set of
+  results.
   """
+
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, applications(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
+
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -2532,18 +2742,20 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-    call. The call also returns a token that you can specify in a subsequent
-    call to get the next set of results.
+  call. The call also returns a token that you can specify in a subsequent
+  call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-    the next set of results.
+  the next set of results.
   * `:type` (`t:string`) A filter based on the type of configurations that the
-    configuration profile contains. A configuration can be a feature flag or a
-    freeform configuration.
+  configuration profile contains. A configuration can be a feature flag or a
+  freeform configuration.
   """
+
   @spec list_configuration_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profiles(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configuration_profiles_errors()}
+
   def list_configuration_profiles(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
 
@@ -2606,15 +2818,17 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-    call. The call also returns a token that you can specify in a subsequent
-    call to get the next set of results.
+  call. The call also returns a token that you can specify in a subsequent
+  call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-    the next set of results.
+  the next set of results.
   """
+
   @spec list_deployment_strategies(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategies(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployment_strategies_errors()}
+
   def list_deployment_strategies(%Client{} = client, options \\ []) do
     url_path = "/deploymentstrategies"
 
@@ -2672,17 +2886,19 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items that may be returned
-    for this call. If there are items that have not yet been returned, the
-    response will include a non-null NextToken that you can provide in a
-    subsequent call to get the next set of results.
+  for this call. If there are items that have not yet been returned, the
+  response will include a non-null NextToken that you can provide in a
+  subsequent call to get the next set of results.
   * `:next_token` (`t:string`) The token returned by a prior call to this
-    operation indicating the next set of results to be returned. If not
-    specified, the operation will return the first set of results.
+  operation indicating the next set of results to be returned. If not
+  specified, the operation will return the first set of results.
   """
+
   @spec list_deployments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_deployments_errors()}
+
   def list_deployments(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
@@ -2740,15 +2956,17 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-    call. The call also returns a token that you can specify in a subsequent
-    call to get the next set of results.
+  call. The call also returns a token that you can specify in a subsequent
+  call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-    the next set of results.
+  the next set of results.
   """
+
   @spec list_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environments(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
+
   def list_environments(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
 
@@ -2807,21 +3025,23 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
-    Name (ARN) of the extension.
+  Name (ARN) of the extension.
   * `:extension_version_number` (`t:integer`) The version number for the extension
-    defined in the association.
+  defined in the association.
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-    call. The call also returns a token that you can specify in a subsequent
-    call to get the next set of results.
+  call. The call also returns a token that you can specify in a subsequent
+  call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-    the next set of results or pass null to get the first set of results.
+  the next set of results or pass null to get the first set of results.
   * `:resource_identifier` (`t:string`) The ARN of an application, configuration
-    profile, or environment.
+  profile, or environment.
   """
+
   @spec list_extension_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_associations(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extension_associations_errors()}
+
   def list_extension_associations(%Client{} = client, options \\ []) do
     url_path = "/extensionassociations"
 
@@ -2913,16 +3133,18 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-    call. The call also returns a token that you can specify in a subsequent
-    call to get the next set of results.
+  call. The call also returns a token that you can specify in a subsequent
+  call to get the next set of results.
   * `:name` (`t:string`) The extension name.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-    the next set of results.
+  the next set of results.
   """
+
   @spec list_extensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, extensions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_extensions_errors()}
+
   def list_extensions(%Client{} = client, options \\ []) do
     url_path = "/extensions"
 
@@ -2988,20 +3210,22 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-    call. The call also returns a token that you can specify in a subsequent
-    call to get the next set of results.
+  call. The call also returns a token that you can specify in a subsequent
+  call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-    the next set of results.
+  the next set of results.
   * `:version_label` (`t:string`) An optional filter that can be used to specify
-    the version label of an AppConfig hosted configuration version. This
-    parameter supports filtering by prefix using a wildcard, for example "v2*".
-    If you don't specify an asterisk at the end of the value, only an exact
-    match is returned.
+  the version label of an AppConfig hosted configuration version. This
+  parameter supports filtering by prefix using a wildcard, for example "v2*".
+  If you don't specify an asterisk at the end of the value, only an exact
+  match is returned.
   """
+
   @spec list_hosted_configuration_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, hosted_configuration_versions(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hosted_configuration_versions_errors()}
+
   def list_hosted_configuration_versions(
         %Client{} = client,
         application_id,
@@ -3071,10 +3295,12 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resource_tags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -3114,37 +3340,41 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec start_deployment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          start_deployment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_deployment_errors()}
-  def start_deployment(%Client{} = client, application_id, environment_id, input, options \\ []) do
+
+  def start_deployment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3160,33 +3390,45 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec stop_deployment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          stop_deployment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_deployment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_deployment_errors()}
+
   def stop_deployment(
         %Client{} = client,
         application_id,
         deployment_number,
         environment_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments/#{AWS.Util.encode_uri(deployment_number)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3195,7 +3437,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -3210,33 +3452,44 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource for which to retrieve
-    tags.
+  tags.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3250,22 +3503,39 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3274,7 +3544,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -3290,17 +3560,38 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3309,7 +3600,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3326,31 +3617,44 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec update_configuration_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_configuration_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configuration_profile_errors()}
+
   def update_configuration_profile(
         %Client{} = client,
         application_id,
         configuration_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3359,7 +3663,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3375,22 +3679,38 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec update_deployment_strategy(
-          AWS.Client.t(),
-          String.t(),
-          update_deployment_strategy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_deployment_strategy_errors()}
-  def update_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
+
+  def update_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3399,7 +3719,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3416,25 +3736,39 @@ defmodule AWS.AppConfig do
 
   ## Optional parameters:
   """
-  @spec update_environment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_environment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_environment_errors()}
-  def update_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
+
+  def update_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3443,7 +3777,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3459,21 +3793,42 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
-    Name (ARN) of the extension.
+  Name (ARN) of the extension.
 
   ## Optional parameters:
   """
-  @spec update_extension(AWS.Client.t(), String.t(), update_extension_request(), Keyword.t()) ::
+
+  @spec update_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_extension_errors()}
-  def update_extension(%Client{} = client, extension_identifier, input, options \\ []) do
+
+  def update_extension(%Client{} = client, extension_identifier, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3482,7 +3837,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3498,31 +3853,42 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_association_id` (`t:string`) The system-generated ID for the
-    association.
+  association.
 
   ## Optional parameters:
   """
-  @spec update_extension_association(
-          AWS.Client.t(),
-          String.t(),
-          update_extension_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_extension_association_errors()}
-  def update_extension_association(
-        %Client{} = client,
-        extension_association_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3531,7 +3897,7 @@ defmodule AWS.AppConfig do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3546,51 +3912,51 @@ defmodule AWS.AppConfig do
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The configuration profile ID.
   * `:configuration_version` (`t:string`) The version of the configuration to
-    validate.
+  validate.
 
   ## Optional parameters:
   """
-  @spec validate_configuration(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          validate_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec validate_configuration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_configuration_errors()}
+
   def validate_configuration(
         %Client{} = client,
         application_id,
         configuration_profile_id,
-        input,
+        configuration_version,
         options \\ []
-      ) do
+      )
+      when is_binary(configuration_version) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/validators"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ConfigurationVersion", "configuration_version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"configuration_version", configuration_version}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 end

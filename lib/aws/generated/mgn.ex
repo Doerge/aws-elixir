@@ -12,43 +12,43 @@ defmodule AWS.Mgn do
   @typedoc """
 
   ## Example:
-
+      
       start_cutover_response() :: %{
         optional("job") => job()
       }
-
+      
   """
   @type start_cutover_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_log_items_request() :: %{
         optional("accountID") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("jobID") => String.t()
       }
-
+      
   """
   @type describe_job_log_items_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       change_server_life_cycle_state_source_server_lifecycle() :: %{
         "state" => String.t()
       }
-
+      
   """
   @type change_server_life_cycle_state_source_server_lifecycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector() :: %{
         "arn" => String.t(),
         "connectorID" => String.t(),
@@ -57,51 +57,51 @@ defmodule AWS.Mgn do
         "ssmInstanceID" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_servers_request() :: %{
         optional("accountID") => String.t(),
         optional("filters") => describe_source_servers_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vcenter_clients_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_vcenter_clients_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle() :: %{
         "addedToServiceDateTime" => String.t(),
         "elapsedReplicationDuration" => String.t(),
@@ -111,134 +111,134 @@ defmodule AWS.Mgn do
         "lastTest" => life_cycle_last_test(),
         "state" => String.t()
       }
-
+      
   """
   @type life_cycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_exports_request_filters() :: %{
         "exportIDs" => list(String.t()())
       }
-
+      
   """
   @type list_exports_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unarchive_application_request() :: %{
         optional("accountID") => String.t(),
         required("applicationID") => String.t()
       }
-
+      
   """
   @type unarchive_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_response() :: %{
         "items" => list(connector()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_waves_request_filters() :: %{
         "isArchived" => [boolean()],
         "waveIDs" => list(String.t()())
       }
-
+      
   """
   @type list_waves_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_source_server_request() :: %{
         optional("accountID") => String.t(),
         optional("connectorAction") => source_server_connector_action(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type update_source_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       archive_wave_request() :: %{
         optional("accountID") => String.t(),
         required("waveID") => String.t()
       }
-
+      
   """
   @type archive_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_launch_configuration_templates_request() :: %{
         optional("launchConfigurationTemplateIDs") => list(String.t()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_launch_configuration_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_source_server_response() :: %{}
-
+      
   """
   @type delete_source_server_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_source_server_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type delete_source_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_aggregated_status() :: %{
         "healthStatus" => String.t(),
         "lastUpdateDateTime" => String.t(),
         "progressStatus" => String.t(),
         "totalSourceServers" => float()
       }
-
+      
   """
   @type application_aggregated_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration_template() :: %{
         optional("arn") => String.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
@@ -257,40 +257,40 @@ defmodule AWS.Mgn do
         optional("useFipsEndpoint") => [boolean()],
         required("replicationConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type replication_configuration_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resume_replication_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type resume_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_waves_request() :: %{
         optional("accountID") => String.t(),
         optional("filters") => list_waves_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_waves_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_configuration_template_request() :: %{
         optional("arn") => String.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
@@ -308,14 +308,14 @@ defmodule AWS.Mgn do
         optional("useFipsEndpoint") => [boolean()],
         required("replicationConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type update_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration_replicated_disk() :: %{
         "deviceName" => String.t(),
         "iops" => float(),
@@ -323,72 +323,72 @@ defmodule AWS.Mgn do
         "stagingDiskType" => String.t(),
         "throughput" => float()
       }
-
+      
   """
   @type replication_configuration_replicated_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_applications_response() :: %{}
-
+      
   """
   @type associate_applications_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_connector_request() :: %{
         optional("name") => String.t(),
         optional("ssmCommandConfig") => connector_ssm_command_config(),
         required("connectorID") => String.t()
       }
-
+      
   """
   @type update_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pause_replication_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type pause_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_interface() :: %{
         "ips" => list(String.t()()),
         "isPrimary" => [boolean()],
         "macAddress" => String.t()
       }
-
+      
   """
   @type network_interface() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_test_finalized() :: %{
         "apiCallDateTime" => String.t()
       }
-
+      
   """
   @type life_cycle_last_test_finalized() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_replication_configuration_template_request() :: %{
         optional("ebsEncryptionKeyArn") => String.t(),
         optional("tags") => map(),
@@ -405,140 +405,140 @@ defmodule AWS.Mgn do
         required("stagingAreaTags") => map(),
         required("useDedicatedReplicationServer") => [boolean()]
       }
-
+      
   """
   @type create_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_applications_response() :: %{}
-
+      
   """
   @type disassociate_applications_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_source_server_action_request() :: %{
         optional("accountID") => String.t(),
         required("actionID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type remove_source_server_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_applications_request() :: %{
         optional("accountID") => String.t(),
         required("applicationIDs") => list(String.t()()),
         required("waveID") => String.t()
       }
-
+      
   """
   @type associate_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_server_connector_action() :: %{
         "connectorArn" => String.t(),
         "credentialsSecretArn" => String.t()
       }
-
+      
   """
   @type source_server_connector_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_request_filters() :: %{
         "applicationIDs" => list(String.t()()),
         "isArchived" => [boolean()],
         "waveIDs" => list(String.t()())
       }
-
+      
   """
   @type list_applications_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_ssm_command_config() :: %{
         "cloudWatchLogGroupName" => String.t(),
         "cloudWatchOutputEnabled" => [boolean()],
         "outputS3BucketName" => String.t(),
         "s3OutputEnabled" => [boolean()]
       }
-
+      
   """
   @type connector_ssm_command_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_task_error() :: %{
         "errorData" => import_error_data(),
         "errorDateTime" => String.t(),
         "errorType" => String.t()
       }
-
+      
   """
   @type import_task_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launched_instance() :: %{
         "ec2InstanceID" => String.t(),
         "firstBoot" => String.t(),
         "jobID" => String.t()
       }
-
+      
   """
   @type launched_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_test_request() :: %{
         optional("accountID") => String.t(),
         optional("tags") => map(),
         required("sourceServerIDs") => list(String.t()())
       }
-
+      
   """
   @type start_test_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_request() :: %{
         optional("filters") => list_connectors_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_action_document() :: %{
         optional("actionID") => String.t(),
         optional("actionName") => String.t(),
@@ -554,84 +554,84 @@ defmodule AWS.Mgn do
         optional("parameters") => map(),
         optional("timeoutSeconds") => integer()
       }
-
+      
   """
   @type template_action_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_data_replication_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type retry_data_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_replication_configuration_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type get_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_replication_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type start_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_test_reverted() :: %{
         "apiCallDateTime" => String.t()
       }
-
+      
   """
   @type life_cycle_last_test_reverted() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_actions_response() :: %{
         optional("items") => list(template_action_document()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_template_actions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vcenter_client() :: %{
         "arn" => String.t(),
         "datacenterName" => String.t(),
@@ -642,63 +642,63 @@ defmodule AWS.Mgn do
         "vcenterClientID" => String.t(),
         "vcenterUUID" => String.t()
       }
-
+      
   """
   @type vcenter_client() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_replication_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type stop_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_exports_request() :: %{
         "filters" => list_exports_request_filters(),
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_exports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_source_server_actions_response() :: %{
         optional("items") => list(source_server_action_document()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_source_server_actions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unarchive_wave_request() :: %{
         optional("accountID") => String.t(),
         required("waveID") => String.t()
       }
-
+      
   """
   @type unarchive_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_source_server_actions_request() :: %{
         optional("accountID") => String.t(),
         optional("filters") => source_server_actions_request_filters(),
@@ -706,14 +706,14 @@ defmodule AWS.Mgn do
         optional("nextToken") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type list_source_server_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_configuration_template() :: %{
         optional("arn") => String.t(),
         optional("associatePublicIpAddress") => [boolean()],
@@ -733,61 +733,61 @@ defmodule AWS.Mgn do
         optional("targetInstanceTypeRightSizingMethod") => String.t(),
         required("launchConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type launch_configuration_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       licensing() :: %{
         "osByol" => [boolean()]
       }
-
+      
   """
   @type licensing() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_export_response() :: %{
         "exportTask" => export_task()
       }
-
+      
   """
   @type start_export_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_task_summary() :: %{
         "applicationsCount" => float(),
         "serversCount" => float(),
         "wavesCount" => float()
       }
-
+      
   """
   @type export_task_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_imports_response() :: %{
         "items" => list(import_task()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_imports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       identification_hints() :: %{
         "awsInstanceID" => String.t(),
         "fqdn" => String.t(),
@@ -795,38 +795,38 @@ defmodule AWS.Mgn do
         "vmPath" => String.t(),
         "vmWareUuid" => String.t()
       }
-
+      
   """
   @type identification_hints() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_server_actions_request_filters() :: %{
         "actionIDs" => list(String.t()())
       }
-
+      
   """
   @type source_server_actions_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_cutover() :: %{
         "finalized" => life_cycle_last_cutover_finalized(),
         "initiated" => life_cycle_last_cutover_initiated(),
         "reverted" => life_cycle_last_cutover_reverted()
       }
-
+      
   """
   @type life_cycle_last_cutover() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_properties() :: %{
         "cpus" => list(c_p_u()()),
         "disks" => list(disk()()),
@@ -837,88 +837,88 @@ defmodule AWS.Mgn do
         "ramBytes" => float(),
         "recommendedInstanceType" => String.t()
       }
-
+      
   """
   @type source_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_servers_response() :: %{
         optional("items") => list(source_server()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_source_servers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replication_configuration_templates_response() :: %{
         optional("items") => list(replication_configuration_template()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_replication_configuration_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_cutover_reverted() :: %{
         "apiCallDateTime" => String.t()
       }
-
+      
   """
   @type life_cycle_last_cutover_reverted() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replication_configuration_template_response() :: %{}
-
+      
   """
   @type delete_replication_configuration_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_wave_response() :: %{}
-
+      
   """
   @type delete_wave_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_source_servers_response() :: %{}
-
+      
   """
   @type disassociate_source_servers_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_test_initiated() :: %{
         "apiCallDateTime" => String.t(),
         "jobID" => String.t()
       }
-
+      
   """
   @type life_cycle_last_test_initiated() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_source_server_action_request() :: %{
         optional("accountID") => String.t(),
         optional("active") => [boolean()],
@@ -935,14 +935,14 @@ defmodule AWS.Mgn do
         required("order") => integer(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type put_source_server_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration() :: %{
         optional("associateDefaultSecurityGroup") => [boolean()],
         optional("bandwidthThrottling") => float(),
@@ -961,14 +961,14 @@ defmodule AWS.Mgn do
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()]
       }
-
+      
   """
   @type replication_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "code" => String.t(),
         "errors" => list(error_details()()),
@@ -976,78 +976,78 @@ defmodule AWS.Mgn do
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "code" => String.t(),
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_error() :: %{
         "error" => String.t(),
         "rawError" => String.t()
       }
-
+      
   """
   @type data_replication_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_applications_request() :: %{
         optional("accountID") => String.t(),
         required("applicationIDs") => list(String.t()()),
         required("waveID") => String.t()
       }
-
+      
   """
   @type disassociate_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_task_error() :: %{
         "errorData" => export_error_data(),
         "errorDateTime" => String.t()
       }
-
+      
   """
   @type export_task_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_source_server_replication_type_request() :: %{
         optional("accountID") => String.t(),
         required("replicationType") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type update_source_server_replication_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_launch_actions() :: %{
         "cloudWatchLogGroupName" => String.t(),
         "deployment" => String.t(),
@@ -1055,26 +1055,26 @@ defmodule AWS.Mgn do
         "s3OutputKeyPrefix" => String.t(),
         "ssmDocuments" => list(ssm_document()())
       }
-
+      
   """
   @type post_launch_actions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_wave_request() :: %{
         optional("accountID") => String.t(),
         required("waveID") => String.t()
       }
-
+      
   """
   @type delete_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "code" => String.t(),
         "message" => String.t(),
@@ -1084,87 +1084,87 @@ defmodule AWS.Mgn do
         "resourceType" => String.t(),
         "serviceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_launch_actions_status() :: %{
         "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()()),
         "ssmAgentDiscoveryDatetime" => String.t()
       }
-
+      
   """
   @type post_launch_actions_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_wave_request() :: %{
         optional("accountID") => String.t(),
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_wave_request() :: %{
         optional("accountID") => String.t(),
         optional("description") => String.t(),
         optional("name") => String.t(),
         required("waveID") => String.t()
       }
-
+      
   """
   @type update_wave_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_template_action_response() :: %{}
-
+      
   """
   @type remove_template_action_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       c_p_u() :: %{
         "cores" => float(),
         "modelName" => String.t()
       }
-
+      
   """
   @type c_p_u() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       uninitialized_account_exception() :: %{
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type uninitialized_account_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application() :: %{
         "applicationAggregatedStatus" => application_aggregated_status(),
         "applicationID" => String.t(),
@@ -1177,23 +1177,23 @@ defmodule AWS.Mgn do
         "tags" => map(),
         "waveID" => String.t()
       }
-
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       initialize_service_request() :: %{}
-
+      
   """
   @type initialize_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_launch_configuration_template_request() :: %{
         optional("associatePublicIpAddress") => [boolean()],
         optional("bootMode") => String.t(),
@@ -1210,78 +1210,78 @@ defmodule AWS.Mgn do
         optional("tags") => map(),
         optional("targetInstanceTypeRightSizingMethod") => String.t()
       }
-
+      
   """
   @type create_launch_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_details() :: %{
         "code" => String.t(),
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
       }
-
+      
   """
   @type error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_request() :: %{
         optional("accountID") => String.t(),
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       managed_account() :: %{
         "accountId" => String.t()
       }
-
+      
   """
   @type managed_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_actions_request() :: %{
         optional("filters") => template_actions_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("launchConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type list_template_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_info() :: %{
         "dataReplicationError" => data_replication_error(),
         "dataReplicationInitiation" => data_replication_initiation(),
@@ -1291,26 +1291,26 @@ defmodule AWS.Mgn do
         "lastSnapshotDateTime" => String.t(),
         "replicatedDisks" => list(data_replication_info_replicated_disk()())
       }
-
+      
   """
   @type data_replication_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_source_servers_request_filters() :: %{
         "applicationIDs" => list(String.t()()),
         "isArchived" => [boolean()],
@@ -1318,51 +1318,51 @@ defmodule AWS.Mgn do
         "replicationTypes" => list(String.t()()),
         "sourceServerIDs" => list(String.t()())
       }
-
+      
   """
   @type describe_source_servers_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_source_servers_request() :: %{
         optional("accountID") => String.t(),
         required("applicationID") => String.t(),
         required("sourceServerIDs") => list(String.t()())
       }
-
+      
   """
   @type associate_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vcenter_client_request() :: %{
         required("vcenterClientID") => String.t()
       }
-
+      
   """
   @type delete_vcenter_client_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_target_instances_request() :: %{
         optional("accountID") => String.t(),
         optional("tags") => map(),
         required("sourceServerIDs") => list(String.t()())
       }
-
+      
   """
   @type terminate_target_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_info_replicated_disk() :: %{
         "backloggedStorageBytes" => float(),
         "deviceName" => String.t(),
@@ -1370,14 +1370,14 @@ defmodule AWS.Mgn do
         "rescannedStorageBytes" => float(),
         "totalStorageBytes" => float()
       }
-
+      
   """
   @type data_replication_info_replicated_disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_task() :: %{
         "creationDateTime" => String.t(),
         "endDateTime" => String.t(),
@@ -1387,78 +1387,78 @@ defmodule AWS.Mgn do
         "status" => String.t(),
         "summary" => import_task_summary()
       }
-
+      
   """
   @type import_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       initialize_service_response() :: %{}
-
+      
   """
   @type initialize_service_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_source_server_action_response() :: %{}
-
+      
   """
   @type remove_source_server_action_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       import_task_summary() :: %{
         "applications" => import_task_summary_applications(),
         "servers" => import_task_summary_servers(),
         "waves" => import_task_summary_waves()
       }
-
+      
   """
   @type import_task_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mark_as_archived_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type mark_as_archived_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_response() :: %{}
-
+      
   """
   @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vcenter_clients_response() :: %{
         optional("items") => list(vcenter_client()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_vcenter_clients_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       wave() :: %{
         "arn" => String.t(),
         "creationDateTime" => String.t(),
@@ -1470,52 +1470,52 @@ defmodule AWS.Mgn do
         "waveAggregatedStatus" => wave_aggregated_status(),
         "waveID" => String.t()
       }
-
+      
   """
   @type wave() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_request_filters() :: %{
         "fromDate" => String.t(),
         "jobIDs" => list(String.t()()),
         "toDate" => String.t()
       }
-
+      
   """
   @type describe_jobs_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_initiation() :: %{
         "nextAttemptDateTime" => String.t(),
         "startDateTime" => String.t(),
         "steps" => list(data_replication_initiation_step()())
       }
-
+      
   """
   @type data_replication_initiation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_managed_accounts_response() :: %{
         "items" => list(managed_account()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_managed_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_task() :: %{
         "creationDateTime" => String.t(),
         "endDateTime" => String.t(),
@@ -1527,348 +1527,348 @@ defmodule AWS.Mgn do
         "status" => String.t(),
         "summary" => export_task_summary()
       }
-
+      
   """
   @type export_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_launch_configuration_templates_response() :: %{
         optional("items") => list(launch_configuration_template()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_launch_configuration_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_request() :: %{
         optional("accountID") => String.t(),
         optional("description") => String.t(),
         optional("name") => String.t(),
         required("applicationID") => String.t()
       }
-
+      
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_configuration_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type get_launch_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_cutover_finalized() :: %{
         "apiCallDateTime" => String.t()
       }
-
+      
   """
   @type life_cycle_last_cutover_finalized() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => float()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participating_server() :: %{
         "launchStatus" => String.t(),
         "launchedEc2InstanceID" => String.t(),
         "postLaunchActionsStatus" => post_launch_actions_status(),
         "sourceServerID" => String.t()
       }
-
+      
   """
   @type participating_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_import_errors_request() :: %{
         "importID" => String.t(),
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_import_errors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_replication_initiation_step() :: %{
         "name" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type data_replication_initiation_step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_export_request() :: %{
         "s3Bucket" => String.t(),
         "s3BucketOwner" => String.t(),
         "s3Key" => String.t()
       }
-
+      
   """
   @type start_export_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_task_summary_applications() :: %{
         "createdCount" => float(),
         "modifiedCount" => float()
       }
-
+      
   """
   @type import_task_summary_applications() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disconnect_from_service_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type disconnect_from_service_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_test() :: %{
         "finalized" => life_cycle_last_test_finalized(),
         "initiated" => life_cycle_last_test_initiated(),
         "reverted" => life_cycle_last_test_reverted()
       }
-
+      
   """
   @type life_cycle_last_test() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_task_summary_waves() :: %{
         "createdCount" => float(),
         "modifiedCount" => float()
       }
-
+      
   """
   @type import_task_summary_waves() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_request() :: %{
         optional("accountID") => String.t(),
         optional("filters") => list_applications_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_export_errors_request() :: %{
         "exportID" => String.t(),
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_export_errors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_connector_request() :: %{
         optional("ssmCommandConfig") => connector_ssm_command_config(),
         optional("tags") => map(),
         required("name") => String.t(),
         required("ssmInstanceID") => String.t()
       }
-
+      
   """
   @type create_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_template_action_request() :: %{
         required("actionID") => String.t(),
         required("launchConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type remove_template_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_error_data() :: %{
         "rawError" => String.t()
       }
-
+      
   """
   @type export_error_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_export_errors_response() :: %{
         "items" => list(export_task_error()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_export_errors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       change_server_life_cycle_state_request() :: %{
         optional("accountID") => String.t(),
         required("lifeCycle") => change_server_life_cycle_state_source_server_lifecycle(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type change_server_life_cycle_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       archive_application_request() :: %{
         optional("accountID") => String.t(),
         required("applicationID") => String.t()
       }
-
+      
   """
   @type archive_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_request() :: %{
         optional("accountID") => String.t(),
         required("jobID") => String.t()
       }
-
+      
   """
   @type delete_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_test_response() :: %{
         optional("job") => job()
       }
-
+      
   """
   @type start_test_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ssm_parameter_store_parameter() :: %{
         "parameterName" => String.t(),
         "parameterType" => String.t()
       }
-
+      
   """
   @type ssm_parameter_store_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_response() :: %{
         optional("items") => list(job()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disk() :: %{
         "bytes" => float(),
         "deviceName" => String.t()
       }
-
+      
   """
   @type disk() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_configuration_request() :: %{
         optional("accountID") => String.t(),
         optional("bootMode") => String.t(),
@@ -1883,48 +1883,48 @@ defmodule AWS.Mgn do
         optional("targetInstanceTypeRightSizingMethod") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type update_launch_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "code" => String.t(),
         "fieldList" => list(validation_exception_field()()),
         "message" => String.t(),
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replication_configuration_template_request() :: %{
         required("replicationConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type delete_replication_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job() :: %{
         "arn" => String.t(),
         "creationDateTime" => String.t(),
@@ -1936,53 +1936,53 @@ defmodule AWS.Mgn do
         "tags" => map(),
         "type" => String.t()
       }
-
+      
   """
   @type job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_template_disk_conf() :: %{
         "iops" => float(),
         "throughput" => float(),
         "volumeType" => String.t()
       }
-
+      
   """
   @type launch_template_disk_conf() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_task_summary_servers() :: %{
         "createdCount" => float(),
         "modifiedCount" => float()
       }
-
+      
   """
   @type import_task_summary_servers() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "quotaCode" => String.t(),
         "retryAfterSeconds" => String.t(),
         "serviceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ssm_document() :: %{
         "actionName" => String.t(),
         "externalParameters" => map(),
@@ -1991,14 +1991,14 @@ defmodule AWS.Mgn do
         "ssmDocumentName" => String.t(),
         "timeoutSeconds" => integer()
       }
-
+      
   """
   @type ssm_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_template_action_request() :: %{
         optional("active") => [boolean()],
         optional("category") => String.t(),
@@ -2015,78 +2015,78 @@ defmodule AWS.Mgn do
         required("launchConfigurationTemplateID") => String.t(),
         required("order") => integer()
       }
-
+      
   """
   @type put_template_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_imports_request() :: %{
         "filters" => list_imports_request_filters(),
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_imports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_imports_request_filters() :: %{
         "importIDs" => list(String.t()())
       }
-
+      
   """
   @type list_imports_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_managed_accounts_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_managed_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_log_event_data() :: %{
         "conversionServerID" => String.t(),
         "rawError" => String.t(),
         "sourceServerID" => String.t(),
         "targetInstanceID" => String.t()
       }
-
+      
   """
   @type job_log_event_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_jobs_request() :: %{
         optional("accountID") => String.t(),
         optional("filters") => describe_jobs_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_configuration() :: %{
         optional("bootMode") => String.t(),
         optional("copyPrivateIp") => [boolean()],
@@ -2101,26 +2101,26 @@ defmodule AWS.Mgn do
         optional("sourceServerID") => String.t(),
         optional("targetInstanceTypeRightSizingMethod") => String.t()
       }
-
+      
   """
   @type launch_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_response() :: %{
         optional("items") => list(application()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_post_launch_actions_launch_status() :: %{
         "executionID" => String.t(),
         "executionStatus" => String.t(),
@@ -2128,14 +2128,14 @@ defmodule AWS.Mgn do
         "ssmDocument" => ssm_document(),
         "ssmDocumentType" => String.t()
       }
-
+      
   """
   @type job_post_launch_actions_launch_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_error_data() :: %{
         "accountID" => String.t(),
         "applicationID" => String.t(),
@@ -2145,14 +2145,14 @@ defmodule AWS.Mgn do
         "sourceServerID" => String.t(),
         "waveID" => String.t()
       }
-
+      
   """
   @type import_error_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_replication_configuration_request() :: %{
         optional("accountID") => String.t(),
         optional("associateDefaultSecurityGroup") => [boolean()],
@@ -2172,25 +2172,25 @@ defmodule AWS.Mgn do
         optional("useFipsEndpoint") => [boolean()],
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type update_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_connector_request() :: %{
         required("connectorID") => String.t()
       }
-
+      
   """
   @type delete_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_server() :: %{
         "applicationID" => String.t(),
         "arn" => String.t(),
@@ -2207,14 +2207,14 @@ defmodule AWS.Mgn do
         "userProvidedID" => String.t(),
         "vcenterClientID" => String.t()
       }
-
+      
   """
   @type source_server() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       wave_aggregated_status() :: %{
         "healthStatus" => String.t(),
         "lastUpdateDateTime" => String.t(),
@@ -2222,38 +2222,38 @@ defmodule AWS.Mgn do
         "replicationStartedDateTime" => String.t(),
         "totalApplications" => float()
       }
-
+      
   """
   @type wave_aggregated_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_import_errors_response() :: %{
         "items" => list(import_task_error()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_import_errors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_waves_response() :: %{
         optional("items") => list(wave()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_waves_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_server_action_document() :: %{
         optional("actionID") => String.t(),
         optional("actionName") => String.t(),
@@ -2268,148 +2268,148 @@ defmodule AWS.Mgn do
         optional("parameters") => map(),
         optional("timeoutSeconds") => integer()
       }
-
+      
   """
   @type source_server_action_document() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       finalize_cutover_request() :: %{
         optional("accountID") => String.t(),
         required("sourceServerID") => String.t()
       }
-
+      
   """
   @type finalize_cutover_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_source_servers_response() :: %{}
-
+      
   """
   @type associate_source_servers_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       life_cycle_last_cutover_initiated() :: %{
         "apiCallDateTime" => String.t(),
         "jobID" => String.t()
       }
-
+      
   """
   @type life_cycle_last_cutover_initiated() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_configuration_template_response() :: %{}
-
+      
   """
   @type delete_launch_configuration_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_response() :: %{}
-
+      
   """
   @type delete_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_source_servers_request() :: %{
         optional("accountID") => String.t(),
         required("applicationID") => String.t(),
         required("sourceServerIDs") => list(String.t()())
       }
-
+      
   """
   @type disassociate_source_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replication_configuration_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("replicationConfigurationTemplateIDs") => list(String.t()())
       }
-
+      
   """
   @type describe_replication_configuration_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_s() :: %{
         "fullString" => String.t()
       }
-
+      
   """
   @type o_s() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_request_filters() :: %{
         "connectorIDs" => list(String.t()())
       }
-
+      
   """
   @type list_connectors_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_log_items_response() :: %{
         optional("items") => list(job_log()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type describe_job_log_items_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_target_instances_response() :: %{
         optional("job") => job()
       }
-
+      
   """
   @type terminate_target_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_import_request() :: %{
         "clientToken" => String.t(),
         "s3BucketSource" => s3_bucket_source()
       }
-
+      
   """
   @type start_import_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_configuration_template_request() :: %{
         optional("associatePublicIpAddress") => [boolean()],
         optional("bootMode") => String.t(),
@@ -2426,103 +2426,103 @@ defmodule AWS.Mgn do
         optional("targetInstanceTypeRightSizingMethod") => String.t(),
         required("launchConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type update_launch_configuration_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_bucket_source() :: %{
         "s3Bucket" => String.t(),
         "s3BucketOwner" => String.t(),
         "s3Key" => String.t()
       }
-
+      
   """
   @type s3_bucket_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_import_response() :: %{
         "importTask" => import_task()
       }
-
+      
   """
   @type start_import_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_cutover_request() :: %{
         optional("accountID") => String.t(),
         optional("tags") => map(),
         required("sourceServerIDs") => list(String.t()())
       }
-
+      
   """
   @type start_cutover_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_log() :: %{
         "event" => String.t(),
         "eventData" => job_log_event_data(),
         "logDateTime" => String.t()
       }
-
+      
   """
   @type job_log() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_actions_request_filters() :: %{
         "actionIDs" => list(String.t()())
       }
-
+      
   """
   @type template_actions_request_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_request() :: %{
         optional("accountID") => String.t(),
         required("applicationID") => String.t()
       }
-
+      
   """
   @type delete_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_exports_response() :: %{
         "items" => list(export_task()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_exports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_configuration_template_request() :: %{
         required("launchConfigurationTemplateID") => String.t()
       }
-
+      
   """
   @type delete_launch_configuration_template_request() :: %{String.t() => any()}
 
@@ -2877,29 +2877,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec archive_application(AWS.Client.t(), archive_application_request(), Keyword.t()) ::
+
+  @spec archive_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, archive_application_errors()}
-  def archive_application(%Client{} = client, input, options \\ []) do
+
+  def archive_application(%Client{} = client, options \\ []) do
     url_path = "/ArchiveApplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2911,29 +2922,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec archive_wave(AWS.Client.t(), archive_wave_request(), Keyword.t()) ::
+
+  @spec archive_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, archive_wave_errors()}
-  def archive_wave(%Client{} = client, input, options \\ []) do
+
+  def archive_wave(%Client{} = client, options \\ []) do
     url_path = "/ArchiveWave"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2945,29 +2967,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec associate_applications(AWS.Client.t(), associate_applications_request(), Keyword.t()) ::
+
+  @spec associate_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_applications_errors()}
-  def associate_applications(%Client{} = client, input, options \\ []) do
+
+  def associate_applications(%Client{} = client, options \\ []) do
     url_path = "/AssociateApplications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2979,29 +3012,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec associate_source_servers(AWS.Client.t(), associate_source_servers_request(), Keyword.t()) ::
+
+  @spec associate_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_source_servers_errors()}
-  def associate_source_servers(%Client{} = client, input, options \\ []) do
+
+  def associate_source_servers(%Client{} = client, options \\ []) do
     url_path = "/AssociateSourceServers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3016,33 +3060,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec change_server_life_cycle_state(
-          AWS.Client.t(),
-          change_server_life_cycle_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec change_server_life_cycle_state(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, change_server_life_cycle_state_errors()}
-  def change_server_life_cycle_state(%Client{} = client, input, options \\ []) do
+
+  def change_server_life_cycle_state(%Client{} = client, options \\ []) do
     url_path = "/ChangeServerLifeCycleState"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3054,29 +3105,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, options \\ []) do
     url_path = "/CreateApplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3088,29 +3150,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
+
+  @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-  def create_connector(%Client{} = client, input, options \\ []) do
+
+  def create_connector(%Client{} = client, options \\ []) do
     url_path = "/CreateConnector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3122,33 +3195,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec create_launch_configuration_template(
-          AWS.Client.t(),
-          create_launch_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_configuration_template_errors()}
-  def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def create_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3160,33 +3240,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec create_replication_configuration_template(
-          AWS.Client.t(),
-          create_replication_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_configuration_template_errors()}
-  def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def create_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3198,29 +3285,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec create_wave(AWS.Client.t(), create_wave_request(), Keyword.t()) ::
+
+  @spec create_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_wave_errors()}
-  def create_wave(%Client{} = client, input, options \\ []) do
+
+  def create_wave(%Client{} = client, options \\ []) do
     url_path = "/CreateWave"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3232,29 +3330,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_application(AWS.Client.t(), delete_application_request(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, input, options \\ []) do
+
+  def delete_application(%Client{} = client, options \\ []) do
     url_path = "/DeleteApplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3266,29 +3375,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_connector(AWS.Client.t(), delete_connector_request(), Keyword.t()) ::
+
+  @spec delete_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-  def delete_connector(%Client{} = client, input, options \\ []) do
+
+  def delete_connector(%Client{} = client, options \\ []) do
     url_path = "/DeleteConnector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3300,29 +3420,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
+
+  @spec delete_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
-  def delete_job(%Client{} = client, input, options \\ []) do
+
+  def delete_job(%Client{} = client, options \\ []) do
     url_path = "/DeleteJob"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3334,33 +3465,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_launch_configuration_template(
-          AWS.Client.t(),
-          delete_launch_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_configuration_template_errors()}
-  def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def delete_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3372,33 +3510,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_replication_configuration_template(
-          AWS.Client.t(),
-          delete_replication_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_configuration_template_errors()}
-  def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def delete_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3410,29 +3555,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_source_server(AWS.Client.t(), delete_source_server_request(), Keyword.t()) ::
+
+  @spec delete_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_source_server_errors()}
-  def delete_source_server(%Client{} = client, input, options \\ []) do
+
+  def delete_source_server(%Client{} = client, options \\ []) do
     url_path = "/DeleteSourceServer"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3444,29 +3600,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_vcenter_client(AWS.Client.t(), delete_vcenter_client_request(), Keyword.t()) ::
+
+  @spec delete_vcenter_client(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vcenter_client_errors()}
-  def delete_vcenter_client(%Client{} = client, input, options \\ []) do
+
+  def delete_vcenter_client(%Client{} = client, options \\ []) do
     url_path = "/DeleteVcenterClient"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3478,29 +3645,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec delete_wave(AWS.Client.t(), delete_wave_request(), Keyword.t()) ::
+
+  @spec delete_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_wave_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_wave_errors()}
-  def delete_wave(%Client{} = client, input, options \\ []) do
+
+  def delete_wave(%Client{} = client, options \\ []) do
     url_path = "/DeleteWave"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -3512,29 +3690,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec describe_job_log_items(AWS.Client.t(), describe_job_log_items_request(), Keyword.t()) ::
+
+  @spec describe_job_log_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_log_items_errors()}
-  def describe_job_log_items(%Client{} = client, input, options \\ []) do
+
+  def describe_job_log_items(%Client{} = client, options \\ []) do
     url_path = "/DescribeJobLogItems"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3551,29 +3740,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec describe_jobs(AWS.Client.t(), describe_jobs_request(), Keyword.t()) ::
+
+  @spec describe_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_jobs_errors()}
-  def describe_jobs(%Client{} = client, input, options \\ []) do
+
+  def describe_jobs(%Client{} = client, options \\ []) do
     url_path = "/DescribeJobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3586,33 +3786,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec describe_launch_configuration_templates(
-          AWS.Client.t(),
-          describe_launch_configuration_templates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_launch_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_launch_configuration_templates_errors()}
-  def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
+
+  def describe_launch_configuration_templates(%Client{} = client, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3624,33 +3831,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec describe_replication_configuration_templates(
-          AWS.Client.t(),
-          describe_replication_configuration_templates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_replication_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_configuration_templates_errors()}
-  def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
+
+  def describe_replication_configuration_templates(%Client{} = client, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3662,29 +3876,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec describe_source_servers(AWS.Client.t(), describe_source_servers_request(), Keyword.t()) ::
+
+  @spec describe_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_source_servers_errors()}
-  def describe_source_servers(%Client{} = client, input, options \\ []) do
+
+  def describe_source_servers(%Client{} = client, options \\ []) do
     url_path = "/DescribeSourceServers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3696,14 +3921,16 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum results to be returned in
-    DescribeVcenterClients.
+  DescribeVcenterClients.
   * `:next_token` (`t:string`) Next pagination token to be provided for
-    DescribeVcenterClients.
+  DescribeVcenterClients.
   """
+
   @spec describe_vcenter_clients(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vcenter_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vcenter_clients_errors()}
+
   def describe_vcenter_clients(%Client{} = client, options \\ []) do
     url_path = "/DescribeVcenterClients"
 
@@ -3759,33 +3986,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec disassociate_applications(
-          AWS.Client.t(),
-          disassociate_applications_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_applications_errors()}
-  def disassociate_applications(%Client{} = client, input, options \\ []) do
+
+  def disassociate_applications(%Client{} = client, options \\ []) do
     url_path = "/DisassociateApplications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3797,33 +4031,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec disassociate_source_servers(
-          AWS.Client.t(),
-          disassociate_source_servers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_source_servers_errors()}
-  def disassociate_source_servers(%Client{} = client, input, options \\ []) do
+
+  def disassociate_source_servers(%Client{} = client, options \\ []) do
     url_path = "/DisassociateSourceServers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3847,29 +4088,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec disconnect_from_service(AWS.Client.t(), disconnect_from_service_request(), Keyword.t()) ::
+
+  @spec disconnect_from_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disconnect_from_service_errors()}
-  def disconnect_from_service(%Client{} = client, input, options \\ []) do
+
+  def disconnect_from_service(%Client{} = client, options \\ []) do
     url_path = "/DisconnectFromService"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3891,29 +4143,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec finalize_cutover(AWS.Client.t(), finalize_cutover_request(), Keyword.t()) ::
+
+  @spec finalize_cutover(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, finalize_cutover_errors()}
-  def finalize_cutover(%Client{} = client, input, options \\ []) do
+
+  def finalize_cutover(%Client{} = client, options \\ []) do
     url_path = "/FinalizeCutover"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3925,29 +4188,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec get_launch_configuration(AWS.Client.t(), get_launch_configuration_request(), Keyword.t()) ::
+
+  @spec get_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_configuration_errors()}
-  def get_launch_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_launch_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetLaunchConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3959,33 +4233,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec get_replication_configuration(
-          AWS.Client.t(),
-          get_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_configuration_errors()}
-  def get_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetReplicationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3997,29 +4278,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec initialize_service(AWS.Client.t(), initialize_service_request(), Keyword.t()) ::
+
+  @spec initialize_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, initialize_service_errors()}
-  def initialize_service(%Client{} = client, input, options \\ []) do
+
+  def initialize_service(%Client{} = client, options \\ []) do
     url_path = "/InitializeService"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4031,29 +4323,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_applications(AWS.Client.t(), list_applications_request(), Keyword.t()) ::
+
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
-  def list_applications(%Client{} = client, input, options \\ []) do
+
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/ListApplications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4065,29 +4368,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_connectors(AWS.Client.t(), list_connectors_request(), Keyword.t()) ::
+
+  @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-  def list_connectors(%Client{} = client, input, options \\ []) do
+
+  def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/ListConnectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4099,29 +4413,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_export_errors(AWS.Client.t(), list_export_errors_request(), Keyword.t()) ::
+
+  @spec list_export_errors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_export_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_export_errors_errors()}
-  def list_export_errors(%Client{} = client, input, options \\ []) do
+
+  def list_export_errors(%Client{} = client, options \\ []) do
     url_path = "/ListExportErrors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4133,29 +4458,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_exports(AWS.Client.t(), list_exports_request(), Keyword.t()) ::
+
+  @spec list_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_exports_errors()}
-  def list_exports(%Client{} = client, input, options \\ []) do
+
+  def list_exports(%Client{} = client, options \\ []) do
     url_path = "/ListExports"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4167,29 +4503,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_import_errors(AWS.Client.t(), list_import_errors_request(), Keyword.t()) ::
+
+  @spec list_import_errors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_errors_errors()}
-  def list_import_errors(%Client{} = client, input, options \\ []) do
+
+  def list_import_errors(%Client{} = client, options \\ []) do
     url_path = "/ListImportErrors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4201,29 +4548,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_imports(AWS.Client.t(), list_imports_request(), Keyword.t()) ::
+
+  @spec list_imports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_imports_errors()}
-  def list_imports(%Client{} = client, input, options \\ []) do
+
+  def list_imports(%Client{} = client, options \\ []) do
     url_path = "/ListImports"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4235,29 +4593,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_managed_accounts(AWS.Client.t(), list_managed_accounts_request(), Keyword.t()) ::
+
+  @spec list_managed_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_accounts_errors()}
-  def list_managed_accounts(%Client{} = client, input, options \\ []) do
+
+  def list_managed_accounts(%Client{} = client, options \\ []) do
     url_path = "/ListManagedAccounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4269,33 +4638,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_source_server_actions(
-          AWS.Client.t(),
-          list_source_server_actions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_source_server_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_source_server_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_source_server_actions_errors()}
-  def list_source_server_actions(%Client{} = client, input, options \\ []) do
+
+  def list_source_server_actions(%Client{} = client, options \\ []) do
     url_path = "/ListSourceServerActions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4308,10 +4684,12 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4349,29 +4727,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_template_actions(AWS.Client.t(), list_template_actions_request(), Keyword.t()) ::
+
+  @spec list_template_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_template_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_actions_errors()}
-  def list_template_actions(%Client{} = client, input, options \\ []) do
+
+  def list_template_actions(%Client{} = client, options \\ []) do
     url_path = "/ListTemplateActions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4383,29 +4772,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec list_waves(AWS.Client.t(), list_waves_request(), Keyword.t()) ::
+
+  @spec list_waves(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_waves_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_waves_errors()}
-  def list_waves(%Client{} = client, input, options \\ []) do
+
+  def list_waves(%Client{} = client, options \\ []) do
     url_path = "/ListWaves"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4419,29 +4819,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec mark_as_archived(AWS.Client.t(), mark_as_archived_request(), Keyword.t()) ::
+
+  @spec mark_as_archived(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, mark_as_archived_errors()}
-  def mark_as_archived(%Client{} = client, input, options \\ []) do
+
+  def mark_as_archived(%Client{} = client, options \\ []) do
     url_path = "/MarkAsArchived"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4453,29 +4864,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec pause_replication(AWS.Client.t(), pause_replication_request(), Keyword.t()) ::
+
+  @spec pause_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_replication_errors()}
-  def pause_replication(%Client{} = client, input, options \\ []) do
+
+  def pause_replication(%Client{} = client, options \\ []) do
     url_path = "/PauseReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4487,29 +4909,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec put_source_server_action(AWS.Client.t(), put_source_server_action_request(), Keyword.t()) ::
+
+  @spec put_source_server_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_source_server_action_errors()}
-  def put_source_server_action(%Client{} = client, input, options \\ []) do
+
+  def put_source_server_action(%Client{} = client, options \\ []) do
     url_path = "/PutSourceServerAction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4521,29 +4954,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec put_template_action(AWS.Client.t(), put_template_action_request(), Keyword.t()) ::
+
+  @spec put_template_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, template_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_template_action_errors()}
-  def put_template_action(%Client{} = client, input, options \\ []) do
+
+  def put_template_action(%Client{} = client, options \\ []) do
     url_path = "/PutTemplateAction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4555,33 +4999,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec remove_source_server_action(
-          AWS.Client.t(),
-          remove_source_server_action_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_source_server_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_source_server_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_source_server_action_errors()}
-  def remove_source_server_action(%Client{} = client, input, options \\ []) do
+
+  def remove_source_server_action(%Client{} = client, options \\ []) do
     url_path = "/RemoveSourceServerAction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4593,29 +5044,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec remove_template_action(AWS.Client.t(), remove_template_action_request(), Keyword.t()) ::
+
+  @spec remove_template_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_template_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_template_action_errors()}
-  def remove_template_action(%Client{} = client, input, options \\ []) do
+
+  def remove_template_action(%Client{} = client, options \\ []) do
     url_path = "/RemoveTemplateAction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4627,29 +5089,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec resume_replication(AWS.Client.t(), resume_replication_request(), Keyword.t()) ::
+
+  @spec resume_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_replication_errors()}
-  def resume_replication(%Client{} = client, input, options \\ []) do
+
+  def resume_replication(%Client{} = client, options \\ []) do
     url_path = "/ResumeReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4664,29 +5137,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec retry_data_replication(AWS.Client.t(), retry_data_replication_request(), Keyword.t()) ::
+
+  @spec retry_data_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_data_replication_errors()}
-  def retry_data_replication(%Client{} = client, input, options \\ []) do
+
+  def retry_data_replication(%Client{} = client, options \\ []) do
     url_path = "/RetryDataReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4700,29 +5184,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec start_cutover(AWS.Client.t(), start_cutover_request(), Keyword.t()) ::
+
+  @spec start_cutover(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_cutover_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_cutover_errors()}
-  def start_cutover(%Client{} = client, input, options \\ []) do
+
+  def start_cutover(%Client{} = client, options \\ []) do
     url_path = "/StartCutover"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4734,29 +5229,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec start_export(AWS.Client.t(), start_export_request(), Keyword.t()) ::
+
+  @spec start_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_export_errors()}
-  def start_export(%Client{} = client, input, options \\ []) do
+
+  def start_export(%Client{} = client, options \\ []) do
     url_path = "/StartExport"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4768,29 +5274,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec start_import(AWS.Client.t(), start_import_request(), Keyword.t()) ::
+
+  @spec start_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_errors()}
-  def start_import(%Client{} = client, input, options \\ []) do
+
+  def start_import(%Client{} = client, options \\ []) do
     url_path = "/StartImport"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4802,29 +5319,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec start_replication(AWS.Client.t(), start_replication_request(), Keyword.t()) ::
+
+  @spec start_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replication_errors()}
-  def start_replication(%Client{} = client, input, options \\ []) do
+
+  def start_replication(%Client{} = client, options \\ []) do
     url_path = "/StartReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4838,29 +5366,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec start_test(AWS.Client.t(), start_test_request(), Keyword.t()) ::
+
+  @spec start_test(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_test_errors()}
-  def start_test(%Client{} = client, input, options \\ []) do
+
+  def start_test(%Client{} = client, options \\ []) do
     url_path = "/StartTest"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4872,29 +5411,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec stop_replication(AWS.Client.t(), stop_replication_request(), Keyword.t()) ::
+
+  @spec stop_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_errors()}
-  def stop_replication(%Client{} = client, input, options \\ []) do
+
+  def stop_replication(%Client{} = client, options \\ []) do
     url_path = "/StopReplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4910,29 +5460,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4946,33 +5507,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec terminate_target_instances(
-          AWS.Client.t(),
-          terminate_target_instances_request(),
-          Keyword.t()
-        ) ::
+
+  @spec terminate_target_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, terminate_target_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_target_instances_errors()}
-  def terminate_target_instances(%Client{} = client, input, options \\ []) do
+
+  def terminate_target_instances(%Client{} = client, options \\ []) do
     url_path = "/TerminateTargetInstances"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -4984,29 +5552,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec unarchive_application(AWS.Client.t(), unarchive_application_request(), Keyword.t()) ::
+
+  @spec unarchive_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unarchive_application_errors()}
-  def unarchive_application(%Client{} = client, input, options \\ []) do
+
+  def unarchive_application(%Client{} = client, options \\ []) do
     url_path = "/UnarchiveApplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5018,29 +5597,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec unarchive_wave(AWS.Client.t(), unarchive_wave_request(), Keyword.t()) ::
+
+  @spec unarchive_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unarchive_wave_errors()}
-  def unarchive_wave(%Client{} = client, input, options \\ []) do
+
+  def unarchive_wave(%Client{} = client, options \\ []) do
     url_path = "/UnarchiveWave"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5055,22 +5645,39 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5079,7 +5686,7 @@ defmodule AWS.Mgn do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5094,29 +5701,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_application(AWS.Client.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, input, options \\ []) do
+
+  def update_application(%Client{} = client, options \\ []) do
     url_path = "/UpdateApplication"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5128,29 +5746,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_connector(AWS.Client.t(), update_connector_request(), Keyword.t()) ::
+
+  @spec update_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_errors()}
-  def update_connector(%Client{} = client, input, options \\ []) do
+
+  def update_connector(%Client{} = client, options \\ []) do
     url_path = "/UpdateConnector"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5162,33 +5791,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_launch_configuration(
-          AWS.Client.t(),
-          update_launch_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_errors()}
-  def update_launch_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_launch_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5200,33 +5836,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_launch_configuration_template(
-          AWS.Client.t(),
-          update_launch_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_configuration_template_errors()}
-  def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def update_launch_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5238,33 +5881,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_replication_configuration(
-          AWS.Client.t(),
-          update_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_configuration_errors()}
-  def update_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_replication_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5276,33 +5926,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_replication_configuration_template(
-          AWS.Client.t(),
-          update_replication_configuration_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_configuration_template_errors()}
-  def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
+
+  def update_replication_configuration_template(%Client{} = client, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5314,29 +5971,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_source_server(AWS.Client.t(), update_source_server_request(), Keyword.t()) ::
+
+  @spec update_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_source_server_errors()}
-  def update_source_server(%Client{} = client, input, options \\ []) do
+
+  def update_source_server(%Client{} = client, options \\ []) do
     url_path = "/UpdateSourceServer"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5349,33 +6017,40 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_source_server_replication_type(
-          AWS.Client.t(),
-          update_source_server_replication_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_source_server_replication_type(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_source_server_replication_type_errors()}
-  def update_source_server_replication_type(%Client{} = client, input, options \\ []) do
+
+  def update_source_server_replication_type(%Client{} = client, options \\ []) do
     url_path = "/UpdateSourceServerReplicationType"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5387,28 +6062,39 @@ defmodule AWS.Mgn do
 
   ## Optional parameters:
   """
-  @spec update_wave(AWS.Client.t(), update_wave_request(), Keyword.t()) ::
+
+  @spec update_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_wave_errors()}
-  def update_wave(%Client{} = client, input, options \\ []) do
+
+  def update_wave(%Client{} = client, options \\ []) do
     url_path = "/UpdateWave"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

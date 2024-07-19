@@ -7196,12 +7196,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Allocates a static IP address.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20AllocateStaticIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:allocate_static_ip_request`)
+    %{
+      required("staticIpName") => String.t()
+    }
   """
-  @spec allocate_static_ip(AWS.Client.t(), allocate_static_ip_request(), Keyword.t()) ::
+
+  @spec allocate_static_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, allocate_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, allocate_static_ip_errors()}
-  def allocate_static_ip(%Client{} = client, input, options \\ []) do
+
+  def allocate_static_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7213,16 +7223,24 @@ defmodule AWS.Lightsail do
   network (CDN) distribution. After the certificate is attached, your
   distribution accepts HTTPS traffic for all of the domains that are associated
   with the certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20AttachCertificateToDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_certificate_to_distribution_request`)
+    %{
+      required("certificateName") => String.t(),
+      required("distributionName") => String.t()
+    }
   """
-  @spec attach_certificate_to_distribution(
-          AWS.Client.t(),
-          attach_certificate_to_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec attach_certificate_to_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_certificate_to_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_certificate_to_distribution_errors()}
-  def attach_certificate_to_distribution(%Client{} = client, input, options \\ []) do
+
+  def attach_certificate_to_distribution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7232,12 +7250,25 @@ defmodule AWS.Lightsail do
   @doc """
   Attaches a block storage disk to a running or stopped Lightsail instance and
   exposes it to the instance with the specified disk name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20AttachDisk&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_disk_request`)
+    %{
+      optional("autoMounting") => boolean(),
+      required("diskName") => String.t(),
+      required("diskPath") => String.t(),
+      required("instanceName") => String.t()
+    }
   """
-  @spec attach_disk(AWS.Client.t(), attach_disk_request(), Keyword.t()) ::
+
+  @spec attach_disk(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_disk_errors()}
-  def attach_disk(%Client{} = client, input, options \\ []) do
+
+  def attach_disk(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7248,16 +7279,24 @@ defmodule AWS.Lightsail do
   Attaches one or more Lightsail instances to a load balancer. After some time,
   the instances are attached to the load balancer and the health check status is
   available.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20AttachInstancesToLoadBalancer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_instances_to_load_balancer_request`)
+    %{
+      required("instanceNames") => list(String.t()()),
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec attach_instances_to_load_balancer(
-          AWS.Client.t(),
-          attach_instances_to_load_balancer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec attach_instances_to_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_instances_to_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_instances_to_load_balancer_errors()}
-  def attach_instances_to_load_balancer(%Client{} = client, input, options \\ []) do
+
+  def attach_instances_to_load_balancer(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7271,16 +7310,24 @@ defmodule AWS.Lightsail do
   You can also use this API to rotate the certificates on your account. Use the
   `AttachLoadBalancerTlsCertificate` action with the non-attached certificate,
   and it will replace the existing one and become the attached certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20AttachLoadBalancerTlsCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_load_balancer_tls_certificate_request`)
+    %{
+      required("certificateName") => String.t(),
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec attach_load_balancer_tls_certificate(
-          AWS.Client.t(),
-          attach_load_balancer_tls_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec attach_load_balancer_tls_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_load_balancer_tls_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_load_balancer_tls_certificate_errors()}
-  def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
+
+  def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7289,12 +7336,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Attaches a static IP address to a specific Amazon Lightsail instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20AttachStaticIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:attach_static_ip_request`)
+    %{
+      required("instanceName") => String.t(),
+      required("staticIpName") => String.t()
+    }
   """
-  @spec attach_static_ip(AWS.Client.t(), attach_static_ip_request(), Keyword.t()) ::
+
+  @spec attach_static_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, attach_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, attach_static_ip_errors()}
-  def attach_static_ip(%Client{} = client, input, options \\ []) do
+
+  def attach_static_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7303,16 +7361,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Closes ports for a specific Amazon Lightsail instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CloseInstancePublicPorts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:close_instance_public_ports_request`)
+    %{
+      required("instanceName") => String.t(),
+      required("portInfo") => port_info()
+    }
   """
-  @spec close_instance_public_ports(
-          AWS.Client.t(),
-          close_instance_public_ports_request(),
-          Keyword.t()
-        ) ::
+
+  @spec close_instance_public_ports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, close_instance_public_ports_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, close_instance_public_ports_errors()}
-  def close_instance_public_ports(%Client{} = client, input, options \\ []) do
+
+  def close_instance_public_ports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7326,12 +7391,27 @@ defmodule AWS.Lightsail do
   instance or a disk from one Amazon Web Services Region to another in Amazon
   Lightsail. When copying a *manual snapshot*, be sure to define the ``` source
   region ``` , `source snapshot name`, and `target snapshot name` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CopySnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_snapshot_request`)
+    %{
+      optional("restoreDate") => String.t(),
+      optional("sourceResourceName") => String.t(),
+      optional("sourceSnapshotName") => String.t(),
+      optional("useLatestRestorableAutoSnapshot") => boolean(),
+      required("sourceRegion") => list(any()),
+      required("targetSnapshotName") => String.t()
+    }
   """
-  @spec copy_snapshot(AWS.Client.t(), copy_snapshot_request(), Keyword.t()) ::
+
+  @spec copy_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_snapshot_errors()}
-  def copy_snapshot(%Client{} = client, input, options \\ []) do
+
+  def copy_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7340,12 +7420,25 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an Amazon Lightsail bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateBucket&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_bucket_request`)
+    %{
+      optional("enableObjectVersioning") => boolean(),
+      optional("tags") => list(tag()()),
+      required("bucketName") => String.t(),
+      required("bundleId") => String.t()
+    }
   """
-  @spec create_bucket(AWS.Client.t(), create_bucket_request(), Keyword.t()) ::
+
+  @spec create_bucket(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bucket_errors()}
-  def create_bucket(%Client{} = client, input, options \\ []) do
+
+  def create_bucket(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7363,12 +7456,22 @@ defmodule AWS.Lightsail do
   Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
   in the *Amazon Lightsail Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateBucketAccessKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_bucket_access_key_request`)
+    %{
+      required("bucketName") => String.t()
+    }
   """
-  @spec create_bucket_access_key(AWS.Client.t(), create_bucket_access_key_request(), Keyword.t()) ::
+
+  @spec create_bucket_access_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_bucket_access_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bucket_access_key_errors()}
-  def create_bucket_access_key(%Client{} = client, input, options \\ []) do
+
+  def create_bucket_access_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7381,12 +7484,25 @@ defmodule AWS.Lightsail do
   use the `AttachCertificateToDistribution` action to use the certificate and
   its domains with your distribution. Or use the `UpdateContainerService` action
   to use the certificate and its domains with your container service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_certificate_request`)
+    %{
+      optional("subjectAlternativeNames") => list(String.t()()),
+      optional("tags") => list(tag()()),
+      required("certificateName") => String.t(),
+      required("domainName") => String.t()
+    }
   """
-  @spec create_certificate(AWS.Client.t(), create_certificate_request(), Keyword.t()) ::
+
+  @spec create_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_certificate_errors()}
-  def create_certificate(%Client{} = client, input, options \\ []) do
+
+  def create_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7399,16 +7515,22 @@ defmodule AWS.Lightsail do
   CloudFormation stack record that can be used to track the AWS CloudFormation
   stack created. Use the ``` get cloud formation stack records ``` operation to
   get a list of the CloudFormation stacks created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateCloudFormationStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cloud_formation_stack_request`)
+    %{
+      required("instances") => list(instance_entry()())
+    }
   """
-  @spec create_cloud_formation_stack(
-          AWS.Client.t(),
-          create_cloud_formation_stack_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_cloud_formation_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_formation_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cloud_formation_stack_errors()}
-  def create_cloud_formation_stack(%Client{} = client, input, options \\ []) do
+
+  def create_cloud_formation_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7417,12 +7539,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an email or SMS text message contact method.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateContactMethod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_contact_method_request`)
+    %{
+      required("contactEndpoint") => String.t(),
+      required("protocol") => list(any())
+    }
   """
-  @spec create_contact_method(AWS.Client.t(), create_contact_method_request(), Keyword.t()) ::
+
+  @spec create_contact_method(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_contact_method_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_method_errors()}
-  def create_contact_method(%Client{} = client, input, options \\ []) do
+
+  def create_contact_method(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7431,12 +7564,28 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an Amazon Lightsail container service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateContainerService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_container_service_request`)
+    %{
+      optional("deployment") => container_service_deployment_request(),
+      optional("privateRegistryAccess") => private_registry_access_request(),
+      optional("publicDomainNames") => map(),
+      optional("tags") => list(tag()()),
+      required("power") => list(any()),
+      required("scale") => integer(),
+      required("serviceName") => String.t()
+    }
   """
-  @spec create_container_service(AWS.Client.t(), create_container_service_request(), Keyword.t()) ::
+
+  @spec create_container_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_container_service_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_service_errors()}
-  def create_container_service(%Client{} = client, input, options \\ []) do
+
+  def create_container_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7450,16 +7599,24 @@ defmodule AWS.Lightsail do
   and the launch command to run. It also specifies the container that will serve
   as the public endpoint of the deployment and its settings, such as the HTTP or
   HTTPS port to use, and the health check configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateContainerServiceDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_container_service_deployment_request`)
+    %{
+      optional("containers") => map(),
+      optional("publicEndpoint") => endpoint_request()
+    }
   """
-  @spec create_container_service_deployment(
-          AWS.Client.t(),
-          create_container_service_deployment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_container_service_deployment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_container_service_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_service_deployment_errors()}
-  def create_container_service_deployment(%Client{} = client, input, options \\ []) do
+
+  def create_container_service_deployment(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7477,16 +7634,23 @@ defmodule AWS.Lightsail do
   registry of your Lightsail account. You cannot pull container images or
   perform any other container image management actions on the container service
   registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateContainerServiceRegistryLogin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_container_service_registry_login_request`)
+    %{
+      
+    }
   """
-  @spec create_container_service_registry_login(
-          AWS.Client.t(),
-          create_container_service_registry_login_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_container_service_registry_login(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_container_service_registry_login_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_service_registry_login_errors()}
-  def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
+
+  def create_container_service_registry_login(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7496,12 +7660,26 @@ defmodule AWS.Lightsail do
   @doc """
   Creates a block storage disk that can be attached to an Amazon Lightsail
   instance in the same Availability Zone (`us-east-2a`).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateDisk&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_disk_request`)
+    %{
+      optional("addOns") => list(add_on_request()()),
+      optional("tags") => list(tag()()),
+      required("availabilityZone") => String.t(),
+      required("diskName") => String.t(),
+      required("sizeInGb") => integer()
+    }
   """
-  @spec create_disk(AWS.Client.t(), create_disk_request(), Keyword.t()) ::
+
+  @spec create_disk(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_disk_errors()}
-  def create_disk(%Client{} = client, input, options \\ []) do
+
+  def create_disk(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7512,16 +7690,30 @@ defmodule AWS.Lightsail do
   Creates a block storage disk from a manual or automatic snapshot of a disk. The
   resulting disk can be attached to an Amazon Lightsail instance in the same
   Availability Zone (`us-east-2a`).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateDiskFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_disk_from_snapshot_request`)
+    %{
+      optional("addOns") => list(add_on_request()()),
+      optional("diskSnapshotName") => String.t(),
+      optional("restoreDate") => String.t(),
+      optional("sourceDiskName") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("useLatestRestorableAutoSnapshot") => boolean(),
+      required("availabilityZone") => String.t(),
+      required("diskName") => String.t(),
+      required("sizeInGb") => integer()
+    }
   """
-  @spec create_disk_from_snapshot(
-          AWS.Client.t(),
-          create_disk_from_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_disk_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_disk_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_disk_from_snapshot_errors()}
-  def create_disk_from_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_disk_from_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7541,12 +7733,25 @@ defmodule AWS.Lightsail do
   snapshot command, and then remount the disk to ensure a consistent and
   complete snapshot. You may remount and use your disk while the snapshot status
   is pending.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateDiskSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_disk_snapshot_request`)
+    %{
+      optional("diskName") => String.t(),
+      optional("instanceName") => String.t(),
+      optional("tags") => list(tag()()),
+      required("diskSnapshotName") => String.t()
+    }
   """
-  @spec create_disk_snapshot(AWS.Client.t(), create_disk_snapshot_request(), Keyword.t()) ::
+
+  @spec create_disk_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_disk_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_disk_snapshot_errors()}
-  def create_disk_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_disk_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7555,12 +7760,31 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an Amazon Lightsail content delivery network (CDN) distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_distribution_request`)
+    %{
+      optional("cacheBehaviorSettings") => cache_settings(),
+      optional("cacheBehaviors") => list(cache_behavior_per_path()()),
+      optional("certificateName") => String.t(),
+      optional("ipAddressType") => list(any()),
+      optional("tags") => list(tag()()),
+      optional("viewerMinimumTlsProtocolVersion") => list(any()),
+      required("bundleId") => String.t(),
+      required("defaultCacheBehavior") => cache_behavior(),
+      required("distributionName") => String.t(),
+      required("origin") => input_origin()
+    }
   """
-  @spec create_distribution(AWS.Client.t(), create_distribution_request(), Keyword.t()) ::
+
+  @spec create_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_distribution_errors()}
-  def create_distribution(%Client{} = client, input, options \\ []) do
+
+  def create_distribution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7569,12 +7793,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a domain resource for the specified domain (example.com).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_domain_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("domainName") => String.t()
+    }
   """
-  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
+
+  @spec create_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-  def create_domain(%Client{} = client, input, options \\ []) do
+
+  def create_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7585,12 +7820,23 @@ defmodule AWS.Lightsail do
   Creates one of the following domain name system (DNS) records in a domain DNS
   zone: Address (A), canonical name (CNAME), mail exchanger (MX), name server
   (NS), start of authority (SOA), service locator (SRV), or text (TXT).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateDomainEntry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_domain_entry_request`)
+    %{
+      required("domainEntry") => domain_entry(),
+      required("domainName") => String.t()
+    }
   """
-  @spec create_domain_entry(AWS.Client.t(), create_domain_entry_request(), Keyword.t()) ::
+
+  @spec create_domain_entry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_domain_entry_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_entry_errors()}
-  def create_domain_entry(%Client{} = client, input, options \\ []) do
+
+  def create_domain_entry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7602,16 +7848,23 @@ defmodule AWS.Lightsail do
   interface (GUI) session. The primary URL initiates a web-based NICE DCV
   session to the virtual computer's application. The secondary URL initiates a
   web-based NICE DCV session to the virtual computer's operating session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateGUISessionAccessDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_g_ui_session_access_details_request`)
+    %{
+      required("resourceName") => String.t()
+    }
   """
-  @spec create_g_ui_session_access_details(
-          AWS.Client.t(),
-          create_g_ui_session_access_details_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_g_ui_session_access_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_g_ui_session_access_details_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_g_ui_session_access_details_errors()}
-  def create_g_ui_session_access_details(%Client{} = client, input, options \\ []) do
+
+  def create_g_ui_session_access_details(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7621,12 +7874,24 @@ defmodule AWS.Lightsail do
   @doc """
   Creates a snapshot of a specific virtual private server, or *instance*. You can
   use a snapshot to create a new instance that is based on that snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateInstanceSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_instance_snapshot_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("instanceName") => String.t(),
+      required("instanceSnapshotName") => String.t()
+    }
   """
-  @spec create_instance_snapshot(AWS.Client.t(), create_instance_snapshot_request(), Keyword.t()) ::
+
+  @spec create_instance_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instance_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_snapshot_errors()}
-  def create_instance_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_instance_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7635,12 +7900,31 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates one or more Amazon Lightsail instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_instances_request`)
+    %{
+      optional("addOns") => list(add_on_request()()),
+      optional("customImageName") => String.t(),
+      optional("ipAddressType") => list(any()),
+      optional("keyPairName") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("userData") => String.t(),
+      required("availabilityZone") => String.t(),
+      required("blueprintId") => String.t(),
+      required("bundleId") => String.t(),
+      required("instanceNames") => list(String.t()())
+    }
   """
-  @spec create_instances(AWS.Client.t(), create_instances_request(), Keyword.t()) ::
+
+  @spec create_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instances_errors()}
-  def create_instances(%Client{} = client, input, options \\ []) do
+
+  def create_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7650,16 +7934,35 @@ defmodule AWS.Lightsail do
   @doc """
   Creates one or more new instances from a manual or automatic snapshot of an
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateInstancesFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_instances_from_snapshot_request`)
+    %{
+      optional("addOns") => list(add_on_request()()),
+      optional("attachedDiskMapping") => map(),
+      optional("instanceSnapshotName") => String.t(),
+      optional("ipAddressType") => list(any()),
+      optional("keyPairName") => String.t(),
+      optional("restoreDate") => String.t(),
+      optional("sourceInstanceName") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("useLatestRestorableAutoSnapshot") => boolean(),
+      optional("userData") => String.t(),
+      required("availabilityZone") => String.t(),
+      required("bundleId") => String.t(),
+      required("instanceNames") => list(String.t()())
+    }
   """
-  @spec create_instances_from_snapshot(
-          AWS.Client.t(),
-          create_instances_from_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_instances_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_instances_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instances_from_snapshot_errors()}
-  def create_instances_from_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_instances_from_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7669,12 +7972,23 @@ defmodule AWS.Lightsail do
   @doc """
   Creates a custom SSH key pair that you can use with an Amazon Lightsail
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateKeyPair&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_key_pair_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("keyPairName") => String.t()
+    }
   """
-  @spec create_key_pair(AWS.Client.t(), create_key_pair_request(), Keyword.t()) ::
+
+  @spec create_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_pair_errors()}
-  def create_key_pair(%Client{} = client, input, options \\ []) do
+
+  def create_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7689,12 +8003,30 @@ defmodule AWS.Lightsail do
   create a load balancer, you can specify a unique name and port settings. To
   change additional load balancer settings, use the
   `UpdateLoadBalancerAttribute` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateLoadBalancer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_load_balancer_request`)
+    %{
+      optional("certificateAlternativeNames") => list(String.t()()),
+      optional("certificateDomainName") => String.t(),
+      optional("certificateName") => String.t(),
+      optional("healthCheckPath") => String.t(),
+      optional("ipAddressType") => list(any()),
+      optional("tags") => list(tag()()),
+      optional("tlsPolicyName") => String.t(),
+      required("instancePort") => integer(),
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec create_load_balancer(AWS.Client.t(), create_load_balancer_request(), Keyword.t()) ::
+
+  @spec create_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_load_balancer_errors()}
-  def create_load_balancer(%Client{} = client, input, options \\ []) do
+
+  def create_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7704,16 +8036,27 @@ defmodule AWS.Lightsail do
   @doc """
   Creates an SSL/TLS certificate for an Amazon Lightsail load balancer. TLS is
   just an updated, more secure version of Secure Socket Layer (SSL).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateLoadBalancerTlsCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_load_balancer_tls_certificate_request`)
+    %{
+      optional("certificateAlternativeNames") => list(String.t()()),
+      optional("tags") => list(tag()()),
+      required("certificateDomainName") => String.t(),
+      required("certificateName") => String.t(),
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec create_load_balancer_tls_certificate(
-          AWS.Client.t(),
-          create_load_balancer_tls_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_load_balancer_tls_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_load_balancer_tls_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_load_balancer_tls_certificate_errors()}
-  def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
+
+  def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7722,16 +8065,32 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a new database in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateRelationalDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_relational_database_request`)
+    %{
+      optional("availabilityZone") => String.t(),
+      optional("masterUserPassword") => String.t(),
+      optional("preferredBackupWindow") => String.t(),
+      optional("preferredMaintenanceWindow") => String.t(),
+      optional("publiclyAccessible") => boolean(),
+      optional("tags") => list(tag()()),
+      required("masterDatabaseName") => String.t(),
+      required("masterUsername") => String.t(),
+      required("relationalDatabaseBlueprintId") => String.t(),
+      required("relationalDatabaseBundleId") => String.t(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec create_relational_database(
-          AWS.Client.t(),
-          create_relational_database_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_relational_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_relational_database_errors()}
-  def create_relational_database(%Client{} = client, input, options \\ []) do
+
+  def create_relational_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7743,16 +8102,31 @@ defmodule AWS.Lightsail do
   You can create a new database from a snapshot in if something goes wrong with
   your original database, or to change it to a different plan, such as a high
   availability or standard plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateRelationalDatabaseFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_relational_database_from_snapshot_request`)
+    %{
+      optional("availabilityZone") => String.t(),
+      optional("publiclyAccessible") => boolean(),
+      optional("relationalDatabaseBundleId") => String.t(),
+      optional("relationalDatabaseSnapshotName") => String.t(),
+      optional("restoreTime") => non_neg_integer(),
+      optional("sourceRelationalDatabaseName") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("useLatestRestorableTime") => boolean(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec create_relational_database_from_snapshot(
-          AWS.Client.t(),
-          create_relational_database_from_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_relational_database_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_relational_database_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_relational_database_from_snapshot_errors()}
-  def create_relational_database_from_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_relational_database_from_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7763,16 +8137,25 @@ defmodule AWS.Lightsail do
   Creates a snapshot of your database in Amazon Lightsail. You can use snapshots
   for backups, to make copies of a database, and to save data before deleting a
   database.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20CreateRelationalDatabaseSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_relational_database_snapshot_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("relationalDatabaseName") => String.t(),
+      required("relationalDatabaseSnapshotName") => String.t()
+    }
   """
-  @spec create_relational_database_snapshot(
-          AWS.Client.t(),
-          create_relational_database_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_relational_database_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_relational_database_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_relational_database_snapshot_errors()}
-  def create_relational_database_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_relational_database_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -7781,12 +8164,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes an alarm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_alarm_request`)
+    %{
+      required("alarmName") => String.t()
+    }
   """
-  @spec delete_alarm(AWS.Client.t(), delete_alarm_request(), Keyword.t()) ::
+
+  @spec delete_alarm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_alarm_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alarm_errors()}
-  def delete_alarm(%Client{} = client, input, options \\ []) do
+
+  def delete_alarm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7797,12 +8190,23 @@ defmodule AWS.Lightsail do
   Deletes an automatic snapshot of an instance or disk. For more information, see
   the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteAutoSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_auto_snapshot_request`)
+    %{
+      required("date") => String.t(),
+      required("resourceName") => String.t()
+    }
   """
-  @spec delete_auto_snapshot(AWS.Client.t(), delete_auto_snapshot_request(), Keyword.t()) ::
+
+  @spec delete_auto_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_auto_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_auto_snapshot_errors()}
-  def delete_auto_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_auto_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7811,12 +8215,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a Amazon Lightsail bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteBucket&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_bucket_request`)
+    %{
+      optional("forceDelete") => boolean(),
+      required("bucketName") => String.t()
+    }
   """
-  @spec delete_bucket(AWS.Client.t(), delete_bucket_request(), Keyword.t()) ::
+
+  @spec delete_bucket(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bucket_errors()}
-  def delete_bucket(%Client{} = client, input, options \\ []) do
+
+  def delete_bucket(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7826,12 +8241,23 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes an access key for the specified Amazon Lightsail bucket. We recommend
   that you delete an access key if the secret access key is compromised.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteBucketAccessKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_bucket_access_key_request`)
+    %{
+      required("accessKeyId") => String.t(),
+      required("bucketName") => String.t()
+    }
   """
-  @spec delete_bucket_access_key(AWS.Client.t(), delete_bucket_access_key_request(), Keyword.t()) ::
+
+  @spec delete_bucket_access_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_bucket_access_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_bucket_access_key_errors()}
-  def delete_bucket_access_key(%Client{} = client, input, options \\ []) do
+
+  def delete_bucket_access_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7841,12 +8267,22 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery
   network (CDN) distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_certificate_request`)
+    %{
+      required("certificateName") => String.t()
+    }
   """
-  @spec delete_certificate(AWS.Client.t(), delete_certificate_request(), Keyword.t()) ::
+
+  @spec delete_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_errors()}
-  def delete_certificate(%Client{} = client, input, options \\ []) do
+
+  def delete_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7855,12 +8291,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a contact method.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteContactMethod&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_contact_method_request`)
+    %{
+      required("protocol") => list(any())
+    }
   """
-  @spec delete_contact_method(AWS.Client.t(), delete_contact_method_request(), Keyword.t()) ::
+
+  @spec delete_contact_method(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_contact_method_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_method_errors()}
-  def delete_contact_method(%Client{} = client, input, options \\ []) do
+
+  def delete_contact_method(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7870,12 +8316,22 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes a container image that is registered to your Amazon Lightsail container
   service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteContainerImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_container_image_request`)
+    %{
+      
+    }
   """
-  @spec delete_container_image(AWS.Client.t(), delete_container_image_request(), Keyword.t()) ::
+
+  @spec delete_container_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_container_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_image_errors()}
-  def delete_container_image(%Client{} = client, input, options \\ []) do
+
+  def delete_container_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7884,12 +8340,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes your Amazon Lightsail container service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteContainerService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_container_service_request`)
+    %{
+      
+    }
   """
-  @spec delete_container_service(AWS.Client.t(), delete_container_service_request(), Keyword.t()) ::
+
+  @spec delete_container_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_container_service_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_service_errors()}
-  def delete_container_service(%Client{} = client, input, options \\ []) do
+
+  def delete_container_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7900,12 +8366,23 @@ defmodule AWS.Lightsail do
   Deletes the specified block storage disk. The disk must be in the `available`
   state (not attached to a Lightsail instance). The disk may remain in the
   `deleting` state for several minutes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteDisk&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_disk_request`)
+    %{
+      optional("forceDeleteAddOns") => boolean(),
+      required("diskName") => String.t()
+    }
   """
-  @spec delete_disk(AWS.Client.t(), delete_disk_request(), Keyword.t()) ::
+
+  @spec delete_disk(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_disk_errors()}
-  def delete_disk(%Client{} = client, input, options \\ []) do
+
+  def delete_disk(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7919,12 +8396,22 @@ defmodule AWS.Lightsail do
   delete a snapshot, only the data not needed for any other snapshot is removed.
   So regardless of which prior snapshots have been deleted, all active snapshots
   will have access to all the information needed to restore the disk.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteDiskSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_disk_snapshot_request`)
+    %{
+      required("diskSnapshotName") => String.t()
+    }
   """
-  @spec delete_disk_snapshot(AWS.Client.t(), delete_disk_snapshot_request(), Keyword.t()) ::
+
+  @spec delete_disk_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_disk_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_disk_snapshot_errors()}
-  def delete_disk_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_disk_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7933,12 +8420,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes your Amazon Lightsail content delivery network (CDN) distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_distribution_request`)
+    %{
+      optional("distributionName") => String.t()
+    }
   """
-  @spec delete_distribution(AWS.Client.t(), delete_distribution_request(), Keyword.t()) ::
+
+  @spec delete_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_distribution_errors()}
-  def delete_distribution(%Client{} = client, input, options \\ []) do
+
+  def delete_distribution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7947,12 +8444,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes the specified domain recordset and all of its domain records.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_domain_request`)
+    %{
+      required("domainName") => String.t()
+    }
   """
-  @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
+
+  @spec delete_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-  def delete_domain(%Client{} = client, input, options \\ []) do
+
+  def delete_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7961,12 +8468,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a specific domain entry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteDomainEntry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_domain_entry_request`)
+    %{
+      required("domainEntry") => domain_entry(),
+      required("domainName") => String.t()
+    }
   """
-  @spec delete_domain_entry(AWS.Client.t(), delete_domain_entry_request(), Keyword.t()) ::
+
+  @spec delete_domain_entry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_domain_entry_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_entry_errors()}
-  def delete_domain_entry(%Client{} = client, input, options \\ []) do
+
+  def delete_domain_entry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7975,12 +8493,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes an Amazon Lightsail instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_instance_request`)
+    %{
+      optional("forceDeleteAddOns") => boolean(),
+      required("instanceName") => String.t()
+    }
   """
-  @spec delete_instance(AWS.Client.t(), delete_instance_request(), Keyword.t()) ::
+
+  @spec delete_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_errors()}
-  def delete_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -7989,12 +8518,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a specific snapshot of a virtual private server (or *instance*).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteInstanceSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_instance_snapshot_request`)
+    %{
+      required("instanceSnapshotName") => String.t()
+    }
   """
-  @spec delete_instance_snapshot(AWS.Client.t(), delete_instance_snapshot_request(), Keyword.t()) ::
+
+  @spec delete_instance_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_instance_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_snapshot_errors()}
-  def delete_instance_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_instance_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8003,12 +8542,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes the specified key pair by removing the public key from Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteKeyPair&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_key_pair_request`)
+    %{
+      optional("expectedFingerprint") => String.t(),
+      required("keyPairName") => String.t()
+    }
   """
-  @spec delete_key_pair(AWS.Client.t(), delete_key_pair_request(), Keyword.t()) ::
+
+  @spec delete_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_pair_errors()}
-  def delete_key_pair(%Client{} = client, input, options \\ []) do
+
+  def delete_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8020,12 +8570,22 @@ defmodule AWS.Lightsail do
   browser-based SSH or RDP clients to authenticate an instance. This operation
   enables the Lightsail browser-based SSH or RDP clients to connect to the
   instance after a host key mismatch.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteKnownHostKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_known_host_keys_request`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec delete_known_host_keys(AWS.Client.t(), delete_known_host_keys_request(), Keyword.t()) ::
+
+  @spec delete_known_host_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_known_host_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_known_host_keys_errors()}
-  def delete_known_host_keys(%Client{} = client, input, options \\ []) do
+
+  def delete_known_host_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8036,12 +8596,22 @@ defmodule AWS.Lightsail do
   Deletes a Lightsail load balancer and all its associated SSL/TLS certificates.
   Once the load balancer is deleted, you will need to create a new load
   balancer, create a new certificate, and verify domain ownership again.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteLoadBalancer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_load_balancer_request`)
+    %{
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec delete_load_balancer(AWS.Client.t(), delete_load_balancer_request(), Keyword.t()) ::
+
+  @spec delete_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_load_balancer_errors()}
-  def delete_load_balancer(%Client{} = client, input, options \\ []) do
+
+  def delete_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8050,16 +8620,25 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteLoadBalancerTlsCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_load_balancer_tls_certificate_request`)
+    %{
+      optional("force") => boolean(),
+      required("certificateName") => String.t(),
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec delete_load_balancer_tls_certificate(
-          AWS.Client.t(),
-          delete_load_balancer_tls_certificate_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_load_balancer_tls_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_load_balancer_tls_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_load_balancer_tls_certificate_errors()}
-  def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
+
+  def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8068,16 +8647,24 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a database in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteRelationalDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_relational_database_request`)
+    %{
+      optional("finalRelationalDatabaseSnapshotName") => String.t(),
+      optional("skipFinalSnapshot") => boolean(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec delete_relational_database(
-          AWS.Client.t(),
-          delete_relational_database_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_relational_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_relational_database_errors()}
-  def delete_relational_database(%Client{} = client, input, options \\ []) do
+
+  def delete_relational_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8086,16 +8673,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a database snapshot in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DeleteRelationalDatabaseSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_relational_database_snapshot_request`)
+    %{
+      required("relationalDatabaseSnapshotName") => String.t()
+    }
   """
-  @spec delete_relational_database_snapshot(
-          AWS.Client.t(),
-          delete_relational_database_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_relational_database_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_relational_database_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_relational_database_snapshot_errors()}
-  def delete_relational_database_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_relational_database_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8105,16 +8699,23 @@ defmodule AWS.Lightsail do
   @doc """
   Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery
   network (CDN) distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DetachCertificateFromDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_certificate_from_distribution_request`)
+    %{
+      required("distributionName") => String.t()
+    }
   """
-  @spec detach_certificate_from_distribution(
-          AWS.Client.t(),
-          detach_certificate_from_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec detach_certificate_from_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_certificate_from_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_certificate_from_distribution_errors()}
-  def detach_certificate_from_distribution(%Client{} = client, input, options \\ []) do
+
+  def detach_certificate_from_distribution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8125,12 +8726,22 @@ defmodule AWS.Lightsail do
   Detaches a stopped block storage disk from a Lightsail instance. Make sure to
   unmount any file systems on the device within your operating system before
   stopping the instance and detaching the disk.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DetachDisk&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_disk_request`)
+    %{
+      required("diskName") => String.t()
+    }
   """
-  @spec detach_disk(AWS.Client.t(), detach_disk_request(), Keyword.t()) ::
+
+  @spec detach_disk(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_disk_errors()}
-  def detach_disk(%Client{} = client, input, options \\ []) do
+
+  def detach_disk(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8141,16 +8752,24 @@ defmodule AWS.Lightsail do
   Detaches the specified instances from a Lightsail load balancer. This operation
   waits until the instances are no longer needed before they are detached from
   the load balancer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DetachInstancesFromLoadBalancer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_instances_from_load_balancer_request`)
+    %{
+      required("instanceNames") => list(String.t()()),
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec detach_instances_from_load_balancer(
-          AWS.Client.t(),
-          detach_instances_from_load_balancer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec detach_instances_from_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_instances_from_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_instances_from_load_balancer_errors()}
-  def detach_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
+
+  def detach_instances_from_load_balancer(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8159,12 +8778,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Detaches a static IP from the Amazon Lightsail instance to which it is attached.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DetachStaticIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detach_static_ip_request`)
+    %{
+      required("staticIpName") => String.t()
+    }
   """
-  @spec detach_static_ip(AWS.Client.t(), detach_static_ip_request(), Keyword.t()) ::
+
+  @spec detach_static_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detach_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detach_static_ip_errors()}
-  def detach_static_ip(%Client{} = client, input, options \\ []) do
+
+  def detach_static_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8175,12 +8804,23 @@ defmodule AWS.Lightsail do
   Disables an add-on for an Amazon Lightsail resource. For more information, see
   the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DisableAddOn&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_add_on_request`)
+    %{
+      required("addOnType") => list(any()),
+      required("resourceName") => String.t()
+    }
   """
-  @spec disable_add_on(AWS.Client.t(), disable_add_on_request(), Keyword.t()) ::
+
+  @spec disable_add_on(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_add_on_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_add_on_errors()}
-  def disable_add_on(%Client{} = client, input, options \\ []) do
+
+  def disable_add_on(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8189,16 +8829,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Downloads the regional Amazon Lightsail default key pair.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20DownloadDefaultKeyPair&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:download_default_key_pair_request`)
+    %{
+      
+    }
   """
-  @spec download_default_key_pair(
-          AWS.Client.t(),
-          download_default_key_pair_request(),
-          Keyword.t()
-        ) ::
+
+  @spec download_default_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, download_default_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, download_default_key_pair_errors()}
-  def download_default_key_pair(%Client{} = client, input, options \\ []) do
+
+  def download_default_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8209,12 +8855,23 @@ defmodule AWS.Lightsail do
   Enables or modifies an add-on for an Amazon Lightsail resource. For more
   information, see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20EnableAddOn&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_add_on_request`)
+    %{
+      required("addOnRequest") => add_on_request(),
+      required("resourceName") => String.t()
+    }
   """
-  @spec enable_add_on(AWS.Client.t(), enable_add_on_request(), Keyword.t()) ::
+
+  @spec enable_add_on(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_add_on_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_add_on_errors()}
-  def enable_add_on(%Client{} = client, input, options \\ []) do
+
+  def enable_add_on(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8231,12 +8888,22 @@ defmodule AWS.Lightsail do
   disk snapshots appear in Amazon EC2 as Amazon EBS volumes. Snapshots are
   exported to the same Amazon Web Services Region in Amazon EC2 as the source
   Lightsail snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20ExportSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_snapshot_request`)
+    %{
+      required("sourceSnapshotName") => String.t()
+    }
   """
-  @spec export_snapshot(AWS.Client.t(), export_snapshot_request(), Keyword.t()) ::
+
+  @spec export_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_snapshot_errors()}
-  def export_snapshot(%Client{} = client, input, options \\ []) do
+
+  def export_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8245,12 +8912,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the names of all active (not deleted) resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetActiveNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_active_names_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_active_names(AWS.Client.t(), get_active_names_request(), Keyword.t()) ::
+
+  @spec get_active_names(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_active_names_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_active_names_errors()}
-  def get_active_names(%Client{} = client, input, options \\ []) do
+
+  def get_active_names(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8261,12 +8938,24 @@ defmodule AWS.Lightsail do
   Returns information about the configured alarms. Specify an alarm name in your
   request to return information about a specific alarm, or specify a monitored
   resource name to return information about all alarms for a specific resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetAlarms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_alarms_request`)
+    %{
+      optional("alarmName") => String.t(),
+      optional("monitoredResourceName") => String.t(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_alarms(AWS.Client.t(), get_alarms_request(), Keyword.t()) ::
+
+  @spec get_alarms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_alarms_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_alarms_errors()}
-  def get_alarms(%Client{} = client, input, options \\ []) do
+
+  def get_alarms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8277,12 +8966,22 @@ defmodule AWS.Lightsail do
   Returns the available automatic snapshots for an instance or disk. For more
   information, see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetAutoSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_auto_snapshots_request`)
+    %{
+      required("resourceName") => String.t()
+    }
   """
-  @spec get_auto_snapshots(AWS.Client.t(), get_auto_snapshots_request(), Keyword.t()) ::
+
+  @spec get_auto_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_auto_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_auto_snapshots_errors()}
-  def get_auto_snapshots(%Client{} = client, input, options \\ []) do
+
+  def get_auto_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8294,12 +8993,24 @@ defmodule AWS.Lightsail do
   blueprint to create a new instance already running a specific operating
   system, as well as a preinstalled app or development stack. The software each
   instance is running depends on the blueprint image you choose.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetBlueprints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_blueprints_request`)
+    %{
+      optional("appCategory") => list(any()),
+      optional("includeInactive") => boolean(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_blueprints(AWS.Client.t(), get_blueprints_request(), Keyword.t()) ::
+
+  @spec get_blueprints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_blueprints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blueprints_errors()}
-  def get_blueprints(%Client{} = client, input, options \\ []) do
+
+  def get_blueprints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8308,12 +9019,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the existing access key IDs for the specified Amazon Lightsail bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetBucketAccessKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_bucket_access_keys_request`)
+    %{
+      required("bucketName") => String.t()
+    }
   """
-  @spec get_bucket_access_keys(AWS.Client.t(), get_bucket_access_keys_request(), Keyword.t()) ::
+
+  @spec get_bucket_access_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_bucket_access_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bucket_access_keys_errors()}
-  def get_bucket_access_keys(%Client{} = client, input, options \\ []) do
+
+  def get_bucket_access_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8324,12 +9045,22 @@ defmodule AWS.Lightsail do
   Returns the bundles that you can apply to a Amazon Lightsail bucket. The bucket
   bundle specifies the monthly cost, storage quota, and data transfer quota for
   a bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetBucketBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_bucket_bundles_request`)
+    %{
+      optional("includeInactive") => boolean()
+    }
   """
-  @spec get_bucket_bundles(AWS.Client.t(), get_bucket_bundles_request(), Keyword.t()) ::
+
+  @spec get_bucket_bundles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_bucket_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bucket_bundles_errors()}
-  def get_bucket_bundles(%Client{} = client, input, options \\ []) do
+
+  def get_bucket_bundles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8338,12 +9069,28 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the data points of a specific metric for an Amazon Lightsail bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetBucketMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_bucket_metric_data_request`)
+    %{
+      required("bucketName") => String.t(),
+      required("endTime") => non_neg_integer(),
+      required("metricName") => list(any()),
+      required("period") => integer(),
+      required("startTime") => non_neg_integer(),
+      required("statistics") => list(list(any())()),
+      required("unit") => list(any())
+    }
   """
-  @spec get_bucket_metric_data(AWS.Client.t(), get_bucket_metric_data_request(), Keyword.t()) ::
+
+  @spec get_bucket_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_bucket_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bucket_metric_data_errors()}
-  def get_bucket_metric_data(%Client{} = client, input, options \\ []) do
+
+  def get_bucket_metric_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8355,12 +9102,24 @@ defmodule AWS.Lightsail do
   returned includes the synchronization status of the Amazon Simple Storage
   Service (Amazon S3) account-level block public access feature for your
   Lightsail buckets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetBuckets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_buckets_request`)
+    %{
+      optional("bucketName") => String.t(),
+      optional("includeConnectedResources") => boolean(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_buckets(AWS.Client.t(), get_buckets_request(), Keyword.t()) ::
+
+  @spec get_buckets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_buckets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_buckets_errors()}
-  def get_buckets(%Client{} = client, input, options \\ []) do
+
+  def get_buckets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8372,12 +9131,24 @@ defmodule AWS.Lightsail do
   create it. A bundle describes the specifications of an instance, such as the
   monthly cost, amount of memory, the number of vCPUs, amount of storage space,
   and monthly network data transfer quota.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_bundles_request`)
+    %{
+      optional("appCategory") => list(any()),
+      optional("includeInactive") => boolean(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_bundles(AWS.Client.t(), get_bundles_request(), Keyword.t()) ::
+
+  @spec get_bundles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bundles_errors()}
-  def get_bundles(%Client{} = client, input, options \\ []) do
+
+  def get_bundles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8386,12 +9157,25 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about one or more Amazon Lightsail SSL/TLS certificates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_certificates_request`)
+    %{
+      optional("certificateName") => String.t(),
+      optional("certificateStatuses") => list(list(any())()),
+      optional("includeCertificateDetails") => boolean(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_certificates(AWS.Client.t(), get_certificates_request(), Keyword.t()) ::
+
+  @spec get_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_certificates_errors()}
-  def get_certificates(%Client{} = client, input, options \\ []) do
+
+  def get_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8401,16 +9185,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the CloudFormation stack record created as a result of the ``` create
   cloud formation stack ``` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetCloudFormationStackRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_cloud_formation_stack_records_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_cloud_formation_stack_records(
-          AWS.Client.t(),
-          get_cloud_formation_stack_records_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_cloud_formation_stack_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cloud_formation_stack_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cloud_formation_stack_records_errors()}
-  def get_cloud_formation_stack_records(%Client{} = client, input, options \\ []) do
+
+  def get_cloud_formation_stack_records(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8420,12 +9211,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about the configured contact methods. Specify a protocol in
   your request to return information about a specific contact method.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContactMethods&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_contact_methods_request`)
+    %{
+      optional("protocols") => list(list(any())())
+    }
   """
-  @spec get_contact_methods(AWS.Client.t(), get_contact_methods_request(), Keyword.t()) ::
+
+  @spec get_contact_methods(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_contact_methods_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_methods_errors()}
-  def get_contact_methods(%Client{} = client, input, options \\ []) do
+
+  def get_contact_methods(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8435,16 +9236,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about Amazon Lightsail containers, such as the current
   version of the Lightsail Control (lightsailctl) plugin.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContainerAPIMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_container_api_metadata_request`)
+    %{
+      
+    }
   """
-  @spec get_container_api_metadata(
-          AWS.Client.t(),
-          get_container_api_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_container_api_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_container_api_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_api_metadata_errors()}
-  def get_container_api_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_container_api_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8454,12 +9261,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the container images that are registered to your Amazon Lightsail
   container service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContainerImages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_container_images_request`)
+    %{
+      
+    }
   """
-  @spec get_container_images(AWS.Client.t(), get_container_images_request(), Keyword.t()) ::
+
+  @spec get_container_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_container_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_images_errors()}
-  def get_container_images(%Client{} = client, input, options \\ []) do
+
+  def get_container_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8471,12 +9288,25 @@ defmodule AWS.Lightsail do
   service. If your container service has more than one node (i.e., a scale
   greater than 1), then the log events that are returned for the specified
   container are merged from all nodes on your container service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContainerLog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_container_log_request`)
+    %{
+      optional("endTime") => non_neg_integer(),
+      optional("filterPattern") => String.t(),
+      optional("pageToken") => String.t(),
+      optional("startTime") => non_neg_integer()
+    }
   """
-  @spec get_container_log(AWS.Client.t(), get_container_log_request(), Keyword.t()) ::
+
+  @spec get_container_log(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_container_log_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_log_errors()}
-  def get_container_log(%Client{} = client, input, options \\ []) do
+
+  def get_container_log(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8487,16 +9317,23 @@ defmodule AWS.Lightsail do
   Returns the deployments for your Amazon Lightsail container service A deployment
   specifies the settings, such as the ports and launch command, of containers
   that are deployed to your container service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContainerServiceDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_container_service_deployments_request`)
+    %{
+      
+    }
   """
-  @spec get_container_service_deployments(
-          AWS.Client.t(),
-          get_container_service_deployments_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_container_service_deployments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_container_service_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_service_deployments_errors()}
-  def get_container_service_deployments(%Client{} = client, input, options \\ []) do
+
+  def get_container_service_deployments(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8506,16 +9343,27 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points of a specific metric of your Amazon Lightsail container
   service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContainerServiceMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_container_service_metric_data_request`)
+    %{
+      required("endTime") => non_neg_integer(),
+      required("metricName") => list(any()),
+      required("period") => integer(),
+      required("startTime") => non_neg_integer(),
+      required("statistics") => list(list(any())())
+    }
   """
-  @spec get_container_service_metric_data(
-          AWS.Client.t(),
-          get_container_service_metric_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_container_service_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_container_service_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_service_metric_data_errors()}
-  def get_container_service_metric_data(%Client{} = client, input, options \\ []) do
+
+  def get_container_service_metric_data(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8525,16 +9373,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the list of powers that can be specified for your Amazon Lightsail
   container services.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContainerServicePowers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_container_service_powers_request`)
+    %{
+      
+    }
   """
-  @spec get_container_service_powers(
-          AWS.Client.t(),
-          get_container_service_powers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_container_service_powers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_container_service_powers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_service_powers_errors()}
-  def get_container_service_powers(%Client{} = client, input, options \\ []) do
+
+  def get_container_service_powers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8544,12 +9398,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about one or more of your Amazon Lightsail container
   services.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetContainerServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_container_services_request`)
+    %{
+      optional("serviceName") => String.t()
+    }
   """
-  @spec get_container_services(AWS.Client.t(), get_container_services_request(), Keyword.t()) ::
+
+  @spec get_container_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, container_services_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_services_errors()}
-  def get_container_services(%Client{} = client, input, options \\ []) do
+
+  def get_container_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8559,12 +9423,24 @@ defmodule AWS.Lightsail do
   @doc """
   Retrieves information about the cost estimate for a specified resource. A cost
   estimate will not generate for a resource that has been deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetCostEstimate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_cost_estimate_request`)
+    %{
+      required("endTime") => non_neg_integer(),
+      required("resourceName") => String.t(),
+      required("startTime") => non_neg_integer()
+    }
   """
-  @spec get_cost_estimate(AWS.Client.t(), get_cost_estimate_request(), Keyword.t()) ::
+
+  @spec get_cost_estimate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_cost_estimate_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cost_estimate_errors()}
-  def get_cost_estimate(%Client{} = client, input, options \\ []) do
+
+  def get_cost_estimate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8573,12 +9449,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific block storage disk.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDisk&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_disk_request`)
+    %{
+      required("diskName") => String.t()
+    }
   """
-  @spec get_disk(AWS.Client.t(), get_disk_request(), Keyword.t()) ::
+
+  @spec get_disk(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_disk_errors()}
-  def get_disk(%Client{} = client, input, options \\ []) do
+
+  def get_disk(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8587,12 +9473,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific block storage disk snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDiskSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_disk_snapshot_request`)
+    %{
+      required("diskSnapshotName") => String.t()
+    }
   """
-  @spec get_disk_snapshot(AWS.Client.t(), get_disk_snapshot_request(), Keyword.t()) ::
+
+  @spec get_disk_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_disk_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_disk_snapshot_errors()}
-  def get_disk_snapshot(%Client{} = client, input, options \\ []) do
+
+  def get_disk_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8602,12 +9498,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all block storage disk snapshots in your AWS account
   and region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDiskSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_disk_snapshots_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_disk_snapshots(AWS.Client.t(), get_disk_snapshots_request(), Keyword.t()) ::
+
+  @spec get_disk_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_disk_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_disk_snapshots_errors()}
-  def get_disk_snapshots(%Client{} = client, input, options \\ []) do
+
+  def get_disk_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8617,12 +9523,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all block storage disks in your AWS account and
   region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDisks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_disks_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_disks(AWS.Client.t(), get_disks_request(), Keyword.t()) ::
+
+  @spec get_disks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_disks_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_disks_errors()}
-  def get_disks(%Client{} = client, input, options \\ []) do
+
+  def get_disks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8632,12 +9548,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the bundles that can be applied to your Amazon Lightsail content
   delivery network (CDN) distributions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDistributionBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_distribution_bundles_request`)
+    %{
+      
+    }
   """
-  @spec get_distribution_bundles(AWS.Client.t(), get_distribution_bundles_request(), Keyword.t()) ::
+
+  @spec get_distribution_bundles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_distribution_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_bundles_errors()}
-  def get_distribution_bundles(%Client{} = client, input, options \\ []) do
+
+  def get_distribution_bundles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8647,16 +9573,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the timestamp and status of the last cache reset of a specific Amazon
   Lightsail content delivery network (CDN) distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDistributionLatestCacheReset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_distribution_latest_cache_reset_request`)
+    %{
+      optional("distributionName") => String.t()
+    }
   """
-  @spec get_distribution_latest_cache_reset(
-          AWS.Client.t(),
-          get_distribution_latest_cache_reset_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_distribution_latest_cache_reset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_distribution_latest_cache_reset_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_latest_cache_reset_errors()}
-  def get_distribution_latest_cache_reset(%Client{} = client, input, options \\ []) do
+
+  def get_distribution_latest_cache_reset(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8666,16 +9599,28 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points of a specific metric for an Amazon Lightsail content
   delivery network (CDN) distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDistributionMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_distribution_metric_data_request`)
+    %{
+      required("distributionName") => String.t(),
+      required("endTime") => non_neg_integer(),
+      required("metricName") => list(any()),
+      required("period") => integer(),
+      required("startTime") => non_neg_integer(),
+      required("statistics") => list(list(any())()),
+      required("unit") => list(any())
+    }
   """
-  @spec get_distribution_metric_data(
-          AWS.Client.t(),
-          get_distribution_metric_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_distribution_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_distribution_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_metric_data_errors()}
-  def get_distribution_metric_data(%Client{} = client, input, options \\ []) do
+
+  def get_distribution_metric_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8685,12 +9630,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about one or more of your Amazon Lightsail content delivery
   network (CDN) distributions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDistributions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_distributions_request`)
+    %{
+      optional("distributionName") => String.t(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_distributions(AWS.Client.t(), get_distributions_request(), Keyword.t()) ::
+
+  @spec get_distributions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distributions_errors()}
-  def get_distributions(%Client{} = client, input, options \\ []) do
+
+  def get_distributions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8699,12 +9655,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific domain recordset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_domain_request`)
+    %{
+      required("domainName") => String.t()
+    }
   """
-  @spec get_domain(AWS.Client.t(), get_domain_request(), Keyword.t()) ::
+
+  @spec get_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_errors()}
-  def get_domain(%Client{} = client, input, options \\ []) do
+
+  def get_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8713,12 +9679,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns a list of all domains in the user's account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_domains_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_domains(AWS.Client.t(), get_domains_request(), Keyword.t()) ::
+
+  @spec get_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_domains_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domains_errors()}
-  def get_domains(%Client{} = client, input, options \\ []) do
+
+  def get_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8728,16 +9704,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns all export snapshot records created as a result of the ``` export
   snapshot ``` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetExportSnapshotRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_export_snapshot_records_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_export_snapshot_records(
-          AWS.Client.t(),
-          get_export_snapshot_records_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_export_snapshot_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_export_snapshot_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_snapshot_records_errors()}
-  def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
+
+  def get_export_snapshot_records(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8747,12 +9729,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about a specific Amazon Lightsail instance, which is a
   virtual private server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_request`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec get_instance(AWS.Client.t(), get_instance_request(), Keyword.t()) ::
+
+  @spec get_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_errors()}
-  def get_instance(%Client{} = client, input, options \\ []) do
+
+  def get_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8762,16 +9754,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns temporary SSH keys you can use to connect to a specific virtual private
   server, or *instance*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstanceAccessDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_access_details_request`)
+    %{
+      optional("protocol") => list(any()),
+      required("instanceName") => String.t()
+    }
   """
-  @spec get_instance_access_details(
-          AWS.Client.t(),
-          get_instance_access_details_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_instance_access_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_access_details_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_access_details_errors()}
-  def get_instance_access_details(%Client{} = client, input, options \\ []) do
+
+  def get_instance_access_details(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8781,12 +9780,28 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points for the specified Amazon Lightsail instance metric,
   given an instance name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstanceMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_metric_data_request`)
+    %{
+      required("endTime") => non_neg_integer(),
+      required("instanceName") => String.t(),
+      required("metricName") => list(any()),
+      required("period") => integer(),
+      required("startTime") => non_neg_integer(),
+      required("statistics") => list(list(any())()),
+      required("unit") => list(any())
+    }
   """
-  @spec get_instance_metric_data(AWS.Client.t(), get_instance_metric_data_request(), Keyword.t()) ::
+
+  @spec get_instance_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_metric_data_errors()}
-  def get_instance_metric_data(%Client{} = client, input, options \\ []) do
+
+  def get_instance_metric_data(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8797,12 +9812,22 @@ defmodule AWS.Lightsail do
   Returns the firewall port states for a specific Amazon Lightsail instance, the
   IP addresses allowed to connect to the instance through the ports, and the
   protocol.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstancePortStates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_port_states_request`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec get_instance_port_states(AWS.Client.t(), get_instance_port_states_request(), Keyword.t()) ::
+
+  @spec get_instance_port_states(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_port_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_port_states_errors()}
-  def get_instance_port_states(%Client{} = client, input, options \\ []) do
+
+  def get_instance_port_states(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8811,12 +9836,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific instance snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstanceSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_snapshot_request`)
+    %{
+      required("instanceSnapshotName") => String.t()
+    }
   """
-  @spec get_instance_snapshot(AWS.Client.t(), get_instance_snapshot_request(), Keyword.t()) ::
+
+  @spec get_instance_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_snapshot_errors()}
-  def get_instance_snapshot(%Client{} = client, input, options \\ []) do
+
+  def get_instance_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8825,12 +9860,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns all instance snapshots for the user's account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstanceSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_snapshots_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_instance_snapshots(AWS.Client.t(), get_instance_snapshots_request(), Keyword.t()) ::
+
+  @spec get_instance_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_snapshots_errors()}
-  def get_instance_snapshots(%Client{} = client, input, options \\ []) do
+
+  def get_instance_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8839,12 +9884,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the state of a specific instance. Works on one instance at a time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstanceState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_state_request`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec get_instance_state(AWS.Client.t(), get_instance_state_request(), Keyword.t()) ::
+
+  @spec get_instance_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_state_errors()}
-  def get_instance_state(%Client{} = client, input, options \\ []) do
+
+  def get_instance_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8854,12 +9909,22 @@ defmodule AWS.Lightsail do
   @doc """
   Returns information about all Amazon Lightsail virtual private servers, or
   *instances*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instances_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_instances(AWS.Client.t(), get_instances_request(), Keyword.t()) ::
+
+  @spec get_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instances_errors()}
-  def get_instances(%Client{} = client, input, options \\ []) do
+
+  def get_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8868,12 +9933,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific key pair.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetKeyPair&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_key_pair_request`)
+    %{
+      required("keyPairName") => String.t()
+    }
   """
-  @spec get_key_pair(AWS.Client.t(), get_key_pair_request(), Keyword.t()) ::
+
+  @spec get_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_pair_errors()}
-  def get_key_pair(%Client{} = client, input, options \\ []) do
+
+  def get_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8882,12 +9957,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all key pairs in the user's account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetKeyPairs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_key_pairs_request`)
+    %{
+      optional("includeDefaultKeyPair") => boolean(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_key_pairs(AWS.Client.t(), get_key_pairs_request(), Keyword.t()) ::
+
+  @spec get_key_pairs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_key_pairs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_key_pairs_errors()}
-  def get_key_pairs(%Client{} = client, input, options \\ []) do
+
+  def get_key_pairs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8896,12 +9982,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about the specified Lightsail load balancer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetLoadBalancer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_load_balancer_request`)
+    %{
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec get_load_balancer(AWS.Client.t(), get_load_balancer_request(), Keyword.t()) ::
+
+  @spec get_load_balancer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_load_balancer_errors()}
-  def get_load_balancer(%Client{} = client, input, options \\ []) do
+
+  def get_load_balancer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8910,16 +10006,29 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about health metrics for your Lightsail load balancer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetLoadBalancerMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_load_balancer_metric_data_request`)
+    %{
+      required("endTime") => non_neg_integer(),
+      required("loadBalancerName") => String.t(),
+      required("metricName") => list(any()),
+      required("period") => integer(),
+      required("startTime") => non_neg_integer(),
+      required("statistics") => list(list(any())()),
+      required("unit") => list(any())
+    }
   """
-  @spec get_load_balancer_metric_data(
-          AWS.Client.t(),
-          get_load_balancer_metric_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_load_balancer_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_load_balancer_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_load_balancer_metric_data_errors()}
-  def get_load_balancer_metric_data(%Client{} = client, input, options \\ []) do
+
+  def get_load_balancer_metric_data(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8930,16 +10039,23 @@ defmodule AWS.Lightsail do
   Returns information about the TLS certificates that are associated with the
   specified Lightsail load balancer. TLS is just an updated, more secure version
   of Secure Socket Layer (SSL).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetLoadBalancerTlsCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_load_balancer_tls_certificates_request`)
+    %{
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec get_load_balancer_tls_certificates(
-          AWS.Client.t(),
-          get_load_balancer_tls_certificates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_load_balancer_tls_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_load_balancer_tls_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_load_balancer_tls_certificates_errors()}
-  def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ []) do
+
+  def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8949,16 +10065,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a list of TLS security policies that you can apply to Lightsail load
   balancers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetLoadBalancerTlsPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_load_balancer_tls_policies_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_load_balancer_tls_policies(
-          AWS.Client.t(),
-          get_load_balancer_tls_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_load_balancer_tls_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_load_balancer_tls_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_load_balancer_tls_policies_errors()}
-  def get_load_balancer_tls_policies(%Client{} = client, input, options \\ []) do
+
+  def get_load_balancer_tls_policies(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -8967,12 +10090,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all load balancers in an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetLoadBalancers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_load_balancers_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_load_balancers(AWS.Client.t(), get_load_balancers_request(), Keyword.t()) ::
+
+  @spec get_load_balancers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_load_balancers_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_load_balancers_errors()}
-  def get_load_balancers(%Client{} = client, input, options \\ []) do
+
+  def get_load_balancers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8983,12 +10116,22 @@ defmodule AWS.Lightsail do
   Returns information about a specific operation. Operations include events such
   as when you create an instance, allocate a static IP, attach a static IP, and
   so on.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_operation_request`)
+    %{
+      required("operationId") => String.t()
+    }
   """
-  @spec get_operation(AWS.Client.t(), get_operation_request(), Keyword.t()) ::
+
+  @spec get_operation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_operation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operation_errors()}
-  def get_operation(%Client{} = client, input, options \\ []) do
+
+  def get_operation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -8997,12 +10140,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all operations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_operations_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_operations(AWS.Client.t(), get_operations_request(), Keyword.t()) ::
+
+  @spec get_operations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_operations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operations_errors()}
-  def get_operations(%Client{} = client, input, options \\ []) do
+
+  def get_operations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9011,16 +10164,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Gets operations for a specific resource (an instance or a static IP).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetOperationsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_operations_for_resource_request`)
+    %{
+      optional("pageToken") => String.t(),
+      required("resourceName") => String.t()
+    }
   """
-  @spec get_operations_for_resource(
-          AWS.Client.t(),
-          get_operations_for_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_operations_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_operations_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operations_for_resource_errors()}
-  def get_operations_for_resource(%Client{} = client, input, options \\ []) do
+
+  def get_operations_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9031,12 +10191,23 @@ defmodule AWS.Lightsail do
   Returns a list of all valid regions for Amazon Lightsail. Use the ``` include
   availability zones ``` parameter to also return the Availability Zones in a
   region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRegions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_regions_request`)
+    %{
+      optional("includeAvailabilityZones") => boolean(),
+      optional("includeRelationalDatabaseAvailabilityZones") => boolean()
+    }
   """
-  @spec get_regions(AWS.Client.t(), get_regions_request(), Keyword.t()) ::
+
+  @spec get_regions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_regions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_regions_errors()}
-  def get_regions(%Client{} = client, input, options \\ []) do
+
+  def get_regions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9045,12 +10216,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific database in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_request`)
+    %{
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec get_relational_database(AWS.Client.t(), get_relational_database_request(), Keyword.t()) ::
+
+  @spec get_relational_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_errors()}
-  def get_relational_database(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9060,16 +10241,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a list of available database blueprints in Amazon Lightsail. A blueprint
   describes the major engine version of a database.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseBlueprints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_blueprints_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_relational_database_blueprints(
-          AWS.Client.t(),
-          get_relational_database_blueprints_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_blueprints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_blueprints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_blueprints_errors()}
-  def get_relational_database_blueprints(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_blueprints(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9079,16 +10267,24 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the list of bundles that are available in Amazon Lightsail. A bundle
   describes the performance specifications for a database.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_bundles_request`)
+    %{
+      optional("includeInactive") => boolean(),
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_relational_database_bundles(
-          AWS.Client.t(),
-          get_relational_database_bundles_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_bundles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_bundles_errors()}
-  def get_relational_database_bundles(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_bundles(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9097,16 +10293,25 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns a list of events for a specific database in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_events_request`)
+    %{
+      optional("durationInMinutes") => integer(),
+      optional("pageToken") => String.t(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec get_relational_database_events(
-          AWS.Client.t(),
-          get_relational_database_events_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_events_errors()}
-  def get_relational_database_events(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_events(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9115,16 +10320,28 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns a list of log events for a database in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseLogEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_log_events_request`)
+    %{
+      optional("endTime") => non_neg_integer(),
+      optional("pageToken") => String.t(),
+      optional("startFromHead") => boolean(),
+      optional("startTime") => non_neg_integer(),
+      required("logStreamName") => String.t(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec get_relational_database_log_events(
-          AWS.Client.t(),
-          get_relational_database_log_events_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_log_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_log_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_log_events_errors()}
-  def get_relational_database_log_events(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_log_events(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9134,16 +10351,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a list of available log streams for a specific database in Amazon
   Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseLogStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_log_streams_request`)
+    %{
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec get_relational_database_log_streams(
-          AWS.Client.t(),
-          get_relational_database_log_streams_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_log_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_log_streams_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_log_streams_errors()}
-  def get_relational_database_log_streams(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_log_streams(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9153,16 +10377,24 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the current, previous, or pending versions of the master user password
   for a Lightsail database.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseMasterUserPassword&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_master_user_password_request`)
+    %{
+      optional("passwordVersion") => list(any()),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec get_relational_database_master_user_password(
-          AWS.Client.t(),
-          get_relational_database_master_user_password_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_master_user_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_master_user_password_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_master_user_password_errors()}
-  def get_relational_database_master_user_password(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_master_user_password(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9172,16 +10404,29 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points of the specified metric for a database in Amazon
   Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseMetricData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_metric_data_request`)
+    %{
+      required("endTime") => non_neg_integer(),
+      required("metricName") => list(any()),
+      required("period") => integer(),
+      required("relationalDatabaseName") => String.t(),
+      required("startTime") => non_neg_integer(),
+      required("statistics") => list(list(any())()),
+      required("unit") => list(any())
+    }
   """
-  @spec get_relational_database_metric_data(
-          AWS.Client.t(),
-          get_relational_database_metric_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_metric_data(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_metric_data_errors()}
-  def get_relational_database_metric_data(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_metric_data(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9191,16 +10436,24 @@ defmodule AWS.Lightsail do
   @doc """
   Returns all of the runtime parameters offered by the underlying database
   software, or engine, for a specific database in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_parameters_request`)
+    %{
+      optional("pageToken") => String.t(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec get_relational_database_parameters(
-          AWS.Client.t(),
-          get_relational_database_parameters_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_parameters_errors()}
-  def get_relational_database_parameters(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_parameters(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9209,16 +10462,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific database snapshot in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_snapshot_request`)
+    %{
+      required("relationalDatabaseSnapshotName") => String.t()
+    }
   """
-  @spec get_relational_database_snapshot(
-          AWS.Client.t(),
-          get_relational_database_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_snapshot_errors()}
-  def get_relational_database_snapshot(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9227,16 +10487,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all of your database snapshots in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabaseSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_database_snapshots_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_relational_database_snapshots(
-          AWS.Client.t(),
-          get_relational_database_snapshots_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_relational_database_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_database_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_database_snapshots_errors()}
-  def get_relational_database_snapshots(%Client{} = client, input, options \\ []) do
+
+  def get_relational_database_snapshots(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9245,12 +10512,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all of your databases in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetRelationalDatabases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relational_databases_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_relational_databases(AWS.Client.t(), get_relational_databases_request(), Keyword.t()) ::
+
+  @spec get_relational_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relational_databases_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relational_databases_errors()}
-  def get_relational_databases(%Client{} = client, input, options \\ []) do
+
+  def get_relational_databases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9260,12 +10537,23 @@ defmodule AWS.Lightsail do
   @doc """
   Returns detailed information for five of the most recent `SetupInstanceHttps`
   requests that were ran on the target instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetSetupHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_setup_history_request`)
+    %{
+      optional("pageToken") => String.t(),
+      required("resourceName") => String.t()
+    }
   """
-  @spec get_setup_history(AWS.Client.t(), get_setup_history_request(), Keyword.t()) ::
+
+  @spec get_setup_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_setup_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_setup_history_errors()}
-  def get_setup_history(%Client{} = client, input, options \\ []) do
+
+  def get_setup_history(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9274,12 +10562,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about an Amazon Lightsail static IP.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetStaticIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_static_ip_request`)
+    %{
+      required("staticIpName") => String.t()
+    }
   """
-  @spec get_static_ip(AWS.Client.t(), get_static_ip_request(), Keyword.t()) ::
+
+  @spec get_static_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_static_ip_errors()}
-  def get_static_ip(%Client{} = client, input, options \\ []) do
+
+  def get_static_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9288,12 +10586,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all static IPs in the user's account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20GetStaticIps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_static_ips_request`)
+    %{
+      optional("pageToken") => String.t()
+    }
   """
-  @spec get_static_ips(AWS.Client.t(), get_static_ips_request(), Keyword.t()) ::
+
+  @spec get_static_ips(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_static_ips_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_static_ips_errors()}
-  def get_static_ips(%Client{} = client, input, options \\ []) do
+
+  def get_static_ips(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9302,12 +10610,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Imports a public SSH key from a specific key pair.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20ImportKeyPair&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_key_pair_request`)
+    %{
+      required("keyPairName") => String.t(),
+      required("publicKeyBase64") => String.t()
+    }
   """
-  @spec import_key_pair(AWS.Client.t(), import_key_pair_request(), Keyword.t()) ::
+
+  @spec import_key_pair(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_key_pair_errors()}
-  def import_key_pair(%Client{} = client, input, options \\ []) do
+
+  def import_key_pair(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9316,12 +10635,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns a Boolean value indicating whether your Lightsail VPC is peered.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20IsVpcPeered&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:is_vpc_peered_request`)
+    %{
+      
+    }
   """
-  @spec is_vpc_peered(AWS.Client.t(), is_vpc_peered_request(), Keyword.t()) ::
+
+  @spec is_vpc_peered(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, is_vpc_peered_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, is_vpc_peered_errors()}
-  def is_vpc_peered(%Client{} = client, input, options \\ []) do
+
+  def is_vpc_peered(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9332,16 +10661,23 @@ defmodule AWS.Lightsail do
   Opens ports for a specific Amazon Lightsail instance, and specifies the IP
   addresses allowed to connect to the instance through the ports, and the
   protocol.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20OpenInstancePublicPorts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:open_instance_public_ports_request`)
+    %{
+      required("instanceName") => String.t(),
+      required("portInfo") => port_info()
+    }
   """
-  @spec open_instance_public_ports(
-          AWS.Client.t(),
-          open_instance_public_ports_request(),
-          Keyword.t()
-        ) ::
+
+  @spec open_instance_public_ports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, open_instance_public_ports_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, open_instance_public_ports_errors()}
-  def open_instance_public_ports(%Client{} = client, input, options \\ []) do
+
+  def open_instance_public_ports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9350,12 +10686,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Peers the Lightsail VPC with the user's default VPC.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20PeerVpc&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:peer_vpc_request`)
+    %{
+      
+    }
   """
-  @spec peer_vpc(AWS.Client.t(), peer_vpc_request(), Keyword.t()) ::
+
+  @spec peer_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, peer_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, peer_vpc_errors()}
-  def peer_vpc(%Client{} = client, input, options \\ []) do
+
+  def peer_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9369,12 +10715,32 @@ defmodule AWS.Lightsail do
   and a banner displayed on the Amazon Lightsail console. For more information,
   see [Alarms in Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20PutAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_alarm_request`)
+    %{
+      optional("contactProtocols") => list(list(any())()),
+      optional("datapointsToAlarm") => integer(),
+      optional("notificationEnabled") => boolean(),
+      optional("notificationTriggers") => list(list(any())()),
+      optional("treatMissingData") => list(any()),
+      required("alarmName") => String.t(),
+      required("comparisonOperator") => list(any()),
+      required("evaluationPeriods") => integer(),
+      required("metricName") => list(any()),
+      required("monitoredResourceName") => String.t(),
+      required("threshold") => float()
+    }
   """
-  @spec put_alarm(AWS.Client.t(), put_alarm_request(), Keyword.t()) ::
+
+  @spec put_alarm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_alarm_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_alarm_errors()}
-  def put_alarm(%Client{} = client, input, options \\ []) do
+
+  def put_alarm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9389,16 +10755,23 @@ defmodule AWS.Lightsail do
   to open in your `PutInstancePublicPorts`request. Or use the
   `OpenInstancePublicPorts` action to open ports without closing currently open
   ports.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20PutInstancePublicPorts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_instance_public_ports_request`)
+    %{
+      required("instanceName") => String.t(),
+      required("portInfos") => list(port_info()())
+    }
   """
-  @spec put_instance_public_ports(
-          AWS.Client.t(),
-          put_instance_public_ports_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_instance_public_ports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_instance_public_ports_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_instance_public_ports_errors()}
-  def put_instance_public_ports(%Client{} = client, input, options \\ []) do
+
+  def put_instance_public_ports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9407,12 +10780,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Restarts a specific instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20RebootInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reboot_instance_request`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec reboot_instance(AWS.Client.t(), reboot_instance_request(), Keyword.t()) ::
+
+  @spec reboot_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_instance_errors()}
-  def reboot_instance(%Client{} = client, input, options \\ []) do
+
+  def reboot_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9421,16 +10804,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Restarts a specific database in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20RebootRelationalDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reboot_relational_database_request`)
+    %{
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec reboot_relational_database(
-          AWS.Client.t(),
-          reboot_relational_database_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reboot_relational_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_relational_database_errors()}
-  def reboot_relational_database(%Client{} = client, input, options \\ []) do
+
+  def reboot_relational_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9439,12 +10828,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Registers a container image to your Amazon Lightsail container service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20RegisterContainerImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_container_image_request`)
+    %{
+      required("digest") => String.t(),
+      required("label") => String.t()
+    }
   """
-  @spec register_container_image(AWS.Client.t(), register_container_image_request(), Keyword.t()) ::
+
+  @spec register_container_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_container_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_container_image_errors()}
-  def register_container_image(%Client{} = client, input, options \\ []) do
+
+  def register_container_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9453,12 +10853,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a specific static IP from your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20ReleaseStaticIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:release_static_ip_request`)
+    %{
+      required("staticIpName") => String.t()
+    }
   """
-  @spec release_static_ip(AWS.Client.t(), release_static_ip_request(), Keyword.t()) ::
+
+  @spec release_static_ip(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, release_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_static_ip_errors()}
-  def release_static_ip(%Client{} = client, input, options \\ []) do
+
+  def release_static_ip(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9468,12 +10878,22 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes currently cached content from your Amazon Lightsail content delivery
   network (CDN) distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20ResetDistributionCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_distribution_cache_request`)
+    %{
+      optional("distributionName") => String.t()
+    }
   """
-  @spec reset_distribution_cache(AWS.Client.t(), reset_distribution_cache_request(), Keyword.t()) ::
+
+  @spec reset_distribution_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_distribution_cache_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_distribution_cache_errors()}
-  def reset_distribution_cache(%Client{} = client, input, options \\ []) do
+
+  def reset_distribution_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9489,16 +10909,23 @@ defmodule AWS.Lightsail do
   some Amazon Web Services Regions, and SMS text messages cannot be sent to some
   countries/regions. For more information, see [Notifications in Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20SendContactMethodVerification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_contact_method_verification_request`)
+    %{
+      required("protocol") => list(any())
+    }
   """
-  @spec send_contact_method_verification(
-          AWS.Client.t(),
-          send_contact_method_verification_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_contact_method_verification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_contact_method_verification_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_contact_method_verification_errors()}
-  def send_contact_method_verification(%Client{} = client, input, options \\ []) do
+
+  def send_contact_method_verification(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9507,12 +10934,25 @@ defmodule AWS.Lightsail do
 
   @doc """
   Sets the IP address type for an Amazon Lightsail resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20SetIpAddressType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_ip_address_type_request`)
+    %{
+      optional("acceptBundleUpdate") => boolean(),
+      required("ipAddressType") => list(any()),
+      required("resourceName") => String.t(),
+      required("resourceType") => list(any())
+    }
   """
-  @spec set_ip_address_type(AWS.Client.t(), set_ip_address_type_request(), Keyword.t()) ::
+
+  @spec set_ip_address_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_ip_address_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_ip_address_type_errors()}
-  def set_ip_address_type(%Client{} = client, input, options \\ []) do
+
+  def set_ip_address_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9522,16 +10962,25 @@ defmodule AWS.Lightsail do
   @doc """
   Sets the Amazon Lightsail resources that can access the specified Lightsail
   bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20SetResourceAccessForBucket&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_resource_access_for_bucket_request`)
+    %{
+      required("access") => list(any()),
+      required("bucketName") => String.t(),
+      required("resourceName") => String.t()
+    }
   """
-  @spec set_resource_access_for_bucket(
-          AWS.Client.t(),
-          set_resource_access_for_bucket_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_resource_access_for_bucket(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_resource_access_for_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_resource_access_for_bucket_errors()}
-  def set_resource_access_for_bucket(%Client{} = client, input, options \\ []) do
+
+  def set_resource_access_for_bucket(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9541,12 +10990,25 @@ defmodule AWS.Lightsail do
   @doc """
   Creates an SSL/TLS certificate that secures traffic for your website. After the
   certificate is created, it is installed on the specified Lightsail instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20SetupInstanceHttps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:setup_instance_https_request`)
+    %{
+      required("certificateProvider") => list(any()),
+      required("domainNames") => list(String.t()()),
+      required("emailAddress") => String.t(),
+      required("instanceName") => String.t()
+    }
   """
-  @spec setup_instance_https(AWS.Client.t(), setup_instance_https_request(), Keyword.t()) ::
+
+  @spec setup_instance_https(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, setup_instance_https_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, setup_instance_https_errors()}
-  def setup_instance_https(%Client{} = client, input, options \\ []) do
+
+  def setup_instance_https(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9557,12 +11019,22 @@ defmodule AWS.Lightsail do
   Initiates a graphical user interface (GUI) session that’s used to access a
   virtual computer’s operating system and application. The session will be
   active for 1 hour. Use this action to resume the session after it expires.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20StartGUISession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_g_ui_session_request`)
+    %{
+      required("resourceName") => String.t()
+    }
   """
-  @spec start_g_ui_session(AWS.Client.t(), start_g_ui_session_request(), Keyword.t()) ::
+
+  @spec start_g_ui_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_g_ui_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_g_ui_session_errors()}
-  def start_g_ui_session(%Client{} = client, input, options \\ []) do
+
+  def start_g_ui_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9572,12 +11044,22 @@ defmodule AWS.Lightsail do
   @doc """
   Starts a specific Amazon Lightsail instance from a stopped state. To restart an
   instance, use the `reboot instance` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20StartInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_instance_request`)
+    %{
+      required("instanceName") => String.t()
+    }
   """
-  @spec start_instance(AWS.Client.t(), start_instance_request(), Keyword.t()) ::
+
+  @spec start_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_instance_errors()}
-  def start_instance(%Client{} = client, input, options \\ []) do
+
+  def start_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9587,16 +11069,22 @@ defmodule AWS.Lightsail do
   @doc """
   Starts a specific database from a stopped state in Amazon Lightsail. To restart
   a database, use the `reboot relational database` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20StartRelationalDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_relational_database_request`)
+    %{
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec start_relational_database(
-          AWS.Client.t(),
-          start_relational_database_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_relational_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_relational_database_errors()}
-  def start_relational_database(%Client{} = client, input, options \\ []) do
+
+  def start_relational_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9607,12 +11095,22 @@ defmodule AWS.Lightsail do
   Terminates a web-based NICE DCV session that’s used to access a virtual
   computer’s operating system or application. The session will close and any
   unsaved data will be lost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20StopGUISession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_g_ui_session_request`)
+    %{
+      required("resourceName") => String.t()
+    }
   """
-  @spec stop_g_ui_session(AWS.Client.t(), stop_g_ui_session_request(), Keyword.t()) ::
+
+  @spec stop_g_ui_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_g_ui_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_g_ui_session_errors()}
-  def stop_g_ui_session(%Client{} = client, input, options \\ []) do
+
+  def stop_g_ui_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9621,12 +11119,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Stops a specific Amazon Lightsail instance that is currently running.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20StopInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_instance_request`)
+    %{
+      optional("force") => boolean(),
+      required("instanceName") => String.t()
+    }
   """
-  @spec stop_instance(AWS.Client.t(), stop_instance_request(), Keyword.t()) ::
+
+  @spec stop_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_instance_errors()}
-  def stop_instance(%Client{} = client, input, options \\ []) do
+
+  def stop_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9635,12 +11144,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Stops a specific database that is currently running in Amazon Lightsail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20StopRelationalDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_relational_database_request`)
+    %{
+      optional("relationalDatabaseSnapshotName") => String.t(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec stop_relational_database(AWS.Client.t(), stop_relational_database_request(), Keyword.t()) ::
+
+  @spec stop_relational_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_relational_database_errors()}
-  def stop_relational_database(%Client{} = client, input, options \\ []) do
+
+  def stop_relational_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9657,12 +11177,24 @@ defmodule AWS.Lightsail do
   tags and resource tags applied to the resource identified by `resource name`.
   For more information, see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      optional("resourceArn") => String.t(),
+      required("resourceName") => String.t(),
+      required("tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9674,12 +11206,23 @@ defmodule AWS.Lightsail do
   notification trigger is configured for the specified alarm, the test also
   sends a notification to the notification protocol (`Email` and/or `SMS`)
   configured for the alarm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20TestAlarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_alarm_request`)
+    %{
+      required("alarmName") => String.t(),
+      required("state") => list(any())
+    }
   """
-  @spec test_alarm(AWS.Client.t(), test_alarm_request(), Keyword.t()) ::
+
+  @spec test_alarm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_alarm_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_alarm_errors()}
-  def test_alarm(%Client{} = client, input, options \\ []) do
+
+  def test_alarm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9688,12 +11231,22 @@ defmodule AWS.Lightsail do
 
   @doc """
   Unpeers the Lightsail VPC from the user's default VPC.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UnpeerVpc&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:unpeer_vpc_request`)
+    %{
+      
+    }
   """
-  @spec unpeer_vpc(AWS.Client.t(), unpeer_vpc_request(), Keyword.t()) ::
+
+  @spec unpeer_vpc(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, unpeer_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unpeer_vpc_errors()}
-  def unpeer_vpc(%Client{} = client, input, options \\ []) do
+
+  def unpeer_vpc(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9703,12 +11256,24 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes the specified set of tag keys and their values from the specified Amazon
   Lightsail resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      optional("resourceArn") => String.t(),
+      required("resourceName") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9717,12 +11282,26 @@ defmodule AWS.Lightsail do
 
   @doc """
   Updates an existing Amazon Lightsail bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateBucket&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_bucket_request`)
+    %{
+      optional("accessLogConfig") => bucket_access_log_config(),
+      optional("accessRules") => access_rules(),
+      optional("readonlyAccessAccounts") => list(String.t()()),
+      optional("versioning") => String.t(),
+      required("bucketName") => String.t()
+    }
   """
-  @spec update_bucket(AWS.Client.t(), update_bucket_request(), Keyword.t()) ::
+
+  @spec update_bucket(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bucket_errors()}
-  def update_bucket(%Client{} = client, input, options \\ []) do
+
+  def update_bucket(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9738,12 +11317,23 @@ defmodule AWS.Lightsail do
   [GetBuckets](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html)
   action. The `ableToUpdateBundle` parameter in the response will indicate
   whether you can currently update a bucket's bundle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateBucketBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_bucket_bundle_request`)
+    %{
+      required("bucketName") => String.t(),
+      required("bundleId") => String.t()
+    }
   """
-  @spec update_bucket_bundle(AWS.Client.t(), update_bucket_bundle_request(), Keyword.t()) ::
+
+  @spec update_bucket_bundle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_bucket_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bucket_bundle_errors()}
-  def update_bucket_bundle(%Client{} = client, input, options \\ []) do
+
+  def update_bucket_bundle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9753,12 +11343,26 @@ defmodule AWS.Lightsail do
   @doc """
   Updates the configuration of your Amazon Lightsail container service, such as
   its power, scale, and public domain names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateContainerService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_container_service_request`)
+    %{
+      optional("isDisabled") => boolean(),
+      optional("power") => list(any()),
+      optional("privateRegistryAccess") => private_registry_access_request(),
+      optional("publicDomainNames") => map(),
+      optional("scale") => integer()
+    }
   """
-  @spec update_container_service(AWS.Client.t(), update_container_service_request(), Keyword.t()) ::
+
+  @spec update_container_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_container_service_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_container_service_errors()}
-  def update_container_service(%Client{} = client, input, options \\ []) do
+
+  def update_container_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9768,12 +11372,30 @@ defmodule AWS.Lightsail do
   @doc """
   Updates an existing Amazon Lightsail content delivery network (CDN)
   distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_distribution_request`)
+    %{
+      optional("cacheBehaviorSettings") => cache_settings(),
+      optional("cacheBehaviors") => list(cache_behavior_per_path()()),
+      optional("certificateName") => String.t(),
+      optional("defaultCacheBehavior") => cache_behavior(),
+      optional("isEnabled") => boolean(),
+      optional("origin") => input_origin(),
+      optional("useDefaultCertificate") => boolean(),
+      optional("viewerMinimumTlsProtocolVersion") => list(any()),
+      required("distributionName") => String.t()
+    }
   """
-  @spec update_distribution(AWS.Client.t(), update_distribution_request(), Keyword.t()) ::
+
+  @spec update_distribution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_errors()}
-  def update_distribution(%Client{} = client, input, options \\ []) do
+
+  def update_distribution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9784,16 +11406,23 @@ defmodule AWS.Lightsail do
   Updates the bundle of your Amazon Lightsail content delivery network (CDN)
   distribution. A distribution bundle specifies the monthly network transfer
   quota and monthly cost of your distribution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateDistributionBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_distribution_bundle_request`)
+    %{
+      optional("bundleId") => String.t(),
+      optional("distributionName") => String.t()
+    }
   """
-  @spec update_distribution_bundle(
-          AWS.Client.t(),
-          update_distribution_bundle_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_distribution_bundle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_distribution_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_bundle_errors()}
-  def update_distribution_bundle(%Client{} = client, input, options \\ []) do
+
+  def update_distribution_bundle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9802,12 +11431,23 @@ defmodule AWS.Lightsail do
 
   @doc """
   Updates a domain recordset after it is created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateDomainEntry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_domain_entry_request`)
+    %{
+      required("domainEntry") => domain_entry(),
+      required("domainName") => String.t()
+    }
   """
-  @spec update_domain_entry(AWS.Client.t(), update_domain_entry_request(), Keyword.t()) ::
+
+  @spec update_domain_entry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_entry_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_entry_errors()}
-  def update_domain_entry(%Client{} = client, input, options \\ []) do
+
+  def update_domain_entry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9823,16 +11463,27 @@ defmodule AWS.Lightsail do
   calls. For more information, see [Use IMDSv2 with an Amazon Lightsail
   instance](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service)
   in the *Amazon Lightsail Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateInstanceMetadataOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_instance_metadata_options_request`)
+    %{
+      optional("httpEndpoint") => list(any()),
+      optional("httpProtocolIpv6") => list(any()),
+      optional("httpPutResponseHopLimit") => integer(),
+      optional("httpTokens") => list(any()),
+      required("instanceName") => String.t()
+    }
   """
-  @spec update_instance_metadata_options(
-          AWS.Client.t(),
-          update_instance_metadata_options_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_instance_metadata_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_instance_metadata_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_metadata_options_errors()}
-  def update_instance_metadata_options(%Client{} = client, input, options \\ []) do
+
+  def update_instance_metadata_options(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9842,16 +11493,25 @@ defmodule AWS.Lightsail do
   @doc """
   Updates the specified attribute for a load balancer. You can only update one
   attribute at a time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateLoadBalancerAttribute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_load_balancer_attribute_request`)
+    %{
+      required("attributeName") => list(any()),
+      required("attributeValue") => String.t(),
+      required("loadBalancerName") => String.t()
+    }
   """
-  @spec update_load_balancer_attribute(
-          AWS.Client.t(),
-          update_load_balancer_attribute_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_load_balancer_attribute(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_load_balancer_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_load_balancer_attribute_errors()}
-  def update_load_balancer_attribute(%Client{} = client, input, options \\ []) do
+
+  def update_load_balancer_attribute(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -9862,16 +11522,32 @@ defmodule AWS.Lightsail do
   Allows the update of one or more attributes of a database in Amazon Lightsail.
   Updates are applied immediately, or in cases where the updates could result in
   an outage, are applied during the database's predefined maintenance window.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateRelationalDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_relational_database_request`)
+    %{
+      optional("applyImmediately") => boolean(),
+      optional("caCertificateIdentifier") => String.t(),
+      optional("disableBackupRetention") => boolean(),
+      optional("enableBackupRetention") => boolean(),
+      optional("masterUserPassword") => String.t(),
+      optional("preferredBackupWindow") => String.t(),
+      optional("preferredMaintenanceWindow") => String.t(),
+      optional("publiclyAccessible") => boolean(),
+      optional("relationalDatabaseBlueprintId") => String.t(),
+      optional("rotateMasterUserPassword") => boolean(),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec update_relational_database(
-          AWS.Client.t(),
-          update_relational_database_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_relational_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_relational_database_errors()}
-  def update_relational_database(%Client{} = client, input, options \\ []) do
+
+  def update_relational_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -9886,16 +11562,24 @@ defmodule AWS.Lightsail do
   marked with a `dynamic` apply type are applied immediately. Parameters marked
   with a `pending-reboot` apply type are applied only after the database is
   rebooted using the `reboot relational database` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lightsail%20UpdateRelationalDatabaseParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_relational_database_parameters_request`)
+    %{
+      required("parameters") => list(relational_database_parameter()()),
+      required("relationalDatabaseName") => String.t()
+    }
   """
-  @spec update_relational_database_parameters(
-          AWS.Client.t(),
-          update_relational_database_parameters_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_relational_database_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_relational_database_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_relational_database_parameters_errors()}
-  def update_relational_database_parameters(%Client{} = client, input, options \\ []) do
+
+  def update_relational_database_parameters(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 

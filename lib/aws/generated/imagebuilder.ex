@@ -15,7 +15,7 @@ defmodule AWS.Imagebuilder do
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_executions_response() :: %{
         "imageBuildVersionArn" => String.t(),
         "message" => String.t(),
@@ -23,50 +23,50 @@ defmodule AWS.Imagebuilder do
         "requestId" => String.t(),
         "workflowExecutions" => list(workflow_execution_metadata()())
       }
-
+      
   """
   @type list_workflow_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_lifecycle_execution_response() :: %{
         "lifecycleExecutionId" => String.t()
       }
-
+      
   """
   @type cancel_lifecycle_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_build_versions_response() :: %{
         "nextToken" => String.t(),
         "workflowSummaryList" => list(workflow_summary()())
       }
-
+      
   """
   @type list_workflow_build_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distribution_configurations_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_distribution_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workflow_request() :: %{
         optional("changeDescription") => String.t(),
         optional("data") => String.t(),
@@ -79,25 +79,25 @@ defmodule AWS.Imagebuilder do
         required("semanticVersion") => String.t(),
         required("type") => list(any())
       }
-
+      
   """
   @type create_workflow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_policy_request() :: %{
         required("imageArn") => String.t()
       }
-
+      
   """
   @type get_image_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_resource_state_update_request() :: %{
         optional("exclusionRules") => resource_state_update_exclusion_rules(),
         optional("executionRole") => String.t(),
@@ -107,52 +107,52 @@ defmodule AWS.Imagebuilder do
         required("resourceArn") => String.t(),
         required("state") => resource_state()
       }
-
+      
   """
   @type start_resource_state_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_pipeline_images_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("imagePipelineArn") => String.t()
       }
-
+      
   """
   @type list_image_pipeline_images_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_container_recipe_policy_response() :: %{
         "containerRecipeArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type put_container_recipe_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_detail_exclusion_rules() :: %{
         "amis" => lifecycle_policy_detail_exclusion_rules_amis(),
         "tagMap" => map()
       }
-
+      
   """
   @type lifecycle_policy_detail_exclusion_rules() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_vm_image_request() :: %{
         optional("description") => String.t(),
         optional("osVersion") => String.t(),
@@ -163,64 +163,64 @@ defmodule AWS.Imagebuilder do
         required("semanticVersion") => String.t(),
         required("vmImportTaskId") => String.t()
       }
-
+      
   """
   @type import_vm_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_parameter_detail() :: %{
         "defaultValue" => list(String.t()()),
         "description" => String.t(),
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type component_parameter_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_scan_state() :: %{
         "reason" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type image_scan_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_detail_action_include_resources() :: %{
         "amis" => boolean(),
         "containers" => boolean(),
         "snapshots" => boolean()
       }
-
+      
   """
   @type lifecycle_policy_detail_action_include_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_step_executions_response() :: %{
         "imageBuildVersionArn" => String.t(),
         "message" => String.t(),
@@ -230,52 +230,52 @@ defmodule AWS.Imagebuilder do
         "workflowBuildVersionArn" => String.t(),
         "workflowExecutionId" => String.t()
       }
-
+      
   """
   @type list_workflow_step_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_packages_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("imageBuildVersionArn") => String.t()
       }
-
+      
   """
   @type list_image_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container() :: %{
         "imageUris" => list(String.t()()),
         "region" => String.t()
       }
-
+      
   """
   @type container() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_distribution_configuration_response() :: %{
         "clientToken" => String.t(),
         "distributionConfigurationArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type update_distribution_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       infrastructure_configuration_summary() :: %{
         "arn" => String.t(),
         "dateCreated" => String.t(),
@@ -287,28 +287,28 @@ defmodule AWS.Imagebuilder do
         "resourceTags" => map(),
         "tags" => map()
       }
-
+      
   """
   @type infrastructure_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_recipes_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
       }
-
+      
   """
   @type list_image_recipes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_version() :: %{
         "arn" => String.t(),
         "dateCreated" => String.t(),
@@ -318,64 +318,64 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type workflow_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_pipelines_response() :: %{
         "imagePipelineList" => list(image_pipeline()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_image_pipelines_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_image_response() :: %{
         "clientToken" => String.t(),
         "imageBuildVersionArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type create_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_container_recipe_policy_request() :: %{
         required("containerRecipeArn") => String.t(),
         required("policy") => String.t()
       }
-
+      
   """
   @type put_container_recipe_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_waiting_workflow_steps_response() :: %{
         "nextToken" => String.t(),
         "steps" => list(workflow_step_execution()())
       }
-
+      
   """
   @type list_waiting_workflow_steps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_lifecycle_policy_request() :: %{
         optional("description") => String.t(),
         optional("status") => list(any()),
@@ -386,62 +386,62 @@ defmodule AWS.Imagebuilder do
         required("resourceSelection") => lifecycle_policy_resource_selection(),
         required("resourceType") => list(any())
       }
-
+      
   """
   @type update_lifecycle_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remediation() :: %{
         "recommendation" => remediation_recommendation()
       }
-
+      
   """
   @type remediation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_scanning_configuration() :: %{
         "ecrConfiguration" => ecr_configuration(),
         "imageScanningEnabled" => boolean()
       }
-
+      
   """
   @type image_scanning_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_image_pipeline_execution_response() :: %{
         "clientToken" => String.t(),
         "imageBuildVersionArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type start_image_pipeline_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_image_recipe_policy_response() :: %{
         "imageRecipeArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type put_image_recipe_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_step_execution_response() :: %{
         "action" => String.t(),
         "description" => String.t(),
@@ -461,71 +461,71 @@ defmodule AWS.Imagebuilder do
         "workflowBuildVersionArn" => String.t(),
         "workflowExecutionId" => String.t()
       }
-
+      
   """
   @type get_workflow_step_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_version_number_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_version_number_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lifecycle_execution_resources_response() :: %{
         "lifecycleExecutionId" => String.t(),
         "lifecycleExecutionState" => lifecycle_execution_state(),
         "nextToken" => String.t(),
         "resources" => list(lifecycle_execution_resource()())
       }
-
+      
   """
   @type list_lifecycle_execution_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workflow_request() :: %{
         required("workflowBuildVersionArn") => String.t()
       }
-
+      
   """
   @type delete_workflow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_scan_finding_aggregations_request() :: %{
         optional("filter") => filter(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_image_scan_finding_aggregations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_pipeline() :: %{
         "arn" => String.t(),
         "containerRecipeArn" => String.t(),
@@ -548,75 +548,75 @@ defmodule AWS.Imagebuilder do
         "tags" => map(),
         "workflows" => list(workflow_configuration()())
       }
-
+      
   """
   @type image_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_in_use_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_parameter_detail() :: %{
         "defaultValue" => list(String.t()()),
         "description" => String.t(),
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type workflow_parameter_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_block_device_mapping() :: %{
         "deviceName" => String.t(),
         "ebs" => ebs_instance_block_device_specification(),
         "noDevice" => String.t(),
         "virtualName" => String.t()
       }
-
+      
   """
   @type instance_block_device_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_lifecycle_policy_response() :: %{
         "lifecyclePolicyArn" => String.t()
       }
-
+      
   """
   @type update_lifecycle_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ebs_instance_block_device_specification() :: %{
         "deleteOnTermination" => boolean(),
         "encrypted" => boolean(),
@@ -627,49 +627,49 @@ defmodule AWS.Imagebuilder do
         "volumeSize" => integer(),
         "volumeType" => list(any())
       }
-
+      
   """
   @type ebs_instance_block_device_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_container_recipe_response() :: %{
         "containerRecipe" => container_recipe(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_container_recipe_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lifecycle_execution_request() :: %{
         required("lifecycleExecutionId") => String.t()
       }
-
+      
   """
   @type get_lifecycle_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vulnerability_id_aggregation() :: %{
         "severityCounts" => severity_counts(),
         "vulnerabilityId" => String.t()
       }
-
+      
   """
   @type vulnerability_id_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami() :: %{
         "accountId" => String.t(),
         "description" => String.t(),
@@ -678,87 +678,87 @@ defmodule AWS.Imagebuilder do
         "region" => String.t(),
         "state" => image_state()
       }
-
+      
   """
   @type ami() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_state() :: %{
         "status" => list(any())
       }
-
+      
   """
   @type resource_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_response() :: %{
         "image" => image(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_recipe_policy_response() :: %{
         "policy" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_image_recipe_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lifecycle_policies_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_lifecycle_policies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_execution_resource_action() :: %{
         "name" => list(any()),
         "reason" => String.t()
       }
-
+      
   """
   @type lifecycle_execution_resource_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_image_pipeline_response() :: %{
         "clientToken" => String.t(),
         "imagePipelineArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type create_image_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_infrastructure_configuration_request() :: %{
         optional("description") => String.t(),
         optional("instanceMetadataOptions") => instance_metadata_options(),
@@ -775,25 +775,25 @@ defmodule AWS.Imagebuilder do
         required("instanceProfileName") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_infrastructure_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_component_request() :: %{
         required("componentBuildVersionArn") => String.t()
       }
-
+      
   """
   @type delete_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_workflow_step_action_request() :: %{
         optional("reason") => String.t(),
         required("action") => list(any()),
@@ -801,61 +801,61 @@ defmodule AWS.Imagebuilder do
         required("imageBuildVersionArn") => String.t(),
         required("stepExecutionId") => String.t()
       }
-
+      
   """
   @type send_workflow_step_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ecr_configuration() :: %{
         "containerTags" => list(String.t()()),
         "repositoryName" => String.t()
       }
-
+      
   """
   @type ecr_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lifecycle_execution_response() :: %{
         "lifecycleExecution" => lifecycle_execution()
       }
-
+      
   """
   @type get_lifecycle_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_component_response() :: %{
         "component" => component(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_scan_findings_filter() :: %{
         "name" => String.t(),
         "values" => list(String.t()())
       }
-
+      
   """
   @type image_scan_findings_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_image_recipe_request() :: %{
         optional("additionalInstanceConfiguration") => additional_instance_configuration(),
         optional("blockDeviceMappings") => list(instance_block_device_mapping()()),
@@ -868,86 +868,86 @@ defmodule AWS.Imagebuilder do
         required("parentImage") => String.t(),
         required("semanticVersion") => String.t()
       }
-
+      
   """
   @type create_image_recipe_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_container_recipe_policy_request() :: %{
         required("containerRecipeArn") => String.t()
       }
-
+      
   """
   @type get_container_recipe_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_container_recipes_response() :: %{
         "containerRecipeSummaryList" => list(container_recipe_summary()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_container_recipes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_infrastructure_configuration_response() :: %{
         "infrastructureConfiguration" => infrastructure_configuration(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_infrastructure_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_image_creation_request() :: %{
         required("clientToken") => String.t(),
         required("imageBuildVersionArn") => String.t()
       }
-
+      
   """
   @type cancel_image_creation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_component_build_versions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("componentVersionArn") => String.t()
       }
-
+      
   """
   @type list_component_build_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_component_request() :: %{
         optional("changeDescription") => String.t(),
         optional("data") => String.t(),
@@ -962,25 +962,25 @@ defmodule AWS.Imagebuilder do
         required("semanticVersion") => String.t(),
         required("type") => list(any())
       }
-
+      
   """
   @type import_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       call_rate_limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type call_rate_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_summary() :: %{
         "arn" => String.t(),
         "changeDescription" => String.t(),
@@ -997,26 +997,26 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type component_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       target_container_repository() :: %{
         "repositoryName" => String.t(),
         "service" => list(any())
       }
-
+      
   """
   @type target_container_repository() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_distribution_configuration_request() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
@@ -1024,26 +1024,26 @@ defmodule AWS.Imagebuilder do
         required("distributions") => list(distribution()()),
         required("name") => String.t()
       }
-
+      
   """
   @type create_distribution_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_container_recipe_response() :: %{
         "containerRecipeArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type delete_container_recipe_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_execution_metadata() :: %{
         "endTime" => String.t(),
         "message" => String.t(),
@@ -1058,87 +1058,87 @@ defmodule AWS.Imagebuilder do
         "workflowBuildVersionArn" => String.t(),
         "workflowExecutionId" => String.t()
       }
-
+      
   """
   @type workflow_execution_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_state() :: %{
         "reason" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type component_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_request() :: %{
         required("workflowBuildVersionArn") => String.t()
       }
-
+      
   """
   @type get_workflow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       severity_counts() :: %{
         "all" => float(),
         "critical" => float(),
         "high" => float(),
         "medium" => float()
       }
-
+      
   """
   @type severity_counts() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_combination_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_parameter_combination_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_container_recipe_request() :: %{
         required("containerRecipeArn") => String.t()
       }
-
+      
   """
   @type delete_container_recipe_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_scan_finding_aggregation() :: %{
         "accountAggregation" => account_aggregation(),
         "imageAggregation" => image_aggregation(),
         "imagePipelineAggregation" => image_pipeline_aggregation(),
         "vulnerabilityIdAggregation" => vulnerability_id_aggregation()
       }
-
+      
   """
   @type image_scan_finding_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_version() :: %{
         "arn" => String.t(),
         "buildType" => list(any()),
@@ -1151,71 +1151,71 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type image_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_step_execution_request() :: %{
         required("stepExecutionId") => String.t()
       }
-
+      
   """
   @type get_workflow_step_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_resource_state_update_response() :: %{
         "lifecycleExecutionId" => String.t(),
         "resourceArn" => String.t()
       }
-
+      
   """
   @type start_resource_state_update_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_image_pipeline_request() :: %{
         required("imagePipelineArn") => String.t()
       }
-
+      
   """
   @type delete_image_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_parameter() :: %{
         "name" => String.t(),
         "value" => list(String.t()())
       }
-
+      
   """
   @type workflow_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_request() :: %{
         required("imageBuildVersionArn") => String.t()
       }
-
+      
   """
   @type get_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_step_execution() :: %{
         "action" => String.t(),
         "imageBuildVersionArn" => String.t(),
@@ -1225,74 +1225,74 @@ defmodule AWS.Imagebuilder do
         "workflowBuildVersionArn" => String.t(),
         "workflowExecutionId" => String.t()
       }
-
+      
   """
   @type workflow_step_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_distribution_configurations_response() :: %{
         "distributionConfigurationSummaryList" => list(distribution_configuration_summary()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_distribution_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_policy_response() :: %{
         "policy" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_image_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_component_response() :: %{
         "clientToken" => String.t(),
         "componentBuildVersionArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type create_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workflow_response() :: %{
         "workflowBuildVersionArn" => String.t()
       }
-
+      
   """
   @type delete_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_lifecycle_policy_response() :: %{
         "lifecyclePolicyArn" => String.t()
       }
-
+      
   """
   @type delete_lifecycle_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_execution_resource() :: %{
         "accountId" => String.t(),
         "action" => lifecycle_execution_resource_action(),
@@ -1304,120 +1304,120 @@ defmodule AWS.Imagebuilder do
         "startTime" => non_neg_integer(),
         "state" => lifecycle_execution_resource_state()
       }
-
+      
   """
   @type lifecycle_execution_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_distribution_configuration_request() :: %{
         required("distributionConfigurationArn") => String.t()
       }
-
+      
   """
   @type delete_distribution_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_recipe_request() :: %{
         required("imageRecipeArn") => String.t()
       }
-
+      
   """
   @type get_image_recipe_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       systems_manager_agent() :: %{
         "uninstallAfterBuild" => boolean()
       }
-
+      
   """
   @type systems_manager_agent() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_image_recipe_response() :: %{
         "clientToken" => String.t(),
         "imageRecipeArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type create_image_recipe_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_detail() :: %{
         "action" => lifecycle_policy_detail_action(),
         "exclusionRules" => lifecycle_policy_detail_exclusion_rules(),
         "filter" => lifecycle_policy_detail_filter()
       }
-
+      
   """
   @type lifecycle_policy_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_image_recipe_request() :: %{
         required("imageRecipeArn") => String.t()
       }
-
+      
   """
   @type delete_image_recipe_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_export_configuration() :: %{
         "diskImageFormat" => list(any()),
         "roleName" => String.t(),
         "s3Bucket" => String.t(),
         "s3Prefix" => String.t()
       }
-
+      
   """
   @type s3_export_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       client_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_infrastructure_configuration_request() :: %{
         optional("description") => String.t(),
         optional("instanceMetadataOptions") => instance_metadata_options(),
@@ -1433,14 +1433,14 @@ defmodule AWS.Imagebuilder do
         required("infrastructureConfigurationArn") => String.t(),
         required("instanceProfileName") => String.t()
       }
-
+      
   """
   @type update_infrastructure_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_components_request() :: %{
         optional("byName") => boolean(),
         optional("filters") => list(filter()()),
@@ -1448,27 +1448,27 @@ defmodule AWS.Imagebuilder do
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
       }
-
+      
   """
   @type list_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_executions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("imageBuildVersionArn") => String.t()
       }
-
+      
   """
   @type list_workflow_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_summary() :: %{
         "arn" => String.t(),
         "dateCreated" => non_neg_integer(),
@@ -1481,26 +1481,26 @@ defmodule AWS.Imagebuilder do
         "status" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type lifecycle_policy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_logs() :: %{
         "s3BucketName" => String.t(),
         "s3KeyPrefix" => String.t()
       }
-
+      
   """
   @type s3_logs() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_container_recipe_request() :: %{
         optional("description") => String.t(),
         optional("dockerfileTemplateData") => String.t(),
@@ -1519,37 +1519,37 @@ defmodule AWS.Imagebuilder do
         required("semanticVersion") => String.t(),
         required("targetRepository") => target_container_repository()
       }
-
+      
   """
   @type create_container_recipe_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_component_policy_request() :: %{
         required("componentArn") => String.t(),
         required("policy") => String.t()
       }
-
+      
   """
   @type put_component_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_image_request() :: %{
         optional("containerRecipeArn") => String.t(),
         optional("distributionConfigurationArn") => String.t(),
@@ -1563,49 +1563,49 @@ defmodule AWS.Imagebuilder do
         required("clientToken") => String.t(),
         required("infrastructureConfigurationArn") => String.t()
       }
-
+      
   """
   @type create_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_pipeline_response() :: %{
         "imagePipeline" => image_pipeline(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_image_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lifecycle_policies_response() :: %{
         "lifecyclePolicySummaryList" => list(lifecycle_policy_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_lifecycle_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_images_request() :: %{
         optional("byName") => boolean(),
         optional("filters") => list(filter()()),
@@ -1614,14 +1614,14 @@ defmodule AWS.Imagebuilder do
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
       }
-
+      
   """
   @type list_images_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component() :: %{
         "arn" => String.t(),
         "changeDescription" => String.t(),
@@ -1642,86 +1642,86 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_state_update_include_resources() :: %{
         "amis" => boolean(),
         "containers" => boolean(),
         "snapshots" => boolean()
       }
-
+      
   """
   @type resource_state_update_include_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_workflow_step_action_response() :: %{
         "clientToken" => String.t(),
         "imageBuildVersionArn" => String.t(),
         "stepExecutionId" => String.t()
       }
-
+      
   """
   @type send_workflow_step_action_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       idempotent_parameter_mismatch_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_value_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_parameter_value_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_image_recipe_policy_request() :: %{
         required("imageRecipeArn") => String.t(),
         required("policy") => String.t()
       }
-
+      
   """
   @type put_image_recipe_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_component_policy_response() :: %{
         "policy" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_component_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflows_request() :: %{
         optional("byName") => boolean(),
         optional("filters") => list(filter()()),
@@ -1729,25 +1729,25 @@ defmodule AWS.Imagebuilder do
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
       }
-
+      
   """
   @type list_workflows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_container_recipe_request() :: %{
         required("containerRecipeArn") => String.t()
       }
-
+      
   """
   @type get_container_recipe_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_configuration() :: %{
         "arn" => String.t(),
         "dateCreated" => String.t(),
@@ -1758,26 +1758,26 @@ defmodule AWS.Imagebuilder do
         "tags" => map(),
         "timeoutMinutes" => integer()
       }
-
+      
   """
   @type distribution_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_execution_resource_state() :: %{
         "reason" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type lifecycle_execution_resource_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow() :: %{
         "arn" => String.t(),
         "changeDescription" => String.t(),
@@ -1793,14 +1793,14 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type workflow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cvss_score_details() :: %{
         "adjustments" => list(cvss_score_adjustment()()),
         "cvssSource" => String.t(),
@@ -1809,27 +1809,27 @@ defmodule AWS.Imagebuilder do
         "scoringVector" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type cvss_score_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_pipelines_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_image_pipelines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution() :: %{
         "amiDistributionConfiguration" => ami_distribution_configuration(),
         "containerDistributionConfiguration" => container_distribution_configuration(),
@@ -1839,73 +1839,73 @@ defmodule AWS.Imagebuilder do
         "region" => String.t(),
         "s3ExportConfiguration" => s3_export_configuration()
       }
-
+      
   """
   @type distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_scan_findings_response() :: %{
         "findings" => list(image_scan_finding()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_image_scan_findings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_image_recipe_response() :: %{
         "imageRecipeArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type delete_image_recipe_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remediation_recommendation() :: %{
         "text" => String.t(),
         "url" => String.t()
       }
-
+      
   """
   @type remediation_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inspector_score_details() :: %{
         "adjustedCvss" => cvss_score_details()
       }
-
+      
   """
   @type inspector_score_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_component_request() :: %{
         optional("changeDescription") => String.t(),
         optional("data") => String.t(),
@@ -1919,14 +1919,14 @@ defmodule AWS.Imagebuilder do
         required("platform") => list(any()),
         required("semanticVersion") => String.t()
       }
-
+      
   """
   @type create_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vulnerable_package() :: %{
         "arch" => String.t(),
         "epoch" => integer(),
@@ -1939,87 +1939,87 @@ defmodule AWS.Imagebuilder do
         "sourceLayerHash" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type vulnerable_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_distribution_configuration_request() :: %{
         optional("description") => String.t(),
         required("clientToken") => String.t(),
         required("distributionConfigurationArn") => String.t(),
         required("distributions") => list(distribution()())
       }
-
+      
   """
   @type update_distribution_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_state_update_exclusion_rules() :: %{
         "amis" => lifecycle_policy_detail_exclusion_rules_amis()
       }
-
+      
   """
   @type resource_state_update_exclusion_rules() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cvss_score_adjustment() :: %{
         "metric" => String.t(),
         "reason" => String.t()
       }
-
+      
   """
   @type cvss_score_adjustment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_execution_snapshot_resource() :: %{
         "snapshotId" => String.t(),
         "state" => lifecycle_execution_resource_state()
       }
-
+      
   """
   @type lifecycle_execution_snapshot_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_infrastructure_configurations_response() :: %{
         "infrastructureConfigurationSummaryList" => list(infrastructure_configuration_summary()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_infrastructure_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_recipe_summary() :: %{
         "arn" => String.t(),
         "containerType" => list(any()),
@@ -2030,49 +2030,49 @@ defmodule AWS.Imagebuilder do
         "platform" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type container_recipe_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_execution_request() :: %{
         required("workflowExecutionId") => String.t()
       }
-
+      
   """
   @type get_workflow_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lifecycle_executions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type list_lifecycle_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_version() :: %{
         "arn" => String.t(),
         "dateCreated" => String.t(),
@@ -2084,62 +2084,62 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type component_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_lifecycle_policy_response() :: %{
         "clientToken" => String.t(),
         "lifecyclePolicyArn" => String.t()
       }
-
+      
   """
   @type create_lifecycle_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_image_policy_request() :: %{
         required("imageArn") => String.t(),
         required("policy") => String.t()
       }
-
+      
   """
   @type put_image_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_distribution_configuration_request() :: %{
         required("distributionConfigurationArn") => String.t()
       }
-
+      
   """
   @type get_distribution_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_component_response() :: %{
         "clientToken" => String.t(),
         "componentBuildVersionArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type import_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_image_pipeline_request() :: %{
         optional("containerRecipeArn") => String.t(),
         optional("description") => String.t(),
@@ -2157,116 +2157,116 @@ defmodule AWS.Imagebuilder do
         required("infrastructureConfigurationArn") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_image_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_detail_filter() :: %{
         "retainAtLeast" => integer(),
         "type" => list(any()),
         "unit" => list(any()),
         "value" => integer()
       }
-
+      
   """
   @type lifecycle_policy_detail_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter() :: %{
         "name" => String.t(),
         "values" => list(String.t()())
       }
-
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_distribution_configuration_response() :: %{
         "clientToken" => String.t(),
         "distributionConfigurationArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type create_distribution_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_distribution_configuration_response() :: %{
         "distributionConfigurationArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type delete_distribution_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_images_response() :: %{
         "imageVersionList" => list(image_version()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_images_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lifecycle_executions_response() :: %{
         "lifecycleExecutions" => list(lifecycle_execution()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_lifecycle_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_component_build_versions_response() :: %{
         "componentSummaryList" => list(component_summary()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_component_build_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_packages_response() :: %{
         "imagePackageList" => list(image_package()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_image_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_summary() :: %{
         "arn" => String.t(),
         "changeDescription" => String.t(),
@@ -2279,111 +2279,111 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type workflow_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_tests_configuration() :: %{
         "imageTestsEnabled" => boolean(),
         "timeoutMinutes" => integer()
       }
-
+      
   """
   @type image_tests_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_container_recipes_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
       }
-
+      
   """
   @type list_container_recipes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_build_versions_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("imageVersionArn") => String.t()
       }
-
+      
   """
   @type list_image_build_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_component_response() :: %{
         "componentBuildVersionArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type delete_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       additional_instance_configuration() :: %{
         "systemsManagerAgent" => systems_manager_agent(),
         "userDataOverride" => String.t()
       }
-
+      
   """
   @type additional_instance_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_infrastructure_configuration_request() :: %{
         required("infrastructureConfigurationArn") => String.t()
       }
-
+      
   """
   @type get_infrastructure_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_image_request() :: %{
         required("imageBuildVersionArn") => String.t()
       }
-
+      
   """
   @type delete_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_execution_resources_impacted_summary() :: %{
         "hasImpactedResources" => boolean()
       }
-
+      
   """
   @type lifecycle_execution_resources_impacted_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_recipe() :: %{
         "additionalInstanceConfiguration" => additional_instance_configuration(),
         "arn" => String.t(),
@@ -2400,25 +2400,25 @@ defmodule AWS.Imagebuilder do
         "version" => String.t(),
         "workingDirectory" => String.t()
       }
-
+      
   """
   @type image_recipe() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fast_launch_snapshot_configuration() :: %{
         "targetResourceCount" => integer()
       }
-
+      
   """
   @type fast_launch_snapshot_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy() :: %{
         "arn" => String.t(),
         "dateCreated" => non_neg_integer(),
@@ -2433,26 +2433,26 @@ defmodule AWS.Imagebuilder do
         "status" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type lifecycle_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_component_policy_response() :: %{
         "componentArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type put_component_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_execution_response() :: %{
         "endTime" => String.t(),
         "imageBuildVersionArn" => String.t(),
@@ -2469,63 +2469,63 @@ defmodule AWS.Imagebuilder do
         "workflowBuildVersionArn" => String.t(),
         "workflowExecutionId" => String.t()
       }
-
+      
   """
   @type get_workflow_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       schedule() :: %{
         "pipelineExecutionStartCondition" => list(any()),
         "scheduleExpression" => String.t(),
         "timezone" => String.t()
       }
-
+      
   """
   @type schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_scan_findings_request() :: %{
         optional("filters") => list(image_scan_findings_filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_image_scan_findings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_resource_selection() :: %{
         "recipes" => list(lifecycle_policy_resource_selection_recipe()()),
         "tagMap" => map()
       }
-
+      
   """
   @type lifecycle_policy_resource_selection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_lifecycle_policy_request() :: %{
         required("lifecyclePolicyArn") => String.t()
       }
-
+      
   """
   @type delete_lifecycle_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_scan_finding() :: %{
         "awsAccountId" => String.t(),
         "description" => String.t(),
@@ -2542,75 +2542,75 @@ defmodule AWS.Imagebuilder do
         "type" => String.t(),
         "updatedAt" => non_neg_integer()
       }
-
+      
   """
   @type image_scan_finding() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_step_executions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("workflowExecutionId") => String.t()
       }
-
+      
   """
   @type list_workflow_step_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_recipe_policy_request() :: %{
         required("imageRecipeArn") => String.t()
       }
-
+      
   """
   @type get_image_recipe_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_aggregation() :: %{
         "accountId" => String.t(),
         "severityCounts" => severity_counts()
       }
-
+      
   """
   @type account_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       output_resources() :: %{
         "amis" => list(ami()()),
         "containers" => list(container()())
       }
-
+      
   """
   @type output_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_image_creation_response() :: %{
         "clientToken" => String.t(),
         "imageBuildVersionArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type cancel_image_creation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image() :: %{
         "arn" => String.t(),
         "buildType" => list(any()),
@@ -2639,61 +2639,61 @@ defmodule AWS.Imagebuilder do
         "version" => String.t(),
         "workflows" => list(workflow_configuration()())
       }
-
+      
   """
   @type image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_image_pipeline_response() :: %{
         "imagePipelineArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type delete_image_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_pipeline_request() :: %{
         required("imagePipelineArn") => String.t()
       }
-
+      
   """
   @type get_image_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workflow_response() :: %{
         "clientToken" => String.t(),
         "workflowBuildVersionArn" => String.t()
       }
-
+      
   """
   @type create_workflow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_image_policy_response() :: %{
         "imageArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type put_image_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_vulnerability_details() :: %{
         "cvss" => list(cvss_score()()),
         "referenceUrls" => list(String.t()()),
@@ -2706,137 +2706,137 @@ defmodule AWS.Imagebuilder do
         "vulnerabilityId" => String.t(),
         "vulnerablePackages" => list(vulnerable_package()())
       }
-
+      
   """
   @type package_vulnerability_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cvss_score() :: %{
         "baseScore" => float(),
         "scoringVector" => String.t(),
         "source" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type cvss_score() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_metadata_options() :: %{
         "httpPutResponseHopLimit" => integer(),
         "httpTokens" => String.t()
       }
-
+      
   """
   @type instance_metadata_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_infrastructure_configuration_response() :: %{
         "clientToken" => String.t(),
         "infrastructureConfigurationArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type update_infrastructure_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fast_launch_launch_template_specification() :: %{
         "launchTemplateId" => String.t(),
         "launchTemplateName" => String.t(),
         "launchTemplateVersion" => String.t()
       }
-
+      
   """
   @type fast_launch_launch_template_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflow_build_versions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("workflowVersionArn") => String.t()
       }
-
+      
   """
   @type list_workflow_build_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_vm_image_response() :: %{
         "clientToken" => String.t(),
         "imageArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type import_vm_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_infrastructure_configuration_request() :: %{
         required("infrastructureConfigurationArn") => String.t()
       }
-
+      
   """
   @type delete_infrastructure_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_scan_finding_aggregations_response() :: %{
         "aggregationType" => String.t(),
         "nextToken" => String.t(),
         "requestId" => String.t(),
         "responses" => list(image_scan_finding_aggregation()())
       }
-
+      
   """
   @type list_image_scan_finding_aggregations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       image_recipe_summary() :: %{
         "arn" => String.t(),
         "dateCreated" => String.t(),
@@ -2846,14 +2846,14 @@ defmodule AWS.Imagebuilder do
         "platform" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type image_recipe_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fast_launch_configuration() :: %{
         "accountId" => String.t(),
         "enabled" => boolean(),
@@ -2861,14 +2861,14 @@ defmodule AWS.Imagebuilder do
         "maxParallelLaunches" => integer(),
         "snapshotConfiguration" => fast_launch_snapshot_configuration()
       }
-
+      
   """
   @type fast_launch_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_distribution_configuration() :: %{
         "amiTags" => map(),
         "description" => String.t(),
@@ -2877,121 +2877,121 @@ defmodule AWS.Imagebuilder do
         "name" => String.t(),
         "targetAccountIds" => list(String.t()())
       }
-
+      
   """
   @type ami_distribution_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_configuration() :: %{
         "componentArn" => String.t(),
         "parameters" => list(component_parameter()())
       }
-
+      
   """
   @type component_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_configuration() :: %{
         "blockDeviceMappings" => list(instance_block_device_mapping()()),
         "image" => String.t()
       }
-
+      
   """
   @type instance_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_infrastructure_configuration_response() :: %{
         "clientToken" => String.t(),
         "infrastructureConfigurationArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type create_infrastructure_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_distribution_configuration() :: %{
         "containerTags" => list(String.t()()),
         "description" => String.t(),
         "targetRepository" => target_container_repository()
       }
-
+      
   """
   @type container_distribution_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lifecycle_policy_request() :: %{
         required("lifecyclePolicyArn") => String.t()
       }
-
+      
   """
   @type get_lifecycle_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_aggregation() :: %{
         "imageBuildVersionArn" => String.t(),
         "severityCounts" => severity_counts()
       }
-
+      
   """
   @type image_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_container_recipe_policy_response() :: %{
         "policy" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_container_recipe_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_container_recipe_response() :: %{
         "clientToken" => String.t(),
         "containerRecipeArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type create_container_recipe_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_recipe() :: %{
         "arn" => String.t(),
         "components" => list(component_configuration()()),
@@ -3011,14 +3011,14 @@ defmodule AWS.Imagebuilder do
         "version" => String.t(),
         "workingDirectory" => String.t()
       }
-
+      
   """
   @type container_recipe() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_lifecycle_policy_request() :: %{
         optional("description") => String.t(),
         optional("status") => list(any()),
@@ -3030,61 +3030,61 @@ defmodule AWS.Imagebuilder do
         required("resourceSelection") => lifecycle_policy_resource_selection(),
         required("resourceType") => list(any())
       }
-
+      
   """
   @type create_lifecycle_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_dependency_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_dependency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_execution_state() :: %{
         "reason" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type lifecycle_execution_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_package() :: %{
         "packageName" => String.t(),
         "packageVersion" => String.t()
       }
-
+      
   """
   @type image_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_image_response() :: %{
         "imageBuildVersionArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type delete_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_execution() :: %{
         "endTime" => non_neg_integer(),
         "lifecycleExecutionId" => String.t(),
@@ -3093,39 +3093,39 @@ defmodule AWS.Imagebuilder do
         "startTime" => non_neg_integer(),
         "state" => lifecycle_execution_state()
       }
-
+      
   """
   @type lifecycle_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_components_response() :: %{
         "componentVersionList" => list(component_version()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_resource_selection_recipe() :: %{
         "name" => String.t(),
         "semanticVersion" => String.t()
       }
-
+      
   """
   @type lifecycle_policy_resource_selection_recipe() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_step_metadata() :: %{
         "action" => String.t(),
         "description" => String.t(),
@@ -3139,27 +3139,27 @@ defmodule AWS.Imagebuilder do
         "status" => list(any()),
         "stepExecutionId" => String.t()
       }
-
+      
   """
   @type workflow_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_build_versions_response() :: %{
         "imageSummaryList" => list(image_summary()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_image_build_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_image_pipeline_request() :: %{
         optional("containerRecipeArn") => String.t(),
         optional("description") => String.t(),
@@ -3176,91 +3176,91 @@ defmodule AWS.Imagebuilder do
         required("imagePipelineArn") => String.t(),
         required("infrastructureConfigurationArn") => String.t()
       }
-
+      
   """
   @type update_image_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lifecycle_execution_resources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("parentResourceId") => String.t(),
         required("lifecycleExecutionId") => String.t()
       }
-
+      
   """
   @type list_lifecycle_execution_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_state() :: %{
         "reason" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type image_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_lifecycle_execution_request() :: %{
         required("clientToken") => String.t(),
         required("lifecycleExecutionId") => String.t()
       }
-
+      
   """
   @type cancel_lifecycle_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_configuration() :: %{
         "onFailure" => list(any()),
         "parallelGroup" => String.t(),
         "parameters" => list(workflow_parameter()()),
         "workflowArn" => String.t()
       }
-
+      
   """
   @type workflow_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workflow_state() :: %{
         "reason" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type workflow_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_infrastructure_configurations_request() :: %{
         optional("filters") => list(filter()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_infrastructure_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_summary() :: %{
         "arn" => String.t(),
         "buildType" => list(any()),
@@ -3278,62 +3278,62 @@ defmodule AWS.Imagebuilder do
         "type" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type image_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_detail_action() :: %{
         "includeResources" => lifecycle_policy_detail_action_include_resources(),
         "type" => list(any())
       }
-
+      
   """
   @type lifecycle_policy_detail_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_recipes_response() :: %{
         "imageRecipeSummaryList" => list(image_recipe_summary()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_image_recipes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_already_exists_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_waiting_workflow_steps_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_waiting_workflow_steps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_detail_exclusion_rules_amis() :: %{
         "isPublic" => boolean(),
         "lastLaunched" => lifecycle_policy_detail_exclusion_rules_amis_last_launched(),
@@ -3341,27 +3341,27 @@ defmodule AWS.Imagebuilder do
         "sharedAccounts" => list(String.t()()),
         "tagMap" => map()
       }
-
+      
   """
   @type lifecycle_policy_detail_exclusion_rules_amis() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_template_configuration() :: %{
         "accountId" => String.t(),
         "launchTemplateId" => String.t(),
         "setDefaultVersion" => boolean()
       }
-
+      
   """
   @type launch_template_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       infrastructure_configuration() :: %{
         "arn" => String.t(),
         "dateCreated" => String.t(),
@@ -3380,121 +3380,121 @@ defmodule AWS.Imagebuilder do
         "tags" => map(),
         "terminateInstanceOnFailure" => boolean()
       }
-
+      
   """
   @type infrastructure_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_component_policy_request() :: %{
         required("componentArn") => String.t()
       }
-
+      
   """
   @type get_component_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workflows_response() :: %{
         "nextToken" => String.t(),
         "workflowVersionList" => list(workflow_version()())
       }
-
+      
   """
   @type list_workflows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_image_pipeline_execution_request() :: %{
         required("clientToken") => String.t(),
         required("imagePipelineArn") => String.t()
       }
-
+      
   """
   @type start_image_pipeline_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{
         "unit" => list(any()),
         "value" => integer()
       }
-
+      
   """
   @type lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_pipeline_aggregation() :: %{
         "imagePipelineArn" => String.t(),
         "severityCounts" => severity_counts()
       }
-
+      
   """
   @type image_pipeline_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_infrastructure_configuration_response() :: %{
         "infrastructureConfigurationArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type delete_infrastructure_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_parameter() :: %{
         "name" => String.t(),
         "value" => list(String.t()())
       }
-
+      
   """
   @type component_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_image_recipe_response() :: %{
         "imageRecipe" => image_recipe(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_image_recipe_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_distribution_configuration_response() :: %{
         "distributionConfiguration" => distribution_configuration(),
         "requestId" => String.t()
       }
-
+      
   """
   @type get_distribution_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution_configuration_summary() :: %{
         "arn" => String.t(),
         "dateCreated" => String.t(),
@@ -3504,102 +3504,102 @@ defmodule AWS.Imagebuilder do
         "regions" => list(String.t()()),
         "tags" => map()
       }
-
+      
   """
   @type distribution_configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_permission_configuration() :: %{
         "organizationArns" => list(String.t()()),
         "organizationalUnitArns" => list(String.t()()),
         "userGroups" => list(String.t()()),
         "userIds" => list(String.t()())
       }
-
+      
   """
   @type launch_permission_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging() :: %{
         "s3Logs" => s3_logs()
       }
-
+      
   """
   @type logging() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_image_pipeline_images_response() :: %{
         "imageSummaryList" => list(image_summary()()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type list_image_pipeline_images_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_component_request() :: %{
         required("componentBuildVersionArn") => String.t()
       }
-
+      
   """
   @type get_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_lifecycle_policy_response() :: %{
         "lifecyclePolicy" => lifecycle_policy()
       }
-
+      
   """
   @type get_lifecycle_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_pagination_token_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_pagination_token_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_image_pipeline_response() :: %{
         "clientToken" => String.t(),
         "imagePipelineArn" => String.t(),
         "requestId" => String.t()
       }
-
+      
   """
   @type update_image_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workflow_response() :: %{
         "workflow" => workflow()
       }
-
+      
   """
   @type get_workflow_response() :: %{String.t() => any()}
 
@@ -4301,19 +4301,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec cancel_image_creation(AWS.Client.t(), cancel_image_creation_request(), Keyword.t()) ::
+
+  @spec cancel_image_creation(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_image_creation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_image_creation_errors()}
-  def cancel_image_creation(%Client{} = client, input, options \\ []) do
+
+  def cancel_image_creation(%Client{} = client, options \\ []) do
     url_path = "/CancelImageCreation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4325,23 +4346,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec cancel_lifecycle_execution(
-          AWS.Client.t(),
-          cancel_lifecycle_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_lifecycle_execution(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_lifecycle_execution_errors()}
-  def cancel_lifecycle_execution(%Client{} = client, input, options \\ []) do
+
+  def cancel_lifecycle_execution(%Client{} = client, options \\ []) do
     url_path = "/CancelLifecycleExecution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4355,19 +4393,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_component(AWS.Client.t(), create_component_request(), Keyword.t()) ::
+
+  @spec create_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_errors()}
-  def create_component(%Client{} = client, input, options \\ []) do
+
+  def create_component(%Client{} = client, options \\ []) do
     url_path = "/CreateComponent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4380,19 +4439,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_container_recipe(AWS.Client.t(), create_container_recipe_request(), Keyword.t()) ::
+
+  @spec create_container_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_container_recipe_errors()}
-  def create_container_recipe(%Client{} = client, input, options \\ []) do
+
+  def create_container_recipe(%Client{} = client, options \\ []) do
     url_path = "/CreateContainerRecipe"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4405,23 +4485,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_distribution_configuration(
-          AWS.Client.t(),
-          create_distribution_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_distribution_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_distribution_configuration_errors()}
-  def create_distribution_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_distribution_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateDistributionConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4436,19 +4533,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_image(AWS.Client.t(), create_image_request(), Keyword.t()) ::
+
+  @spec create_image(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_errors()}
-  def create_image(%Client{} = client, input, options \\ []) do
+
+  def create_image(%Client{} = client, options \\ []) do
     url_path = "/CreateImage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4461,19 +4579,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_image_pipeline(AWS.Client.t(), create_image_pipeline_request(), Keyword.t()) ::
+
+  @spec create_image_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_pipeline_errors()}
-  def create_image_pipeline(%Client{} = client, input, options \\ []) do
+
+  def create_image_pipeline(%Client{} = client, options \\ []) do
     url_path = "/CreateImagePipeline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4486,19 +4625,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_image_recipe(AWS.Client.t(), create_image_recipe_request(), Keyword.t()) ::
+
+  @spec create_image_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_recipe_errors()}
-  def create_image_recipe(%Client{} = client, input, options \\ []) do
+
+  def create_image_recipe(%Client{} = client, options \\ []) do
     url_path = "/CreateImageRecipe"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4511,23 +4671,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_infrastructure_configuration(
-          AWS.Client.t(),
-          create_infrastructure_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_infrastructure_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_infrastructure_configuration_errors()}
-  def create_infrastructure_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_infrastructure_configuration(%Client{} = client, options \\ []) do
     url_path = "/CreateInfrastructureConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4539,19 +4716,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_lifecycle_policy(AWS.Client.t(), create_lifecycle_policy_request(), Keyword.t()) ::
+
+  @spec create_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_lifecycle_policy_errors()}
-  def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def create_lifecycle_policy(%Client{} = client, options \\ []) do
     url_path = "/CreateLifecyclePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4563,19 +4761,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
+
+  @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
-  def create_workflow(%Client{} = client, input, options \\ []) do
+
+  def create_workflow(%Client{} = client, options \\ []) do
     url_path = "/CreateWorkflow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4585,26 +4804,43 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-    the component build version to delete.
+  the component build version to delete.
 
   ## Optional parameters:
   """
-  @spec delete_component(AWS.Client.t(), delete_component_request(), Keyword.t()) ::
+
+  @spec delete_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_errors()}
-  def delete_component(%Client{} = client, input, options \\ []) do
+
+  def delete_component(%Client{} = client, component_build_version_arn, options \\ [])
+      when is_binary(component_build_version_arn) do
     url_path = "/DeleteComponent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"componentBuildVersionArn", "componentBuildVersionArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"componentBuildVersionArn", component_build_version_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4613,7 +4849,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4626,26 +4862,43 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    container recipe to delete.
+  container recipe to delete.
 
   ## Optional parameters:
   """
-  @spec delete_container_recipe(AWS.Client.t(), delete_container_recipe_request(), Keyword.t()) ::
+
+  @spec delete_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_container_recipe_errors()}
-  def delete_container_recipe(%Client{} = client, input, options \\ []) do
+
+  def delete_container_recipe(%Client{} = client, container_recipe_arn, options \\ [])
+      when is_binary(container_recipe_arn) do
     url_path = "/DeleteContainerRecipe"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"containerRecipeArn", "containerRecipeArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"containerRecipeArn", container_recipe_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4654,7 +4907,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4667,30 +4920,47 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the distribution configuration to delete.
+  of the distribution configuration to delete.
 
   ## Optional parameters:
   """
-  @spec delete_distribution_configuration(
-          AWS.Client.t(),
-          delete_distribution_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_distribution_configuration_errors()}
-  def delete_distribution_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_distribution_configuration(
+        %Client{} = client,
+        distribution_configuration_arn,
+        options \\ []
+      )
+      when is_binary(distribution_configuration_arn) do
     url_path = "/DeleteDistributionConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"distributionConfigurationArn", "distributionConfigurationArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"distributionConfigurationArn", distribution_configuration_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4699,7 +4969,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4715,26 +4985,43 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    Image Builder image resource to delete.
+  Image Builder image resource to delete.
 
   ## Optional parameters:
   """
-  @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
+
+  @spec delete_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_errors()}
-  def delete_image(%Client{} = client, input, options \\ []) do
+
+  def delete_image(%Client{} = client, image_build_version_arn, options \\ [])
+      when is_binary(image_build_version_arn) do
     url_path = "/DeleteImage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"imageBuildVersionArn", "imageBuildVersionArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"imageBuildVersionArn", image_build_version_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4743,7 +5030,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4756,26 +5043,43 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-    pipeline to delete.
+  pipeline to delete.
 
   ## Optional parameters:
   """
-  @spec delete_image_pipeline(AWS.Client.t(), delete_image_pipeline_request(), Keyword.t()) ::
+
+  @spec delete_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_pipeline_errors()}
-  def delete_image_pipeline(%Client{} = client, input, options \\ []) do
+
+  def delete_image_pipeline(%Client{} = client, image_pipeline_arn, options \\ [])
+      when is_binary(image_pipeline_arn) do
     url_path = "/DeleteImagePipeline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"imagePipelineArn", "imagePipelineArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"imagePipelineArn", image_pipeline_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4784,7 +5088,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4797,26 +5101,43 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-    recipe to delete.
+  recipe to delete.
 
   ## Optional parameters:
   """
-  @spec delete_image_recipe(AWS.Client.t(), delete_image_recipe_request(), Keyword.t()) ::
+
+  @spec delete_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_recipe_errors()}
-  def delete_image_recipe(%Client{} = client, input, options \\ []) do
+
+  def delete_image_recipe(%Client{} = client, image_recipe_arn, options \\ [])
+      when is_binary(image_recipe_arn) do
     url_path = "/DeleteImageRecipe"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"imageRecipeArn", "imageRecipeArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"imageRecipeArn", image_recipe_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4825,7 +5146,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4838,30 +5159,47 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
-    (ARN) of the infrastructure configuration to delete.
+  (ARN) of the infrastructure configuration to delete.
 
   ## Optional parameters:
   """
-  @spec delete_infrastructure_configuration(
-          AWS.Client.t(),
-          delete_infrastructure_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_infrastructure_configuration_errors()}
-  def delete_infrastructure_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_infrastructure_configuration(
+        %Client{} = client,
+        infrastructure_configuration_arn,
+        options \\ []
+      )
+      when is_binary(infrastructure_configuration_arn) do
     url_path = "/DeleteInfrastructureConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"infrastructureConfigurationArn", "infrastructureConfigurationArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"infrastructureConfigurationArn", infrastructure_configuration_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4870,7 +5208,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4883,26 +5221,43 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:lifecycle_policy_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    lifecycle policy resource to delete.
+  lifecycle policy resource to delete.
 
   ## Optional parameters:
   """
-  @spec delete_lifecycle_policy(AWS.Client.t(), delete_lifecycle_policy_request(), Keyword.t()) ::
+
+  @spec delete_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_lifecycle_policy_errors()}
-  def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ [])
+      when is_binary(lifecycle_policy_arn) do
     url_path = "/DeleteLifecyclePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"lifecyclePolicyArn", "lifecyclePolicyArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"lifecyclePolicyArn", lifecycle_policy_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4911,7 +5266,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4924,26 +5279,43 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-    the workflow resource to delete.
+  the workflow resource to delete.
 
   ## Optional parameters:
   """
-  @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
+
+  @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-  def delete_workflow(%Client{} = client, input, options \\ []) do
+
+  def delete_workflow(%Client{} = client, workflow_build_version_arn, options \\ [])
+      when is_binary(workflow_build_version_arn) do
     url_path = "/DeleteWorkflow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"workflowBuildVersionArn", "workflowBuildVersionArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"workflowBuildVersionArn", workflow_build_version_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4952,7 +5324,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4965,15 +5337,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-    the component that you want to get. Regex requires the suffix /\d+$.
+  the component that you want to get. Regex requires the suffix /\d+$.
 
   ## Optional parameters:
   """
+
   @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_errors()}
-  def get_component(%Client{} = client, component_build_version_arn, options \\ []) do
+
+  def get_component(%Client{} = client, component_build_version_arn, options \\ [])
+      when is_binary(component_build_version_arn) do
     url_path = "/GetComponent"
 
     # Validate optional parameters
@@ -5008,15 +5383,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:component_arn` (`t:string`) The Amazon Resource Name (ARN) of the component
-    whose policy you want to retrieve.
+  whose policy you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_component_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_policy_errors()}
-  def get_component_policy(%Client{} = client, component_arn, options \\ []) do
+
+  def get_component_policy(%Client{} = client, component_arn, options \\ [])
+      when is_binary(component_arn) do
     url_path = "/GetComponentPolicy"
 
     # Validate optional parameters
@@ -5051,15 +5429,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    container recipe to retrieve.
+  container recipe to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_recipe_errors()}
-  def get_container_recipe(%Client{} = client, container_recipe_arn, options \\ []) do
+
+  def get_container_recipe(%Client{} = client, container_recipe_arn, options \\ [])
+      when is_binary(container_recipe_arn) do
     url_path = "/GetContainerRecipe"
 
     # Validate optional parameters
@@ -5094,15 +5475,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    container recipe for the policy being requested.
+  container recipe for the policy being requested.
 
   ## Optional parameters:
   """
+
   @spec get_container_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_container_recipe_policy_errors()}
-  def get_container_recipe_policy(%Client{} = client, container_recipe_arn, options \\ []) do
+
+  def get_container_recipe_policy(%Client{} = client, container_recipe_arn, options \\ [])
+      when is_binary(container_recipe_arn) do
     url_path = "/GetContainerRecipePolicy"
 
     # Validate optional parameters
@@ -5137,19 +5521,22 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the distribution configuration that you want to retrieve.
+  of the distribution configuration that you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_distribution_configuration_errors()}
+
   def get_distribution_configuration(
         %Client{} = client,
         distribution_configuration_arn,
         options \\ []
-      ) do
+      )
+      when is_binary(distribution_configuration_arn) do
     url_path = "/GetDistributionConfiguration"
 
     # Validate optional parameters
@@ -5184,15 +5571,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    image that you want to get.
+  image that you want to get.
 
   ## Optional parameters:
   """
+
   @spec get_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_errors()}
-  def get_image(%Client{} = client, image_build_version_arn, options \\ []) do
+
+  def get_image(%Client{} = client, image_build_version_arn, options \\ [])
+      when is_binary(image_build_version_arn) do
     url_path = "/GetImage"
 
     # Validate optional parameters
@@ -5227,15 +5617,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-    pipeline that you want to retrieve.
+  pipeline that you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_pipeline_errors()}
-  def get_image_pipeline(%Client{} = client, image_pipeline_arn, options \\ []) do
+
+  def get_image_pipeline(%Client{} = client, image_pipeline_arn, options \\ [])
+      when is_binary(image_pipeline_arn) do
     url_path = "/GetImagePipeline"
 
     # Validate optional parameters
@@ -5270,15 +5663,17 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_arn` (`t:string`) The Amazon Resource Name (ARN) of the image whose
-    policy you want to retrieve.
+  policy you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_image_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_policy_errors()}
-  def get_image_policy(%Client{} = client, image_arn, options \\ []) do
+
+  def get_image_policy(%Client{} = client, image_arn, options \\ []) when is_binary(image_arn) do
     url_path = "/GetImagePolicy"
 
     # Validate optional parameters
@@ -5313,15 +5708,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-    recipe that you want to retrieve.
+  recipe that you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_recipe_errors()}
-  def get_image_recipe(%Client{} = client, image_recipe_arn, options \\ []) do
+
+  def get_image_recipe(%Client{} = client, image_recipe_arn, options \\ [])
+      when is_binary(image_recipe_arn) do
     url_path = "/GetImageRecipe"
 
     # Validate optional parameters
@@ -5356,15 +5754,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
-    recipe whose policy you want to retrieve.
+  recipe whose policy you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_image_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_image_recipe_policy_errors()}
-  def get_image_recipe_policy(%Client{} = client, image_recipe_arn, options \\ []) do
+
+  def get_image_recipe_policy(%Client{} = client, image_recipe_arn, options \\ [])
+      when is_binary(image_recipe_arn) do
     url_path = "/GetImageRecipePolicy"
 
     # Validate optional parameters
@@ -5399,19 +5800,22 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
-    (ARN) of the infrastructure configuration that you want to retrieve.
+  (ARN) of the infrastructure configuration that you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec get_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_infrastructure_configuration_errors()}
+
   def get_infrastructure_configuration(
         %Client{} = client,
         infrastructure_configuration_arn,
         options \\ []
-      ) do
+      )
+      when is_binary(infrastructure_configuration_arn) do
     url_path = "/GetInfrastructureConfiguration"
 
     # Validate optional parameters
@@ -5447,15 +5851,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:lifecycle_execution_id` (`t:string`) Use the unique identifier for a runtime
-    instance of the lifecycle policy to get runtime details.
+  instance of the lifecycle policy to get runtime details.
 
   ## Optional parameters:
   """
+
   @spec get_lifecycle_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_execution_errors()}
-  def get_lifecycle_execution(%Client{} = client, lifecycle_execution_id, options \\ []) do
+
+  def get_lifecycle_execution(%Client{} = client, lifecycle_execution_id, options \\ [])
+      when is_binary(lifecycle_execution_id) do
     url_path = "/GetLifecycleExecution"
 
     # Validate optional parameters
@@ -5490,15 +5897,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:lifecycle_policy_arn` (`t:string`) Specifies the Amazon Resource Name (ARN)
-    of the image lifecycle policy resource to get.
+  of the image lifecycle policy resource to get.
 
   ## Optional parameters:
   """
+
   @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lifecycle_policy_errors()}
-  def get_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ []) do
+
+  def get_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ [])
+      when is_binary(lifecycle_policy_arn) do
     url_path = "/GetLifecyclePolicy"
 
     # Validate optional parameters
@@ -5533,15 +5943,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
-    the workflow resource that you want to get.
+  the workflow resource that you want to get.
 
   ## Optional parameters:
   """
+
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-  def get_workflow(%Client{} = client, workflow_build_version_arn, options \\ []) do
+
+  def get_workflow(%Client{} = client, workflow_build_version_arn, options \\ [])
+      when is_binary(workflow_build_version_arn) do
     url_path = "/GetWorkflow"
 
     # Validate optional parameters
@@ -5577,15 +5990,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:workflow_execution_id` (`t:string`) Use the unique identifier for a runtime
-    instance of the workflow to get runtime details.
+  instance of the workflow to get runtime details.
 
   ## Optional parameters:
   """
+
   @spec get_workflow_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_execution_errors()}
-  def get_workflow_execution(%Client{} = client, workflow_execution_id, options \\ []) do
+
+  def get_workflow_execution(%Client{} = client, workflow_execution_id, options \\ [])
+      when is_binary(workflow_execution_id) do
     url_path = "/GetWorkflowExecution"
 
     # Validate optional parameters
@@ -5621,15 +6037,18 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:step_execution_id` (`t:string`) Use the unique identifier for a specific
-    runtime instance of the workflow step to get runtime details for that step.
+  runtime instance of the workflow step to get runtime details for that step.
 
   ## Optional parameters:
   """
+
   @spec get_workflow_step_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_step_execution_errors()}
-  def get_workflow_step_execution(%Client{} = client, step_execution_id, options \\ []) do
+
+  def get_workflow_step_execution(%Client{} = client, step_execution_id, options \\ [])
+      when is_binary(step_execution_id) do
     url_path = "/GetWorkflowStepExecution"
 
     # Validate optional parameters
@@ -5666,19 +6085,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec import_component(AWS.Client.t(), import_component_request(), Keyword.t()) ::
+
+  @spec import_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_component_errors()}
-  def import_component(%Client{} = client, input, options \\ []) do
+
+  def import_component(%Client{} = client, options \\ []) do
     url_path = "/ImportComponent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5696,19 +6136,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec import_vm_image(AWS.Client.t(), import_vm_image_request(), Keyword.t()) ::
+
+  @spec import_vm_image(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_vm_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_vm_image_errors()}
-  def import_vm_image(%Client{} = client, input, options \\ []) do
+
+  def import_vm_image(%Client{} = client, options \\ []) do
     url_path = "/ImportVmImage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5720,33 +6181,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_component_build_versions(
-          AWS.Client.t(),
-          list_component_build_versions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_component_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_component_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_build_versions_errors()}
-  def list_component_build_versions(%Client{} = client, input, options \\ []) do
+
+  def list_component_build_versions(%Client{} = client, options \\ []) do
     url_path = "/ListComponentBuildVersions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5760,29 +6228,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_components(AWS.Client.t(), list_components_request(), Keyword.t()) ::
+
+  @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-  def list_components(%Client{} = client, input, options \\ []) do
+
+  def list_components(%Client{} = client, options \\ []) do
     url_path = "/ListComponents"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5794,29 +6273,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_container_recipes(AWS.Client.t(), list_container_recipes_request(), Keyword.t()) ::
+
+  @spec list_container_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_container_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_container_recipes_errors()}
-  def list_container_recipes(%Client{} = client, input, options \\ []) do
+
+  def list_container_recipes(%Client{} = client, options \\ []) do
     url_path = "/ListContainerRecipes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5828,33 +6318,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_distribution_configurations(
-          AWS.Client.t(),
-          list_distribution_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_distribution_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distribution_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_distribution_configurations_errors()}
-  def list_distribution_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_distribution_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListDistributionConfigurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5866,33 +6363,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_image_build_versions(
-          AWS.Client.t(),
-          list_image_build_versions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_image_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_build_versions_errors()}
-  def list_image_build_versions(%Client{} = client, input, options \\ []) do
+
+  def list_image_build_versions(%Client{} = client, options \\ []) do
     url_path = "/ListImageBuildVersions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5905,29 +6409,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_image_packages(AWS.Client.t(), list_image_packages_request(), Keyword.t()) ::
+
+  @spec list_image_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_packages_errors()}
-  def list_image_packages(%Client{} = client, input, options \\ []) do
+
+  def list_image_packages(%Client{} = client, options \\ []) do
     url_path = "/ListImagePackages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5939,33 +6454,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_image_pipeline_images(
-          AWS.Client.t(),
-          list_image_pipeline_images_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_image_pipeline_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_pipeline_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_pipeline_images_errors()}
-  def list_image_pipeline_images(%Client{} = client, input, options \\ []) do
+
+  def list_image_pipeline_images(%Client{} = client, options \\ []) do
     url_path = "/ListImagePipelineImages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5977,29 +6499,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_image_pipelines(AWS.Client.t(), list_image_pipelines_request(), Keyword.t()) ::
+
+  @spec list_image_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_pipelines_errors()}
-  def list_image_pipelines(%Client{} = client, input, options \\ []) do
+
+  def list_image_pipelines(%Client{} = client, options \\ []) do
     url_path = "/ListImagePipelines"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6011,29 +6544,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_image_recipes(AWS.Client.t(), list_image_recipes_request(), Keyword.t()) ::
+
+  @spec list_image_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_recipes_errors()}
-  def list_image_recipes(%Client{} = client, input, options \\ []) do
+
+  def list_image_recipes(%Client{} = client, options \\ []) do
     url_path = "/ListImageRecipes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6050,33 +6594,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_image_scan_finding_aggregations(
-          AWS.Client.t(),
-          list_image_scan_finding_aggregations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_image_scan_finding_aggregations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_scan_finding_aggregations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_scan_finding_aggregations_errors()}
-  def list_image_scan_finding_aggregations(%Client{} = client, input, options \\ []) do
+
+  def list_image_scan_finding_aggregations(%Client{} = client, options \\ []) do
     url_path = "/ListImageScanFindingAggregations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6088,29 +6639,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_image_scan_findings(AWS.Client.t(), list_image_scan_findings_request(), Keyword.t()) ::
+
+  @spec list_image_scan_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_scan_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_scan_findings_errors()}
-  def list_image_scan_findings(%Client{} = client, input, options \\ []) do
+
+  def list_image_scan_findings(%Client{} = client, options \\ []) do
     url_path = "/ListImageScanFindings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6123,29 +6685,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_images(AWS.Client.t(), list_images_request(), Keyword.t()) ::
+
+  @spec list_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_images_errors()}
-  def list_images(%Client{} = client, input, options \\ []) do
+
+  def list_images(%Client{} = client, options \\ []) do
     url_path = "/ListImages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6157,33 +6730,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_infrastructure_configurations(
-          AWS.Client.t(),
-          list_infrastructure_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_infrastructure_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_infrastructure_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_infrastructure_configurations_errors()}
-  def list_infrastructure_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_infrastructure_configurations(%Client{} = client, options \\ []) do
     url_path = "/ListInfrastructureConfigurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6196,33 +6776,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_lifecycle_execution_resources(
-          AWS.Client.t(),
-          list_lifecycle_execution_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_lifecycle_execution_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_execution_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_execution_resources_errors()}
-  def list_lifecycle_execution_resources(%Client{} = client, input, options \\ []) do
+
+  def list_lifecycle_execution_resources(%Client{} = client, options \\ []) do
     url_path = "/ListLifecycleExecutionResources"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6234,33 +6821,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_lifecycle_executions(
-          AWS.Client.t(),
-          list_lifecycle_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_lifecycle_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_executions_errors()}
-  def list_lifecycle_executions(%Client{} = client, input, options \\ []) do
+
+  def list_lifecycle_executions(%Client{} = client, options \\ []) do
     url_path = "/ListLifecycleExecutions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6272,29 +6866,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_lifecycle_policies(AWS.Client.t(), list_lifecycle_policies_request(), Keyword.t()) ::
+
+  @spec list_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lifecycle_policies_errors()}
-  def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
+
+  def list_lifecycle_policies(%Client{} = client, options \\ []) do
     url_path = "/ListLifecyclePolicies"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6304,14 +6909,16 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    whose tags you want to retrieve.
+  whose tags you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -6350,33 +6957,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_waiting_workflow_steps(
-          AWS.Client.t(),
-          list_waiting_workflow_steps_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_waiting_workflow_steps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_waiting_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_waiting_workflow_steps_errors()}
-  def list_waiting_workflow_steps(%Client{} = client, input, options \\ []) do
+
+  def list_waiting_workflow_steps(%Client{} = client, options \\ []) do
     url_path = "/ListWaitingWorkflowSteps"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6388,33 +7002,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_workflow_build_versions(
-          AWS.Client.t(),
-          list_workflow_build_versions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_workflow_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_build_versions_errors()}
-  def list_workflow_build_versions(%Client{} = client, input, options \\ []) do
+
+  def list_workflow_build_versions(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflowBuildVersions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6427,29 +7048,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_workflow_executions(AWS.Client.t(), list_workflow_executions_request(), Keyword.t()) ::
+
+  @spec list_workflow_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_executions_errors()}
-  def list_workflow_executions(%Client{} = client, input, options \\ []) do
+
+  def list_workflow_executions(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflowExecutions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6462,33 +7094,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_workflow_step_executions(
-          AWS.Client.t(),
-          list_workflow_step_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_workflow_step_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_step_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflow_step_executions_errors()}
-  def list_workflow_step_executions(%Client{} = client, input, options \\ []) do
+
+  def list_workflow_step_executions(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflowStepExecutions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6500,29 +7139,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec list_workflows(AWS.Client.t(), list_workflows_request(), Keyword.t()) ::
+
+  @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-  def list_workflows(%Client{} = client, input, options \\ []) do
+
+  def list_workflows(%Client{} = client, options \\ []) do
     url_path = "/ListWorkflows"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6540,19 +7190,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec put_component_policy(AWS.Client.t(), put_component_policy_request(), Keyword.t()) ::
+
+  @spec put_component_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_component_policy_errors()}
-  def put_component_policy(%Client{} = client, input, options \\ []) do
+
+  def put_component_policy(%Client{} = client, options \\ []) do
     url_path = "/PutComponentPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6572,23 +7243,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec put_container_recipe_policy(
-          AWS.Client.t(),
-          put_container_recipe_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_container_recipe_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_container_recipe_policy_errors()}
-  def put_container_recipe_policy(%Client{} = client, input, options \\ []) do
+
+  def put_container_recipe_policy(%Client{} = client, options \\ []) do
     url_path = "/PutContainerRecipePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6606,19 +7294,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec put_image_policy(AWS.Client.t(), put_image_policy_request(), Keyword.t()) ::
+
+  @spec put_image_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_policy_errors()}
-  def put_image_policy(%Client{} = client, input, options \\ []) do
+
+  def put_image_policy(%Client{} = client, options \\ []) do
     url_path = "/PutImagePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6636,19 +7345,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec put_image_recipe_policy(AWS.Client.t(), put_image_recipe_policy_request(), Keyword.t()) ::
+
+  @spec put_image_recipe_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_image_recipe_policy_errors()}
-  def put_image_recipe_policy(%Client{} = client, input, options \\ []) do
+
+  def put_image_recipe_policy(%Client{} = client, options \\ []) do
     url_path = "/PutImageRecipePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6661,23 +7391,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec send_workflow_step_action(
-          AWS.Client.t(),
-          send_workflow_step_action_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_workflow_step_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_workflow_step_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_workflow_step_action_errors()}
-  def send_workflow_step_action(%Client{} = client, input, options \\ []) do
+
+  def send_workflow_step_action(%Client{} = client, options \\ []) do
     url_path = "/SendWorkflowStepAction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6689,23 +7436,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec start_image_pipeline_execution(
-          AWS.Client.t(),
-          start_image_pipeline_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_image_pipeline_execution(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_image_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_image_pipeline_execution_errors()}
-  def start_image_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def start_image_pipeline_execution(%Client{} = client, options \\ []) do
     url_path = "/StartImagePipelineExecution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6718,23 +7482,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec start_resource_state_update(
-          AWS.Client.t(),
-          start_resource_state_update_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_resource_state_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_resource_state_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_state_update_errors()}
-  def start_resource_state_update(%Client{} = client, input, options \\ []) do
+
+  def start_resource_state_update(%Client{} = client, options \\ []) do
     url_path = "/StartResourceStateUpdate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6744,33 +7525,44 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to tag.
+  that you want to tag.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6780,28 +7572,45 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to untag.
+  that you want to untag.
   * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]`) The tag keys to
-    remove from the resource.
+  remove from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -6810,7 +7619,7 @@ defmodule AWS.Imagebuilder do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -6826,23 +7635,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec update_distribution_configuration(
-          AWS.Client.t(),
-          update_distribution_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_distribution_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_distribution_configuration_errors()}
-  def update_distribution_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_distribution_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateDistributionConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6856,19 +7682,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec update_image_pipeline(AWS.Client.t(), update_image_pipeline_request(), Keyword.t()) ::
+
+  @spec update_image_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_pipeline_errors()}
-  def update_image_pipeline(%Client{} = client, input, options \\ []) do
+
+  def update_image_pipeline(%Client{} = client, options \\ []) do
     url_path = "/UpdateImagePipeline"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6881,23 +7728,40 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec update_infrastructure_configuration(
-          AWS.Client.t(),
-          update_infrastructure_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_infrastructure_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_infrastructure_configuration_errors()}
-  def update_infrastructure_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_infrastructure_configuration(%Client{} = client, options \\ []) do
     url_path = "/UpdateInfrastructureConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6909,18 +7773,39 @@ defmodule AWS.Imagebuilder do
 
   ## Optional parameters:
   """
-  @spec update_lifecycle_policy(AWS.Client.t(), update_lifecycle_policy_request(), Keyword.t()) ::
+
+  @spec update_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_lifecycle_policy_errors()}
-  def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
+
+  def update_lifecycle_policy(%Client{} = client, options \\ []) do
     url_path = "/UpdateLifecyclePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

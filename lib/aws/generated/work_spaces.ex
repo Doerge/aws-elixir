@@ -3857,16 +3857,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Accepts the account link invitation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20AcceptAccountLinkInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:accept_account_link_invitation_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      required("LinkId") => String.t()
+    }
   """
-  @spec accept_account_link_invitation(
-          AWS.Client.t(),
-          accept_account_link_invitation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec accept_account_link_invitation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_account_link_invitation_errors()}
-  def accept_account_link_invitation(%Client{} = client, input, options \\ []) do
+
+  def accept_account_link_invitation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3881,16 +3889,23 @@ defmodule AWS.WorkSpaces do
   Before performing this operation, call [
   DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
   to make sure that the current state of the connection alias is `CREATED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20AssociateConnectionAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_connection_alias_request`)
+    %{
+      required("AliasId") => String.t(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec associate_connection_alias(
-          AWS.Client.t(),
-          associate_connection_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_connection_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_connection_alias_errors()}
-  def associate_connection_alias(%Client{} = client, input, options \\ []) do
+
+  def associate_connection_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3899,12 +3914,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Associates the specified IP access control group with the specified directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20AssociateIpGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_ip_groups_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("GroupIds") => list(String.t()())
+    }
   """
-  @spec associate_ip_groups(AWS.Client.t(), associate_ip_groups_request(), Keyword.t()) ::
+
+  @spec associate_ip_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_ip_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_ip_groups_errors()}
-  def associate_ip_groups(%Client{} = client, input, options \\ []) do
+
+  def associate_ip_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3913,16 +3939,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Associates the specified application to the specified WorkSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20AssociateWorkspaceApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_workspace_application_request`)
+    %{
+      required("ApplicationId") => String.t(),
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec associate_workspace_application(
-          AWS.Client.t(),
-          associate_workspace_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_workspace_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_workspace_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_workspace_application_errors()}
-  def associate_workspace_application(%Client{} = client, input, options \\ []) do
+
+  def associate_workspace_application(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3931,12 +3965,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Adds one or more rules to the specified IP access control group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20AuthorizeIpRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:authorize_ip_rules_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("UserRules") => list(ip_rule_item()())
+    }
   """
-  @spec authorize_ip_rules(AWS.Client.t(), authorize_ip_rules_request(), Keyword.t()) ::
+
+  @spec authorize_ip_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_ip_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_ip_rules_errors()}
-  def authorize_ip_rules(%Client{} = client, input, options \\ []) do
+
+  def authorize_ip_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3950,12 +3995,26 @@ defmodule AWS.WorkSpaces do
   In the China (Ningxia) Region, you can copy images only within the same
   Region. In Amazon Web Services GovCloud (US), to copy images to and from other
   Regions, contact Amazon Web Services Support.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CopyWorkspaceImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_workspace_image_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("SourceImageId") => String.t(),
+      required("SourceRegion") => String.t()
+    }
   """
-  @spec copy_workspace_image(AWS.Client.t(), copy_workspace_image_request(), Keyword.t()) ::
+
+  @spec copy_workspace_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_workspace_image_errors()}
-  def copy_workspace_image(%Client{} = client, input, options \\ []) do
+
+  def copy_workspace_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3964,16 +4023,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Creates the account link invitation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateAccountLinkInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_account_link_invitation_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      required("TargetAccountId") => String.t()
+    }
   """
-  @spec create_account_link_invitation(
-          AWS.Client.t(),
-          create_account_link_invitation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_account_link_invitation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_link_invitation_errors()}
-  def create_account_link_invitation(%Client{} = client, input, options \\ []) do
+
+  def create_account_link_invitation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3983,16 +4050,24 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates a client-add-in for Amazon Connect within a directory. You can create
   only one Amazon Connect client add-in within a directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateConnectClientAddIn&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_connect_client_add_in_request`)
+    %{
+      required("Name") => String.t(),
+      required("ResourceId") => String.t(),
+      required("URL") => String.t()
+    }
   """
-  @spec create_connect_client_add_in(
-          AWS.Client.t(),
-          create_connect_client_add_in_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_connect_client_add_in(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connect_client_add_in_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connect_client_add_in_errors()}
-  def create_connect_client_add_in(%Client{} = client, input, options \\ []) do
+
+  def create_connect_client_add_in(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4003,12 +4078,23 @@ defmodule AWS.WorkSpaces do
   Creates the specified connection alias for use with cross-Region redirection.
   For more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateConnectionAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_connection_alias_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("ConnectionString") => String.t()
+    }
   """
-  @spec create_connection_alias(AWS.Client.t(), create_connection_alias_request(), Keyword.t()) ::
+
+  @spec create_connection_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_alias_errors()}
-  def create_connection_alias(%Client{} = client, input, options \\ []) do
+
+  def create_connection_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4021,12 +4107,25 @@ defmodule AWS.WorkSpaces do
   their WorkSpaces. To specify the CIDR address ranges, add rules to your IP
   access control group and then associate the group with your directory. You can
   add rules when you create the group or at any time using `AuthorizeIpRules`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateIpGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_ip_group_request`)
+    %{
+      optional("GroupDesc") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("UserRules") => list(ip_rule_item()()),
+      required("GroupName") => String.t()
+    }
   """
-  @spec create_ip_group(AWS.Client.t(), create_ip_group_request(), Keyword.t()) ::
+
+  @spec create_ip_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ip_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ip_group_errors()}
-  def create_ip_group(%Client{} = client, input, options \\ []) do
+
+  def create_ip_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4035,16 +4134,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Creates a standby WorkSpace in a secondary Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateStandbyWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_standby_workspaces_request`)
+    %{
+      required("PrimaryRegion") => String.t(),
+      required("StandbyWorkspaces") => list(standby_workspace()())
+    }
   """
-  @spec create_standby_workspaces(
-          AWS.Client.t(),
-          create_standby_workspaces_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_standby_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_standby_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_standby_workspaces_errors()}
-  def create_standby_workspaces(%Client{} = client, input, options \\ []) do
+
+  def create_standby_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4053,12 +4159,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Creates the specified tags for the specified WorkSpaces resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_tags_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec create_tags(AWS.Client.t(), create_tags_request(), Keyword.t()) ::
+
+  @spec create_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-  def create_tags(%Client{} = client, input, options \\ []) do
+
+  def create_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4071,16 +4188,26 @@ defmodule AWS.WorkSpaces do
   by the Amazon WorkSpaces components. To determine which WorkSpace images need
   to be updated with the latest Amazon WorkSpaces requirements, use [
   DescribeWorkspaceImages](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateUpdatedWorkspaceImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_updated_workspace_image_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("Description") => String.t(),
+      required("Name") => String.t(),
+      required("SourceImageId") => String.t()
+    }
   """
-  @spec create_updated_workspace_image(
-          AWS.Client.t(),
-          create_updated_workspace_image_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_updated_workspace_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_updated_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_updated_workspace_image_errors()}
-  def create_updated_workspace_image(%Client{} = client, input, options \\ []) do
+
+  def create_updated_workspace_image(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4091,12 +4218,28 @@ defmodule AWS.WorkSpaces do
   Creates the specified WorkSpace bundle. For more information about creating
   WorkSpace bundles, see [ Create a Custom WorkSpaces Image and
   Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateWorkspaceBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workspace_bundle_request`)
+    %{
+      optional("RootStorage") => root_storage(),
+      optional("Tags") => list(tag()()),
+      required("BundleDescription") => String.t(),
+      required("BundleName") => String.t(),
+      required("ComputeType") => compute_type(),
+      required("ImageId") => String.t(),
+      required("UserStorage") => user_storage()
+    }
   """
-  @spec create_workspace_bundle(AWS.Client.t(), create_workspace_bundle_request(), Keyword.t()) ::
+
+  @spec create_workspace_bundle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workspace_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_bundle_errors()}
-  def create_workspace_bundle(%Client{} = client, input, options \\ []) do
+
+  def create_workspace_bundle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4105,12 +4248,25 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Creates a new WorkSpace image from an existing WorkSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateWorkspaceImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workspace_image_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("Description") => String.t(),
+      required("Name") => String.t(),
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec create_workspace_image(AWS.Client.t(), create_workspace_image_request(), Keyword.t()) ::
+
+  @spec create_workspace_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_image_errors()}
-  def create_workspace_image(%Client{} = client, input, options \\ []) do
+
+  def create_workspace_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4120,12 +4276,22 @@ defmodule AWS.WorkSpaces do
   @doc """
   Creates one or more WorkSpaces. This operation is asynchronous and returns
   before the WorkSpaces are created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workspaces_request`)
+    %{
+      required("Workspaces") => list(workspace_request()())
+    }
   """
-  @spec create_workspaces(AWS.Client.t(), create_workspaces_request(), Keyword.t()) ::
+
+  @spec create_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspaces_errors()}
-  def create_workspaces(%Client{} = client, input, options \\ []) do
+
+  def create_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4134,12 +4300,29 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Creates a pool of WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20CreateWorkspacesPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workspaces_pool_request`)
+    %{
+      optional("ApplicationSettings") => application_settings_request(),
+      optional("Tags") => list(tag()()),
+      optional("TimeoutSettings") => timeout_settings(),
+      required("BundleId") => String.t(),
+      required("Capacity") => capacity(),
+      required("Description") => String.t(),
+      required("DirectoryId") => String.t(),
+      required("PoolName") => String.t()
+    }
   """
-  @spec create_workspaces_pool(AWS.Client.t(), create_workspaces_pool_request(), Keyword.t()) ::
+
+  @spec create_workspaces_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspaces_pool_errors()}
-  def create_workspaces_pool(%Client{} = client, input, options \\ []) do
+
+  def create_workspaces_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4148,16 +4331,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Deletes the account link invitation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteAccountLinkInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_account_link_invitation_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      required("LinkId") => String.t()
+    }
   """
-  @spec delete_account_link_invitation(
-          AWS.Client.t(),
-          delete_account_link_invitation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_account_link_invitation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_link_invitation_errors()}
-  def delete_account_link_invitation(%Client{} = client, input, options \\ []) do
+
+  def delete_account_link_invitation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4169,12 +4360,23 @@ defmodule AWS.WorkSpaces do
   WorkSpace's client login portal. You can tailor your login portal company
   logo, the support email address, support link, link to reset password, and a
   custom message for users trying to sign in.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteClientBranding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_client_branding_request`)
+    %{
+      required("Platforms") => list(list(any())()),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec delete_client_branding(AWS.Client.t(), delete_client_branding_request(), Keyword.t()) ::
+
+  @spec delete_client_branding(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_client_branding_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_client_branding_errors()}
-  def delete_client_branding(%Client{} = client, input, options \\ []) do
+
+  def delete_client_branding(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4184,16 +4386,23 @@ defmodule AWS.WorkSpaces do
   @doc """
   Deletes a client-add-in for Amazon Connect that is configured within a
   directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteConnectClientAddIn&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_connect_client_add_in_request`)
+    %{
+      required("AddInId") => String.t(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec delete_connect_client_add_in(
-          AWS.Client.t(),
-          delete_connect_client_add_in_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_connect_client_add_in(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connect_client_add_in_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connect_client_add_in_errors()}
-  def delete_connect_client_add_in(%Client{} = client, input, options \\ []) do
+
+  def delete_connect_client_add_in(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4209,12 +4418,22 @@ defmodule AWS.WorkSpaces do
   to prevent potential security issues.** For more information, see [ Security
   Considerations if You Stop Using Cross-Region
   Redirection](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteConnectionAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_connection_alias_request`)
+    %{
+      required("AliasId") => String.t()
+    }
   """
-  @spec delete_connection_alias(AWS.Client.t(), delete_connection_alias_request(), Keyword.t()) ::
+
+  @spec delete_connection_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_alias_errors()}
-  def delete_connection_alias(%Client{} = client, input, options \\ []) do
+
+  def delete_connection_alias(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4223,12 +4442,22 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Deletes the specified IP access control group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteIpGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ip_group_request`)
+    %{
+      required("GroupId") => String.t()
+    }
   """
-  @spec delete_ip_group(AWS.Client.t(), delete_ip_group_request(), Keyword.t()) ::
+
+  @spec delete_ip_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ip_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ip_group_errors()}
-  def delete_ip_group(%Client{} = client, input, options \\ []) do
+
+  def delete_ip_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4237,12 +4466,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Deletes the specified tags from the specified WorkSpaces resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_tags_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec delete_tags(AWS.Client.t(), delete_tags_request(), Keyword.t()) ::
+
+  @spec delete_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-  def delete_tags(%Client{} = client, input, options \\ []) do
+
+  def delete_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4253,12 +4493,22 @@ defmodule AWS.WorkSpaces do
   Deletes the specified WorkSpace bundle. For more information about deleting
   WorkSpace bundles, see [ Delete a Custom WorkSpaces Bundle or
   Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteWorkspaceBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_workspace_bundle_request`)
+    %{
+      optional("BundleId") => String.t()
+    }
   """
-  @spec delete_workspace_bundle(AWS.Client.t(), delete_workspace_bundle_request(), Keyword.t()) ::
+
+  @spec delete_workspace_bundle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_workspace_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_bundle_errors()}
-  def delete_workspace_bundle(%Client{} = client, input, options \\ []) do
+
+  def delete_workspace_bundle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4269,12 +4519,22 @@ defmodule AWS.WorkSpaces do
   Deletes the specified image from your account. To delete an image, you must
   first delete any bundles that are associated with the image and unshare the
   image if it is shared with other accounts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeleteWorkspaceImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_workspace_image_request`)
+    %{
+      required("ImageId") => String.t()
+    }
   """
-  @spec delete_workspace_image(AWS.Client.t(), delete_workspace_image_request(), Keyword.t()) ::
+
+  @spec delete_workspace_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_image_errors()}
-  def delete_workspace_image(%Client{} = client, input, options \\ []) do
+
+  def delete_workspace_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4283,16 +4543,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Deploys associated applications to the specified WorkSpace
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeployWorkspaceApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deploy_workspace_applications_request`)
+    %{
+      optional("Force") => boolean(),
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec deploy_workspace_applications(
-          AWS.Client.t(),
-          deploy_workspace_applications_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deploy_workspace_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deploy_workspace_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deploy_workspace_applications_errors()}
-  def deploy_workspace_applications(%Client{} = client, input, options \\ []) do
+
+  def deploy_workspace_applications(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4304,16 +4572,23 @@ defmodule AWS.WorkSpaces do
   before the WorkSpace directory is deregistered. If any WorkSpaces are
   registered to this directory, you must remove them before you can deregister
   the directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DeregisterWorkspaceDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_workspace_directory_request`)
+    %{
+      required("DirectoryId") => String.t()
+    }
   """
-  @spec deregister_workspace_directory(
-          AWS.Client.t(),
-          deregister_workspace_directory_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_workspace_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_workspace_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_workspace_directory_errors()}
-  def deregister_workspace_directory(%Client{} = client, input, options \\ []) do
+
+  def deregister_workspace_directory(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4323,12 +4598,22 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves a list that describes the configuration of Bring Your Own License
   (BYOL) for the specified account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_account_request`)
+    %{
+      
+    }
   """
-  @spec describe_account(AWS.Client.t(), describe_account_request(), Keyword.t()) ::
+
+  @spec describe_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_errors()}
-  def describe_account(%Client{} = client, input, options \\ []) do
+
+  def describe_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4338,16 +4623,23 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves a list that describes modifications to the configuration of Bring Your
   Own License (BYOL) for the specified account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeAccountModifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_account_modifications_request`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_account_modifications(
-          AWS.Client.t(),
-          describe_account_modifications_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_account_modifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_modifications_errors()}
-  def describe_account_modifications(%Client{} = client, input, options \\ []) do
+
+  def describe_account_modifications(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4357,16 +4649,26 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the associations between the application and the specified associated
   resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeApplicationAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_application_associations_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ApplicationId") => String.t(),
+      required("AssociatedResourceTypes") => list(list(any())())
+    }
   """
-  @spec describe_application_associations(
-          AWS.Client.t(),
-          describe_application_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_application_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_application_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_application_associations_errors()}
-  def describe_application_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_application_associations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4376,12 +4678,28 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the specified applications by filtering based on their compute types,
   license availability, operating systems, and owners.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_applications_request`)
+    %{
+      optional("ApplicationIds") => list(String.t()()),
+      optional("ComputeTypeNames") => list(list(any())()),
+      optional("LicenseType") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("OperatingSystemNames") => list(list(any())()),
+      optional("Owner") => String.t()
+    }
   """
-  @spec describe_applications(AWS.Client.t(), describe_applications_request(), Keyword.t()) ::
+
+  @spec describe_applications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_applications_errors()}
-  def describe_applications(%Client{} = client, input, options \\ []) do
+
+  def describe_applications(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4390,16 +4708,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the associations between the applications and the specified bundle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeBundleAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_bundle_associations_request`)
+    %{
+      required("AssociatedResourceTypes") => list(list(any())()),
+      required("BundleId") => String.t()
+    }
   """
-  @spec describe_bundle_associations(
-          AWS.Client.t(),
-          describe_bundle_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_bundle_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_bundle_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_bundle_associations_errors()}
-  def describe_bundle_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_bundle_associations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4411,12 +4736,22 @@ defmodule AWS.WorkSpaces do
   the log in page of various device types for your users. You can add your
   company logo, the support email address, support link, link to reset password,
   and a custom message for users trying to sign in.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeClientBranding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_client_branding_request`)
+    %{
+      required("ResourceId") => String.t()
+    }
   """
-  @spec describe_client_branding(AWS.Client.t(), describe_client_branding_request(), Keyword.t()) ::
+
+  @spec describe_client_branding(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_branding_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_client_branding_errors()}
-  def describe_client_branding(%Client{} = client, input, options \\ []) do
+
+  def describe_client_branding(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4425,16 +4760,22 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Retrieves a list that describes one or more specified Amazon WorkSpaces clients.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeClientProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_client_properties_request`)
+    %{
+      required("ResourceIds") => list(String.t()())
+    }
   """
-  @spec describe_client_properties(
-          AWS.Client.t(),
-          describe_client_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_client_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_client_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_client_properties_errors()}
-  def describe_client_properties(%Client{} = client, input, options \\ []) do
+
+  def describe_client_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4443,16 +4784,25 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Retrieves a list of Amazon Connect client add-ins that have been created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeConnectClientAddIns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_connect_client_add_ins_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec describe_connect_client_add_ins(
-          AWS.Client.t(),
-          describe_connect_client_add_ins_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_connect_client_add_ins(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connect_client_add_ins_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connect_client_add_ins_errors()}
-  def describe_connect_client_add_ins(%Client{} = client, input, options \\ []) do
+
+  def describe_connect_client_add_ins(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4464,16 +4814,25 @@ defmodule AWS.WorkSpaces do
   another Amazon Web Services account for the specified connection alias. For
   more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeConnectionAliasPermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_connection_alias_permissions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AliasId") => String.t()
+    }
   """
-  @spec describe_connection_alias_permissions(
-          AWS.Client.t(),
-          describe_connection_alias_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_connection_alias_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connection_alias_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connection_alias_permissions_errors()}
-  def describe_connection_alias_permissions(%Client{} = client, input, options \\ []) do
+
+  def describe_connection_alias_permissions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4484,16 +4843,25 @@ defmodule AWS.WorkSpaces do
   Retrieves a list that describes the connection aliases used for cross-Region
   redirection. For more information, see [ Cross-Region Redirection for Amazon
   WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeConnectionAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_connection_aliases_request`)
+    %{
+      optional("AliasIds") => list(String.t()()),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceId") => String.t()
+    }
   """
-  @spec describe_connection_aliases(
-          AWS.Client.t(),
-          describe_connection_aliases_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_connection_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connection_aliases_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connection_aliases_errors()}
-  def describe_connection_aliases(%Client{} = client, input, options \\ []) do
+
+  def describe_connection_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4502,16 +4870,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the associations between the applications and the specified image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeImageAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_image_associations_request`)
+    %{
+      required("AssociatedResourceTypes") => list(list(any())()),
+      required("ImageId") => String.t()
+    }
   """
-  @spec describe_image_associations(
-          AWS.Client.t(),
-          describe_image_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_image_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_associations_errors()}
-  def describe_image_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_image_associations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4520,12 +4895,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes one or more of your IP access control groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeIpGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_ip_groups_request`)
+    %{
+      optional("GroupIds") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_ip_groups(AWS.Client.t(), describe_ip_groups_request(), Keyword.t()) ::
+
+  @spec describe_ip_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_ip_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ip_groups_errors()}
-  def describe_ip_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_ip_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4534,12 +4921,22 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the specified tags for the specified WorkSpaces resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_tags_request`)
+    %{
+      required("ResourceId") => String.t()
+    }
   """
-  @spec describe_tags(AWS.Client.t(), describe_tags_request(), Keyword.t()) ::
+
+  @spec describe_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
-  def describe_tags(%Client{} = client, input, options \\ []) do
+
+  def describe_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4548,16 +4945,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the associations betweens applications and the specified WorkSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspaceAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspace_associations_request`)
+    %{
+      required("AssociatedResourceTypes") => list(list(any())()),
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec describe_workspace_associations(
-          AWS.Client.t(),
-          describe_workspace_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspace_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspace_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_associations_errors()}
-  def describe_workspace_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_workspace_associations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4566,16 +4971,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Retrieves a list that describes the available WorkSpace bundles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspaceBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspace_bundles_request`)
+    %{
+      optional("BundleIds") => list(String.t()()),
+      optional("NextToken") => String.t(),
+      optional("Owner") => String.t()
+    }
   """
-  @spec describe_workspace_bundles(
-          AWS.Client.t(),
-          describe_workspace_bundles_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspace_bundles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspace_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_bundles_errors()}
-  def describe_workspace_bundles(%Client{} = client, input, options \\ []) do
+
+  def describe_workspace_bundles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4584,16 +4997,26 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the available directories that are registered with Amazon WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspaceDirectories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspace_directories_request`)
+    %{
+      optional("DirectoryIds") => list(String.t()()),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("WorkspaceDirectoryNames") => list(String.t()())
+    }
   """
-  @spec describe_workspace_directories(
-          AWS.Client.t(),
-          describe_workspace_directories_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspace_directories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspace_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_directories_errors()}
-  def describe_workspace_directories(%Client{} = client, input, options \\ []) do
+
+  def describe_workspace_directories(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4603,16 +5026,25 @@ defmodule AWS.WorkSpaces do
   @doc """
   Describes the permissions that the owner of an image has granted to other Amazon
   Web Services accounts for an image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspaceImagePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspace_image_permissions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ImageId") => String.t()
+    }
   """
-  @spec describe_workspace_image_permissions(
-          AWS.Client.t(),
-          describe_workspace_image_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspace_image_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspace_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_image_permissions_errors()}
-  def describe_workspace_image_permissions(%Client{} = client, input, options \\ []) do
+
+  def describe_workspace_image_permissions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4622,16 +5054,25 @@ defmodule AWS.WorkSpaces do
   @doc """
   Retrieves a list that describes one or more specified images, if the image
   identifiers are provided. Otherwise, all images in the account are described.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspaceImages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspace_images_request`)
+    %{
+      optional("ImageIds") => list(String.t()()),
+      optional("ImageType") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_workspace_images(
-          AWS.Client.t(),
-          describe_workspace_images_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspace_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspace_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_images_errors()}
-  def describe_workspace_images(%Client{} = client, input, options \\ []) do
+
+  def describe_workspace_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4640,16 +5081,22 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the snapshots for the specified WorkSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspaceSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspace_snapshots_request`)
+    %{
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec describe_workspace_snapshots(
-          AWS.Client.t(),
-          describe_workspace_snapshots_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspace_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspace_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_snapshots_errors()}
-  def describe_workspace_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_workspace_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4658,12 +5105,28 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the specified WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspaces_request`)
+    %{
+      optional("BundleId") => String.t(),
+      optional("DirectoryId") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("UserName") => String.t(),
+      optional("WorkspaceIds") => list(String.t()()),
+      optional("WorkspaceName") => String.t()
+    }
   """
-  @spec describe_workspaces(AWS.Client.t(), describe_workspaces_request(), Keyword.t()) ::
+
+  @spec describe_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_errors()}
-  def describe_workspaces(%Client{} = client, input, options \\ []) do
+
+  def describe_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4672,16 +5135,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the connection status of the specified WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspacesConnectionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspaces_connection_status_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("WorkspaceIds") => list(String.t()())
+    }
   """
-  @spec describe_workspaces_connection_status(
-          AWS.Client.t(),
-          describe_workspaces_connection_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspaces_connection_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspaces_connection_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_connection_status_errors()}
-  def describe_workspaces_connection_status(%Client{} = client, input, options \\ []) do
+
+  def describe_workspaces_connection_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4690,16 +5161,26 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Retrieves a list that describes the streaming sessions for a specified pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspacesPoolSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspaces_pool_sessions_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("UserId") => String.t(),
+      required("PoolId") => String.t()
+    }
   """
-  @spec describe_workspaces_pool_sessions(
-          AWS.Client.t(),
-          describe_workspaces_pool_sessions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspaces_pool_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspaces_pool_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_pool_sessions_errors()}
-  def describe_workspaces_pool_sessions(%Client{} = client, input, options \\ []) do
+
+  def describe_workspaces_pool_sessions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4708,16 +5189,25 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Describes the specified WorkSpaces Pools.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DescribeWorkspacesPools&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workspaces_pools_request`)
+    %{
+      optional("Filters") => list(describe_workspaces_pools_filter()()),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PoolIds") => list(String.t()())
+    }
   """
-  @spec describe_workspaces_pools(
-          AWS.Client.t(),
-          describe_workspaces_pools_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_workspaces_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workspaces_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspaces_pools_errors()}
-  def describe_workspaces_pools(%Client{} = client, input, options \\ []) do
+
+  def describe_workspaces_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4732,16 +5222,23 @@ defmodule AWS.WorkSpaces do
   Before performing this operation, call [
   DescribeConnectionAliases](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html)
   to make sure that the current state of the connection alias is `CREATED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DisassociateConnectionAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_connection_alias_request`)
+    %{
+      required("AliasId") => String.t()
+    }
   """
-  @spec disassociate_connection_alias(
-          AWS.Client.t(),
-          disassociate_connection_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_connection_alias(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_connection_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_connection_alias_errors()}
-  def disassociate_connection_alias(%Client{} = client, input, options \\ []) do
+
+  def disassociate_connection_alias(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4751,12 +5248,23 @@ defmodule AWS.WorkSpaces do
   @doc """
   Disassociates the specified IP access control group from the specified
   directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DisassociateIpGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_ip_groups_request`)
+    %{
+      required("DirectoryId") => String.t(),
+      required("GroupIds") => list(String.t()())
+    }
   """
-  @spec disassociate_ip_groups(AWS.Client.t(), disassociate_ip_groups_request(), Keyword.t()) ::
+
+  @spec disassociate_ip_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_ip_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_ip_groups_errors()}
-  def disassociate_ip_groups(%Client{} = client, input, options \\ []) do
+
+  def disassociate_ip_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4765,16 +5273,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Disassociates the specified application from a WorkSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20DisassociateWorkspaceApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_workspace_application_request`)
+    %{
+      required("ApplicationId") => String.t(),
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec disassociate_workspace_application(
-          AWS.Client.t(),
-          disassociate_workspace_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_workspace_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_workspace_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_workspace_application_errors()}
-  def disassociate_workspace_application(%Client{} = client, input, options \\ []) do
+
+  def disassociate_workspace_application(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4783,12 +5299,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Retrieves account link information.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20GetAccountLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_account_link_request`)
+    %{
+      optional("LinkId") => String.t(),
+      optional("LinkedAccountId") => String.t()
+    }
   """
-  @spec get_account_link(AWS.Client.t(), get_account_link_request(), Keyword.t()) ::
+
+  @spec get_account_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_link_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_link_errors()}
-  def get_account_link(%Client{} = client, input, options \\ []) do
+
+  def get_account_link(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4802,12 +5329,28 @@ defmodule AWS.WorkSpaces do
   custom message for users trying to sign in. After you import client branding,
   the default branding experience for the specified platform type is replaced
   with the imported experience
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ImportClientBranding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_client_branding_request`)
+    %{
+      optional("DeviceTypeAndroid") => default_import_client_branding_attributes(),
+      optional("DeviceTypeIos") => ios_import_client_branding_attributes(),
+      optional("DeviceTypeLinux") => default_import_client_branding_attributes(),
+      optional("DeviceTypeOsx") => default_import_client_branding_attributes(),
+      optional("DeviceTypeWeb") => default_import_client_branding_attributes(),
+      optional("DeviceTypeWindows") => default_import_client_branding_attributes(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec import_client_branding(AWS.Client.t(), import_client_branding_request(), Keyword.t()) ::
+
+  @spec import_client_branding(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_client_branding_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_client_branding_errors()}
-  def import_client_branding(%Client{} = client, input, options \\ []) do
+
+  def import_client_branding(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4820,12 +5363,27 @@ defmodule AWS.WorkSpaces do
   is in your Amazon Web Services account, and you must own the image. For more
   information about creating BYOL images, see [ Bring Your Own Windows Desktop
   Licenses](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ImportWorkspaceImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_workspace_image_request`)
+    %{
+      optional("Applications") => list(list(any())()),
+      optional("Tags") => list(tag()()),
+      required("Ec2ImageId") => String.t(),
+      required("ImageDescription") => String.t(),
+      required("ImageName") => String.t(),
+      required("IngestionProcess") => list(any())
+    }
   """
-  @spec import_workspace_image(AWS.Client.t(), import_workspace_image_request(), Keyword.t()) ::
+
+  @spec import_workspace_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_workspace_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_workspace_image_errors()}
-  def import_workspace_image(%Client{} = client, input, options \\ []) do
+
+  def import_workspace_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4834,12 +5392,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Lists all account links.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ListAccountLinks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_account_links_request`)
+    %{
+      optional("LinkStatusFilter") => list(list(any())()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_account_links(AWS.Client.t(), list_account_links_request(), Keyword.t()) ::
+
+  @spec list_account_links(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_account_links_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_links_errors()}
-  def list_account_links(%Client{} = client, input, options \\ []) do
+
+  def list_account_links(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4852,16 +5422,25 @@ defmodule AWS.WorkSpaces do
   License (BYOL). This operation can be run only by Amazon Web Services accounts
   that are enabled for BYOL. If your account isn't enabled for BYOL, you'll
   receive an `AccessDeniedException` error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ListAvailableManagementCidrRanges&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_available_management_cidr_ranges_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ManagementCidrRangeConstraint") => String.t()
+    }
   """
-  @spec list_available_management_cidr_ranges(
-          AWS.Client.t(),
-          list_available_management_cidr_ranges_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_available_management_cidr_ranges(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_management_cidr_ranges_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_management_cidr_ranges_errors()}
-  def list_available_management_cidr_ranges(%Client{} = client, input, options \\ []) do
+
+  def list_available_management_cidr_ranges(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4877,12 +5456,23 @@ defmodule AWS.WorkSpaces do
   to `D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated`. A new
   `D:\Users\%USERNAME%\` folder is generated by the new OS. Certain files in the
   old user profile are moved to the new user profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20MigrateWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:migrate_workspace_request`)
+    %{
+      required("BundleId") => String.t(),
+      required("SourceWorkspaceId") => String.t()
+    }
   """
-  @spec migrate_workspace(AWS.Client.t(), migrate_workspace_request(), Keyword.t()) ::
+
+  @spec migrate_workspace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, migrate_workspace_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, migrate_workspace_errors()}
-  def migrate_workspace(%Client{} = client, input, options \\ []) do
+
+  def migrate_workspace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4892,12 +5482,23 @@ defmodule AWS.WorkSpaces do
   @doc """
   Modifies the configuration of Bring Your Own License (BYOL) for the specified
   account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_account_request`)
+    %{
+      optional("DedicatedTenancyManagementCidrRange") => String.t(),
+      optional("DedicatedTenancySupport") => list(any())
+    }
   """
-  @spec modify_account(AWS.Client.t(), modify_account_request(), Keyword.t()) ::
+
+  @spec modify_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_account_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_account_errors()}
-  def modify_account(%Client{} = client, input, options \\ []) do
+
+  def modify_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4907,16 +5508,25 @@ defmodule AWS.WorkSpaces do
   @doc """
   Modifies the properties of the certificate-based authentication you want to use
   with your WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyCertificateBasedAuthProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_certificate_based_auth_properties_request`)
+    %{
+      optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
+      optional("PropertiesToDelete") => list(list(any())()),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec modify_certificate_based_auth_properties(
-          AWS.Client.t(),
-          modify_certificate_based_auth_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_certificate_based_auth_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_certificate_based_auth_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_certificate_based_auth_properties_errors()}
-  def modify_certificate_based_auth_properties(%Client{} = client, input, options \\ []) do
+
+  def modify_certificate_based_auth_properties(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4925,12 +5535,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Modifies the properties of the specified Amazon WorkSpaces clients.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyClientProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_client_properties_request`)
+    %{
+      required("ClientProperties") => client_properties(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec modify_client_properties(AWS.Client.t(), modify_client_properties_request(), Keyword.t()) ::
+
+  @spec modify_client_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_client_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_client_properties_errors()}
-  def modify_client_properties(%Client{} = client, input, options \\ []) do
+
+  def modify_client_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4941,12 +5562,24 @@ defmodule AWS.WorkSpaces do
   Modifies multiple properties related to SAML 2.0 authentication, including the
   enablement status, user access URL, and relay state parameter name that are
   used for configuring federation with an SAML 2.0 identity provider.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifySamlProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_saml_properties_request`)
+    %{
+      optional("PropertiesToDelete") => list(list(any())()),
+      optional("SamlProperties") => saml_properties(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec modify_saml_properties(AWS.Client.t(), modify_saml_properties_request(), Keyword.t()) ::
+
+  @spec modify_saml_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_saml_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_saml_properties_errors()}
-  def modify_saml_properties(%Client{} = client, input, options \\ []) do
+
+  def modify_saml_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4958,16 +5591,24 @@ defmodule AWS.WorkSpaces do
   more information, see [Enable Self-Service WorkSpace Management Capabilities
   for Your
   Users](https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifySelfservicePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_selfservice_permissions_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("SelfservicePermissions") => selfservice_permissions()
+    }
   """
-  @spec modify_selfservice_permissions(
-          AWS.Client.t(),
-          modify_selfservice_permissions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_selfservice_permissions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_selfservice_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_selfservice_permissions_errors()}
-  def modify_selfservice_permissions(%Client{} = client, input, options \\ []) do
+
+  def modify_selfservice_permissions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4976,16 +5617,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Modifies the specified streaming properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyStreamingProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_streaming_properties_request`)
+    %{
+      optional("StreamingProperties") => streaming_properties(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec modify_streaming_properties(
-          AWS.Client.t(),
-          modify_streaming_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_streaming_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_streaming_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_streaming_properties_errors()}
-  def modify_streaming_properties(%Client{} = client, input, options \\ []) do
+
+  def modify_streaming_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4996,16 +5644,24 @@ defmodule AWS.WorkSpaces do
   Specifies which devices and operating systems users can use to access their
   WorkSpaces. For more information, see [ Control Device
   Access](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyWorkspaceAccessProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_workspace_access_properties_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("WorkspaceAccessProperties") => workspace_access_properties()
+    }
   """
-  @spec modify_workspace_access_properties(
-          AWS.Client.t(),
-          modify_workspace_access_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_workspace_access_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_workspace_access_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_access_properties_errors()}
-  def modify_workspace_access_properties(%Client{} = client, input, options \\ []) do
+
+  def modify_workspace_access_properties(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5014,16 +5670,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Modify the default properties used to create WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyWorkspaceCreationProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_workspace_creation_properties_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("WorkspaceCreationProperties") => workspace_creation_properties()
+    }
   """
-  @spec modify_workspace_creation_properties(
-          AWS.Client.t(),
-          modify_workspace_creation_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_workspace_creation_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_workspace_creation_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_creation_properties_errors()}
-  def modify_workspace_creation_properties(%Client{} = client, input, options \\ []) do
+
+  def modify_workspace_creation_properties(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5038,16 +5702,24 @@ defmodule AWS.WorkSpaces do
   Contact your account team to be allow-listed to use this value. For more
   information, see [Amazon WorkSpaces
   Core](http://aws.amazon.com/workspaces/core/).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyWorkspaceProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_workspace_properties_request`)
+    %{
+      optional("DataReplication") => list(any()),
+      optional("WorkspaceProperties") => workspace_properties(),
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec modify_workspace_properties(
-          AWS.Client.t(),
-          modify_workspace_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_workspace_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_workspace_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_properties_errors()}
-  def modify_workspace_properties(%Client{} = client, input, options \\ []) do
+
+  def modify_workspace_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5056,12 +5728,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Sets the state of the specified WorkSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20ModifyWorkspaceState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_workspace_state_request`)
+    %{
+      required("WorkspaceId") => String.t(),
+      required("WorkspaceState") => list(any())
+    }
   """
-  @spec modify_workspace_state(AWS.Client.t(), modify_workspace_state_request(), Keyword.t()) ::
+
+  @spec modify_workspace_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_workspace_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_workspace_state_errors()}
-  def modify_workspace_state(%Client{} = client, input, options \\ []) do
+
+  def modify_workspace_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5073,12 +5756,22 @@ defmodule AWS.WorkSpaces do
   is `AVAILABLE`, `UNHEALTHY`, or `REBOOTING`. Reboot a WorkSpace in the
   `REBOOTING` state only if your WorkSpace has been stuck in the `REBOOTING`
   state for over 20 minutes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20RebootWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reboot_workspaces_request`)
+    %{
+      required("RebootWorkspaceRequests") => list(reboot_request()())
+    }
   """
-  @spec reboot_workspaces(AWS.Client.t(), reboot_workspaces_request(), Keyword.t()) ::
+
+  @spec reboot_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_workspaces_errors()}
-  def reboot_workspaces(%Client{} = client, input, options \\ []) do
+
+  def reboot_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5088,12 +5781,22 @@ defmodule AWS.WorkSpaces do
   @doc """
   Rebuilds the specified WorkSpace. You cannot rebuild a WorkSpace unless its
   state is `AVAILABLE`, `ERROR`, `UNHEALTHY`, `STOPPED`, or `REBOOTING`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20RebuildWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:rebuild_workspaces_request`)
+    %{
+      required("RebuildWorkspaceRequests") => list(rebuild_request()())
+    }
   """
-  @spec rebuild_workspaces(AWS.Client.t(), rebuild_workspaces_request(), Keyword.t()) ::
+
+  @spec rebuild_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rebuild_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rebuild_workspaces_errors()}
-  def rebuild_workspaces(%Client{} = client, input, options \\ []) do
+
+  def rebuild_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5107,16 +5810,32 @@ defmodule AWS.WorkSpaces do
   workspaces_DefaultRole role before you can register a directory. For more
   information, see [ Creating the workspaces_DefaultRole
   Role](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20RegisterWorkspaceDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_workspace_directory_request`)
+    %{
+      optional("ActiveDirectoryConfig") => active_directory_config(),
+      optional("DirectoryId") => String.t(),
+      optional("EnableSelfService") => boolean(),
+      optional("EnableWorkDocs") => boolean(),
+      optional("SubnetIds") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("Tenancy") => list(any()),
+      optional("UserIdentityType") => list(any()),
+      optional("WorkspaceDirectoryDescription") => String.t(),
+      optional("WorkspaceDirectoryName") => String.t(),
+      optional("WorkspaceType") => list(any())
+    }
   """
-  @spec register_workspace_directory(
-          AWS.Client.t(),
-          register_workspace_directory_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_workspace_directory(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_workspace_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_workspace_directory_errors()}
-  def register_workspace_directory(%Client{} = client, input, options \\ []) do
+
+  def register_workspace_directory(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5125,16 +5844,24 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Rejects the account link invitation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20RejectAccountLinkInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reject_account_link_invitation_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      required("LinkId") => String.t()
+    }
   """
-  @spec reject_account_link_invitation(
-          AWS.Client.t(),
-          reject_account_link_invitation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reject_account_link_invitation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_account_link_invitation_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_account_link_invitation_errors()}
-  def reject_account_link_invitation(%Client{} = client, input, options \\ []) do
+
+  def reject_account_link_invitation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5145,12 +5872,22 @@ defmodule AWS.WorkSpaces do
   Restores the specified WorkSpace to its last known healthy state. You cannot
   restore a WorkSpace unless its state is ` AVAILABLE`, `ERROR`, `UNHEALTHY`, or
   `STOPPED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20RestoreWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_workspace_request`)
+    %{
+      required("WorkspaceId") => String.t()
+    }
   """
-  @spec restore_workspace(AWS.Client.t(), restore_workspace_request(), Keyword.t()) ::
+
+  @spec restore_workspace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_workspace_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_workspace_errors()}
-  def restore_workspace(%Client{} = client, input, options \\ []) do
+
+  def restore_workspace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5159,12 +5896,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Removes one or more rules from the specified IP access control group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20RevokeIpRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:revoke_ip_rules_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("UserRules") => list(String.t()())
+    }
   """
-  @spec revoke_ip_rules(AWS.Client.t(), revoke_ip_rules_request(), Keyword.t()) ::
+
+  @spec revoke_ip_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_ip_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_ip_rules_errors()}
-  def revoke_ip_rules(%Client{} = client, input, options \\ []) do
+
+  def revoke_ip_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5173,11 +5921,21 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Starts the specified WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20StartWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_workspaces_request`)
+    %{
+      required("StartWorkspaceRequests") => list(start_request()())
+    }
   """
-  @spec start_workspaces(AWS.Client.t(), start_workspaces_request(), Keyword.t()) ::
+
+  @spec start_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def start_workspaces(%Client{} = client, input, options \\ []) do
+
+  def start_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5186,12 +5944,22 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Starts the specified pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20StartWorkspacesPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_workspaces_pool_request`)
+    %{
+      required("PoolId") => String.t()
+    }
   """
-  @spec start_workspaces_pool(AWS.Client.t(), start_workspaces_pool_request(), Keyword.t()) ::
+
+  @spec start_workspaces_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workspaces_pool_errors()}
-  def start_workspaces_pool(%Client{} = client, input, options \\ []) do
+
+  def start_workspaces_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5200,11 +5968,21 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Stops the specified WorkSpaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20StopWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_workspaces_request`)
+    %{
+      required("StopWorkspaceRequests") => list(stop_request()())
+    }
   """
-  @spec stop_workspaces(AWS.Client.t(), stop_workspaces_request(), Keyword.t()) ::
+
+  @spec stop_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def stop_workspaces(%Client{} = client, input, options \\ []) do
+
+  def stop_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5213,12 +5991,22 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Stops the specified pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20StopWorkspacesPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_workspaces_pool_request`)
+    %{
+      required("PoolId") => String.t()
+    }
   """
-  @spec stop_workspaces_pool(AWS.Client.t(), stop_workspaces_pool_request(), Keyword.t()) ::
+
+  @spec stop_workspaces_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_workspaces_pool_errors()}
-  def stop_workspaces_pool(%Client{} = client, input, options \\ []) do
+
+  def stop_workspaces_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5230,11 +6018,21 @@ defmodule AWS.WorkSpaces do
   action and cannot be undone. The user's data is destroyed. If you need to
   archive any user data, contact Amazon Web Services Support before terminating
   the WorkSpace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20TerminateWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:terminate_workspaces_request`)
+    %{
+      required("TerminateWorkspaceRequests") => list(terminate_request()())
+    }
   """
-  @spec terminate_workspaces(AWS.Client.t(), terminate_workspaces_request(), Keyword.t()) ::
+
+  @spec terminate_workspaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
-  def terminate_workspaces(%Client{} = client, input, options \\ []) do
+
+  def terminate_workspaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5243,16 +6041,22 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Terminates the specified pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20TerminateWorkspacesPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:terminate_workspaces_pool_request`)
+    %{
+      required("PoolId") => String.t()
+    }
   """
-  @spec terminate_workspaces_pool(
-          AWS.Client.t(),
-          terminate_workspaces_pool_request(),
-          Keyword.t()
-        ) ::
+
+  @spec terminate_workspaces_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_workspaces_pool_errors()}
-  def terminate_workspaces_pool(%Client{} = client, input, options \\ []) do
+
+  def terminate_workspaces_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5261,16 +6065,23 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Terminates the pool session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20TerminateWorkspacesPoolSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:terminate_workspaces_pool_session_request`)
+    %{
+      required("SessionId") => String.t()
+    }
   """
-  @spec terminate_workspaces_pool_session(
-          AWS.Client.t(),
-          terminate_workspaces_pool_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec terminate_workspaces_pool_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_workspaces_pool_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_workspaces_pool_session_errors()}
-  def terminate_workspaces_pool_session(%Client{} = client, input, options \\ []) do
+
+  def terminate_workspaces_pool_session(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5280,16 +6091,25 @@ defmodule AWS.WorkSpaces do
   @doc """
   Updates a Amazon Connect client add-in. Use this action to update the name and
   endpoint URL of a Amazon Connect client add-in.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20UpdateConnectClientAddIn&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_connect_client_add_in_request`)
+    %{
+      optional("Name") => String.t(),
+      optional("URL") => String.t(),
+      required("AddInId") => String.t(),
+      required("ResourceId") => String.t()
+    }
   """
-  @spec update_connect_client_add_in(
-          AWS.Client.t(),
-          update_connect_client_add_in_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_connect_client_add_in(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connect_client_add_in_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connect_client_add_in_errors()}
-  def update_connect_client_add_in(%Client{} = client, input, options \\ []) do
+
+  def update_connect_client_add_in(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5312,16 +6132,24 @@ defmodule AWS.WorkSpaces do
   with. Then you must unshare the connection alias from the account it has been
   shared with. You can delete a connection alias only after it is no longer
   shared with any accounts or associated with any directories.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20UpdateConnectionAliasPermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_connection_alias_permission_request`)
+    %{
+      required("AliasId") => String.t(),
+      required("ConnectionAliasPermission") => connection_alias_permission()
+    }
   """
-  @spec update_connection_alias_permission(
-          AWS.Client.t(),
-          update_connection_alias_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_connection_alias_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connection_alias_permission_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_alias_permission_errors()}
-  def update_connection_alias_permission(%Client{} = client, input, options \\ []) do
+
+  def update_connection_alias_permission(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5331,12 +6159,23 @@ defmodule AWS.WorkSpaces do
   @doc """
   Replaces the current rules of the specified IP access control group with the
   specified rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20UpdateRulesOfIpGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_rules_of_ip_group_request`)
+    %{
+      required("GroupId") => String.t(),
+      required("UserRules") => list(ip_rule_item()())
+    }
   """
-  @spec update_rules_of_ip_group(AWS.Client.t(), update_rules_of_ip_group_request(), Keyword.t()) ::
+
+  @spec update_rules_of_ip_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rules_of_ip_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rules_of_ip_group_errors()}
-  def update_rules_of_ip_group(%Client{} = client, input, options \\ []) do
+
+  def update_rules_of_ip_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5347,12 +6186,23 @@ defmodule AWS.WorkSpaces do
   Updates a WorkSpace bundle with a new image. For more information about updating
   WorkSpace bundles, see [ Update a Custom WorkSpaces
   Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20UpdateWorkspaceBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_workspace_bundle_request`)
+    %{
+      optional("BundleId") => String.t(),
+      optional("ImageId") => String.t()
+    }
   """
-  @spec update_workspace_bundle(AWS.Client.t(), update_workspace_bundle_request(), Keyword.t()) ::
+
+  @spec update_workspace_bundle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_workspace_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_bundle_errors()}
-  def update_workspace_bundle(%Client{} = client, input, options \\ []) do
+
+  def update_workspace_bundle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5366,16 +6216,25 @@ defmodule AWS.WorkSpaces do
   If the copy image permission is revoked, the image is unshared with the
   account. After an image has been shared, the recipient account can copy the
   image to other Regions as needed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20UpdateWorkspaceImagePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_workspace_image_permission_request`)
+    %{
+      required("AllowCopyImage") => boolean(),
+      required("ImageId") => String.t(),
+      required("SharedAccountId") => String.t()
+    }
   """
-  @spec update_workspace_image_permission(
-          AWS.Client.t(),
-          update_workspace_image_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workspace_image_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_workspace_image_permission_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_image_permission_errors()}
-  def update_workspace_image_permission(%Client{} = client, input, options \\ []) do
+
+  def update_workspace_image_permission(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5384,12 +6243,28 @@ defmodule AWS.WorkSpaces do
 
   @doc """
   Updates the specified pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspaces%20UpdateWorkspacesPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_workspaces_pool_request`)
+    %{
+      optional("ApplicationSettings") => application_settings_request(),
+      optional("BundleId") => String.t(),
+      optional("Capacity") => capacity(),
+      optional("Description") => String.t(),
+      optional("DirectoryId") => String.t(),
+      optional("TimeoutSettings") => timeout_settings(),
+      required("PoolId") => String.t()
+    }
   """
-  @spec update_workspaces_pool(AWS.Client.t(), update_workspaces_pool_request(), Keyword.t()) ::
+
+  @spec update_workspaces_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_workspaces_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspaces_pool_errors()}
-  def update_workspaces_pool(%Client{} = client, input, options \\ []) do
+
+  def update_workspaces_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

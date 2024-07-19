@@ -20,79 +20,79 @@ defmodule AWS.EMRcontainers do
   @typedoc """
 
   ## Example:
-
+      
       encryption_configuration() :: %{
         "inTransitEncryptionConfiguration" => in_transit_encryption_configuration()
       }
-
+      
   """
   @type encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_template_response() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type create_job_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_monitoring_configuration() :: %{
         "logUri" => String.t()
       }
-
+      
   """
   @type s3_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_template_response() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type delete_job_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_configurations_request() :: %{
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_security_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_run() :: %{
         "arn" => String.t(),
         "clientToken" => String.t(),
@@ -113,46 +113,46 @@ defmodule AWS.EMRcontainers do
         "tags" => map(),
         "virtualClusterId" => String.t()
       }
-
+      
   """
   @type job_run() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_run_response() :: %{
         "jobRun" => job_run()
       }
-
+      
   """
   @type describe_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_monitoring_configuration() :: %{
         "logGroupName" => String.t(),
         "logStreamNamePrefix" => String.t()
       }
-
+      
   """
   @type cloud_watch_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_runs_request() :: %{
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
@@ -161,28 +161,28 @@ defmodule AWS.EMRcontainers do
         optional("nextToken") => String.t(),
         optional("states") => list(list(any())())
       }
-
+      
   """
   @type list_job_runs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_security_configuration_request() :: %{
         optional("tags") => map(),
         required("clientToken") => String.t(),
         required("name") => String.t(),
         required("securityConfigurationData") => security_configuration_data()
       }
-
+      
   """
   @type create_security_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_template() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -194,101 +194,101 @@ defmodule AWS.EMRcontainers do
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type job_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration() :: %{
         "classification" => String.t(),
         "configurations" => list(configuration()()),
         "properties" => map()
       }
-
+      
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parametric_cloud_watch_monitoring_configuration() :: %{
         "logGroupName" => String.t(),
         "logStreamNamePrefix" => String.t()
       }
-
+      
   """
   @type parametric_cloud_watch_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_managed_endpoint_response() :: %{
         "endpoint" => endpoint()
       }
-
+      
   """
   @type describe_managed_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitoring_configuration() :: %{
         "cloudWatchMonitoringConfiguration" => cloud_watch_monitoring_configuration(),
         "containerLogRotationConfiguration" => container_log_rotation_configuration(),
         "persistentAppUI" => list(any()),
         "s3MonitoringConfiguration" => s3_monitoring_configuration()
       }
-
+      
   """
   @type monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_managed_endpoint_response() :: %{
         "arn" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
         "virtualClusterId" => String.t()
       }
-
+      
   """
   @type create_managed_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       secure_namespace_info() :: %{
         "clusterId" => String.t(),
         "namespace" => String.t()
       }
-
+      
   """
   @type secure_namespace_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       virtual_cluster() :: %{
         "arn" => String.t(),
         "containerProvider" => container_provider(),
@@ -299,134 +299,134 @@ defmodule AWS.EMRcontainers do
         "state" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type virtual_cluster() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_job_template_request() :: %{}
-
+      
   """
   @type delete_job_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       parametric_s3_monitoring_configuration() :: %{
         "logUri" => String.t()
       }
-
+      
   """
   @type parametric_s3_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_info() :: %{
         "namespace" => String.t()
       }
-
+      
   """
   @type eks_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_run_request() :: %{}
-
+      
   """
   @type describe_job_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_virtual_cluster_request() :: %{}
-
+      
   """
   @type describe_virtual_cluster_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_job_run_response() :: %{
         "arn" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
         "virtualClusterId" => String.t()
       }
-
+      
   """
   @type start_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_run_response() :: %{
         "id" => String.t(),
         "virtualClusterId" => String.t()
       }
-
+      
   """
   @type cancel_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_managed_endpoint_session_credentials_response() :: %{
         "credentials" => list(),
         "expiresAt" => non_neg_integer(),
         "id" => String.t()
       }
-
+      
   """
   @type get_managed_endpoint_session_credentials_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_parameter_configuration() :: %{
         "defaultValue" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type template_parameter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_template_request() :: %{}
-
+      
   """
   @type describe_job_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_managed_endpoint_request() :: %{
         optional("certificateArn") => String.t(),
         optional("configurationOverrides") => configuration_overrides(),
@@ -437,109 +437,109 @@ defmodule AWS.EMRcontainers do
         required("releaseLabel") => String.t(),
         required("type") => String.t()
       }
-
+      
   """
   @type create_managed_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_runs_response() :: %{
         "jobRuns" => list(job_run()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_job_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_managed_endpoint_response() :: %{
         "id" => String.t(),
         "virtualClusterId" => String.t()
       }
-
+      
   """
   @type delete_managed_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_template_response() :: %{
         "jobTemplate" => job_template()
       }
-
+      
   """
   @type describe_job_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_log_rotation_configuration() :: %{
         "maxFilesToKeep" => integer(),
         "rotationSize" => String.t()
       }
-
+      
   """
   @type container_log_rotation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_security_configuration_response() :: %{
         "arn" => String.t(),
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type create_security_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_provider() :: %{
         "id" => String.t(),
         "info" => list(),
         "type" => list(any())
       }
-
+      
   """
   @type container_provider() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       e_k_s_request_throttled_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type e_k_s_request_throttled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint() :: %{
         "arn" => String.t(),
         "certificateArn" => String.t(),
@@ -560,62 +560,62 @@ defmodule AWS.EMRcontainers do
         "type" => String.t(),
         "virtualClusterId" => String.t()
       }
-
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parametric_configuration_overrides() :: %{
         "applicationConfiguration" => list(configuration()()),
         "monitoringConfiguration" => parametric_monitoring_configuration()
       }
-
+      
   """
   @type parametric_configuration_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_virtual_cluster_response() :: %{
         "arn" => String.t(),
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type create_virtual_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       certificate() :: %{
         "certificateArn" => String.t(),
         "certificateData" => String.t()
       }
-
+      
   """
   @type certificate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_job_run_request() :: %{
         optional("configurationOverrides") => configuration_overrides(),
         optional("executionRoleArn") => String.t(),
@@ -628,14 +628,14 @@ defmodule AWS.EMRcontainers do
         optional("tags") => map(),
         required("clientToken") => String.t()
       }
-
+      
   """
   @type start_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_virtual_cluster_request() :: %{
         optional("securityConfigurationId") => String.t(),
         optional("tags") => map(),
@@ -643,76 +643,76 @@ defmodule AWS.EMRcontainers do
         required("containerProvider") => container_provider(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_virtual_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_templates_request() :: %{
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_job_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parametric_monitoring_configuration() :: %{
         "cloudWatchMonitoringConfiguration" => parametric_cloud_watch_monitoring_configuration(),
         "persistentAppUI" => String.t(),
         "s3MonitoringConfiguration" => parametric_s3_monitoring_configuration()
       }
-
+      
   """
   @type parametric_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_policy_execution() :: %{
         "currentAttemptCount" => integer()
       }
-
+      
   """
   @type retry_policy_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_transit_encryption_configuration() :: %{
         "tlsCertificateConfiguration" => t_l_s_certificate_configuration()
       }
-
+      
   """
   @type in_transit_encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       t_l_s_certificate_configuration() :: %{
         "certificateProviderType" => list(any()),
         "privateCertificateSecretArn" => String.t(),
         "publicCertificateSecretArn" => String.t()
       }
-
+      
   """
   @type t_l_s_certificate_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_job_template_request() :: %{
         optional("kmsKeyArn") => String.t(),
         optional("tags") => map(),
@@ -720,32 +720,32 @@ defmodule AWS.EMRcontainers do
         required("jobTemplateData") => job_template_data(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_job_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_managed_endpoint_request() :: %{}
-
+      
   """
   @type describe_managed_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       security_configuration() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -755,25 +755,25 @@ defmodule AWS.EMRcontainers do
         "securityConfigurationData" => security_configuration_data(),
         "tags" => map()
       }
-
+      
   """
   @type security_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_security_configuration_response() :: %{
         "securityConfiguration" => security_configuration()
       }
-
+      
   """
   @type describe_security_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_template_data() :: %{
         "configurationOverrides" => parametric_configuration_overrides(),
         "executionRoleArn" => String.t(),
@@ -782,46 +782,46 @@ defmodule AWS.EMRcontainers do
         "parameterConfiguration" => map(),
         "releaseLabel" => String.t()
       }
-
+      
   """
   @type job_template_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_managed_endpoints_response() :: %{
         "endpoints" => list(endpoint()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_managed_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       request_throttled_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type request_throttled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_managed_endpoint_request() :: %{}
-
+      
   """
   @type delete_managed_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_managed_endpoints_request() :: %{
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
@@ -830,68 +830,68 @@ defmodule AWS.EMRcontainers do
         optional("states") => list(list(any())()),
         optional("types") => list(String.t()())
       }
-
+      
   """
   @type list_managed_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_configuration_data() :: %{
         "authorizationConfiguration" => authorization_configuration()
       }
-
+      
   """
   @type security_configuration_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_virtual_cluster_response() :: %{
         "id" => String.t()
       }
-
+      
   """
   @type delete_virtual_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_overrides() :: %{
         "applicationConfiguration" => list(configuration()()),
         "monitoringConfiguration" => monitoring_configuration()
       }
-
+      
   """
   @type configuration_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_managed_endpoint_session_credentials_request() :: %{
         optional("clientToken") => String.t(),
         optional("durationInSeconds") => integer(),
@@ -899,161 +899,161 @@ defmodule AWS.EMRcontainers do
         required("credentialType") => String.t(),
         required("executionRoleArn") => String.t()
       }
-
+      
   """
   @type get_managed_endpoint_session_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       spark_sql_job_driver() :: %{
         "entryPoint" => String.t(),
         "sparkSqlParameters" => String.t()
       }
-
+      
   """
   @type spark_sql_job_driver() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_configurations_response() :: %{
         "nextToken" => String.t(),
         "securityConfigurations" => list(security_configuration()())
       }
-
+      
   """
   @type list_security_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_virtual_cluster_response() :: %{
         "virtualCluster" => virtual_cluster()
       }
-
+      
   """
   @type describe_virtual_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_driver() :: %{
         "sparkSqlJobDriver" => spark_sql_job_driver(),
         "sparkSubmitJobDriver" => spark_submit_job_driver()
       }
-
+      
   """
   @type job_driver() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_run_request() :: %{}
-
+      
   """
   @type cancel_job_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_security_configuration_request() :: %{}
-
+      
   """
   @type describe_security_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_templates_response() :: %{
         "nextToken" => String.t(),
         "templates" => list(job_template()())
       }
-
+      
   """
   @type list_job_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_policy_configuration() :: %{
         "maxAttempts" => integer()
       }
-
+      
   """
   @type retry_policy_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authorization_configuration() :: %{
         "encryptionConfiguration" => encryption_configuration(),
         "lakeFormationConfiguration" => lake_formation_configuration()
       }
-
+      
   """
   @type authorization_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_virtual_clusters_response() :: %{
         "nextToken" => String.t(),
         "virtualClusters" => list(virtual_cluster()())
       }
-
+      
   """
   @type list_virtual_clusters_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_virtual_cluster_request() :: %{}
-
+      
   """
   @type delete_virtual_cluster_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lake_formation_configuration() :: %{
         "authorizedSessionTagValue" => String.t(),
         "queryEngineRoleArn" => String.t(),
         "secureNamespaceInfo" => secure_namespace_info()
       }
-
+      
   """
   @type lake_formation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       spark_submit_job_driver() :: %{
         "entryPoint" => String.t(),
         "entryPointArguments" => list(String.t()()),
         "sparkSubmitParameters" => String.t()
       }
-
+      
   """
   @type spark_submit_job_driver() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_virtual_clusters_request() :: %{
         optional("containerProviderId") => String.t(),
         optional("containerProviderType") => list(any()),
@@ -1064,7 +1064,7 @@ defmodule AWS.EMRcontainers do
         optional("nextToken") => String.t(),
         optional("states") => list(list(any())())
       }
-
+      
   """
   @type list_virtual_clusters_request() :: %{String.t() => any()}
 
@@ -1160,29 +1160,43 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:id` (`t:string`) The ID of the job run to cancel.
   * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the
-    job run will be canceled.
+  job run will be canceled.
 
   ## Optional parameters:
   """
-  @spec cancel_job_run(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          cancel_job_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_run_errors()}
-  def cancel_job_run(%Client{} = client, id, virtual_cluster_id, input, options \\ []) do
+
+  def cancel_job_run(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1191,7 +1205,7 @@ defmodule AWS.EMRcontainers do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1209,29 +1223,40 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
-  @spec create_job_template(AWS.Client.t(), create_job_template_request(), Keyword.t()) ::
+
+  @spec create_job_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_template_errors()}
-  def create_job_template(%Client{} = client, input, options \\ []) do
+
+  def create_job_template(%Client{} = client, options \\ []) do
     url_path = "/jobtemplates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1243,38 +1268,44 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which a
-    managed endpoint is created.
+  managed endpoint is created.
 
   ## Optional parameters:
   """
-  @spec create_managed_endpoint(
-          AWS.Client.t(),
-          String.t(),
-          create_managed_endpoint_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_managed_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_managed_endpoint_errors()}
-  def create_managed_endpoint(%Client{} = client, virtual_cluster_id, input, options \\ []) do
+
+  def create_managed_endpoint(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1290,33 +1321,40 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
-  @spec create_security_configuration(
-          AWS.Client.t(),
-          create_security_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_security_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_configuration_errors()}
-  def create_security_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_security_configuration(%Client{} = client, options \\ []) do
     url_path = "/securityconfigurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1333,29 +1371,40 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
-  @spec create_virtual_cluster(AWS.Client.t(), create_virtual_cluster_request(), Keyword.t()) ::
+
+  @spec create_virtual_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_virtual_cluster_errors()}
-  def create_virtual_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_virtual_cluster(%Client{} = client, options \\ []) do
     url_path = "/virtualclusters"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1371,22 +1420,38 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
-  @spec delete_job_template(
-          AWS.Client.t(),
-          String.t(),
-          delete_job_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_template_errors()}
-  def delete_job_template(%Client{} = client, id, input, options \\ []) do
+
+  def delete_job_template(%Client{} = client, id, options \\ []) do
     url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1395,7 +1460,7 @@ defmodule AWS.EMRcontainers do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1414,25 +1479,39 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
-  @spec delete_managed_endpoint(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_managed_endpoint_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_managed_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_managed_endpoint_errors()}
-  def delete_managed_endpoint(%Client{} = client, id, virtual_cluster_id, input, options \\ []) do
+
+  def delete_managed_endpoint(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1441,7 +1520,7 @@ defmodule AWS.EMRcontainers do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1462,22 +1541,38 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
-  @spec delete_virtual_cluster(
-          AWS.Client.t(),
-          String.t(),
-          delete_virtual_cluster_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_virtual_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_virtual_cluster_errors()}
-  def delete_virtual_cluster(%Client{} = client, id, input, options \\ []) do
+
+  def delete_virtual_cluster(%Client{} = client, id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1486,7 +1581,7 @@ defmodule AWS.EMRcontainers do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1502,14 +1597,16 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:id` (`t:string`) The ID of the job run request.
   * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the
-    job run is submitted.
+  job run is submitted.
 
   ## Optional parameters:
   """
+
   @spec describe_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_run_errors()}
+
   def describe_job_run(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns/#{AWS.Util.encode_uri(id)}"
@@ -1553,10 +1650,12 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
+
   @spec describe_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_template_errors()}
+
   def describe_job_template(%Client{} = client, id, options \\ []) do
     url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
 
@@ -1598,10 +1697,12 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
+
   @spec describe_managed_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_managed_endpoint_errors()}
+
   def describe_managed_endpoint(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
@@ -1645,10 +1746,12 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
+
   @spec describe_security_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_configuration_errors()}
+
   def describe_security_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/securityconfigurations/#{AWS.Util.encode_uri(id)}"
 
@@ -1692,10 +1795,12 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
+
   @spec describe_virtual_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_virtual_cluster_errors()}
+
   def describe_virtual_cluster(%Client{} = client, id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
 
@@ -1731,49 +1836,57 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:endpoint_identifier` (`t:string`) The ARN of the managed endpoint for which
-    the request is submitted.
+  the request is submitted.
   * `:virtual_cluster_identifier` (`t:string`) The ARN of the Virtual Cluster
-    which the Managed Endpoint belongs to.
+  which the Managed Endpoint belongs to.
 
   ## Optional parameters:
   """
+
   @spec get_managed_endpoint_session_credentials(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          get_managed_endpoint_session_credentials_request(),
           Keyword.t()
         ) ::
           {:ok, get_managed_endpoint_session_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_managed_endpoint_session_credentials_errors()}
+
   def get_managed_endpoint_session_credentials(
         %Client{} = client,
         endpoint_identifier,
         virtual_cluster_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_identifier)}/endpoints/#{AWS.Util.encode_uri(endpoint_identifier)}/credentials"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1785,24 +1898,26 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which to
-    list the job run.
+  list the job run.
 
   ## Optional parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-    job runs were submitted.
+  job runs were submitted.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-    the job runs were submitted.
+  the job runs were submitted.
   * `:max_results` (`t:integer`) The maximum number of job runs that can be
-    listed.
+  listed.
   * `:name` (`t:string`) The name of the job run.
   * `:next_token` (`t:string`) The token for the next set of job runs to return.
   * `:states` (`t:list[com.amazonaws.emrcontainers#JobRunState]`) The states of
-    the job run.
+  the job run.
   """
+
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_runs_errors()}
+
   def list_job_runs(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
 
@@ -1896,18 +2011,20 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-    job templates were created.
+  job templates were created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-    the job templates were created.
+  the job templates were created.
   * `:max_results` (`t:integer`) The maximum number of job templates that can be
-    listed.
+  listed.
   * `:next_token` (`t:string`) The token for the next set of job templates to
-    return.
+  return.
   """
+
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_templates_errors()}
+
   def list_job_templates(%Client{} = client, options \\ []) do
     url_path = "/jobtemplates"
 
@@ -1980,22 +2097,24 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-    endpoints are created.
+  endpoints are created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-    the endpoints are created.
+  the endpoints are created.
   * `:max_results` (`t:integer`) The maximum number of managed endpoints that can
-    be listed.
+  be listed.
   * `:next_token` (`t:string`) The token for the next set of managed endpoints to
-    return.
+  return.
   * `:states` (`t:list[com.amazonaws.emrcontainers#EndpointState]`) The states of
-    the managed endpoints.
+  the managed endpoints.
   * `:types` (`t:list[com.amazonaws.emrcontainers#EndpointType]`) The types of the
-    managed endpoints.
+  managed endpoints.
   """
+
   @spec list_managed_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_managed_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_endpoints_errors()}
+
   def list_managed_endpoints(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
 
@@ -2097,18 +2216,20 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-    security configuration was created.
+  security configuration was created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-    the security configuration was created.
+  the security configuration was created.
   * `:max_results` (`t:integer`) The maximum number of security configurations the
-    operation can list.
+  operation can list.
   * `:next_token` (`t:string`) The token for the next set of security
-    configurations to return.
+  configurations to return.
   """
+
   @spec list_security_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_configurations_errors()}
+
   def list_security_configurations(%Client{} = client, options \\ []) do
     url_path = "/securityconfigurations"
 
@@ -2179,10 +2300,12 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2225,28 +2348,30 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   * `:container_provider_id` (`t:string`) The container provider ID of the virtual
-    cluster.
+  cluster.
   * `:container_provider_type` (`t:enum["EKS"]`) The container provider type of
-    the virtual cluster. Amazon EKS is the only supported type as of now.
+  the virtual cluster. Amazon EKS is the only supported type as of now.
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-    virtual clusters are created.
+  virtual clusters are created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-    the virtual clusters are created.
+  the virtual clusters are created.
   * `:eks_access_entry_integrated` (`t:boolean`) Optional Boolean that specifies
-    whether the operation should return the virtual clusters that have the
-    access entry integration enabled or disabled. If not specified, the
-    operation returns all applicable virtual clusters.
+  whether the operation should return the virtual clusters that have the
+  access entry integration enabled or disabled. If not specified, the
+  operation returns all applicable virtual clusters.
   * `:max_results` (`t:integer`) The maximum number of virtual clusters that can
-    be listed.
+  be listed.
   * `:next_token` (`t:string`) The token for the next set of virtual clusters to
-    return.
+  return.
   * `:states` (`t:list[com.amazonaws.emrcontainers#VirtualClusterState]`) The
-    states of the requested virtual clusters.
+  states of the requested virtual clusters.
   """
+
   @spec list_virtual_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_virtual_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_virtual_clusters_errors()}
+
   def list_virtual_clusters(%Client{} = client, options \\ []) do
     url_path = "/virtualclusters"
 
@@ -2361,33 +2486,44 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:virtual_cluster_id` (`t:string`) The virtual cluster ID for which the job
-    run request is submitted.
+  run request is submitted.
 
   ## Optional parameters:
   """
-  @spec start_job_run(AWS.Client.t(), String.t(), start_job_run_request(), Keyword.t()) ::
+
+  @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
-  def start_job_run(%Client{} = client, virtual_cluster_id, input, options \\ []) do
+
+  def start_job_run(%Client{} = client, virtual_cluster_id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2409,29 +2545,40 @@ defmodule AWS.EMRcontainers do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2442,26 +2589,43 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of resources.
   * `:tag_keys` (`t:list[com.amazonaws.emrcontainers#String128]`) The tag keys of
-    the resources.
+  the resources.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2470,7 +2634,7 @@ defmodule AWS.EMRcontainers do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

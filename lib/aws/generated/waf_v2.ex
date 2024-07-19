@@ -3601,12 +3601,23 @@ defmodule AWS.WAFV2 do
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
   in the *Amazon CloudFront Developer Guide*. **Required permissions for
   customer-managed IAM policies**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20AssociateWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_web_acl_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("WebACLArn") => String.t()
+    }
   """
-  @spec associate_web_acl(AWS.Client.t(), associate_web_acl_request(), Keyword.t()) ::
+
+  @spec associate_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_web_acl_errors()}
-  def associate_web_acl(%Client{} = client, input, options \\ []) do
+
+  def associate_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3617,12 +3628,23 @@ defmodule AWS.WAFV2 do
   Returns the web ACL capacity unit (WCU) requirements for a specified scope and
   set of rules. You can use this to check the capacity requirements for the
   rules you want to use in a `RuleGroup` or `WebACL`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20CheckCapacity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:check_capacity_request`)
+    %{
+      required("Rules") => list(rule()()),
+      required("Scope") => list(any())
+    }
   """
-  @spec check_capacity(AWS.Client.t(), check_capacity_request(), Keyword.t()) ::
+
+  @spec check_capacity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, check_capacity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_capacity_errors()}
-  def check_capacity(%Client{} = client, input, options \\ []) do
+
+  def check_capacity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3637,12 +3659,23 @@ defmodule AWS.WAFV2 do
   integration, see [WAF client application
   integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html)
   in the *WAF Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20CreateAPIKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_api_key_request`)
+    %{
+      required("Scope") => list(any()),
+      required("TokenDomains") => list(String.t()())
+    }
   """
-  @spec create_api_key(AWS.Client.t(), create_api_key_request(), Keyword.t()) ::
+
+  @spec create_api_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_api_key_errors()}
-  def create_api_key(%Client{} = client, input, options \\ []) do
+
+  def create_api_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3654,12 +3687,27 @@ defmodule AWS.WAFV2 do
   specific IP addresses or ranges of IP addresses. For example, if you're
   receiving a lot of requests from a ranges of IP addresses, you can configure
   WAF to block them using an IPSet that lists those IP addresses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20CreateIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_ip_set_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Addresses") => list(String.t()()),
+      required("IPAddressVersion") => list(any()),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec create_ip_set(AWS.Client.t(), create_ip_set_request(), Keyword.t()) ::
+
+  @spec create_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ip_set_errors()}
-  def create_ip_set(%Client{} = client, input, options \\ []) do
+
+  def create_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3670,12 +3718,26 @@ defmodule AWS.WAFV2 do
   Creates a `RegexPatternSet`, which you reference in a
   `RegexPatternSetReferenceStatement`, to have WAF inspect a web request
   component for the specified patterns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20CreateRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_regex_pattern_set_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("RegularExpressionList") => list(regex()()),
+      required("Scope") => list(any())
+    }
   """
-  @spec create_regex_pattern_set(AWS.Client.t(), create_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec create_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_regex_pattern_set_errors()}
-  def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def create_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3684,12 +3746,29 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Creates a `RuleGroup` per the specifications provided.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20CreateRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_rule_group_request`)
+    %{
+      optional("CustomResponseBodies") => map(),
+      optional("Description") => String.t(),
+      optional("Rules") => list(rule()()),
+      optional("Tags") => list(tag()()),
+      required("Capacity") => float(),
+      required("Name") => String.t(),
+      required("Scope") => list(any()),
+      required("VisibilityConfig") => visibility_config()
+    }
   """
-  @spec create_rule_group(AWS.Client.t(), create_rule_group_request(), Keyword.t()) ::
+
+  @spec create_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_group_errors()}
-  def create_rule_group(%Client{} = client, input, options \\ []) do
+
+  def create_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3698,12 +3777,33 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Creates a `WebACL` per the specifications provided.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20CreateWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_web_acl_request`)
+    %{
+      optional("AssociationConfig") => association_config(),
+      optional("CaptchaConfig") => captcha_config(),
+      optional("ChallengeConfig") => challenge_config(),
+      optional("CustomResponseBodies") => map(),
+      optional("Description") => String.t(),
+      optional("Rules") => list(rule()()),
+      optional("Tags") => list(tag()()),
+      optional("TokenDomains") => list(String.t()()),
+      required("DefaultAction") => default_action(),
+      required("Name") => String.t(),
+      required("Scope") => list(any()),
+      required("VisibilityConfig") => visibility_config()
+    }
   """
-  @spec create_web_acl(AWS.Client.t(), create_web_acl_request(), Keyword.t()) ::
+
+  @spec create_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_web_acl_errors()}
-  def create_web_acl(%Client{} = client, input, options \\ []) do
+
+  def create_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3712,12 +3812,23 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Deletes the specified API key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeleteAPIKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_api_key_request`)
+    %{
+      required("APIKey") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec delete_api_key(AWS.Client.t(), delete_api_key_request(), Keyword.t()) ::
+
+  @spec delete_api_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_api_key_errors()}
-  def delete_api_key(%Client{} = client, input, options \\ []) do
+
+  def delete_api_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3727,16 +3838,24 @@ defmodule AWS.WAFV2 do
   @doc """
   Deletes all rule groups that are managed by Firewall Manager for the specified
   web ACL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeleteFirewallManagerRuleGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_firewall_manager_rule_groups_request`)
+    %{
+      required("WebACLArn") => String.t(),
+      required("WebACLLockToken") => String.t()
+    }
   """
-  @spec delete_firewall_manager_rule_groups(
-          AWS.Client.t(),
-          delete_firewall_manager_rule_groups_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_firewall_manager_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_firewall_manager_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_firewall_manager_rule_groups_errors()}
-  def delete_firewall_manager_rule_groups(%Client{} = client, input, options \\ []) do
+
+  def delete_firewall_manager_rule_groups(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3745,12 +3864,25 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Deletes the specified `IPSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeleteIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ip_set_request`)
+    %{
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec delete_ip_set(AWS.Client.t(), delete_ip_set_request(), Keyword.t()) ::
+
+  @spec delete_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ip_set_errors()}
-  def delete_ip_set(%Client{} = client, input, options \\ []) do
+
+  def delete_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3759,16 +3891,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Deletes the `LoggingConfiguration` from the specified web ACL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeleteLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_logging_configuration_request`)
+    %{
+      optional("LogScope") => list(any()),
+      optional("LogType") => list(any()),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_logging_configuration(
-          AWS.Client.t(),
-          delete_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logging_configuration_errors()}
-  def delete_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3777,12 +3917,22 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Permanently deletes an IAM policy from the specified rule group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeletePermissionPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_permission_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec delete_permission_policy(AWS.Client.t(), delete_permission_policy_request(), Keyword.t()) ::
+
+  @spec delete_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_permission_policy_errors()}
-  def delete_permission_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3791,12 +3941,25 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Deletes the specified `RegexPatternSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeleteRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_regex_pattern_set_request`)
+    %{
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec delete_regex_pattern_set(AWS.Client.t(), delete_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec delete_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_regex_pattern_set_errors()}
-  def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def delete_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3805,12 +3968,25 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Deletes the specified `RuleGroup`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeleteRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_rule_group_request`)
+    %{
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec delete_rule_group(AWS.Client.t(), delete_rule_group_request(), Keyword.t()) ::
+
+  @spec delete_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_group_errors()}
-  def delete_rule_group(%Client{} = client, input, options \\ []) do
+
+  def delete_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3820,12 +3996,25 @@ defmodule AWS.WAFV2 do
   @doc """
   Deletes the specified `WebACL`. You can only use this if
   `ManagedByFirewallManager` is false in the specified `WebACL`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DeleteWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_web_acl_request`)
+    %{
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec delete_web_acl(AWS.Client.t(), delete_web_acl_request(), Keyword.t()) ::
+
+  @spec delete_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_web_acl_errors()}
-  def delete_web_acl(%Client{} = client, input, options \\ []) do
+
+  def delete_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3835,16 +4024,23 @@ defmodule AWS.WAFV2 do
   @doc """
   Provides high-level information for the Amazon Web Services Managed Rules rule
   groups and Amazon Web Services Marketplace managed rule groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DescribeAllManagedProducts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_all_managed_products_request`)
+    %{
+      required("Scope") => list(any())
+    }
   """
-  @spec describe_all_managed_products(
-          AWS.Client.t(),
-          describe_all_managed_products_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_all_managed_products(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_all_managed_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_all_managed_products_errors()}
-  def describe_all_managed_products(%Client{} = client, input, options \\ []) do
+
+  def describe_all_managed_products(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3854,16 +4050,24 @@ defmodule AWS.WAFV2 do
   @doc """
   Provides high-level information for the managed rule groups owned by a specific
   vendor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DescribeManagedProductsByVendor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_managed_products_by_vendor_request`)
+    %{
+      required("Scope") => list(any()),
+      required("VendorName") => String.t()
+    }
   """
-  @spec describe_managed_products_by_vendor(
-          AWS.Client.t(),
-          describe_managed_products_by_vendor_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_managed_products_by_vendor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_managed_products_by_vendor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_managed_products_by_vendor_errors()}
-  def describe_managed_products_by_vendor(%Client{} = client, input, options \\ []) do
+
+  def describe_managed_products_by_vendor(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3873,16 +4077,25 @@ defmodule AWS.WAFV2 do
   @doc """
   Provides high-level information for a managed rule group, including descriptions
   of the rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DescribeManagedRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_managed_rule_group_request`)
+    %{
+      optional("VersionName") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any()),
+      required("VendorName") => String.t()
+    }
   """
-  @spec describe_managed_rule_group(
-          AWS.Client.t(),
-          describe_managed_rule_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_managed_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_managed_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_managed_rule_group_errors()}
-  def describe_managed_rule_group(%Client{} = client, input, options \\ []) do
+
+  def describe_managed_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3901,12 +4114,22 @@ defmodule AWS.WAFV2 do
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
   in the *Amazon CloudFront API Reference*. **Required permissions for
   customer-managed IAM policies**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20DisassociateWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_web_acl_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec disassociate_web_acl(AWS.Client.t(), disassociate_web_acl_request(), Keyword.t()) ::
+
+  @spec disassociate_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_web_acl_errors()}
-  def disassociate_web_acl(%Client{} = client, input, options \\ []) do
+
+  def disassociate_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3915,16 +4138,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Generates a presigned download URL for the specified release of the mobile SDK.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GenerateMobileSdkReleaseUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_mobile_sdk_release_url_request`)
+    %{
+      required("Platform") => list(any()),
+      required("ReleaseVersion") => String.t()
+    }
   """
-  @spec generate_mobile_sdk_release_url(
-          AWS.Client.t(),
-          generate_mobile_sdk_release_url_request(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_mobile_sdk_release_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_mobile_sdk_release_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_mobile_sdk_release_url_errors()}
-  def generate_mobile_sdk_release_url(%Client{} = client, input, options \\ []) do
+
+  def generate_mobile_sdk_release_url(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3934,12 +4165,23 @@ defmodule AWS.WAFV2 do
   @doc """
   Returns your API key in decrypted form. Use this to check the token domains that
   you have defined for the key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetDecryptedAPIKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_decrypted_api_key_request`)
+    %{
+      required("APIKey") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec get_decrypted_api_key(AWS.Client.t(), get_decrypted_api_key_request(), Keyword.t()) ::
+
+  @spec get_decrypted_api_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_decrypted_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_decrypted_api_key_errors()}
-  def get_decrypted_api_key(%Client{} = client, input, options \\ []) do
+
+  def get_decrypted_api_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3948,12 +4190,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves the specified `IPSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ip_set_request`)
+    %{
+      required("Id") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec get_ip_set(AWS.Client.t(), get_ip_set_request(), Keyword.t()) ::
+
+  @spec get_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ip_set_errors()}
-  def get_ip_set(%Client{} = client, input, options \\ []) do
+
+  def get_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3962,16 +4216,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Returns the `LoggingConfiguration` for the specified web ACL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_logging_configuration_request`)
+    %{
+      optional("LogScope") => list(any()),
+      optional("LogType") => list(any()),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_logging_configuration(
-          AWS.Client.t(),
-          get_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logging_configuration_errors()}
-  def get_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3980,12 +4242,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves the specified managed rule set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetManagedRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_managed_rule_set_request`)
+    %{
+      required("Id") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec get_managed_rule_set(AWS.Client.t(), get_managed_rule_set_request(), Keyword.t()) ::
+
+  @spec get_managed_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_managed_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_managed_rule_set_errors()}
-  def get_managed_rule_set(%Client{} = client, input, options \\ []) do
+
+  def get_managed_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3995,12 +4269,23 @@ defmodule AWS.WAFV2 do
   @doc """
   Retrieves information for the specified mobile SDK release, including release
   notes and tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetMobileSdkRelease&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_mobile_sdk_release_request`)
+    %{
+      required("Platform") => list(any()),
+      required("ReleaseVersion") => String.t()
+    }
   """
-  @spec get_mobile_sdk_release(AWS.Client.t(), get_mobile_sdk_release_request(), Keyword.t()) ::
+
+  @spec get_mobile_sdk_release(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_mobile_sdk_release_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mobile_sdk_release_errors()}
-  def get_mobile_sdk_release(%Client{} = client, input, options \\ []) do
+
+  def get_mobile_sdk_release(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4009,12 +4294,22 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Returns the IAM policy that is attached to the specified rule group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetPermissionPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_permission_policy_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_permission_policy(AWS.Client.t(), get_permission_policy_request(), Keyword.t()) ::
+
+  @spec get_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_permission_policy_errors()}
-  def get_permission_policy(%Client{} = client, input, options \\ []) do
+
+  def get_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4028,16 +4323,27 @@ defmodule AWS.WAFV2 do
   that can be blocked for a single rate-based rule instance is 10,000. If more
   than 10,000 addresses exceed the rate limit, those with the highest rates are
   blocked.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetRateBasedStatementManagedKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rate_based_statement_managed_keys_request`)
+    %{
+      optional("RuleGroupRuleName") => String.t(),
+      required("RuleName") => String.t(),
+      required("Scope") => list(any()),
+      required("WebACLId") => String.t(),
+      required("WebACLName") => String.t()
+    }
   """
-  @spec get_rate_based_statement_managed_keys(
-          AWS.Client.t(),
-          get_rate_based_statement_managed_keys_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_rate_based_statement_managed_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rate_based_statement_managed_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rate_based_statement_managed_keys_errors()}
-  def get_rate_based_statement_managed_keys(%Client{} = client, input, options \\ []) do
+
+  def get_rate_based_statement_managed_keys(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4046,12 +4352,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves the specified `RegexPatternSet`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_regex_pattern_set_request`)
+    %{
+      required("Id") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec get_regex_pattern_set(AWS.Client.t(), get_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec get_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_regex_pattern_set_errors()}
-  def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def get_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4060,12 +4378,25 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves the specified `RuleGroup`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rule_group_request`)
+    %{
+      optional("ARN") => String.t(),
+      optional("Id") => String.t(),
+      optional("Name") => String.t(),
+      optional("Scope") => list(any())
+    }
   """
-  @spec get_rule_group(AWS.Client.t(), get_rule_group_request(), Keyword.t()) ::
+
+  @spec get_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_group_errors()}
-  def get_rule_group(%Client{} = client, input, options \\ []) do
+
+  def get_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4078,12 +4409,26 @@ defmodule AWS.WAFV2 do
   Services resource received during a time range that you choose. You can
   specify a sample size of up to 500 requests, and you can specify any time
   range in the previous three hours.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetSampledRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_sampled_requests_request`)
+    %{
+      required("MaxItems") => float(),
+      required("RuleMetricName") => String.t(),
+      required("Scope") => list(any()),
+      required("TimeWindow") => time_window(),
+      required("WebAclArn") => String.t()
+    }
   """
-  @spec get_sampled_requests(AWS.Client.t(), get_sampled_requests_request(), Keyword.t()) ::
+
+  @spec get_sampled_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sampled_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sampled_requests_errors()}
-  def get_sampled_requests(%Client{} = client, input, options \\ []) do
+
+  def get_sampled_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4092,12 +4437,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves the specified `WebACL`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_web_acl_request`)
+    %{
+      required("Id") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec get_web_acl(AWS.Client.t(), get_web_acl_request(), Keyword.t()) ::
+
+  @spec get_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_web_acl_errors()}
-  def get_web_acl(%Client{} = client, input, options \\ []) do
+
+  def get_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4110,12 +4467,22 @@ defmodule AWS.WAFV2 do
   you get an error that indicates that your account isn't authorized to perform
   `wafv2:GetWebACL` on the resource, that error won't be included in your
   CloudTrail event history.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20GetWebACLForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_web_acl_for_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_web_acl_for_resource(AWS.Client.t(), get_web_acl_for_resource_request(), Keyword.t()) ::
+
+  @spec get_web_acl_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_web_acl_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_web_acl_for_resource_errors()}
-  def get_web_acl_for_resource(%Client{} = client, input, options \\ []) do
+
+  def get_web_acl_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4124,12 +4491,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves a list of the API keys that you've defined for the specified scope.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListAPIKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_api_keys_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_api_keys(AWS.Client.t(), list_api_keys_request(), Keyword.t()) ::
+
+  @spec list_api_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_api_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_api_keys_errors()}
-  def list_api_keys(%Client{} = client, input, options \\ []) do
+
+  def list_api_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4138,16 +4517,27 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Returns a list of the available versions for the specified managed rule group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListAvailableManagedRuleGroupVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_available_managed_rule_group_versions_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any()),
+      required("VendorName") => String.t()
+    }
   """
-  @spec list_available_managed_rule_group_versions(
-          AWS.Client.t(),
-          list_available_managed_rule_group_versions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_available_managed_rule_group_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_managed_rule_group_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_managed_rule_group_versions_errors()}
-  def list_available_managed_rule_group_versions(%Client{} = client, input, options \\ []) do
+
+  def list_available_managed_rule_group_versions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4159,16 +4549,25 @@ defmodule AWS.WAFV2 do
   This list includes all Amazon Web Services Managed Rules rule groups and all
   of the Amazon Web Services Marketplace managed rule groups that you're
   subscribed to.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListAvailableManagedRuleGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_available_managed_rule_groups_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_available_managed_rule_groups(
-          AWS.Client.t(),
-          list_available_managed_rule_groups_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_available_managed_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_managed_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_managed_rule_groups_errors()}
-  def list_available_managed_rule_groups(%Client{} = client, input, options \\ []) do
+
+  def list_available_managed_rule_groups(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4177,12 +4576,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves an array of `IPSetSummary` objects for the IP sets that you manage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListIPSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ip_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_ip_sets(AWS.Client.t(), list_ip_sets_request(), Keyword.t()) ::
+
+  @spec list_ip_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ip_sets_errors()}
-  def list_ip_sets(%Client{} = client, input, options \\ []) do
+
+  def list_ip_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4191,16 +4602,25 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves an array of your `LoggingConfiguration` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListLoggingConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_logging_configurations_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("LogScope") => list(any()),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_logging_configurations(
-          AWS.Client.t(),
-          list_logging_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_logging_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_logging_configurations_errors()}
-  def list_logging_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_logging_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4209,12 +4629,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves the managed rule sets that you own.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListManagedRuleSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_managed_rule_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_managed_rule_sets(AWS.Client.t(), list_managed_rule_sets_request(), Keyword.t()) ::
+
+  @spec list_managed_rule_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_managed_rule_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_managed_rule_sets_errors()}
-  def list_managed_rule_sets(%Client{} = client, input, options \\ []) do
+
+  def list_managed_rule_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4224,12 +4656,24 @@ defmodule AWS.WAFV2 do
   @doc """
   Retrieves a list of the available releases for the mobile SDK and the specified
   device platform.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListMobileSdkReleases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_mobile_sdk_releases_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Platform") => list(any())
+    }
   """
-  @spec list_mobile_sdk_releases(AWS.Client.t(), list_mobile_sdk_releases_request(), Keyword.t()) ::
+
+  @spec list_mobile_sdk_releases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_mobile_sdk_releases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mobile_sdk_releases_errors()}
-  def list_mobile_sdk_releases(%Client{} = client, input, options \\ []) do
+
+  def list_mobile_sdk_releases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4239,12 +4683,24 @@ defmodule AWS.WAFV2 do
   @doc """
   Retrieves an array of `RegexPatternSetSummary` objects for the regex pattern
   sets that you manage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListRegexPatternSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_regex_pattern_sets_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_regex_pattern_sets(AWS.Client.t(), list_regex_pattern_sets_request(), Keyword.t()) ::
+
+  @spec list_regex_pattern_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_regex_pattern_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_regex_pattern_sets_errors()}
-  def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
+
+  def list_regex_pattern_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4259,16 +4715,23 @@ defmodule AWS.WAFV2 do
   [ListDistributionsByWebACLId](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html)
   in the *Amazon CloudFront API Reference*. **Required permissions for
   customer-managed IAM policies**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListResourcesForWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resources_for_web_acl_request`)
+    %{
+      optional("ResourceType") => list(any()),
+      required("WebACLArn") => String.t()
+    }
   """
-  @spec list_resources_for_web_acl(
-          AWS.Client.t(),
-          list_resources_for_web_acl_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_resources_for_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resources_for_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_for_web_acl_errors()}
-  def list_resources_for_web_acl(%Client{} = client, input, options \\ []) do
+
+  def list_resources_for_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4278,12 +4741,24 @@ defmodule AWS.WAFV2 do
   @doc """
   Retrieves an array of `RuleGroupSummary` objects for the rule groups that you
   manage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListRuleGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rule_groups_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_rule_groups(AWS.Client.t(), list_rule_groups_request(), Keyword.t()) ::
+
+  @spec list_rule_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_groups_errors()}
-  def list_rule_groups(%Client{} = client, input, options \\ []) do
+
+  def list_rule_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4296,12 +4771,24 @@ defmodule AWS.WAFV2 do
   purposes like billing. For example, you might set the tag key to "customer"
   and the value to the customer name or ID. You can specify one or more tags to
   add to each Amazon Web Services resource, up to 50 tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4310,12 +4797,24 @@ defmodule AWS.WAFV2 do
 
   @doc """
   Retrieves an array of `WebACLSummary` objects for the web ACLs that you manage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20ListWebACLs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_web_acls_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextMarker") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec list_web_acls(AWS.Client.t(), list_web_acls_request(), Keyword.t()) ::
+
+  @spec list_web_acls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_web_acls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_web_acls_errors()}
-  def list_web_acls(%Client{} = client, input, options \\ []) do
+
+  def list_web_acls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4330,16 +4829,22 @@ defmodule AWS.WAFV2 do
   configuration, do the following: Retrieve it by calling
   `GetLoggingConfiguration` Update its settings as needed Provide the complete
   logging configuration specification to this call
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20PutLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_logging_configuration_request`)
+    %{
+      required("LoggingConfiguration") => logging_configuration()
+    }
   """
-  @spec put_logging_configuration(
-          AWS.Client.t(),
-          put_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_logging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_configuration_errors()}
-  def put_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_logging_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4355,16 +4860,28 @@ defmodule AWS.WAFV2 do
   of your versioned managed rule group offerings for your customers. The APIs
   are `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`,
   and `UpdateManagedRuleSetVersionExpiryDate`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20PutManagedRuleSetVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_managed_rule_set_versions_request`)
+    %{
+      optional("RecommendedVersion") => String.t(),
+      optional("VersionsToPublish") => map(),
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec put_managed_rule_set_versions(
-          AWS.Client.t(),
-          put_managed_rule_set_versions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_managed_rule_set_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_managed_rule_set_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_managed_rule_set_versions_errors()}
-  def put_managed_rule_set_versions(%Client{} = client, input, options \\ []) do
+
+  def put_managed_rule_set_versions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4375,12 +4892,23 @@ defmodule AWS.WAFV2 do
   Attaches an IAM policy to the specified resource. Use this to share a rule group
   across accounts. You must be the owner of the rule group to perform this
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20PutPermissionPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_permission_policy_request`)
+    %{
+      required("Policy") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec put_permission_policy(AWS.Client.t(), put_permission_policy_request(), Keyword.t()) ::
+
+  @spec put_permission_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_permission_policy_errors()}
-  def put_permission_policy(%Client{} = client, input, options \\ []) do
+
+  def put_permission_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4393,12 +4921,23 @@ defmodule AWS.WAFV2 do
   purposes like billing. For example, you might set the tag key to "customer"
   and the value to the customer name or ID. You can specify one or more tags to
   add to each Amazon Web Services resource, up to 50 tags for a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4411,12 +4950,23 @@ defmodule AWS.WAFV2 do
   the tag key might be "customer" and the tag value might be "companyA." You can
   specify one or more tags to add to each container. You can add up to 50 tags
   to each Amazon Web Services resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4429,12 +4979,27 @@ defmodule AWS.WAFV2 do
   provide to this call. To modify an IP set, do the following: Retrieve it by
   calling `GetIPSet` Update its settings as needed Provide the complete IP set
   specification to this call
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20UpdateIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_ip_set_request`)
+    %{
+      optional("Description") => String.t(),
+      required("Addresses") => list(String.t()()),
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any())
+    }
   """
-  @spec update_ip_set(AWS.Client.t(), update_ip_set_request(), Keyword.t()) ::
+
+  @spec update_ip_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ip_set_errors()}
-  def update_ip_set(%Client{} = client, input, options \\ []) do
+
+  def update_ip_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4446,16 +5011,28 @@ defmodule AWS.WAFV2 do
   initiate the expiration of a managed rule group version. After you initiate
   expiration for a version, WAF excludes it from the response to
   `ListAvailableManagedRuleGroupVersions` for the managed rule group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20UpdateManagedRuleSetVersionExpiryDate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_managed_rule_set_version_expiry_date_request`)
+    %{
+      required("ExpiryTimestamp") => non_neg_integer(),
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any()),
+      required("VersionToExpire") => String.t()
+    }
   """
-  @spec update_managed_rule_set_version_expiry_date(
-          AWS.Client.t(),
-          update_managed_rule_set_version_expiry_date_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_managed_rule_set_version_expiry_date(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_managed_rule_set_version_expiry_date_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_managed_rule_set_version_expiry_date_errors()}
-  def update_managed_rule_set_version_expiry_date(%Client{} = client, input, options \\ []) do
+
+  def update_managed_rule_set_version_expiry_date(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4468,12 +5045,27 @@ defmodule AWS.WAFV2 do
   the ones that you provide to this call. To modify a regex pattern set, do the
   following: Retrieve it by calling `GetRegexPatternSet` Update its settings as
   needed Provide the complete regex pattern set specification to this call
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20UpdateRegexPatternSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_regex_pattern_set_request`)
+    %{
+      optional("Description") => String.t(),
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("RegularExpressionList") => list(regex()()),
+      required("Scope") => list(any())
+    }
   """
-  @spec update_regex_pattern_set(AWS.Client.t(), update_regex_pattern_set_request(), Keyword.t()) ::
+
+  @spec update_regex_pattern_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_regex_pattern_set_errors()}
-  def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
+
+  def update_regex_pattern_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4486,12 +5078,29 @@ defmodule AWS.WAFV2 do
   that you provide to this call. To modify a rule group, do the following:
   Retrieve it by calling `GetRuleGroup` Update its settings as needed Provide
   the complete rule group specification to this call
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20UpdateRuleGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_rule_group_request`)
+    %{
+      optional("CustomResponseBodies") => map(),
+      optional("Description") => String.t(),
+      optional("Rules") => list(rule()()),
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any()),
+      required("VisibilityConfig") => visibility_config()
+    }
   """
-  @spec update_rule_group(AWS.Client.t(), update_rule_group_request(), Keyword.t()) ::
+
+  @spec update_rule_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_group_errors()}
-  def update_rule_group(%Client{} = client, input, options \\ []) do
+
+  def update_rule_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4505,12 +5114,34 @@ defmodule AWS.WAFV2 do
   already have for the web ACL with the ones that you provide to this call. To
   modify a web ACL, do the following: Retrieve it by calling `GetWebACL` Update
   its settings as needed Provide the complete web ACL specification to this call
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wafv2%20UpdateWebACL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_web_acl_request`)
+    %{
+      optional("AssociationConfig") => association_config(),
+      optional("CaptchaConfig") => captcha_config(),
+      optional("ChallengeConfig") => challenge_config(),
+      optional("CustomResponseBodies") => map(),
+      optional("Description") => String.t(),
+      optional("Rules") => list(rule()()),
+      optional("TokenDomains") => list(String.t()()),
+      required("DefaultAction") => default_action(),
+      required("Id") => String.t(),
+      required("LockToken") => String.t(),
+      required("Name") => String.t(),
+      required("Scope") => list(any()),
+      required("VisibilityConfig") => visibility_config()
+    }
   """
-  @spec update_web_acl(AWS.Client.t(), update_web_acl_request(), Keyword.t()) ::
+
+  @spec update_web_acl(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_web_acl_errors()}
-  def update_web_acl(%Client{} = client, input, options \\ []) do
+
+  def update_web_acl(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

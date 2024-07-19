@@ -3439,16 +3439,25 @@ defmodule AWS.FSx do
   system](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html),
   including additional steps you must take to be able to access your file system
   using a DNS alias.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20AssociateFileSystemAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_file_system_aliases_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("Aliases") => list(String.t()()),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec associate_file_system_aliases(
-          AWS.Client.t(),
-          associate_file_system_aliases_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_file_system_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_file_system_aliases_errors()}
-  def associate_file_system_aliases(%Client{} = client, input, options \\ []) do
+
+  def associate_file_system_aliases(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3459,16 +3468,22 @@ defmodule AWS.FSx do
   Cancels an existing Amazon FSx for Lustre data repository task if that task is
   in either the `PENDING` or `EXECUTING` state. When you cancel am export task,
   Amazon FSx does the following.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CancelDataRepositoryTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_data_repository_task_request`)
+    %{
+      required("TaskId") => String.t()
+    }
   """
-  @spec cancel_data_repository_task(
-          AWS.Client.t(),
-          cancel_data_repository_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_data_repository_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_data_repository_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_data_repository_task_errors()}
-  def cancel_data_repository_task(%Client{} = client, input, options \\ []) do
+
+  def cancel_data_repository_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3489,12 +3504,27 @@ defmodule AWS.FSx do
   Regions), `aws-cn` (China Regions), and `aws-us-gov` (Amazon Web Services
   GovCloud [US] Regions). You can also use backup copies to clone your file
   dataset to another Region or within the same Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CopyBackup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_backup_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("CopyTags") => boolean(),
+      optional("KmsKeyId") => String.t(),
+      optional("SourceRegion") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("SourceBackupId") => String.t()
+    }
   """
-  @spec copy_backup(AWS.Client.t(), copy_backup_request(), Keyword.t()) ::
+
+  @spec copy_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_backup_errors()}
-  def copy_backup(%Client{} = client, input, options \\ []) do
+
+  def copy_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3506,16 +3536,27 @@ defmodule AWS.FSx do
   OpenZFS file system. For more information, see [on-demand data
   replication](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html)
   in the Amazon FSx for OpenZFS User Guide.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CopySnapshotAndUpdateVolume&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_snapshot_and_update_volume_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("CopyStrategy") => list(any()),
+      optional("Options") => list(list(any())()),
+      required("SourceSnapshotARN") => String.t(),
+      required("VolumeId") => String.t()
+    }
   """
-  @spec copy_snapshot_and_update_volume(
-          AWS.Client.t(),
-          copy_snapshot_and_update_volume_request(),
-          Keyword.t()
-        ) ::
+
+  @spec copy_snapshot_and_update_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_snapshot_and_update_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_snapshot_and_update_volume_errors()}
-  def copy_snapshot_and_update_volume(%Client{} = client, input, options \\ []) do
+
+  def copy_snapshot_and_update_volume(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3530,12 +3571,25 @@ defmodule AWS.FSx do
   with the original file system or volume. For Amazon FSx for Lustre file
   systems, you can create a backup only for file systems that have the following
   configuration:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateBackup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_backup_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("FileSystemId") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VolumeId") => String.t()
+    }
   """
-  @spec create_backup(AWS.Client.t(), create_backup_request(), Keyword.t()) ::
+
+  @spec create_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_backup_errors()}
-  def create_backup(%Client{} = client, input, options \\ []) do
+
+  def create_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3554,16 +3608,30 @@ defmodule AWS.FSx do
   automatic export only, or for both. To learn more about linking a data
   repository to your file system, see [Linking your file system to an S3
   bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateDataRepositoryAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_data_repository_association_request`)
+    %{
+      optional("BatchImportMetaDataOnCreate") => boolean(),
+      optional("ClientRequestToken") => String.t(),
+      optional("FileSystemPath") => String.t(),
+      optional("ImportedFileChunkSize") => integer(),
+      optional("S3") => s3_data_repository_configuration(),
+      optional("Tags") => list(tag()()),
+      required("DataRepositoryPath") => String.t(),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec create_data_repository_association(
-          AWS.Client.t(),
-          create_data_repository_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_data_repository_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_repository_association_errors()}
-  def create_data_repository_association(%Client{} = client, input, options \\ []) do
+
+  def create_data_repository_association(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3579,16 +3647,29 @@ defmodule AWS.FSx do
   any data and metadata changes, including POSIX metadata, to files,
   directories, and symbolic links (symlinks) from your FSx file system to a
   linked data repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateDataRepositoryTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_data_repository_task_request`)
+    %{
+      optional("CapacityToRelease") => float(),
+      optional("ClientRequestToken") => String.t(),
+      optional("Paths") => list(String.t()()),
+      optional("ReleaseConfiguration") => release_configuration(),
+      optional("Tags") => list(tag()()),
+      required("FileSystemId") => String.t(),
+      required("Report") => completion_report(),
+      required("Type") => list(any())
+    }
   """
-  @spec create_data_repository_task(
-          AWS.Client.t(),
-          create_data_repository_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_data_repository_task(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_repository_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_repository_task_errors()}
-  def create_data_repository_task(%Client{} = client, input, options \\ []) do
+
+  def create_data_repository_task(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3604,12 +3685,32 @@ defmodule AWS.FSx do
   the parameters don't match, this call returns `IncompatibleParameterError`. If
   a file cache with the specified client request token doesn't exist,
   `CreateFileCache` does the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateFileCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_file_cache_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("CopyTagsToDataRepositoryAssociations") => boolean(),
+      optional("DataRepositoryAssociations") => list(file_cache_data_repository_association()()),
+      optional("KmsKeyId") => String.t(),
+      optional("LustreConfiguration") => create_file_cache_lustre_configuration(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      required("FileCacheType") => list(any()),
+      required("FileCacheTypeVersion") => String.t(),
+      required("StorageCapacity") => integer(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec create_file_cache(AWS.Client.t(), create_file_cache_request(), Keyword.t()) ::
+
+  @spec create_file_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_cache_errors()}
-  def create_file_cache(%Client{} = client, input, options \\ []) do
+
+  def create_file_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3619,12 +3720,34 @@ defmodule AWS.FSx do
   @doc """
   Creates a new, empty Amazon FSx file system. You can create the following
   supported Amazon FSx file systems using the `CreateFileSystem` API operation:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateFileSystem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_file_system_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("FileSystemTypeVersion") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("LustreConfiguration") => create_file_system_lustre_configuration(),
+      optional("OntapConfiguration") => create_file_system_ontap_configuration(),
+      optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("StorageType") => list(any()),
+      optional("Tags") => list(tag()()),
+      optional("WindowsConfiguration") => create_file_system_windows_configuration(),
+      required("FileSystemType") => list(any()),
+      required("StorageCapacity") => integer(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec create_file_system(AWS.Client.t(), create_file_system_request(), Keyword.t()) ::
+
+  @spec create_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_system_errors()}
-  def create_file_system(%Client{} = client, input, options \\ []) do
+
+  def create_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3640,16 +3763,34 @@ defmodule AWS.FSx do
   match, this call returns `IncompatibleParameterError`. If a file system with
   the specified client request token doesn't exist, this operation does the
   following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateFileSystemFromBackup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_file_system_from_backup_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("FileSystemTypeVersion") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("LustreConfiguration") => create_file_system_lustre_configuration(),
+      optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("StorageCapacity") => integer(),
+      optional("StorageType") => list(any()),
+      optional("Tags") => list(tag()()),
+      optional("WindowsConfiguration") => create_file_system_windows_configuration(),
+      required("BackupId") => String.t(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec create_file_system_from_backup(
-          AWS.Client.t(),
-          create_file_system_from_backup_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_file_system_from_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_file_system_from_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_system_from_backup_errors()}
-  def create_file_system_from_backup(%Client{} = client, input, options \\ []) do
+
+  def create_file_system_from_backup(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3665,12 +3806,25 @@ defmodule AWS.FSx do
   token exists, and the parameters don't match, this operation returns
   `IncompatibleParameterError`. If a snapshot with the specified client request
   token doesn't exist, `CreateSnapshot` does the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_snapshot_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("VolumeId") => String.t()
+    }
   """
-  @spec create_snapshot(AWS.Client.t(), create_snapshot_request(), Keyword.t()) ::
+
+  @spec create_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-  def create_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3679,16 +3833,29 @@ defmodule AWS.FSx do
 
   @doc """
   Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateStorageVirtualMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_storage_virtual_machine_request`)
+    %{
+      optional("ActiveDirectoryConfiguration") => create_svm_active_directory_configuration(),
+      optional("ClientRequestToken") => String.t(),
+      optional("RootVolumeSecurityStyle") => list(any()),
+      optional("SvmAdminPassword") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("FileSystemId") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_storage_virtual_machine(
-          AWS.Client.t(),
-          create_storage_virtual_machine_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_storage_virtual_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_storage_virtual_machine_errors()}
-  def create_storage_virtual_machine(%Client{} = client, input, options \\ []) do
+
+  def create_storage_virtual_machine(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3697,12 +3864,27 @@ defmodule AWS.FSx do
 
   @doc """
   Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateVolume&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_volume_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("OntapConfiguration") => create_ontap_volume_configuration(),
+      optional("OpenZFSConfiguration") => create_open_z_f_s_volume_configuration(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("VolumeType") => list(any())
+    }
   """
-  @spec create_volume(AWS.Client.t(), create_volume_request(), Keyword.t()) ::
+
+  @spec create_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_volume_errors()}
-  def create_volume(%Client{} = client, input, options \\ []) do
+
+  def create_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3712,16 +3894,26 @@ defmodule AWS.FSx do
   @doc """
   Creates a new Amazon FSx for NetApp ONTAP volume from an existing Amazon FSx
   volume backup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20CreateVolumeFromBackup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_volume_from_backup_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("OntapConfiguration") => create_ontap_volume_configuration(),
+      optional("Tags") => list(tag()()),
+      required("BackupId") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_volume_from_backup(
-          AWS.Client.t(),
-          create_volume_from_backup_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_volume_from_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_volume_from_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_volume_from_backup_errors()}
-  def create_volume_from_backup(%Client{} = client, input, options \\ []) do
+
+  def create_volume_from_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3732,12 +3924,23 @@ defmodule AWS.FSx do
   Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
   its data is gone. The `DeleteBackup` call returns instantly. The backup won't
   show up in later `DescribeBackups` calls.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteBackup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_backup_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("BackupId") => String.t()
+    }
   """
-  @spec delete_backup(AWS.Client.t(), delete_backup_request(), Keyword.t()) ::
+
+  @spec delete_backup(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_backup_errors()}
-  def delete_backup(%Client{} = client, input, options \\ []) do
+
+  def delete_backup(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3751,16 +3954,25 @@ defmodule AWS.FSx do
   option of deleting the data in the file system that corresponds to the data
   repository association. Data repository associations are supported on all FSx
   for Lustre 2.12 and 2.15 file systems, excluding `scratch_1` deployment type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteDataRepositoryAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_data_repository_association_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("DeleteDataInFileSystem") => boolean(),
+      required("AssociationId") => String.t()
+    }
   """
-  @spec delete_data_repository_association(
-          AWS.Client.t(),
-          delete_data_repository_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_data_repository_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_repository_association_errors()}
-  def delete_data_repository_association(%Client{} = client, input, options \\ []) do
+
+  def delete_data_repository_association(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3776,12 +3988,23 @@ defmodule AWS.FSx do
   operation, which returns a list of caches in your account. If you pass the
   cache ID for a deleted cache, the `DescribeFileCaches` operation returns a
   `FileCacheNotFound` error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteFileCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_file_cache_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("FileCacheId") => String.t()
+    }
   """
-  @spec delete_file_cache(AWS.Client.t(), delete_file_cache_request(), Keyword.t()) ::
+
+  @spec delete_file_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_cache_errors()}
-  def delete_file_cache(%Client{} = client, input, options \\ []) do
+
+  def delete_file_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3794,12 +4017,26 @@ defmodule AWS.FSx do
   To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
   volumes and storage virtual machines (SVMs) on the file system. Then provide a
   `FileSystemId` value to the `DeleteFileSystem` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteFileSystem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_file_system_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("LustreConfiguration") => delete_file_system_lustre_configuration(),
+      optional("OpenZFSConfiguration") => delete_file_system_open_z_f_s_configuration(),
+      optional("WindowsConfiguration") => delete_file_system_windows_configuration(),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec delete_file_system(AWS.Client.t(), delete_file_system_request(), Keyword.t()) ::
+
+  @spec delete_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_system_errors()}
-  def delete_file_system(%Client{} = client, input, options \\ []) do
+
+  def delete_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3810,12 +4047,23 @@ defmodule AWS.FSx do
   Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no
   longer exists, and its data is gone. Deleting a snapshot doesn't affect
   snapshots stored in a file system backup.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_snapshot_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("SnapshotId") => String.t()
+    }
   """
-  @spec delete_snapshot(AWS.Client.t(), delete_snapshot_request(), Keyword.t()) ::
+
+  @spec delete_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_errors()}
-  def delete_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3826,16 +4074,24 @@ defmodule AWS.FSx do
   Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior to
   deleting an SVM, you must delete all non-root volumes in the SVM, otherwise
   the operation will fail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteStorageVirtualMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_storage_virtual_machine_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("StorageVirtualMachineId") => String.t()
+    }
   """
-  @spec delete_storage_virtual_machine(
-          AWS.Client.t(),
-          delete_storage_virtual_machine_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_storage_virtual_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_storage_virtual_machine_errors()}
-  def delete_storage_virtual_machine(%Client{} = client, input, options \\ []) do
+
+  def delete_storage_virtual_machine(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3844,12 +4100,25 @@ defmodule AWS.FSx do
 
   @doc """
   Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DeleteVolume&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_volume_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("OntapConfiguration") => delete_volume_ontap_configuration(),
+      optional("OpenZFSConfiguration") => delete_volume_open_z_f_s_configuration(),
+      required("VolumeId") => String.t()
+    }
   """
-  @spec delete_volume(AWS.Client.t(), delete_volume_request(), Keyword.t()) ::
+
+  @spec delete_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_volume_errors()}
-  def delete_volume(%Client{} = client, input, options \\ []) do
+
+  def delete_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3865,12 +4134,25 @@ defmodule AWS.FSx do
   more backups remain, Amazon FSx returns a `NextToken` value in the response.
   In this case, send a later request with the `NextToken` request parameter set
   to the value of the `NextToken` value from the last response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeBackups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_backups_request`)
+    %{
+      optional("BackupIds") => list(String.t()()),
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_backups(AWS.Client.t(), describe_backups_request(), Keyword.t()) ::
+
+  @spec describe_backups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backups_errors()}
-  def describe_backups(%Client{} = client, input, options \\ []) do
+
+  def describe_backups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3891,16 +4173,26 @@ defmodule AWS.FSx do
   of `S3` or `NFS`). If you don't use filters, the response returns all data
   repository associations owned by your Amazon Web Services account in the
   Amazon Web Services Region of the endpoint that you're calling.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeDataRepositoryAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_data_repository_associations_request`)
+    %{
+      optional("AssociationIds") => list(String.t()()),
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_data_repository_associations(
-          AWS.Client.t(),
-          describe_data_repository_associations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_data_repository_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_repository_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_repository_associations_errors()}
-  def describe_data_repository_associations(%Client{} = client, input, options \\ []) do
+
+  def describe_data_repository_associations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3915,16 +4207,26 @@ defmodule AWS.FSx do
   tasks in a specific lifecycle state. Otherwise, it returns all data repository
   tasks owned by your Amazon Web Services account in the Amazon Web Services
   Region of the endpoint that you're calling.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeDataRepositoryTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_data_repository_tasks_request`)
+    %{
+      optional("Filters") => list(data_repository_task_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("TaskIds") => list(String.t()())
+    }
   """
-  @spec describe_data_repository_tasks(
-          AWS.Client.t(),
-          describe_data_repository_tasks_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_data_repository_tasks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_repository_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_repository_tasks_errors()}
-  def describe_data_repository_tasks(%Client{} = client, input, options \\ []) do
+
+  def describe_data_repository_tasks(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3941,12 +4243,24 @@ defmodule AWS.FSx do
   descriptions remain, the operation returns a `NextToken` value in the
   response. In this case, send a later request with the `NextToken` request
   parameter set to the value of `NextToken` from the last response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeFileCaches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_file_caches_request`)
+    %{
+      optional("FileCacheIds") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_file_caches(AWS.Client.t(), describe_file_caches_request(), Keyword.t()) ::
+
+  @spec describe_file_caches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_file_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_caches_errors()}
-  def describe_file_caches(%Client{} = client, input, options \\ []) do
+
+  def describe_file_caches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3959,16 +4273,25 @@ defmodule AWS.FSx do
   associated with and disassociated from the file system is available in the
   list of `AdministrativeAction` provided in the `DescribeFileSystems` operation
   response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeFileSystemAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_file_system_aliases_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec describe_file_system_aliases(
-          AWS.Client.t(),
-          describe_file_system_aliases_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_file_system_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_system_aliases_errors()}
-  def describe_file_system_aliases(%Client{} = client, input, options \\ []) do
+
+  def describe_file_system_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3985,12 +4308,24 @@ defmodule AWS.FSx do
   more file system descriptions remain, Amazon FSx returns a `NextToken` value
   in the response. In this case, send a later request with the `NextToken`
   request parameter set to the value of `NextToken` from the last response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeFileSystems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_file_systems_request`)
+    %{
+      optional("FileSystemIds") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_file_systems(AWS.Client.t(), describe_file_systems_request(), Keyword.t()) ::
+
+  @spec describe_file_systems(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_file_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_systems_errors()}
-  def describe_file_systems(%Client{} = client, input, options \\ []) do
+
+  def describe_file_systems(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4003,16 +4338,23 @@ defmodule AWS.FSx do
   virtual private cloud (VPC) owner. For more information, see [Creating FSx for
   ONTAP file systems in shared
   subnets](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html#fsxn-vpc-shared-subnets).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeSharedVpcConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_shared_vpc_configuration_request`)
+    %{
+      
+    }
   """
-  @spec describe_shared_vpc_configuration(
-          AWS.Client.t(),
-          describe_shared_vpc_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_shared_vpc_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_shared_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_shared_vpc_configuration_errors()}
-  def describe_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
+
+  def describe_shared_vpc_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4029,12 +4371,26 @@ defmodule AWS.FSx do
   `NextToken` value in the response. In this case, send a later request with the
   `NextToken` request parameter set to the value of `NextToken` from the last
   response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_snapshots_request`)
+    %{
+      optional("Filters") => list(snapshot_filter()()),
+      optional("IncludeShared") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SnapshotIds") => list(String.t()())
+    }
   """
-  @spec describe_snapshots(AWS.Client.t(), describe_snapshots_request(), Keyword.t()) ::
+
+  @spec describe_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshots_errors()}
-  def describe_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4044,16 +4400,26 @@ defmodule AWS.FSx do
   @doc """
   Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines
   (SVMs).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeStorageVirtualMachines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_storage_virtual_machines_request`)
+    %{
+      optional("Filters") => list(storage_virtual_machine_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StorageVirtualMachineIds") => list(String.t()())
+    }
   """
-  @spec describe_storage_virtual_machines(
-          AWS.Client.t(),
-          describe_storage_virtual_machines_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_storage_virtual_machines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_storage_virtual_machines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_storage_virtual_machines_errors()}
-  def describe_storage_virtual_machines(%Client{} = client, input, options \\ []) do
+
+  def describe_storage_virtual_machines(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4063,12 +4429,25 @@ defmodule AWS.FSx do
   @doc """
   Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
   volumes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DescribeVolumes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_volumes_request`)
+    %{
+      optional("Filters") => list(volume_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("VolumeIds") => list(String.t()())
+    }
   """
-  @spec describe_volumes(AWS.Client.t(), describe_volumes_request(), Keyword.t()) ::
+
+  @spec describe_volumes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_volumes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_volumes_errors()}
-  def describe_volumes(%Client{} = client, input, options \\ []) do
+
+  def describe_volumes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4082,16 +4461,25 @@ defmodule AWS.FSx do
   system, Amazon FSx responds with an HTTP status code 400 (Bad Request). For
   more information, see [Working with DNS
   Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20DisassociateFileSystemAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_file_system_aliases_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("Aliases") => list(String.t()()),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec disassociate_file_system_aliases(
-          AWS.Client.t(),
-          disassociate_file_system_aliases_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_file_system_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_file_system_aliases_errors()}
-  def disassociate_file_system_aliases(%Client{} = client, input, options \\ []) do
+
+  def disassociate_file_system_aliases(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4104,12 +4492,24 @@ defmodule AWS.FSx do
   response. If more tags remain, Amazon FSx returns a `NextToken` value in the
   response. In this case, send a later request with the `NextToken` request
   parameter set to the value of `NextToken` from the last response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4118,16 +4518,24 @@ defmodule AWS.FSx do
 
   @doc """
   Releases the file system lock from an Amazon FSx for OpenZFS file system.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20ReleaseFileSystemNfsV3Locks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:release_file_system_nfs_v3_locks_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec release_file_system_nfs_v3_locks(
-          AWS.Client.t(),
-          release_file_system_nfs_v3_locks_request(),
-          Keyword.t()
-        ) ::
+
+  @spec release_file_system_nfs_v3_locks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, release_file_system_nfs_v3_locks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_file_system_nfs_v3_locks_errors()}
-  def release_file_system_nfs_v3_locks(%Client{} = client, input, options \\ []) do
+
+  def release_file_system_nfs_v3_locks(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4137,16 +4545,25 @@ defmodule AWS.FSx do
   @doc """
   Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
   snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20RestoreVolumeFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_volume_from_snapshot_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("Options") => list(list(any())()),
+      required("SnapshotId") => String.t(),
+      required("VolumeId") => String.t()
+    }
   """
-  @spec restore_volume_from_snapshot(
-          AWS.Client.t(),
-          restore_volume_from_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_volume_from_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_volume_from_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_volume_from_snapshot_errors()}
-  def restore_volume_from_snapshot(%Client{} = client, input, options \\ []) do
+
+  def restore_volume_from_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4157,16 +4574,24 @@ defmodule AWS.FSx do
   After performing steps to repair the Active Directory configuration of an FSx
   for Windows File Server file system, use this action to initiate the process
   of Amazon FSx attempting to reconnect to the file system.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20StartMisconfiguredStateRecovery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_misconfigured_state_recovery_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec start_misconfigured_state_recovery(
-          AWS.Client.t(),
-          start_misconfigured_state_recovery_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_misconfigured_state_recovery(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_misconfigured_state_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_misconfigured_state_recovery_errors()}
-  def start_misconfigured_state_recovery(%Client{} = client, input, options \\ []) do
+
+  def start_misconfigured_state_recovery(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4175,12 +4600,23 @@ defmodule AWS.FSx do
 
   @doc """
   Tags an Amazon FSx resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4189,12 +4625,23 @@ defmodule AWS.FSx do
 
   @doc """
   This action removes a tag from an Amazon FSx resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4206,16 +4653,26 @@ defmodule AWS.FSx do
   Amazon FSx for Lustre file system. Data repository associations are supported
   on all FSx for Lustre 2.12 and 2.15 file systems, excluding `scratch_1`
   deployment type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateDataRepositoryAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_data_repository_association_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("ImportedFileChunkSize") => integer(),
+      optional("S3") => s3_data_repository_configuration(),
+      required("AssociationId") => String.t()
+    }
   """
-  @spec update_data_repository_association(
-          AWS.Client.t(),
-          update_data_repository_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_data_repository_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_repository_association_errors()}
-  def update_data_repository_association(%Client{} = client, input, options \\ []) do
+
+  def update_data_repository_association(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4225,12 +4682,24 @@ defmodule AWS.FSx do
   @doc """
   Updates the configuration of an existing Amazon File Cache resource. You can
   update multiple properties in a single request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateFileCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_file_cache_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("LustreConfiguration") => update_file_cache_lustre_configuration(),
+      required("FileCacheId") => String.t()
+    }
   """
-  @spec update_file_cache(AWS.Client.t(), update_file_cache_request(), Keyword.t()) ::
+
+  @spec update_file_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_cache_errors()}
-  def update_file_cache(%Client{} = client, input, options \\ []) do
+
+  def update_file_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4241,12 +4710,29 @@ defmodule AWS.FSx do
   Use this operation to update the configuration of an existing Amazon FSx file
   system. You can update multiple properties in a single request. For FSx for
   Windows File Server file systems, you can update the following properties:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateFileSystem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_file_system_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("LustreConfiguration") => update_file_system_lustre_configuration(),
+      optional("OntapConfiguration") => update_file_system_ontap_configuration(),
+      optional("OpenZFSConfiguration") => update_file_system_open_z_f_s_configuration(),
+      optional("StorageCapacity") => integer(),
+      optional("StorageType") => list(any()),
+      optional("WindowsConfiguration") => update_file_system_windows_configuration(),
+      required("FileSystemId") => String.t()
+    }
   """
-  @spec update_file_system(AWS.Client.t(), update_file_system_request(), Keyword.t()) ::
+
+  @spec update_file_system(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_system_errors()}
-  def update_file_system(%Client{} = client, input, options \\ []) do
+
+  def update_file_system(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4265,16 +4751,24 @@ defmodule AWS.FSx do
   like Single-AZ file systems. For more information, see [Important
   considerations before disabling shared VPC support for Multi-AZ file
   systems](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html#disabling-maz-vpc-sharing).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateSharedVpcConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_shared_vpc_configuration_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("EnableFsxRouteTableUpdatesFromParticipantAccounts") => String.t()
+    }
   """
-  @spec update_shared_vpc_configuration(
-          AWS.Client.t(),
-          update_shared_vpc_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_shared_vpc_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_shared_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_shared_vpc_configuration_errors()}
-  def update_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_shared_vpc_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4283,12 +4777,24 @@ defmodule AWS.FSx do
 
   @doc """
   Updates the name of an Amazon FSx for OpenZFS snapshot.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_snapshot_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("Name") => String.t(),
+      required("SnapshotId") => String.t()
+    }
   """
-  @spec update_snapshot(AWS.Client.t(), update_snapshot_request(), Keyword.t()) ::
+
+  @spec update_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_snapshot_errors()}
-  def update_snapshot(%Client{} = client, input, options \\ []) do
+
+  def update_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4297,16 +4803,26 @@ defmodule AWS.FSx do
 
   @doc """
   Updates an FSx for ONTAP storage virtual machine (SVM).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateStorageVirtualMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_storage_virtual_machine_request`)
+    %{
+      optional("ActiveDirectoryConfiguration") => update_svm_active_directory_configuration(),
+      optional("ClientRequestToken") => String.t(),
+      optional("SvmAdminPassword") => String.t(),
+      required("StorageVirtualMachineId") => String.t()
+    }
   """
-  @spec update_storage_virtual_machine(
-          AWS.Client.t(),
-          update_storage_virtual_machine_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_storage_virtual_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_storage_virtual_machine_errors()}
-  def update_storage_virtual_machine(%Client{} = client, input, options \\ []) do
+
+  def update_storage_virtual_machine(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4316,12 +4832,26 @@ defmodule AWS.FSx do
   @doc """
   Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for
   OpenZFS volume.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fsx%20UpdateVolume&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_volume_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("Name") => String.t(),
+      optional("OntapConfiguration") => update_ontap_volume_configuration(),
+      optional("OpenZFSConfiguration") => update_open_z_f_s_volume_configuration(),
+      required("VolumeId") => String.t()
+    }
   """
-  @spec update_volume(AWS.Client.t(), update_volume_request(), Keyword.t()) ::
+
+  @spec update_volume(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_volume_errors()}
-  def update_volume(%Client{} = client, input, options \\ []) do
+
+  def update_volume(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

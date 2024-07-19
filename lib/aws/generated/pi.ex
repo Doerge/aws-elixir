@@ -710,16 +710,27 @@ defmodule AWS.PI do
   @doc """
   Creates a new performance analysis report for a specific time period for the DB
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20CreatePerformanceAnalysisReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_performance_analysis_report_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("EndTime") => non_neg_integer(),
+      required("Identifier") => String.t(),
+      required("ServiceType") => list(any()),
+      required("StartTime") => non_neg_integer()
+    }
   """
-  @spec create_performance_analysis_report(
-          AWS.Client.t(),
-          create_performance_analysis_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_performance_analysis_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_performance_analysis_report_errors()}
-  def create_performance_analysis_report(%Client{} = client, input, options \\ []) do
+
+  def create_performance_analysis_report(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -728,16 +739,25 @@ defmodule AWS.PI do
 
   @doc """
   Deletes a performance analysis report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20DeletePerformanceAnalysisReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_performance_analysis_report_request`)
+    %{
+      required("AnalysisReportId") => String.t(),
+      required("Identifier") => String.t(),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec delete_performance_analysis_report(
-          AWS.Client.t(),
-          delete_performance_analysis_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_performance_analysis_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_performance_analysis_report_errors()}
-  def delete_performance_analysis_report(%Client{} = client, input, options \\ []) do
+
+  def delete_performance_analysis_report(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -746,12 +766,33 @@ defmodule AWS.PI do
 
   @doc """
   For a specific time period, retrieve the top `N` dimension keys for a metric.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20DescribeDimensionKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_dimension_keys_request`)
+    %{
+      optional("AdditionalMetrics") => list(String.t()()),
+      optional("Filter") => map(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PartitionBy") => dimension_group(),
+      optional("PeriodInSeconds") => integer(),
+      required("EndTime") => non_neg_integer(),
+      required("GroupBy") => dimension_group(),
+      required("Identifier") => String.t(),
+      required("Metric") => String.t(),
+      required("ServiceType") => list(any()),
+      required("StartTime") => non_neg_integer()
+    }
   """
-  @spec describe_dimension_keys(AWS.Client.t(), describe_dimension_keys_request(), Keyword.t()) ::
+
+  @spec describe_dimension_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_dimension_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dimension_keys_errors()}
-  def describe_dimension_keys(%Client{} = client, input, options \\ []) do
+
+  def describe_dimension_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -764,16 +805,26 @@ defmodule AWS.PI do
   retrieves the full text of the dimension `db.sql.statement` associated with
   this ID. This operation is useful because `GetResourceMetrics` and
   `DescribeDimensionKeys` don't support retrieval of large SQL statement text.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20GetDimensionKeyDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_dimension_key_details_request`)
+    %{
+      optional("RequestedDimensions") => list(String.t()()),
+      required("Group") => String.t(),
+      required("GroupIdentifier") => String.t(),
+      required("Identifier") => String.t(),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec get_dimension_key_details(
-          AWS.Client.t(),
-          get_dimension_key_details_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_dimension_key_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_dimension_key_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dimension_key_details_errors()}
-  def get_dimension_key_details(%Client{} = client, input, options \\ []) do
+
+  def get_dimension_key_details(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -785,16 +836,27 @@ defmodule AWS.PI do
   insights with recommendations. The report status can be `RUNNING`,
   `SUCCEEDED`, or `FAILED`. The insights include the `description` and
   `recommendation` fields.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20GetPerformanceAnalysisReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_performance_analysis_report_request`)
+    %{
+      optional("AcceptLanguage") => list(any()),
+      optional("TextFormat") => list(any()),
+      required("AnalysisReportId") => String.t(),
+      required("Identifier") => String.t(),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec get_performance_analysis_report(
-          AWS.Client.t(),
-          get_performance_analysis_report_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_performance_analysis_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_performance_analysis_report_errors()}
-  def get_performance_analysis_report(%Client{} = client, input, options \\ []) do
+
+  def get_performance_analysis_report(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -804,12 +866,23 @@ defmodule AWS.PI do
   @doc """
   Retrieve the metadata for different features. For example, the metadata might
   indicate that a feature is turned on or off on a specific DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20GetResourceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_metadata_request`)
+    %{
+      required("Identifier") => String.t(),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec get_resource_metadata(AWS.Client.t(), get_resource_metadata_request(), Keyword.t()) ::
+
+  @spec get_resource_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_metadata_errors()}
-  def get_resource_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_resource_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -821,12 +894,30 @@ defmodule AWS.PI do
   period. You can provide specific dimension groups and dimensions, and provide
   filtering criteria for each group. You must specify an aggregate function for
   each metric.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20GetResourceMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_metrics_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PeriodAlignment") => list(any()),
+      optional("PeriodInSeconds") => integer(),
+      required("EndTime") => non_neg_integer(),
+      required("Identifier") => String.t(),
+      required("MetricQueries") => list(metric_query()()),
+      required("ServiceType") => list(any()),
+      required("StartTime") => non_neg_integer()
+    }
   """
-  @spec get_resource_metrics(AWS.Client.t(), get_resource_metrics_request(), Keyword.t()) ::
+
+  @spec get_resource_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_metrics_errors()}
-  def get_resource_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_resource_metrics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -836,16 +927,28 @@ defmodule AWS.PI do
   @doc """
   Retrieve the dimensions that can be queried for each specified metric type on a
   specified DB instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20ListAvailableResourceDimensions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_available_resource_dimensions_request`)
+    %{
+      optional("AuthorizedActions") => list(list(any())()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Identifier") => String.t(),
+      required("Metrics") => list(String.t()()),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec list_available_resource_dimensions(
-          AWS.Client.t(),
-          list_available_resource_dimensions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_available_resource_dimensions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_resource_dimensions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_resource_dimensions_errors()}
-  def list_available_resource_dimensions(%Client{} = client, input, options \\ []) do
+
+  def list_available_resource_dimensions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -855,16 +958,27 @@ defmodule AWS.PI do
   @doc """
   Retrieve metrics of the specified types that can be queried for a specified DB
   instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20ListAvailableResourceMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_available_resource_metrics_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Identifier") => String.t(),
+      required("MetricTypes") => list(String.t()()),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec list_available_resource_metrics(
-          AWS.Client.t(),
-          list_available_resource_metrics_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_available_resource_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_available_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_resource_metrics_errors()}
-  def list_available_resource_metrics(%Client{} = client, input, options \\ []) do
+
+  def list_available_resource_metrics(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -874,16 +988,27 @@ defmodule AWS.PI do
   @doc """
   Lists all the analysis reports created for the DB instance. The reports are
   sorted based on the start time of each report.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20ListPerformanceAnalysisReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_performance_analysis_reports_request`)
+    %{
+      optional("ListTags") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Identifier") => String.t(),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec list_performance_analysis_reports(
-          AWS.Client.t(),
-          list_performance_analysis_reports_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_performance_analysis_reports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_performance_analysis_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_performance_analysis_reports_errors()}
-  def list_performance_analysis_reports(%Client{} = client, input, options \\ []) do
+
+  def list_performance_analysis_reports(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -893,12 +1018,23 @@ defmodule AWS.PI do
   @doc """
   Retrieves all the metadata tags associated with Amazon RDS Performance Insights
   resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("ServiceType") => list(any())
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -907,12 +1043,24 @@ defmodule AWS.PI do
 
   @doc """
   Adds metadata tags to the Amazon RDS Performance Insights resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("ServiceType") => list(any()),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -921,12 +1069,24 @@ defmodule AWS.PI do
 
   @doc """
   Deletes the metadata tags from the Amazon RDS Performance Insights resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pi%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("ServiceType") => list(any()),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

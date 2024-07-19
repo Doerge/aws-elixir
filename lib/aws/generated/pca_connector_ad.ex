@@ -17,7 +17,7 @@ defmodule AWS.PcaConnectorAd do
   @typedoc """
 
   ## Example:
-
+      
       connector() :: %{
         "Arn" => String.t(),
         "CertificateAuthorityArn" => String.t(),
@@ -29,25 +29,25 @@ defmodule AWS.PcaConnectorAd do
         "UpdatedAt" => [non_neg_integer()],
         "VpcInformation" => vpc_information()
       }
-
+      
   """
   @type connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       private_key_attributes_v4() :: %{
         "Algorithm" => list(any()),
         "CryptoProviders" => list([String.t()]()),
@@ -55,73 +55,73 @@ defmodule AWS.PcaConnectorAd do
         "KeyUsageProperty" => list(),
         "MinimalKeyLength" => [integer()]
       }
-
+      
   """
   @type private_key_attributes_v4() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_group_access_control_entry_request() :: %{
         optional("AccessRights") => access_rights(),
         optional("GroupDisplayName") => String.t()
       }
-
+      
   """
   @type update_template_group_access_control_entry_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_response() :: %{
         "Connectors" => list(connector_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_directory_registration_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
         required("DirectoryId") => String.t()
       }
-
+      
   """
   @type create_directory_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ConnectorArn") => String.t()
       }
-
+      
   """
   @type list_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_group_access_control_entry_request() :: %{}
-
+      
   """
   @type delete_template_group_access_control_entry_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       enrollment_flags_v3() :: %{
         "EnableKeyReuseOnNtTokenKeysetStorageFull" => [boolean()],
         "IncludeSymmetricAlgorithms" => [boolean()],
@@ -129,14 +129,14 @@ defmodule AWS.PcaConnectorAd do
         "RemoveInvalidCertificateFromPersonalStore" => [boolean()],
         "UserInteractionRequired" => [boolean()]
       }
-
+      
   """
   @type enrollment_flags_v3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_v3() :: %{
         "CertificateValidity" => certificate_validity(),
         "EnrollmentFlags" => enrollment_flags_v3(),
@@ -148,26 +148,26 @@ defmodule AWS.PcaConnectorAd do
         "SubjectNameFlags" => subject_name_flags_v3(),
         "SupersededTemplates" => list(String.t()())
       }
-
+      
   """
   @type template_v3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       general_flags_v2() :: %{
         "AutoEnrollment" => [boolean()],
         "MachineType" => [boolean()]
       }
-
+      
   """
   @type general_flags_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_control_entry_summary() :: %{
         "AccessRights" => access_rights(),
         "CreatedAt" => [non_neg_integer()],
@@ -176,14 +176,14 @@ defmodule AWS.PcaConnectorAd do
         "TemplateArn" => String.t(),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type access_control_entry_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enrollment_flags_v4() :: %{
         "EnableKeyReuseOnNtTokenKeysetStorageFull" => [boolean()],
         "IncludeSymmetricAlgorithms" => [boolean()],
@@ -191,48 +191,48 @@ defmodule AWS.PcaConnectorAd do
         "RemoveInvalidCertificateFromPersonalStore" => [boolean()],
         "UserInteractionRequired" => [boolean()]
       }
-
+      
   """
   @type enrollment_flags_v4() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_directory_registration_request() :: %{}
-
+      
   """
   @type get_directory_registration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       template_revision() :: %{
         "MajorRevision" => [integer()],
         "MinorRevision" => [integer()]
       }
-
+      
   """
   @type template_revision() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       private_key_flags_v2() :: %{
         "ClientVersion" => list(any()),
         "ExportableKey" => [boolean()],
         "StrongKeyProtectionRequired" => [boolean()]
       }
-
+      
   """
   @type private_key_flags_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
@@ -240,25 +240,25 @@ defmodule AWS.PcaConnectorAd do
         required("Definition") => list(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_response() :: %{
         "Template" => template()
       }
-
+      
   """
   @type get_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       directory_registration_summary() :: %{
         "Arn" => String.t(),
         "CreatedAt" => [non_neg_integer()],
@@ -267,52 +267,52 @@ defmodule AWS.PcaConnectorAd do
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type directory_registration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_group_access_control_entry_request() :: %{
         optional("ClientToken") => String.t(),
         required("AccessRights") => access_rights(),
         required("GroupDisplayName") => String.t(),
         required("GroupSecurityIdentifier") => String.t()
       }
-
+      
   """
   @type create_template_group_access_control_entry_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_connectors_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_request() :: %{
         optional("Definition") => list(),
         optional("ReenrollAllCertificateHolders") => [boolean()]
       }
-
+      
   """
   @type update_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_usage_flags() :: %{
         "DataEncipherment" => [boolean()],
         "DigitalSignature" => [boolean()],
@@ -320,25 +320,25 @@ defmodule AWS.PcaConnectorAd do
         "KeyEncipherment" => [boolean()],
         "NonRepudiation" => [boolean()]
       }
-
+      
   """
   @type key_usage_flags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list([String.t()]())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subject_name_flags_v4() :: %{
         "RequireCommonName" => [boolean()],
         "RequireDirectoryPath" => [boolean()],
@@ -351,26 +351,26 @@ defmodule AWS.PcaConnectorAd do
         "SanRequireSpn" => [boolean()],
         "SanRequireUpn" => [boolean()]
       }
-
+      
   """
   @type subject_name_flags_v4() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_principal_names_response() :: %{
         "NextToken" => String.t(),
         "ServicePrincipalNames" => list(service_principal_name_summary()())
       }
-
+      
   """
   @type list_service_principal_names_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enrollment_flags_v2() :: %{
         "EnableKeyReuseOnNtTokenKeysetStorageFull" => [boolean()],
         "IncludeSymmetricAlgorithms" => [boolean()],
@@ -378,61 +378,61 @@ defmodule AWS.PcaConnectorAd do
         "RemoveInvalidCertificateFromPersonalStore" => [boolean()],
         "UserInteractionRequired" => [boolean()]
       }
-
+      
   """
   @type enrollment_flags_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extensions_v3() :: %{
         "ApplicationPolicies" => application_policies(),
         "KeyUsage" => key_usage()
       }
-
+      
   """
   @type extensions_v3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_template_request() :: %{}
-
+      
   """
   @type delete_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => [String.t()],
         "ResourceId" => [String.t()],
         "ResourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => [String.t()],
         "ResourceId" => [String.t()],
         "ResourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_principal_name_summary() :: %{
         "ConnectorArn" => String.t(),
         "CreatedAt" => [non_neg_integer()],
@@ -441,37 +441,37 @@ defmodule AWS.PcaConnectorAd do
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type service_principal_name_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extensions_v2() :: %{
         "ApplicationPolicies" => application_policies(),
         "KeyUsage" => key_usage()
       }
-
+      
   """
   @type extensions_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_group_access_control_entry_response() :: %{
         "AccessControlEntry" => access_control_entry()
       }
-
+      
   """
   @type get_template_group_access_control_entry_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t()],
         "QuotaCode" => [String.t()],
@@ -479,27 +479,27 @@ defmodule AWS.PcaConnectorAd do
         "ResourceType" => [String.t()],
         "ServiceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_usage_property_flags() :: %{
         "Decrypt" => [boolean()],
         "KeyAgreement" => [boolean()],
         "Sign" => [boolean()]
       }
-
+      
   """
   @type key_usage_property_flags() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_v4() :: %{
         "CertificateValidity" => certificate_validity(),
         "EnrollmentFlags" => enrollment_flags_v4(),
@@ -511,14 +511,14 @@ defmodule AWS.PcaConnectorAd do
         "SubjectNameFlags" => subject_name_flags_v4(),
         "SupersededTemplates" => list(String.t()())
       }
-
+      
   """
   @type template_v4() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_summary() :: %{
         "Arn" => String.t(),
         "ConnectorArn" => String.t(),
@@ -531,27 +531,27 @@ defmodule AWS.PcaConnectorAd do
         "Status" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       private_key_attributes_v2() :: %{
         "CryptoProviders" => list([String.t()]()),
         "KeySpec" => list(any()),
         "MinimalKeyLength" => [integer()]
       }
-
+      
   """
   @type private_key_attributes_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       directory_registration() :: %{
         "Arn" => String.t(),
         "CreatedAt" => [non_neg_integer()],
@@ -560,23 +560,23 @@ defmodule AWS.PcaConnectorAd do
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type directory_registration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_directory_registration_request() :: %{}
-
+      
   """
   @type delete_directory_registration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_principal_name() :: %{
         "ConnectorArn" => String.t(),
         "CreatedAt" => [non_neg_integer()],
@@ -585,34 +585,34 @@ defmodule AWS.PcaConnectorAd do
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type service_principal_name() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_principal_name_request() :: %{}
-
+      
   """
   @type get_service_principal_name_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_principal_name_response() :: %{
         "ServicePrincipalName" => service_principal_name()
       }
-
+      
   """
   @type get_service_principal_name_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_control_entry() :: %{
         "AccessRights" => access_rights(),
         "CreatedAt" => [non_neg_integer()],
@@ -621,101 +621,101 @@ defmodule AWS.PcaConnectorAd do
         "TemplateArn" => String.t(),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type access_control_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_connector_response() :: %{
         "ConnectorArn" => String.t()
       }
-
+      
   """
   @type create_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_directory_registrations_response() :: %{
         "DirectoryRegistrations" => list(directory_registration_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_directory_registrations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_directory_registration_response() :: %{
         "DirectoryRegistrationArn" => String.t()
       }
-
+      
   """
   @type create_directory_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_connector_request() :: %{}
-
+      
   """
   @type get_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_directory_registration_response() :: %{
         "DirectoryRegistration" => directory_registration()
       }
-
+      
   """
   @type get_directory_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_principal_name_request() :: %{
         optional("ClientToken") => String.t()
       }
-
+      
   """
   @type create_service_principal_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       private_key_attributes_v3() :: %{
         "Algorithm" => list(any()),
         "CryptoProviders" => list([String.t()]()),
@@ -723,44 +723,44 @@ defmodule AWS.PcaConnectorAd do
         "KeyUsageProperty" => list(),
         "MinimalKeyLength" => [integer()]
       }
-
+      
   """
   @type private_key_attributes_v3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_principal_name_request() :: %{}
-
+      
   """
   @type delete_service_principal_name_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_group_access_control_entry_request() :: %{}
-
+      
   """
   @type get_template_group_access_control_entry_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_group_access_control_entries_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_template_group_access_control_entries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subject_name_flags_v3() :: %{
         "RequireCommonName" => [boolean()],
         "RequireDirectoryPath" => [boolean()],
@@ -773,61 +773,61 @@ defmodule AWS.PcaConnectorAd do
         "SanRequireSpn" => [boolean()],
         "SanRequireUpn" => [boolean()]
       }
-
+      
   """
   @type subject_name_flags_v3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validity_period() :: %{
         "Period" => [float()],
         "PeriodType" => list(any())
       }
-
+      
   """
   @type validity_period() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_directory_registrations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_directory_registrations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_policies() :: %{
         "Critical" => [boolean()],
         "Policies" => list(list()())
       }
-
+      
   """
   @type application_policies() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_connector_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
@@ -835,26 +835,26 @@ defmodule AWS.PcaConnectorAd do
         required("DirectoryId") => String.t(),
         required("VpcInformation") => vpc_information()
       }
-
+      
   """
   @type create_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_response() :: %{
         "NextToken" => String.t(),
         "Templates" => list(template_summary()())
       }
-
+      
   """
   @type list_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_summary() :: %{
         "Arn" => String.t(),
         "CertificateAuthorityArn" => String.t(),
@@ -866,116 +866,116 @@ defmodule AWS.PcaConnectorAd do
         "UpdatedAt" => [non_neg_integer()],
         "VpcInformation" => vpc_information()
       }
-
+      
   """
   @type connector_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_template_request() :: %{}
-
+      
   """
   @type get_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => [String.t()],
         "Reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_group_access_control_entries_response() :: %{
         "AccessControlEntries" => list(access_control_entry_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_template_group_access_control_entries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_rights() :: %{
         "AutoEnroll" => list(any()),
         "Enroll" => list(any())
       }
-
+      
   """
   @type access_rights() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       extensions_v4() :: %{
         "ApplicationPolicies" => application_policies(),
         "KeyUsage" => key_usage()
       }
-
+      
   """
   @type extensions_v4() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => [String.t()],
         "QuotaCode" => [String.t()],
         "ServiceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       general_flags_v4() :: %{
         "AutoEnrollment" => [boolean()],
         "MachineType" => [boolean()]
       }
-
+      
   """
   @type general_flags_v4() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_connector_response() :: %{
         "Connector" => connector()
       }
-
+      
   """
   @type get_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_v2() :: %{
         "CertificateValidity" => certificate_validity(),
         "EnrollmentFlags" => enrollment_flags_v2(),
@@ -986,14 +986,14 @@ defmodule AWS.PcaConnectorAd do
         "SubjectNameFlags" => subject_name_flags_v2(),
         "SupersededTemplates" => list(String.t()())
       }
-
+      
   """
   @type template_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       private_key_flags_v4() :: %{
         "ClientVersion" => list(any()),
         "ExportableKey" => [boolean()],
@@ -1002,26 +1002,26 @@ defmodule AWS.PcaConnectorAd do
         "StrongKeyProtectionRequired" => [boolean()],
         "UseLegacyProvider" => [boolean()]
       }
-
+      
   """
   @type private_key_flags_v4() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_service_principal_names_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_service_principal_names_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subject_name_flags_v2() :: %{
         "RequireCommonName" => [boolean()],
         "RequireDirectoryPath" => [boolean()],
@@ -1034,34 +1034,34 @@ defmodule AWS.PcaConnectorAd do
         "SanRequireSpn" => [boolean()],
         "SanRequireUpn" => [boolean()]
       }
-
+      
   """
   @type subject_name_flags_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_connector_request() :: %{}
-
+      
   """
   @type delete_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_response() :: %{
         "TemplateArn" => String.t()
       }
-
+      
   """
   @type create_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template() :: %{
         "Arn" => String.t(),
         "ConnectorArn" => String.t(),
@@ -1074,68 +1074,68 @@ defmodule AWS.PcaConnectorAd do
         "Status" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_information() :: %{
         "SecurityGroupIds" => list(String.t()())
       }
-
+      
   """
   @type vpc_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       private_key_flags_v3() :: %{
         "ClientVersion" => list(any()),
         "ExportableKey" => [boolean()],
         "RequireAlternateSignatureAlgorithm" => [boolean()],
         "StrongKeyProtectionRequired" => [boolean()]
       }
-
+      
   """
   @type private_key_flags_v3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       certificate_validity() :: %{
         "RenewalPeriod" => validity_period(),
         "ValidityPeriod" => validity_period()
       }
-
+      
   """
   @type certificate_validity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       general_flags_v3() :: %{
         "AutoEnrollment" => [boolean()],
         "MachineType" => [boolean()]
       }
-
+      
   """
   @type general_flags_v3() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       key_usage() :: %{
         "Critical" => [boolean()],
         "UsageFlags" => key_usage_flags()
       }
-
+      
   """
   @type key_usage() :: %{String.t() => any()}
 
@@ -1351,29 +1351,40 @@ defmodule AWS.PcaConnectorAd do
 
   ## Optional parameters:
   """
-  @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
+
+  @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-  def create_connector(%Client{} = client, input, options \\ []) do
+
+  def create_connector(%Client{} = client, options \\ []) do
     url_path = "/connectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1386,33 +1397,40 @@ defmodule AWS.PcaConnectorAd do
 
   ## Optional parameters:
   """
-  @spec create_directory_registration(
-          AWS.Client.t(),
-          create_directory_registration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_directory_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_directory_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_directory_registration_errors()}
-  def create_directory_registration(%Client{} = client, input, options \\ []) do
+
+  def create_directory_registration(%Client{} = client, options \\ []) do
     url_path = "/directoryRegistrations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1424,49 +1442,52 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateConnector.
+  when you called CreateConnector.
   * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-    was returned when you called CreateDirectoryRegistration.
+  was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
-  @spec create_service_principal_name(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_service_principal_name_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_service_principal_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_principal_name_errors()}
+
   def create_service_principal_name(
         %Client{} = client,
         connector_arn,
         directory_registration_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}/servicePrincipalNames/#{AWS.Util.encode_uri(connector_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1480,29 +1501,40 @@ defmodule AWS.PcaConnectorAd do
 
   ## Optional parameters:
   """
-  @spec create_template(AWS.Client.t(), create_template_request(), Keyword.t()) ::
+
+  @spec create_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_errors()}
-  def create_template(%Client{} = client, input, options \\ []) do
+
+  def create_template(%Client{} = client, options \\ []) do
     url_path = "/templates"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1514,43 +1546,44 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   """
-  @spec create_template_group_access_control_entry(
-          AWS.Client.t(),
-          String.t(),
-          create_template_group_access_control_entry_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_template_group_access_control_entry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_template_group_access_control_entry_errors()}
-  def create_template_group_access_control_entry(
-        %Client{} = client,
-        template_arn,
-        input,
-        options \\ []
-      ) do
+
+  def create_template_group_access_control_entry(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1567,21 +1600,42 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateConnector.
+  when you called CreateConnector.
 
   ## Optional parameters:
   """
-  @spec delete_connector(AWS.Client.t(), String.t(), delete_connector_request(), Keyword.t()) ::
+
+  @spec delete_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-  def delete_connector(%Client{} = client, connector_arn, input, options \\ []) do
+
+  def delete_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1590,7 +1644,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1604,31 +1658,42 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-    was returned when you called CreateDirectoryRegistration.
+  was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
-  @spec delete_directory_registration(
-          AWS.Client.t(),
-          String.t(),
-          delete_directory_registration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_directory_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_directory_registration_errors()}
-  def delete_directory_registration(
-        %Client{} = client,
-        directory_registration_arn,
-        input,
-        options \\ []
-      ) do
+
+  def delete_directory_registration(%Client{} = client, directory_registration_arn, options \\ []) do
     url_path = "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1637,7 +1702,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1651,37 +1716,50 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateConnector.
+  when you called CreateConnector.
   * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-    was returned when you called CreateDirectoryRegistration.
+  was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
-  @spec delete_service_principal_name(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_service_principal_name_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_service_principal_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_principal_name_errors()}
+
   def delete_service_principal_name(
         %Client{} = client,
         connector_arn,
         directory_registration_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}/servicePrincipalNames/#{AWS.Util.encode_uri(connector_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1690,7 +1768,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1704,21 +1782,42 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   """
-  @spec delete_template(AWS.Client.t(), String.t(), delete_template_request(), Keyword.t()) ::
+
+  @spec delete_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_errors()}
-  def delete_template(%Client{} = client, template_arn, input, options \\ []) do
+
+  def delete_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1727,7 +1826,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1740,37 +1839,55 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
-    group object from Active Directory. The SID starts with "S-".
+  group object from Active Directory. The SID starts with "S-".
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   """
+
   @spec delete_template_group_access_control_entry(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          delete_template_group_access_control_entry_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_template_group_access_control_entry_errors()}
+
   def delete_template_group_access_control_entry(
         %Client{} = client,
         group_security_identifier,
         template_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries/#{AWS.Util.encode_uri(group_security_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1779,7 +1896,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1793,14 +1910,16 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateConnector.
+  when you called CreateConnector.
 
   ## Optional parameters:
   """
+
   @spec get_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connector_errors()}
+
   def get_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
 
@@ -1836,14 +1955,16 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-    was returned when you called CreateDirectoryRegistration.
+  was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
+
   @spec get_directory_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_directory_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_directory_registration_errors()}
+
   def get_directory_registration(%Client{} = client, directory_registration_arn, options \\ []) do
     url_path = "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}"
 
@@ -1880,16 +2001,18 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateConnector.
+  when you called CreateConnector.
   * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-    was returned when you called CreateDirectoryRegistration.
+  was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
+
   @spec get_service_principal_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_principal_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_principal_name_errors()}
+
   def get_service_principal_name(
         %Client{} = client,
         connector_arn,
@@ -1932,14 +2055,16 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   """
+
   @spec get_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
+
   def get_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
 
@@ -1975,12 +2100,13 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
-    group object from Active Directory. The SID starts with "S-".
+  group object from Active Directory. The SID starts with "S-".
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   """
+
   @spec get_template_group_access_control_entry(
           AWS.Client.t(),
           String.t(),
@@ -1990,6 +2116,7 @@ defmodule AWS.PcaConnectorAd do
           {:ok, get_template_group_access_control_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_group_access_control_entry_errors()}
+
   def get_template_group_access_control_entry(
         %Client{} = client,
         group_security_identifier,
@@ -2035,19 +2162,21 @@ defmodule AWS.PcaConnectorAd do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
-    specify the maximum number of items to return in the response on each page.
-    If additional items exist beyond the number you specify, the NextToken
-    element is sent in the response. Use this NextToken value in a subsequent
-    request to retrieve additional items.
+  specify the maximum number of items to return in the response on each page.
+  If additional items exist beyond the number you specify, the NextToken
+  element is sent in the response. Use this NextToken value in a subsequent
+  request to retrieve additional items.
   * `:next_token` (`t:string`) Use this parameter when paginating results in a
-    subsequent request after you receive a response with truncated results. Set
-    it to the value of the NextToken parameter from the response you just
-    received.
+  subsequent request after you receive a response with truncated results. Set
+  it to the value of the NextToken parameter from the response you just
+  received.
   """
+
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
+
   def list_connectors(%Client{} = client, options \\ []) do
     url_path = "/connectors"
 
@@ -2105,19 +2234,21 @@ defmodule AWS.PcaConnectorAd do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
-    specify the maximum number of items to return in the response on each page.
-    If additional items exist beyond the number you specify, the NextToken
-    element is sent in the response. Use this NextToken value in a subsequent
-    request to retrieve additional items.
+  specify the maximum number of items to return in the response on each page.
+  If additional items exist beyond the number you specify, the NextToken
+  element is sent in the response. Use this NextToken value in a subsequent
+  request to retrieve additional items.
   * `:next_token` (`t:string`) Use this parameter when paginating results in a
-    subsequent request after you receive a response with truncated results. Set
-    it to the value of the NextToken parameter from the response you just
-    received.
+  subsequent request after you receive a response with truncated results. Set
+  it to the value of the NextToken parameter from the response you just
+  received.
   """
+
   @spec list_directory_registrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directory_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_directory_registrations_errors()}
+
   def list_directory_registrations(%Client{} = client, options \\ []) do
     url_path = "/directoryRegistrations"
 
@@ -2172,23 +2303,25 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
-    was returned when you called CreateDirectoryRegistration.
+  was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
-    specify the maximum number of items to return in the response on each page.
-    If additional items exist beyond the number you specify, the NextToken
-    element is sent in the response. Use this NextToken value in a subsequent
-    request to retrieve additional items.
+  specify the maximum number of items to return in the response on each page.
+  If additional items exist beyond the number you specify, the NextToken
+  element is sent in the response. Use this NextToken value in a subsequent
+  request to retrieve additional items.
   * `:next_token` (`t:string`) Use this parameter when paginating results in a
-    subsequent request after you receive a response with truncated results. Set
-    it to the value of the NextToken parameter from the response you just
-    received.
+  subsequent request after you receive a response with truncated results. Set
+  it to the value of the NextToken parameter from the response you just
+  received.
   """
+
   @spec list_service_principal_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_service_principal_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_service_principal_names_errors()}
+
   def list_service_principal_names(%Client{} = client, directory_registration_arn, options \\ []) do
     url_path =
       "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}/servicePrincipalNames"
@@ -2242,15 +2375,17 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when
-    you created the resource.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+  when you created the resource.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2286,23 +2421,25 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
-    specify the maximum number of items to return in the response on each page.
-    If additional items exist beyond the number you specify, the NextToken
-    element is sent in the response. Use this NextToken value in a subsequent
-    request to retrieve additional items.
+  specify the maximum number of items to return in the response on each page.
+  If additional items exist beyond the number you specify, the NextToken
+  element is sent in the response. Use this NextToken value in a subsequent
+  request to retrieve additional items.
   * `:next_token` (`t:string`) Use this parameter when paginating results in a
-    subsequent request after you receive a response with truncated results. Set
-    it to the value of the NextToken parameter from the response you just
-    received.
+  subsequent request after you receive a response with truncated results. Set
+  it to the value of the NextToken parameter from the response you just
+  received.
   """
+
   @spec list_template_group_access_control_entries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_group_access_control_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_group_access_control_entries_errors()}
+
   def list_template_group_access_control_entries(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries"
 
@@ -2356,24 +2493,27 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateConnector.
+  when you called CreateConnector.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Use this parameter when paginating results to
-    specify the maximum number of items to return in the response on each page.
-    If additional items exist beyond the number you specify, the NextToken
-    element is sent in the response. Use this NextToken value in a subsequent
-    request to retrieve additional items.
+  specify the maximum number of items to return in the response on each page.
+  If additional items exist beyond the number you specify, the NextToken
+  element is sent in the response. Use this NextToken value in a subsequent
+  request to retrieve additional items.
   * `:next_token` (`t:string`) Use this parameter when paginating results in a
-    subsequent request after you receive a response with truncated results. Set
-    it to the value of the NextToken parameter from the response you just
-    received.
+  subsequent request after you receive a response with truncated results. Set
+  it to the value of the NextToken parameter from the response you just
+  received.
   """
+
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
-  def list_templates(%Client{} = client, connector_arn, options \\ []) do
+
+  def list_templates(%Client{} = client, connector_arn, options \\ [])
+      when is_binary(connector_arn) do
     url_path = "/templates"
 
     # Validate optional parameters
@@ -2425,34 +2565,45 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when
-    you created the resource.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+  when you created the resource.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2461,29 +2612,46 @@ defmodule AWS.PcaConnectorAd do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when
-    you created the resource.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+  when you created the resource.
   * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that
-    you want to remove from the specified resources.
+  you want to remove from the specified resources.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2492,7 +2660,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2506,21 +2674,42 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   """
-  @spec update_template(AWS.Client.t(), String.t(), update_template_request(), Keyword.t()) ::
+
+  @spec update_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_errors()}
-  def update_template(%Client{} = client, template_arn, input, options \\ []) do
+
+  def update_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2529,7 +2718,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2543,37 +2732,55 @@ defmodule AWS.PcaConnectorAd do
 
   ## Parameters:
   * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
-    group object from Active Directory. The SID starts with "S-".
+  group object from Active Directory. The SID starts with "S-".
   * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
-    when you called CreateTemplate.
+  when you called CreateTemplate.
 
   ## Optional parameters:
   """
+
   @spec update_template_group_access_control_entry(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_template_group_access_control_entry_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_group_access_control_entry_errors()}
+
   def update_template_group_access_control_entry(
         %Client{} = client,
         group_security_identifier,
         template_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries/#{AWS.Util.encode_uri(group_security_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2582,7 +2789,7 @@ defmodule AWS.PcaConnectorAd do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

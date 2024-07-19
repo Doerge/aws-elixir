@@ -22,76 +22,76 @@ defmodule AWS.Amp do
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_alert_manager_definition_request() :: %{
         "clientToken" => String.t(),
         "data" => binary()
       }
-
+      
   """
   @type put_alert_manager_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rule_groups_namespaces_response() :: %{
         "nextToken" => String.t(),
         "ruleGroupsNamespaces" => list(rule_groups_namespace_summary()())
       }
-
+      
   """
   @type list_rule_groups_namespaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scrapers_request() :: %{
         optional("filters") => map(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_scrapers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_groups_namespace_status() :: %{
         "statusCode" => String.t(),
         "statusReason" => [String.t()]
       }
-
+      
   """
   @type rule_groups_namespace_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_groups_namespace_description() :: %{
         "arn" => String.t(),
         "createdAt" => [non_neg_integer()],
@@ -101,36 +101,36 @@ defmodule AWS.Amp do
         "status" => rule_groups_namespace_status(),
         "tags" => map()
       }
-
+      
   """
   @type rule_groups_namespace_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workspace_status() :: %{
         "statusCode" => String.t()
       }
-
+      
   """
   @type workspace_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scraper_status() :: %{
         "statusCode" => String.t()
       }
-
+      
   """
   @type scraper_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workspace_summary() :: %{
         "alias" => String.t(),
         "arn" => String.t(),
@@ -140,28 +140,28 @@ defmodule AWS.Amp do
         "tags" => map(),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type workspace_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_scraper_response() :: %{
         "arn" => String.t(),
         "scraperId" => String.t(),
         "status" => scraper_status(),
         "tags" => map()
       }
-
+      
   """
   @type create_scraper_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "logGroupArn" => String.t(),
@@ -169,209 +169,209 @@ defmodule AWS.Amp do
         "status" => logging_configuration_status(),
         "workspace" => String.t()
       }
-
+      
   """
   @type logging_configuration_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_logging_configuration_request() :: %{
         "clientToken" => String.t(),
         "logGroupArn" => String.t()
       }
-
+      
   """
   @type update_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_rule_groups_namespace_response() :: %{
         "arn" => String.t(),
         "name" => String.t(),
         "status" => rule_groups_namespace_status(),
         "tags" => map()
       }
-
+      
   """
   @type create_rule_groups_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_alert_manager_definition_request() :: %{
         "clientToken" => String.t()
       }
-
+      
   """
   @type delete_alert_manager_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_logging_configuration_request() :: %{
         "clientToken" => String.t(),
         "logGroupArn" => String.t()
       }
-
+      
   """
   @type create_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_rule_groups_namespace_response() :: %{
         "ruleGroupsNamespace" => rule_groups_namespace_description()
       }
-
+      
   """
   @type describe_rule_groups_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_rule_groups_namespace_response() :: %{
         "arn" => String.t(),
         "name" => String.t(),
         "status" => rule_groups_namespace_status(),
         "tags" => map()
       }
-
+      
   """
   @type put_rule_groups_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_alias_request() :: %{
         "alias" => String.t(),
         "clientToken" => String.t()
       }
-
+      
   """
   @type update_workspace_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_response() :: %{
         "workspace" => workspace_description()
       }
-
+      
   """
   @type describe_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_default_scraper_configuration_request() :: %{}
-
+      
   """
   @type get_default_scraper_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_rule_groups_namespace_request() :: %{
         "clientToken" => String.t()
       }
-
+      
   """
   @type delete_rule_groups_namespace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_rule_groups_namespace_request() :: %{}
-
+      
   """
   @type describe_rule_groups_namespace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_logging_configuration_response() :: %{
         "status" => logging_configuration_status()
       }
-
+      
   """
   @type create_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
         "resourceType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_logging_configuration_request() :: %{}
-
+      
   """
   @type describe_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration_status() :: %{
         "statusCode" => String.t(),
         "statusReason" => [String.t()]
       }
-
+      
   """
   @type logging_configuration_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -379,92 +379,92 @@ defmodule AWS.Amp do
         "resourceType" => [String.t()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_scraper_response() :: %{
         "scraper" => scraper_description()
       }
-
+      
   """
   @type describe_scraper_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_scraper_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_scraper_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eks_configuration() :: %{
         "clusterArn" => String.t(),
         "securityGroupIds" => list(String.t()()),
         "subnetIds" => list(String.t()())
       }
-
+      
   """
   @type eks_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_workspace_request() :: %{}
-
+      
   """
   @type describe_workspace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_request() :: %{
         "clientToken" => String.t()
       }
-
+      
   """
   @type delete_workspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_groups_namespace_summary() :: %{
         "arn" => String.t(),
         "createdAt" => [non_neg_integer()],
@@ -473,40 +473,40 @@ defmodule AWS.Amp do
         "status" => rule_groups_namespace_status(),
         "tags" => map()
       }
-
+      
   """
   @type rule_groups_namespace_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_rule_groups_namespace_request() :: %{
         "clientToken" => String.t(),
         "data" => binary(),
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type create_rule_groups_namespace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_alert_manager_definition_request() :: %{
         "clientToken" => String.t(),
         "data" => binary()
       }
-
+      
   """
   @type create_alert_manager_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workspace_description() :: %{
         "alias" => String.t(),
         "arn" => String.t(),
@@ -517,26 +517,26 @@ defmodule AWS.Amp do
         "tags" => map(),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type workspace_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_response() :: %{
         "arn" => String.t(),
         "kmsKeyArn" => String.t(),
@@ -544,37 +544,37 @@ defmodule AWS.Amp do
         "tags" => map(),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type create_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspaces_response() :: %{
         "nextToken" => String.t(),
         "workspaces" => list(workspace_summary()())
       }
-
+      
   """
   @type list_workspaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_default_scraper_configuration_response() :: %{
         "configuration" => [binary()]
       }
-
+      
   """
   @type get_default_scraper_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scraper_description() :: %{
         "alias" => String.t(),
         "arn" => String.t(),
@@ -589,142 +589,142 @@ defmodule AWS.Amp do
         "statusReason" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type scraper_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_alert_manager_definition_response() :: %{
         "status" => alert_manager_definition_status()
       }
-
+      
   """
   @type put_alert_manager_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alert_manager_definition_description() :: %{
         "createdAt" => [non_neg_integer()],
         "data" => binary(),
         "modifiedAt" => [non_neg_integer()],
         "status" => alert_manager_definition_status()
       }
-
+      
   """
   @type alert_manager_definition_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_scraper_response() :: %{
         "scraperId" => String.t(),
         "status" => scraper_status()
       }
-
+      
   """
   @type delete_scraper_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()],
         "reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspaces_request() :: %{
         "alias" => String.t(),
         "maxResults" => [integer()],
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_workspaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
         "retryAfterSeconds" => [integer()],
         "serviceCode" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_logging_configuration_response() :: %{
         "loggingConfiguration" => logging_configuration_metadata()
       }
-
+      
   """
   @type describe_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amp_configuration() :: %{
         "workspaceArn" => String.t()
       }
-
+      
   """
   @type amp_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_scraper_request() :: %{
         optional("alias") => String.t(),
         optional("clientToken") => String.t(),
@@ -733,139 +733,139 @@ defmodule AWS.Amp do
         required("scrapeConfiguration") => list(),
         required("source") => list()
       }
-
+      
   """
   @type create_scraper_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_alert_manager_definition_response() :: %{
         "status" => alert_manager_definition_status()
       }
-
+      
   """
   @type create_alert_manager_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_alert_manager_definition_request() :: %{}
-
+      
   """
   @type describe_alert_manager_definition_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_alert_manager_definition_response() :: %{
         "alertManagerDefinition" => alert_manager_definition_description()
       }
-
+      
   """
   @type describe_alert_manager_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_scraper_request() :: %{}
-
+      
   """
   @type describe_scraper_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_logging_configuration_request() :: %{
         "clientToken" => String.t()
       }
-
+      
   """
   @type delete_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_rule_groups_namespace_request() :: %{
         "clientToken" => String.t(),
         "data" => binary()
       }
-
+      
   """
   @type put_rule_groups_namespace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scrapers_response() :: %{
         "nextToken" => String.t(),
         "scrapers" => list(scraper_summary()())
       }
-
+      
   """
   @type list_scrapers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_logging_configuration_response() :: %{
         "status" => logging_configuration_status()
       }
-
+      
   """
   @type update_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rule_groups_namespaces_request() :: %{
         "maxResults" => [integer()],
         "name" => String.t(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_rule_groups_namespaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       alert_manager_definition_status() :: %{
         "statusCode" => String.t(),
         "statusReason" => [String.t()]
       }
-
+      
   """
   @type alert_manager_definition_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_request() :: %{
         "alias" => String.t(),
         "clientToken" => String.t(),
         "kmsKeyArn" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type create_workspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scraper_summary() :: %{
         "alias" => String.t(),
         "arn" => String.t(),
@@ -879,7 +879,7 @@ defmodule AWS.Amp do
         "statusReason" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type scraper_summary() :: %{String.t() => any()}
 
@@ -1100,38 +1100,44 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to add the alert manager
-    definition to.
+  definition to.
 
   ## Optional parameters:
   """
-  @spec create_alert_manager_definition(
-          AWS.Client.t(),
-          String.t(),
-          create_alert_manager_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_alert_manager_definition_errors()}
-  def create_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_alert_manager_definition(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1143,38 +1149,44 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to create the logging
-    configuration for.
+  configuration for.
 
   ## Optional parameters:
   """
-  @spec create_logging_configuration(
-          AWS.Client.t(),
-          String.t(),
-          create_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_logging_configuration_errors()}
-  def create_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1186,38 +1198,44 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to add the rule groups
-    namespace.
+  namespace.
 
   ## Optional parameters:
   """
-  @spec create_rule_groups_namespace(
-          AWS.Client.t(),
-          String.t(),
-          create_rule_groups_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_rule_groups_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_groups_namespace_errors()}
-  def create_rule_groups_namespace(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_rule_groups_namespace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1240,29 +1258,40 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   """
-  @spec create_scraper(AWS.Client.t(), create_scraper_request(), Keyword.t()) ::
+
+  @spec create_scraper(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scraper_errors()}
-  def create_scraper(%Client{} = client, input, options \\ []) do
+
+  def create_scraper(%Client{} = client, options \\ []) do
     url_path = "/scrapers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1276,29 +1305,40 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   """
-  @spec create_workspace(AWS.Client.t(), create_workspace_request(), Keyword.t()) ::
+
+  @spec create_workspace(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_errors()}
-  def create_workspace(%Client{} = client, input, options \\ []) do
+
+  def create_workspace(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1308,30 +1348,45 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to delete the alert
-    manager definition from.
+  manager definition from.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-    ensure the idempotency of the request. Case-sensitive.
+  ensure the idempotency of the request. Case-sensitive.
   """
-  @spec delete_alert_manager_definition(
-          AWS.Client.t(),
-          String.t(),
-          delete_alert_manager_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_alert_manager_definition_errors()}
-  def delete_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def delete_alert_manager_definition(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1341,6 +1396,8 @@ defmodule AWS.Amp do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1348,7 +1405,7 @@ defmodule AWS.Amp do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1361,30 +1418,45 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace containing the logging
-    configuration to delete.
+  configuration to delete.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-    ensure the idempotency of the request. Case-sensitive.
+  ensure the idempotency of the request. Case-sensitive.
   """
-  @spec delete_logging_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_logging_configuration_errors()}
-  def delete_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def delete_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1394,6 +1466,8 @@ defmodule AWS.Amp do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1401,7 +1475,7 @@ defmodule AWS.Amp do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1415,33 +1489,46 @@ defmodule AWS.Amp do
   ## Parameters:
   * `:name` (`t:string`) The name of the rule groups namespace to delete.
   * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
-    groups namespace and definition to delete.
+  groups namespace and definition to delete.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-    ensure the idempotency of the request. Case-sensitive.
+  ensure the idempotency of the request. Case-sensitive.
   """
-  @spec delete_rule_groups_namespace(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_rule_groups_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_rule_groups_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_groups_namespace_errors()}
-  def delete_rule_groups_namespace(%Client{} = client, name, workspace_id, input, options \\ []) do
+
+  def delete_rule_groups_namespace(%Client{} = client, name, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1451,6 +1538,8 @@ defmodule AWS.Amp do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1458,7 +1547,7 @@ defmodule AWS.Amp do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1475,21 +1564,41 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) (Optional) A unique, case-sensitive identifier
-    that you can provide to ensure the idempotency of the request.
+  that you can provide to ensure the idempotency of the request.
   """
-  @spec delete_scraper(AWS.Client.t(), String.t(), delete_scraper_request(), Keyword.t()) ::
+
+  @spec delete_scraper(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scraper_errors()}
-  def delete_scraper(%Client{} = client, scraper_id, input, options \\ []) do
+
+  def delete_scraper(%Client{} = client, scraper_id, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1499,6 +1608,8 @@ defmodule AWS.Amp do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1506,7 +1617,7 @@ defmodule AWS.Amp do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1522,21 +1633,41 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-    ensure the idempotency of the request. Case-sensitive.
+  ensure the idempotency of the request. Case-sensitive.
   """
-  @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
+
+  @spec delete_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_errors()}
-  def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def delete_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1546,6 +1677,8 @@ defmodule AWS.Amp do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1553,7 +1686,7 @@ defmodule AWS.Amp do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -1567,14 +1700,16 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to retrieve the alert
-    manager definition from.
+  manager definition from.
 
   ## Optional parameters:
   """
+
   @spec describe_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_alert_manager_definition_errors()}
+
   def describe_alert_manager_definition(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
 
@@ -1611,14 +1746,16 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to describe the logging
-    configuration for.
+  configuration for.
 
   ## Optional parameters:
   """
+
   @spec describe_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_logging_configuration_errors()}
+
   def describe_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
 
@@ -1655,16 +1792,18 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the rule groups namespace that you want
-    information for.
+  information for.
   * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
-    groups namespace.
+  groups namespace.
 
   ## Optional parameters:
   """
+
   @spec describe_rule_groups_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_groups_namespace_errors()}
+
   def describe_rule_groups_namespace(%Client{} = client, name, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
@@ -1704,10 +1843,12 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   """
+
   @spec describe_scraper(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scraper_errors()}
+
   def describe_scraper(%Client{} = client, scraper_id, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
 
@@ -1746,10 +1887,12 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   """
+
   @spec describe_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workspace_errors()}
+
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
 
@@ -1788,10 +1931,12 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   """
+
   @spec get_default_scraper_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_default_scraper_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_default_scraper_configuration_errors()}
+
   def get_default_scraper_configuration(%Client{} = client, options \\ []) do
     url_path = "/scraperconfiguration"
 
@@ -1827,22 +1972,24 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
-    groups namespaces.
+  groups namespaces.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to return. The default is
-    100.
+  * `:max_results` (`t:string`) The maximum number of results to return. The
+  default is 100.
   * `:name` (`t:string`) Use this parameter to filter the rule groups namespaces
-    that are returned. Only the namespaces with names that begin with the value
-    that you specify are returned.
+  that are returned. Only the namespaces with names that begin with the value
+  that you specify are returned.
   * `:next_token` (`t:string`) The token for the next set of items to return. You
-    receive this token from a previous call, and use it to get the next page of
-    results. The other parameters must be the same as the initial call.
+  receive this token from a previous call, and use it to get the next page of
+  results. The other parameters must be the same as the initial call.
   """
+
   @spec list_rule_groups_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_groups_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_groups_namespaces_errors()}
+
   def list_rule_groups_namespaces(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces"
 
@@ -1907,17 +2054,19 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   * `:filters` (`t:map`) (Optional) A list of key-value pairs to filter the list
-    of scrapers returned. Keys include status, sourceArn, destinationArn, and
-    alias.
-  * `:max_results` (`t:`) Optional) The maximum number of scrapers to return in
-    one ListScrapers operation. The range is 1-1000.
+  of scrapers returned. Keys include status, sourceArn, destinationArn, and
+  alias.
+  * `:max_results` (`t:string`) Optional) The maximum number of scrapers to return
+  in one ListScrapers operation. The range is 1-1000.
   * `:next_token` (`t:string`) (Optional) The token for the next set of items to
-    return. (You received this token from a previous call.)
+  return. (You received this token from a previous call.)
   """
+
   @spec list_scrapers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scrapers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scrapers_errors()}
+
   def list_scrapers(%Client{} = client, options \\ []) do
     url_path = "/scrapers"
 
@@ -1979,15 +2128,17 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource to list tages for. Must be a
-    workspace or rule groups namespace resource.
+  * `:resource_arn` (`t:string`) The ARN of the resource to list tages for. Must
+  be a workspace or rule groups namespace resource.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2026,17 +2177,19 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   * `:alias` (`t:string`) If this is included, it filters the results to only the
-    workspaces with names that start with the value that you specify here.
-  * `:max_results` (`t:`) The maximum number of workspaces to return per request.
-    The default is 100.
+  workspaces with names that start with the value that you specify here.
+  * `:max_results` (`t:string`) The maximum number of workspaces to return per
+  request. The default is 100.
   * `:next_token` (`t:string`) The token for the next set of items to return. You
-    receive this token from a previous call, and use it to get the next page of
-    results. The other parameters must be the same as the initial call.
+  receive this token from a previous call, and use it to get the next page of
+  results. The other parameters must be the same as the initial call.
   """
+
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspaces_errors()}
+
   def list_workspaces(%Client{} = client, options \\ []) do
     url_path = "/workspaces"
 
@@ -2099,28 +2252,44 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to update the alert
-    manager definition in.
+  manager definition in.
 
   ## Optional parameters:
   """
-  @spec put_alert_manager_definition(
-          AWS.Client.t(),
-          String.t(),
-          put_alert_manager_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_alert_manager_definition_errors()}
-  def put_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def put_alert_manager_definition(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2134,33 +2303,47 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:name` (`t:string`) The name of the rule groups namespace that you are
-    updating.
+  updating.
   * `:workspace_id` (`t:string`) The ID of the workspace where you are updating
-    the rule groups namespace.
+  the rule groups namespace.
 
   ## Optional parameters:
   """
-  @spec put_rule_groups_namespace(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          put_rule_groups_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_rule_groups_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_rule_groups_namespace_errors()}
-  def put_rule_groups_namespace(%Client{} = client, name, workspace_id, input, options \\ []) do
+
+  def put_rule_groups_namespace(%Client{} = client, name, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2171,34 +2354,45 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace to
-    apply tags to.
+  * `:resource_arn` (`t:string`) The ARN of the workspace or rule groups namespace
+  to apply tags to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2209,28 +2403,46 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace.
+  * `:resource_arn` (`t:string`) The ARN of the workspace or rule groups
+  namespace.
   * `:tag_keys` (`t:list[com.amazonaws.amp#TagKey]`) The keys of the tags to
-    remove.
+  remove.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2239,7 +2451,7 @@ defmodule AWS.Amp do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2253,28 +2465,44 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to update the logging
-    configuration for.
+  configuration for.
 
   ## Optional parameters:
   """
-  @spec update_logging_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_logging_configuration_errors()}
-  def update_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def update_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2287,33 +2515,39 @@ defmodule AWS.Amp do
 
   ## Optional parameters:
   """
-  @spec update_workspace_alias(
-          AWS.Client.t(),
-          String.t(),
-          update_workspace_alias_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_workspace_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_alias_errors()}
-  def update_workspace_alias(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def update_workspace_alias(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alias"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 end

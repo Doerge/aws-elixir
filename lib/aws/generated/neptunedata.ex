@@ -12,117 +12,117 @@ defmodule AWS.Neptunedata do
   @typedoc """
 
   ## Example:
-
+      
       parsing_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type parsing_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       manage_sparql_statistics_input() :: %{
         optional("mode") => list(any())
       }
-
+      
   """
   @type manage_sparql_statistics_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_model_training_job_input() :: %{
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type get_ml_model_training_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ml_data_processing_job_input() :: %{
         optional("clean") => [boolean()],
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type cancel_ml_data_processing_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_only_violation_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type read_only_violation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_model_training_parameters() :: %{
         "sourceS3DirectoryPath" => [String.t()],
         "trainingEntryPointScript" => [String.t()],
         "transformEntryPointScript" => [String.t()]
       }
-
+      
   """
   @type custom_model_training_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_failure_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type internal_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type s3_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_r_d_f_graph_summary_input() :: %{
         optional("mode") => list(any())
       }
-
+      
   """
   @type get_r_d_f_graph_summary_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_propertygraph_stream_output() :: %{
         "format" => [String.t()],
         "lastEventId" => map(),
@@ -130,76 +130,76 @@ defmodule AWS.Neptunedata do
         "records" => list(propertygraph_record()()),
         "totalRecords" => [integer()]
       }
-
+      
   """
   @type get_propertygraph_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       statistics_not_available_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type statistics_not_available_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_language_version() :: %{
         "version" => [String.t()]
       }
-
+      
   """
   @type query_language_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_operation_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type unsupported_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_propertygraph_statistics_output() :: %{
         "payload" => delete_statistics_value_map(),
         "status" => [String.t()],
         "statusCode" => [integer()]
       }
-
+      
   """
   @type delete_propertygraph_statistics_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_propertygraph_statistics_output() :: %{
         "payload" => statistics(),
         "status" => [String.t()]
       }
-
+      
   """
   @type get_propertygraph_statistics_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_gremlin_profile_query_input() :: %{
         optional("chop") => [integer()],
         optional("indexOps") => [boolean()],
@@ -207,99 +207,99 @@ defmodule AWS.Neptunedata do
         optional("serializer") => [String.t()],
         required("gremlinQuery") => [String.t()]
       }
-
+      
   """
   @type execute_gremlin_profile_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_model_transform_jobs_input() :: %{
         optional("maxItems") => integer(),
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type list_ml_model_transform_jobs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ml_data_processing_job_output() :: %{
         "status" => [String.t()]
       }
-
+      
   """
   @type cancel_ml_data_processing_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bulk_load_id_not_found_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type bulk_load_id_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_eval_stats() :: %{
         "cancelled" => [boolean()],
         "elapsed" => [integer()],
         "subqueries" => [any()],
         "waited" => [integer()]
       }
-
+      
   """
   @type query_eval_stats() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       manage_propertygraph_statistics_output() :: %{
         "payload" => refresh_statistics_id_map(),
         "status" => [String.t()]
       }
-
+      
   """
   @type manage_propertygraph_statistics_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_open_cypher_query_output() :: %{
         "payload" => [boolean()],
         "status" => [String.t()]
       }
-
+      
   """
   @type cancel_open_cypher_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_open_cypher_query_output() :: %{
         "results" => [any()]
       }
-
+      
   """
   @type execute_open_cypher_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_model_transform_job_output() :: %{
         "baseProcessingJob" => ml_resource_definition(),
         "id" => [String.t()],
@@ -307,106 +307,106 @@ defmodule AWS.Neptunedata do
         "remoteModelTransformJob" => ml_resource_definition(),
         "status" => [String.t()]
       }
-
+      
   """
   @type get_ml_model_transform_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ml_model_transform_job_output() :: %{
         "status" => [String.t()]
       }
-
+      
   """
   @type cancel_ml_model_transform_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_gremlin_explain_query_input() :: %{
         required("gremlinQuery") => [String.t()]
       }
-
+      
   """
   @type execute_gremlin_explain_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       method_not_allowed_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type method_not_allowed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_propertygraph_summary_input() :: %{
         optional("mode") => list(any())
       }
-
+      
   """
   @type get_propertygraph_summary_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ml_config_definition() :: %{
         "arn" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type ml_config_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_gremlin_profile_query_output() :: %{
         "output" => binary()
       }
-
+      
   """
   @type execute_gremlin_profile_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_model_training_jobs_input() :: %{
         optional("maxItems") => integer(),
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type list_ml_model_training_jobs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_gremlin_query_output() :: %{
         "status" => [String.t()]
       }
-
+      
   """
   @type cancel_gremlin_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       propertygraph_data() :: %{
         "from" => [String.t()],
         "id" => [String.t()],
@@ -415,49 +415,49 @@ defmodule AWS.Neptunedata do
         "type" => [String.t()],
         "value" => [any()]
       }
-
+      
   """
   @type propertygraph_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_loader_job_input() :: %{}
-
+      
   """
   @type cancel_loader_job_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_open_cypher_explain_query_input() :: %{
         optional("parameters") => [String.t()],
         required("explainMode") => list(any()),
         required("openCypherQuery") => [String.t()]
       }
-
+      
   """
   @type execute_open_cypher_explain_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       failure_by_query_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type failure_by_query_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sparql_stream_output() :: %{
         "format" => [String.t()],
         "lastEventId" => map(),
@@ -465,53 +465,53 @@ defmodule AWS.Neptunedata do
         "records" => list(sparql_record()()),
         "totalRecords" => [integer()]
       }
-
+      
   """
   @type get_sparql_stream_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       illegal_argument_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type illegal_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_ml_model_training_job_output() :: %{
         "arn" => [String.t()],
         "creationTimeInMillis" => [float()],
         "id" => [String.t()]
       }
-
+      
   """
   @type start_ml_model_training_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_loader_job_input() :: %{
         optional("dependencies") => list([String.t()]()),
         optional("failOnError") => [boolean()],
@@ -526,83 +526,83 @@ defmodule AWS.Neptunedata do
         required("s3BucketRegion") => list(any()),
         required("source") => [String.t()]
       }
-
+      
   """
   @type start_loader_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_gremlin_query_status_input() :: %{}
-
+      
   """
   @type get_gremlin_query_status_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_ml_data_processing_job_output() :: %{
         "arn" => [String.t()],
         "creationTimeInMillis" => [float()],
         "id" => [String.t()]
       }
-
+      
   """
   @type start_ml_data_processing_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_model_transform_jobs_output() :: %{
         "ids" => list([String.t()]())
       }
-
+      
   """
   @type list_ml_model_transform_jobs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_data_processing_job_input() :: %{
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type get_ml_data_processing_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subject_structure() :: %{
         "count" => [float()],
         "predicates" => list([String.t()]())
       }
-
+      
   """
   @type subject_structure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ml_resource_not_found_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type ml_resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ml_resource_definition() :: %{
         "arn" => [String.t()],
         "cloudwatchLogUrl" => [String.t()],
@@ -611,50 +611,50 @@ defmodule AWS.Neptunedata do
         "outputLocation" => [String.t()],
         "status" => [String.t()]
       }
-
+      
   """
   @type ml_resource_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_limit_exceeded_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type query_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_data_processing_jobs_output() :: %{
         "ids" => list([String.t()]())
       }
-
+      
   """
   @type list_ml_data_processing_jobs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       edge_structure() :: %{
         "count" => [float()],
         "edgeProperties" => list([String.t()]())
       }
-
+      
   """
   @type edge_structure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sparql_stream_input() :: %{
         optional("commitNum") => [float()],
         optional("encoding") => list(any()),
@@ -662,50 +662,50 @@ defmodule AWS.Neptunedata do
         optional("limit") => [float()],
         optional("opNum") => [float()]
       }
-
+      
   """
   @type get_sparql_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ml_model_training_job_output() :: %{
         "status" => [String.t()]
       }
-
+      
   """
   @type cancel_ml_model_training_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_limit_exceeded_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type time_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_loader_job_status_output() :: %{
         "payload" => [any()],
         "status" => [String.t()]
       }
-
+      
   """
   @type get_loader_job_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_ml_model_training_job_input() :: %{
         optional("baseProcessingInstanceType") => [String.t()],
         optional("customModelTrainingParameters") => custom_model_training_parameters(),
@@ -726,27 +726,27 @@ defmodule AWS.Neptunedata do
         required("dataProcessingJobId") => [String.t()],
         required("trainModelS3Location") => [String.t()]
       }
-
+      
   """
   @type start_ml_model_training_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       memory_limit_exceeded_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type memory_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_ml_data_processing_job_input() :: %{
         optional("configFileName") => [String.t()],
         optional("id") => [String.t()],
@@ -764,40 +764,40 @@ defmodule AWS.Neptunedata do
         required("inputDataS3Location") => [String.t()],
         required("processedDataS3Location") => [String.t()]
       }
-
+      
   """
   @type start_ml_data_processing_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       malformed_query_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type malformed_query_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_limit_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type query_limit_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sparql_record() :: %{
         "commitTimestampInMillis" => [float()],
         "data" => sparql_data(),
@@ -805,149 +805,149 @@ defmodule AWS.Neptunedata do
         "isLastOp" => [boolean()],
         "op" => [String.t()]
       }
-
+      
   """
   @type sparql_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gremlin_query_status() :: %{
         "queryEvalStats" => query_eval_stats(),
         "queryId" => [String.t()],
         "queryString" => [String.t()]
       }
-
+      
   """
   @type gremlin_query_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_propertygraph_summary_output() :: %{
         "payload" => propertygraph_summary_value_map(),
         "statusCode" => [integer()]
       }
-
+      
   """
   @type get_propertygraph_summary_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_endpoints_output() :: %{
         "ids" => list([String.t()]())
       }
-
+      
   """
   @type list_ml_endpoints_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       r_d_f_graph_summary_value_map() :: %{
         "graphSummary" => r_d_f_graph_summary(),
         "lastStatisticsComputationTime" => [non_neg_integer()],
         "version" => [String.t()]
       }
-
+      
   """
   @type r_d_f_graph_summary_value_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_open_cypher_query_input() :: %{
         optional("parameters") => [String.t()],
         required("openCypherQuery") => [String.t()]
       }
-
+      
   """
   @type execute_open_cypher_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ml_model_transform_job_input() :: %{
         optional("clean") => [boolean()],
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type cancel_ml_model_transform_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_open_cypher_query_input() :: %{
         optional("silent") => [boolean()]
       }
-
+      
   """
   @type cancel_open_cypher_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_model_training_jobs_output() :: %{
         "ids" => list([String.t()]())
       }
-
+      
   """
   @type list_ml_model_training_jobs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_loader_job_status_input() :: %{
         optional("details") => [boolean()],
         optional("errors") => [boolean()],
         optional("errorsPerPage") => integer(),
         optional("page") => integer()
       }
-
+      
   """
   @type get_loader_job_status_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_open_cypher_query_status_output() :: %{
         "queryEvalStats" => query_eval_stats(),
         "queryId" => [String.t()],
         "queryString" => [String.t()]
       }
-
+      
   """
   @type get_open_cypher_query_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_ml_model_transform_job_output() :: %{
         "arn" => [String.t()],
         "creationTimeInMillis" => [float()],
         "id" => [String.t()]
       }
-
+      
   """
   @type start_ml_model_transform_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       propertygraph_summary() :: %{
         "edgeLabels" => list([String.t()]()),
         "edgeProperties" => list(map()()),
@@ -964,25 +964,25 @@ defmodule AWS.Neptunedata do
         "totalEdgePropertyValues" => [float()],
         "totalNodePropertyValues" => [float()]
       }
-
+      
   """
   @type propertygraph_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fast_reset_token() :: %{
         "token" => [String.t()]
       }
-
+      
   """
   @type fast_reset_token() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_ml_endpoint_input() :: %{
         optional("id") => [String.t()],
         optional("instanceCount") => [integer()],
@@ -994,39 +994,39 @@ defmodule AWS.Neptunedata do
         optional("update") => [boolean()],
         optional("volumeEncryptionKMSKey") => [String.t()]
       }
-
+      
   """
   @type create_ml_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_model_transform_job_input() :: %{
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type get_ml_model_transform_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_endpoint_output() :: %{
         "endpoint" => ml_resource_definition(),
         "endpointConfig" => ml_config_definition(),
         "id" => [String.t()],
         "status" => [String.t()]
       }
-
+      
   """
   @type get_ml_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       r_d_f_graph_summary() :: %{
         "classes" => list([String.t()]()),
         "numClasses" => [float()],
@@ -1036,163 +1036,163 @@ defmodule AWS.Neptunedata do
         "predicates" => list(map()()),
         "subjectStructures" => list(subject_structure()())
       }
-
+      
   """
   @type r_d_f_graph_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       statistics_summary() :: %{
         "instanceCount" => [integer()],
         "predicateCount" => [integer()],
         "signatureCount" => [integer()]
       }
-
+      
   """
   @type statistics_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       missing_parameter_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type missing_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_shutdown_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type server_shutdown_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_open_cypher_query_status_input() :: %{}
-
+      
   """
   @type get_open_cypher_query_status_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_data_processing_jobs_input() :: %{
         optional("maxItems") => integer(),
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type list_ml_data_processing_jobs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_gremlin_query_status_output() :: %{
         "queryEvalStats" => query_eval_stats(),
         "queryId" => [String.t()],
         "queryString" => [String.t()]
       }
-
+      
   """
   @type get_gremlin_query_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ml_endpoints_input() :: %{
         optional("maxItems") => integer(),
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type list_ml_endpoints_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gremlin_queries_output() :: %{
         "acceptedQueryCount" => [integer()],
         "queries" => list(gremlin_query_status()()),
         "runningQueryCount" => [integer()]
       }
-
+      
   """
   @type list_gremlin_queries_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_ml_model_training_job_input() :: %{
         optional("clean") => [boolean()],
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type cancel_ml_model_training_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancelled_by_user_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type cancelled_by_user_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_data_processing_job_output() :: %{
         "id" => [String.t()],
         "processingJob" => ml_resource_definition(),
         "status" => [String.t()]
       }
-
+      
   """
   @type get_ml_data_processing_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sparql_statistics_output() :: %{
         "payload" => delete_statistics_value_map(),
         "status" => [String.t()],
         "statusCode" => [integer()]
       }
-
+      
   """
   @type delete_sparql_statistics_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_propertygraph_stream_input() :: %{
         optional("commitNum") => [float()],
         optional("encoding") => list(any()),
@@ -1200,26 +1200,26 @@ defmodule AWS.Neptunedata do
         optional("limit") => [float()],
         optional("opNum") => [float()]
       }
-
+      
   """
   @type get_propertygraph_stream_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_gremlin_query_input() :: %{
         optional("serializer") => [String.t()],
         required("gremlinQuery") => [String.t()]
       }
-
+      
   """
   @type execute_gremlin_query_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_engine_status_output() :: %{
         "dbEngineVersion" => [String.t()],
         "dfeQueryEngine" => [String.t()],
@@ -1235,27 +1235,27 @@ defmodule AWS.Neptunedata do
         "startTime" => [String.t()],
         "status" => [String.t()]
       }
-
+      
   """
   @type get_engine_status_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_ml_endpoint_output() :: %{
         "arn" => [String.t()],
         "creationTimeInMillis" => [float()],
         "id" => [String.t()]
       }
-
+      
   """
   @type create_ml_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       propertygraph_record() :: %{
         "commitTimestampInMillis" => [float()],
         "data" => propertygraph_data(),
@@ -1263,112 +1263,112 @@ defmodule AWS.Neptunedata do
         "isLastOp" => [boolean()],
         "op" => [String.t()]
       }
-
+      
   """
   @type propertygraph_record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_loader_jobs_input() :: %{
         optional("includeQueuedLoads") => [boolean()],
         optional("limit") => integer()
       }
-
+      
   """
   @type list_loader_jobs_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       refresh_statistics_id_map() :: %{
         "statisticsId" => [String.t()]
       }
-
+      
   """
   @type refresh_statistics_id_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_fast_reset_output() :: %{
         "payload" => fast_reset_token(),
         "status" => [String.t()]
       }
-
+      
   """
   @type execute_fast_reset_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       propertygraph_summary_value_map() :: %{
         "graphSummary" => propertygraph_summary(),
         "lastStatisticsComputationTime" => [non_neg_integer()],
         "version" => [String.t()]
       }
-
+      
   """
   @type propertygraph_summary_value_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_argument_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_open_cypher_queries_input() :: %{
         optional("includeWaiting") => [boolean()]
       }
-
+      
   """
   @type list_open_cypher_queries_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       statistics() :: %{
         "active" => [boolean()],
         "autoCompute" => [boolean()],
@@ -1377,310 +1377,310 @@ defmodule AWS.Neptunedata do
         "signatureInfo" => statistics_summary(),
         "statisticsId" => [String.t()]
       }
-
+      
   """
   @type statistics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       concurrent_modification_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       manage_sparql_statistics_output() :: %{
         "payload" => refresh_statistics_id_map(),
         "status" => [String.t()]
       }
-
+      
   """
   @type manage_sparql_statistics_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       node_structure() :: %{
         "count" => [float()],
         "distinctOutgoingEdgeLabels" => list([String.t()]()),
         "nodeProperties" => list([String.t()]())
       }
-
+      
   """
   @type node_structure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       constraint_violation_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type constraint_violation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_too_large_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type query_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_loader_job_output() :: %{
         "status" => [String.t()]
       }
-
+      
   """
   @type cancel_loader_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_gremlin_queries_input() :: %{
         optional("includeWaiting") => [boolean()]
       }
-
+      
   """
   @type list_gremlin_queries_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_gremlin_query_output() :: %{
         "meta" => [any()],
         "requestId" => [String.t()],
         "result" => [any()],
         "status" => gremlin_query_status_attributes()
       }
-
+      
   """
   @type execute_gremlin_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_records_not_found_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type stream_records_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_r_d_f_graph_summary_output() :: %{
         "payload" => r_d_f_graph_summary_value_map(),
         "statusCode" => [integer()]
       }
-
+      
   """
   @type get_r_d_f_graph_summary_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       manage_propertygraph_statistics_input() :: %{
         optional("mode") => list(any())
       }
-
+      
   """
   @type manage_propertygraph_statistics_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_numeric_data_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type invalid_numeric_data_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_gremlin_explain_query_output() :: %{
         "output" => binary()
       }
-
+      
   """
   @type execute_gremlin_explain_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_ml_endpoint_output() :: %{
         "status" => [String.t()]
       }
-
+      
   """
   @type delete_ml_endpoint_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       load_url_access_denied_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type load_url_access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_ml_endpoint_input() :: %{
         optional("clean") => [boolean()],
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type delete_ml_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       expired_stream_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type expired_stream_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gremlin_query_status_attributes() :: %{
         "attributes" => [any()],
         "code" => [integer()],
         "message" => [String.t()]
       }
-
+      
   """
   @type gremlin_query_status_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_loader_job_output() :: %{
         "payload" => map(),
         "status" => [String.t()]
       }
-
+      
   """
   @type start_loader_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_statistics_value_map() :: %{
         "active" => [boolean()],
         "statisticsId" => [String.t()]
       }
-
+      
   """
   @type delete_statistics_value_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_open_cypher_explain_query_output() :: %{
         "results" => [binary()]
       }
-
+      
   """
   @type execute_open_cypher_explain_query_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_open_cypher_queries_output() :: %{
         "acceptedQueryCount" => [integer()],
         "queries" => list(gremlin_query_status()()),
         "runningQueryCount" => [integer()]
       }
-
+      
   """
   @type list_open_cypher_queries_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_ml_model_transform_job_input() :: %{
         optional("baseProcessingInstanceType") => [String.t()],
         optional("baseProcessingInstanceVolumeSizeInGB") => [integer()],
@@ -1697,37 +1697,37 @@ defmodule AWS.Neptunedata do
         optional("volumeEncryptionKMSKey") => [String.t()],
         required("modelTransformOutputS3Location") => [String.t()]
       }
-
+      
   """
   @type start_ml_model_transform_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_model_transform_parameters() :: %{
         "sourceS3DirectoryPath" => [String.t()],
         "transformEntryPointScript" => [String.t()]
       }
-
+      
   """
   @type custom_model_transform_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       loader_id_result() :: %{
         "loadIds" => list([String.t()]())
       }
-
+      
   """
   @type loader_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_model_training_job_output() :: %{
         "hpoJob" => ml_resource_definition(),
         "id" => [String.t()],
@@ -1736,100 +1736,100 @@ defmodule AWS.Neptunedata do
         "processingJob" => ml_resource_definition(),
         "status" => [String.t()]
       }
-
+      
   """
   @type get_ml_model_training_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       preconditions_failed_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type preconditions_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       client_timeout_exception() :: %{
         "code" => [String.t()],
         "detailedMessage" => [String.t()],
         "requestId" => [String.t()]
       }
-
+      
   """
   @type client_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sparql_data() :: %{
         "stmt" => [String.t()]
       }
-
+      
   """
   @type sparql_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_loader_jobs_output() :: %{
         "payload" => loader_id_result(),
         "status" => [String.t()]
       }
-
+      
   """
   @type list_loader_jobs_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_gremlin_query_input() :: %{}
-
+      
   """
   @type cancel_gremlin_query_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_ml_endpoint_input() :: %{
         optional("neptuneIamRoleArn") => [String.t()]
       }
-
+      
   """
   @type get_ml_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sparql_statistics_output() :: %{
         "payload" => statistics(),
         "status" => [String.t()]
       }
-
+      
   """
   @type get_sparql_statistics_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_fast_reset_input() :: %{
         optional("token") => [String.t()],
         required("action") => list(any())
       }
-
+      
   """
   @type execute_fast_reset_input() :: %{String.t() => any()}
 
@@ -2521,27 +2521,43 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelGremlinQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query_id` (`t:`) The unique identifier that identifies the query to be
-    canceled.
+  * `:query_id` (`t:string`) The unique identifier that identifies the query to be
+  canceled.
 
   ## Optional parameters:
   """
-  @spec cancel_gremlin_query(
-          AWS.Client.t(),
-          String.t(),
-          cancel_gremlin_query_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_gremlin_query(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_gremlin_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_gremlin_query_errors()}
-  def cancel_gremlin_query(%Client{} = client, query_id, input, options \\ []) do
+
+  def cancel_gremlin_query(%Client{} = client, query_id, options \\ []) do
     url_path = "/gremlin/status/#{AWS.Util.encode_uri(query_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2550,7 +2566,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2569,21 +2585,42 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelLoaderJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:load_id` (`t:`) The ID of the load job to be deleted.
+  * `:load_id` (`t:string`) The ID of the load job to be deleted.
 
   ## Optional parameters:
   """
-  @spec cancel_loader_job(AWS.Client.t(), String.t(), cancel_loader_job_input(), Keyword.t()) ::
+
+  @spec cancel_loader_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_loader_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_loader_job_errors()}
-  def cancel_loader_job(%Client{} = client, load_id, input, options \\ []) do
+
+  def cancel_loader_job(%Client{} = client, load_id, options \\ []) do
     url_path = "/loader/#{AWS.Util.encode_uri(load_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2592,7 +2629,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2610,34 +2647,56 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelMLDataProcessingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique identifier of the data-processing job.
+  * `:id` (`t:string`) The unique identifier of the data-processing job.
 
   ## Optional parameters:
-  * `:clean` (`t:`) If set to TRUE, this flag specifies that all Neptune ML S3
-    artifacts should be deleted when the job is stopped. The default is FALSE.
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  * `:clean` (`t:string`) If set to TRUE, this flag specifies that all Neptune ML
+  S3 artifacts should be deleted when the job is stopped. The default is
+  FALSE.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
-  @spec cancel_ml_data_processing_job(
-          AWS.Client.t(),
-          String.t(),
-          cancel_ml_data_processing_job_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_ml_data_processing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_ml_data_processing_job_errors()}
-  def cancel_ml_data_processing_job(%Client{} = client, id, input, options \\ []) do
+
+  def cancel_ml_data_processing_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/dataprocessing/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [clean: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :clean) do
+        [{"clean", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2647,6 +2706,8 @@ defmodule AWS.Neptunedata do
       options
       |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2654,7 +2715,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2673,34 +2734,56 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelMLModelTrainingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique identifier of the model-training job to be canceled.
+  * `:id` (`t:string`) The unique identifier of the model-training job to be
+  canceled.
 
   ## Optional parameters:
-  * `:clean` (`t:`) If set to TRUE, this flag specifies that all Amazon S3
-    artifacts should be deleted when the job is stopped. The default is FALSE.
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  * `:clean` (`t:string`) If set to TRUE, this flag specifies that all Amazon S3
+  artifacts should be deleted when the job is stopped. The default is FALSE.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
-  @spec cancel_ml_model_training_job(
-          AWS.Client.t(),
-          String.t(),
-          cancel_ml_model_training_job_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_ml_model_training_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_ml_model_training_job_errors()}
-  def cancel_ml_model_training_job(%Client{} = client, id, input, options \\ []) do
+
+  def cancel_ml_model_training_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/modeltraining/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [clean: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :clean) do
+        [{"clean", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2710,6 +2793,8 @@ defmodule AWS.Neptunedata do
       options
       |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2717,7 +2802,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2736,34 +2821,55 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelMLModelTransformJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique ID of the model transform job to be canceled.
+  * `:id` (`t:string`) The unique ID of the model transform job to be canceled.
 
   ## Optional parameters:
-  * `:clean` (`t:`) If this flag is set to TRUE, all Neptune ML S3 artifacts
-    should be deleted when the job is stopped. The default is FALSE.
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  * `:clean` (`t:string`) If this flag is set to TRUE, all Neptune ML S3 artifacts
+  should be deleted when the job is stopped. The default is FALSE.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
-  @spec cancel_ml_model_transform_job(
-          AWS.Client.t(),
-          String.t(),
-          cancel_ml_model_transform_job_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_ml_model_transform_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_ml_model_transform_job_errors()}
-  def cancel_ml_model_transform_job(%Client{} = client, id, input, options \\ []) do
+
+  def cancel_ml_model_transform_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/modeltransform/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [clean: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :clean) do
+        [{"clean", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2773,6 +2879,8 @@ defmodule AWS.Neptunedata do
       options
       |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2780,7 +2888,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2798,30 +2906,45 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CancelOpenCypherQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query_id` (`t:`) The unique ID of the openCypher query to cancel.
+  * `:query_id` (`t:string`) The unique ID of the openCypher query to cancel.
 
   ## Optional parameters:
-  * `:silent` (`t:`) If set to TRUE, causes the cancelation of the openCypher
-    query to happen silently.
+  * `:silent` (`t:string`) If set to TRUE, causes the cancelation of the
+  openCypher query to happen silently.
   """
-  @spec cancel_open_cypher_query(
-          AWS.Client.t(),
-          String.t(),
-          cancel_open_cypher_query_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_open_cypher_query(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_open_cypher_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_open_cypher_query_errors()}
-  def cancel_open_cypher_query(%Client{} = client, query_id, input, options \\ []) do
+
+  def cancel_open_cypher_query(%Client{} = client, query_id, options \\ []) do
     url_path = "/opencypher/status/#{AWS.Util.encode_uri(query_id)}"
+
+    # Validate optional parameters
+    optional_params = [silent: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"silent", "silent"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :silent) do
+        [{"silent", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2831,6 +2954,8 @@ defmodule AWS.Neptunedata do
       options
       |> Keyword.drop([:silent])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2838,7 +2963,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2861,29 +2986,40 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec create_ml_endpoint(AWS.Client.t(), create_ml_endpoint_input(), Keyword.t()) ::
+
+  @spec create_ml_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ml_endpoint_errors()}
-  def create_ml_endpoint(%Client{} = client, input, options \\ []) do
+
+  def create_ml_endpoint(%Client{} = client, options \\ []) do
     url_path = "/ml/endpoints"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2899,29 +3035,55 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20DeleteMLEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique identifier of the inference endpoint.
+  * `:id` (`t:string`) The unique identifier of the inference endpoint.
 
   ## Optional parameters:
-  * `:clean` (`t:`) If this flag is set to TRUE, all Neptune ML S3 artifacts
-    should be deleted when the job is stopped. The default is FALSE.
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role providing Neptune access
-    to SageMaker and Amazon S3 resources. This must be listed in your DB cluster
-    parameter group or an error will be thrown.
+  * `:clean` (`t:string`) If this flag is set to TRUE, all Neptune ML S3 artifacts
+  should be deleted when the job is stopped. The default is FALSE.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role providing Neptune
+  access to SageMaker and Amazon S3 resources. This must be listed in your DB
+  cluster parameter group or an error will be thrown.
   """
-  @spec delete_ml_endpoint(AWS.Client.t(), String.t(), delete_ml_endpoint_input(), Keyword.t()) ::
+
+  @spec delete_ml_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ml_endpoint_errors()}
-  def delete_ml_endpoint(%Client{} = client, id, input, options \\ []) do
+
+  def delete_ml_endpoint(%Client{} = client, id, options \\ []) do
     url_path = "/ml/endpoints/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = [clean: nil, neptune_iam_role_arn: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clean", "clean"},
-        {"neptuneIamRoleArn", "neptuneIamRoleArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :neptune_iam_role_arn) do
+        [{"neptuneIamRoleArn", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :clean) do
+        [{"clean", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2931,6 +3093,8 @@ defmodule AWS.Neptunedata do
       options
       |> Keyword.drop([:clean, :neptune_iam_role_arn])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2938,7 +3102,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2953,17 +3117,38 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec delete_propertygraph_statistics(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec delete_propertygraph_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_propertygraph_statistics_errors()}
-  def delete_propertygraph_statistics(%Client{} = client, input, options \\ []) do
+
+  def delete_propertygraph_statistics(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2972,7 +3157,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2987,17 +3172,38 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec delete_sparql_statistics(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec delete_sparql_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sparql_statistics_errors()}
-  def delete_sparql_statistics(%Client{} = client, input, options \\ []) do
+
+  def delete_sparql_statistics(%Client{} = client, options \\ []) do
     url_path = "/sparql/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3006,7 +3212,7 @@ defmodule AWS.Neptunedata do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3022,29 +3228,40 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec execute_fast_reset(AWS.Client.t(), execute_fast_reset_input(), Keyword.t()) ::
+
+  @spec execute_fast_reset(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_fast_reset_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_fast_reset_errors()}
-  def execute_fast_reset(%Client{} = client, input, options \\ []) do
+
+  def execute_fast_reset(%Client{} = client, options \\ []) do
     url_path = "/system"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3057,36 +3274,46 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteGremlinExplainQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:gremlin_query` (`t:string`) The Gremlin explain query string.
 
   ## Optional parameters:
   """
-  @spec execute_gremlin_explain_query(
-          AWS.Client.t(),
-          execute_gremlin_explain_query_input(),
-          Keyword.t()
-        ) ::
+
+  @spec execute_gremlin_explain_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_gremlin_explain_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_gremlin_explain_query_errors()}
-  def execute_gremlin_explain_query(%Client{} = client, input, options \\ []) do
+
+  def execute_gremlin_explain_query(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/gremlin/explain"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3103,36 +3330,58 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteGremlinProfileQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:gremlin_query` (`t:string`) The Gremlin query string to profile.
+    * `:chop` (`t:string`) If non-zero, causes the results string to be truncated at
+  that number of characters. If set to zero, the string contains all the
+  results.
+    * `:index_ops` (`t:string`) If this flag is set to TRUE, the results include a
+  detailed report of all index operations that took place during query
+  execution and serialization.
+    * `:results` (`t:string`) If this flag is set to TRUE, the query results are
+  gathered and displayed as part of the profile report. If FALSE, only the
+  result count is displayed.
+    * `:serializer` (`t:string`) If non-null, the gathered results are returned in a
+  serialized response message in the format specified by this parameter. See
+  Gremlin profile API in Neptune for more information.
 
   ## Optional parameters:
   """
-  @spec execute_gremlin_profile_query(
-          AWS.Client.t(),
-          execute_gremlin_profile_query_input(),
-          Keyword.t()
-        ) ::
+
+  @spec execute_gremlin_profile_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_gremlin_profile_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_gremlin_profile_query_errors()}
-  def execute_gremlin_profile_query(%Client{} = client, input, options \\ []) do
+
+  def execute_gremlin_profile_query(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/gremlin/profile"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3151,20 +3400,29 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteGremlinQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:gremlin_query` (`t:string`) Using this API, you can run Gremlin queries in
+  string format much as you can using the HTTP endpoint. The interface is
+  compatible with whatever Gremlin version your DB cluster is using (see the
+  Tinkerpop client section to determine which Gremlin releases your engine
+  version supports).
 
   ## Optional parameters:
-  * `:serializer` (`t:`) If non-null, the query results are returned in a
-    serialized response message in the format specified by this parameter. See
-    the GraphSON section in the TinkerPop documentation for a list of the
-    formats that are currently supported.
+  * `:serializer` (`t:string`) If non-null, the query results are returned in a
+  serialized response message in the format specified by this parameter. See
+  the GraphSON section in the TinkerPop documentation for a list of the
+  formats that are currently supported.
   """
-  @spec execute_gremlin_query(AWS.Client.t(), execute_gremlin_query_input(), Keyword.t()) ::
+
+  @spec execute_gremlin_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_gremlin_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_gremlin_query_errors()}
-  def execute_gremlin_query(%Client{} = client, input, options \\ []) do
+
+  def execute_gremlin_query(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/gremlin"
 
+    # Validate optional parameters
     optional_params = [serializer: nil]
 
     options =
@@ -3173,13 +3431,21 @@ defmodule AWS.Neptunedata do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"serializer", "accept"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :serializer) do
+        [{"accept", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -3189,17 +3455,9 @@ defmodule AWS.Neptunedata do
       options
       |> Keyword.drop([:serializer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3214,36 +3472,48 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteOpenCypherExplainQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:explain_mode` (`t:enum["DETAILS|DYNAMIC|STATIC"]`) The openCypher explain
+  mode. Can be one of: static, dynamic, or details.
+    * `:open_cypher_query` (`t:string`) The openCypher query string.
 
   ## Optional parameters:
   """
-  @spec execute_open_cypher_explain_query(
-          AWS.Client.t(),
-          execute_open_cypher_explain_query_input(),
-          Keyword.t()
-        ) ::
+
+  @spec execute_open_cypher_explain_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_open_cypher_explain_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_open_cypher_explain_query_errors()}
-  def execute_open_cypher_explain_query(%Client{} = client, input, options \\ []) do
+
+  def execute_open_cypher_explain_query(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/opencypher/explain"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3261,32 +3531,45 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteOpenCypherQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:open_cypher_query` (`t:string`) The openCypher query string to be executed.
 
   ## Optional parameters:
   """
-  @spec execute_open_cypher_query(AWS.Client.t(), execute_open_cypher_query_input(), Keyword.t()) ::
+
+  @spec execute_open_cypher_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_open_cypher_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_open_cypher_query_errors()}
-  def execute_open_cypher_query(%Client{} = client, input, options \\ []) do
+
+  def execute_open_cypher_query(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/opencypher"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3298,10 +3581,12 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
+
   @spec get_engine_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_engine_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_engine_status_errors()}
+
   def get_engine_status(%Client{} = client, options \\ []) do
     url_path = "/status"
 
@@ -3336,14 +3621,17 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetGremlinQueryStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query_id` (`t:`) The unique identifier that identifies the Gremlin query.
+  * `:query_id` (`t:string`) The unique identifier that identifies the Gremlin
+  query.
 
   ## Optional parameters:
   """
+
   @spec get_gremlin_query_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_gremlin_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gremlin_query_status_errors()}
+
   def get_gremlin_query_status(%Client{} = client, query_id, options \\ []) do
     url_path = "/gremlin/status/#{AWS.Util.encode_uri(query_id)}"
 
@@ -3380,23 +3668,25 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetLoaderJobStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:load_id` (`t:`) The load ID of the load job to get the status of.
+  * `:load_id` (`t:string`) The load ID of the load job to get the status of.
 
   ## Optional parameters:
-  * `:details` (`t:`) Flag indicating whether or not to include details beyond the
-    overall status (TRUE or FALSE; the default is FALSE).
-  * `:errors` (`t:`) Flag indicating whether or not to include a list of errors
-    encountered (TRUE or FALSE; the default is FALSE).
+  * `:details` (`t:string`) Flag indicating whether or not to include details
+  beyond the overall status (TRUE or FALSE; the default is FALSE).
+  * `:errors` (`t:string`) Flag indicating whether or not to include a list of
+  errors encountered (TRUE or FALSE; the default is FALSE).
   * `:errors_per_page` (`t:integer`) The number of errors returned in each page (a
-    positive integer; the default is 10). Only valid when the errors parameter
-    set to TRUE.
+  positive integer; the default is 10). Only valid when the errors parameter
+  set to TRUE.
   * `:page` (`t:integer`) The error page number (a positive integer; the default
-    is 1). Only valid when the errors parameter is set to TRUE.
+  is 1). Only valid when the errors parameter is set to TRUE.
   """
+
   @spec get_loader_job_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_loader_job_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_loader_job_status_errors()}
+
   def get_loader_job_status(%Client{} = client, load_id, options \\ []) do
     url_path = "/loader/#{AWS.Util.encode_uri(load_id)}"
 
@@ -3470,17 +3760,20 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLDataProcessingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique identifier of the data-processing job to be retrieved.
+  * `:id` (`t:string`) The unique identifier of the data-processing job to be
+  retrieved.
 
   ## Optional parameters:
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec get_ml_data_processing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_data_processing_job_errors()}
+
   def get_ml_data_processing_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/dataprocessing/#{AWS.Util.encode_uri(id)}"
 
@@ -3533,17 +3826,19 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique identifier of the inference endpoint.
+  * `:id` (`t:string`) The unique identifier of the inference endpoint.
 
   ## Optional parameters:
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec get_ml_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_endpoint_errors()}
+
   def get_ml_endpoint(%Client{} = client, id, options \\ []) do
     url_path = "/ml/endpoints/#{AWS.Util.encode_uri(id)}"
 
@@ -3596,17 +3891,20 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLModelTrainingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique identifier of the model-training job to retrieve.
+  * `:id` (`t:string`) The unique identifier of the model-training job to
+  retrieve.
 
   ## Optional parameters:
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec get_ml_model_training_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_model_training_job_errors()}
+
   def get_ml_model_training_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/modeltraining/#{AWS.Util.encode_uri(id)}"
 
@@ -3659,18 +3957,20 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetMLModelTransformJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:id` (`t:`) The unique identifier of the model-transform job to be
-    reetrieved.
+  * `:id` (`t:string`) The unique identifier of the model-transform job to be
+  reetrieved.
 
   ## Optional parameters:
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec get_ml_model_transform_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_model_transform_job_errors()}
+
   def get_ml_model_transform_job(%Client{} = client, id, options \\ []) do
     url_path = "/ml/modeltransform/#{AWS.Util.encode_uri(id)}"
 
@@ -3716,15 +4016,17 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetOpenCypherQueryStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:query_id` (`t:`) The unique ID of the openCypher query for which to retrieve
-    the query status.
+  * `:query_id` (`t:string`) The unique ID of the openCypher query for which to
+  retrieve the query status.
 
   ## Optional parameters:
   """
+
   @spec get_open_cypher_query_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_open_cypher_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_open_cypher_query_status_errors()}
+
   def get_open_cypher_query_status(%Client{} = client, query_id, options \\ []) do
     url_path = "/opencypher/status/#{AWS.Util.encode_uri(query_id)}"
 
@@ -3762,10 +4064,12 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
+
   @spec get_propertygraph_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_propertygraph_statistics_errors()}
+
   def get_propertygraph_statistics(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/statistics"
 
@@ -3805,27 +4109,30 @@ defmodule AWS.Neptunedata do
   ## Parameters:
 
   ## Optional parameters:
-  * `:commit_num` (`t:`) The commit number of the starting record to read from the
-    change-log stream. This parameter is required when iteratorType
-    isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
-    is TRIM_HORIZON or LATEST.
+  * `:commit_num` (`t:string`) The commit number of the starting record to read
+  from the change-log stream. This parameter is required when iteratorType
+  isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
+  is TRIM_HORIZON or LATEST.
   * `:iterator_type`
-    (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
-    Can be one of:
-  * `:limit` (`t:`) Specifies the maximum number of records to return. There is
-    also a size limit of 10 MB on the response that can't be modified and that
-    takes precedence over the number of records specified in the limit
-    parameter. The response does include a threshold-breaching record if the 10
-    MB limit was reached.
-  * `:op_num` (`t:`) The operation sequence number within the specified commit to
-    start reading from in the change-log stream data. The default is 1.
+  (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
+  Can be one of:
+  * `:limit` (`t:string`) Specifies the maximum number of records to return. There
+  is also a size limit of 10 MB on the response that can't be modified and
+  that takes precedence over the number of records specified in the limit
+  parameter. The response does include a threshold-breaching record if the 10
+  MB limit was reached.
+  * `:op_num` (`t:string`) The operation sequence number within the specified
+  commit to start reading from in the change-log stream data. The default is
+  1.
   * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response
-    using gzip encoding.
+  using gzip encoding.
   """
+
   @spec get_propertygraph_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_propertygraph_stream_errors()}
+
   def get_propertygraph_stream(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/stream"
 
@@ -3907,12 +4214,14 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: BASIC
-    (the default), and DETAILED.
+  (the default), and DETAILED.
   """
+
   @spec get_propertygraph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_propertygraph_summary_errors()}
+
   def get_propertygraph_summary(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/statistics/summary"
 
@@ -3961,12 +4270,14 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: BASIC
-    (the default), and DETAILED.
+  (the default), and DETAILED.
   """
+
   @spec get_r_d_f_graph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_r_d_f_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_r_d_f_graph_summary_errors()}
+
   def get_r_d_f_graph_summary(%Client{} = client, options \\ []) do
     url_path = "/rdf/statistics/summary"
 
@@ -4015,10 +4326,12 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
+
   @spec get_sparql_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sparql_statistics_errors()}
+
   def get_sparql_statistics(%Client{} = client, options \\ []) do
     url_path = "/sparql/statistics"
 
@@ -4058,27 +4371,30 @@ defmodule AWS.Neptunedata do
   ## Parameters:
 
   ## Optional parameters:
-  * `:commit_num` (`t:`) The commit number of the starting record to read from the
-    change-log stream. This parameter is required when iteratorType
-    isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
-    is TRIM_HORIZON or LATEST.
+  * `:commit_num` (`t:string`) The commit number of the starting record to read
+  from the change-log stream. This parameter is required when iteratorType
+  isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
+  is TRIM_HORIZON or LATEST.
   * `:iterator_type`
-    (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
-    Can be one of:
-  * `:limit` (`t:`) Specifies the maximum number of records to return. There is
-    also a size limit of 10 MB on the response that can't be modified and that
-    takes precedence over the number of records specified in the limit
-    parameter. The response does include a threshold-breaching record if the 10
-    MB limit was reached.
-  * `:op_num` (`t:`) The operation sequence number within the specified commit to
-    start reading from in the change-log stream data. The default is 1.
+  (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
+  Can be one of:
+  * `:limit` (`t:string`) Specifies the maximum number of records to return. There
+  is also a size limit of 10 MB on the response that can't be modified and
+  that takes precedence over the number of records specified in the limit
+  parameter. The response does include a threshold-breaching record if the 10
+  MB limit was reached.
+  * `:op_num` (`t:string`) The operation sequence number within the specified
+  commit to start reading from in the change-log stream data. The default is
+  1.
   * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response
-    using gzip encoding.
+  using gzip encoding.
   """
+
   @spec get_sparql_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sparql_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sparql_stream_errors()}
+
   def get_sparql_stream(%Client{} = client, options \\ []) do
     url_path = "/sparql/stream"
 
@@ -4165,13 +4481,15 @@ defmodule AWS.Neptunedata do
   ## Parameters:
 
   ## Optional parameters:
-  * `:include_waiting` (`t:`) If set to TRUE, the list returned includes waiting
-    queries. The default is FALSE;
+  * `:include_waiting` (`t:string`) If set to TRUE, the list returned includes
+  waiting queries. The default is FALSE;
   """
+
   @spec list_gremlin_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gremlin_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_gremlin_queries_errors()}
+
   def list_gremlin_queries(%Client{} = client, options \\ []) do
     url_path = "/gremlin/status"
 
@@ -4219,16 +4537,18 @@ defmodule AWS.Neptunedata do
   ## Parameters:
 
   ## Optional parameters:
-  * `:include_queued_loads` (`t:`) An optional parameter that can be used to
-    exclude the load IDs of queued load requests when requesting a list of load
-    IDs by setting the parameter to FALSE. The default value is TRUE.
+  * `:include_queued_loads` (`t:string`) An optional parameter that can be used to
+  exclude the load IDs of queued load requests when requesting a list of load
+  IDs by setting the parameter to FALSE. The default value is TRUE.
   * `:limit` (`t:integer`) The number of load IDs to list. Must be a positive
-    integer greater than zero and not more than 100 (which is the default).
+  integer greater than zero and not more than 100 (which is the default).
   """
+
   @spec list_loader_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_loader_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_loader_jobs_errors()}
+
   def list_loader_jobs(%Client{} = client, options \\ []) do
     url_path = "/loader"
 
@@ -4291,15 +4611,17 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-    1024; the default is 10).
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  1024; the default is 10).
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec list_ml_data_processing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_data_processing_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_data_processing_jobs_errors()}
+
   def list_ml_data_processing_jobs(%Client{} = client, options \\ []) do
     url_path = "/ml/dataprocessing"
 
@@ -4362,15 +4684,17 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-    1024; the default is 10.
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  1024; the default is 10.
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec list_ml_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_endpoints_errors()}
+
   def list_ml_endpoints(%Client{} = client, options \\ []) do
     url_path = "/ml/endpoints"
 
@@ -4433,15 +4757,17 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-    1024; the default is 10).
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  1024; the default is 10).
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec list_ml_model_training_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_training_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_model_training_jobs_errors()}
+
   def list_ml_model_training_jobs(%Client{} = client, options \\ []) do
     url_path = "/ml/modeltraining"
 
@@ -4504,15 +4830,17 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-    1024; the default is 10).
-  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune
-    access to SageMaker and Amazon S3 resources. This must be listed in your DB
-    cluster parameter group or an error will occur.
+  1024; the default is 10).
+  * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
+  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+  your DB cluster parameter group or an error will occur.
   """
+
   @spec list_ml_model_transform_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_transform_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_model_transform_jobs_errors()}
+
   def list_ml_model_transform_jobs(%Client{} = client, options \\ []) do
     url_path = "/ml/modeltransform"
 
@@ -4573,14 +4901,16 @@ defmodule AWS.Neptunedata do
   ## Parameters:
 
   ## Optional parameters:
-  * `:include_waiting` (`t:`) When set to TRUE and other parameters are not
-    present, causes status information to be returned for waiting queries as
-    well as for running queries.
+  * `:include_waiting` (`t:string`) When set to TRUE and other parameters are not
+  present, causes status information to be returned for waiting queries as
+  well as for running queries.
   """
+
   @spec list_open_cypher_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_open_cypher_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_open_cypher_queries_errors()}
+
   def list_open_cypher_queries(%Client{} = client, options \\ []) do
     url_path = "/opencypher/status"
 
@@ -4629,33 +4959,40 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec manage_propertygraph_statistics(
-          AWS.Client.t(),
-          manage_propertygraph_statistics_input(),
-          Keyword.t()
-        ) ::
+
+  @spec manage_propertygraph_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, manage_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, manage_propertygraph_statistics_errors()}
-  def manage_propertygraph_statistics(%Client{} = client, input, options \\ []) do
+
+  def manage_propertygraph_statistics(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4667,29 +5004,40 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec manage_sparql_statistics(AWS.Client.t(), manage_sparql_statistics_input(), Keyword.t()) ::
+
+  @spec manage_sparql_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, manage_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, manage_sparql_statistics_errors()}
-  def manage_sparql_statistics(%Client{} = client, input, options \\ []) do
+
+  def manage_sparql_statistics(%Client{} = client, options \\ []) do
     url_path = "/sparql/statistics"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4705,32 +5053,48 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartLoaderJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:s3_bucket_region`
+  (`t:enum["AF_SOUTH_1|AP_EAST_1|AP_NORTHEAST_1|AP_NORTHEAST_2|AP_SOUTHEAST_1|AP_SOUTHEAST_2|AP_SOUTH_1|CA_CENTRAL_1|CN_NORTHWEST_1|CN_NORTH_1|EU_CENTRAL_1|EU_NORTH_1|EU_WEST_1|EU_WEST_2|EU_WEST_3|ME_SOUTH_1|SA_EAST_1|US_EAST_1|US_EAST_2|US_GOV_EAST_1|US_GOV_WEST_1|US_WEST_1|US_WEST_2"]`)
+  The Amazon region of the S3 bucket. This must match the Amazon Region of the
+  DB cluster.
 
   ## Optional parameters:
   """
-  @spec start_loader_job(AWS.Client.t(), start_loader_job_input(), Keyword.t()) ::
+
+  @spec start_loader_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_loader_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_loader_job_errors()}
-  def start_loader_job(%Client{} = client, input, options \\ []) do
+
+  def start_loader_job(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/loader"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4749,33 +5113,40 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec start_ml_data_processing_job(
-          AWS.Client.t(),
-          start_ml_data_processing_job_input(),
-          Keyword.t()
-        ) ::
+
+  @spec start_ml_data_processing_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_data_processing_job_errors()}
-  def start_ml_data_processing_job(%Client{} = client, input, options \\ []) do
+
+  def start_ml_data_processing_job(%Client{} = client, options \\ []) do
     url_path = "/ml/dataprocessing"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4794,33 +5165,40 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec start_ml_model_training_job(
-          AWS.Client.t(),
-          start_ml_model_training_job_input(),
-          Keyword.t()
-        ) ::
+
+  @spec start_ml_model_training_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_model_training_job_errors()}
-  def start_ml_model_training_job(%Client{} = client, input, options \\ []) do
+
+  def start_ml_model_training_job(%Client{} = client, options \\ []) do
     url_path = "/ml/modeltraining"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4839,32 +5217,39 @@ defmodule AWS.Neptunedata do
 
   ## Optional parameters:
   """
-  @spec start_ml_model_transform_job(
-          AWS.Client.t(),
-          start_ml_model_transform_job_input(),
-          Keyword.t()
-        ) ::
+
+  @spec start_ml_model_transform_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_model_transform_job_errors()}
-  def start_ml_model_transform_job(%Client{} = client, input, options \\ []) do
+
+  def start_ml_model_transform_job(%Client{} = client, options \\ []) do
     url_path = "/ml/modeltransform"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

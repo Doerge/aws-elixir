@@ -13,7 +13,7 @@ defmodule AWS.Bedrock do
   @typedoc """
 
   ## Example:
-
+      
       model_customization_job_summary() :: %{
         "baseModelArn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -26,14 +26,14 @@ defmodule AWS.Bedrock do
         "lastModifiedTime" => non_neg_integer(),
         "status" => list(any())
       }
-
+      
   """
   @type model_customization_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_models_request() :: %{
         optional("baseModelArnEquals") => String.t(),
         optional("creationTimeAfter") => non_neg_integer(),
@@ -45,23 +45,23 @@ defmodule AWS.Bedrock do
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any())
       }
-
+      
   """
   @type list_custom_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_provisioned_model_throughput_response() :: %{}
-
+      
   """
   @type delete_provisioned_model_throughput_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_evaluation_job_response() :: %{
         "creationTime" => non_neg_integer(),
         "customerEncryptionKeyId" => String.t(),
@@ -77,14 +77,14 @@ defmodule AWS.Bedrock do
         "roleArn" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type get_evaluation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       foundation_model_summary() :: %{
         "customizationsSupported" => list(list(any())()),
         "inferenceTypesSupported" => list(list(any())()),
@@ -97,84 +97,84 @@ defmodule AWS.Bedrock do
         "providerName" => String.t(),
         "responseStreamingSupported" => [boolean()]
       }
-
+      
   """
   @type foundation_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("resourceARN") => String.t(),
         required("tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_guardrail_request() :: %{
         optional("guardrailVersion") => String.t()
       }
-
+      
   """
   @type delete_guardrail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_custom_model_response() :: %{}
-
+      
   """
   @type delete_custom_model_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_evaluation_job_request() :: %{}
-
+      
   """
   @type get_evaluation_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_evaluation_job_response() :: %{}
-
+      
   """
   @type stop_evaluation_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_provisioned_model_throughput_request() :: %{}
-
+      
   """
   @type get_provisioned_model_throughput_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_model_customization_job_response() :: %{
         "jobArn" => String.t()
       }
-
+      
   """
   @type create_model_customization_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_guardrail_response() :: %{
         "blockedInputMessaging" => String.t(),
         "blockedOutputsMessaging" => String.t(),
@@ -195,14 +195,14 @@ defmodule AWS.Bedrock do
         "version" => String.t(),
         "wordPolicy" => guardrail_word_policy()
       }
-
+      
   """
   @type get_guardrail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       foundation_model_details() :: %{
         "customizationsSupported" => list(list(any())()),
         "inferenceTypesSupported" => list(list(any())()),
@@ -215,25 +215,25 @@ defmodule AWS.Bedrock do
         "providerName" => String.t(),
         "responseStreamingSupported" => [boolean()]
       }
-
+      
   """
   @type foundation_model_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_topic_policy_config() :: %{
         "topicsConfig" => list(guardrail_topic_config()())
       }
-
+      
   """
   @type guardrail_topic_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_guardrail_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
@@ -248,14 +248,14 @@ defmodule AWS.Bedrock do
         required("blockedOutputsMessaging") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_guardrail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -266,35 +266,35 @@ defmodule AWS.Bedrock do
         "updatedAt" => non_neg_integer(),
         "version" => String.t()
       }
-
+      
   """
   @type guardrail_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_word_policy() :: %{
         "managedWordLists" => list(guardrail_managed_words()()),
         "words" => list(guardrail_word()())
       }
-
+      
   """
   @type guardrail_word_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_evaluation_jobs_request() :: %{
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
@@ -305,74 +305,74 @@ defmodule AWS.Bedrock do
         optional("sortOrder") => list(any()),
         optional("statusEquals") => list(any())
       }
-
+      
   """
   @type list_evaluation_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       automated_evaluation_config() :: %{
         "datasetMetricConfigs" => list(evaluation_dataset_metric_config()())
       }
-
+      
   """
   @type automated_evaluation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_topic_config() :: %{
         "definition" => String.t(),
         "examples" => list(String.t()()),
         "name" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_topic_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       human_workflow_config() :: %{
         "flowDefinitionArn" => String.t(),
         "instructions" => String.t()
       }
-
+      
   """
   @type human_workflow_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_content_policy() :: %{
         "filters" => list(guardrail_content_filter()())
       }
-
+      
   """
   @type guardrail_content_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_contextual_grounding_filter_config() :: %{
         "threshold" => [float()],
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_contextual_grounding_filter_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_model_customization_jobs_request() :: %{
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
@@ -383,14 +383,14 @@ defmodule AWS.Bedrock do
         optional("sortOrder") => list(any()),
         optional("statusEquals") => list(any())
       }
-
+      
   """
   @type list_model_customization_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_provisioned_model_throughputs_request() :: %{
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
@@ -402,50 +402,50 @@ defmodule AWS.Bedrock do
         optional("sortOrder") => list(any()),
         optional("statusEquals") => list(any())
       }
-
+      
   """
   @type list_provisioned_model_throughputs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_guardrail_response() :: %{
         "createdAt" => non_neg_integer(),
         "guardrailArn" => String.t(),
         "guardrailId" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type create_guardrail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_evaluation_job_request() :: %{}
-
+      
   """
   @type stop_evaluation_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_config() :: %{
         "largeDataDeliveryS3Config" => s3_config(),
         "logGroupName" => String.t(),
         "roleArn" => String.t()
       }
-
+      
   """
   @type cloud_watch_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_config() :: %{
         "cloudWatchConfig" => cloud_watch_config(),
         "embeddingDataDeliveryEnabled" => [boolean()],
@@ -453,38 +453,38 @@ defmodule AWS.Bedrock do
         "s3Config" => s3_config(),
         "textDataDeliveryEnabled" => [boolean()]
       }
-
+      
   """
   @type logging_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_provisioned_model_throughputs_response() :: %{
         "nextToken" => String.t(),
         "provisionedModelSummaries" => list(provisioned_model_summary()())
       }
-
+      
   """
   @type list_provisioned_model_throughputs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       provisioned_model_summary() :: %{
         "commitmentDuration" => list(any()),
         "commitmentExpirationTime" => non_neg_integer(),
@@ -499,36 +499,36 @@ defmodule AWS.Bedrock do
         "provisionedModelName" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type provisioned_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_managed_words_config() :: %{
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_managed_words_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_word() :: %{
         "text" => [String.t()]
       }
-
+      
   """
   @type guardrail_word() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_provisioned_model_throughput_response() :: %{
         "commitmentDuration" => list(any()),
         "commitmentExpirationTime" => non_neg_integer(),
@@ -544,160 +544,160 @@ defmodule AWS.Bedrock do
         "provisionedModelName" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type get_provisioned_model_throughput_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_foundation_model_request() :: %{}
-
+      
   """
   @type get_foundation_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_model_customization_job_response() :: %{}
-
+      
   """
   @type stop_model_customization_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_content_filter_config() :: %{
         "inputStrength" => list(any()),
         "outputStrength" => list(any()),
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_content_filter_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_guardrails_response() :: %{
         "guardrails" => list(guardrail_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_guardrails_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "key" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_provisioned_model_throughput_request() :: %{}
-
+      
   """
   @type delete_provisioned_model_throughput_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_dataset_metric_config() :: %{
         "dataset" => evaluation_dataset(),
         "metricNames" => list(String.t()()),
         "taskType" => list(any())
       }
-
+      
   """
   @type evaluation_dataset_metric_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_content_filter() :: %{
         "inputStrength" => list(any()),
         "outputStrength" => list(any()),
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_content_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_provisioned_model_throughput_response() :: %{
         "provisionedModelArn" => String.t()
       }
-
+      
   """
   @type create_provisioned_model_throughput_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_config() :: %{
         "bucketName" => String.t(),
         "keyPrefix" => String.t()
       }
-
+      
   """
   @type s3_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_custom_model_response() :: %{
         "baseModelArn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -714,71 +714,71 @@ defmodule AWS.Bedrock do
         "validationDataConfig" => validation_data_config(),
         "validationMetrics" => list(validator_metric()())
       }
-
+      
   """
   @type get_custom_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_contextual_grounding_filter() :: %{
         "threshold" => [float()],
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_contextual_grounding_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_provisioned_model_throughput_request() :: %{
         optional("desiredModelId") => String.t(),
         optional("desiredProvisionedModelName") => String.t()
       }
-
+      
   """
   @type update_provisioned_model_throughput_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_managed_words() :: %{
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_managed_words() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_content_policy_config() :: %{
         "filtersConfig" => list(guardrail_content_filter_config()())
       }
-
+      
   """
   @type guardrail_content_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_output_data_config() :: %{
         "s3Uri" => String.t()
       }
-
+      
   """
   @type evaluation_output_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_provisioned_model_throughput_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("commitmentDuration") => list(any()),
@@ -787,69 +787,69 @@ defmodule AWS.Bedrock do
         required("modelUnits") => integer(),
         required("provisionedModelName") => String.t()
       }
-
+      
   """
   @type create_provisioned_model_throughput_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vpc_config() :: %{
         "securityGroupIds" => list(String.t()()),
         "subnetIds" => list(String.t()())
       }
-
+      
   """
   @type vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_pii_entity() :: %{
         "action" => list(any()),
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_pii_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_model_invocation_logging_configuration_response() :: %{}
-
+      
   """
   @type delete_model_invocation_logging_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       training_metrics() :: %{
         "trainingLoss" => float()
       }
-
+      
   """
   @type training_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_guardrail_request() :: %{
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
@@ -862,212 +862,212 @@ defmodule AWS.Bedrock do
         required("blockedOutputsMessaging") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type update_guardrail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_custom_model_request() :: %{}
-
+      
   """
   @type get_custom_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_model_customization_job_request() :: %{}
-
+      
   """
   @type get_model_customization_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       human_evaluation_custom_metric() :: %{
         "description" => String.t(),
         "name" => String.t(),
         "ratingMethod" => String.t()
       }
-
+      
   """
   @type human_evaluation_custom_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_model_invocation_logging_configuration_request() :: %{}
-
+      
   """
   @type get_model_invocation_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_foundation_models_request() :: %{
         optional("byCustomizationType") => list(any()),
         optional("byInferenceType") => list(any()),
         optional("byOutputModality") => list(any()),
         optional("byProvider") => String.t()
       }
-
+      
   """
   @type list_foundation_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_word_config() :: %{
         "text" => [String.t()]
       }
-
+      
   """
   @type guardrail_word_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_sensitive_information_policy() :: %{
         "piiEntities" => list(guardrail_pii_entity()()),
         "regexes" => list(guardrail_regex()())
       }
-
+      
   """
   @type guardrail_sensitive_information_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       foundation_model_lifecycle() :: %{
         "status" => list(any())
       }
-
+      
   """
   @type foundation_model_lifecycle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_contextual_grounding_policy_config() :: %{
         "filtersConfig" => list(guardrail_contextual_grounding_filter_config()())
       }
-
+      
   """
   @type guardrail_contextual_grounding_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_guardrail_response() :: %{}
-
+      
   """
   @type delete_guardrail_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_data_config() :: %{
         "validators" => list(validator()())
       }
-
+      
   """
   @type validation_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_provisioned_model_throughput_response() :: %{}
-
+      
   """
   @type update_provisioned_model_throughput_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_regex_config() :: %{
         "action" => list(any()),
         "description" => [String.t()],
         "name" => [String.t()],
         "pattern" => [String.t()]
       }
-
+      
   """
   @type guardrail_regex_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_model_invocation_logging_configuration_request() :: %{
         required("loggingConfig") => logging_config()
       }
-
+      
   """
   @type put_model_invocation_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_model_customization_jobs_response() :: %{
         "modelCustomizationJobSummaries" => list(model_customization_job_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_model_customization_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_foundation_models_response() :: %{
         "modelSummaries" => list(foundation_model_summary()())
       }
-
+      
   """
   @type list_foundation_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_model_customization_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("customModelKmsKeyId") => String.t(),
@@ -1084,23 +1084,23 @@ defmodule AWS.Bedrock do
         required("roleArn") => String.t(),
         required("trainingDataConfig") => training_data_config()
       }
-
+      
   """
   @type create_model_customization_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_evaluation_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("customerEncryptionKeyId") => String.t(),
@@ -1112,148 +1112,148 @@ defmodule AWS.Bedrock do
         required("outputDataConfig") => evaluation_output_data_config(),
         required("roleArn") => String.t()
       }
-
+      
   """
   @type create_evaluation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_word_policy_config() :: %{
         "managedWordListsConfig" => list(guardrail_managed_words_config()()),
         "wordsConfig" => list(guardrail_word_config()())
       }
-
+      
   """
   @type guardrail_word_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validator_metric() :: %{
         "validationLoss" => float()
       }
-
+      
   """
   @type validator_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_evaluation_jobs_response() :: %{
         "jobSummaries" => list(evaluation_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_evaluation_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_sensitive_information_policy_config() :: %{
         "piiEntitiesConfig" => list(guardrail_pii_entity_config()()),
         "regexesConfig" => list(guardrail_regex_config()())
       }
-
+      
   """
   @type guardrail_sensitive_information_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_model_customization_job_request() :: %{}
-
+      
   """
   @type stop_model_customization_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_guardrail_version_response() :: %{
         "guardrailId" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type create_guardrail_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_custom_model_request() :: %{}
-
+      
   """
   @type delete_custom_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("resourceARN") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_pii_entity_config() :: %{
         "action" => list(any()),
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_pii_entity_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_dataset() :: %{
         "datasetLocation" => list(),
         "name" => String.t()
       }
-
+      
   """
   @type evaluation_dataset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_model_customization_job_response() :: %{
         "baseModelArn" => String.t(),
         "clientRequestToken" => String.t(),
@@ -1277,143 +1277,143 @@ defmodule AWS.Bedrock do
         "validationMetrics" => list(validator_metric()()),
         "vpcConfig" => vpc_config()
       }
-
+      
   """
   @type get_model_customization_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_custom_models_response() :: %{
         "modelSummaries" => list(custom_model_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_custom_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_topic_policy() :: %{
         "topics" => list(guardrail_topic()())
       }
-
+      
   """
   @type guardrail_topic_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       output_data_config() :: %{
         "s3Uri" => String.t()
       }
-
+      
   """
   @type output_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_model_invocation_logging_configuration_response() :: %{
         "loggingConfig" => logging_config()
       }
-
+      
   """
   @type get_model_invocation_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_guardrail_version_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("description") => String.t()
       }
-
+      
   """
   @type create_guardrail_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_guardrails_request() :: %{
         optional("guardrailIdentifier") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_guardrails_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_model_invocation_logging_configuration_response() :: %{}
-
+      
   """
   @type put_model_invocation_logging_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validator() :: %{
         "s3Uri" => String.t()
       }
-
+      
   """
   @type validator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_regex() :: %{
         "action" => list(any()),
         "description" => [String.t()],
         "name" => [String.t()],
         "pattern" => [String.t()]
       }
-
+      
   """
   @type guardrail_regex() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_evaluation_job_response() :: %{
         "jobArn" => String.t()
       }
-
+      
   """
   @type create_evaluation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_guardrail_response() :: %{
         "guardrailArn" => String.t(),
         "guardrailId" => String.t(),
         "updatedAt" => non_neg_integer(),
         "version" => String.t()
       }
-
+      
   """
   @type update_guardrail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_summary() :: %{
         "creationTime" => non_neg_integer(),
         "evaluationTaskTypes" => list(list(any())()),
@@ -1423,46 +1423,46 @@ defmodule AWS.Bedrock do
         "modelIdentifiers" => list(String.t()()),
         "status" => list(any())
       }
-
+      
   """
   @type evaluation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       training_data_config() :: %{
         "s3Uri" => String.t()
       }
-
+      
   """
   @type training_data_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_bedrock_model() :: %{
         "inferenceParams" => String.t(),
         "modelIdentifier" => String.t()
       }
-
+      
   """
   @type evaluation_bedrock_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_model_invocation_logging_configuration_request() :: %{}
-
+      
   """
   @type delete_model_invocation_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_model_summary() :: %{
         "baseModelArn" => String.t(),
         "baseModelName" => String.t(),
@@ -1471,79 +1471,79 @@ defmodule AWS.Bedrock do
         "modelArn" => String.t(),
         "modelName" => String.t()
       }
-
+      
   """
   @type custom_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_guardrail_request() :: %{
         optional("guardrailVersion") => String.t()
       }
-
+      
   """
   @type get_guardrail_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_foundation_model_response() :: %{
         "modelDetails" => foundation_model_details()
       }
-
+      
   """
   @type get_foundation_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "message" => String.t(),
         "resourceName" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_topic() :: %{
         "definition" => String.t(),
         "examples" => list(String.t()()),
         "name" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type guardrail_topic() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       guardrail_contextual_grounding_policy() :: %{
         "filters" => list(guardrail_contextual_grounding_filter()())
       }
-
+      
   """
   @type guardrail_contextual_grounding_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       human_evaluation_config() :: %{
         "customMetrics" => list(human_evaluation_custom_metric()()),
         "datasetMetricConfigs" => list(evaluation_dataset_metric_config()()),
         "humanWorkflowConfig" => human_workflow_config()
       }
-
+      
   """
   @type human_evaluation_config() :: %{String.t() => any()}
 
@@ -1791,29 +1791,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec create_evaluation_job(AWS.Client.t(), create_evaluation_job_request(), Keyword.t()) ::
+
+  @spec create_evaluation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_job_errors()}
-  def create_evaluation_job(%Client{} = client, input, options \\ []) do
+
+  def create_evaluation_job(%Client{} = client, options \\ []) do
     url_path = "/evaluation-jobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1828,29 +1839,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec create_guardrail(AWS.Client.t(), create_guardrail_request(), Keyword.t()) ::
+
+  @spec create_guardrail(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_guardrail_errors()}
-  def create_guardrail(%Client{} = client, input, options \\ []) do
+
+  def create_guardrail(%Client{} = client, options \\ []) do
     url_path = "/guardrails"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1862,38 +1884,44 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-    This can be an ID or the ARN.
+  This can be an ID or the ARN.
 
   ## Optional parameters:
   """
-  @spec create_guardrail_version(
-          AWS.Client.t(),
-          String.t(),
-          create_guardrail_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_guardrail_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_guardrail_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_guardrail_version_errors()}
-  def create_guardrail_version(%Client{} = client, guardrail_identifier, input, options \\ []) do
+
+  def create_guardrail_version(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1909,33 +1937,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec create_model_customization_job(
-          AWS.Client.t(),
-          create_model_customization_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_model_customization_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_customization_job_errors()}
-  def create_model_customization_job(%Client{} = client, input, options \\ []) do
+
+  def create_model_customization_job(%Client{} = client, options \\ []) do
     url_path = "/model-customization-jobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1952,33 +1987,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec create_provisioned_model_throughput(
-          AWS.Client.t(),
-          create_provisioned_model_throughput_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_provisioned_model_throughput(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_provisioned_model_throughput_errors()}
-  def create_provisioned_model_throughput(%Client{} = client, input, options \\ []) do
+
+  def create_provisioned_model_throughput(%Client{} = client, options \\ []) do
     url_path = "/provisioned-model-throughput"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1994,22 +2036,38 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec delete_custom_model(
-          AWS.Client.t(),
-          String.t(),
-          delete_custom_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_custom_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_model_errors()}
-  def delete_custom_model(%Client{} = client, model_identifier, input, options \\ []) do
+
+  def delete_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2018,7 +2076,7 @@ defmodule AWS.Bedrock do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2031,24 +2089,44 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-    This can be an ID or the ARN.
+  This can be an ID or the ARN.
 
   ## Optional parameters:
   * `:guardrail_version` (`t:string`) The version of the guardrail.
   """
-  @spec delete_guardrail(AWS.Client.t(), String.t(), delete_guardrail_request(), Keyword.t()) ::
+
+  @spec delete_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_guardrail_errors()}
-  def delete_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
+
+  def delete_guardrail(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+
+    # Validate optional parameters
+    optional_params = [guardrail_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"guardrailVersion", "guardrailVersion"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :guardrail_version) do
+        [{"guardrailVersion", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2058,6 +2136,8 @@ defmodule AWS.Bedrock do
       options
       |> Keyword.drop([:guardrail_version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2065,7 +2145,7 @@ defmodule AWS.Bedrock do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -2080,21 +2160,38 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec delete_model_invocation_logging_configuration(
-          AWS.Client.t(),
-          delete_model_invocation_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_invocation_logging_configuration_errors()}
-  def delete_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2103,7 +2200,7 @@ defmodule AWS.Bedrock do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2119,31 +2216,42 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
-    the Provisioned Throughput.
+  the Provisioned Throughput.
 
   ## Optional parameters:
   """
-  @spec delete_provisioned_model_throughput(
-          AWS.Client.t(),
-          String.t(),
-          delete_provisioned_model_throughput_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_provisioned_model_throughput_errors()}
-  def delete_provisioned_model_throughput(
-        %Client{} = client,
-        provisioned_model_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2152,7 +2260,7 @@ defmodule AWS.Bedrock do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2168,14 +2276,16 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:model_identifier` (`t:string`) Name or Amazon Resource Name (ARN) of the
-    custom model.
+  custom model.
 
   ## Optional parameters:
   """
+
   @spec get_custom_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_model_errors()}
+
   def get_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
 
@@ -2213,14 +2323,16 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:job_identifier` (`t:string`) The Amazon Resource Name (ARN) of the model
-    evaluation job.
+  evaluation job.
 
   ## Optional parameters:
   """
+
   @spec get_evaluation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_evaluation_job_errors()}
+
   def get_evaluation_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/evaluation-jobs/#{AWS.Util.encode_uri(job_identifier)}"
 
@@ -2259,10 +2371,12 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
+
   @spec get_foundation_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_foundation_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_foundation_model_errors()}
+
   def get_foundation_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/foundation-models/#{AWS.Util.encode_uri(model_identifier)}"
 
@@ -2299,17 +2413,19 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
-    for which to get details. This can be an ID or the ARN.
+  for which to get details. This can be an ID or the ARN.
 
   ## Optional parameters:
   * `:guardrail_version` (`t:string`) The version of the guardrail for which to
-    get details. If you don't specify a version, the response returns details
-    for the DRAFT version.
+  get details. If you don't specify a version, the response returns details
+  for the DRAFT version.
   """
+
   @spec get_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_guardrail_errors()}
+
   def get_guardrail(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
 
@@ -2362,10 +2478,12 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
+
   @spec get_model_customization_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_customization_job_errors()}
+
   def get_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}"
 
@@ -2403,10 +2521,12 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
+
   @spec get_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_invocation_logging_configuration_errors()}
+
   def get_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
 
@@ -2445,14 +2565,16 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
-    the Provisioned Throughput.
+  the Provisioned Throughput.
 
   ## Optional parameters:
   """
+
   @spec get_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_provisioned_model_throughput_errors()}
+
   def get_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
 
@@ -2491,28 +2613,30 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   * `:base_model_arn_equals` (`t:string`) Return custom models only if the base
-    model Amazon Resource Name (ARN) matches this parameter.
+  model Amazon Resource Name (ARN) matches this parameter.
   * `:creation_time_after` (`t:timestamp[date-time]`) Return custom models created
-    after the specified time.
+  after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) Return custom models
-    created before the specified time.
+  created before the specified time.
   * `:foundation_model_arn_equals` (`t:string`) Return custom models only if the
-    foundation model Amazon Resource Name (ARN) matches this parameter.
+  foundation model Amazon Resource Name (ARN) matches this parameter.
   * `:max_results` (`t:integer`) Maximum number of results to return in the
-    response.
+  response.
   * `:name_contains` (`t:string`) Return custom models only if the job name
-    contains these characters.
+  contains these characters.
   * `:next_token` (`t:string`) Continuation token from the previous response, for
-    Amazon Bedrock to list the next set of results.
+  Amazon Bedrock to list the next set of results.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
-    list of models.
+  list of models.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
-    results.
+  results.
   """
+
   @spec list_custom_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_models_errors()}
+
   def list_custom_models(%Client{} = client, options \\ []) do
     url_path = "/custom-models"
 
@@ -2637,25 +2761,27 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) A filter that includes model
-    evaluation jobs created after the time specified.
+  evaluation jobs created after the time specified.
   * `:creation_time_before` (`t:timestamp[date-time]`) A filter that includes
-    model evaluation jobs created prior to the time specified.
+  model evaluation jobs created prior to the time specified.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:name_contains` (`t:string`) Query parameter string for model evaluation job
-    names.
+  names.
   * `:next_token` (`t:string`) Continuation token from the previous response, for
-    Amazon Bedrock to list the next set of results.
+  Amazon Bedrock to list the next set of results.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) Allows you to sort model evaluation
-    jobs by when they were created.
+  jobs by when they were created.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) How you want the order of
-    jobs sorted.
+  jobs sorted.
   * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
-    Only return jobs where the status condition is met.
+  Only return jobs where the status condition is met.
   """
+
   @spec list_evaluation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_evaluation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_jobs_errors()}
+
   def list_evaluation_jobs(%Client{} = client, options \\ []) do
     url_path = "/evaluation-jobs"
 
@@ -2774,20 +2900,22 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   * `:by_customization_type` (`t:enum["CONTINUED_PRE_TRAINING|FINE_TUNING"]`)
-    Return models that support the customization type that you specify. For more
-    information, see Custom models in the Amazon Bedrock User Guide.
+  Return models that support the customization type that you specify. For more
+  information, see Custom models in the Amazon Bedrock User Guide.
   * `:by_inference_type` (`t:enum["ON_DEMAND|PROVISIONED"]`) Return models that
-    support the inference type that you specify. For more information, see
-    Provisioned Throughput in the Amazon Bedrock User Guide.
+  support the inference type that you specify. For more information, see
+  Provisioned Throughput in the Amazon Bedrock User Guide.
   * `:by_output_modality` (`t:enum["EMBEDDING|IMAGE|TEXT"]`) Return models that
-    support the output modality that you specify.
+  support the output modality that you specify.
   * `:by_provider` (`t:string`) Return models belonging to the model provider that
-    you specify.
+  you specify.
   """
+
   @spec list_foundation_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_foundation_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_foundation_models_errors()}
+
   def list_foundation_models(%Client{} = client, options \\ []) do
     url_path = "/foundation-models"
 
@@ -2870,17 +2998,19 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-    This can be an ID or the ARN.
+  This can be an ID or the ARN.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) If there are more results than were returned in the
-    response, the response returns a nextToken that you can send in another
-    ListGuardrails request to see the next batch of results.
+  response, the response returns a nextToken that you can send in another
+  ListGuardrails request to see the next batch of results.
   """
+
   @spec list_guardrails(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_guardrails_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_guardrails_errors()}
+
   def list_guardrails(%Client{} = client, options \\ []) do
     url_path = "/guardrails"
 
@@ -2944,26 +3074,28 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) Return customization jobs
-    created after the specified time.
+  created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) Return customization jobs
-    created before the specified time.
+  created before the specified time.
   * `:max_results` (`t:integer`) Maximum number of results to return in the
-    response.
+  response.
   * `:name_contains` (`t:string`) Return customization jobs only if the job name
-    contains these characters.
+  contains these characters.
   * `:next_token` (`t:string`) Continuation token from the previous response, for
-    Amazon Bedrock to list the next set of results.
+  Amazon Bedrock to list the next set of results.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
-    list of jobs.
+  list of jobs.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
-    results.
+  results.
   * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
-    Return customization jobs with the specified status.
+  Return customization jobs with the specified status.
   """
+
   @spec list_model_customization_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_customization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_customization_jobs_errors()}
+
   def list_model_customization_jobs(%Client{} = client, options \\ []) do
     url_path = "/model-customization-jobs"
 
@@ -3082,33 +3214,35 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) A filter that returns
-    Provisioned Throughputs created after the specified time.
+  Provisioned Throughputs created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) A filter that returns
-    Provisioned Throughputs created before the specified time.
+  Provisioned Throughputs created before the specified time.
   * `:max_results` (`t:integer`) THe maximum number of results to return in the
-    response. If there are more results than the number you specified, the
-    response returns a nextToken value. To see the next batch of results, send
-    the nextToken value in another list request.
+  response. If there are more results than the number you specified, the
+  response returns a nextToken value. To see the next batch of results, send
+  the nextToken value in another list request.
   * `:model_arn_equals` (`t:string`) A filter that returns Provisioned Throughputs
-    whose model Amazon Resource Name (ARN) is equal to the value that you
-    specify.
+  whose model Amazon Resource Name (ARN) is equal to the value that you
+  specify.
   * `:name_contains` (`t:string`) A filter that returns Provisioned Throughputs if
-    their name contains the expression that you specify.
+  their name contains the expression that you specify.
   * `:next_token` (`t:string`) If there are more results than the number you
-    specified in the maxResults field, the response returns a nextToken value.
-    To see the next batch of results, specify the nextToken value in this field.
+  specified in the maxResults field, the response returns a nextToken value.
+  To see the next batch of results, specify the nextToken value in this field.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) The field by which to sort the returned
-    list of Provisioned Throughputs.
+  list of Provisioned Throughputs.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
-    results.
+  results.
   * `:status_equals` (`t:enum["CREATING|FAILED|IN_SERVICE|UPDATING"]`) A filter
-    that returns Provisioned Throughputs if their statuses matches the value
-    that you specify.
+  that returns Provisioned Throughputs if their statuses matches the value
+  that you specify.
   """
+
   @spec list_provisioned_model_throughputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_provisioned_model_throughputs_errors()}
+
   def list_provisioned_model_throughputs(%Client{} = client, options \\ []) do
     url_path = "/provisioned-model-throughputs"
 
@@ -3233,29 +3367,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/listTagsForResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3267,23 +3412,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec put_model_invocation_logging_configuration(
-          AWS.Client.t(),
-          put_model_invocation_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_model_invocation_logging_configuration_errors()}
-  def put_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3293,38 +3455,44 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:job_identifier` (`t:string`) The ARN of the model evaluation job you want to
-    stop.
+  stop.
 
   ## Optional parameters:
   """
-  @spec stop_evaluation_job(
-          AWS.Client.t(),
-          String.t(),
-          stop_evaluation_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_evaluation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_evaluation_job_errors()}
-  def stop_evaluation_job(%Client{} = client, job_identifier, input, options \\ []) do
+
+  def stop_evaluation_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/evaluation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3339,34 +3507,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec stop_model_customization_job(
-          AWS.Client.t(),
-          String.t(),
-          stop_model_customization_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_model_customization_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_model_customization_job_errors()}
-  def stop_model_customization_job(%Client{} = client, job_identifier, input, options \\ []) do
+
+  def stop_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}/stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3380,29 +3554,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3416,29 +3601,40 @@ defmodule AWS.Bedrock do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/untagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3448,23 +3644,44 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-    This can be an ID or the ARN.
+  This can be an ID or the ARN.
 
   ## Optional parameters:
   """
-  @spec update_guardrail(AWS.Client.t(), String.t(), update_guardrail_request(), Keyword.t()) ::
+
+  @spec update_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_guardrail_errors()}
-  def update_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
+
+  def update_guardrail(%Client{} = client, guardrail_identifier, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -3477,31 +3694,42 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
-    the Provisioned Throughput to update.
+  the Provisioned Throughput to update.
 
   ## Optional parameters:
   """
-  @spec update_provisioned_model_throughput(
-          AWS.Client.t(),
-          String.t(),
-          update_provisioned_model_throughput_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_provisioned_model_throughput_errors()}
-  def update_provisioned_model_throughput(
-        %Client{} = client,
-        provisioned_model_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3510,7 +3738,7 @@ defmodule AWS.Bedrock do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

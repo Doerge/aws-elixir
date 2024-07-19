@@ -2656,12 +2656,23 @@ defmodule AWS.CodePipeline do
   @doc """
   Returns information about a specified job and whether that job has been received
   by the job worker. Used for custom actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20AcknowledgeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:acknowledge_job_input`)
+    %{
+      required("jobId") => String.t(),
+      required("nonce") => String.t()
+    }
   """
-  @spec acknowledge_job(AWS.Client.t(), acknowledge_job_input(), Keyword.t()) ::
+
+  @spec acknowledge_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, acknowledge_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, acknowledge_job_errors()}
-  def acknowledge_job(%Client{} = client, input, options \\ []) do
+
+  def acknowledge_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2671,16 +2682,24 @@ defmodule AWS.CodePipeline do
   @doc """
   Confirms a job worker has received the specified job. Used for partner actions
   only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20AcknowledgeThirdPartyJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:acknowledge_third_party_job_input`)
+    %{
+      required("clientToken") => String.t(),
+      required("jobId") => String.t(),
+      required("nonce") => String.t()
+    }
   """
-  @spec acknowledge_third_party_job(
-          AWS.Client.t(),
-          acknowledge_third_party_job_input(),
-          Keyword.t()
-        ) ::
+
+  @spec acknowledge_third_party_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, acknowledge_third_party_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, acknowledge_third_party_job_errors()}
-  def acknowledge_third_party_job(%Client{} = client, input, options \\ []) do
+
+  def acknowledge_third_party_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2690,12 +2709,29 @@ defmodule AWS.CodePipeline do
   @doc """
   Creates a new custom action that can be used in all pipelines associated with
   the Amazon Web Services account. Only used for custom actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20CreateCustomActionType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_custom_action_type_input`)
+    %{
+      optional("configurationProperties") => list(action_configuration_property()()),
+      optional("settings") => action_type_settings(),
+      optional("tags") => list(tag()()),
+      required("category") => list(any()),
+      required("inputArtifactDetails") => artifact_details(),
+      required("outputArtifactDetails") => artifact_details(),
+      required("provider") => String.t(),
+      required("version") => String.t()
+    }
   """
-  @spec create_custom_action_type(AWS.Client.t(), create_custom_action_type_input(), Keyword.t()) ::
+
+  @spec create_custom_action_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_action_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_action_type_errors()}
-  def create_custom_action_type(%Client{} = client, input, options \\ []) do
+
+  def create_custom_action_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2704,12 +2740,23 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Creates a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20CreatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_pipeline_input`)
+    %{
+      optional("tags") => list(tag()()),
+      required("pipeline") => pipeline_declaration()
+    }
   """
-  @spec create_pipeline(AWS.Client.t(), create_pipeline_input(), Keyword.t()) ::
+
+  @spec create_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
-  def create_pipeline(%Client{} = client, input, options \\ []) do
+
+  def create_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2719,12 +2766,24 @@ defmodule AWS.CodePipeline do
   @doc """
   Marks a custom action as deleted. `PollForJobs` for the custom action fails
   after the action is marked for deletion. Used for custom actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20DeleteCustomActionType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_custom_action_type_input`)
+    %{
+      required("category") => list(any()),
+      required("provider") => String.t(),
+      required("version") => String.t()
+    }
   """
-  @spec delete_custom_action_type(AWS.Client.t(), delete_custom_action_type_input(), Keyword.t()) ::
+
+  @spec delete_custom_action_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_action_type_errors()}
-  def delete_custom_action_type(%Client{} = client, input, options \\ []) do
+
+  def delete_custom_action_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2733,12 +2792,22 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Deletes the specified pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20DeletePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_pipeline_input`)
+    %{
+      required("name") => String.t()
+    }
   """
-  @spec delete_pipeline(AWS.Client.t(), delete_pipeline_input(), Keyword.t()) ::
+
+  @spec delete_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
-  def delete_pipeline(%Client{} = client, input, options \\ []) do
+
+  def delete_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2751,12 +2820,22 @@ defmodule AWS.CodePipeline do
   API returns successfully when trying to delete a webhook that is already
   deleted. If a deleted webhook is re-created by calling PutWebhook with the
   same name, it will have a different URL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20DeleteWebhook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_webhook_input`)
+    %{
+      required("name") => String.t()
+    }
   """
-  @spec delete_webhook(AWS.Client.t(), delete_webhook_input(), Keyword.t()) ::
+
+  @spec delete_webhook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_webhook_errors()}
-  def delete_webhook(%Client{} = client, input, options \\ []) do
+
+  def delete_webhook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2767,16 +2846,23 @@ defmodule AWS.CodePipeline do
   Removes the connection between the webhook that was created by CodePipeline and
   the external tool with events to be detected. Currently supported only for
   webhooks that target an action type of GitHub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20DeregisterWebhookWithThirdParty&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_webhook_with_third_party_input`)
+    %{
+      optional("webhookName") => String.t()
+    }
   """
-  @spec deregister_webhook_with_third_party(
-          AWS.Client.t(),
-          deregister_webhook_with_third_party_input(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_webhook_with_third_party(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_webhook_with_third_party_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_webhook_with_third_party_errors()}
-  def deregister_webhook_with_third_party(%Client{} = client, input, options \\ []) do
+
+  def deregister_webhook_with_third_party(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2786,12 +2872,25 @@ defmodule AWS.CodePipeline do
   @doc """
   Prevents artifacts in a pipeline from transitioning to the next stage in the
   pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20DisableStageTransition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_stage_transition_input`)
+    %{
+      required("pipelineName") => String.t(),
+      required("reason") => String.t(),
+      required("stageName") => String.t(),
+      required("transitionType") => list(any())
+    }
   """
-  @spec disable_stage_transition(AWS.Client.t(), disable_stage_transition_input(), Keyword.t()) ::
+
+  @spec disable_stage_transition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_stage_transition_errors()}
-  def disable_stage_transition(%Client{} = client, input, options \\ []) do
+
+  def disable_stage_transition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2800,12 +2899,24 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Enables artifacts in a pipeline to transition to a stage in a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20EnableStageTransition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_stage_transition_input`)
+    %{
+      required("pipelineName") => String.t(),
+      required("stageName") => String.t(),
+      required("transitionType") => list(any())
+    }
   """
-  @spec enable_stage_transition(AWS.Client.t(), enable_stage_transition_input(), Keyword.t()) ::
+
+  @spec enable_stage_transition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_stage_transition_errors()}
-  def enable_stage_transition(%Client{} = client, input, options \\ []) do
+
+  def enable_stage_transition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2816,12 +2927,25 @@ defmodule AWS.CodePipeline do
   Returns information about an action type created for an external provider, where
   the action is to be used by customers of the external provider. The action can
   be created with any supported integration model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20GetActionType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_action_type_input`)
+    %{
+      required("category") => list(any()),
+      required("owner") => String.t(),
+      required("provider") => String.t(),
+      required("version") => String.t()
+    }
   """
-  @spec get_action_type(AWS.Client.t(), get_action_type_input(), Keyword.t()) ::
+
+  @spec get_action_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_action_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_action_type_errors()}
-  def get_action_type(%Client{} = client, input, options \\ []) do
+
+  def get_action_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2830,12 +2954,22 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Returns information about a job. Used for custom actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20GetJobDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_job_details_input`)
+    %{
+      required("jobId") => String.t()
+    }
   """
-  @spec get_job_details(AWS.Client.t(), get_job_details_input(), Keyword.t()) ::
+
+  @spec get_job_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_details_errors()}
-  def get_job_details(%Client{} = client, input, options \\ []) do
+
+  def get_job_details(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2846,12 +2980,23 @@ defmodule AWS.CodePipeline do
   Returns the metadata, structure, stages, and actions of a pipeline. Can be used
   to return the entire structure of a pipeline in JSON format, which can then be
   modified and used to update the pipeline structure with `UpdatePipeline`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20GetPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_pipeline_input`)
+    %{
+      optional("version") => integer(),
+      required("name") => String.t()
+    }
   """
-  @spec get_pipeline(AWS.Client.t(), get_pipeline_input(), Keyword.t()) ::
+
+  @spec get_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_errors()}
-  def get_pipeline(%Client{} = client, input, options \\ []) do
+
+  def get_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2862,12 +3007,23 @@ defmodule AWS.CodePipeline do
   Returns information about an execution of a pipeline, including details about
   artifacts, the pipeline execution ID, and the name, version, and status of the
   pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20GetPipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_pipeline_execution_input`)
+    %{
+      required("pipelineExecutionId") => String.t(),
+      required("pipelineName") => String.t()
+    }
   """
-  @spec get_pipeline_execution(AWS.Client.t(), get_pipeline_execution_input(), Keyword.t()) ::
+
+  @spec get_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_pipeline_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_execution_errors()}
-  def get_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def get_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2877,12 +3033,22 @@ defmodule AWS.CodePipeline do
   @doc """
   Returns information about the state of a pipeline, including the stages and
   actions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20GetPipelineState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_pipeline_state_input`)
+    %{
+      required("name") => String.t()
+    }
   """
-  @spec get_pipeline_state(AWS.Client.t(), get_pipeline_state_input(), Keyword.t()) ::
+
+  @spec get_pipeline_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_pipeline_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_state_errors()}
-  def get_pipeline_state(%Client{} = client, input, options \\ []) do
+
+  def get_pipeline_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2892,16 +3058,23 @@ defmodule AWS.CodePipeline do
   @doc """
   Requests the details of a job for a third party action. Used for partner actions
   only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20GetThirdPartyJobDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_third_party_job_details_input`)
+    %{
+      required("clientToken") => String.t(),
+      required("jobId") => String.t()
+    }
   """
-  @spec get_third_party_job_details(
-          AWS.Client.t(),
-          get_third_party_job_details_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_third_party_job_details(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_third_party_job_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_third_party_job_details_errors()}
-  def get_third_party_job_details(%Client{} = client, input, options \\ []) do
+
+  def get_third_party_job_details(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2910,12 +3083,25 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Lists the action executions that have occurred in a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20ListActionExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_action_executions_input`)
+    %{
+      optional("filter") => action_execution_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("pipelineName") => String.t()
+    }
   """
-  @spec list_action_executions(AWS.Client.t(), list_action_executions_input(), Keyword.t()) ::
+
+  @spec list_action_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_action_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_action_executions_errors()}
-  def list_action_executions(%Client{} = client, input, options \\ []) do
+
+  def list_action_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2924,12 +3110,24 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Gets a summary of all CodePipeline action types associated with your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20ListActionTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_action_types_input`)
+    %{
+      optional("actionOwnerFilter") => list(any()),
+      optional("nextToken") => String.t(),
+      optional("regionFilter") => String.t()
+    }
   """
-  @spec list_action_types(AWS.Client.t(), list_action_types_input(), Keyword.t()) ::
+
+  @spec list_action_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_action_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_action_types_errors()}
-  def list_action_types(%Client{} = client, input, options \\ []) do
+
+  def list_action_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2938,12 +3136,25 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Gets a summary of the most recent executions for a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20ListPipelineExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_pipeline_executions_input`)
+    %{
+      optional("filter") => pipeline_execution_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("pipelineName") => String.t()
+    }
   """
-  @spec list_pipeline_executions(AWS.Client.t(), list_pipeline_executions_input(), Keyword.t()) ::
+
+  @spec list_pipeline_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pipeline_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_executions_errors()}
-  def list_pipeline_executions(%Client{} = client, input, options \\ []) do
+
+  def list_pipeline_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2952,12 +3163,23 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Gets a summary of all of the pipelines associated with your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_pipelines_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_pipelines(AWS.Client.t(), list_pipelines_input(), Keyword.t()) ::
+
+  @spec list_pipelines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pipelines_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipelines_errors()}
-  def list_pipelines(%Client{} = client, input, options \\ []) do
+
+  def list_pipelines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2966,12 +3188,24 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Gets the set of key-value pairs (metadata) that are used to manage the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2982,12 +3216,23 @@ defmodule AWS.CodePipeline do
   Gets a listing of all the webhooks in this Amazon Web Services Region for this
   account. The output lists all webhooks and includes the webhook URL and ARN
   and the configuration for each webhook.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20ListWebhooks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_webhooks_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_webhooks(AWS.Client.t(), list_webhooks_input(), Keyword.t()) ::
+
+  @spec list_webhooks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_webhooks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_webhooks_errors()}
-  def list_webhooks(%Client{} = client, input, options \\ []) do
+
+  def list_webhooks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2999,12 +3244,24 @@ defmodule AWS.CodePipeline do
   valid only for action types with "Custom" in the owner field. If the action
   type contains `AWS` or `ThirdParty` in the owner field, the `PollForJobs`
   action returns an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PollForJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:poll_for_jobs_input`)
+    %{
+      optional("maxBatchSize") => integer(),
+      optional("queryParam") => map(),
+      required("actionTypeId") => action_type_id()
+    }
   """
-  @spec poll_for_jobs(AWS.Client.t(), poll_for_jobs_input(), Keyword.t()) ::
+
+  @spec poll_for_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, poll_for_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, poll_for_jobs_errors()}
-  def poll_for_jobs(%Client{} = client, input, options \\ []) do
+
+  def poll_for_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3014,12 +3271,23 @@ defmodule AWS.CodePipeline do
   @doc """
   Determines whether there are any third party jobs for a job worker to act on.
   Used for partner actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PollForThirdPartyJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:poll_for_third_party_jobs_input`)
+    %{
+      optional("maxBatchSize") => integer(),
+      required("actionTypeId") => action_type_id()
+    }
   """
-  @spec poll_for_third_party_jobs(AWS.Client.t(), poll_for_third_party_jobs_input(), Keyword.t()) ::
+
+  @spec poll_for_third_party_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, poll_for_third_party_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, poll_for_third_party_jobs_errors()}
-  def poll_for_third_party_jobs(%Client{} = client, input, options \\ []) do
+
+  def poll_for_third_party_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3028,12 +3296,25 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Provides information to CodePipeline about new revisions to a source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PutActionRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_action_revision_input`)
+    %{
+      required("actionName") => String.t(),
+      required("actionRevision") => action_revision(),
+      required("pipelineName") => String.t(),
+      required("stageName") => String.t()
+    }
   """
-  @spec put_action_revision(AWS.Client.t(), put_action_revision_input(), Keyword.t()) ::
+
+  @spec put_action_revision(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_action_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_action_revision_errors()}
-  def put_action_revision(%Client{} = client, input, options \\ []) do
+
+  def put_action_revision(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3043,12 +3324,26 @@ defmodule AWS.CodePipeline do
   @doc """
   Provides the response to a manual approval request to CodePipeline. Valid
   responses include Approved and Rejected.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PutApprovalResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_approval_result_input`)
+    %{
+      required("actionName") => String.t(),
+      required("pipelineName") => String.t(),
+      required("result") => approval_result(),
+      required("stageName") => String.t(),
+      required("token") => String.t()
+    }
   """
-  @spec put_approval_result(AWS.Client.t(), put_approval_result_input(), Keyword.t()) ::
+
+  @spec put_approval_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_approval_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_approval_result_errors()}
-  def put_approval_result(%Client{} = client, input, options \\ []) do
+
+  def put_approval_result(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3058,12 +3353,23 @@ defmodule AWS.CodePipeline do
   @doc """
   Represents the failure of a job as returned to the pipeline by a job worker.
   Used for custom actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PutJobFailureResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_job_failure_result_input`)
+    %{
+      required("failureDetails") => failure_details(),
+      required("jobId") => String.t()
+    }
   """
-  @spec put_job_failure_result(AWS.Client.t(), put_job_failure_result_input(), Keyword.t()) ::
+
+  @spec put_job_failure_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_job_failure_result_errors()}
-  def put_job_failure_result(%Client{} = client, input, options \\ []) do
+
+  def put_job_failure_result(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3073,12 +3379,26 @@ defmodule AWS.CodePipeline do
   @doc """
   Represents the success of a job as returned to the pipeline by a job worker.
   Used for custom actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PutJobSuccessResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_job_success_result_input`)
+    %{
+      optional("continuationToken") => String.t(),
+      optional("currentRevision") => current_revision(),
+      optional("executionDetails") => execution_details(),
+      optional("outputVariables") => map(),
+      required("jobId") => String.t()
+    }
   """
-  @spec put_job_success_result(AWS.Client.t(), put_job_success_result_input(), Keyword.t()) ::
+
+  @spec put_job_success_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_job_success_result_errors()}
-  def put_job_success_result(%Client{} = client, input, options \\ []) do
+
+  def put_job_success_result(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3088,16 +3408,25 @@ defmodule AWS.CodePipeline do
   @doc """
   Represents the failure of a third party job as returned to the pipeline by a job
   worker. Used for partner actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PutThirdPartyJobFailureResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_third_party_job_failure_result_input`)
+    %{
+      required("clientToken") => String.t(),
+      required("failureDetails") => failure_details(),
+      required("jobId") => String.t()
+    }
   """
-  @spec put_third_party_job_failure_result(
-          AWS.Client.t(),
-          put_third_party_job_failure_result_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_third_party_job_failure_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_third_party_job_failure_result_errors()}
-  def put_third_party_job_failure_result(%Client{} = client, input, options \\ []) do
+
+  def put_third_party_job_failure_result(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3107,16 +3436,27 @@ defmodule AWS.CodePipeline do
   @doc """
   Represents the success of a third party job as returned to the pipeline by a job
   worker. Used for partner actions only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PutThirdPartyJobSuccessResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_third_party_job_success_result_input`)
+    %{
+      optional("continuationToken") => String.t(),
+      optional("currentRevision") => current_revision(),
+      optional("executionDetails") => execution_details(),
+      required("clientToken") => String.t(),
+      required("jobId") => String.t()
+    }
   """
-  @spec put_third_party_job_success_result(
-          AWS.Client.t(),
-          put_third_party_job_success_result_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_third_party_job_success_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_third_party_job_success_result_errors()}
-  def put_third_party_job_success_result(%Client{} = client, input, options \\ []) do
+
+  def put_third_party_job_success_result(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3132,12 +3472,23 @@ defmodule AWS.CodePipeline do
   defining the webhook. RegisterWebhookWithThirdParty and
   DeregisterWebhookWithThirdParty APIs can be used to automatically configure
   supported third parties to call the generated webhook URL.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20PutWebhook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_webhook_input`)
+    %{
+      optional("tags") => list(tag()()),
+      required("webhook") => webhook_definition()
+    }
   """
-  @spec put_webhook(AWS.Client.t(), put_webhook_input(), Keyword.t()) ::
+
+  @spec put_webhook(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_webhook_errors()}
-  def put_webhook(%Client{} = client, input, options \\ []) do
+
+  def put_webhook(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3147,16 +3498,23 @@ defmodule AWS.CodePipeline do
   @doc """
   Configures a connection between the webhook that was created and the external
   tool with events to be detected.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20RegisterWebhookWithThirdParty&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_webhook_with_third_party_input`)
+    %{
+      optional("webhookName") => String.t()
+    }
   """
-  @spec register_webhook_with_third_party(
-          AWS.Client.t(),
-          register_webhook_with_third_party_input(),
-          Keyword.t()
-        ) ::
+
+  @spec register_webhook_with_third_party(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_webhook_with_third_party_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_webhook_with_third_party_errors()}
-  def register_webhook_with_third_party(%Client{} = client, input, options \\ []) do
+
+  def register_webhook_with_third_party(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3172,12 +3530,25 @@ defmodule AWS.CodePipeline do
   again. When you retry a failed stage from the first action in the stage, the
   stage cannot have any actions in progress. Before a stage can be retried, it
   must either have all actions failed or some actions failed and some succeeded.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20RetryStageExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:retry_stage_execution_input`)
+    %{
+      required("pipelineExecutionId") => String.t(),
+      required("pipelineName") => String.t(),
+      required("retryMode") => list(any()),
+      required("stageName") => String.t()
+    }
   """
-  @spec retry_stage_execution(AWS.Client.t(), retry_stage_execution_input(), Keyword.t()) ::
+
+  @spec retry_stage_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retry_stage_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_stage_execution_errors()}
-  def retry_stage_execution(%Client{} = client, input, options \\ []) do
+
+  def retry_stage_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3186,12 +3557,24 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Rolls back a stage execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20RollbackStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:rollback_stage_input`)
+    %{
+      required("pipelineName") => String.t(),
+      required("stageName") => String.t(),
+      required("targetPipelineExecutionId") => String.t()
+    }
   """
-  @spec rollback_stage(AWS.Client.t(), rollback_stage_input(), Keyword.t()) ::
+
+  @spec rollback_stage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rollback_stage_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rollback_stage_errors()}
-  def rollback_stage(%Client{} = client, input, options \\ []) do
+
+  def rollback_stage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3201,12 +3584,25 @@ defmodule AWS.CodePipeline do
   @doc """
   Starts the specified pipeline. Specifically, it begins processing the latest
   commit to the source location specified as part of the pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20StartPipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_pipeline_execution_input`)
+    %{
+      optional("clientRequestToken") => String.t(),
+      optional("sourceRevisions") => list(source_revision_override()()),
+      optional("variables") => list(pipeline_variable()()),
+      required("name") => String.t()
+    }
   """
-  @spec start_pipeline_execution(AWS.Client.t(), start_pipeline_execution_input(), Keyword.t()) ::
+
+  @spec start_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_pipeline_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipeline_execution_errors()}
-  def start_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def start_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3220,12 +3616,25 @@ defmodule AWS.CodePipeline do
   in-progress actions, the pipeline execution is in a `Stopping` state. After
   all in-progress actions are completed or abandoned, the pipeline execution is
   in a `Stopped` state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20StopPipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_pipeline_execution_input`)
+    %{
+      optional("abandon") => boolean(),
+      optional("reason") => String.t(),
+      required("pipelineExecutionId") => String.t(),
+      required("pipelineName") => String.t()
+    }
   """
-  @spec stop_pipeline_execution(AWS.Client.t(), stop_pipeline_execution_input(), Keyword.t()) ::
+
+  @spec stop_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_pipeline_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pipeline_execution_errors()}
-  def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def stop_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3235,12 +3644,23 @@ defmodule AWS.CodePipeline do
   @doc """
   Adds to or modifies the tags of the given resource. Tags are metadata that can
   be used to manage a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3249,12 +3669,23 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Removes tags from an Amazon Web Services resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("resourceArn") => String.t(),
+      required("tagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3266,12 +3697,22 @@ defmodule AWS.CodePipeline do
   where the action type is to be used by customers of the action type provider.
   Use a JSON file with the action definition and `UpdateActionType` to provide
   the full structure.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20UpdateActionType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_action_type_input`)
+    %{
+      required("actionType") => action_type_declaration()
+    }
   """
-  @spec update_action_type(AWS.Client.t(), update_action_type_input(), Keyword.t()) ::
+
+  @spec update_action_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_action_type_errors()}
-  def update_action_type(%Client{} = client, input, options \\ []) do
+
+  def update_action_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3283,12 +3724,22 @@ defmodule AWS.CodePipeline do
   file with the pipeline structure and `UpdatePipeline` to provide the full
   structure of the pipeline. Updating the pipeline increases the version number
   of the pipeline by 1.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codepipeline%20UpdatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_pipeline_input`)
+    %{
+      required("pipeline") => pipeline_declaration()
+    }
   """
-  @spec update_pipeline(AWS.Client.t(), update_pipeline_input(), Keyword.t()) ::
+
+  @spec update_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
-  def update_pipeline(%Client{} = client, input, options \\ []) do
+
+  def update_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

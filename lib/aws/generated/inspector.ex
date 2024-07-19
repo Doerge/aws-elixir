@@ -1643,16 +1643,23 @@ defmodule AWS.Inspector do
   @doc """
   Assigns attributes (key and value pairs) to the findings that are specified by
   the ARNs of the findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20AddAttributesToFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_attributes_to_findings_request`)
+    %{
+      required("attributes") => list(attribute()()),
+      required("findingArns") => list(String.t()())
+    }
   """
-  @spec add_attributes_to_findings(
-          AWS.Client.t(),
-          add_attributes_to_findings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_attributes_to_findings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_attributes_to_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_attributes_to_findings_errors()}
-  def add_attributes_to_findings(%Client{} = client, input, options \\ []) do
+
+  def add_attributes_to_findings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1671,12 +1678,23 @@ defmodule AWS.Inspector do
   AWS account. You can run up to 500 concurrent agents per AWS account. For more
   information, see [ Amazon Inspector Assessment
   Targets](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20CreateAssessmentTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_assessment_target_request`)
+    %{
+      optional("resourceGroupArn") => String.t(),
+      required("assessmentTargetName") => String.t()
+    }
   """
-  @spec create_assessment_target(AWS.Client.t(), create_assessment_target_request(), Keyword.t()) ::
+
+  @spec create_assessment_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_assessment_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_target_errors()}
-  def create_assessment_target(%Client{} = client, input, options \\ []) do
+
+  def create_assessment_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1690,16 +1708,26 @@ defmodule AWS.Inspector do
   isn’t already registered, this action also creates and registers a
   service-linked role to grant Amazon Inspector access to AWS Services needed to
   perform security assessments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20CreateAssessmentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_assessment_template_request`)
+    %{
+      optional("userAttributesForFindings") => list(attribute()()),
+      required("assessmentTargetArn") => String.t(),
+      required("assessmentTemplateName") => String.t(),
+      required("durationInSeconds") => integer(),
+      required("rulesPackageArns") => list(String.t()())
+    }
   """
-  @spec create_assessment_template(
-          AWS.Client.t(),
-          create_assessment_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_assessment_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_assessment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_assessment_template_errors()}
-  def create_assessment_template(%Client{} = client, input, options \\ []) do
+
+  def create_assessment_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1710,16 +1738,22 @@ defmodule AWS.Inspector do
   Starts the generation of an exclusions preview for the specified assessment
   template. The exclusions preview lists the potential exclusions
   (ExclusionPreview) that Inspector can detect before it runs the assessment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20CreateExclusionsPreview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_exclusions_preview_request`)
+    %{
+      required("assessmentTemplateArn") => String.t()
+    }
   """
-  @spec create_exclusions_preview(
-          AWS.Client.t(),
-          create_exclusions_preview_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_exclusions_preview(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_exclusions_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_exclusions_preview_errors()}
-  def create_exclusions_preview(%Client{} = client, input, options \\ []) do
+
+  def create_exclusions_preview(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1732,12 +1766,22 @@ defmodule AWS.Inspector do
   Inspector assessment target. The created resource group is then used to create
   an Amazon Inspector assessment target. For more information, see
   `CreateAssessmentTarget`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20CreateResourceGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_resource_group_request`)
+    %{
+      required("resourceGroupTags") => list(resource_group_tag()())
+    }
   """
-  @spec create_resource_group(AWS.Client.t(), create_resource_group_request(), Keyword.t()) ::
+
+  @spec create_resource_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_resource_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_resource_group_errors()}
-  def create_resource_group(%Client{} = client, input, options \\ []) do
+
+  def create_resource_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1746,12 +1790,22 @@ defmodule AWS.Inspector do
 
   @doc """
   Deletes the assessment run that is specified by the ARN of the assessment run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DeleteAssessmentRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_assessment_run_request`)
+    %{
+      required("assessmentRunArn") => String.t()
+    }
   """
-  @spec delete_assessment_run(AWS.Client.t(), delete_assessment_run_request(), Keyword.t()) ::
+
+  @spec delete_assessment_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_run_errors()}
-  def delete_assessment_run(%Client{} = client, input, options \\ []) do
+
+  def delete_assessment_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1761,12 +1815,22 @@ defmodule AWS.Inspector do
   @doc """
   Deletes the assessment target that is specified by the ARN of the assessment
   target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DeleteAssessmentTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_assessment_target_request`)
+    %{
+      required("assessmentTargetArn") => String.t()
+    }
   """
-  @spec delete_assessment_target(AWS.Client.t(), delete_assessment_target_request(), Keyword.t()) ::
+
+  @spec delete_assessment_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_target_errors()}
-  def delete_assessment_target(%Client{} = client, input, options \\ []) do
+
+  def delete_assessment_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1776,16 +1840,22 @@ defmodule AWS.Inspector do
   @doc """
   Deletes the assessment template that is specified by the ARN of the assessment
   template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DeleteAssessmentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_assessment_template_request`)
+    %{
+      required("assessmentTemplateArn") => String.t()
+    }
   """
-  @spec delete_assessment_template(
-          AWS.Client.t(),
-          delete_assessment_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_assessment_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_assessment_template_errors()}
-  def delete_assessment_template(%Client{} = client, input, options \\ []) do
+
+  def delete_assessment_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1795,12 +1865,22 @@ defmodule AWS.Inspector do
   @doc """
   Describes the assessment runs that are specified by the ARNs of the assessment
   runs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeAssessmentRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_assessment_runs_request`)
+    %{
+      required("assessmentRunArns") => list(String.t()())
+    }
   """
-  @spec describe_assessment_runs(AWS.Client.t(), describe_assessment_runs_request(), Keyword.t()) ::
+
+  @spec describe_assessment_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_assessment_runs_errors()}
-  def describe_assessment_runs(%Client{} = client, input, options \\ []) do
+
+  def describe_assessment_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1810,16 +1890,22 @@ defmodule AWS.Inspector do
   @doc """
   Describes the assessment targets that are specified by the ARNs of the
   assessment targets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeAssessmentTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_assessment_targets_request`)
+    %{
+      required("assessmentTargetArns") => list(String.t()())
+    }
   """
-  @spec describe_assessment_targets(
-          AWS.Client.t(),
-          describe_assessment_targets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_assessment_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_assessment_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_assessment_targets_errors()}
-  def describe_assessment_targets(%Client{} = client, input, options \\ []) do
+
+  def describe_assessment_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1829,16 +1915,23 @@ defmodule AWS.Inspector do
   @doc """
   Describes the assessment templates that are specified by the ARNs of the
   assessment templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeAssessmentTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_assessment_templates_request`)
+    %{
+      required("assessmentTemplateArns") => list(String.t()())
+    }
   """
-  @spec describe_assessment_templates(
-          AWS.Client.t(),
-          describe_assessment_templates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_assessment_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_assessment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_assessment_templates_errors()}
-  def describe_assessment_templates(%Client{} = client, input, options \\ []) do
+
+  def describe_assessment_templates(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1847,12 +1940,20 @@ defmodule AWS.Inspector do
 
   @doc """
   Describes the IAM role that enables Amazon Inspector to access your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeCrossAccountAccessRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:%{}`)
   """
-  @spec describe_cross_account_access_role(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec describe_cross_account_access_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cross_account_access_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cross_account_access_role_errors()}
-  def describe_cross_account_access_role(%Client{} = client, input, options \\ []) do
+
+  def describe_cross_account_access_role(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1861,12 +1962,23 @@ defmodule AWS.Inspector do
 
   @doc """
   Describes the exclusions that are specified by the exclusions' ARNs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeExclusions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_exclusions_request`)
+    %{
+      optional("locale") => list(any()),
+      required("exclusionArns") => list(String.t()())
+    }
   """
-  @spec describe_exclusions(AWS.Client.t(), describe_exclusions_request(), Keyword.t()) ::
+
+  @spec describe_exclusions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_exclusions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_exclusions_errors()}
-  def describe_exclusions(%Client{} = client, input, options \\ []) do
+
+  def describe_exclusions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1875,12 +1987,23 @@ defmodule AWS.Inspector do
 
   @doc """
   Describes the findings that are specified by the ARNs of the findings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_findings_request`)
+    %{
+      optional("locale") => list(any()),
+      required("findingArns") => list(String.t()())
+    }
   """
-  @spec describe_findings(AWS.Client.t(), describe_findings_request(), Keyword.t()) ::
+
+  @spec describe_findings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_findings_errors()}
-  def describe_findings(%Client{} = client, input, options \\ []) do
+
+  def describe_findings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1890,12 +2013,22 @@ defmodule AWS.Inspector do
   @doc """
   Describes the resource groups that are specified by the ARNs of the resource
   groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeResourceGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_resource_groups_request`)
+    %{
+      required("resourceGroupArns") => list(String.t()())
+    }
   """
-  @spec describe_resource_groups(AWS.Client.t(), describe_resource_groups_request(), Keyword.t()) ::
+
+  @spec describe_resource_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_groups_errors()}
-  def describe_resource_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_resource_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1905,12 +2038,23 @@ defmodule AWS.Inspector do
   @doc """
   Describes the rules packages that are specified by the ARNs of the rules
   packages.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20DescribeRulesPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_rules_packages_request`)
+    %{
+      optional("locale") => list(any()),
+      required("rulesPackageArns") => list(String.t()())
+    }
   """
-  @spec describe_rules_packages(AWS.Client.t(), describe_rules_packages_request(), Keyword.t()) ::
+
+  @spec describe_rules_packages(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rules_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rules_packages_errors()}
-  def describe_rules_packages(%Client{} = client, input, options \\ []) do
+
+  def describe_rules_packages(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1920,12 +2064,24 @@ defmodule AWS.Inspector do
   @doc """
   Produces an assessment report that includes detailed and comprehensive results
   of a specified assessment run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20GetAssessmentReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_assessment_report_request`)
+    %{
+      required("assessmentRunArn") => String.t(),
+      required("reportFileFormat") => list(any()),
+      required("reportType") => list(any())
+    }
   """
-  @spec get_assessment_report(AWS.Client.t(), get_assessment_report_request(), Keyword.t()) ::
+
+  @spec get_assessment_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_report_errors()}
-  def get_assessment_report(%Client{} = client, input, options \\ []) do
+
+  def get_assessment_report(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1936,12 +2092,26 @@ defmodule AWS.Inspector do
   Retrieves the exclusions preview (a list of ExclusionPreview objects) specified
   by the preview token. You can obtain the preview token by running the
   CreateExclusionsPreview API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20GetExclusionsPreview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_exclusions_preview_request`)
+    %{
+      optional("locale") => list(any()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("assessmentTemplateArn") => String.t(),
+      required("previewToken") => String.t()
+    }
   """
-  @spec get_exclusions_preview(AWS.Client.t(), get_exclusions_preview_request(), Keyword.t()) ::
+
+  @spec get_exclusions_preview(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_exclusions_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_exclusions_preview_errors()}
-  def get_exclusions_preview(%Client{} = client, input, options \\ []) do
+
+  def get_exclusions_preview(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1950,12 +2120,22 @@ defmodule AWS.Inspector do
 
   @doc """
   Information about the data that is collected for the specified assessment run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20GetTelemetryMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_telemetry_metadata_request`)
+    %{
+      required("assessmentRunArn") => String.t()
+    }
   """
-  @spec get_telemetry_metadata(AWS.Client.t(), get_telemetry_metadata_request(), Keyword.t()) ::
+
+  @spec get_telemetry_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_telemetry_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_telemetry_metadata_errors()}
-  def get_telemetry_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_telemetry_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1965,16 +2145,25 @@ defmodule AWS.Inspector do
   @doc """
   Lists the agents of the assessment runs that are specified by the ARNs of the
   assessment runs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListAssessmentRunAgents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_assessment_run_agents_request`)
+    %{
+      optional("filter") => agent_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("assessmentRunArn") => String.t()
+    }
   """
-  @spec list_assessment_run_agents(
-          AWS.Client.t(),
-          list_assessment_run_agents_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_assessment_run_agents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_assessment_run_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_run_agents_errors()}
-  def list_assessment_run_agents(%Client{} = client, input, options \\ []) do
+
+  def list_assessment_run_agents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1984,12 +2173,25 @@ defmodule AWS.Inspector do
   @doc """
   Lists the assessment runs that correspond to the assessment templates that are
   specified by the ARNs of the assessment templates.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListAssessmentRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_assessment_runs_request`)
+    %{
+      optional("assessmentTemplateArns") => list(String.t()()),
+      optional("filter") => assessment_run_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_assessment_runs(AWS.Client.t(), list_assessment_runs_request(), Keyword.t()) ::
+
+  @spec list_assessment_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_runs_errors()}
-  def list_assessment_runs(%Client{} = client, input, options \\ []) do
+
+  def list_assessment_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2000,12 +2202,24 @@ defmodule AWS.Inspector do
   Lists the ARNs of the assessment targets within this AWS account. For more
   information about assessment targets, see [Amazon Inspector Assessment
   Targets](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListAssessmentTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_assessment_targets_request`)
+    %{
+      optional("filter") => assessment_target_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_assessment_targets(AWS.Client.t(), list_assessment_targets_request(), Keyword.t()) ::
+
+  @spec list_assessment_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_assessment_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_targets_errors()}
-  def list_assessment_targets(%Client{} = client, input, options \\ []) do
+
+  def list_assessment_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2015,16 +2229,25 @@ defmodule AWS.Inspector do
   @doc """
   Lists the assessment templates that correspond to the assessment targets that
   are specified by the ARNs of the assessment targets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListAssessmentTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_assessment_templates_request`)
+    %{
+      optional("assessmentTargetArns") => list(String.t()()),
+      optional("filter") => assessment_template_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_assessment_templates(
-          AWS.Client.t(),
-          list_assessment_templates_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_assessment_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_assessment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assessment_templates_errors()}
-  def list_assessment_templates(%Client{} = client, input, options \\ []) do
+
+  def list_assessment_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2035,12 +2258,24 @@ defmodule AWS.Inspector do
   Lists all the event subscriptions for the assessment template that is specified
   by the ARN of the assessment template. For more information, see
   `SubscribeToEvent` and `UnsubscribeFromEvent`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListEventSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_event_subscriptions_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("resourceArn") => String.t()
+    }
   """
-  @spec list_event_subscriptions(AWS.Client.t(), list_event_subscriptions_request(), Keyword.t()) ::
+
+  @spec list_event_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_subscriptions_errors()}
-  def list_event_subscriptions(%Client{} = client, input, options \\ []) do
+
+  def list_event_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2049,12 +2284,24 @@ defmodule AWS.Inspector do
 
   @doc """
   List exclusions that are generated by the assessment run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListExclusions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_exclusions_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("assessmentRunArn") => String.t()
+    }
   """
-  @spec list_exclusions(AWS.Client.t(), list_exclusions_request(), Keyword.t()) ::
+
+  @spec list_exclusions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_exclusions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_exclusions_errors()}
-  def list_exclusions(%Client{} = client, input, options \\ []) do
+
+  def list_exclusions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2064,12 +2311,25 @@ defmodule AWS.Inspector do
   @doc """
   Lists findings that are generated by the assessment runs that are specified by
   the ARNs of the assessment runs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_findings_request`)
+    %{
+      optional("assessmentRunArns") => list(String.t()()),
+      optional("filter") => finding_filter(),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_findings(AWS.Client.t(), list_findings_request(), Keyword.t()) ::
+
+  @spec list_findings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_errors()}
-  def list_findings(%Client{} = client, input, options \\ []) do
+
+  def list_findings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2078,12 +2338,23 @@ defmodule AWS.Inspector do
 
   @doc """
   Lists all available Amazon Inspector rules packages.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListRulesPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rules_packages_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_rules_packages(AWS.Client.t(), list_rules_packages_request(), Keyword.t()) ::
+
+  @spec list_rules_packages(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rules_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_packages_errors()}
-  def list_rules_packages(%Client{} = client, input, options \\ []) do
+
+  def list_rules_packages(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2092,12 +2363,22 @@ defmodule AWS.Inspector do
 
   @doc """
   Lists all tags associated with an assessment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2107,12 +2388,24 @@ defmodule AWS.Inspector do
   @doc """
   Previews the agents installed on the EC2 instances that are part of the
   specified assessment target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20PreviewAgents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:preview_agents_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("previewAgentsArn") => String.t()
+    }
   """
-  @spec preview_agents(AWS.Client.t(), preview_agents_request(), Keyword.t()) ::
+
+  @spec preview_agents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, preview_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, preview_agents_errors()}
-  def preview_agents(%Client{} = client, input, options \\ []) do
+
+  def preview_agents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2122,16 +2415,23 @@ defmodule AWS.Inspector do
   @doc """
   Registers the IAM role that grants Amazon Inspector access to AWS Services
   needed to perform security assessments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20RegisterCrossAccountAccessRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_cross_account_access_role_request`)
+    %{
+      required("roleArn") => String.t()
+    }
   """
-  @spec register_cross_account_access_role(
-          AWS.Client.t(),
-          register_cross_account_access_role_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_cross_account_access_role(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_cross_account_access_role_errors()}
-  def register_cross_account_access_role(%Client{} = client, input, options \\ []) do
+
+  def register_cross_account_access_role(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2142,16 +2442,24 @@ defmodule AWS.Inspector do
   Removes entire attributes (key and value pairs) from the findings that are
   specified by the ARNs of the findings where an attribute with the specified
   key exists.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20RemoveAttributesFromFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_attributes_from_findings_request`)
+    %{
+      required("attributeKeys") => list(String.t()()),
+      required("findingArns") => list(String.t()())
+    }
   """
-  @spec remove_attributes_from_findings(
-          AWS.Client.t(),
-          remove_attributes_from_findings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_attributes_from_findings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_attributes_from_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_attributes_from_findings_errors()}
-  def remove_attributes_from_findings(%Client{} = client, input, options \\ []) do
+
+  def remove_attributes_from_findings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2161,12 +2469,23 @@ defmodule AWS.Inspector do
   @doc """
   Sets tags (key and value pairs) to the assessment template that is specified by
   the ARN of the assessment template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20SetTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_tags_for_resource_request`)
+    %{
+      optional("tags") => list(tag()()),
+      required("resourceArn") => String.t()
+    }
   """
-  @spec set_tags_for_resource(AWS.Client.t(), set_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec set_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_tags_for_resource_errors()}
-  def set_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def set_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2177,12 +2496,23 @@ defmodule AWS.Inspector do
   Starts the assessment run specified by the ARN of the assessment template. For
   this API to function properly, you must not exceed the limit of running up to
   500 concurrent agents per AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20StartAssessmentRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_assessment_run_request`)
+    %{
+      optional("assessmentRunName") => String.t(),
+      required("assessmentTemplateArn") => String.t()
+    }
   """
-  @spec start_assessment_run(AWS.Client.t(), start_assessment_run_request(), Keyword.t()) ::
+
+  @spec start_assessment_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_assessment_run_errors()}
-  def start_assessment_run(%Client{} = client, input, options \\ []) do
+
+  def start_assessment_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2191,12 +2521,23 @@ defmodule AWS.Inspector do
 
   @doc """
   Stops the assessment run that is specified by the ARN of the assessment run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20StopAssessmentRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_assessment_run_request`)
+    %{
+      optional("stopAction") => list(any()),
+      required("assessmentRunArn") => String.t()
+    }
   """
-  @spec stop_assessment_run(AWS.Client.t(), stop_assessment_run_request(), Keyword.t()) ::
+
+  @spec stop_assessment_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_assessment_run_errors()}
-  def stop_assessment_run(%Client{} = client, input, options \\ []) do
+
+  def stop_assessment_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2206,12 +2547,24 @@ defmodule AWS.Inspector do
   @doc """
   Enables the process of sending Amazon Simple Notification Service (SNS)
   notifications about a specified event to a specified SNS topic.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20SubscribeToEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:subscribe_to_event_request`)
+    %{
+      required("event") => list(any()),
+      required("resourceArn") => String.t(),
+      required("topicArn") => String.t()
+    }
   """
-  @spec subscribe_to_event(AWS.Client.t(), subscribe_to_event_request(), Keyword.t()) ::
+
+  @spec subscribe_to_event(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, subscribe_to_event_errors()}
-  def subscribe_to_event(%Client{} = client, input, options \\ []) do
+
+  def subscribe_to_event(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2221,12 +2574,24 @@ defmodule AWS.Inspector do
   @doc """
   Disables the process of sending Amazon Simple Notification Service (SNS)
   notifications about a specified event to a specified SNS topic.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20UnsubscribeFromEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:unsubscribe_from_event_request`)
+    %{
+      required("event") => list(any()),
+      required("resourceArn") => String.t(),
+      required("topicArn") => String.t()
+    }
   """
-  @spec unsubscribe_from_event(AWS.Client.t(), unsubscribe_from_event_request(), Keyword.t()) ::
+
+  @spec unsubscribe_from_event(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unsubscribe_from_event_errors()}
-  def unsubscribe_from_event(%Client{} = client, input, options \\ []) do
+
+  def unsubscribe_from_event(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2236,12 +2601,24 @@ defmodule AWS.Inspector do
   @doc """
   Updates the assessment target that is specified by the ARN of the assessment
   target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector%20UpdateAssessmentTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_assessment_target_request`)
+    %{
+      optional("resourceGroupArn") => String.t(),
+      required("assessmentTargetArn") => String.t(),
+      required("assessmentTargetName") => String.t()
+    }
   """
-  @spec update_assessment_target(AWS.Client.t(), update_assessment_target_request(), Keyword.t()) ::
+
+  @spec update_assessment_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_assessment_target_errors()}
-  def update_assessment_target(%Client{} = client, input, options \\ []) do
+
+  def update_assessment_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

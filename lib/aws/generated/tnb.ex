@@ -15,48 +15,48 @@ defmodule AWS.Tnb do
   @typedoc """
 
   ## Example:
-
+      
       update_sol_network_package_output() :: %{
         "nsdOperationalState" => list(any())
       }
-
+      
   """
   @type update_sol_network_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_vnf_info() :: %{
         "vnfState" => list(any()),
         "vnfcResourceInfo" => list(get_sol_vnfc_resource_info()())
       }
-
+      
   """
   @type get_sol_vnf_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sol_function_package_input() :: %{}
-
+      
   """
   @type delete_sol_function_package_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sol_network_instance_input() :: %{}
-
+      
   """
   @type delete_sol_network_instance_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sol_network_package_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -65,14 +65,14 @@ defmodule AWS.Tnb do
         "nsdUsageState" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type create_sol_network_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_package_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -86,127 +86,127 @@ defmodule AWS.Tnb do
         "vnfdId" => [String.t()],
         "vnfdVersion" => [String.t()]
       }
-
+      
   """
   @type get_sol_function_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type list_sol_function_instance_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_instances_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_sol_function_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_operations_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_sol_network_operations_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_sol_network_package_content_metadata() :: %{
         "nsd" => network_artifact_meta()
       }
-
+      
   """
   @type validate_sol_network_package_content_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_packages_output() :: %{
         "networkPackages" => list(list_sol_network_package_info()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_sol_network_packages_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type get_sol_function_instance_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sol_network_package_input() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type create_sol_network_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sol_function_package_content_metadata() :: %{
         "vnfd" => function_artifact_meta()
       }
-
+      
   """
   @type put_sol_function_package_content_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_package_descriptor_input() :: %{}
-
+      
   """
   @type get_sol_network_package_descriptor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_package_descriptor_input() :: %{
         required("accept") => list(any())
       }
-
+      
   """
   @type get_sol_function_package_descriptor_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_instance_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -221,14 +221,14 @@ defmodule AWS.Tnb do
         "vnfdId" => String.t(),
         "vnfdVersion" => [String.t()]
       }
-
+      
   """
   @type get_sol_function_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_package_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -242,26 +242,26 @@ defmodule AWS.Tnb do
         "tags" => map(),
         "vnfPkgIds" => list(String.t()())
       }
-
+      
   """
   @type get_sol_network_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_info() :: %{
         "cause" => String.t(),
         "details" => String.t()
       }
-
+      
   """
   @type error_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sol_function_package_content_output() :: %{
         "id" => String.t(),
         "metadata" => put_sol_function_package_content_metadata(),
@@ -270,70 +270,70 @@ defmodule AWS.Tnb do
         "vnfdId" => String.t(),
         "vnfdVersion" => [String.t()]
       }
-
+      
   """
   @type put_sol_function_package_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_package_input() :: %{}
-
+      
   """
   @type get_sol_network_package_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_packages_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_sol_network_packages_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_sol_network_package_content_input() :: %{
         optional("contentType") => list(any()),
         required("file") => [binary()]
       }
-
+      
   """
   @type validate_sol_network_package_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sol_network_package_content_input() :: %{
         optional("contentType") => list(any()),
         required("file") => [binary()]
       }
-
+      
   """
   @type put_sol_network_package_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_operations_info() :: %{
         "arn" => String.t(),
         "error" => problem_details(),
@@ -343,70 +343,70 @@ defmodule AWS.Tnb do
         "nsInstanceId" => String.t(),
         "operationState" => list(any())
       }
-
+      
   """
   @type list_sol_network_operations_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_sol_network_instance_input() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type terminate_sol_network_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_instantiated_vnf_info() :: %{
         "vnfState" => list(any())
       }
-
+      
   """
   @type get_sol_instantiated_vnf_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_vnfc_resource_info() :: %{
         "metadata" => get_sol_vnfc_resource_info_metadata()
       }
-
+      
   """
   @type get_sol_vnfc_resource_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_package_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type list_sol_network_package_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sol_network_package_content_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -416,96 +416,96 @@ defmodule AWS.Tnb do
         "nsdVersion" => [String.t()],
         "vnfPkgIds" => list(String.t()())
       }
-
+      
   """
   @type put_sol_network_package_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_instances_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_sol_network_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sol_network_package_content_metadata() :: %{
         "nsd" => network_artifact_meta()
       }
-
+      
   """
   @type put_sol_network_package_content_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_operations_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type list_sol_network_operations_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_package_content_output() :: %{
         "contentType" => list(any()),
         "nsdContent" => [binary()]
       }
-
+      
   """
   @type get_sol_network_package_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sol_network_instance_output() :: %{
         "nsLcmOpOccId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type update_sol_network_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       problem_details() :: %{
         "detail" => [String.t()],
         "title" => [String.t()]
       }
-
+      
   """
   @type problem_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sol_network_instance_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -513,63 +513,63 @@ defmodule AWS.Tnb do
         "nsdInfoId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type create_sol_network_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminate_sol_network_instance_output() :: %{
         "nsLcmOpOccId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type terminate_sol_network_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sol_function_package_content_input() :: %{
         optional("contentType") => list(any()),
         required("file") => [binary()]
       }
-
+      
   """
   @type put_sol_function_package_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instantiate_sol_network_instance_input() :: %{
         optional("additionalParamsForNs") => [any()],
         optional("dryRun") => [boolean()],
         optional("tags") => map()
       }
-
+      
   """
   @type instantiate_sol_network_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_packages_output() :: %{
         "functionPackages" => list(list_sol_function_package_info()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_sol_function_packages_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sol_function_package_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -578,58 +578,58 @@ defmodule AWS.Tnb do
         "tags" => map(),
         "usageState" => list(any())
       }
-
+      
   """
   @type create_sol_function_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_sol_network_operation_input() :: %{}
-
+      
   """
   @type cancel_sol_network_operation_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sol_network_modify() :: %{
         "vnfConfigurableProperties" => [any()],
         "vnfInstanceId" => String.t()
       }
-
+      
   """
   @type update_sol_network_modify() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type list_sol_network_instance_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_instance_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -642,124 +642,124 @@ defmodule AWS.Tnb do
         "nsdInfoId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type get_sol_network_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_package_descriptor_output() :: %{
         "contentType" => list(any()),
         "vnfd" => [binary()]
       }
-
+      
   """
   @type get_sol_function_package_descriptor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type get_sol_network_instance_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_package_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()],
         "nsd" => network_artifact_meta()
       }
-
+      
   """
   @type get_sol_network_package_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_operation_input() :: %{}
-
+      
   """
   @type get_sol_network_operation_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sol_network_package_input() :: %{
         required("nsdOperationalState") => list(any())
       }
-
+      
   """
   @type update_sol_network_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sol_function_package_input() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type create_sol_function_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sol_function_package_output() :: %{
         "operationalState" => list(any())
       }
-
+      
   """
   @type update_sol_function_package_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_operation_task_details() :: %{
         "taskContext" => map(),
         "taskEndTime" => [non_neg_integer()],
@@ -768,74 +768,74 @@ defmodule AWS.Tnb do
         "taskStartTime" => [non_neg_integer()],
         "taskStatus" => list(any())
       }
-
+      
   """
   @type get_sol_network_operation_task_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_package_content_input() :: %{
         required("accept") => list(any())
       }
-
+      
   """
   @type get_sol_network_package_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sol_network_package_input() :: %{}
-
+      
   """
   @type delete_sol_network_package_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_package_input() :: %{}
-
+      
   """
   @type get_sol_function_package_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_sol_network_package_content_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -845,188 +845,188 @@ defmodule AWS.Tnb do
         "nsdVersion" => [String.t()],
         "vnfPkgIds" => list(String.t()())
       }
-
+      
   """
   @type validate_sol_network_package_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_package_content_input() :: %{
         required("accept") => list(any())
       }
-
+      
   """
   @type get_sol_function_package_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_package_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()],
         "vnfd" => function_artifact_meta()
       }
-
+      
   """
   @type get_sol_function_package_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sol_network_instance_input() :: %{
         optional("modifyVnfInfoData") => update_sol_network_modify(),
         optional("tags") => map(),
         required("updateType") => list(any())
       }
-
+      
   """
   @type update_sol_network_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instantiate_sol_network_instance_output() :: %{
         "nsLcmOpOccId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type instantiate_sol_network_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tosca_override() :: %{
         "defaultValue" => [String.t()],
         "name" => [String.t()]
       }
-
+      
   """
   @type tosca_override() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_operation_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type get_sol_network_operation_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_operations_output() :: %{
         "networkOperations" => list(list_sol_network_operations_info()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_sol_network_operations_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_package_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
       }
-
+      
   """
   @type list_sol_function_package_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_instance_input() :: %{}
-
+      
   """
   @type get_sol_function_instance_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_vnfc_resource_info_metadata() :: %{
         "cluster" => [String.t()],
         "helmChart" => [String.t()],
         "nodeGroup" => [String.t()]
       }
-
+      
   """
   @type get_sol_vnfc_resource_info_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_instance_input() :: %{}
-
+      
   """
   @type get_sol_network_instance_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_instances_output() :: %{
         "networkInstances" => list(list_sol_network_instance_info()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_sol_network_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sol_network_instance_input() :: %{
         optional("nsDescription") => [String.t()],
         optional("tags") => map(),
         required("nsName") => [String.t()],
         required("nsdInfoId") => String.t()
       }
-
+      
   """
   @type create_sol_network_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_instance_info() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -1037,14 +1037,14 @@ defmodule AWS.Tnb do
         "nsdId" => String.t(),
         "nsdInfoId" => String.t()
       }
-
+      
   """
   @type list_sol_network_instance_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_package_info() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -1057,37 +1057,37 @@ defmodule AWS.Tnb do
         "vnfdId" => [String.t()],
         "vnfdVersion" => [String.t()]
       }
-
+      
   """
   @type list_sol_function_package_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_artifact_meta() :: %{
         "overrides" => list(tosca_override()())
       }
-
+      
   """
   @type function_artifact_meta() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_sol_function_package_content_input() :: %{
         optional("contentType") => list(any()),
         required("file") => [binary()]
       }
-
+      
   """
   @type validate_sol_function_package_content_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_sol_function_package_content_output() :: %{
         "id" => String.t(),
         "metadata" => validate_sol_function_package_content_metadata(),
@@ -1096,49 +1096,49 @@ defmodule AWS.Tnb do
         "vnfdId" => String.t(),
         "vnfdVersion" => [String.t()]
       }
-
+      
   """
   @type validate_sol_function_package_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_package_descriptor_output() :: %{
         "contentType" => list(any()),
         "nsd" => [binary()]
       }
-
+      
   """
   @type get_sol_network_package_descriptor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_sol_function_package_content_metadata() :: %{
         "vnfd" => function_artifact_meta()
       }
-
+      
   """
   @type validate_sol_function_package_content_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_function_package_content_output() :: %{
         "contentType" => list(any()),
         "packageContent" => [binary()]
       }
-
+      
   """
   @type get_sol_function_package_content_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sol_network_operation_output() :: %{
         "arn" => String.t(),
         "error" => problem_details(),
@@ -1150,14 +1150,14 @@ defmodule AWS.Tnb do
         "tags" => map(),
         "tasks" => list(get_sol_network_operation_task_details()())
       }
-
+      
   """
   @type get_sol_network_operation_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_instance_info() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -1168,48 +1168,48 @@ defmodule AWS.Tnb do
         "vnfPkgId" => String.t(),
         "vnfPkgName" => [String.t()]
       }
-
+      
   """
   @type list_sol_function_instance_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lcm_operation_info() :: %{
         "nsLcmOpOccId" => String.t()
       }
-
+      
   """
   @type lcm_operation_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sol_function_package_input() :: %{
         required("operationalState") => list(any())
       }
-
+      
   """
   @type update_sol_function_package_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_instances_output() :: %{
         "functionInstances" => list(list_sol_function_instance_info()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_sol_function_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_network_package_info() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -1224,30 +1224,30 @@ defmodule AWS.Tnb do
         "nsdVersion" => [String.t()],
         "vnfPkgIds" => list(String.t()())
       }
-
+      
   """
   @type list_sol_network_package_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sol_function_packages_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_sol_function_packages_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_artifact_meta() :: %{
         "overrides" => list(tosca_override()())
       }
-
+      
   """
   @type network_artifact_meta() :: %{String.t() => any()}
 
@@ -1507,34 +1507,40 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec cancel_sol_network_operation(
-          AWS.Client.t(),
-          String.t(),
-          cancel_sol_network_operation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_sol_network_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_sol_network_operation_errors()}
-  def cancel_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, input, options \\ []) do
+
+  def cancel_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}/cancel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -1546,33 +1552,40 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec create_sol_function_package(
-          AWS.Client.t(),
-          create_sol_function_package_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sol_function_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_function_package_errors()}
-  def create_sol_function_package(%Client{} = client, input, options \\ []) do
+
+  def create_sol_function_package(%Client{} = client, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1584,33 +1597,40 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec create_sol_network_instance(
-          AWS.Client.t(),
-          create_sol_network_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sol_network_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_network_instance_errors()}
-  def create_sol_network_instance(%Client{} = client, input, options \\ []) do
+
+  def create_sol_network_instance(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1632,33 +1652,40 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec create_sol_network_package(
-          AWS.Client.t(),
-          create_sol_network_package_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sol_network_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sol_network_package_errors()}
-  def create_sol_network_package(%Client{} = client, input, options \\ []) do
+
+  def create_sol_network_package(%Client{} = client, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1675,22 +1702,38 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec delete_sol_function_package(
-          AWS.Client.t(),
-          String.t(),
-          delete_sol_function_package_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sol_function_package_errors()}
-  def delete_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
+
+  def delete_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1699,7 +1742,7 @@ defmodule AWS.Tnb do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1717,22 +1760,38 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec delete_sol_network_instance(
-          AWS.Client.t(),
-          String.t(),
-          delete_sol_network_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sol_network_instance_errors()}
-  def delete_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
+
+  def delete_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1741,7 +1800,7 @@ defmodule AWS.Tnb do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1756,26 +1815,42 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-    network package.
+  network package.
 
   ## Optional parameters:
   """
-  @spec delete_sol_network_package(
-          AWS.Client.t(),
-          String.t(),
-          delete_sol_network_package_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sol_network_package_errors()}
-  def delete_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
+
+  def delete_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1784,7 +1859,7 @@ defmodule AWS.Tnb do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1802,10 +1877,12 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
+
   @spec get_sol_function_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_instance_errors()}
+
   def get_sol_function_instance(%Client{} = client, vnf_instance_id, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances/#{AWS.Util.encode_uri(vnf_instance_id)}"
 
@@ -1845,10 +1922,12 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
+
   @spec get_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_errors()}
+
   def get_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
 
@@ -1885,15 +1964,18 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string`) ID of the function package.
   * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package that you
-    want to download from the function packages.
+  want to download from the function packages.
 
   ## Optional parameters:
   """
+
   @spec get_sol_function_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_content_errors()}
-  def get_sol_function_package_content(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
+
+  def get_sol_function_package_content(%Client{} = client, vnf_pkg_id, accept, options \\ [])
+      when is_binary(accept) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
 
     # Validate optional parameters
@@ -1938,15 +2020,18 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string`) ID of the function package.
   * `:accept` (`t:enum["TEXT_PLAIN"]`) Indicates which content types, expressed as
-    MIME types, the client is able to understand.
+  MIME types, the client is able to understand.
 
   ## Optional parameters:
   """
+
   @spec get_sol_function_package_descriptor(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_function_package_descriptor_errors()}
-  def get_sol_function_package_descriptor(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
+
+  def get_sol_function_package_descriptor(%Client{} = client, vnf_pkg_id, accept, options \\ [])
+      when is_binary(accept) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/vnfd"
 
     # Validate optional parameters
@@ -1990,10 +2075,12 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
+
   @spec get_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_instance_errors()}
+
   def get_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
 
@@ -2033,10 +2120,12 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
+
   @spec get_sol_network_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_operation_errors()}
+
   def get_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}"
 
@@ -2072,14 +2161,16 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-    network package.
+  network package.
 
   ## Optional parameters:
   """
+
   @spec get_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_errors()}
+
   def get_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
 
@@ -2115,17 +2206,20 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-    network package.
+  network package.
   * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package you want to
-    download from the network package.
+  download from the network package.
 
   ## Optional parameters:
   """
+
   @spec get_sol_network_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_content_errors()}
-  def get_sol_network_package_content(%Client{} = client, nsd_info_id, accept, options \\ []) do
+
+  def get_sol_network_package_content(%Client{} = client, nsd_info_id, accept, options \\ [])
+      when is_binary(accept) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
 
     # Validate optional parameters
@@ -2166,14 +2260,16 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-    network package.
+  network package.
 
   ## Optional parameters:
   """
+
   @spec get_sol_network_package_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sol_network_package_descriptor_errors()}
+
   def get_sol_network_package_descriptor(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd"
 
@@ -2219,29 +2315,44 @@ defmodule AWS.Tnb do
   * `:ns_instance_id` (`t:string`) ID of the network instance.
 
   ## Optional parameters:
-  * `:dry_run` (`t:`) A check for whether you have the required permissions for
-    the action without actually making the request and provides an error
-    response. If you have the required permissions, the error response is
-    DryRunOperation. Otherwise, it is UnauthorizedOperation.
+  * `:dry_run` (`t:string`) A check for whether you have the required permissions
+  for the action without actually making the request and provides an error
+  response. If you have the required permissions, the error response is
+  DryRunOperation. Otherwise, it is UnauthorizedOperation.
   """
-  @spec instantiate_sol_network_instance(
-          AWS.Client.t(),
-          String.t(),
-          instantiate_sol_network_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec instantiate_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, instantiate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, instantiate_sol_network_instance_errors()}
-  def instantiate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
+
+  def instantiate_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/instantiate"
+
+    # Validate optional parameters
+    optional_params = [dry_run: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"dryRun", "dry_run"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :dry_run) do
+        [{"dry_run", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2251,17 +2362,9 @@ defmodule AWS.Tnb do
       options
       |> Keyword.drop([:dry_run])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2272,14 +2375,16 @@ defmodule AWS.Tnb do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to include in the
-    response.
+  * `:max_results` (`t:string`) The maximum number of results to include in the
+  response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_sol_function_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_function_instances_errors()}
+
   def list_sol_function_instances(%Client{} = client, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances"
 
@@ -2334,14 +2439,16 @@ defmodule AWS.Tnb do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to include in the
-    response.
+  * `:max_results` (`t:string`) The maximum number of results to include in the
+  response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_sol_function_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_function_packages_errors()}
+
   def list_sol_function_packages(%Client{} = client, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
 
@@ -2396,14 +2503,16 @@ defmodule AWS.Tnb do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to include in the
-    response.
+  * `:max_results` (`t:string`) The maximum number of results to include in the
+  response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_sol_network_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_instances_errors()}
+
   def list_sol_network_instances(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
 
@@ -2459,14 +2568,16 @@ defmodule AWS.Tnb do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to include in the
-    response.
+  * `:max_results` (`t:string`) The maximum number of results to include in the
+  response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_sol_network_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_operations_errors()}
+
   def list_sol_network_operations(%Client{} = client, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs"
 
@@ -2521,14 +2632,16 @@ defmodule AWS.Tnb do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to include in the
-    response.
+  * `:max_results` (`t:string`) The maximum number of results to include in the
+  response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_sol_network_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_packages_errors()}
+
   def list_sol_network_packages(%Client{} = client, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
 
@@ -2585,10 +2698,12 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2624,22 +2739,23 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:vnf_pkg_id` (`t:string`) Function package ID.
+  * `:input` (`t:map`):
+    * `:file` (`t:string`) Function package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
-  @spec put_sol_function_package_content(
-          AWS.Client.t(),
-          String.t(),
-          put_sol_function_package_content_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_sol_function_package_content(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sol_function_package_content_errors()}
-  def put_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ []) do
+
+  def put_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
 
+    # Validate optional parameters
     optional_params = [content_type: nil]
 
     options =
@@ -2648,13 +2764,21 @@ defmodule AWS.Tnb do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"contentType", "Content-Type"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2664,7 +2788,9 @@ defmodule AWS.Tnb do
       options
       |> Keyword.drop([:content_type])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2674,22 +2800,23 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string`) Network service descriptor info ID.
+  * `:input` (`t:map`):
+    * `:file` (`t:string`) Network package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
-  @spec put_sol_network_package_content(
-          AWS.Client.t(),
-          String.t(),
-          put_sol_network_package_content_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_sol_network_package_content(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sol_network_package_content_errors()}
-  def put_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ []) do
+
+  def put_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
 
+    # Validate optional parameters
     optional_params = [content_type: nil]
 
     options =
@@ -2698,13 +2825,21 @@ defmodule AWS.Tnb do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"contentType", "Content-Type"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2714,7 +2849,9 @@ defmodule AWS.Tnb do
       options
       |> Keyword.drop([:content_type])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2727,29 +2864,40 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2764,34 +2912,40 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec terminate_sol_network_instance(
-          AWS.Client.t(),
-          String.t(),
-          terminate_sol_network_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec terminate_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, terminate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_sol_network_instance_errors()}
-  def terminate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
+
+  def terminate_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/terminate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2805,22 +2959,39 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2829,7 +3000,7 @@ defmodule AWS.Tnb do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2845,22 +3016,38 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec update_sol_function_package(
-          AWS.Client.t(),
-          String.t(),
-          update_sol_function_package_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sol_function_package_errors()}
-  def update_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
+
+  def update_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2869,7 +3056,7 @@ defmodule AWS.Tnb do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2885,34 +3072,40 @@ defmodule AWS.Tnb do
 
   ## Optional parameters:
   """
-  @spec update_sol_network_instance(
-          AWS.Client.t(),
-          String.t(),
-          update_sol_network_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sol_network_instance_errors()}
-  def update_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
+
+  def update_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -2925,26 +3118,42 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the
-    network package.
+  network package.
 
   ## Optional parameters:
   """
-  @spec update_sol_network_package(
-          AWS.Client.t(),
-          String.t(),
-          update_sol_network_package_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sol_network_package_errors()}
-  def update_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
+
+  def update_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2953,7 +3162,7 @@ defmodule AWS.Tnb do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2968,23 +3177,29 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:vnf_pkg_id` (`t:string`) Function package ID.
+  * `:input` (`t:map`):
+    * `:file` (`t:string`) Function package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
+
   @spec validate_sol_function_package_content(
           AWS.Client.t(),
           String.t(),
-          validate_sol_function_package_content_input(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, validate_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_sol_function_package_content_errors()}
-  def validate_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ []) do
+
+  def validate_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content/validate"
 
+    # Validate optional parameters
     optional_params = [content_type: nil]
 
     options =
@@ -2993,13 +3208,21 @@ defmodule AWS.Tnb do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"contentType", "Content-Type"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -3009,7 +3232,9 @@ defmodule AWS.Tnb do
       options
       |> Keyword.drop([:content_type])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -3021,23 +3246,29 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string`) Network service descriptor file.
+  * `:input` (`t:map`):
+    * `:file` (`t:string`) Network package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
+
   @spec validate_sol_network_package_content(
           AWS.Client.t(),
           String.t(),
-          validate_sol_network_package_content_input(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, validate_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_sol_network_package_content_errors()}
-  def validate_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ []) do
+
+  def validate_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content/validate"
 
+    # Validate optional parameters
     optional_params = [content_type: nil]
 
     options =
@@ -3046,13 +3277,21 @@ defmodule AWS.Tnb do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"contentType", "Content-Type"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :content_type) do
+        [{"Content-Type", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -3062,6 +3301,8 @@ defmodule AWS.Tnb do
       options
       |> Keyword.drop([:content_type])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

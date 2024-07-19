@@ -26,141 +26,141 @@ defmodule AWS.EBS do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       block() :: %{
         "BlockIndex" => integer(),
         "BlockToken" => String.t()
       }
-
+      
   """
   @type block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       changed_block() :: %{
         "BlockIndex" => integer(),
         "FirstBlockToken" => String.t(),
         "SecondBlockToken" => String.t()
       }
-
+      
   """
   @type changed_block() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       complete_snapshot_request() :: %{
         optional("Checksum") => String.t(),
         optional("ChecksumAggregationMethod") => list(any()),
         optional("ChecksumAlgorithm") => list(any()),
         required("ChangedBlocksCount") => integer()
       }
-
+      
   """
   @type complete_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       complete_snapshot_response() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type complete_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       concurrent_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type concurrent_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_snapshot_block_request() :: %{
         required("BlockToken") => String.t()
       }
-
+      
   """
   @type get_snapshot_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_snapshot_block_response() :: %{
         "BlockData" => binary(),
         "Checksum" => String.t(),
         "ChecksumAlgorithm" => list(any()),
         "DataLength" => integer()
       }
-
+      
   """
   @type get_snapshot_block_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_changed_blocks_request() :: %{
         optional("FirstSnapshotId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StartingBlockIndex") => integer()
       }
-
+      
   """
   @type list_changed_blocks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_changed_blocks_response() :: %{
         "BlockSize" => integer(),
         "ChangedBlocks" => list(changed_block()()),
@@ -168,27 +168,27 @@ defmodule AWS.EBS do
         "NextToken" => String.t(),
         "VolumeSize" => float()
       }
-
+      
   """
   @type list_changed_blocks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_snapshot_blocks_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StartingBlockIndex") => integer()
       }
-
+      
   """
   @type list_snapshot_blocks_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_snapshot_blocks_response() :: %{
         "BlockSize" => integer(),
         "Blocks" => list(block()()),
@@ -196,14 +196,14 @@ defmodule AWS.EBS do
         "NextToken" => String.t(),
         "VolumeSize" => float()
       }
-
+      
   """
   @type list_snapshot_blocks_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_snapshot_block_request() :: %{
         optional("Progress") => integer(),
         required("BlockData") => binary(),
@@ -211,62 +211,62 @@ defmodule AWS.EBS do
         required("ChecksumAlgorithm") => list(any()),
         required("DataLength") => integer()
       }
-
+      
   """
   @type put_snapshot_block_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_snapshot_block_response() :: %{
         "Checksum" => String.t(),
         "ChecksumAlgorithm" => list(any())
       }
-
+      
   """
   @type put_snapshot_block_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       request_throttled_exception() :: %{
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type request_throttled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_snapshot_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -277,14 +277,14 @@ defmodule AWS.EBS do
         optional("Timeout") => integer(),
         required("VolumeSize") => float()
       }
-
+      
   """
   @type start_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_snapshot_response() :: %{
         "BlockSize" => integer(),
         "Description" => String.t(),
@@ -298,31 +298,31 @@ defmodule AWS.EBS do
         "Tags" => list(tag()()),
         "VolumeSize" => float()
       }
-
+      
   """
   @type start_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
@@ -402,31 +402,30 @@ defmodule AWS.EBS do
   ## Parameters:
   * `:snapshot_id` (`t:string`) The ID of the snapshot.
   * `:changed_blocks_count` (`t:integer`) The number of blocks that were written
-    to the snapshot.
+  to the snapshot.
 
   ## Optional parameters:
   * `:checksum` (`t:string`) An aggregated Base-64 SHA256 checksum based on the
-    checksums of each written block.
+  checksums of each written block.
   * `:checksum_aggregation_method` (`t:enum["CHECKSUM_AGGREGATION_LINEAR"]`) The
-    aggregation method used to generate the checksum. Currently, the only
-    supported aggregation method is LINEAR.
+  aggregation method used to generate the checksum. Currently, the only
+  supported aggregation method is LINEAR.
   * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm
-    used to generate the checksum. Currently, the only supported algorithm is
-    SHA256.
+  used to generate the checksum. Currently, the only supported algorithm is
+  SHA256.
   """
-  @spec complete_snapshot(AWS.Client.t(), String.t(), complete_snapshot_request(), Keyword.t()) ::
+
+  @spec complete_snapshot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, complete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_snapshot_errors()}
-  def complete_snapshot(%Client{} = client, snapshot_id, input, options \\ []) do
+
+  def complete_snapshot(%Client{} = client, snapshot_id, changed_blocks_count, options \\ [])
+      when is_integer(changed_blocks_count) do
     url_path = "/snapshots/completion/#{AWS.Util.encode_uri(snapshot_id)}"
 
-    optional_params = [
-      changed_blocks_count: nil,
-      checksum: nil,
-      checksum_aggregation_method: nil,
-      checksum_algorithm: nil
-    ]
+    # Validate optional parameters
+    optional_params = [checksum: nil, checksum_aggregation_method: nil, checksum_algorithm: nil]
 
     options =
       Keyword.validate!(
@@ -434,16 +433,35 @@ defmodule AWS.EBS do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChangedBlocksCount", "x-amz-ChangedBlocksCount"},
-        {"Checksum", "x-amz-Checksum"},
-        {"ChecksumAggregationMethod", "x-amz-Checksum-Aggregation-Method"},
-        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-ChangedBlocksCount", changed_blocks_count}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :checksum_algorithm) do
+        [{"x-amz-Checksum-Algorithm", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :checksum_aggregation_method) do
+        [{"x-amz-Checksum-Aggregation-Method", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :checksum) do
+        [{"x-amz-Checksum", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -453,17 +471,9 @@ defmodule AWS.EBS do
       options
       |> Keyword.drop([:checksum, :checksum_aggregation_method, :checksum_algorithm])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -473,23 +483,26 @@ defmodule AWS.EBS do
 
   ## Parameters:
   * `:block_index` (`t:integer`) The block index of the block in which to read the
-    data. A block index is a logical index in units of 512 KiB blocks. To
-    identify the block index, divide the logical offset of the data in the
-    logical volume by the block size (logical offset of data/524288). The
-    logical offset of the data must be 512 KiB aligned.
+  data. A block index is a logical index in units of 512 KiB blocks. To
+  identify the block index, divide the logical offset of the data in the
+  logical volume by the block size (logical offset of data/524288). The
+  logical offset of the data must be 512 KiB aligned.
   * `:snapshot_id` (`t:string`) The ID of the snapshot containing the block from
-    which to get data.
+  which to get data.
   * `:block_token` (`t:string`) The block token of the block from which to get
-    data. You can obtain the BlockToken by running the ListChangedBlocks or
-    ListSnapshotBlocks operations.
+  data. You can obtain the BlockToken by running the ListChangedBlocks or
+  ListSnapshotBlocks operations.
 
   ## Optional parameters:
   """
+
   @spec get_snapshot_block(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_snapshot_block_errors()}
-  def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
+
+  def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ [])
+      when is_binary(block_token) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
 
@@ -536,21 +549,23 @@ defmodule AWS.EBS do
 
   ## Parameters:
   * `:second_snapshot_id` (`t:string`) The ID of the second snapshot to use for
-    the comparison.
+  the comparison.
 
   ## Optional parameters:
   * `:first_snapshot_id` (`t:string`) The ID of the first snapshot to use for the
-    comparison.
+  comparison.
   * `:max_results` (`t:integer`) The maximum number of blocks to be returned by
-    the request.
+  the request.
   * `:next_token` (`t:string`) The token to request the next page of results.
   * `:starting_block_index` (`t:integer`) The block index from which the
-    comparison should start.
+  comparison should start.
   """
+
   @spec list_changed_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changed_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_changed_blocks_errors()}
+
   def list_changed_blocks(%Client{} = client, second_snapshot_id, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(second_snapshot_id)}/changedblocks"
 
@@ -623,20 +638,22 @@ defmodule AWS.EBS do
 
   ## Parameters:
   * `:snapshot_id` (`t:string`) The ID of the snapshot from which to get block
-    indexes and block tokens.
+  indexes and block tokens.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of blocks to be returned by
-    the request.
+  the request.
   * `:next_token` (`t:string`) The token to request the next page of results.
   * `:starting_block_index` (`t:integer`) The block index from which the list
-    should start. The list in the response will start from this block index or
-    the next valid block index in the snapshot.
+  should start. The list in the response will start from this block index or
+  the next valid block index in the snapshot.
   """
+
   @spec list_snapshot_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_snapshot_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_snapshot_blocks_errors()}
+
   def list_snapshot_blocks(%Client{} = client, snapshot_id, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks"
 
@@ -699,37 +716,56 @@ defmodule AWS.EBS do
 
   ## Parameters:
   * `:block_index` (`t:integer`) The block index of the block in which to write
-    the data. A block index is a logical index in units of 512 KiB blocks. To
-    identify the block index, divide the logical offset of the data in the
-    logical volume by the block size (logical offset of data/524288). The
-    logical offset of the data must be 512 KiB aligned.
+  the data. A block index is a logical index in units of 512 KiB blocks. To
+  identify the block index, divide the logical offset of the data in the
+  logical volume by the block size (logical offset of data/524288). The
+  logical offset of the data must be 512 KiB aligned.
   * `:snapshot_id` (`t:string`) The ID of the snapshot.
   * `:checksum` (`t:string`) A Base64-encoded SHA256 checksum of the data. Only
-    SHA256 checksums are supported.
+  SHA256 checksums are supported.
   * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm
-    used to generate the checksum. Currently, the only supported algorithm is
-    SHA256.
+  used to generate the checksum. Currently, the only supported algorithm is
+  SHA256.
   * `:data_length` (`t:integer`) The size of the data to write to the block, in
-    bytes. Currently, the only supported size is 524288 bytes.
+  bytes. Currently, the only supported size is 524288 bytes.
+  * `:input` (`t:map`):
+    * `:block_data` (`t:blob`) The data to write to the block.
 
   ## Optional parameters:
   * `:progress` (`t:integer`) The progress of the write process, as a percentage.
   """
+
   @spec put_snapshot_block(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          put_snapshot_block_request(),
+          String.t(),
+          String.t(),
+          String.t(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, put_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_snapshot_block_errors()}
-  def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
+
+  def put_snapshot_block(
+        %Client{} = client,
+        block_index,
+        snapshot_id,
+        checksum,
+        checksum_algorithm,
+        data_length,
+        input,
+        options \\ []
+      )
+      when is_map(input) and is_binary(checksum) and is_binary(checksum_algorithm) and
+             is_integer(data_length) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
 
-    optional_params = [checksum: nil, checksum_algorithm: nil, data_length: nil, progress: nil]
+    # Validate optional parameters
+    optional_params = [progress: nil]
 
     options =
       Keyword.validate!(
@@ -737,16 +773,34 @@ defmodule AWS.EBS do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"Checksum", "x-amz-Checksum"},
-        {"ChecksumAlgorithm", "x-amz-Checksum-Algorithm"},
-        {"DataLength", "x-amz-Data-Length"},
-        {"Progress", "x-amz-Progress"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [
+      {"x-amz-Checksum", checksum},
+      {"x-amz-Checksum-Algorithm", checksum_algorithm},
+      {"x-amz-Data-Length", data_length}
+    ]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :progress) do
+        [{"x-amz-Progress", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-Checksum", "Checksum"},
+          {"x-amz-Checksum-Algorithm", "ChecksumAlgorithm"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -766,7 +820,9 @@ defmodule AWS.EBS do
       options
       |> Keyword.drop([:progress])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -779,28 +835,39 @@ defmodule AWS.EBS do
 
   ## Optional parameters:
   """
-  @spec start_snapshot(AWS.Client.t(), start_snapshot_request(), Keyword.t()) ::
+
+  @spec start_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_snapshot_errors()}
-  def start_snapshot(%Client{} = client, input, options \\ []) do
+
+  def start_snapshot(%Client{} = client, options \\ []) do
     url_path = "/snapshots"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 end

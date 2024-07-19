@@ -1371,12 +1371,25 @@ defmodule AWS.ServiceDiscovery do
   Creates an HTTP namespace. Service instances registered using an HTTP namespace
   can be discovered using a `DiscoverInstances` request but can't be discovered
   using DNS.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20CreateHttpNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_http_namespace_request`)
+    %{
+      optional("CreatorRequestId") => String.t(),
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_http_namespace(AWS.Client.t(), create_http_namespace_request(), Keyword.t()) ::
+
+  @spec create_http_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_http_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_http_namespace_errors()}
-  def create_http_namespace(%Client{} = client, input, options \\ []) do
+
+  def create_http_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1394,16 +1407,27 @@ defmodule AWS.ServiceDiscovery do
   Amazon Web Services account, see [Cloud Map
   quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
   in the *Cloud Map Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20CreatePrivateDnsNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_private_dns_namespace_request`)
+    %{
+      optional("CreatorRequestId") => String.t(),
+      optional("Description") => String.t(),
+      optional("Properties") => private_dns_namespace_properties(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t(),
+      required("Vpc") => String.t()
+    }
   """
-  @spec create_private_dns_namespace(
-          AWS.Client.t(),
-          create_private_dns_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_private_dns_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_private_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_private_dns_namespace_errors()}
-  def create_private_dns_namespace(%Client{} = client, input, options \\ []) do
+
+  def create_private_dns_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1421,16 +1445,26 @@ defmodule AWS.ServiceDiscovery do
   see [Cloud Map
   quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html)
   in the *Cloud Map Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20CreatePublicDnsNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_public_dns_namespace_request`)
+    %{
+      optional("CreatorRequestId") => String.t(),
+      optional("Description") => String.t(),
+      optional("Properties") => public_dns_namespace_properties(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_public_dns_namespace(
-          AWS.Client.t(),
-          create_public_dns_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_public_dns_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_public_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_public_dns_namespace_errors()}
-  def create_public_dns_namespace(%Client{} = client, input, options \\ []) do
+
+  def create_public_dns_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1440,12 +1474,30 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Creates a service. This action defines the configuration for the following
   entities:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20CreateService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_service_request`)
+    %{
+      optional("CreatorRequestId") => String.t(),
+      optional("Description") => String.t(),
+      optional("DnsConfig") => dns_config(),
+      optional("HealthCheckConfig") => health_check_config(),
+      optional("HealthCheckCustomConfig") => health_check_custom_config(),
+      optional("NamespaceId") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("Type") => list(any()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_service(AWS.Client.t(), create_service_request(), Keyword.t()) ::
+
+  @spec create_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
-  def create_service(%Client{} = client, input, options \\ []) do
+
+  def create_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1455,12 +1507,22 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Deletes a namespace from the current account. If the namespace still contains
   one or more services, the request fails.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20DeleteNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_namespace_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec delete_namespace(AWS.Client.t(), delete_namespace_request(), Keyword.t()) ::
+
+  @spec delete_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_namespace_errors()}
-  def delete_namespace(%Client{} = client, input, options \\ []) do
+
+  def delete_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1470,12 +1532,22 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Deletes a specified service. If the service still contains one or more
   registered instances, the request fails.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20DeleteService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_service_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec delete_service(AWS.Client.t(), delete_service_request(), Keyword.t()) ::
+
+  @spec delete_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
-  def delete_service(%Client{} = client, input, options \\ []) do
+
+  def delete_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1485,12 +1557,23 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map
   created for the specified instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20DeregisterInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_instance_request`)
+    %{
+      required("InstanceId") => String.t(),
+      required("ServiceId") => String.t()
+    }
   """
-  @spec deregister_instance(AWS.Client.t(), deregister_instance_request(), Keyword.t()) ::
+
+  @spec deregister_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_instance_errors()}
-  def deregister_instance(%Client{} = client, input, options \\ []) do
+
+  def deregister_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1503,12 +1586,27 @@ defmodule AWS.ServiceDiscovery do
   `DiscoverInstances` returns a randomized list of instances allowing customers
   to distribute traffic evenly across instances. For public and private DNS
   namespaces, you can also use DNS queries to discover instances.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20DiscoverInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:discover_instances_request`)
+    %{
+      optional("HealthStatus") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("OptionalParameters") => map(),
+      optional("QueryParameters") => map(),
+      required("NamespaceName") => String.t(),
+      required("ServiceName") => String.t()
+    }
   """
-  @spec discover_instances(AWS.Client.t(), discover_instances_request(), Keyword.t()) ::
+
+  @spec discover_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, discover_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_instances_errors()}
-  def discover_instances(%Client{} = client, input, options \\ []) do
+
+  def discover_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "data-")
 
@@ -1517,16 +1615,23 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Discovers the increasing revision associated with an instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20DiscoverInstancesRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:discover_instances_revision_request`)
+    %{
+      required("NamespaceName") => String.t(),
+      required("ServiceName") => String.t()
+    }
   """
-  @spec discover_instances_revision(
-          AWS.Client.t(),
-          discover_instances_revision_request(),
-          Keyword.t()
-        ) ::
+
+  @spec discover_instances_revision(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, discover_instances_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, discover_instances_revision_errors()}
-  def discover_instances_revision(%Client{} = client, input, options \\ []) do
+
+  def discover_instances_revision(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata() |> Map.put_new(:host_prefix, "data-")
 
@@ -1535,12 +1640,23 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Gets information about a specified instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20GetInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instance_request`)
+    %{
+      required("InstanceId") => String.t(),
+      required("ServiceId") => String.t()
+    }
   """
-  @spec get_instance(AWS.Client.t(), get_instance_request(), Keyword.t()) ::
+
+  @spec get_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instance_errors()}
-  def get_instance(%Client{} = client, input, options \\ []) do
+
+  def get_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1550,16 +1666,25 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Gets the current health status (`Healthy`, `Unhealthy`, or `Unknown`) of one or
   more instances that are associated with a specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20GetInstancesHealthStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_instances_health_status_request`)
+    %{
+      optional("Instances") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServiceId") => String.t()
+    }
   """
-  @spec get_instances_health_status(
-          AWS.Client.t(),
-          get_instances_health_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_instances_health_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_instances_health_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_instances_health_status_errors()}
-  def get_instances_health_status(%Client{} = client, input, options \\ []) do
+
+  def get_instances_health_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1568,12 +1693,22 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Gets information about a namespace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20GetNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_namespace_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec get_namespace(AWS.Client.t(), get_namespace_request(), Keyword.t()) ::
+
+  @spec get_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_namespace_errors()}
-  def get_namespace(%Client{} = client, input, options \\ []) do
+
+  def get_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1583,12 +1718,22 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Gets information about any operation that returns an operation ID in the
   response, such as a `CreateHttpNamespace` request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20GetOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_operation_request`)
+    %{
+      required("OperationId") => String.t()
+    }
   """
-  @spec get_operation(AWS.Client.t(), get_operation_request(), Keyword.t()) ::
+
+  @spec get_operation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_operation_errors()}
-  def get_operation(%Client{} = client, input, options \\ []) do
+
+  def get_operation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1597,12 +1742,22 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Gets the settings for a specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20GetService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_service_request`)
+    %{
+      required("Id") => String.t()
+    }
   """
-  @spec get_service(AWS.Client.t(), get_service_request(), Keyword.t()) ::
+
+  @spec get_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
-  def get_service(%Client{} = client, input, options \\ []) do
+
+  def get_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1612,12 +1767,24 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Lists summary information about the instances that you registered by using a
   specified service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20ListInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_instances_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServiceId") => String.t()
+    }
   """
-  @spec list_instances(AWS.Client.t(), list_instances_request(), Keyword.t()) ::
+
+  @spec list_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
-  def list_instances(%Client{} = client, input, options \\ []) do
+
+  def list_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1627,12 +1794,24 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Lists summary information about the namespaces that were created by the current
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20ListNamespaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_namespaces_request`)
+    %{
+      optional("Filters") => list(namespace_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_namespaces(AWS.Client.t(), list_namespaces_request(), Keyword.t()) ::
+
+  @spec list_namespaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_namespaces_errors()}
-  def list_namespaces(%Client{} = client, input, options \\ []) do
+
+  def list_namespaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1641,12 +1820,24 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Lists operations that match the criteria that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20ListOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_operations_request`)
+    %{
+      optional("Filters") => list(operation_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_operations(AWS.Client.t(), list_operations_request(), Keyword.t()) ::
+
+  @spec list_operations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_operations_errors()}
-  def list_operations(%Client{} = client, input, options \\ []) do
+
+  def list_operations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1656,12 +1847,24 @@ defmodule AWS.ServiceDiscovery do
   @doc """
   Lists summary information for all the services that are associated with one or
   more namespaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20ListServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_services_request`)
+    %{
+      optional("Filters") => list(service_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_services(AWS.Client.t(), list_services_request(), Keyword.t()) ::
+
+  @spec list_services(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
-  def list_services(%Client{} = client, input, options \\ []) do
+
+  def list_services(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1670,12 +1873,22 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Lists tags for the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1686,12 +1899,25 @@ defmodule AWS.ServiceDiscovery do
   Creates or updates one or more records and, optionally, creates a health check
   based on the settings in a specified service. When you submit a
   `RegisterInstance` request, the following occurs:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20RegisterInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_instance_request`)
+    %{
+      optional("CreatorRequestId") => String.t(),
+      required("Attributes") => map(),
+      required("InstanceId") => String.t(),
+      required("ServiceId") => String.t()
+    }
   """
-  @spec register_instance(AWS.Client.t(), register_instance_request(), Keyword.t()) ::
+
+  @spec register_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_instance_errors()}
-  def register_instance(%Client{} = client, input, options \\ []) do
+
+  def register_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1700,12 +1926,23 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Adds one or more tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1714,12 +1951,23 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1728,12 +1976,24 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Updates an HTTP namespace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20UpdateHttpNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_http_namespace_request`)
+    %{
+      optional("UpdaterRequestId") => String.t(),
+      required("Id") => String.t(),
+      required("Namespace") => http_namespace_change()
+    }
   """
-  @spec update_http_namespace(AWS.Client.t(), update_http_namespace_request(), Keyword.t()) ::
+
+  @spec update_http_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_http_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_http_namespace_errors()}
-  def update_http_namespace(%Client{} = client, input, options \\ []) do
+
+  def update_http_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1747,16 +2007,25 @@ defmodule AWS.ServiceDiscovery do
   `HealthCheckCustomConfig` when you create a service. You can't use it to
   change the status for Route 53 health checks, which you define using
   `HealthCheckConfig`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20UpdateInstanceCustomHealthStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_instance_custom_health_status_request`)
+    %{
+      required("InstanceId") => String.t(),
+      required("ServiceId") => String.t(),
+      required("Status") => list(any())
+    }
   """
-  @spec update_instance_custom_health_status(
-          AWS.Client.t(),
-          update_instance_custom_health_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_instance_custom_health_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_custom_health_status_errors()}
-  def update_instance_custom_health_status(%Client{} = client, input, options \\ []) do
+
+  def update_instance_custom_health_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1765,16 +2034,24 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Updates a private DNS namespace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20UpdatePrivateDnsNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_private_dns_namespace_request`)
+    %{
+      optional("UpdaterRequestId") => String.t(),
+      required("Id") => String.t(),
+      required("Namespace") => private_dns_namespace_change()
+    }
   """
-  @spec update_private_dns_namespace(
-          AWS.Client.t(),
-          update_private_dns_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_private_dns_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_private_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_private_dns_namespace_errors()}
-  def update_private_dns_namespace(%Client{} = client, input, options \\ []) do
+
+  def update_private_dns_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1783,16 +2060,24 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Updates a public DNS namespace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20UpdatePublicDnsNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_public_dns_namespace_request`)
+    %{
+      optional("UpdaterRequestId") => String.t(),
+      required("Id") => String.t(),
+      required("Namespace") => public_dns_namespace_change()
+    }
   """
-  @spec update_public_dns_namespace(
-          AWS.Client.t(),
-          update_public_dns_namespace_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_public_dns_namespace(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_public_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_public_dns_namespace_errors()}
-  def update_public_dns_namespace(%Client{} = client, input, options \\ []) do
+
+  def update_public_dns_namespace(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1801,12 +2086,23 @@ defmodule AWS.ServiceDiscovery do
 
   @doc """
   Submits a request to perform the following operations:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicediscovery%20UpdateService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_service_request`)
+    %{
+      required("Id") => String.t(),
+      required("Service") => service_change()
+    }
   """
-  @spec update_service(AWS.Client.t(), update_service_request(), Keyword.t()) ::
+
+  @spec update_service(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_service_errors()}
-  def update_service(%Client{} = client, input, options \\ []) do
+
+  def update_service(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -18,19 +18,19 @@ defmodule AWS.OAM do
   @typedoc """
 
   ## Example:
-
+      
       create_sink_input() :: %{
         optional("Tags") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_sink_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_link_output() :: %{
         "Arn" => [String.t()],
         "Id" => [String.t()],
@@ -41,164 +41,164 @@ defmodule AWS.OAM do
         "SinkArn" => [String.t()],
         "Tags" => map()
       }
-
+      
   """
   @type get_link_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_link_input() :: %{
         required("Identifier") => String.t()
       }
-
+      
   """
   @type delete_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_configuration() :: %{
         "Filter" => String.t()
       }
-
+      
   """
   @type metric_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       log_group_configuration() :: %{
         "Filter" => String.t()
       }
-
+      
   """
   @type log_group_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       missing_required_parameter_exception() :: %{
         "amznErrorType" => [String.t()],
         "message" => [String.t()]
       }
-
+      
   """
   @type missing_required_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sink_output() :: %{}
-
+      
   """
   @type delete_sink_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_links_output() :: %{
         "Items" => list(list_links_item()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type list_links_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sink_policy_output() :: %{
         "Policy" => [String.t()],
         "SinkArn" => [String.t()],
         "SinkId" => [String.t()]
       }
-
+      
   """
   @type put_sink_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attached_links_output() :: %{
         "Items" => list(list_attached_links_item()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type list_attached_links_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sink_input() :: %{
         required("Identifier") => String.t()
       }
-
+      
   """
   @type delete_sink_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sink_policy_input() :: %{
         required("SinkIdentifier") => String.t()
       }
-
+      
   """
   @type get_sink_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sink_policy_output() :: %{
         "Policy" => [String.t()],
         "SinkArn" => [String.t()],
         "SinkId" => [String.t()]
       }
-
+      
   """
   @type get_sink_policy_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attached_links_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("SinkIdentifier") => String.t()
       }
-
+      
   """
   @type list_attached_links_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_link_input() :: %{
         optional("LinkConfiguration") => link_configuration(),
         optional("Tags") => map(),
@@ -206,124 +206,124 @@ defmodule AWS.OAM do
         required("ResourceTypes") => list(list(any())()),
         required("SinkIdentifier") => String.t()
       }
-
+      
   """
   @type create_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => [String.t()],
         "amznErrorType" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => [String.t()],
         "amznErrorType" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attached_links_item() :: %{
         "Label" => [String.t()],
         "LinkArn" => [String.t()],
         "ResourceTypes" => list([String.t()]())
       }
-
+      
   """
   @type list_attached_links_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_links_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_links_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t()],
         "amznErrorType" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_link_input() :: %{
         optional("LinkConfiguration") => link_configuration(),
         required("Identifier") => String.t(),
         required("ResourceTypes") => list(list(any())())
       }
-
+      
   """
   @type update_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sink_output() :: %{
         "Arn" => [String.t()],
         "Id" => [String.t()],
         "Name" => [String.t()],
         "Tags" => map()
       }
-
+      
   """
   @type create_sink_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sink_input() :: %{
         required("Identifier") => String.t()
       }
-
+      
   """
   @type get_sink_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_link_output() :: %{
         "Arn" => [String.t()],
         "Id" => [String.t()],
@@ -334,35 +334,35 @@ defmodule AWS.OAM do
         "SinkArn" => [String.t()],
         "Tags" => map()
       }
-
+      
   """
   @type create_link_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       link_configuration() :: %{
         "LogGroupConfiguration" => log_group_configuration(),
         "MetricConfiguration" => metric_configuration()
       }
-
+      
   """
   @type link_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_links_item() :: %{
         "Arn" => [String.t()],
         "Id" => [String.t()],
@@ -370,149 +370,149 @@ defmodule AWS.OAM do
         "ResourceTypes" => list([String.t()]()),
         "SinkArn" => [String.t()]
       }
-
+      
   """
   @type list_links_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sinks_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_sinks_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "amznErrorType" => [String.t()],
         "message" => [String.t()]
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sinks_output() :: %{
         "Items" => list(list_sinks_item()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type list_sinks_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_link_input() :: %{
         required("Identifier") => String.t()
       }
-
+      
   """
   @type get_link_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_link_output() :: %{}
-
+      
   """
   @type delete_link_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_fault() :: %{
         "Message" => [String.t()],
         "amznErrorType" => [String.t()]
       }
-
+      
   """
   @type internal_service_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sinks_item() :: %{
         "Arn" => [String.t()],
         "Id" => [String.t()],
         "Name" => [String.t()]
       }
-
+      
   """
   @type list_sinks_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sink_output() :: %{
         "Arn" => [String.t()],
         "Id" => [String.t()],
         "Name" => [String.t()],
         "Tags" => map()
       }
-
+      
   """
   @type get_sink_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_link_output() :: %{
         "Arn" => [String.t()],
         "Id" => [String.t()],
@@ -523,30 +523,30 @@ defmodule AWS.OAM do
         "SinkArn" => [String.t()],
         "Tags" => map()
       }
-
+      
   """
   @type update_link_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sink_policy_input() :: %{
         required("Policy") => String.t(),
         required("SinkIdentifier") => String.t()
       }
-
+      
   """
   @type put_sink_policy_input() :: %{String.t() => any()}
 
@@ -663,29 +663,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec create_link(AWS.Client.t(), create_link_input(), Keyword.t()) ::
+
+  @spec create_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_link_errors()}
-  def create_link(%Client{} = client, input, options \\ []) do
+
+  def create_link(%Client{} = client, options \\ []) do
     url_path = "/CreateLink"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -703,29 +714,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec create_sink(AWS.Client.t(), create_sink_input(), Keyword.t()) ::
+
+  @spec create_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sink_errors()}
-  def create_sink(%Client{} = client, input, options \\ []) do
+
+  def create_sink(%Client{} = client, options \\ []) do
     url_path = "/CreateSink"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -738,29 +760,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec delete_link(AWS.Client.t(), delete_link_input(), Keyword.t()) ::
+
+  @spec delete_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_link_errors()}
-  def delete_link(%Client{} = client, input, options \\ []) do
+
+  def delete_link(%Client{} = client, options \\ []) do
     url_path = "/DeleteLink"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -773,29 +806,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec delete_sink(AWS.Client.t(), delete_sink_input(), Keyword.t()) ::
+
+  @spec delete_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sink_errors()}
-  def delete_sink(%Client{} = client, input, options \\ []) do
+
+  def delete_sink(%Client{} = client, options \\ []) do
     url_path = "/DeleteSink"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -807,29 +851,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec get_link(AWS.Client.t(), get_link_input(), Keyword.t()) ::
+
+  @spec get_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_link_errors()}
-  def get_link(%Client{} = client, input, options \\ []) do
+
+  def get_link(%Client{} = client, options \\ []) do
     url_path = "/GetLink"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -841,29 +896,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec get_sink(AWS.Client.t(), get_sink_input(), Keyword.t()) ::
+
+  @spec get_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sink_errors()}
-  def get_sink(%Client{} = client, input, options \\ []) do
+
+  def get_sink(%Client{} = client, options \\ []) do
     url_path = "/GetSink"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -877,29 +943,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec get_sink_policy(AWS.Client.t(), get_sink_policy_input(), Keyword.t()) ::
+
+  @spec get_sink_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sink_policy_errors()}
-  def get_sink_policy(%Client{} = client, input, options \\ []) do
+
+  def get_sink_policy(%Client{} = client, options \\ []) do
     url_path = "/GetSinkPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -912,29 +989,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec list_attached_links(AWS.Client.t(), list_attached_links_input(), Keyword.t()) ::
+
+  @spec list_attached_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attached_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attached_links_errors()}
-  def list_attached_links(%Client{} = client, input, options \\ []) do
+
+  def list_attached_links(%Client{} = client, options \\ []) do
     url_path = "/ListAttachedLinks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -947,29 +1035,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec list_links(AWS.Client.t(), list_links_input(), Keyword.t()) ::
+
+  @spec list_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_links_errors()}
-  def list_links(%Client{} = client, input, options \\ []) do
+
+  def list_links(%Client{} = client, options \\ []) do
     url_path = "/ListLinks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -982,29 +1081,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec list_sinks(AWS.Client.t(), list_sinks_input(), Keyword.t()) ::
+
+  @spec list_sinks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sinks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sinks_errors()}
-  def list_sinks(%Client{} = client, input, options \\ []) do
+
+  def list_sinks(%Client{} = client, options \\ []) do
     url_path = "/ListSinks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1015,14 +1125,16 @@ defmodule AWS.OAM do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource that you want to view
-    tags for.
+  tags for.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1064,29 +1176,40 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec put_sink_policy(AWS.Client.t(), put_sink_policy_input(), Keyword.t()) ::
+
+  @spec put_sink_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sink_policy_errors()}
-  def put_sink_policy(%Client{} = client, input, options \\ []) do
+
+  def put_sink_policy(%Client{} = client, options \\ []) do
     url_path = "/PutSinkPolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1099,23 +1222,44 @@ defmodule AWS.OAM do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource that you're adding tags
-    to.
+  to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1125,28 +1269,45 @@ defmodule AWS.OAM do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource that you're removing tags
-    from.
+  from.
   * `:tag_keys` (`t:list[com.amazonaws.oam#TagKey]`) The list of tag keys to
-    remove from the resource.
+  remove from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1155,7 +1316,7 @@ defmodule AWS.OAM do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1174,28 +1335,39 @@ defmodule AWS.OAM do
 
   ## Optional parameters:
   """
-  @spec update_link(AWS.Client.t(), update_link_input(), Keyword.t()) ::
+
+  @spec update_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_link_errors()}
-  def update_link(%Client{} = client, input, options \\ []) do
+
+  def update_link(%Client{} = client, options \\ []) do
     url_path = "/UpdateLink"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

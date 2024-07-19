@@ -2408,16 +2408,25 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Deletes a recommendation preference, such as enhanced infrastructure metrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20DeleteRecommendationPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_recommendation_preferences_request`)
+    %{
+      optional("scope") => scope(),
+      required("recommendationPreferenceNames") => list(list(any())()),
+      required("resourceType") => list(any())
+    }
   """
-  @spec delete_recommendation_preferences(
-          AWS.Client.t(),
-          delete_recommendation_preferences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommendation_preferences_errors()}
-  def delete_recommendation_preferences(%Client{} = client, input, options \\ []) do
+
+  def delete_recommendation_preferences(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2426,16 +2435,26 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Describes recommendation export jobs created in the last seven days.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20DescribeRecommendationExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_recommendation_export_jobs_request`)
+    %{
+      optional("filters") => list(job_filter()()),
+      optional("jobIds") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec describe_recommendation_export_jobs(
-          AWS.Client.t(),
-          describe_recommendation_export_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_recommendation_export_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_recommendation_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_recommendation_export_jobs_errors()}
-  def describe_recommendation_export_jobs(%Client{} = client, input, options \\ []) do
+
+  def describe_recommendation_export_jobs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2450,16 +2469,29 @@ defmodule AWS.ComputeOptimizer do
   [Exporting
   Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
   in the *Compute Optimizer User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20ExportAutoScalingGroupRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_auto_scaling_group_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("fieldsToExport") => list(list(any())()),
+      optional("fileFormat") => list(any()),
+      optional("filters") => list(filter()()),
+      optional("includeMemberAccounts") => boolean(),
+      optional("recommendationPreferences") => recommendation_preferences(),
+      required("s3DestinationConfig") => s3_destination_config()
+    }
   """
-  @spec export_auto_scaling_group_recommendations(
-          AWS.Client.t(),
-          export_auto_scaling_group_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_auto_scaling_group_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_auto_scaling_group_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_auto_scaling_group_recommendations_errors()}
-  def export_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
+
+  def export_auto_scaling_group_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2473,16 +2505,28 @@ defmodule AWS.ComputeOptimizer do
   specify. For more information, see [Exporting
   Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
   in the *Compute Optimizer User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20ExportECSServiceRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_e_c_s_service_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("fieldsToExport") => list(list(any())()),
+      optional("fileFormat") => list(any()),
+      optional("filters") => list(e_c_s_service_recommendation_filter()()),
+      optional("includeMemberAccounts") => boolean(),
+      required("s3DestinationConfig") => s3_destination_config()
+    }
   """
-  @spec export_e_c_s_service_recommendations(
-          AWS.Client.t(),
-          export_e_c_s_service_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_e_c_s_service_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_e_c_s_service_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_e_c_s_service_recommendations_errors()}
-  def export_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
+
+  def export_e_c_s_service_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2497,16 +2541,28 @@ defmodule AWS.ComputeOptimizer do
   [Exporting
   Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
   in the *Compute Optimizer User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20ExportEBSVolumeRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_ebs_volume_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("fieldsToExport") => list(list(any())()),
+      optional("fileFormat") => list(any()),
+      optional("filters") => list(ebs_filter()()),
+      optional("includeMemberAccounts") => boolean(),
+      required("s3DestinationConfig") => s3_destination_config()
+    }
   """
-  @spec export_ebs_volume_recommendations(
-          AWS.Client.t(),
-          export_ebs_volume_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_ebs_volume_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_ebs_volume_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_ebs_volume_recommendations_errors()}
-  def export_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
+
+  def export_ebs_volume_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2521,16 +2577,29 @@ defmodule AWS.ComputeOptimizer do
   [Exporting
   Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
   in the *Compute Optimizer User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20ExportEC2InstanceRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_ec2_instance_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("fieldsToExport") => list(list(any())()),
+      optional("fileFormat") => list(any()),
+      optional("filters") => list(filter()()),
+      optional("includeMemberAccounts") => boolean(),
+      optional("recommendationPreferences") => recommendation_preferences(),
+      required("s3DestinationConfig") => s3_destination_config()
+    }
   """
-  @spec export_ec2_instance_recommendations(
-          AWS.Client.t(),
-          export_ec2_instance_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_ec2_instance_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_ec2_instance_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_ec2_instance_recommendations_errors()}
-  def export_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
+
+  def export_ec2_instance_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2545,16 +2614,28 @@ defmodule AWS.ComputeOptimizer do
   [Exporting
   Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
   in the *Compute Optimizer User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20ExportLambdaFunctionRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_lambda_function_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("fieldsToExport") => list(list(any())()),
+      optional("fileFormat") => list(any()),
+      optional("filters") => list(lambda_function_recommendation_filter()()),
+      optional("includeMemberAccounts") => boolean(),
+      required("s3DestinationConfig") => s3_destination_config()
+    }
   """
-  @spec export_lambda_function_recommendations(
-          AWS.Client.t(),
-          export_lambda_function_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_lambda_function_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_lambda_function_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_lambda_function_recommendations_errors()}
-  def export_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
+
+  def export_lambda_function_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2569,16 +2650,28 @@ defmodule AWS.ComputeOptimizer do
   [Exporting
   Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
   in the *Compute Optimizer User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20ExportLicenseRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_license_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("fieldsToExport") => list(list(any())()),
+      optional("fileFormat") => list(any()),
+      optional("filters") => list(license_recommendation_filter()()),
+      optional("includeMemberAccounts") => boolean(),
+      required("s3DestinationConfig") => s3_destination_config()
+    }
   """
-  @spec export_license_recommendations(
-          AWS.Client.t(),
-          export_license_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_license_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_license_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_license_recommendations_errors()}
-  def export_license_recommendations(%Client{} = client, input, options \\ []) do
+
+  def export_license_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2593,16 +2686,29 @@ defmodule AWS.ComputeOptimizer do
   For more information, see [Exporting
   Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
   in the *Compute Optimizer User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20ExportRDSDatabaseRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_rds_database_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("fieldsToExport") => list(list(any())()),
+      optional("fileFormat") => list(any()),
+      optional("filters") => list(rds_db_recommendation_filter()()),
+      optional("includeMemberAccounts") => boolean(),
+      optional("recommendationPreferences") => recommendation_preferences(),
+      required("s3DestinationConfig") => s3_destination_config()
+    }
   """
-  @spec export_rds_database_recommendations(
-          AWS.Client.t(),
-          export_rds_database_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_rds_database_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_rds_database_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_rds_database_recommendations_errors()}
-  def export_rds_database_recommendations(%Client{} = client, input, options \\ []) do
+
+  def export_rds_database_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2611,16 +2717,28 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Auto Scaling group recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetAutoScalingGroupRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_auto_scaling_group_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("autoScalingGroupArns") => list(String.t()()),
+      optional("filters") => list(filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("recommendationPreferences") => recommendation_preferences()
+    }
   """
-  @spec get_auto_scaling_group_recommendations(
-          AWS.Client.t(),
-          get_auto_scaling_group_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_auto_scaling_group_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_auto_scaling_group_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_auto_scaling_group_recommendations_errors()}
-  def get_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_auto_scaling_group_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2629,16 +2747,31 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns the projected metrics of Amazon ECS service recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetECSServiceRecommendationProjectedMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_e_c_s_service_recommendation_projected_metrics_request`)
+    %{
+      required("endTime") => non_neg_integer(),
+      required("period") => integer(),
+      required("serviceArn") => String.t(),
+      required("startTime") => non_neg_integer(),
+      required("stat") => list(any())
+    }
   """
+
   @spec get_e_c_s_service_recommendation_projected_metrics(
           AWS.Client.t(),
-          get_e_c_s_service_recommendation_projected_metrics_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, get_e_c_s_service_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_e_c_s_service_recommendation_projected_metrics_errors()}
-  def get_e_c_s_service_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_e_c_s_service_recommendation_projected_metrics(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2653,16 +2786,27 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Amazon ECS service recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetECSServiceRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_e_c_s_service_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("filters") => list(e_c_s_service_recommendation_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("serviceArns") => list(String.t()())
+    }
   """
-  @spec get_e_c_s_service_recommendations(
-          AWS.Client.t(),
-          get_e_c_s_service_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_e_c_s_service_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_e_c_s_service_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_e_c_s_service_recommendations_errors()}
-  def get_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_e_c_s_service_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2671,16 +2815,27 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEBSVolumeRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ebs_volume_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("filters") => list(ebs_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("volumeArns") => list(String.t()())
+    }
   """
-  @spec get_ebs_volume_recommendations(
-          AWS.Client.t(),
-          get_ebs_volume_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_ebs_volume_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ebs_volume_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ebs_volume_recommendations_errors()}
-  def get_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_ebs_volume_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2689,16 +2844,28 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Amazon EC2 instance recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEC2InstanceRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ec2_instance_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("filters") => list(filter()()),
+      optional("instanceArns") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("recommendationPreferences") => recommendation_preferences()
+    }
   """
-  @spec get_ec2_instance_recommendations(
-          AWS.Client.t(),
-          get_ec2_instance_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_ec2_instance_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ec2_instance_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ec2_instance_recommendations_errors()}
-  def get_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_ec2_instance_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2708,16 +2875,28 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the projected utilization metrics of Amazon EC2 instance
   recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEC2RecommendationProjectedMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ec2_recommendation_projected_metrics_request`)
+    %{
+      optional("recommendationPreferences") => recommendation_preferences(),
+      required("endTime") => non_neg_integer(),
+      required("instanceArn") => String.t(),
+      required("period") => integer(),
+      required("startTime") => non_neg_integer(),
+      required("stat") => list(any())
+    }
   """
-  @spec get_ec2_recommendation_projected_metrics(
-          AWS.Client.t(),
-          get_ec2_recommendation_projected_metrics_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_ec2_recommendation_projected_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ec2_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ec2_recommendation_projected_metrics_errors()}
-  def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2728,16 +2907,23 @@ defmodule AWS.ComputeOptimizer do
   Returns the recommendation preferences that are in effect for a given resource,
   such as enhanced infrastructure metrics. Considers all applicable preferences
   that you might have set at the resource, account, and organization level.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEffectiveRecommendationPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_effective_recommendation_preferences_request`)
+    %{
+      required("resourceArn") => String.t()
+    }
   """
-  @spec get_effective_recommendation_preferences(
-          AWS.Client.t(),
-          get_effective_recommendation_preferences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_effective_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_effective_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_effective_recommendation_preferences_errors()}
-  def get_effective_recommendation_preferences(%Client{} = client, input, options \\ []) do
+
+  def get_effective_recommendation_preferences(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2747,12 +2933,22 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the enrollment (opt in) status of an account to the Compute Optimizer
   service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEnrollmentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_enrollment_status_request`)
+    %{
+      
+    }
   """
-  @spec get_enrollment_status(AWS.Client.t(), get_enrollment_status_request(), Keyword.t()) ::
+
+  @spec get_enrollment_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enrollment_status_errors()}
-  def get_enrollment_status(%Client{} = client, input, options \\ []) do
+
+  def get_enrollment_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2762,16 +2958,25 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the Compute Optimizer enrollment (opt-in) status of organization member
   accounts, if your account is an organization management account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetEnrollmentStatusesForOrganization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_enrollment_statuses_for_organization_request`)
+    %{
+      optional("filters") => list(enrollment_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec get_enrollment_statuses_for_organization(
-          AWS.Client.t(),
-          get_enrollment_statuses_for_organization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_enrollment_statuses_for_organization(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_enrollment_statuses_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_enrollment_statuses_for_organization_errors()}
-  def get_enrollment_statuses_for_organization(%Client{} = client, input, options \\ []) do
+
+  def get_enrollment_statuses_for_organization(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2780,16 +2985,27 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Lambda function recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetLambdaFunctionRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_lambda_function_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("filters") => list(lambda_function_recommendation_filter()()),
+      optional("functionArns") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec get_lambda_function_recommendations(
-          AWS.Client.t(),
-          get_lambda_function_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_lambda_function_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lambda_function_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lambda_function_recommendations_errors()}
-  def get_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_lambda_function_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2799,16 +3015,26 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns license recommendations for Amazon EC2 instances that run on a specific
   license.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetLicenseRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_license_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("filters") => list(license_recommendation_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("resourceArns") => list(String.t()())
+    }
   """
-  @spec get_license_recommendations(
-          AWS.Client.t(),
-          get_license_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_license_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_license_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_license_recommendations_errors()}
-  def get_license_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_license_recommendations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2817,16 +3043,32 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns the projected metrics of Amazon RDS recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetRDSDatabaseRecommendationProjectedMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rds_database_recommendation_projected_metrics_request`)
+    %{
+      optional("recommendationPreferences") => recommendation_preferences(),
+      required("endTime") => non_neg_integer(),
+      required("period") => integer(),
+      required("resourceArn") => String.t(),
+      required("startTime") => non_neg_integer(),
+      required("stat") => list(any())
+    }
   """
+
   @spec get_rds_database_recommendation_projected_metrics(
           AWS.Client.t(),
-          get_rds_database_recommendation_projected_metrics_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, get_rds_database_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rds_database_recommendation_projected_metrics_errors()}
-  def get_rds_database_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_rds_database_recommendation_projected_metrics(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2841,16 +3083,28 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Amazon RDS recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetRDSDatabaseRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rds_database_recommendations_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("filters") => list(rds_db_recommendation_filter()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("recommendationPreferences") => recommendation_preferences(),
+      optional("resourceArns") => list(String.t()())
+    }
   """
-  @spec get_rds_database_recommendations(
-          AWS.Client.t(),
-          get_rds_database_recommendations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_rds_database_recommendations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rds_database_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rds_database_recommendations_errors()}
-  def get_rds_database_recommendations(%Client{} = client, input, options \\ []) do
+
+  def get_rds_database_recommendations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2862,16 +3116,26 @@ defmodule AWS.ComputeOptimizer do
   metrics. Use the `scope` parameter to specify which preferences to return. You
   can specify to return preferences for an organization, a specific account ID,
   or a specific EC2 instance or Auto Scaling group Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetRecommendationPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_recommendation_preferences_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("scope") => scope(),
+      required("resourceType") => list(any())
+    }
   """
-  @spec get_recommendation_preferences(
-          AWS.Client.t(),
-          get_recommendation_preferences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_preferences_errors()}
-  def get_recommendation_preferences(%Client{} = client, input, options \\ []) do
+
+  def get_recommendation_preferences(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2880,16 +3144,24 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns the optimization findings for an account. It returns the number of:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20GetRecommendationSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_recommendation_summaries_request`)
+    %{
+      optional("accountIds") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec get_recommendation_summaries(
-          AWS.Client.t(),
-          get_recommendation_summaries_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_recommendation_summaries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_recommendation_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_summaries_errors()}
-  def get_recommendation_summaries(%Client{} = client, input, options \\ []) do
+
+  def get_recommendation_summaries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2899,16 +3171,31 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Creates a new recommendation preference or updates an existing recommendation
   preference, such as enhanced infrastructure metrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20PutRecommendationPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_recommendation_preferences_request`)
+    %{
+      optional("enhancedInfrastructureMetrics") => list(any()),
+      optional("externalMetricsPreference") => external_metrics_preference(),
+      optional("inferredWorkloadTypes") => list(any()),
+      optional("lookBackPeriod") => list(any()),
+      optional("preferredResources") => list(preferred_resource()()),
+      optional("savingsEstimationMode") => list(any()),
+      optional("scope") => scope(),
+      optional("utilizationPreferences") => list(utilization_preference()()),
+      required("resourceType") => list(any())
+    }
   """
-  @spec put_recommendation_preferences(
-          AWS.Client.t(),
-          put_recommendation_preferences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_recommendation_preferences(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_recommendation_preferences_errors()}
-  def put_recommendation_preferences(%Client{} = client, input, options \\ []) do
+
+  def put_recommendation_preferences(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2919,12 +3206,23 @@ defmodule AWS.ComputeOptimizer do
   Updates the enrollment (opt in and opt out) status of an account to the Compute
   Optimizer service. If the account is a management account of an organization,
   this action can also be used to enroll member accounts of the organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=computeoptimizer%20UpdateEnrollmentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_enrollment_status_request`)
+    %{
+      optional("includeMemberAccounts") => boolean(),
+      required("status") => list(any())
+    }
   """
-  @spec update_enrollment_status(AWS.Client.t(), update_enrollment_status_request(), Keyword.t()) ::
+
+  @spec update_enrollment_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_enrollment_status_errors()}
-  def update_enrollment_status(%Client{} = client, input, options \\ []) do
+
+  def update_enrollment_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

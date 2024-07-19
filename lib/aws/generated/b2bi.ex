@@ -1094,12 +1094,27 @@ defmodule AWS.B2bi do
   Instantiates a capability based on the specified parameters. A trading
   capability contains the information required to transform incoming EDI
   documents into JSON or XML outputs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20CreateCapability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_capability_request`)
+    %{
+      optional("clientToken") => [String.t()],
+      optional("instructionsDocuments") => list(s3_location()()),
+      optional("tags") => list(tag()()),
+      required("configuration") => list(),
+      required("name") => String.t(),
+      required("type") => list(any())
+    }
   """
-  @spec create_capability(AWS.Client.t(), create_capability_request(), Keyword.t()) ::
+
+  @spec create_capability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_capability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_capability_errors()}
-  def create_capability(%Client{} = client, input, options \\ []) do
+
+  def create_capability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1111,12 +1126,28 @@ defmodule AWS.B2bi do
   supplied parameters. A partnership represents the connection between you and
   your trading partner. It ties together a profile and one or more trading
   capabilities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20CreatePartnership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_partnership_request`)
+    %{
+      optional("clientToken") => [String.t()],
+      optional("phone") => String.t(),
+      optional("tags") => list(tag()()),
+      required("capabilities") => list(String.t()()),
+      required("email") => String.t(),
+      required("name") => String.t(),
+      required("profileId") => String.t()
+    }
   """
-  @spec create_partnership(AWS.Client.t(), create_partnership_request(), Keyword.t()) ::
+
+  @spec create_partnership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_partnership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partnership_errors()}
-  def create_partnership(%Client{} = client, input, options \\ []) do
+
+  def create_partnership(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1127,12 +1158,28 @@ defmodule AWS.B2bi do
   Creates a customer profile. You can have up to five customer profiles, each
   representing a distinct private network. A profile is the mechanism used to
   create the concept of a private network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20CreateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_profile_request`)
+    %{
+      optional("clientToken") => [String.t()],
+      optional("email") => String.t(),
+      optional("tags") => list(tag()()),
+      required("businessName") => String.t(),
+      required("logging") => list(any()),
+      required("name") => String.t(),
+      required("phone") => String.t()
+    }
   """
-  @spec create_profile(AWS.Client.t(), create_profile_request(), Keyword.t()) ::
+
+  @spec create_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
-  def create_profile(%Client{} = client, input, options \\ []) do
+
+  def create_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1142,12 +1189,28 @@ defmodule AWS.B2bi do
   @doc """
   Creates a transformer. A transformer describes how to process the incoming EDI
   documents and extract the necessary information to the output file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20CreateTransformer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_transformer_request`)
+    %{
+      optional("clientToken") => [String.t()],
+      optional("sampleDocument") => String.t(),
+      optional("tags") => list(tag()()),
+      required("ediType") => list(),
+      required("fileFormat") => list(any()),
+      required("mappingTemplate") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec create_transformer(AWS.Client.t(), create_transformer_request(), Keyword.t()) ::
+
+  @spec create_transformer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_transformer_errors()}
-  def create_transformer(%Client{} = client, input, options \\ []) do
+
+  def create_transformer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1157,12 +1220,22 @@ defmodule AWS.B2bi do
   @doc """
   Deletes the specified capability. A trading capability contains the information
   required to transform incoming EDI documents into JSON or XML outputs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20DeleteCapability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_capability_request`)
+    %{
+      
+    }
   """
-  @spec delete_capability(AWS.Client.t(), delete_capability_request(), Keyword.t()) ::
+
+  @spec delete_capability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_capability_errors()}
-  def delete_capability(%Client{} = client, input, options \\ []) do
+
+  def delete_capability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1173,12 +1246,22 @@ defmodule AWS.B2bi do
   Deletes the specified partnership. A partnership represents the connection
   between you and your trading partner. It ties together a profile and one or
   more trading capabilities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20DeletePartnership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_partnership_request`)
+    %{
+      
+    }
   """
-  @spec delete_partnership(AWS.Client.t(), delete_partnership_request(), Keyword.t()) ::
+
+  @spec delete_partnership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partnership_errors()}
-  def delete_partnership(%Client{} = client, input, options \\ []) do
+
+  def delete_partnership(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1188,12 +1271,22 @@ defmodule AWS.B2bi do
   @doc """
   Deletes the specified profile. A profile is the mechanism used to create the
   concept of a private network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20DeleteProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_profile_request`)
+    %{
+      
+    }
   """
-  @spec delete_profile(AWS.Client.t(), delete_profile_request(), Keyword.t()) ::
+
+  @spec delete_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
-  def delete_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1204,12 +1297,22 @@ defmodule AWS.B2bi do
   Deletes the specified transformer. A transformer describes how to process the
   incoming EDI documents and extract the necessary information to the output
   file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20DeleteTransformer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_transformer_request`)
+    %{
+      
+    }
   """
-  @spec delete_transformer(AWS.Client.t(), delete_transformer_request(), Keyword.t()) ::
+
+  @spec delete_transformer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_transformer_errors()}
-  def delete_transformer(%Client{} = client, input, options \\ []) do
+
+  def delete_transformer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1220,12 +1323,22 @@ defmodule AWS.B2bi do
   Retrieves the details for the specified capability. A trading capability
   contains the information required to transform incoming EDI documents into
   JSON or XML outputs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20GetCapability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_capability_request`)
+    %{
+      
+    }
   """
-  @spec get_capability(AWS.Client.t(), get_capability_request(), Keyword.t()) ::
+
+  @spec get_capability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_capability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_capability_errors()}
-  def get_capability(%Client{} = client, input, options \\ []) do
+
+  def get_capability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1237,12 +1350,22 @@ defmodule AWS.B2bi do
   specified. A partnership represents the connection between you and your
   trading partner. It ties together a profile and one or more trading
   capabilities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20GetPartnership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_partnership_request`)
+    %{
+      
+    }
   """
-  @spec get_partnership(AWS.Client.t(), get_partnership_request(), Keyword.t()) ::
+
+  @spec get_partnership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_partnership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partnership_errors()}
-  def get_partnership(%Client{} = client, input, options \\ []) do
+
+  def get_partnership(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1252,12 +1375,22 @@ defmodule AWS.B2bi do
   @doc """
   Retrieves the details for the profile specified by the profile ID. A profile is
   the mechanism used to create the concept of a private network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20GetProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_profile_request`)
+    %{
+      
+    }
   """
-  @spec get_profile(AWS.Client.t(), get_profile_request(), Keyword.t()) ::
+
+  @spec get_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
-  def get_profile(%Client{} = client, input, options \\ []) do
+
+  def get_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1268,12 +1401,22 @@ defmodule AWS.B2bi do
   Retrieves the details for the transformer specified by the transformer ID. A
   transformer describes how to process the incoming EDI documents and extract
   the necessary information to the output file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20GetTransformer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_transformer_request`)
+    %{
+      
+    }
   """
-  @spec get_transformer(AWS.Client.t(), get_transformer_request(), Keyword.t()) ::
+
+  @spec get_transformer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transformer_errors()}
-  def get_transformer(%Client{} = client, input, options \\ []) do
+
+  def get_transformer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1282,12 +1425,22 @@ defmodule AWS.B2bi do
 
   @doc """
   Returns the details of the transformer run, based on the Transformer job ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20GetTransformerJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_transformer_job_request`)
+    %{
+      required("transformerId") => String.t()
+    }
   """
-  @spec get_transformer_job(AWS.Client.t(), get_transformer_job_request(), Keyword.t()) ::
+
+  @spec get_transformer_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transformer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transformer_job_errors()}
-  def get_transformer_job(%Client{} = client, input, options \\ []) do
+
+  def get_transformer_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1298,12 +1451,23 @@ defmodule AWS.B2bi do
   Lists the capabilities associated with your Amazon Web Services account for your
   current or specified region. A trading capability contains the information
   required to transform incoming EDI documents into JSON or XML outputs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20ListCapabilities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_capabilities_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_capabilities(AWS.Client.t(), list_capabilities_request(), Keyword.t()) ::
+
+  @spec list_capabilities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_capabilities_errors()}
-  def list_capabilities(%Client{} = client, input, options \\ []) do
+
+  def list_capabilities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1315,12 +1479,24 @@ defmodule AWS.B2bi do
   current or specified region. A partnership represents the connection between
   you and your trading partner. It ties together a profile and one or more
   trading capabilities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20ListPartnerships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_partnerships_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("profileId") => String.t()
+    }
   """
-  @spec list_partnerships(AWS.Client.t(), list_partnerships_request(), Keyword.t()) ::
+
+  @spec list_partnerships(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_partnerships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_partnerships_errors()}
-  def list_partnerships(%Client{} = client, input, options \\ []) do
+
+  def list_partnerships(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1331,12 +1507,23 @@ defmodule AWS.B2bi do
   Lists the profiles associated with your Amazon Web Services account for your
   current or specified region. A profile is the mechanism used to create the
   concept of a private network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20ListProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_profiles_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_profiles(AWS.Client.t(), list_profiles_request(), Keyword.t()) ::
+
+  @spec list_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
-  def list_profiles(%Client{} = client, input, options \\ []) do
+
+  def list_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1347,12 +1534,22 @@ defmodule AWS.B2bi do
   Lists all of the tags associated with the Amazon Resource Name (ARN) that you
   specify. The resource can be a capability, partnership, profile, or
   transformer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1363,12 +1560,23 @@ defmodule AWS.B2bi do
   Lists the available transformers. A transformer describes how to process the
   incoming EDI documents and extract the necessary information to the output
   file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20ListTransformers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_transformers_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_transformers(AWS.Client.t(), list_transformers_request(), Keyword.t()) ::
+
+  @spec list_transformers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_transformers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transformers_errors()}
-  def list_transformers(%Client{} = client, input, options \\ []) do
+
+  def list_transformers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1379,12 +1587,25 @@ defmodule AWS.B2bi do
   Runs a job, using a transformer, to parse input EDI (electronic data
   interchange) file into the output structures used by Amazon Web Services B2BI
   Data Interchange.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20StartTransformerJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_transformer_job_request`)
+    %{
+      optional("clientToken") => [String.t()],
+      required("inputFile") => s3_location(),
+      required("outputLocation") => s3_location(),
+      required("transformerId") => String.t()
+    }
   """
-  @spec start_transformer_job(AWS.Client.t(), start_transformer_job_request(), Keyword.t()) ::
+
+  @spec start_transformer_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_transformer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_transformer_job_errors()}
-  def start_transformer_job(%Client{} = client, input, options \\ []) do
+
+  def start_transformer_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1395,12 +1616,22 @@ defmodule AWS.B2bi do
   Attaches a key-value pair to a resource, as identified by its Amazon Resource
   Name (ARN). Resources are capability, partnership, profile, transformers and
   other entities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1411,12 +1642,24 @@ defmodule AWS.B2bi do
   Maps the input file according to the provided template file. The API call
   downloads the file contents from the Amazon S3 location, and passes the
   contents in as a string, to the `inputFileContent` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20TestMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_mapping_request`)
+    %{
+      required("fileFormat") => list(any()),
+      required("inputFileContent") => String.t(),
+      required("mappingTemplate") => String.t()
+    }
   """
-  @spec test_mapping(AWS.Client.t(), test_mapping_request(), Keyword.t()) ::
+
+  @spec test_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_mapping_errors()}
-  def test_mapping(%Client{} = client, input, options \\ []) do
+
+  def test_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1426,12 +1669,24 @@ defmodule AWS.B2bi do
   @doc """
   Parses the input EDI (electronic data interchange) file. The input file has a
   file size limit of 250 KB.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20TestParsing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_parsing_request`)
+    %{
+      required("ediType") => list(),
+      required("fileFormat") => list(any()),
+      required("inputFile") => s3_location()
+    }
   """
-  @spec test_parsing(AWS.Client.t(), test_parsing_request(), Keyword.t()) ::
+
+  @spec test_parsing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_parsing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_parsing_errors()}
-  def test_parsing(%Client{} = client, input, options \\ []) do
+
+  def test_parsing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1442,12 +1697,22 @@ defmodule AWS.B2bi do
   Detaches a key-value pair from the specified resource, as identified by its
   Amazon Resource Name (ARN). Resources are capability, partnership, profile,
   transformers and other entities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1458,12 +1723,24 @@ defmodule AWS.B2bi do
   Updates some of the parameters for a capability, based on the specified
   parameters. A trading capability contains the information required to
   transform incoming EDI documents into JSON or XML outputs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20UpdateCapability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_capability_request`)
+    %{
+      optional("configuration") => list(),
+      optional("instructionsDocuments") => list(s3_location()()),
+      optional("name") => String.t()
+    }
   """
-  @spec update_capability(AWS.Client.t(), update_capability_request(), Keyword.t()) ::
+
+  @spec update_capability(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_capability_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_capability_errors()}
-  def update_capability(%Client{} = client, input, options \\ []) do
+
+  def update_capability(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1474,12 +1751,23 @@ defmodule AWS.B2bi do
   Updates some of the parameters for a partnership between a customer and trading
   partner. A partnership represents the connection between you and your trading
   partner. It ties together a profile and one or more trading capabilities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20UpdatePartnership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_partnership_request`)
+    %{
+      optional("capabilities") => list(String.t()()),
+      optional("name") => String.t()
+    }
   """
-  @spec update_partnership(AWS.Client.t(), update_partnership_request(), Keyword.t()) ::
+
+  @spec update_partnership(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_partnership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_partnership_errors()}
-  def update_partnership(%Client{} = client, input, options \\ []) do
+
+  def update_partnership(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1489,12 +1777,25 @@ defmodule AWS.B2bi do
   @doc """
   Updates the specified parameters for a profile. A profile is the mechanism used
   to create the concept of a private network.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20UpdateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_profile_request`)
+    %{
+      optional("businessName") => String.t(),
+      optional("email") => String.t(),
+      optional("name") => String.t(),
+      optional("phone") => String.t()
+    }
   """
-  @spec update_profile(AWS.Client.t(), update_profile_request(), Keyword.t()) ::
+
+  @spec update_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
-  def update_profile(%Client{} = client, input, options \\ []) do
+
+  def update_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1505,12 +1806,27 @@ defmodule AWS.B2bi do
   Updates the specified parameters for a transformer. A transformer describes how
   to process the incoming EDI documents and extract the necessary information to
   the output file.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=b2bi%20UpdateTransformer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_transformer_request`)
+    %{
+      optional("ediType") => list(),
+      optional("fileFormat") => list(any()),
+      optional("mappingTemplate") => String.t(),
+      optional("name") => String.t(),
+      optional("sampleDocument") => String.t(),
+      optional("status") => list(any())
+    }
   """
-  @spec update_transformer(AWS.Client.t(), update_transformer_request(), Keyword.t()) ::
+
+  @spec update_transformer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_transformer_errors()}
-  def update_transformer(%Client{} = client, input, options \\ []) do
+
+  def update_transformer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

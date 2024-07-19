@@ -19,222 +19,222 @@ defmodule AWS.WorkLink do
   @typedoc """
 
   ## Example:
-
+      
       associate_domain_request() :: %{
         optional("DisplayName") => String.t(),
         required("AcmCertificateArn") => String.t(),
         required("DomainName") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type associate_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_domain_access_request() :: %{
         required("DomainName") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type restore_domain_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_devices_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type list_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       website_ca_summary() :: %{
         "CreatedTime" => non_neg_integer(),
         "DisplayName" => String.t(),
         "WebsiteCaId" => String.t()
       }
-
+      
   """
   @type website_ca_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_identity_provider_configuration_request() :: %{
         optional("IdentityProviderSamlMetadata") => String.t(),
         required("FleetArn") => String.t(),
         required("IdentityProviderType") => list(any())
       }
-
+      
   """
   @type update_identity_provider_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_fleet_request() :: %{
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type delete_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_website_authorization_provider_response() :: %{}
-
+      
   """
   @type disassociate_website_authorization_provider_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_device_policy_configuration_request() :: %{
         optional("DeviceCaCertificate") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type update_device_policy_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_website_certificate_authority_response() :: %{}
-
+      
   """
   @type disassociate_website_certificate_authority_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_audit_stream_configuration_response() :: %{}
-
+      
   """
   @type update_audit_stream_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_domain_access_response() :: %{}
-
+      
   """
   @type restore_domain_access_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_company_network_configuration_request() :: %{
         required("FleetArn") => String.t(),
         required("SecurityGroupIds") => list(String.t()()),
         required("SubnetIds") => list(String.t()()),
         required("VpcId") => String.t()
       }
-
+      
   """
   @type update_company_network_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_fleet_request() :: %{
         optional("DisplayName") => String.t(),
         optional("OptimizeForEndUserLocation") => boolean(),
         optional("Tags") => map(),
         required("FleetName") => String.t()
       }
-
+      
   """
   @type create_fleet_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_summary() :: %{
         "CreatedTime" => non_neg_integer(),
         "DisplayName" => String.t(),
         "DomainName" => String.t(),
         "DomainStatus" => list(any())
       }
-
+      
   """
   @type domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       revoke_domain_access_response() :: %{}
-
+      
   """
   @type revoke_domain_access_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_fleet_response() :: %{}
-
+      
   """
   @type delete_fleet_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_fleet_metadata_response() :: %{
         "CompanyCode" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -245,330 +245,330 @@ defmodule AWS.WorkLink do
         "OptimizeForEndUserLocation" => boolean(),
         "Tags" => map()
       }
-
+      
   """
   @type describe_fleet_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_fleets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_fleets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_identity_provider_configuration_response() :: %{
         "IdentityProviderSamlMetadata" => String.t(),
         "IdentityProviderType" => list(any()),
         "ServiceProviderSamlMetadata" => String.t()
       }
-
+      
   """
   @type describe_identity_provider_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       website_authorization_provider_summary() :: %{
         "AuthorizationProviderId" => String.t(),
         "AuthorizationProviderType" => list(any()),
         "CreatedTime" => non_neg_integer(),
         "DomainName" => String.t()
       }
-
+      
   """
   @type website_authorization_provider_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_website_authorization_providers_response() :: %{
         "NextToken" => String.t(),
         "WebsiteAuthorizationProviders" => list(website_authorization_provider_summary()())
       }
-
+      
   """
   @type list_website_authorization_providers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_fleets_response() :: %{
         "FleetSummaryList" => list(fleet_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_fleets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_website_certificate_authority_request() :: %{
         required("FleetArn") => String.t(),
         required("WebsiteCaId") => String.t()
       }
-
+      
   """
   @type describe_website_certificate_authority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_company_network_configuration_response() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()()),
         "VpcId" => String.t()
       }
-
+      
   """
   @type describe_company_network_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sign_out_user_response() :: %{}
-
+      
   """
   @type sign_out_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_fleet_metadata_request() :: %{
         optional("DisplayName") => String.t(),
         optional("OptimizeForEndUserLocation") => boolean(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type update_fleet_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_identity_provider_configuration_response() :: %{}
-
+      
   """
   @type update_identity_provider_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_domain_metadata_request() :: %{
         optional("DisplayName") => String.t(),
         required("DomainName") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type update_domain_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_audit_stream_configuration_request() :: %{
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type describe_audit_stream_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_fleet_metadata_request() :: %{
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type describe_fleet_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_website_authorization_provider_request() :: %{
         required("AuthorizationProviderId") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type disassociate_website_authorization_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_website_authorization_provider_request() :: %{
         optional("DomainName") => String.t(),
         required("AuthorizationProviderType") => list(any()),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type associate_website_authorization_provider_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_audit_stream_configuration_request() :: %{
         optional("AuditStreamArn") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type update_audit_stream_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_website_certificate_authority_request() :: %{
         required("FleetArn") => String.t(),
         required("WebsiteCaId") => String.t()
       }
-
+      
   """
   @type disassociate_website_certificate_authority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_device_request() :: %{
         required("DeviceId") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type describe_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_domain_response() :: %{}
-
+      
   """
   @type associate_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domains_response() :: %{
         "Domains" => list(domain_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_domain_request() :: %{
         required("DomainName") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type disassociate_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_website_certificate_authorities_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type list_website_certificate_authorities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_identity_provider_configuration_request() :: %{
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type describe_identity_provider_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       fleet_summary() :: %{
         "CompanyCode" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -579,34 +579,34 @@ defmodule AWS.WorkLink do
         "LastUpdatedTime" => non_neg_integer(),
         "Tags" => map()
       }
-
+      
   """
   @type fleet_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_domain_metadata_response() :: %{}
-
+      
   """
   @type update_domain_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_domain_response() :: %{
         "AcmCertificateArn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -614,291 +614,291 @@ defmodule AWS.WorkLink do
         "DomainName" => String.t(),
         "DomainStatus" => list(any())
       }
-
+      
   """
   @type describe_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_devices_response() :: %{
         "Devices" => list(device_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_device_policy_configuration_response() :: %{
         "DeviceCaCertificate" => String.t()
       }
-
+      
   """
   @type describe_device_policy_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_website_certificate_authority_response() :: %{
         "Certificate" => String.t(),
         "CreatedTime" => non_neg_integer(),
         "DisplayName" => String.t()
       }
-
+      
   """
   @type describe_website_certificate_authority_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_website_certificate_authority_request() :: %{
         optional("DisplayName") => String.t(),
         required("Certificate") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type associate_website_certificate_authority_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sign_out_user_request() :: %{
         required("FleetArn") => String.t(),
         required("Username") => String.t()
       }
-
+      
   """
   @type sign_out_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device_summary() :: %{
         "DeviceId" => String.t(),
         "DeviceStatus" => list(any())
       }
-
+      
   """
   @type device_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domains_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type list_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_domain_response() :: %{}
-
+      
   """
   @type disassociate_domain_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_domain_request() :: %{
         required("DomainName") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type describe_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       revoke_domain_access_request() :: %{
         required("DomainName") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type revoke_domain_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_audit_stream_configuration_response() :: %{
         "AuditStreamArn" => String.t()
       }
-
+      
   """
   @type describe_audit_stream_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_device_policy_configuration_request() :: %{
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type describe_device_policy_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_website_certificate_authority_response() :: %{
         "WebsiteCaId" => String.t()
       }
-
+      
   """
   @type associate_website_certificate_authority_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_website_authorization_providers_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type list_website_authorization_providers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_website_authorization_provider_response() :: %{
         "AuthorizationProviderId" => String.t()
       }
-
+      
   """
   @type associate_website_authorization_provider_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_fleet_metadata_response() :: %{}
-
+      
   """
   @type update_fleet_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_already_exists_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_company_network_configuration_response() :: %{}
-
+      
   """
   @type update_company_network_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_company_network_configuration_request() :: %{
         required("FleetArn") => String.t()
       }
-
+      
   """
   @type describe_company_network_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_website_certificate_authorities_response() :: %{
         "NextToken" => String.t(),
         "WebsiteCertificateAuthorities" => list(website_ca_summary()())
       }
-
+      
   """
   @type list_website_certificate_authorities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_fleet_response() :: %{
         "FleetArn" => String.t()
       }
-
+      
   """
   @type create_fleet_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_device_policy_configuration_response() :: %{}
-
+      
   """
   @type update_device_policy_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_device_response() :: %{
         "FirstAccessedTime" => non_neg_integer(),
         "LastAccessedTime" => non_neg_integer(),
@@ -910,7 +910,7 @@ defmodule AWS.WorkLink do
         "Status" => list(any()),
         "Username" => String.t()
       }
-
+      
   """
   @type describe_device_response() :: %{String.t() => any()}
 
@@ -1158,29 +1158,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec associate_domain(AWS.Client.t(), associate_domain_request(), Keyword.t()) ::
+
+  @spec associate_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_domain_errors()}
-  def associate_domain(%Client{} = client, input, options \\ []) do
+
+  def associate_domain(%Client{} = client, options \\ []) do
     url_path = "/associateDomain"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1193,33 +1204,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec associate_website_authorization_provider(
-          AWS.Client.t(),
-          associate_website_authorization_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_website_authorization_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_website_authorization_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_website_authorization_provider_errors()}
-  def associate_website_authorization_provider(%Client{} = client, input, options \\ []) do
+
+  def associate_website_authorization_provider(%Client{} = client, options \\ []) do
     url_path = "/associateWebsiteAuthorizationProvider"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1232,33 +1250,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec associate_website_certificate_authority(
-          AWS.Client.t(),
-          associate_website_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_website_certificate_authority_errors()}
-  def associate_website_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def associate_website_certificate_authority(%Client{} = client, options \\ []) do
     url_path = "/associateWebsiteCertificateAuthority"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1272,29 +1297,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec create_fleet(AWS.Client.t(), create_fleet_request(), Keyword.t()) ::
+
+  @spec create_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-  def create_fleet(%Client{} = client, input, options \\ []) do
+
+  def create_fleet(%Client{} = client, options \\ []) do
     url_path = "/createFleet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1306,29 +1342,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec delete_fleet(AWS.Client.t(), delete_fleet_request(), Keyword.t()) ::
+
+  @spec delete_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-  def delete_fleet(%Client{} = client, input, options \\ []) do
+
+  def delete_fleet(%Client{} = client, options \\ []) do
     url_path = "/deleteFleet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1341,33 +1388,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_audit_stream_configuration(
-          AWS.Client.t(),
-          describe_audit_stream_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_audit_stream_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_audit_stream_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_audit_stream_configuration_errors()}
-  def describe_audit_stream_configuration(%Client{} = client, input, options \\ []) do
+
+  def describe_audit_stream_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeAuditStreamConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1380,33 +1434,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_company_network_configuration(
-          AWS.Client.t(),
-          describe_company_network_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_company_network_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_company_network_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_company_network_configuration_errors()}
-  def describe_company_network_configuration(%Client{} = client, input, options \\ []) do
+
+  def describe_company_network_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeCompanyNetworkConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1418,29 +1479,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_device(AWS.Client.t(), describe_device_request(), Keyword.t()) ::
+
+  @spec describe_device(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
-  def describe_device(%Client{} = client, input, options \\ []) do
+
+  def describe_device(%Client{} = client, options \\ []) do
     url_path = "/describeDevice"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1452,33 +1524,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_device_policy_configuration(
-          AWS.Client.t(),
-          describe_device_policy_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_device_policy_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_device_policy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_policy_configuration_errors()}
-  def describe_device_policy_configuration(%Client{} = client, input, options \\ []) do
+
+  def describe_device_policy_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeDevicePolicyConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1490,29 +1569,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_domain(AWS.Client.t(), describe_domain_request(), Keyword.t()) ::
+
+  @spec describe_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
-  def describe_domain(%Client{} = client, input, options \\ []) do
+
+  def describe_domain(%Client{} = client, options \\ []) do
     url_path = "/describeDomain"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1525,29 +1615,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_fleet_metadata(AWS.Client.t(), describe_fleet_metadata_request(), Keyword.t()) ::
+
+  @spec describe_fleet_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_fleet_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_fleet_metadata_errors()}
-  def describe_fleet_metadata(%Client{} = client, input, options \\ []) do
+
+  def describe_fleet_metadata(%Client{} = client, options \\ []) do
     url_path = "/describeFleetMetadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1559,33 +1660,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_identity_provider_configuration(
-          AWS.Client.t(),
-          describe_identity_provider_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_identity_provider_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_provider_configuration_errors()}
-  def describe_identity_provider_configuration(%Client{} = client, input, options \\ []) do
+
+  def describe_identity_provider_configuration(%Client{} = client, options \\ []) do
     url_path = "/describeIdentityProviderConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1597,33 +1705,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec describe_website_certificate_authority(
-          AWS.Client.t(),
-          describe_website_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_website_certificate_authority_errors()}
-  def describe_website_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def describe_website_certificate_authority(%Client{} = client, options \\ []) do
     url_path = "/describeWebsiteCertificateAuthority"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1636,29 +1751,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec disassociate_domain(AWS.Client.t(), disassociate_domain_request(), Keyword.t()) ::
+
+  @spec disassociate_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_domain_errors()}
-  def disassociate_domain(%Client{} = client, input, options \\ []) do
+
+  def disassociate_domain(%Client{} = client, options \\ []) do
     url_path = "/disassociateDomain"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1672,33 +1798,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec disassociate_website_authorization_provider(
-          AWS.Client.t(),
-          disassociate_website_authorization_provider_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_website_authorization_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_website_authorization_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_website_authorization_provider_errors()}
-  def disassociate_website_authorization_provider(%Client{} = client, input, options \\ []) do
+
+  def disassociate_website_authorization_provider(%Client{} = client, options \\ []) do
     url_path = "/disassociateWebsiteAuthorizationProvider"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1710,33 +1843,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec disassociate_website_certificate_authority(
-          AWS.Client.t(),
-          disassociate_website_certificate_authority_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_website_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_website_certificate_authority_errors()}
-  def disassociate_website_certificate_authority(%Client{} = client, input, options \\ []) do
+
+  def disassociate_website_certificate_authority(%Client{} = client, options \\ []) do
     url_path = "/disassociateWebsiteCertificateAuthority"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1748,29 +1888,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec list_devices(AWS.Client.t(), list_devices_request(), Keyword.t()) ::
+
+  @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_devices_errors()}
-  def list_devices(%Client{} = client, input, options \\ []) do
+
+  def list_devices(%Client{} = client, options \\ []) do
     url_path = "/listDevices"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1782,29 +1933,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
+
+  @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-  def list_domains(%Client{} = client, input, options \\ []) do
+
+  def list_domains(%Client{} = client, options \\ []) do
     url_path = "/listDomains"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1816,29 +1978,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec list_fleets(AWS.Client.t(), list_fleets_request(), Keyword.t()) ::
+
+  @spec list_fleets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-  def list_fleets(%Client{} = client, input, options \\ []) do
+
+  def list_fleets(%Client{} = client, options \\ []) do
     url_path = "/listFleets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1851,10 +2024,12 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1893,33 +2068,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec list_website_authorization_providers(
-          AWS.Client.t(),
-          list_website_authorization_providers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_website_authorization_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_website_authorization_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_website_authorization_providers_errors()}
-  def list_website_authorization_providers(%Client{} = client, input, options \\ []) do
+
+  def list_website_authorization_providers(%Client{} = client, options \\ []) do
     url_path = "/listWebsiteAuthorizationProviders"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1932,33 +2114,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec list_website_certificate_authorities(
-          AWS.Client.t(),
-          list_website_certificate_authorities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_website_certificate_authorities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_website_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_website_certificate_authorities_errors()}
-  def list_website_certificate_authorities(%Client{} = client, input, options \\ []) do
+
+  def list_website_certificate_authorities(%Client{} = client, options \\ []) do
     url_path = "/listWebsiteCertificateAuthorities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1970,29 +2159,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec restore_domain_access(AWS.Client.t(), restore_domain_access_request(), Keyword.t()) ::
+
+  @spec restore_domain_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, restore_domain_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_domain_access_errors()}
-  def restore_domain_access(%Client{} = client, input, options \\ []) do
+
+  def restore_domain_access(%Client{} = client, options \\ []) do
     url_path = "/restoreDomainAccess"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2004,29 +2204,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec revoke_domain_access(AWS.Client.t(), revoke_domain_access_request(), Keyword.t()) ::
+
+  @spec revoke_domain_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, revoke_domain_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_domain_access_errors()}
-  def revoke_domain_access(%Client{} = client, input, options \\ []) do
+
+  def revoke_domain_access(%Client{} = client, options \\ []) do
     url_path = "/revokeDomainAccess"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2039,29 +2250,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec sign_out_user(AWS.Client.t(), sign_out_user_request(), Keyword.t()) ::
+
+  @spec sign_out_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, sign_out_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sign_out_user_errors()}
-  def sign_out_user(%Client{} = client, input, options \\ []) do
+
+  def sign_out_user(%Client{} = client, options \\ []) do
     url_path = "/signOutUser"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2076,29 +2298,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2109,26 +2342,43 @@ defmodule AWS.WorkLink do
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the fleet.
   * `:tag_keys` (`t:list[com.amazonaws.worklink#TagKey]`) The list of tag keys to
-    remove from the resource.
+  remove from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2137,7 +2387,7 @@ defmodule AWS.WorkLink do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2152,33 +2402,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec update_audit_stream_configuration(
-          AWS.Client.t(),
-          update_audit_stream_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_audit_stream_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_audit_stream_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_audit_stream_configuration_errors()}
-  def update_audit_stream_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_audit_stream_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateAuditStreamConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2190,33 +2447,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec update_company_network_configuration(
-          AWS.Client.t(),
-          update_company_network_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_company_network_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_company_network_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_company_network_configuration_errors()}
-  def update_company_network_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_company_network_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateCompanyNetworkConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2228,33 +2492,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec update_device_policy_configuration(
-          AWS.Client.t(),
-          update_device_policy_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_device_policy_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_device_policy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_policy_configuration_errors()}
-  def update_device_policy_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_device_policy_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateDevicePolicyConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2266,29 +2537,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec update_domain_metadata(AWS.Client.t(), update_domain_metadata_request(), Keyword.t()) ::
+
+  @spec update_domain_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_domain_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_metadata_errors()}
-  def update_domain_metadata(%Client{} = client, input, options \\ []) do
+
+  def update_domain_metadata(%Client{} = client, options \\ []) do
     url_path = "/updateDomainMetadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2300,29 +2582,40 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec update_fleet_metadata(AWS.Client.t(), update_fleet_metadata_request(), Keyword.t()) ::
+
+  @spec update_fleet_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_fleet_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_metadata_errors()}
-  def update_fleet_metadata(%Client{} = client, input, options \\ []) do
+
+  def update_fleet_metadata(%Client{} = client, options \\ []) do
     url_path = "/UpdateFleetMetadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2334,32 +2627,39 @@ defmodule AWS.WorkLink do
 
   ## Optional parameters:
   """
-  @spec update_identity_provider_configuration(
-          AWS.Client.t(),
-          update_identity_provider_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_identity_provider_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_provider_configuration_errors()}
-  def update_identity_provider_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_identity_provider_configuration(%Client{} = client, options \\ []) do
     url_path = "/updateIdentityProviderConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

@@ -25,20 +25,20 @@ defmodule AWS.NetworkMonitor do
   @typedoc """
 
   ## Example:
-
+      
       list_monitors_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("state") => [String.t()]
       }
-
+      
   """
   @type list_monitors_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_monitor_output() :: %{
         "aggregationPeriod" => float(),
         "createdAt" => non_neg_integer(),
@@ -49,26 +49,26 @@ defmodule AWS.NetworkMonitor do
         "state" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type get_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_monitors_output() :: %{
         "monitors" => list(monitor_summary()()),
         "nextToken" => [String.t()]
       }
-
+      
   """
   @type list_monitors_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_monitor_probe_input() :: %{
         "destination" => String.t(),
         "destinationPort" => integer(),
@@ -77,14 +77,14 @@ defmodule AWS.NetworkMonitor do
         "protocol" => list(any()),
         "sourceArn" => String.t()
       }
-
+      
   """
   @type create_monitor_probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_probe_output() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
@@ -100,116 +100,116 @@ defmodule AWS.NetworkMonitor do
         "tags" => map(),
         "vpcId" => String.t()
       }
-
+      
   """
   @type update_probe_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_monitor_output() :: %{}
-
+      
   """
   @type delete_monitor_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_monitor_input() :: %{}
-
+      
   """
   @type delete_monitor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_probe_input() :: %{
         optional("clientToken") => [String.t()],
         optional("tags") => map(),
         required("probe") => probe_input()
       }
-
+      
   """
   @type create_probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_probe_input() :: %{}
-
+      
   """
   @type delete_probe_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_probe_input() :: %{}
-
+      
   """
   @type get_probe_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_monitor_input() :: %{}
-
+      
   """
   @type get_monitor_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_probe_output() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
@@ -225,54 +225,54 @@ defmodule AWS.NetworkMonitor do
         "tags" => map(),
         "vpcId" => String.t()
       }
-
+      
   """
   @type create_probe_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_probe_output() :: %{}
-
+      
   """
   @type delete_probe_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_probe_input() :: %{
         optional("destination") => String.t(),
         optional("destinationPort") => integer(),
@@ -280,36 +280,36 @@ defmodule AWS.NetworkMonitor do
         optional("protocol") => list(any()),
         optional("state") => list(any())
       }
-
+      
   """
   @type update_probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       probe_input() :: %{
         "destination" => String.t(),
         "destinationPort" => integer(),
@@ -318,45 +318,45 @@ defmodule AWS.NetworkMonitor do
         "sourceArn" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type probe_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_monitor_input() :: %{
         required("aggregationPeriod") => float()
       }
-
+      
   """
   @type update_monitor_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       probe() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
@@ -372,34 +372,34 @@ defmodule AWS.NetworkMonitor do
         "tags" => map(),
         "vpcId" => String.t()
       }
-
+      
   """
   @type probe() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_probe_output() :: %{
         "addressFamily" => list(any()),
         "createdAt" => non_neg_integer(),
@@ -415,14 +415,14 @@ defmodule AWS.NetworkMonitor do
         "tags" => map(),
         "vpcId" => String.t()
       }
-
+      
   """
   @type get_probe_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_monitor_output() :: %{
         "aggregationPeriod" => float(),
         "monitorArn" => String.t(),
@@ -430,14 +430,14 @@ defmodule AWS.NetworkMonitor do
         "state" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type create_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitor_summary() :: %{
         "aggregationPeriod" => float(),
         "monitorArn" => String.t(),
@@ -445,14 +445,14 @@ defmodule AWS.NetworkMonitor do
         "state" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type monitor_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_monitor_output() :: %{
         "aggregationPeriod" => float(),
         "monitorArn" => String.t(),
@@ -460,14 +460,14 @@ defmodule AWS.NetworkMonitor do
         "state" => list(any()),
         "tags" => map()
       }
-
+      
   """
   @type update_monitor_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_monitor_input() :: %{
         optional("aggregationPeriod") => float(),
         optional("clientToken") => [String.t()],
@@ -475,7 +475,7 @@ defmodule AWS.NetworkMonitor do
         optional("tags") => map(),
         required("monitorName") => String.t()
       }
-
+      
   """
   @type create_monitor_input() :: %{String.t() => any()}
 
@@ -600,29 +600,40 @@ defmodule AWS.NetworkMonitor do
 
   ## Optional parameters:
   """
-  @spec create_monitor(AWS.Client.t(), create_monitor_input(), Keyword.t()) ::
+
+  @spec create_monitor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitor_errors()}
-  def create_monitor(%Client{} = client, input, options \\ []) do
+
+  def create_monitor(%Client{} = client, options \\ []) do
     url_path = "/monitors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -636,33 +647,44 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string`) The name of the monitor to associated with the
-    probe.
+  probe.
 
   ## Optional parameters:
   """
-  @spec create_probe(AWS.Client.t(), String.t(), create_probe_input(), Keyword.t()) ::
+
+  @spec create_probe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_probe_errors()}
-  def create_probe(%Client{} = client, monitor_name, input, options \\ []) do
+
+  def create_probe(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -675,17 +697,38 @@ defmodule AWS.NetworkMonitor do
 
   ## Optional parameters:
   """
-  @spec delete_monitor(AWS.Client.t(), String.t(), delete_monitor_input(), Keyword.t()) ::
+
+  @spec delete_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitor_errors()}
-  def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
+
+  def delete_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -694,7 +737,7 @@ defmodule AWS.NetworkMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -712,19 +755,39 @@ defmodule AWS.NetworkMonitor do
 
   ## Optional parameters:
   """
-  @spec delete_probe(AWS.Client.t(), String.t(), String.t(), delete_probe_input(), Keyword.t()) ::
+
+  @spec delete_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_probe_errors()}
-  def delete_probe(%Client{} = client, monitor_name, probe_id, input, options \\ []) do
+
+  def delete_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -733,7 +796,7 @@ defmodule AWS.NetworkMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -746,14 +809,16 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string`) The name of the monitor that details are returned
-    for.
+  for.
 
   ## Optional parameters:
   """
+
   @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_monitor_errors()}
+
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
 
@@ -791,16 +856,18 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string`) The name of the monitor associated with the
-    probe. Run ListMonitors to get a list of monitor names.
+  probe. Run ListMonitors to get a list of monitor names.
   * `:probe_id` (`t:string`) The ID of the probe to get information about. Run
-    GetMonitor action to get a list of probes and probe IDs for the monitor.
+  GetMonitor action to get a list of probes and probe IDs for the monitor.
 
   ## Optional parameters:
   """
+
   @spec get_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_probe_errors()}
+
   def get_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
@@ -839,15 +906,17 @@ defmodule AWS.NetworkMonitor do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-    single call. To retrieve the remaining results, make another call with the
-    returned nextToken value.
+  single call. To retrieve the remaining results, make another call with the
+  returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
-  * `:state` (`t:`) The list of all monitors and their states.
+  * `:state` (`t:string`) The list of all monitors and their states.
   """
+
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitors_errors()}
+
   def list_monitors(%Client{} = client, options \\ []) do
     url_path = "/monitors"
 
@@ -911,10 +980,12 @@ defmodule AWS.NetworkMonitor do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -953,29 +1024,40 @@ defmodule AWS.NetworkMonitor do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -985,27 +1067,44 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the monitor or probe that the tag
-    should be removed from.
+  should be removed from.
   * `:tag_keys` (`t:list[com.amazonaws.networkmonitor#TagKey]`) The key-value pa
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1014,7 +1113,7 @@ defmodule AWS.NetworkMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1033,17 +1132,38 @@ defmodule AWS.NetworkMonitor do
 
   ## Optional parameters:
   """
-  @spec update_monitor(AWS.Client.t(), String.t(), update_monitor_input(), Keyword.t()) ::
+
+  @spec update_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitor_errors()}
-  def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
+
+  def update_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1052,7 +1172,7 @@ defmodule AWS.NetworkMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1069,24 +1189,44 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string`) The name of the monitor that the probe was
-    updated for.
+  updated for.
   * `:probe_id` (`t:string`) The ID of the probe to update.
 
   ## Optional parameters:
   """
-  @spec update_probe(AWS.Client.t(), String.t(), String.t(), update_probe_input(), Keyword.t()) ::
+
+  @spec update_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_probe_errors()}
-  def update_probe(%Client{} = client, monitor_name, probe_id, input, options \\ []) do
+
+  def update_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1095,7 +1235,7 @@ defmodule AWS.NetworkMonitor do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

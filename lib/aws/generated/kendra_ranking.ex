@@ -442,16 +442,27 @@ defmodule AWS.KendraRanking do
   Intelligent Ranking resource used for provisioning the `Rescore` API. You set
   the number of capacity units that you require for Amazon Kendra Intelligent
   Ranking to rescore or re-rank a search service's results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20CreateRescoreExecutionPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_rescore_execution_plan_request`)
+    %{
+      optional("CapacityUnits") => capacity_units_configuration(),
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_rescore_execution_plan(
-          AWS.Client.t(),
-          create_rescore_execution_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_rescore_execution_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rescore_execution_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rescore_execution_plan_errors()}
-  def create_rescore_execution_plan(%Client{} = client, input, options \\ []) do
+
+  def create_rescore_execution_plan(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -461,16 +472,23 @@ defmodule AWS.KendraRanking do
   @doc """
   Deletes a rescore execution plan. A rescore execution plan is an Amazon Kendra
   Intelligent Ranking resource used for provisioning the `Rescore` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20DeleteRescoreExecutionPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_rescore_execution_plan_request`)
+    %{
+      
+    }
   """
-  @spec delete_rescore_execution_plan(
-          AWS.Client.t(),
-          delete_rescore_execution_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_rescore_execution_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rescore_execution_plan_errors()}
-  def delete_rescore_execution_plan(%Client{} = client, input, options \\ []) do
+
+  def delete_rescore_execution_plan(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -481,16 +499,23 @@ defmodule AWS.KendraRanking do
   Gets information about a rescore execution plan. A rescore execution plan is an
   Amazon Kendra Intelligent Ranking resource used for provisioning the `Rescore`
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20DescribeRescoreExecutionPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_rescore_execution_plan_request`)
+    %{
+      
+    }
   """
-  @spec describe_rescore_execution_plan(
-          AWS.Client.t(),
-          describe_rescore_execution_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_rescore_execution_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rescore_execution_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rescore_execution_plan_errors()}
-  def describe_rescore_execution_plan(%Client{} = client, input, options \\ []) do
+
+  def describe_rescore_execution_plan(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -500,16 +525,23 @@ defmodule AWS.KendraRanking do
   @doc """
   Lists your rescore execution plans. A rescore execution plan is an Amazon Kendra
   Intelligent Ranking resource used for provisioning the `Rescore` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20ListRescoreExecutionPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rescore_execution_plans_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_rescore_execution_plans(
-          AWS.Client.t(),
-          list_rescore_execution_plans_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_rescore_execution_plans(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rescore_execution_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rescore_execution_plans_errors()}
-  def list_rescore_execution_plans(%Client{} = client, input, options \\ []) do
+
+  def list_rescore_execution_plans(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -519,12 +551,22 @@ defmodule AWS.KendraRanking do
   @doc """
   Gets a list of tags associated with a specified resource. A rescore execution
   plan is an example of a resource that can have tags associated with it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -535,12 +577,23 @@ defmodule AWS.KendraRanking do
   Rescores or re-ranks search results from a search service such as OpenSearch
   (self managed). You use the semantic search capabilities of Amazon Kendra
   Intelligent Ranking to improve the search service's results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20Rescore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:rescore_request`)
+    %{
+      required("Documents") => list(document()()),
+      required("SearchQuery") => String.t()
+    }
   """
-  @spec rescore(AWS.Client.t(), rescore_request(), Keyword.t()) ::
+
+  @spec rescore(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rescore_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rescore_errors()}
-  def rescore(%Client{} = client, input, options \\ []) do
+
+  def rescore(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -552,12 +605,23 @@ defmodule AWS.KendraRanking do
   plan is an Amazon Kendra Intelligent Ranking resource used for provisioning
   the `Rescore` API. If the tag already exists, the existing value is replaced
   with the new value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -568,12 +632,23 @@ defmodule AWS.KendraRanking do
   Removes a tag from a rescore execution plan. A rescore execution plan is an
   Amazon Kendra Intelligent Ranking resource used for provisioning the `Rescore`
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -585,16 +660,25 @@ defmodule AWS.KendraRanking do
   Intelligent Ranking resource used for provisioning the `Rescore` API. You can
   update the number of capacity units you require for Amazon Kendra Intelligent
   Ranking to rescore or re-rank a search service's results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kendraranking%20UpdateRescoreExecutionPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_rescore_execution_plan_request`)
+    %{
+      optional("CapacityUnits") => capacity_units_configuration(),
+      optional("Description") => String.t(),
+      optional("Name") => String.t()
+    }
   """
-  @spec update_rescore_execution_plan(
-          AWS.Client.t(),
-          update_rescore_execution_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_rescore_execution_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rescore_execution_plan_errors()}
-  def update_rescore_execution_plan(%Client{} = client, input, options \\ []) do
+
+  def update_rescore_execution_plan(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 

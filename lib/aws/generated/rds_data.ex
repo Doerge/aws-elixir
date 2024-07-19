@@ -14,66 +14,66 @@ defmodule AWS.RDSData do
   @typedoc """
 
   ## Example:
-
+      
       statement_timeout_exception() :: %{
         "dbConnectionId" => float(),
         "message" => String.t()
       }
-
+      
   """
   @type statement_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       record() :: %{
         "values" => list(list()())
       }
-
+      
   """
   @type record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       result_set_metadata() :: %{
         "columnCount" => float(),
         "columnMetadata" => list(column_metadata()())
       }
-
+      
   """
   @type result_set_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_result_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unsupported_result_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rollback_transaction_request() :: %{
         "resourceArn" => String.t(),
         "secretArn" => String.t(),
         "transactionId" => String.t()
       }
-
+      
   """
   @type rollback_transaction_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_metadata() :: %{
         "arrayBaseColumnType" => integer(),
         "isAutoIncrement" => boolean(),
@@ -90,27 +90,27 @@ defmodule AWS.RDSData do
         "type" => integer(),
         "typeName" => String.t()
       }
-
+      
   """
   @type column_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       commit_transaction_request() :: %{
         "resourceArn" => String.t(),
         "secretArn" => String.t(),
         "transactionId" => String.t()
       }
-
+      
   """
   @type commit_transaction_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_sql_request() :: %{
         "awsSecretStoreArn" => String.t(),
         "database" => String.t(),
@@ -118,60 +118,60 @@ defmodule AWS.RDSData do
         "schema" => String.t(),
         "sqlStatements" => String.t()
       }
-
+      
   """
   @type execute_sql_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transaction_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type transaction_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_result() :: %{
         "generatedFields" => list(list()())
       }
-
+      
   """
   @type update_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sql_parameter() :: %{
         "name" => String.t(),
         "typeHint" => String.t(),
         "value" => list()
       }
-
+      
   """
   @type sql_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_execute_statement_request() :: %{
         "database" => String.t(),
         "parameterSets" => list(list(sql_parameter()())()),
@@ -181,28 +181,28 @@ defmodule AWS.RDSData do
         "sql" => String.t(),
         "transactionId" => String.t()
       }
-
+      
   """
   @type batch_execute_statement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       begin_transaction_request() :: %{
         "database" => String.t(),
         "resourceArn" => String.t(),
         "schema" => String.t(),
         "secretArn" => String.t()
       }
-
+      
   """
   @type begin_transaction_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_statement_response() :: %{
         "columnMetadata" => list(column_metadata()()),
         "formattedRecords" => String.t(),
@@ -210,175 +210,175 @@ defmodule AWS.RDSData do
         "numberOfRecordsUpdated" => float(),
         "records" => list(list(list()())())
       }
-
+      
   """
   @type execute_statement_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_error() :: %{}
-
+      
   """
   @type service_unavailable_error() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_secret_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_secret_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       result_set_options() :: %{
         "decimalReturnType" => String.t(),
         "longReturnType" => String.t()
       }
-
+      
   """
   @type result_set_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       commit_transaction_response() :: %{
         "transactionStatus" => String.t()
       }
-
+      
   """
   @type commit_transaction_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database_unavailable_exception() :: %{}
-
+      
   """
   @type database_unavailable_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       secrets_error_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type secrets_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       http_endpoint_not_enabled_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type http_endpoint_not_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type database_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rollback_transaction_response() :: %{
         "transactionStatus" => String.t()
       }
-
+      
   """
   @type rollback_transaction_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database_error_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type database_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       begin_transaction_response() :: %{
         "transactionId" => String.t()
       }
-
+      
   """
   @type begin_transaction_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{}
-
+      
   """
   @type internal_server_error_exception() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       result_frame() :: %{
         "records" => list(record()()),
         "resultSetMetadata" => result_set_metadata()
       }
-
+      
   """
   @type result_frame() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_statement_request() :: %{
         "continueAfterTimeout" => boolean(),
         "database" => String.t(),
@@ -392,63 +392,63 @@ defmodule AWS.RDSData do
         "sql" => String.t(),
         "transactionId" => String.t()
       }
-
+      
   """
   @type execute_statement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sql_statement_result() :: %{
         "numberOfRecordsUpdated" => float(),
         "resultFrame" => result_frame()
       }
-
+      
   """
   @type sql_statement_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_sql_response() :: %{
         "sqlStatementResults" => list(sql_statement_result()())
       }
-
+      
   """
   @type execute_sql_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       struct_value() :: %{
         "attributes" => list(list()())
       }
-
+      
   """
   @type struct_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_execute_statement_response() :: %{
         "updateResults" => list(update_result()())
       }
-
+      
   """
   @type batch_execute_statement_response() :: %{String.t() => any()}
 
@@ -565,29 +565,40 @@ defmodule AWS.RDSData do
 
   ## Optional parameters:
   """
-  @spec batch_execute_statement(AWS.Client.t(), batch_execute_statement_request(), Keyword.t()) ::
+
+  @spec batch_execute_statement(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_execute_statement_errors()}
-  def batch_execute_statement(%Client{} = client, input, options \\ []) do
+
+  def batch_execute_statement(%Client{} = client, options \\ []) do
     url_path = "/BatchExecute"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -599,29 +610,40 @@ defmodule AWS.RDSData do
 
   ## Optional parameters:
   """
-  @spec begin_transaction(AWS.Client.t(), begin_transaction_request(), Keyword.t()) ::
+
+  @spec begin_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, begin_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, begin_transaction_errors()}
-  def begin_transaction(%Client{} = client, input, options \\ []) do
+
+  def begin_transaction(%Client{} = client, options \\ []) do
     url_path = "/BeginTransaction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -634,29 +656,40 @@ defmodule AWS.RDSData do
 
   ## Optional parameters:
   """
-  @spec commit_transaction(AWS.Client.t(), commit_transaction_request(), Keyword.t()) ::
+
+  @spec commit_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, commit_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, commit_transaction_errors()}
-  def commit_transaction(%Client{} = client, input, options \\ []) do
+
+  def commit_transaction(%Client{} = client, options \\ []) do
     url_path = "/CommitTransaction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -668,29 +701,40 @@ defmodule AWS.RDSData do
 
   ## Optional parameters:
   """
-  @spec execute_sql(AWS.Client.t(), execute_sql_request(), Keyword.t()) ::
+
+  @spec execute_sql(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_sql_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_sql_errors()}
-  def execute_sql(%Client{} = client, input, options \\ []) do
+
+  def execute_sql(%Client{} = client, options \\ []) do
     url_path = "/ExecuteSql"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -702,29 +746,40 @@ defmodule AWS.RDSData do
 
   ## Optional parameters:
   """
-  @spec execute_statement(AWS.Client.t(), execute_statement_request(), Keyword.t()) ::
+
+  @spec execute_statement(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_statement_errors()}
-  def execute_statement(%Client{} = client, input, options \\ []) do
+
+  def execute_statement(%Client{} = client, options \\ []) do
     url_path = "/Execute"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -737,28 +792,39 @@ defmodule AWS.RDSData do
 
   ## Optional parameters:
   """
-  @spec rollback_transaction(AWS.Client.t(), rollback_transaction_request(), Keyword.t()) ::
+
+  @spec rollback_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, rollback_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rollback_transaction_errors()}
-  def rollback_transaction(%Client{} = client, input, options \\ []) do
+
+  def rollback_transaction(%Client{} = client, options \\ []) do
     url_path = "/RollbackTransaction"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

@@ -19,126 +19,126 @@ defmodule AWS.EMRServerless do
   @typedoc """
 
   ## Example:
-
+      
       get_job_run_response() :: %{
         required("jobRun") => job_run()
       }
-
+      
   """
   @type get_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       image_configuration_input() :: %{
         "imageUri" => String.t()
       }
-
+      
   """
   @type image_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       worker_resource_config() :: %{
         "cpu" => String.t(),
         "disk" => String.t(),
         "diskType" => String.t(),
         "memory" => String.t()
       }
-
+      
   """
   @type worker_resource_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_monitoring_configuration() :: %{
         "encryptionKeyArn" => String.t(),
         "logUri" => String.t()
       }
-
+      
   """
   @type s3_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_job_run_request() :: %{
         optional("attempt") => integer()
       }
-
+      
   """
   @type get_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_utilization() :: %{
         "memoryGBHour" => [float()],
         "storageGBHour" => [float()],
         "vCPUHour" => [float()]
       }
-
+      
   """
   @type resource_utilization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_run_attempts_response() :: %{
         "jobRunAttempts" => list(job_run_attempt_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_job_run_attempts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_run_attempts_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_job_run_attempts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       initial_capacity_config() :: %{
         "workerConfiguration" => worker_resource_config(),
         "workerCount" => float()
       }
-
+      
   """
   @type initial_capacity_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_run() :: %{
         "applicationId" => String.t(),
         "arn" => String.t(),
@@ -165,23 +165,23 @@ defmodule AWS.EMRServerless do
         "totalResourceUtilization" => total_resource_utilization(),
         "updatedAt" => non_neg_integer()
       }
-
+      
   """
   @type job_run() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       job_run_summary() :: %{
         "applicationId" => String.t(),
         "arn" => String.t(),
@@ -200,14 +200,14 @@ defmodule AWS.EMRServerless do
         "type" => String.t(),
         "updatedAt" => non_neg_integer()
       }
-
+      
   """
   @type job_run_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_runs_request() :: %{
         optional("createdAtAfter") => non_neg_integer(),
         optional("createdAtBefore") => non_neg_integer(),
@@ -216,40 +216,40 @@ defmodule AWS.EMRServerless do
         optional("nextToken") => String.t(),
         optional("states") => list(String.t()())
       }
-
+      
   """
   @type list_job_runs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       maximum_allowed_resources() :: %{
         "cpu" => String.t(),
         "disk" => String.t(),
         "memory" => String.t()
       }
-
+      
   """
   @type maximum_allowed_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration() :: %{
         "classification" => String.t(),
         "configurations" => list(configuration()()),
         "properties" => map()
       }
-
+      
   """
   @type configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_run_attempt_summary() :: %{
         "applicationId" => String.t(),
         "arn" => String.t(),
@@ -267,187 +267,187 @@ defmodule AWS.EMRServerless do
         "type" => String.t(),
         "updatedAt" => non_neg_integer()
       }
-
+      
   """
   @type job_run_attempt_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitoring_configuration() :: %{
         "cloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
         "managedPersistenceMonitoringConfiguration" => managed_persistence_monitoring_configuration(),
         "prometheusMonitoringConfiguration" => prometheus_monitoring_configuration(),
         "s3MonitoringConfiguration" => s3_monitoring_configuration()
       }
-
+      
   """
   @type monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       auto_start_config() :: %{
         "enabled" => [boolean()]
       }
-
+      
   """
   @type auto_start_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       auto_stop_config() :: %{
         "enabled" => [boolean()],
         "idleTimeoutMinutes" => [integer()]
       }
-
+      
   """
   @type auto_stop_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       worker_type_specification() :: %{
         "imageConfiguration" => image_configuration()
       }
-
+      
   """
   @type worker_type_specification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       spark_submit() :: %{
         "entryPoint" => String.t(),
         "entryPointArguments" => list(String.t()()),
         "sparkSubmitParameters" => String.t()
       }
-
+      
   """
   @type spark_submit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prometheus_monitoring_configuration() :: %{
         "remoteWriteUrl" => String.t()
       }
-
+      
   """
   @type prometheus_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_job_run_response() :: %{
         required("applicationId") => String.t(),
         required("arn") => String.t(),
         required("jobRunId") => String.t()
       }
-
+      
   """
   @type start_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_run_response() :: %{
         required("applicationId") => String.t(),
         required("jobRunId") => String.t()
       }
-
+      
   """
   @type cancel_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dashboard_for_job_run_response() :: %{
         optional("url") => String.t()
       }
-
+      
   """
   @type get_dashboard_for_job_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_application_request() :: %{}
-
+      
   """
   @type stop_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_job_runs_response() :: %{
         optional("nextToken") => String.t(),
         required("jobRuns") => list(job_run_summary()())
       }
-
+      
   """
   @type list_job_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application() :: %{
         "applicationId" => String.t(),
         "architecture" => String.t(),
@@ -471,25 +471,25 @@ defmodule AWS.EMRServerless do
         "updatedAt" => non_neg_integer(),
         "workerTypeSpecifications" => map()
       }
-
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_request() :: %{
         optional("architecture") => String.t(),
         optional("autoStartConfiguration") => auto_start_config(),
@@ -508,81 +508,81 @@ defmodule AWS.EMRServerless do
         required("releaseLabel") => String.t(),
         required("type") => String.t()
       }
-
+      
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_response() :: %{
         optional("name") => String.t(),
         required("applicationId") => String.t(),
         required("arn") => String.t()
       }
-
+      
   """
   @type create_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       interactive_configuration() :: %{
         "livyEndpointEnabled" => [boolean()],
         "studioEnabled" => [boolean()]
       }
-
+      
   """
   @type interactive_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_response() :: %{}
-
+      
   """
   @type delete_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_application_response() :: %{}
-
+      
   """
   @type start_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       worker_type_specification_input() :: %{
         "imageConfiguration" => image_configuration_input()
       }
-
+      
   """
   @type worker_type_specification_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hive() :: %{
         "initQueryFile" => String.t(),
         "parameters" => String.t(),
         "query" => String.t()
       }
-
+      
   """
   @type hive() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_request() :: %{
         optional("architecture") => String.t(),
         optional("autoStartConfiguration") => auto_start_config(),
@@ -598,45 +598,45 @@ defmodule AWS.EMRServerless do
         optional("workerTypeSpecifications") => map(),
         required("clientToken") => String.t()
       }
-
+      
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_response() :: %{
         required("application") => application()
       }
-
+      
   """
   @type update_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_application_request() :: %{}
-
+      
   """
   @type start_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_job_run_request() :: %{
         optional("configurationOverrides") => configuration_overrides(),
         optional("executionTimeoutMinutes") => float(),
@@ -648,124 +648,124 @@ defmodule AWS.EMRServerless do
         required("clientToken") => String.t(),
         required("executionRoleArn") => String.t()
       }
-
+      
   """
   @type start_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_response() :: %{
         required("application") => application()
       }
-
+      
   """
   @type get_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         optional("states") => list(String.t()())
       }
-
+      
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_configuration() :: %{
         "securityGroupIds" => list(String.t()()),
         "subnetIds" => list(String.t()())
       }
-
+      
   """
   @type network_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_application_response() :: %{}
-
+      
   """
   @type stop_application_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dashboard_for_job_run_request() :: %{
         optional("attempt") => integer()
       }
-
+      
   """
   @type get_dashboard_for_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       total_resource_utilization() :: %{
         "memoryGBHour" => [float()],
         "storageGBHour" => [float()],
         "vCPUHour" => [float()]
       }
-
+      
   """
   @type total_resource_utilization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_overrides() :: %{
         "applicationConfiguration" => list(configuration()()),
         "monitoringConfiguration" => monitoring_configuration()
       }
-
+      
   """
   @type configuration_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_summary() :: %{
         "architecture" => String.t(),
         "arn" => String.t(),
@@ -778,59 +778,59 @@ defmodule AWS.EMRServerless do
         "type" => String.t(),
         "updatedAt" => non_neg_integer()
       }
-
+      
   """
   @type application_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_response() :: %{
         optional("nextToken") => String.t(),
         required("applications") => list(application_summary()())
       }
-
+      
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       managed_persistence_monitoring_configuration() :: %{
         "enabled" => [boolean()],
         "encryptionKeyArn" => String.t()
       }
-
+      
   """
   @type managed_persistence_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_job_run_request() :: %{}
-
+      
   """
   @type cancel_job_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       image_configuration() :: %{
         "imageUri" => String.t(),
         "resolvedImageDigest" => String.t()
       }
-
+      
   """
   @type image_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cloud_watch_logging_configuration() :: %{
         "enabled" => [boolean()],
         "encryptionKeyArn" => String.t(),
@@ -838,37 +838,37 @@ defmodule AWS.EMRServerless do
         "logStreamNamePrefix" => String.t(),
         "logTypes" => map()
       }
-
+      
   """
   @type cloud_watch_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retry_policy() :: %{
         "maxAttempts" => integer(),
         "maxFailedAttemptsPerHour" => [integer()]
       }
-
+      
   """
   @type retry_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_request() :: %{}
-
+      
   """
   @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_request() :: %{}
-
+      
   """
   @type delete_application_request() :: %{}
 
@@ -950,30 +950,44 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application on which the job run
-    will be canceled.
+  will be canceled.
   * `:job_run_id` (`t:string`) The ID of the job run to cancel.
 
   ## Optional parameters:
   """
-  @spec cancel_job_run(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          cancel_job_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_job_run_errors()}
-  def cancel_job_run(%Client{} = client, application_id, job_run_id, input, options \\ []) do
+
+  def cancel_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -982,7 +996,7 @@ defmodule AWS.EMRServerless do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -997,29 +1011,40 @@ defmodule AWS.EMRServerless do
 
   ## Optional parameters:
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1033,17 +1058,38 @@ defmodule AWS.EMRServerless do
 
   ## Optional parameters:
   """
-  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1052,7 +1098,7 @@ defmodule AWS.EMRServerless do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1065,14 +1111,16 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application that will be
-    described.
+  described.
 
   ## Optional parameters:
   """
+
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
+
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
 
@@ -1116,13 +1164,15 @@ defmodule AWS.EMRServerless do
 
   ## Optional parameters:
   * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
-    attempts for the job. If not specified, this value defaults to the attempt
-    of the latest job.
+  attempts for the job. If not specified, this value defaults to the attempt
+  of the latest job.
   """
+
   @spec get_dashboard_for_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_for_job_run_errors()}
+
   def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/dashboard"
@@ -1170,18 +1220,20 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application on which the job run
-    is submitted.
+  is submitted.
   * `:job_run_id` (`t:string`) The ID of the job run.
 
   ## Optional parameters:
   * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
-    attempts for the job. If not specified, this value defaults to the attempt
-    of the latest job.
+  attempts for the job. If not specified, this value defaults to the attempt
+  of the latest job.
   """
+
   @spec get_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_run_errors()}
+
   def get_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
@@ -1230,16 +1282,19 @@ defmodule AWS.EMRServerless do
   ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of applications that can be listed.
+  * `:max_results` (`t:string`) The maximum number of applications that can be
+  listed.
   * `:next_token` (`t:string`) The token for the next set of application results.
   * `:states` (`t:list[com.amazonaws.emrserverless#ApplicationState]`) An optional
-    filter for application states. Note that if this filter contains multiple
-    states, the resulting list will be grouped by the state.
+  filter for application states. Note that if this filter contains multiple
+  states, the resulting list will be grouped by the state.
   """
+
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
+
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1300,18 +1355,20 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application for which to list job
-    runs.
+  runs.
   * `:job_run_id` (`t:string`) The ID of the job run to list.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of job run attempts to list.
+  * `:max_results` (`t:string`) The maximum number of job run attempts to list.
   * `:next_token` (`t:string`) The token for the next set of job run attempt
-    results.
+  results.
   """
+
   @spec list_job_run_attempts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_run_attempts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_run_attempts_errors()}
+
   def list_job_run_attempts(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/attempts"
@@ -1366,24 +1423,26 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application for which to list the
-    job run.
+  job run.
 
   ## Optional parameters:
   * `:created_at_after` (`t:timestamp`) The lower bound of the option to filter by
-    creation date and time.
+  creation date and time.
   * `:created_at_before` (`t:timestamp`) The upper bound of the option to filter
-    by creation date and time.
-  * `:max_results` (`t:`) The maximum number of job runs that can be listed.
+  by creation date and time.
+  * `:max_results` (`t:string`) The maximum number of job runs that can be listed.
   * `:mode` (`t:string`) The mode of the job runs to list.
   * `:next_token` (`t:string`) The token for the next set of job run results.
   * `:states` (`t:list[com.amazonaws.emrserverless#JobRunState]`) An optional
-    filter for job run states. Note that if this filter contains multiple
-    states, the resulting list will be grouped by the state.
+  filter for job run states. Note that if this filter contains multiple
+  states, the resulting list will be grouped by the state.
   """
+
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_job_runs_errors()}
+
   def list_job_runs(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
 
@@ -1479,15 +1538,17 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-    the resource to list the tags for. Currently, the supported resources are
-    Amazon EMR Serverless applications and job runs.
+  the resource to list the tags for. Currently, the supported resources are
+  Amazon EMR Serverless applications and job runs.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1526,29 +1587,40 @@ defmodule AWS.EMRServerless do
 
   ## Optional parameters:
   """
-  @spec start_application(AWS.Client.t(), String.t(), start_application_request(), Keyword.t()) ::
+
+  @spec start_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_application_errors()}
-  def start_application(%Client{} = client, application_id, input, options \\ []) do
+
+  def start_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1558,33 +1630,44 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string`) The ID of the application on which to run the
-    job.
+  job.
 
   ## Optional parameters:
   """
-  @spec start_job_run(AWS.Client.t(), String.t(), start_job_run_request(), Keyword.t()) ::
+
+  @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
-  def start_job_run(%Client{} = client, application_id, input, options \\ []) do
+
+  def start_job_run(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1599,29 +1682,40 @@ defmodule AWS.EMRServerless do
 
   ## Optional parameters:
   """
-  @spec stop_application(AWS.Client.t(), String.t(), stop_application_request(), Keyword.t()) ::
+
+  @spec stop_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_application_errors()}
-  def stop_application(%Client{} = client, application_id, input, options \\ []) do
+
+  def stop_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1636,34 +1730,45 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-    the resource to list the tags for. Currently, the supported resources are
-    Amazon EMR Serverless applications and job runs.
+  the resource to list the tags for. Currently, the supported resources are
+  Amazon EMR Serverless applications and job runs.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1673,29 +1778,46 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
-    the resource to list the tags for. Currently, the supported resources are
-    Amazon EMR Serverless applications and job runs.
+  the resource to list the tags for. Currently, the supported resources are
+  Amazon EMR Serverless applications and job runs.
   * `:tag_keys` (`t:list[com.amazonaws.emrserverless#TagKey]`) The keys of the
-    tags to be removed.
+  tags to be removed.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1704,7 +1826,7 @@ defmodule AWS.EMRServerless do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1721,17 +1843,38 @@ defmodule AWS.EMRServerless do
 
   ## Optional parameters:
   """
-  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1740,7 +1883,7 @@ defmodule AWS.EMRServerless do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

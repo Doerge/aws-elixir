@@ -19,63 +19,63 @@ defmodule AWS.CleanRoomsML do
   @typedoc """
 
   ## Example:
-
+      
       update_configured_audience_model_response() :: %{
         "configuredAudienceModelArn" => String.t()
       }
-
+      
   """
   @type update_configured_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_audience_model_response() :: %{
         "audienceModelArn" => String.t()
       }
-
+      
   """
   @type create_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_quality_metrics() :: %{
         "recallMetric" => [float()],
         "relevanceMetrics" => list(relevance_metric()())
       }
-
+      
   """
   @type audience_quality_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_audience_generation_job_response() :: %{
         "audienceGenerationJobArn" => String.t()
       }
-
+      
   """
   @type start_audience_generation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_audience_generation_job_response() :: %{
         "audienceGenerationJobArn" => String.t(),
         "collaborationId" => String.t(),
@@ -92,14 +92,14 @@ defmodule AWS.CleanRoomsML do
         "tags" => map(),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type get_audience_generation_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_training_dataset_response() :: %{
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
@@ -111,79 +111,79 @@ defmodule AWS.CleanRoomsML do
         "trainingDatasetArn" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type get_training_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configured_audience_model_response() :: %{
         "configuredAudienceModelArn" => String.t()
       }
-
+      
   """
   @type create_configured_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configured_audience_models_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_configured_audience_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_training_datasets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_training_datasets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_training_dataset_request() :: %{}
-
+      
   """
   @type get_training_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       relevance_metric() :: %{
         "audienceSize" => audience_size(),
         "score" => [float()]
       }
-
+      
   """
   @type relevance_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_configured_audience_model_request() :: %{
         optional("audienceSizeConfig") => audience_size_config(),
         optional("childResourceTagOnCreatePolicy") => list(any()),
@@ -195,105 +195,105 @@ defmodule AWS.CleanRoomsML do
         required("outputConfig") => configured_audience_model_output_config(),
         required("sharedAudienceMetrics") => list(list(any())())
       }
-
+      
   """
   @type create_configured_audience_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configured_audience_model_request() :: %{}
-
+      
   """
   @type delete_configured_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       status_details() :: %{
         "message" => [String.t()],
         "statusCode" => [String.t()]
       }
-
+      
   """
   @type status_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_audience_export_job_request() :: %{
         optional("description") => String.t(),
         required("audienceGenerationJobArn") => String.t(),
         required("audienceSize") => audience_size(),
         required("name") => String.t()
       }
-
+      
   """
   @type start_audience_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_training_dataset_request() :: %{}
-
+      
   """
   @type delete_training_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_audience_models_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_audience_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset() :: %{
         "inputConfig" => dataset_input_config(),
         "type" => list(any())
       }
-
+      
   """
   @type dataset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_size() :: %{
         "type" => list(any()),
         "value" => integer()
       }
-
+      
   """
   @type audience_size() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_audience_generation_job_request() :: %{
         optional("collaborationId") => String.t(),
         optional("description") => String.t(),
@@ -303,14 +303,14 @@ defmodule AWS.CleanRoomsML do
         required("name") => String.t(),
         required("seedAudience") => audience_generation_job_data_source()
       }
-
+      
   """
   @type start_audience_generation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_generation_job_summary() :: %{
         "audienceGenerationJobArn" => String.t(),
         "collaborationId" => String.t(),
@@ -322,68 +322,68 @@ defmodule AWS.CleanRoomsML do
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type audience_generation_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_audience_model_request() :: %{}
-
+      
   """
   @type get_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       configured_audience_model_output_config() :: %{
         "destination" => audience_destination(),
         "roleArn" => String.t()
       }
-
+      
   """
   @type configured_audience_model_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configured_audience_model_response() :: %{
         "audienceModelArn" => String.t(),
         "audienceSizeConfig" => audience_size_config(),
@@ -399,14 +399,14 @@ defmodule AWS.CleanRoomsML do
         "tags" => map(),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type get_configured_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_model_summary() :: %{
         "audienceModelArn" => String.t(),
         "createTime" => [non_neg_integer()],
@@ -416,46 +416,46 @@ defmodule AWS.CleanRoomsML do
         "trainingDatasetArn" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type audience_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_audience_generation_job_request() :: %{}
-
+      
   """
   @type delete_audience_generation_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_training_datasets_response() :: %{
         "nextToken" => String.t(),
         "trainingDatasets" => list(training_dataset_summary()())
       }
-
+      
   """
   @type list_training_datasets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_export_job_summary() :: %{
         "audienceGenerationJobArn" => String.t(),
         "audienceSize" => audience_size(),
@@ -467,34 +467,34 @@ defmodule AWS.CleanRoomsML do
         "statusDetails" => status_details(),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type audience_export_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_audience_model_request() :: %{}
-
+      
   """
   @type delete_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_training_dataset_response() :: %{
         "trainingDatasetArn" => String.t()
       }
-
+      
   """
   @type create_training_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_audience_model_request() :: %{
         optional("description") => String.t(),
         optional("kmsKeyArn") => String.t(),
@@ -504,98 +504,98 @@ defmodule AWS.CleanRoomsML do
         required("name") => String.t(),
         required("trainingDatasetArn") => String.t()
       }
-
+      
   """
   @type create_audience_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configured_audience_models_response() :: %{
         "configuredAudienceModels" => list(configured_audience_model_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_configured_audience_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_config_map() :: %{
         "s3Uri" => String.t()
       }
-
+      
   """
   @type s3_config_map() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_audience_export_jobs_response() :: %{
         "audienceExportJobs" => list(audience_export_job_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_audience_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configured_audience_model_request() :: %{}
-
+      
   """
   @type get_configured_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       configured_audience_model_summary() :: %{
         "audienceModelArn" => String.t(),
         "configuredAudienceModelArn" => String.t(),
@@ -606,52 +606,52 @@ defmodule AWS.CleanRoomsML do
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type configured_audience_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configured_audience_model_policy_response() :: %{
         "configuredAudienceModelArn" => String.t(),
         "configuredAudienceModelPolicy" => String.t(),
         "policyHash" => String.t()
       }
-
+      
   """
   @type get_configured_audience_model_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       glue_data_source() :: %{
         "catalogId" => String.t(),
         "databaseName" => String.t(),
         "tableName" => String.t()
       }
-
+      
   """
   @type glue_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configured_audience_model_policy_response() :: %{
         "configuredAudienceModelPolicy" => String.t(),
         "policyHash" => String.t()
       }
-
+      
   """
   @type put_configured_audience_model_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_training_dataset_request() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
@@ -659,14 +659,14 @@ defmodule AWS.CleanRoomsML do
         required("roleArn") => String.t(),
         required("trainingData") => list(dataset()())
       }
-
+      
   """
   @type create_training_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       training_dataset_summary() :: %{
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
@@ -675,26 +675,26 @@ defmodule AWS.CleanRoomsML do
         "trainingDatasetArn" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type training_dataset_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       column_schema() :: %{
         "columnName" => String.t(),
         "columnTypes" => list(list(any())())
       }
-
+      
   """
   @type column_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_audience_model_response() :: %{
         "audienceModelArn" => String.t(),
         "createTime" => [non_neg_integer()],
@@ -709,154 +709,154 @@ defmodule AWS.CleanRoomsML do
         "trainingDatasetArn" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
-
+      
   """
   @type get_audience_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset_input_config() :: %{
         "dataSource" => data_source(),
         "schema" => list(column_schema()())
       }
-
+      
   """
   @type dataset_input_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configured_audience_model_policy_request() :: %{
         optional("policyExistenceCondition") => list(any()),
         optional("previousPolicyHash") => String.t(),
         required("configuredAudienceModelPolicy") => String.t()
       }
-
+      
   """
   @type put_configured_audience_model_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_source() :: %{
         "glueDataSource" => glue_data_source()
       }
-
+      
   """
   @type data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_size_config() :: %{
         "audienceSizeBins" => list(integer()()),
         "audienceSizeType" => list(any())
       }
-
+      
   """
   @type audience_size_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_destination() :: %{
         "s3Destination" => s3_config_map()
       }
-
+      
   """
   @type audience_destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audience_generation_job_data_source() :: %{
         "dataSource" => s3_config_map(),
         "roleArn" => String.t()
       }
-
+      
   """
   @type audience_generation_job_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_audience_generation_jobs_request() :: %{
         optional("collaborationId") => String.t(),
         optional("configuredAudienceModelArn") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_audience_generation_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_audience_generation_jobs_response() :: %{
         "audienceGenerationJobs" => list(audience_generation_job_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_audience_generation_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_audience_models_response() :: %{
         "audienceModels" => list(audience_model_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_audience_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_audience_export_jobs_request() :: %{
         optional("audienceGenerationJobArn") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_audience_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_configured_audience_model_policy_request() :: %{}
-
+      
   """
   @type delete_configured_audience_model_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configured_audience_model_policy_request() :: %{}
-
+      
   """
   @type get_configured_audience_model_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_configured_audience_model_request() :: %{
         optional("audienceModelArn") => String.t(),
         optional("audienceSizeConfig") => audience_size_config(),
@@ -865,16 +865,16 @@ defmodule AWS.CleanRoomsML do
         optional("outputConfig") => configured_audience_model_output_config(),
         optional("sharedAudienceMetrics") => list(list(any())())
       }
-
+      
   """
   @type update_configured_audience_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_audience_generation_job_request() :: %{}
-
+      
   """
   @type get_audience_generation_job_request() :: %{}
 
@@ -1010,29 +1010,40 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   """
-  @spec create_audience_model(AWS.Client.t(), create_audience_model_request(), Keyword.t()) ::
+
+  @spec create_audience_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_audience_model_errors()}
-  def create_audience_model(%Client{} = client, input, options \\ []) do
+
+  def create_audience_model(%Client{} = client, options \\ []) do
     url_path = "/audience-model"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1044,33 +1055,40 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   """
-  @spec create_configured_audience_model(
-          AWS.Client.t(),
-          create_configured_audience_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_configured_audience_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_configured_audience_model_errors()}
-  def create_configured_audience_model(%Client{} = client, input, options \\ []) do
+
+  def create_configured_audience_model(%Client{} = client, options \\ []) do
     url_path = "/configured-audience-model"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1084,29 +1102,40 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   """
-  @spec create_training_dataset(AWS.Client.t(), create_training_dataset_request(), Keyword.t()) ::
+
+  @spec create_training_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_training_dataset_errors()}
-  def create_training_dataset(%Client{} = client, input, options \\ []) do
+
+  def create_training_dataset(%Client{} = client, options \\ []) do
     url_path = "/training-dataset"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1117,31 +1146,46 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
-    the audience generation job that you want to delete.
+  the audience generation job that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_audience_generation_job(
-          AWS.Client.t(),
-          String.t(),
-          delete_audience_generation_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_audience_generation_job_errors()}
+
   def delete_audience_generation_job(
         %Client{} = client,
         audience_generation_job_arn,
-        input,
         options \\ []
       ) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1150,7 +1194,7 @@ defmodule AWS.CleanRoomsML do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1165,26 +1209,42 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    audience model that you want to delete.
+  audience model that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_audience_model(
-          AWS.Client.t(),
-          String.t(),
-          delete_audience_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_audience_model_errors()}
-  def delete_audience_model(%Client{} = client, audience_model_arn, input, options \\ []) do
+
+  def delete_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1193,7 +1253,7 @@ defmodule AWS.CleanRoomsML do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1209,31 +1269,46 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the configured audience model that you want to delete.
+  of the configured audience model that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_configured_audience_model(
-          AWS.Client.t(),
-          String.t(),
-          delete_configured_audience_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_audience_model_errors()}
+
   def delete_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
-        input,
         options \\ []
       ) do
     url_path = "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1242,7 +1317,7 @@ defmodule AWS.CleanRoomsML do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1255,33 +1330,47 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the configured audience model policy that you want to delete.
+  of the configured audience model policy that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_configured_audience_model_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_configured_audience_model_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_configured_audience_model_policy_errors()}
+
   def delete_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}/policy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1290,7 +1379,7 @@ defmodule AWS.CleanRoomsML do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1307,26 +1396,42 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    training dataset that you want to delete.
+  training dataset that you want to delete.
 
   ## Optional parameters:
   """
-  @spec delete_training_dataset(
-          AWS.Client.t(),
-          String.t(),
-          delete_training_dataset_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_training_dataset_errors()}
-  def delete_training_dataset(%Client{} = client, training_dataset_arn, input, options \\ []) do
+
+  def delete_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1335,7 +1440,7 @@ defmodule AWS.CleanRoomsML do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1348,14 +1453,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
-    the audience generation job that you are interested in.
+  the audience generation job that you are interested in.
 
   ## Optional parameters:
   """
+
   @spec get_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_audience_generation_job_errors()}
+
   def get_audience_generation_job(%Client{} = client, audience_generation_job_arn, options \\ []) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
 
@@ -1391,14 +1498,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    audience model that you are interested in.
+  audience model that you are interested in.
 
   ## Optional parameters:
   """
+
   @spec get_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_audience_model_errors()}
+
   def get_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
 
@@ -1434,14 +1543,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the configured audience model that you are interested in.
+  of the configured audience model that you are interested in.
 
   ## Optional parameters:
   """
+
   @spec get_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_audience_model_errors()}
+
   def get_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1481,14 +1592,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the configured audience model that you are interested in.
+  of the configured audience model that you are interested in.
 
   ## Optional parameters:
   """
+
   @spec get_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configured_audience_model_policy_errors()}
+
   def get_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -1529,14 +1642,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    training dataset that you are interested in.
+  training dataset that you are interested in.
 
   ## Optional parameters:
   """
+
   @spec get_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_training_dataset_errors()}
+
   def get_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
 
@@ -1574,16 +1689,18 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
-    the audience generation job that you are interested in.
+  the audience generation job that you are interested in.
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-    per call.
+  per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-    access the next page of results.
+  access the next page of results.
   """
+
   @spec list_audience_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_export_jobs_errors()}
+
   def list_audience_export_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-export-job"
 
@@ -1646,19 +1763,21 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   * `:collaboration_id` (`t:string`) The identifier of the collaboration that
-    contains the audience generation jobs that you are interested in.
+  contains the audience generation jobs that you are interested in.
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the configured audience model that was used for the audience generation
-    jobs that you are interested in.
+  of the configured audience model that was used for the audience generation
+  jobs that you are interested in.
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-    per call.
+  per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-    access the next page of results.
+  access the next page of results.
   """
+
   @spec list_audience_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_generation_jobs_errors()}
+
   def list_audience_generation_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-generation-job"
 
@@ -1738,14 +1857,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-    per call.
+  per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-    access the next page of results.
+  access the next page of results.
   """
+
   @spec list_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_audience_models_errors()}
+
   def list_audience_models(%Client{} = client, options \\ []) do
     url_path = "/audience-model"
 
@@ -1801,14 +1922,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-    per call.
+  per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-    access the next page of results.
+  access the next page of results.
   """
+
   @spec list_configured_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configured_audience_models_errors()}
+
   def list_configured_audience_models(%Client{} = client, options \\ []) do
     url_path = "/configured-audience-model"
 
@@ -1862,14 +1985,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you are interested in.
+  that you are interested in.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1907,14 +2032,16 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-    per call.
+  per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-    access the next page of results.
+  access the next page of results.
   """
+
   @spec list_training_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_training_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_training_datasets_errors()}
+
   def list_training_datasets(%Client{} = client, options \\ []) do
     url_path = "/training-dataset"
 
@@ -1968,35 +2095,49 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the configured audience model that the resource policy will govern.
+  of the configured audience model that the resource policy will govern.
 
   ## Optional parameters:
   """
-  @spec put_configured_audience_model_policy(
-          AWS.Client.t(),
-          String.t(),
-          put_configured_audience_model_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configured_audience_model_policy_errors()}
+
   def put_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}/policy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2008,33 +2149,40 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   """
-  @spec start_audience_export_job(
-          AWS.Client.t(),
-          start_audience_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_audience_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_audience_export_job_errors()}
-  def start_audience_export_job(%Client{} = client, input, options \\ []) do
+
+  def start_audience_export_job(%Client{} = client, options \\ []) do
     url_path = "/audience-export-job"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2046,33 +2194,40 @@ defmodule AWS.CleanRoomsML do
 
   ## Optional parameters:
   """
-  @spec start_audience_generation_job(
-          AWS.Client.t(),
-          start_audience_generation_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_audience_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_audience_generation_job_errors()}
-  def start_audience_generation_job(%Client{} = client, input, options \\ []) do
+
+  def start_audience_generation_job(%Client{} = client, options \\ []) do
     url_path = "/audience-generation-job"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2082,33 +2237,44 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to assign tags.
+  that you want to assign tags.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2118,28 +2284,45 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to remove tags from.
+  that you want to remove tags from.
   * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]`) The key values of
-    tags that you want to remove.
+  tags that you want to remove.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2148,7 +2331,7 @@ defmodule AWS.CleanRoomsML do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2163,31 +2346,46 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-    of the configured audience model that you want to update.
+  of the configured audience model that you want to update.
 
   ## Optional parameters:
   """
-  @spec update_configured_audience_model(
-          AWS.Client.t(),
-          String.t(),
-          update_configured_audience_model_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_configured_audience_model_errors()}
+
   def update_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
-        input,
         options \\ []
       ) do
     url_path = "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2196,7 +2394,7 @@ defmodule AWS.CleanRoomsML do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

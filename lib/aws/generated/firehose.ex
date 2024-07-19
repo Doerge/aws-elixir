@@ -200,6 +200,7 @@ defmodule AWS.Firehose do
       
       snowflake_destination_update() :: %{
         "AccountUrl" => String.t(),
+        "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "ContentColumnName" => String.t(),
         "DataLoadingOption" => list(any()),
@@ -221,6 +222,25 @@ defmodule AWS.Firehose do
       
   """
   @type snowflake_destination_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_destination_update() :: %{
+        "BufferingHints" => buffering_hints(),
+        "CatalogConfiguration" => catalog_configuration(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => retry_options(),
+        "RoleARN" => String.t(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration()
+      }
+      
+  """
+  @type iceberg_destination_update() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -284,6 +304,7 @@ defmodule AWS.Firehose do
         optional("ElasticsearchDestinationConfiguration") => elasticsearch_destination_configuration(),
         optional("ExtendedS3DestinationConfiguration") => extended_s3_destination_configuration(),
         optional("HttpEndpointDestinationConfiguration") => http_endpoint_destination_configuration(),
+        optional("IcebergDestinationConfiguration") => iceberg_destination_configuration(),
         optional("KinesisStreamSourceConfiguration") => kinesis_stream_source_configuration(),
         optional("MSKSourceConfiguration") => m_s_k_source_configuration(),
         optional("RedshiftDestinationConfiguration") => redshift_destination_configuration(),
@@ -376,6 +397,7 @@ defmodule AWS.Firehose do
         "AuthenticationConfiguration" => authentication_configuration(),
         "DeliveryStartTimestamp" => non_neg_integer(),
         "MSKClusterARN" => String.t(),
+        "ReadFromTimestamp" => non_neg_integer(),
         "TopicName" => String.t()
       }
       
@@ -401,6 +423,7 @@ defmodule AWS.Firehose do
       m_s_k_source_configuration() :: %{
         "AuthenticationConfiguration" => authentication_configuration(),
         "MSKClusterARN" => String.t(),
+        "ReadFromTimestamp" => non_neg_integer(),
         "TopicName" => String.t()
       }
       
@@ -510,6 +533,7 @@ defmodule AWS.Firehose do
         "ElasticsearchDestinationDescription" => elasticsearch_destination_description(),
         "ExtendedS3DestinationDescription" => extended_s3_destination_description(),
         "HttpEndpointDestinationDescription" => http_endpoint_destination_description(),
+        "IcebergDestinationDescription" => iceberg_destination_description(),
         "RedshiftDestinationDescription" => redshift_destination_description(),
         "S3DestinationDescription" => s3_destination_description(),
         "SnowflakeDestinationDescription" => snowflake_destination_description(),
@@ -525,6 +549,7 @@ defmodule AWS.Firehose do
       
       snowflake_destination_description() :: %{
         "AccountUrl" => String.t(),
+        "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "ContentColumnName" => String.t(),
         "DataLoadingOption" => list(any()),
@@ -563,12 +588,25 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      snowflake_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type snowflake_buffering_hints() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_destination_input() :: %{
         optional("AmazonOpenSearchServerlessDestinationUpdate") => amazon_open_search_serverless_destination_update(),
         optional("AmazonopensearchserviceDestinationUpdate") => amazonopensearchservice_destination_update(),
         optional("ElasticsearchDestinationUpdate") => elasticsearch_destination_update(),
         optional("ExtendedS3DestinationUpdate") => extended_s3_destination_update(),
         optional("HttpEndpointDestinationUpdate") => http_endpoint_destination_update(),
+        optional("IcebergDestinationUpdate") => iceberg_destination_update(),
         optional("RedshiftDestinationUpdate") => redshift_destination_update(),
         optional("S3DestinationUpdate") => s3_destination_update(),
         optional("SnowflakeDestinationUpdate") => snowflake_destination_update(),
@@ -621,6 +659,25 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      iceberg_destination_configuration() :: %{
+        "BufferingHints" => buffering_hints(),
+        "CatalogConfiguration" => catalog_configuration(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => retry_options(),
+        "RoleARN" => String.t(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration()
+      }
+      
+  """
+  @type iceberg_destination_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
@@ -638,6 +695,20 @@ defmodule AWS.Firehose do
       
   """
   @type amazonopensearchservice_retry_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_table_configuration() :: %{
+        "DestinationDatabaseName" => String.t(),
+        "DestinationTableName" => String.t(),
+        "S3ErrorOutputPrefix" => String.t(),
+        "UniqueKeys" => list(String.t()())
+      }
+      
+  """
+  @type destination_table_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -681,6 +752,7 @@ defmodule AWS.Firehose do
       
       snowflake_destination_configuration() :: %{
         "AccountUrl" => String.t(),
+        "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "ContentColumnName" => String.t(),
         "DataLoadingOption" => list(any()),
@@ -1095,6 +1167,25 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      iceberg_destination_description() :: %{
+        "BufferingHints" => buffering_hints(),
+        "CatalogConfiguration" => catalog_configuration(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => retry_options(),
+        "RoleARN" => String.t(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description()
+      }
+      
+  """
+  @type iceberg_destination_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delivery_stream_description() :: %{
         "CreateTimestamp" => non_neg_integer(),
         "DeliveryStreamARN" => String.t(),
@@ -1267,6 +1358,17 @@ defmodule AWS.Firehose do
       
   """
   @type amazonopensearchservice_destination_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_configuration() :: %{
+        "CatalogARN" => String.t()
+      }
+      
+  """
+  @type catalog_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1781,12 +1883,37 @@ defmodule AWS.Firehose do
   @doc """
   Creates a Firehose delivery stream. By default, you can create up to 50 delivery
   streams per Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20CreateDeliveryStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_delivery_stream_input`)
+    %{
+      optional("AmazonOpenSearchServerlessDestinationConfiguration") => amazon_open_search_serverless_destination_configuration(),
+      optional("AmazonopensearchserviceDestinationConfiguration") => amazonopensearchservice_destination_configuration(),
+      optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
+      optional("DeliveryStreamType") => list(any()),
+      optional("ElasticsearchDestinationConfiguration") => elasticsearch_destination_configuration(),
+      optional("ExtendedS3DestinationConfiguration") => extended_s3_destination_configuration(),
+      optional("HttpEndpointDestinationConfiguration") => http_endpoint_destination_configuration(),
+      optional("IcebergDestinationConfiguration") => iceberg_destination_configuration(),
+      optional("KinesisStreamSourceConfiguration") => kinesis_stream_source_configuration(),
+      optional("MSKSourceConfiguration") => m_s_k_source_configuration(),
+      optional("RedshiftDestinationConfiguration") => redshift_destination_configuration(),
+      optional("S3DestinationConfiguration") => s3_destination_configuration(),
+      optional("SnowflakeDestinationConfiguration") => snowflake_destination_configuration(),
+      optional("SplunkDestinationConfiguration") => splunk_destination_configuration(),
+      optional("Tags") => list(tag()()),
+      required("DeliveryStreamName") => String.t()
+    }
   """
-  @spec create_delivery_stream(AWS.Client.t(), create_delivery_stream_input(), Keyword.t()) ::
+
+  @spec create_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_delivery_stream_errors()}
-  def create_delivery_stream(%Client{} = client, input, options \\ []) do
+
+  def create_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1799,12 +1926,23 @@ defmodule AWS.Firehose do
   or `DELETING_FAILED`. You can't delete a delivery stream that is in the
   `CREATING` state. To check the state of a delivery stream, use
   `DescribeDeliveryStream`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20DeleteDeliveryStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_delivery_stream_input`)
+    %{
+      optional("AllowForceDelete") => boolean(),
+      required("DeliveryStreamName") => String.t()
+    }
   """
-  @spec delete_delivery_stream(AWS.Client.t(), delete_delivery_stream_input(), Keyword.t()) ::
+
+  @spec delete_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_delivery_stream_errors()}
-  def delete_delivery_stream(%Client{} = client, input, options \\ []) do
+
+  def delete_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1815,12 +1953,24 @@ defmodule AWS.Firehose do
   Describes the specified delivery stream and its status. For example, after your
   delivery stream is created, call `DescribeDeliveryStream` to see whether the
   delivery stream is `ACTIVE` and therefore ready for data to be sent to it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20DescribeDeliveryStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_delivery_stream_input`)
+    %{
+      optional("ExclusiveStartDestinationId") => String.t(),
+      optional("Limit") => integer(),
+      required("DeliveryStreamName") => String.t()
+    }
   """
-  @spec describe_delivery_stream(AWS.Client.t(), describe_delivery_stream_input(), Keyword.t()) ::
+
+  @spec describe_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_delivery_stream_errors()}
-  def describe_delivery_stream(%Client{} = client, input, options \\ []) do
+
+  def describe_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1829,11 +1979,23 @@ defmodule AWS.Firehose do
 
   @doc """
   Lists your delivery streams in alphabetical order of their names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20ListDeliveryStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_delivery_streams_input`)
+    %{
+      optional("DeliveryStreamType") => list(any()),
+      optional("ExclusiveStartDeliveryStreamName") => String.t(),
+      optional("Limit") => integer()
+    }
   """
-  @spec list_delivery_streams(AWS.Client.t(), list_delivery_streams_input(), Keyword.t()) ::
+
+  @spec list_delivery_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_delivery_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_delivery_streams(%Client{} = client, input, options \\ []) do
+
+  def list_delivery_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1843,16 +2005,25 @@ defmodule AWS.Firehose do
   @doc """
   Lists the tags for the specified delivery stream. This operation has a limit of
   five transactions per second per account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20ListTagsForDeliveryStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_delivery_stream_input`)
+    %{
+      optional("ExclusiveStartTagKey") => String.t(),
+      optional("Limit") => integer(),
+      required("DeliveryStreamName") => String.t()
+    }
   """
-  @spec list_tags_for_delivery_stream(
-          AWS.Client.t(),
-          list_tags_for_delivery_stream_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_tags_for_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_delivery_stream_errors()}
-  def list_tags_for_delivery_stream(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_delivery_stream(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1869,12 +2040,23 @@ defmodule AWS.Firehose do
   each delivery stream. For more information about limits and how to request an
   increase, see [Amazon Firehose
   Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20PutRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_record_input`)
+    %{
+      required("DeliveryStreamName") => String.t(),
+      required("Record") => record()
+    }
   """
-  @spec put_record(AWS.Client.t(), put_record_input(), Keyword.t()) ::
+
+  @spec put_record(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_record_errors()}
-  def put_record(%Client{} = client, input, options \\ []) do
+
+  def put_record(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1891,12 +2073,23 @@ defmodule AWS.Firehose do
   ingested to a delivery stream last only for a few seconds. Due to this, the
   actual spikes in the traffic might not be fully visible in the customer's 1
   minute CloudWatch metrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20PutRecordBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_record_batch_input`)
+    %{
+      required("DeliveryStreamName") => String.t(),
+      required("Records") => list(record()())
+    }
   """
-  @spec put_record_batch(AWS.Client.t(), put_record_batch_input(), Keyword.t()) ::
+
+  @spec put_record_batch(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_record_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_record_batch_errors()}
-  def put_record_batch(%Client{} = client, input, options \\ []) do
+
+  def put_record_batch(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1916,16 +2109,24 @@ defmodule AWS.Firehose do
   delivery stream are encrypted. To find out whether a record or a batch of
   records was encrypted, check the response elements `PutRecordOutput$Encrypted`
   and `PutRecordBatchOutput$Encrypted`, respectively.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20StartDeliveryStreamEncryption&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_delivery_stream_encryption_input`)
+    %{
+      optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
+      required("DeliveryStreamName") => String.t()
+    }
   """
-  @spec start_delivery_stream_encryption(
-          AWS.Client.t(),
-          start_delivery_stream_encryption_input(),
-          Keyword.t()
-        ) ::
+
+  @spec start_delivery_stream_encryption(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_delivery_stream_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_delivery_stream_encryption_errors()}
-  def start_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
+
+  def start_delivery_stream_encryption(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1942,16 +2143,23 @@ defmodule AWS.Firehose do
   subject to encryption. To find out whether a record or a batch of records was
   encrypted, check the response elements `PutRecordOutput$Encrypted` and
   `PutRecordBatchOutput$Encrypted`, respectively.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20StopDeliveryStreamEncryption&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_delivery_stream_encryption_input`)
+    %{
+      required("DeliveryStreamName") => String.t()
+    }
   """
-  @spec stop_delivery_stream_encryption(
-          AWS.Client.t(),
-          stop_delivery_stream_encryption_input(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_delivery_stream_encryption(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_delivery_stream_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_delivery_stream_encryption_errors()}
-  def stop_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
+
+  def stop_delivery_stream_encryption(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1969,12 +2177,23 @@ defmodule AWS.Firehose do
   Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *Amazon Web Services Billing and Cost Management User Guide*. Each
   delivery stream can have up to 50 tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20TagDeliveryStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_delivery_stream_input`)
+    %{
+      required("DeliveryStreamName") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_delivery_stream(AWS.Client.t(), tag_delivery_stream_input(), Keyword.t()) ::
+
+  @spec tag_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_delivery_stream_errors()}
-  def tag_delivery_stream(%Client{} = client, input, options \\ []) do
+
+  def tag_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1985,12 +2204,23 @@ defmodule AWS.Firehose do
   Removes tags from the specified delivery stream. Removed tags are deleted, and
   you can't recover them after this operation successfully completes. If you
   specify a tag that doesn't exist, the operation ignores it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20UntagDeliveryStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_delivery_stream_input`)
+    %{
+      required("DeliveryStreamName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_delivery_stream(AWS.Client.t(), untag_delivery_stream_input(), Keyword.t()) ::
+
+  @spec untag_delivery_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_delivery_stream_errors()}
-  def untag_delivery_stream(%Client{} = client, input, options \\ []) do
+
+  def untag_delivery_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2006,12 +2236,34 @@ defmodule AWS.Firehose do
   stream remains active while the configurations are updated, so data writes to
   the delivery stream can continue during this process. The updated
   configurations are usually effective within a few minutes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=firehose%20UpdateDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_destination_input`)
+    %{
+      optional("AmazonOpenSearchServerlessDestinationUpdate") => amazon_open_search_serverless_destination_update(),
+      optional("AmazonopensearchserviceDestinationUpdate") => amazonopensearchservice_destination_update(),
+      optional("ElasticsearchDestinationUpdate") => elasticsearch_destination_update(),
+      optional("ExtendedS3DestinationUpdate") => extended_s3_destination_update(),
+      optional("HttpEndpointDestinationUpdate") => http_endpoint_destination_update(),
+      optional("IcebergDestinationUpdate") => iceberg_destination_update(),
+      optional("RedshiftDestinationUpdate") => redshift_destination_update(),
+      optional("S3DestinationUpdate") => s3_destination_update(),
+      optional("SnowflakeDestinationUpdate") => snowflake_destination_update(),
+      optional("SplunkDestinationUpdate") => splunk_destination_update(),
+      required("CurrentDeliveryStreamVersionId") => String.t(),
+      required("DeliveryStreamName") => String.t(),
+      required("DestinationId") => String.t()
+    }
   """
-  @spec update_destination(AWS.Client.t(), update_destination_input(), Keyword.t()) ::
+
+  @spec update_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_destination_errors()}
-  def update_destination(%Client{} = client, input, options \\ []) do
+
+  def update_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

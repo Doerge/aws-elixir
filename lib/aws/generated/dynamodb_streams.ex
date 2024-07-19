@@ -314,12 +314,24 @@ defmodule AWS.DynamoDBStreams do
   its Amazon Resource Name (ARN), the composition of its shards, and its
   corresponding DynamoDB table. You can call `DescribeStream` at a maximum rate
   of 10 times per second.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodbstreams%20DescribeStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stream_input`)
+    %{
+      optional("ExclusiveStartShardId") => String.t(),
+      optional("Limit") => integer(),
+      required("StreamArn") => String.t()
+    }
   """
-  @spec describe_stream(AWS.Client.t(), describe_stream_input(), Keyword.t()) ::
+
+  @spec describe_stream(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stream_errors()}
-  def describe_stream(%Client{} = client, input, options \\ []) do
+
+  def describe_stream(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -334,12 +346,23 @@ defmodule AWS.DynamoDBStreams do
   iterator points to, `GetRecords` returns an empty list. Note that it might
   take multiple calls to get to a portion of the shard that contains stream
   records.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodbstreams%20GetRecords&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_records_input`)
+    %{
+      optional("Limit") => integer(),
+      required("ShardIterator") => String.t()
+    }
   """
-  @spec get_records(AWS.Client.t(), get_records_input(), Keyword.t()) ::
+
+  @spec get_records(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_records_errors()}
-  def get_records(%Client{} = client, input, options \\ []) do
+
+  def get_records(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -350,12 +373,25 @@ defmodule AWS.DynamoDBStreams do
   Returns a shard iterator. A shard iterator provides information about how to
   retrieve the stream records from within a shard. Use the shard iterator in a
   subsequent `GetRecords` request to read the stream records from the shard.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodbstreams%20GetShardIterator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_shard_iterator_input`)
+    %{
+      optional("SequenceNumber") => String.t(),
+      required("ShardId") => String.t(),
+      required("ShardIteratorType") => list(any()),
+      required("StreamArn") => String.t()
+    }
   """
-  @spec get_shard_iterator(AWS.Client.t(), get_shard_iterator_input(), Keyword.t()) ::
+
+  @spec get_shard_iterator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_shard_iterator_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_shard_iterator_errors()}
-  def get_shard_iterator(%Client{} = client, input, options \\ []) do
+
+  def get_shard_iterator(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -366,12 +402,24 @@ defmodule AWS.DynamoDBStreams do
   Returns an array of stream ARNs associated with the current account and
   endpoint. If the `TableName` parameter is present, then `ListStreams` will
   return only the streams ARNs for that table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodbstreams%20ListStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_streams_input`)
+    %{
+      optional("ExclusiveStartStreamArn") => String.t(),
+      optional("Limit") => integer(),
+      optional("TableName") => String.t()
+    }
   """
-  @spec list_streams(AWS.Client.t(), list_streams_input(), Keyword.t()) ::
+
+  @spec list_streams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streams_errors()}
-  def list_streams(%Client{} = client, input, options \\ []) do
+
+  def list_streams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -17452,12 +17452,24 @@ defmodule AWS.SageMaker do
   with multiple sources. An association is a lineage tracking entity. For more
   information, see [Amazon SageMaker ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20AddAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_association_request`)
+    %{
+      optional("AssociationType") => list(any()),
+      required("DestinationArn") => String.t(),
+      required("SourceArn") => String.t()
+    }
   """
-  @spec add_association(AWS.Client.t(), add_association_request(), Keyword.t()) ::
+
+  @spec add_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_association_errors()}
-  def add_association(%Client{} = client, input, options \\ []) do
+
+  def add_association(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17480,11 +17492,22 @@ defmodule AWS.SageMaker do
   hyperparameter tuning job launches, add the tags when you first create the
   tuning job by specifying them in the `Tags` parameter of
   [CreateHyperParameterTuningJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20AddTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec add_tags(AWS.Client.t(), add_tags_input(), Keyword.t()) ::
+
+  @spec add_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def add_tags(%Client{} = client, input, options \\ []) do
+
+  def add_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17496,16 +17519,23 @@ defmodule AWS.SageMaker do
   with multiple trials. To disassociate a trial component from a trial, call the
   [DisassociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20AssociateTrialComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_trial_component_request`)
+    %{
+      required("TrialComponentName") => String.t(),
+      required("TrialName") => String.t()
+    }
   """
-  @spec associate_trial_component(
-          AWS.Client.t(),
-          associate_trial_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_trial_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_trial_component_errors()}
-  def associate_trial_component(%Client{} = client, input, options \\ []) do
+
+  def associate_trial_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17514,15 +17544,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   This action batch describes a list of versioned model packages
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20BatchDescribeModelPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_describe_model_package_input`)
+    %{
+      required("ModelPackageArnList") => list(String.t()())
+    }
   """
-  @spec batch_describe_model_package(
-          AWS.Client.t(),
-          batch_describe_model_package_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_describe_model_package(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_describe_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def batch_describe_model_package(%Client{} = client, input, options \\ []) do
+
+  def batch_describe_model_package(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17535,12 +17571,29 @@ defmodule AWS.SageMaker do
   an action involves at least one input or output artifact. For more
   information, see [Amazon SageMaker ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_action_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("MetadataProperties") => metadata_properties(),
+      optional("Properties") => map(),
+      optional("Status") => list(any()),
+      optional("Tags") => list(tag()()),
+      required("ActionName") => String.t(),
+      required("ActionType") => String.t(),
+      required("Source") => action_source()
+    }
   """
-  @spec create_action(AWS.Client.t(), create_action_request(), Keyword.t()) ::
+
+  @spec create_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_action_errors()}
-  def create_action(%Client{} = client, input, options \\ []) do
+
+  def create_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17550,11 +17603,27 @@ defmodule AWS.SageMaker do
   @doc """
   Create a machine learning algorithm that you can use in SageMaker and list in
   the Amazon Web Services Marketplace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateAlgorithm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_algorithm_input`)
+    %{
+      optional("AlgorithmDescription") => String.t(),
+      optional("CertifyForMarketplace") => boolean(),
+      optional("InferenceSpecification") => inference_specification(),
+      optional("Tags") => list(tag()()),
+      optional("ValidationSpecification") => algorithm_validation_specification(),
+      required("AlgorithmName") => String.t(),
+      required("TrainingSpecification") => training_specification()
+    }
   """
-  @spec create_algorithm(AWS.Client.t(), create_algorithm_input(), Keyword.t()) ::
+
+  @spec create_algorithm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_algorithm_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_algorithm(%Client{} = client, input, options \\ []) do
+
+  def create_algorithm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17566,12 +17635,28 @@ defmodule AWS.SageMaker do
   automatically invoked by Amazon SageMaker upon access to the associated
   Domain, and when new kernel configurations are selected by the user. A user
   may have multiple Apps active simultaneously.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_app_request`)
+    %{
+      optional("ResourceSpec") => resource_spec(),
+      optional("SpaceName") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("UserProfileName") => String.t(),
+      required("AppName") => String.t(),
+      required("AppType") => list(any()),
+      required("DomainId") => String.t()
+    }
   """
-  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
+
+  @spec create_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
-  def create_app(%Client{} = client, input, options \\ []) do
+
+  def create_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17582,12 +17667,26 @@ defmodule AWS.SageMaker do
   Creates a configuration for running a SageMaker image as a KernelGateway app.
   The configuration specifies the Amazon Elastic File System storage volume on
   the image, and a list of the kernels in the image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateAppImageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_app_image_config_request`)
+    %{
+      optional("CodeEditorAppImageConfig") => code_editor_app_image_config(),
+      optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
+      optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
+      optional("Tags") => list(tag()()),
+      required("AppImageConfigName") => String.t()
+    }
   """
-  @spec create_app_image_config(AWS.Client.t(), create_app_image_config_request(), Keyword.t()) ::
+
+  @spec create_app_image_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_image_config_errors()}
-  def create_app_image_config(%Client{} = client, input, options \\ []) do
+
+  def create_app_image_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17600,12 +17699,27 @@ defmodule AWS.SageMaker do
   and the ECR registry path of an image. For more information, see [Amazon
   SageMaker ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateArtifact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_artifact_request`)
+    %{
+      optional("ArtifactName") => String.t(),
+      optional("MetadataProperties") => metadata_properties(),
+      optional("Properties") => map(),
+      optional("Tags") => list(tag()()),
+      required("ArtifactType") => String.t(),
+      required("Source") => artifact_source()
+    }
   """
-  @spec create_artifact(AWS.Client.t(), create_artifact_request(), Keyword.t()) ::
+
+  @spec create_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_artifact_errors()}
-  def create_artifact(%Client{} = client, input, options \\ []) do
+
+  def create_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17614,12 +17728,31 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateAutoMLJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_auto_ml_job_request`)
+    %{
+      optional("AutoMLJobConfig") => auto_ml_job_config(),
+      optional("AutoMLJobObjective") => auto_ml_job_objective(),
+      optional("GenerateCandidateDefinitionsOnly") => boolean(),
+      optional("ModelDeployConfig") => model_deploy_config(),
+      optional("ProblemType") => list(any()),
+      optional("Tags") => list(tag()()),
+      required("AutoMLJobName") => String.t(),
+      required("InputDataConfig") => list(auto_ml_channel()()),
+      required("OutputDataConfig") => auto_ml_output_data_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_auto_ml_job(AWS.Client.t(), create_auto_ml_job_request(), Keyword.t()) ::
+
+  @spec create_auto_ml_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_auto_ml_job_errors()}
-  def create_auto_ml_job(%Client{} = client, input, options \\ []) do
+
+  def create_auto_ml_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17645,12 +17778,31 @@ defmodule AWS.SageMaker do
   CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
   For the list of available problem types supported by `CreateAutoMLJobV2`, see
   [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateAutoMLJobV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_auto_ml_job_v2_request`)
+    %{
+      optional("AutoMLJobObjective") => auto_ml_job_objective(),
+      optional("DataSplitConfig") => auto_ml_data_split_config(),
+      optional("ModelDeployConfig") => model_deploy_config(),
+      optional("SecurityConfig") => auto_ml_security_config(),
+      optional("Tags") => list(tag()()),
+      required("AutoMLJobInputDataConfig") => list(auto_ml_job_channel()()),
+      required("AutoMLJobName") => String.t(),
+      required("AutoMLProblemTypeConfig") => list(),
+      required("OutputDataConfig") => auto_ml_output_data_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_auto_ml_job_v2(AWS.Client.t(), create_auto_ml_job_v2_request(), Keyword.t()) ::
+
+  @spec create_auto_ml_job_v2(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_auto_ml_job_v2_errors()}
-  def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
+
+  def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17664,12 +17816,25 @@ defmodule AWS.SageMaker do
   models. To learn more, see [Amazon SageMaker
   HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html)
   in the *Amazon SageMaker Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cluster_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      optional("VpcConfig") => vpc_config(),
+      required("ClusterName") => String.t(),
+      required("InstanceGroups") => list(cluster_instance_group_specification()())
+    }
   """
-  @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
+
+  @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cluster_errors()}
-  def create_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17683,11 +17848,23 @@ defmodule AWS.SageMaker do
   in your SageMaker account, so it can be associated with more than one notebook
   instance, and it persists independently from the lifecycle of any notebook
   instances it is associated with.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateCodeRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_code_repository_input`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("CodeRepositoryName") => String.t(),
+      required("GitConfig") => git_config()
+    }
   """
-  @spec create_code_repository(AWS.Client.t(), create_code_repository_input(), Keyword.t()) ::
+
+  @spec create_code_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_code_repository(%Client{} = client, input, options \\ []) do
+
+  def create_code_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17701,12 +17878,29 @@ defmodule AWS.SageMaker do
   using Amazon SageMaker hosting services, you can use the resulting model
   artifacts as part of the model. You can also use the artifacts with Amazon Web
   Services IoT Greengrass. In that case, deploy them as an ML resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateCompilationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_compilation_job_request`)
+    %{
+      optional("InputConfig") => input_config(),
+      optional("ModelPackageVersionArn") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VpcConfig") => neo_vpc_config(),
+      required("CompilationJobName") => String.t(),
+      required("OutputConfig") => output_config(),
+      required("RoleArn") => String.t(),
+      required("StoppingCondition") => stopping_condition()
+    }
   """
-  @spec create_compilation_job(AWS.Client.t(), create_compilation_job_request(), Keyword.t()) ::
+
+  @spec create_compilation_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_compilation_job_errors()}
-  def create_compilation_job(%Client{} = client, input, options \\ []) do
+
+  def create_compilation_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17719,12 +17913,27 @@ defmodule AWS.SageMaker do
   an endpoint and a model package. For more information, see [Amazon SageMaker
   ML Lineage
   Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateContext&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_context_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Properties") => map(),
+      optional("Tags") => list(tag()()),
+      required("ContextName") => String.t(),
+      required("ContextType") => String.t(),
+      required("Source") => context_source()
+    }
   """
-  @spec create_context(AWS.Client.t(), create_context_request(), Keyword.t()) ::
+
+  @spec create_context(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_context_errors()}
-  def create_context(%Client{} = client, input, options \\ []) do
+
+  def create_context(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17735,16 +17944,32 @@ defmodule AWS.SageMaker do
   Creates a definition for a job that monitors data quality and drift. For
   information about model monitor, see [Amazon SageMaker Model
   Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateDataQualityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_data_quality_job_definition_request`)
+    %{
+      optional("DataQualityBaselineConfig") => data_quality_baseline_config(),
+      optional("NetworkConfig") => monitoring_network_config(),
+      optional("StoppingCondition") => monitoring_stopping_condition(),
+      optional("Tags") => list(tag()()),
+      required("DataQualityAppSpecification") => data_quality_app_specification(),
+      required("DataQualityJobInput") => data_quality_job_input(),
+      required("DataQualityJobOutputConfig") => monitoring_output_config(),
+      required("JobDefinitionName") => String.t(),
+      required("JobResources") => monitoring_resources(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_data_quality_job_definition(
-          AWS.Client.t(),
-          create_data_quality_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_data_quality_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_quality_job_definition_errors()}
-  def create_data_quality_job_definition(%Client{} = client, input, options \\ []) do
+
+  def create_data_quality_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -17753,12 +17978,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a device fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateDeviceFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_device_fleet_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("EnableIotRoleAlias") => boolean(),
+      optional("RoleArn") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("DeviceFleetName") => String.t(),
+      required("OutputConfig") => edge_output_config()
+    }
   """
-  @spec create_device_fleet(AWS.Client.t(), create_device_fleet_request(), Keyword.t()) ::
+
+  @spec create_device_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_device_fleet_errors()}
-  def create_device_fleet(%Client{} = client, input, options \\ []) do
+
+  def create_device_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17771,12 +18011,33 @@ defmodule AWS.SageMaker do
   application, policy, and Amazon Virtual Private Cloud (VPC) configurations.
   Users within a domain can share notebook files and other artifacts with each
   other. **EFS storage**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_domain_request`)
+    %{
+      optional("AppNetworkAccessType") => list(any()),
+      optional("AppSecurityGroupManagement") => list(any()),
+      optional("DefaultSpaceSettings") => default_space_settings(),
+      optional("DomainSettings") => domain_settings(),
+      optional("HomeEfsFileSystemKmsKeyId") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("AuthMode") => list(any()),
+      required("DefaultUserSettings") => user_settings(),
+      required("DomainName") => String.t(),
+      required("SubnetIds") => list(String.t()()),
+      required("VpcId") => String.t()
+    }
   """
-  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
+
+  @spec create_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-  def create_domain(%Client{} = client, input, options \\ []) do
+
+  def create_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17786,16 +18047,26 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an edge deployment plan, consisting of multiple stages. Each stage may
   have a different deployment configuration and devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateEdgeDeploymentPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_edge_deployment_plan_request`)
+    %{
+      optional("Stages") => list(deployment_stage()()),
+      optional("Tags") => list(tag()()),
+      required("DeviceFleetName") => String.t(),
+      required("EdgeDeploymentPlanName") => String.t(),
+      required("ModelConfigs") => list(edge_deployment_model_config()())
+    }
   """
-  @spec create_edge_deployment_plan(
-          AWS.Client.t(),
-          create_edge_deployment_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_edge_deployment_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_edge_deployment_plan_errors()}
-  def create_edge_deployment_plan(%Client{} = client, input, options \\ []) do
+
+  def create_edge_deployment_plan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17804,16 +18075,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a new stage in an existing edge deployment plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateEdgeDeploymentStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_edge_deployment_stage_request`)
+    %{
+      required("EdgeDeploymentPlanName") => String.t(),
+      required("Stages") => list(deployment_stage()())
+    }
   """
-  @spec create_edge_deployment_stage(
-          AWS.Client.t(),
-          create_edge_deployment_stage_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_edge_deployment_stage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_edge_deployment_stage_errors()}
-  def create_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+
+  def create_edge_deployment_stage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17825,16 +18103,29 @@ defmodule AWS.SageMaker do
   model artifacts from the Amazon Simple Storage Service bucket that you
   specify. After the model has been packaged, Amazon SageMaker saves the
   resulting artifacts to an S3 bucket that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateEdgePackagingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_edge_packaging_job_request`)
+    %{
+      optional("ResourceKey") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("CompilationJobName") => String.t(),
+      required("EdgePackagingJobName") => String.t(),
+      required("ModelName") => String.t(),
+      required("ModelVersion") => String.t(),
+      required("OutputConfig") => edge_output_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_edge_packaging_job(
-          AWS.Client.t(),
-          create_edge_packaging_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_edge_packaging_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_edge_packaging_job_errors()}
-  def create_edge_packaging_job(%Client{} = client, input, options \\ []) do
+
+  def create_edge_packaging_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17851,12 +18142,25 @@ defmodule AWS.SageMaker do
   while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed
   on the endpoint. To update an endpoint, you must create a new
   `EndpointConfig`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_endpoint_input`)
+    %{
+      optional("DeploymentConfig") => deployment_config(),
+      optional("Tags") => list(tag()()),
+      required("EndpointConfigName") => String.t(),
+      required("EndpointName") => String.t()
+    }
   """
-  @spec create_endpoint(AWS.Client.t(), create_endpoint_input(), Keyword.t()) ::
+
+  @spec create_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
-  def create_endpoint(%Client{} = client, input, options \\ []) do
+
+  def create_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17874,12 +18178,32 @@ defmodule AWS.SageMaker do
   each model that you want to deploy. Each `ProductionVariant` parameter also
   describes the resources that you want SageMaker to provision. This includes
   the number and type of ML compute instances to deploy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateEndpointConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_endpoint_config_input`)
+    %{
+      optional("AsyncInferenceConfig") => async_inference_config(),
+      optional("DataCaptureConfig") => data_capture_config(),
+      optional("EnableNetworkIsolation") => boolean(),
+      optional("ExecutionRoleArn") => String.t(),
+      optional("ExplainerConfig") => explainer_config(),
+      optional("KmsKeyId") => String.t(),
+      optional("ShadowProductionVariants") => list(production_variant()()),
+      optional("Tags") => list(tag()()),
+      optional("VpcConfig") => vpc_config(),
+      required("EndpointConfigName") => String.t(),
+      required("ProductionVariants") => list(production_variant()())
+    }
   """
-  @spec create_endpoint_config(AWS.Client.t(), create_endpoint_config_input(), Keyword.t()) ::
+
+  @spec create_endpoint_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_endpoint_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_config_errors()}
-  def create_endpoint_config(%Client{} = client, input, options \\ []) do
+
+  def create_endpoint_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17892,12 +18216,25 @@ defmodule AWS.SageMaker do
   called *trial components*, that produce a machine learning model. In the
   Studio UI, trials are referred to as *run groups* and trial components are
   referred to as *runs*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_experiment_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ExperimentName") => String.t()
+    }
   """
-  @spec create_experiment(AWS.Client.t(), create_experiment_request(), Keyword.t()) ::
+
+  @spec create_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_experiment_errors()}
-  def create_experiment(%Client{} = client, input, options \\ []) do
+
+  def create_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17913,12 +18250,31 @@ defmodule AWS.SageMaker do
   for its `OnlineStore` and `OfflineStore`. Check [Amazon Web Services service
   quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
   to see the `FeatureGroup`s quota for your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateFeatureGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_feature_group_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("OfflineStoreConfig") => offline_store_config(),
+      optional("OnlineStoreConfig") => online_store_config(),
+      optional("RoleArn") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("ThroughputConfig") => throughput_config(),
+      required("EventTimeFeatureName") => String.t(),
+      required("FeatureDefinitions") => list(feature_definition()()),
+      required("FeatureGroupName") => String.t(),
+      required("RecordIdentifierFeatureName") => String.t()
+    }
   """
-  @spec create_feature_group(AWS.Client.t(), create_feature_group_request(), Keyword.t()) ::
+
+  @spec create_feature_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_feature_group_errors()}
-  def create_feature_group(%Client{} = client, input, options \\ []) do
+
+  def create_feature_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17927,12 +18283,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a flow definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateFlowDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_flow_definition_request`)
+    %{
+      optional("HumanLoopActivationConfig") => human_loop_activation_config(),
+      optional("HumanLoopConfig") => human_loop_config(),
+      optional("HumanLoopRequestSource") => human_loop_request_source(),
+      optional("Tags") => list(tag()()),
+      required("FlowDefinitionName") => String.t(),
+      required("OutputConfig") => flow_definition_output_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_flow_definition(AWS.Client.t(), create_flow_definition_request(), Keyword.t()) ::
+
+  @spec create_flow_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_flow_definition_errors()}
-  def create_flow_definition(%Client{} = client, input, options \\ []) do
+
+  def create_flow_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17941,12 +18313,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Create a hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateHub&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hub_request`)
+    %{
+      optional("HubDisplayName") => String.t(),
+      optional("HubSearchKeywords") => list(String.t()()),
+      optional("S3StorageConfig") => hub_s3_storage_config(),
+      optional("Tags") => list(tag()()),
+      required("HubDescription") => String.t(),
+      required("HubName") => String.t()
+    }
   """
-  @spec create_hub(AWS.Client.t(), create_hub_request(), Keyword.t()) ::
+
+  @spec create_hub(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hub_errors()}
-  def create_hub(%Client{} = client, input, options \\ []) do
+
+  def create_hub(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17956,16 +18343,26 @@ defmodule AWS.SageMaker do
   @doc """
   Create a hub content reference in order to add a model in the JumpStart public
   hub to a private hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateHubContentReference&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hub_content_reference_request`)
+    %{
+      optional("HubContentName") => String.t(),
+      optional("MinVersion") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("HubName") => String.t(),
+      required("SageMakerPublicHubContentArn") => String.t()
+    }
   """
-  @spec create_hub_content_reference(
-          AWS.Client.t(),
-          create_hub_content_reference_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_hub_content_reference(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hub_content_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hub_content_reference_errors()}
-  def create_hub_content_reference(%Client{} = client, input, options \\ []) do
+
+  def create_hub_content_reference(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17976,12 +18373,24 @@ defmodule AWS.SageMaker do
   Defines the settings you will use for the human review workflow user interface.
   Reviewers will see a three-panel interface with an instruction area, the item
   to review, and an input area.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateHumanTaskUi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_human_task_ui_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("HumanTaskUiName") => String.t(),
+      required("UiTemplate") => ui_template()
+    }
   """
-  @spec create_human_task_ui(AWS.Client.t(), create_human_task_ui_request(), Keyword.t()) ::
+
+  @spec create_human_task_ui(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_human_task_ui_errors()}
-  def create_human_task_ui(%Client{} = client, input, options \\ []) do
+
+  def create_human_task_ui(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -17999,16 +18408,29 @@ defmodule AWS.SageMaker do
   these entities in Amazon SageMaker Studio. For more information, see [View
   Experiments, Trials, and Trial
   Components](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateHyperParameterTuningJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hyper_parameter_tuning_job_request`)
+    %{
+      optional("Autotune") => autotune(),
+      optional("Tags") => list(tag()()),
+      optional("TrainingJobDefinition") => hyper_parameter_training_job_definition(),
+      optional("TrainingJobDefinitions") => list(hyper_parameter_training_job_definition()()),
+      optional("WarmStartConfig") => hyper_parameter_tuning_job_warm_start_config(),
+      required("HyperParameterTuningJobConfig") => hyper_parameter_tuning_job_config(),
+      required("HyperParameterTuningJobName") => String.t()
+    }
   """
-  @spec create_hyper_parameter_tuning_job(
-          AWS.Client.t(),
-          create_hyper_parameter_tuning_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_hyper_parameter_tuning_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hyper_parameter_tuning_job_errors()}
-  def create_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
+
+  def create_hyper_parameter_tuning_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18020,12 +18442,26 @@ defmodule AWS.SageMaker do
   Each image version represents a container image stored in Amazon ECR. For more
   information, see [Bring your own SageMaker
   image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_image_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ImageName") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_image(AWS.Client.t(), create_image_request(), Keyword.t()) ::
+
+  @spec create_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_errors()}
-  def create_image(%Client{} = client, input, options \\ []) do
+
+  def create_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18035,12 +18471,32 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a version of the SageMaker image specified by `ImageName`. The version
   represents the Amazon ECR container image specified by `BaseImage`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateImageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_image_version_request`)
+    %{
+      optional("Aliases") => list(String.t()()),
+      optional("Horovod") => boolean(),
+      optional("JobType") => list(any()),
+      optional("MLFramework") => String.t(),
+      optional("Processor") => list(any()),
+      optional("ProgrammingLang") => String.t(),
+      optional("ReleaseNotes") => String.t(),
+      optional("VendorGuidance") => list(any()),
+      required("BaseImage") => String.t(),
+      required("ClientToken") => String.t(),
+      required("ImageName") => String.t()
+    }
   """
-  @spec create_image_version(AWS.Client.t(), create_image_version_request(), Keyword.t()) ::
+
+  @spec create_image_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_image_version_errors()}
-  def create_image_version(%Client{} = client, input, options \\ []) do
+
+  def create_image_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18057,16 +18513,27 @@ defmodule AWS.SageMaker do
   contains one model and the resource utilization needs for that individual
   model. After you deploy an inference component, you can directly invoke the
   associated model when you use the InvokeEndpoint API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateInferenceComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_inference_component_input`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("EndpointName") => String.t(),
+      required("InferenceComponentName") => String.t(),
+      required("RuntimeConfig") => inference_component_runtime_config(),
+      required("Specification") => inference_component_specification(),
+      required("VariantName") => String.t()
+    }
   """
-  @spec create_inference_component(
-          AWS.Client.t(),
-          create_inference_component_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_inference_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_component_errors()}
-  def create_inference_component(%Client{} = client, input, options \\ []) do
+
+  def create_inference_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18082,16 +18549,32 @@ defmodule AWS.SageMaker do
   Amazon SageMaker begins your experiment at the scheduled time and routes
   traffic to your endpoint's model variants based on your specified
   configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateInferenceExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_inference_experiment_request`)
+    %{
+      optional("DataStorageConfig") => inference_experiment_data_storage_config(),
+      optional("Description") => String.t(),
+      optional("KmsKey") => String.t(),
+      optional("Schedule") => inference_experiment_schedule(),
+      optional("Tags") => list(tag()()),
+      required("EndpointName") => String.t(),
+      required("ModelVariants") => list(model_variant_config()()),
+      required("Name") => String.t(),
+      required("RoleArn") => String.t(),
+      required("ShadowModeConfig") => shadow_mode_config(),
+      required("Type") => list(any())
+    }
   """
-  @spec create_inference_experiment(
-          AWS.Client.t(),
-          create_inference_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_inference_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_experiment_errors()}
-  def create_inference_experiment(%Client{} = client, input, options \\ []) do
+
+  def create_inference_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18101,16 +18584,30 @@ defmodule AWS.SageMaker do
   @doc """
   Starts a recommendation job. You can create either an instance recommendation or
   load test job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateInferenceRecommendationsJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_inference_recommendations_job_request`)
+    %{
+      optional("JobDescription") => String.t(),
+      optional("OutputConfig") => recommendation_job_output_config(),
+      optional("StoppingConditions") => recommendation_job_stopping_conditions(),
+      optional("Tags") => list(tag()()),
+      required("InputConfig") => recommendation_job_input_config(),
+      required("JobName") => String.t(),
+      required("JobType") => list(any()),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_inference_recommendations_job(
-          AWS.Client.t(),
-          create_inference_recommendations_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_inference_recommendations_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_inference_recommendations_job_errors()}
-  def create_inference_recommendations_job(%Client{} = client, input, options \\ []) do
+
+  def create_inference_recommendations_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18121,12 +18618,31 @@ defmodule AWS.SageMaker do
   Creates a job that uses workers to label the data objects in your input dataset.
   You can use the labeled data to train machine learning models. You can select
   your workforce from one of three providers:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateLabelingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_labeling_job_request`)
+    %{
+      optional("LabelCategoryConfigS3Uri") => String.t(),
+      optional("LabelingJobAlgorithmsConfig") => labeling_job_algorithms_config(),
+      optional("StoppingConditions") => labeling_job_stopping_conditions(),
+      optional("Tags") => list(tag()()),
+      required("HumanTaskConfig") => human_task_config(),
+      required("InputConfig") => labeling_job_input_config(),
+      required("LabelAttributeName") => String.t(),
+      required("LabelingJobName") => String.t(),
+      required("OutputConfig") => labeling_job_output_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_labeling_job(AWS.Client.t(), create_labeling_job_request(), Keyword.t()) ::
+
+  @spec create_labeling_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_labeling_job_errors()}
-  def create_labeling_job(%Client{} = client, input, options \\ []) do
+
+  def create_labeling_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18137,16 +18653,30 @@ defmodule AWS.SageMaker do
   Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as
   the artifact store. For more information, see [Create an MLflow Tracking
   Server](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateMlflowTrackingServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_mlflow_tracking_server_request`)
+    %{
+      optional("AutomaticModelRegistration") => boolean(),
+      optional("MlflowVersion") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TrackingServerSize") => list(any()),
+      optional("WeeklyMaintenanceWindowStart") => String.t(),
+      required("ArtifactStoreUri") => String.t(),
+      required("RoleArn") => String.t(),
+      required("TrackingServerName") => String.t()
+    }
   """
-  @spec create_mlflow_tracking_server(
-          AWS.Client.t(),
-          create_mlflow_tracking_server_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_mlflow_tracking_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mlflow_tracking_server_errors()}
-  def create_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+
+  def create_mlflow_tracking_server(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18160,12 +18690,29 @@ defmodule AWS.SageMaker do
   environment map that the inference code uses when you deploy the model for
   predictions. Use this API to create a model if you want to use SageMaker
   hosting services or run a batch transform job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_input`)
+    %{
+      optional("Containers") => list(container_definition()()),
+      optional("EnableNetworkIsolation") => boolean(),
+      optional("ExecutionRoleArn") => String.t(),
+      optional("InferenceExecutionConfig") => inference_execution_config(),
+      optional("PrimaryContainer") => container_definition(),
+      optional("Tags") => list(tag()()),
+      optional("VpcConfig") => vpc_config(),
+      required("ModelName") => String.t()
+    }
   """
-  @spec create_model(AWS.Client.t(), create_model_input(), Keyword.t()) ::
+
+  @spec create_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_errors()}
-  def create_model(%Client{} = client, input, options \\ []) do
+
+  def create_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18174,16 +18721,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates the definition for a model bias job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModelBiasJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_bias_job_definition_request`)
+    %{
+      optional("ModelBiasBaselineConfig") => model_bias_baseline_config(),
+      optional("NetworkConfig") => monitoring_network_config(),
+      optional("StoppingCondition") => monitoring_stopping_condition(),
+      optional("Tags") => list(tag()()),
+      required("JobDefinitionName") => String.t(),
+      required("JobResources") => monitoring_resources(),
+      required("ModelBiasAppSpecification") => model_bias_app_specification(),
+      required("ModelBiasJobInput") => model_bias_job_input(),
+      required("ModelBiasJobOutputConfig") => monitoring_output_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_model_bias_job_definition(
-          AWS.Client.t(),
-          create_model_bias_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_model_bias_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_bias_job_definition_errors()}
-  def create_model_bias_job_definition(%Client{} = client, input, options \\ []) do
+
+  def create_model_bias_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18192,12 +18755,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates an Amazon SageMaker Model Card.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModelCard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_card_request`)
+    %{
+      optional("SecurityConfig") => model_card_security_config(),
+      optional("Tags") => list(tag()()),
+      required("Content") => String.t(),
+      required("ModelCardName") => String.t(),
+      required("ModelCardStatus") => list(any())
+    }
   """
-  @spec create_model_card(AWS.Client.t(), create_model_card_request(), Keyword.t()) ::
+
+  @spec create_model_card(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_card_errors()}
-  def create_model_card(%Client{} = client, input, options \\ []) do
+
+  def create_model_card(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18206,16 +18783,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates an Amazon SageMaker Model Card export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModelCardExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_card_export_job_request`)
+    %{
+      optional("ModelCardVersion") => integer(),
+      required("ModelCardExportJobName") => String.t(),
+      required("ModelCardName") => String.t(),
+      required("OutputConfig") => model_card_export_output_config()
+    }
   """
-  @spec create_model_card_export_job(
-          AWS.Client.t(),
-          create_model_card_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_model_card_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_card_export_job_errors()}
-  def create_model_card_export_job(%Client{} = client, input, options \\ []) do
+
+  def create_model_card_export_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18224,16 +18810,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates the definition for a model explainability job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModelExplainabilityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_explainability_job_definition_request`)
+    %{
+      optional("ModelExplainabilityBaselineConfig") => model_explainability_baseline_config(),
+      optional("NetworkConfig") => monitoring_network_config(),
+      optional("StoppingCondition") => monitoring_stopping_condition(),
+      optional("Tags") => list(tag()()),
+      required("JobDefinitionName") => String.t(),
+      required("JobResources") => monitoring_resources(),
+      required("ModelExplainabilityAppSpecification") => model_explainability_app_specification(),
+      required("ModelExplainabilityJobInput") => model_explainability_job_input(),
+      required("ModelExplainabilityJobOutputConfig") => monitoring_output_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_model_explainability_job_definition(
-          AWS.Client.t(),
-          create_model_explainability_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_model_explainability_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_explainability_job_definition_errors()}
-  def create_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
+
+  def create_model_explainability_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18250,12 +18852,43 @@ defmodule AWS.SageMaker do
   `InferenceSpecification`. To create a model from an algorithm resource that
   you created or subscribed to in Amazon Web Services Marketplace, provide a
   value for `SourceAlgorithmSpecification`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModelPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_package_input`)
+    %{
+      optional("AdditionalInferenceSpecifications") => list(additional_inference_specification_definition()()),
+      optional("CertifyForMarketplace") => boolean(),
+      optional("ClientToken") => String.t(),
+      optional("CustomerMetadataProperties") => map(),
+      optional("Domain") => String.t(),
+      optional("DriftCheckBaselines") => drift_check_baselines(),
+      optional("InferenceSpecification") => inference_specification(),
+      optional("MetadataProperties") => metadata_properties(),
+      optional("ModelApprovalStatus") => list(any()),
+      optional("ModelCard") => model_package_model_card(),
+      optional("ModelMetrics") => model_metrics(),
+      optional("ModelPackageDescription") => String.t(),
+      optional("ModelPackageGroupName") => String.t(),
+      optional("ModelPackageName") => String.t(),
+      optional("SamplePayloadUrl") => String.t(),
+      optional("SecurityConfig") => model_package_security_config(),
+      optional("SkipModelValidation") => list(any()),
+      optional("SourceAlgorithmSpecification") => source_algorithm_specification(),
+      optional("SourceUri") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("Task") => String.t(),
+      optional("ValidationSpecification") => model_package_validation_specification()
+    }
   """
-  @spec create_model_package(AWS.Client.t(), create_model_package_input(), Keyword.t()) ::
+
+  @spec create_model_package(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_package_errors()}
-  def create_model_package(%Client{} = client, input, options \\ []) do
+
+  def create_model_package(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18264,16 +18897,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a model group. A model group contains a group of model versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModelPackageGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_package_group_input`)
+    %{
+      optional("ModelPackageGroupDescription") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ModelPackageGroupName") => String.t()
+    }
   """
-  @spec create_model_package_group(
-          AWS.Client.t(),
-          create_model_package_group_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_model_package_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_package_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_package_group_errors()}
-  def create_model_package_group(%Client{} = client, input, options \\ []) do
+
+  def create_model_package_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18284,16 +18925,32 @@ defmodule AWS.SageMaker do
   Creates a definition for a job that monitors model quality and drift. For
   information about model monitor, see [Amazon SageMaker Model
   Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateModelQualityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_quality_job_definition_request`)
+    %{
+      optional("ModelQualityBaselineConfig") => model_quality_baseline_config(),
+      optional("NetworkConfig") => monitoring_network_config(),
+      optional("StoppingCondition") => monitoring_stopping_condition(),
+      optional("Tags") => list(tag()()),
+      required("JobDefinitionName") => String.t(),
+      required("JobResources") => monitoring_resources(),
+      required("ModelQualityAppSpecification") => model_quality_app_specification(),
+      required("ModelQualityJobInput") => model_quality_job_input(),
+      required("ModelQualityJobOutputConfig") => monitoring_output_config(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_model_quality_job_definition(
-          AWS.Client.t(),
-          create_model_quality_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_model_quality_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_quality_job_definition_errors()}
-  def create_model_quality_job_definition(%Client{} = client, input, options \\ []) do
+
+  def create_model_quality_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18303,16 +18960,24 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
   monitor the data captured for an Amazon SageMaker Endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateMonitoringSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_monitoring_schedule_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("MonitoringScheduleConfig") => monitoring_schedule_config(),
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec create_monitoring_schedule(
-          AWS.Client.t(),
-          create_monitoring_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_monitoring_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_monitoring_schedule_errors()}
-  def create_monitoring_schedule(%Client{} = client, input, options \\ []) do
+
+  def create_monitoring_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18326,12 +18991,37 @@ defmodule AWS.SageMaker do
   you want to run. SageMaker launches the instance, installs common libraries
   that you can use to explore datasets for model training, and attaches an ML
   storage volume to the notebook instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateNotebookInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_notebook_instance_input`)
+    %{
+      optional("AcceleratorTypes") => list(list(any())()),
+      optional("AdditionalCodeRepositories") => list(String.t()()),
+      optional("DefaultCodeRepository") => String.t(),
+      optional("DirectInternetAccess") => list(any()),
+      optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
+      optional("KmsKeyId") => String.t(),
+      optional("LifecycleConfigName") => String.t(),
+      optional("PlatformIdentifier") => String.t(),
+      optional("RootAccess") => list(any()),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SubnetId") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VolumeSizeInGB") => integer(),
+      required("InstanceType") => list(any()),
+      required("NotebookInstanceName") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_notebook_instance(AWS.Client.t(), create_notebook_instance_input(), Keyword.t()) ::
+
+  @spec create_notebook_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notebook_instance_errors()}
-  def create_notebook_instance(%Client{} = client, input, options \\ []) do
+
+  def create_notebook_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18343,16 +19033,25 @@ defmodule AWS.SageMaker do
   instance. A *lifecycle configuration* is a collection of shell scripts that
   run when you create or start a notebook instance. Each lifecycle configuration
   script has a limit of 16384 characters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateNotebookInstanceLifecycleConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_notebook_instance_lifecycle_config_input`)
+    %{
+      optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
+      optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
+      required("NotebookInstanceLifecycleConfigName") => String.t()
+    }
   """
-  @spec create_notebook_instance_lifecycle_config(
-          AWS.Client.t(),
-          create_notebook_instance_lifecycle_config_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_notebook_instance_lifecycle_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notebook_instance_lifecycle_config_errors()}
-  def create_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
+
+  def create_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18365,12 +19064,31 @@ defmodule AWS.SageMaker do
   for the optimization techniques that you want the job to apply. When the job
   completes successfully, SageMaker uploads the new optimized model to the
   output destination that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateOptimizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_optimization_job_request`)
+    %{
+      optional("OptimizationEnvironment") => map(),
+      optional("Tags") => list(tag()()),
+      optional("VpcConfig") => optimization_vpc_config(),
+      required("DeploymentInstanceType") => list(any()),
+      required("ModelSource") => optimization_job_model_source(),
+      required("OptimizationConfigs") => list(list()()),
+      required("OptimizationJobName") => String.t(),
+      required("OutputConfig") => optimization_job_output_config(),
+      required("RoleArn") => String.t(),
+      required("StoppingCondition") => stopping_condition()
+    }
   """
-  @spec create_optimization_job(AWS.Client.t(), create_optimization_job_request(), Keyword.t()) ::
+
+  @spec create_optimization_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_optimization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_optimization_job_errors()}
-  def create_optimization_job(%Client{} = client, input, options \\ []) do
+
+  def create_optimization_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18379,12 +19097,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a pipeline using a JSON pipeline definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_pipeline_request`)
+    %{
+      optional("ParallelismConfiguration") => parallelism_configuration(),
+      optional("PipelineDefinition") => String.t(),
+      optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
+      optional("PipelineDescription") => String.t(),
+      optional("PipelineDisplayName") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ClientRequestToken") => String.t(),
+      required("PipelineName") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_pipeline(AWS.Client.t(), create_pipeline_request(), Keyword.t()) ::
+
+  @spec create_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_pipeline_errors()}
-  def create_pipeline(%Client{} = client, input, options \\ []) do
+
+  def create_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18401,16 +19137,27 @@ defmodule AWS.SageMaker do
   no additional permission is required to access this URL. IAM authorization
   policies for this API are also enforced for every HTTP request and WebSocket
   frame that attempts to connect to the app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreatePresignedDomainUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_presigned_domain_url_request`)
+    %{
+      optional("ExpiresInSeconds") => integer(),
+      optional("LandingUri") => String.t(),
+      optional("SessionExpirationDurationInSeconds") => integer(),
+      optional("SpaceName") => String.t(),
+      required("DomainId") => String.t(),
+      required("UserProfileName") => String.t()
+    }
   """
-  @spec create_presigned_domain_url(
-          AWS.Client.t(),
-          create_presigned_domain_url_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_presigned_domain_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_presigned_domain_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_presigned_domain_url_errors()}
-  def create_presigned_domain_url(%Client{} = client, input, options \\ []) do
+
+  def create_presigned_domain_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18422,16 +19169,25 @@ defmodule AWS.SageMaker do
   your tracking server. For more information, see [Launch the MLflow UI using a
   presigned
   URL](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreatePresignedMlflowTrackingServerUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_presigned_mlflow_tracking_server_url_request`)
+    %{
+      optional("ExpiresInSeconds") => integer(),
+      optional("SessionExpirationDurationInSeconds") => integer(),
+      required("TrackingServerName") => String.t()
+    }
   """
-  @spec create_presigned_mlflow_tracking_server_url(
-          AWS.Client.t(),
-          create_presigned_mlflow_tracking_server_url_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_presigned_mlflow_tracking_server_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_presigned_mlflow_tracking_server_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_presigned_mlflow_tracking_server_url_errors()}
-  def create_presigned_mlflow_tracking_server_url(%Client{} = client, input, options \\ []) do
+
+  def create_presigned_mlflow_tracking_server_url(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18448,15 +19204,23 @@ defmodule AWS.SageMaker do
   permission is required to access this URL. IAM authorization policies for this
   API are also enforced for every HTTP request and WebSocket frame that attempts
   to connect to the notebook instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreatePresignedNotebookInstanceUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_presigned_notebook_instance_url_input`)
+    %{
+      optional("SessionExpirationDurationInSeconds") => integer(),
+      required("NotebookInstanceName") => String.t()
+    }
   """
-  @spec create_presigned_notebook_instance_url(
-          AWS.Client.t(),
-          create_presigned_notebook_instance_url_input(),
-          Keyword.t()
-        ) ::
+
+  @spec create_presigned_notebook_instance_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_presigned_notebook_instance_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_presigned_notebook_instance_url(%Client{} = client, input, options \\ []) do
+
+  def create_presigned_notebook_instance_url(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18465,12 +19229,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a processing job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateProcessingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_processing_job_request`)
+    %{
+      optional("Environment") => map(),
+      optional("ExperimentConfig") => experiment_config(),
+      optional("NetworkConfig") => network_config(),
+      optional("ProcessingInputs") => list(processing_input()()),
+      optional("ProcessingOutputConfig") => processing_output_config(),
+      optional("StoppingCondition") => processing_stopping_condition(),
+      optional("Tags") => list(tag()()),
+      required("AppSpecification") => app_specification(),
+      required("ProcessingJobName") => String.t(),
+      required("ProcessingResources") => processing_resources(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_processing_job(AWS.Client.t(), create_processing_job_request(), Keyword.t()) ::
+
+  @spec create_processing_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_processing_job_errors()}
-  def create_processing_job(%Client{} = client, input, options \\ []) do
+
+  def create_processing_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18480,12 +19264,25 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a machine learning (ML) project that can contain one or more templates
   that set up an ML pipeline from training to deploying an approved model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_project_input`)
+    %{
+      optional("ProjectDescription") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ProjectName") => String.t(),
+      required("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details()
+    }
   """
-  @spec create_project(AWS.Client.t(), create_project_input(), Keyword.t()) ::
+
+  @spec create_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-  def create_project(%Client{} = client, input, options \\ []) do
+
+  def create_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18494,12 +19291,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a private space or a space used for real time collaboration in a domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_space_request`)
+    %{
+      optional("OwnershipSettings") => ownership_settings(),
+      optional("SpaceDisplayName") => String.t(),
+      optional("SpaceSettings") => space_settings(),
+      optional("SpaceSharingSettings") => space_sharing_settings(),
+      optional("Tags") => list(tag()()),
+      required("DomainId") => String.t(),
+      required("SpaceName") => String.t()
+    }
   """
-  @spec create_space(AWS.Client.t(), create_space_request(), Keyword.t()) ::
+
+  @spec create_space(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_space_errors()}
-  def create_space(%Client{} = client, input, options \\ []) do
+
+  def create_space(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18508,16 +19321,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a new Amazon SageMaker Studio Lifecycle Configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateStudioLifecycleConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_studio_lifecycle_config_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("StudioLifecycleConfigAppType") => list(any()),
+      required("StudioLifecycleConfigContent") => String.t(),
+      required("StudioLifecycleConfigName") => String.t()
+    }
   """
-  @spec create_studio_lifecycle_config(
-          AWS.Client.t(),
-          create_studio_lifecycle_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_studio_lifecycle_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_lifecycle_config_errors()}
-  def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
+
+  def create_studio_lifecycle_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18531,12 +19354,46 @@ defmodule AWS.SageMaker do
   resulting model artifacts as part of the model. You can also use the artifacts
   in a machine learning service other than SageMaker, provided that you know how
   to use them for inference.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateTrainingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_training_job_request`)
+    %{
+      optional("CheckpointConfig") => checkpoint_config(),
+      optional("DebugHookConfig") => debug_hook_config(),
+      optional("DebugRuleConfigurations") => list(debug_rule_configuration()()),
+      optional("EnableInterContainerTrafficEncryption") => boolean(),
+      optional("EnableManagedSpotTraining") => boolean(),
+      optional("EnableNetworkIsolation") => boolean(),
+      optional("Environment") => map(),
+      optional("ExperimentConfig") => experiment_config(),
+      optional("HyperParameters") => map(),
+      optional("InfraCheckConfig") => infra_check_config(),
+      optional("InputDataConfig") => list(channel()()),
+      optional("ProfilerConfig") => profiler_config(),
+      optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
+      optional("RemoteDebugConfig") => remote_debug_config(),
+      optional("RetryStrategy") => retry_strategy(),
+      optional("SessionChainingConfig") => session_chaining_config(),
+      optional("Tags") => list(tag()()),
+      optional("TensorBoardOutputConfig") => tensor_board_output_config(),
+      optional("VpcConfig") => vpc_config(),
+      required("AlgorithmSpecification") => algorithm_specification(),
+      required("OutputDataConfig") => output_data_config(),
+      required("ResourceConfig") => resource_config(),
+      required("RoleArn") => String.t(),
+      required("StoppingCondition") => stopping_condition(),
+      required("TrainingJobName") => String.t()
+    }
   """
-  @spec create_training_job(AWS.Client.t(), create_training_job_request(), Keyword.t()) ::
+
+  @spec create_training_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_training_job_errors()}
-  def create_training_job(%Client{} = client, input, options \\ []) do
+
+  def create_training_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18548,12 +19405,35 @@ defmodule AWS.SageMaker do
   on a dataset and saves these results to an Amazon S3 location that you
   specify. To perform batch transformations, you create a transform job and use
   the data that you have readily available.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateTransformJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_transform_job_request`)
+    %{
+      optional("BatchStrategy") => list(any()),
+      optional("DataCaptureConfig") => batch_data_capture_config(),
+      optional("DataProcessing") => data_processing(),
+      optional("Environment") => map(),
+      optional("ExperimentConfig") => experiment_config(),
+      optional("MaxConcurrentTransforms") => integer(),
+      optional("MaxPayloadInMB") => integer(),
+      optional("ModelClientConfig") => model_client_config(),
+      optional("Tags") => list(tag()()),
+      required("ModelName") => String.t(),
+      required("TransformInput") => transform_input(),
+      required("TransformJobName") => String.t(),
+      required("TransformOutput") => transform_output(),
+      required("TransformResources") => transform_resources()
+    }
   """
-  @spec create_transform_job(AWS.Client.t(), create_transform_job_request(), Keyword.t()) ::
+
+  @spec create_transform_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_transform_job_errors()}
-  def create_transform_job(%Client{} = client, input, options \\ []) do
+
+  def create_transform_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18567,12 +19447,26 @@ defmodule AWS.SageMaker do
   SDK, all experiments, trials, and trial components are automatically tracked,
   logged, and indexed. When you use the Amazon Web Services SDK for Python
   (Boto), you must use the logging APIs provided by the SDK.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateTrial&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_trial_request`)
+    %{
+      optional("DisplayName") => String.t(),
+      optional("MetadataProperties") => metadata_properties(),
+      optional("Tags") => list(tag()()),
+      required("ExperimentName") => String.t(),
+      required("TrialName") => String.t()
+    }
   """
-  @spec create_trial(AWS.Client.t(), create_trial_request(), Keyword.t()) ::
+
+  @spec create_trial(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trial_errors()}
-  def create_trial(%Client{} = client, input, options \\ []) do
+
+  def create_trial(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18584,12 +19478,31 @@ defmodule AWS.SageMaker do
   trial is composed of one or more trial components. A trial component can be
   used in multiple trials. Trial components include pre-processing jobs,
   training jobs, and batch transform jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateTrialComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_trial_component_request`)
+    %{
+      optional("DisplayName") => String.t(),
+      optional("EndTime") => non_neg_integer(),
+      optional("InputArtifacts") => map(),
+      optional("MetadataProperties") => metadata_properties(),
+      optional("OutputArtifacts") => map(),
+      optional("Parameters") => map(),
+      optional("StartTime") => non_neg_integer(),
+      optional("Status") => trial_component_status(),
+      optional("Tags") => list(tag()()),
+      required("TrialComponentName") => String.t()
+    }
   """
-  @spec create_trial_component(AWS.Client.t(), create_trial_component_request(), Keyword.t()) ::
+
+  @spec create_trial_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trial_component_errors()}
-  def create_trial_component(%Client{} = client, input, options \\ []) do
+
+  def create_trial_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18605,12 +19518,27 @@ defmodule AWS.SageMaker do
   created. A user profile is the primary holder of settings for an individual
   user and has a reference to the user's private Amazon Elastic File System home
   directory.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_profile_request`)
+    %{
+      optional("SingleSignOnUserIdentifier") => String.t(),
+      optional("SingleSignOnUserValue") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("UserSettings") => user_settings(),
+      required("DomainId") => String.t(),
+      required("UserProfileName") => String.t()
+    }
   """
-  @spec create_user_profile(AWS.Client.t(), create_user_profile_request(), Keyword.t()) ::
+
+  @spec create_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_profile_errors()}
-  def create_user_profile(%Client{} = client, input, options \\ []) do
+
+  def create_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18630,11 +19558,26 @@ defmodule AWS.SageMaker do
   an Amazon Cognito workforce using the Amazon SageMaker console. For more
   information, see [ Create a Private Workforce (Amazon
   Cognito)](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateWorkforce&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workforce_request`)
+    %{
+      optional("CognitoConfig") => cognito_config(),
+      optional("OidcConfig") => oidc_config(),
+      optional("SourceIpConfig") => source_ip_config(),
+      optional("Tags") => list(tag()()),
+      optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
+      required("WorkforceName") => String.t()
+    }
   """
-  @spec create_workforce(AWS.Client.t(), create_workforce_request(), Keyword.t()) ::
+
+  @spec create_workforce(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_workforce(%Client{} = client, input, options \\ []) do
+
+  def create_workforce(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18645,12 +19588,28 @@ defmodule AWS.SageMaker do
   Creates a new work team for labeling your data. A work team is defined by one or
   more Amazon Cognito user pools. You must first create the user pools before
   you can create a work team.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20CreateWorkteam&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workteam_request`)
+    %{
+      optional("NotificationConfiguration") => notification_configuration(),
+      optional("Tags") => list(tag()()),
+      optional("WorkerAccessConfiguration") => worker_access_configuration(),
+      optional("WorkforceName") => String.t(),
+      required("Description") => String.t(),
+      required("MemberDefinitions") => list(member_definition()()),
+      required("WorkteamName") => String.t()
+    }
   """
-  @spec create_workteam(AWS.Client.t(), create_workteam_request(), Keyword.t()) ::
+
+  @spec create_workteam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workteam_errors()}
-  def create_workteam(%Client{} = client, input, options \\ []) do
+
+  def create_workteam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18659,12 +19618,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_action_request`)
+    %{
+      required("ActionName") => String.t()
+    }
   """
-  @spec delete_action(AWS.Client.t(), delete_action_request(), Keyword.t()) ::
+
+  @spec delete_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_action_errors()}
-  def delete_action(%Client{} = client, input, options \\ []) do
+
+  def delete_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18673,12 +19642,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Removes the specified algorithm from your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteAlgorithm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_algorithm_input`)
+    %{
+      required("AlgorithmName") => String.t()
+    }
   """
-  @spec delete_algorithm(AWS.Client.t(), delete_algorithm_input(), Keyword.t()) ::
+
+  @spec delete_algorithm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_algorithm_errors()}
-  def delete_algorithm(%Client{} = client, input, options \\ []) do
+
+  def delete_algorithm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18687,12 +19666,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Used to stop and delete an app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_request`)
+    %{
+      optional("SpaceName") => String.t(),
+      optional("UserProfileName") => String.t(),
+      required("AppName") => String.t(),
+      required("AppType") => list(any()),
+      required("DomainId") => String.t()
+    }
   """
-  @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
+
+  @spec delete_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-  def delete_app(%Client{} = client, input, options \\ []) do
+
+  def delete_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18701,12 +19694,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an AppImageConfig.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteAppImageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_image_config_request`)
+    %{
+      required("AppImageConfigName") => String.t()
+    }
   """
-  @spec delete_app_image_config(AWS.Client.t(), delete_app_image_config_request(), Keyword.t()) ::
+
+  @spec delete_app_image_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_image_config_errors()}
-  def delete_app_image_config(%Client{} = client, input, options \\ []) do
+
+  def delete_app_image_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18715,12 +19718,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an artifact. Either `ArtifactArn` or `Source` must be specified.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteArtifact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_artifact_request`)
+    %{
+      optional("ArtifactArn") => String.t(),
+      optional("Source") => artifact_source()
+    }
   """
-  @spec delete_artifact(AWS.Client.t(), delete_artifact_request(), Keyword.t()) ::
+
+  @spec delete_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_artifact_errors()}
-  def delete_artifact(%Client{} = client, input, options \\ []) do
+
+  def delete_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18729,12 +19743,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an association.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_association_request`)
+    %{
+      required("DestinationArn") => String.t(),
+      required("SourceArn") => String.t()
+    }
   """
-  @spec delete_association(AWS.Client.t(), delete_association_request(), Keyword.t()) ::
+
+  @spec delete_association(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_association_errors()}
-  def delete_association(%Client{} = client, input, options \\ []) do
+
+  def delete_association(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18743,12 +19768,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete a SageMaker HyperPod cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cluster_request`)
+    %{
+      required("ClusterName") => String.t()
+    }
   """
-  @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
+
+  @spec delete_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cluster_errors()}
-  def delete_cluster(%Client{} = client, input, options \\ []) do
+
+  def delete_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18757,11 +19792,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes the specified Git repository from your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteCodeRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_code_repository_input`)
+    %{
+      required("CodeRepositoryName") => String.t()
+    }
   """
-  @spec delete_code_repository(AWS.Client.t(), delete_code_repository_input(), Keyword.t()) ::
+
+  @spec delete_code_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_code_repository(%Client{} = client, input, options \\ []) do
+
+  def delete_code_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18773,12 +19818,22 @@ defmodule AWS.SageMaker do
   job resource in Amazon SageMaker. It doesn't delete other resources that are
   related to that job, such as the model artifacts that the job creates, the
   compilation logs in CloudWatch, the compiled model, or the IAM role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteCompilationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_compilation_job_request`)
+    %{
+      required("CompilationJobName") => String.t()
+    }
   """
-  @spec delete_compilation_job(AWS.Client.t(), delete_compilation_job_request(), Keyword.t()) ::
+
+  @spec delete_compilation_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_compilation_job_errors()}
-  def delete_compilation_job(%Client{} = client, input, options \\ []) do
+
+  def delete_compilation_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18787,12 +19842,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an context.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteContext&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_context_request`)
+    %{
+      required("ContextName") => String.t()
+    }
   """
-  @spec delete_context(AWS.Client.t(), delete_context_request(), Keyword.t()) ::
+
+  @spec delete_context(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_context_errors()}
-  def delete_context(%Client{} = client, input, options \\ []) do
+
+  def delete_context(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18801,16 +19866,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes a data quality monitoring job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteDataQualityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_data_quality_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec delete_data_quality_job_definition(
-          AWS.Client.t(),
-          delete_data_quality_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_data_quality_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_quality_job_definition_errors()}
-  def delete_data_quality_job_definition(%Client{} = client, input, options \\ []) do
+
+  def delete_data_quality_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -18819,12 +19891,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteDeviceFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_device_fleet_request`)
+    %{
+      required("DeviceFleetName") => String.t()
+    }
   """
-  @spec delete_device_fleet(AWS.Client.t(), delete_device_fleet_request(), Keyword.t()) ::
+
+  @spec delete_device_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_device_fleet_errors()}
-  def delete_device_fleet(%Client{} = client, input, options \\ []) do
+
+  def delete_device_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18836,12 +19918,23 @@ defmodule AWS.SageMaker do
   your domain to onboard again using IAM Identity Center. Use with caution. All
   of the members of the domain will lose access to their EFS volume, including
   data, notebooks, and other artifacts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_domain_request`)
+    %{
+      optional("RetentionPolicy") => retention_policy(),
+      required("DomainId") => String.t()
+    }
   """
-  @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
+
+  @spec delete_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-  def delete_domain(%Client{} = client, input, options \\ []) do
+
+  def delete_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18851,16 +19944,22 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an edge deployment plan if (and only if) all the stages in the plan are
   inactive or there are no stages in the plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteEdgeDeploymentPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_edge_deployment_plan_request`)
+    %{
+      required("EdgeDeploymentPlanName") => String.t()
+    }
   """
-  @spec delete_edge_deployment_plan(
-          AWS.Client.t(),
-          delete_edge_deployment_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_edge_deployment_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_edge_deployment_plan_errors()}
-  def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) do
+
+  def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18870,16 +19969,23 @@ defmodule AWS.SageMaker do
   @doc """
   Delete a stage in an edge deployment plan if (and only if) the stage is
   inactive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteEdgeDeploymentStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_edge_deployment_stage_request`)
+    %{
+      required("EdgeDeploymentPlanName") => String.t(),
+      required("StageName") => String.t()
+    }
   """
-  @spec delete_edge_deployment_stage(
-          AWS.Client.t(),
-          delete_edge_deployment_stage_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_edge_deployment_stage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_edge_deployment_stage_errors()}
-  def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+
+  def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18889,11 +19995,21 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an endpoint. SageMaker frees up all of the resources that were deployed
   when the endpoint was created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_endpoint_input`)
+    %{
+      required("EndpointName") => String.t()
+    }
   """
-  @spec delete_endpoint(AWS.Client.t(), delete_endpoint_input(), Keyword.t()) ::
+
+  @spec delete_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_endpoint(%Client{} = client, input, options \\ []) do
+
+  def delete_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18904,11 +20020,21 @@ defmodule AWS.SageMaker do
   Deletes an endpoint configuration. The `DeleteEndpointConfig` API deletes only
   the specified configuration. It does not delete endpoints created using the
   configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteEndpointConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_endpoint_config_input`)
+    %{
+      required("EndpointConfigName") => String.t()
+    }
   """
-  @spec delete_endpoint_config(AWS.Client.t(), delete_endpoint_config_input(), Keyword.t()) ::
+
+  @spec delete_endpoint_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_endpoint_config(%Client{} = client, input, options \\ []) do
+
+  def delete_endpoint_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18920,12 +20046,22 @@ defmodule AWS.SageMaker do
   be deleted first. Use the
   [ListTrials](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html)
   API to get a list of the trials associated with the experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_experiment_request`)
+    %{
+      required("ExperimentName") => String.t()
+    }
   """
-  @spec delete_experiment(AWS.Client.t(), delete_experiment_request(), Keyword.t()) ::
+
+  @spec delete_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_experiment_errors()}
-  def delete_experiment(%Client{} = client, input, options \\ []) do
+
+  def delete_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18938,12 +20074,22 @@ defmodule AWS.SageMaker do
   after `DeleteFeatureGroup` is called. Data written into the `OfflineStore`
   will not be deleted. The Amazon Web Services Glue database and tables that are
   automatically created for your `OfflineStore` are not deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteFeatureGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_feature_group_request`)
+    %{
+      required("FeatureGroupName") => String.t()
+    }
   """
-  @spec delete_feature_group(AWS.Client.t(), delete_feature_group_request(), Keyword.t()) ::
+
+  @spec delete_feature_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_feature_group_errors()}
-  def delete_feature_group(%Client{} = client, input, options \\ []) do
+
+  def delete_feature_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18952,12 +20098,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes the specified flow definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteFlowDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_flow_definition_request`)
+    %{
+      required("FlowDefinitionName") => String.t()
+    }
   """
-  @spec delete_flow_definition(AWS.Client.t(), delete_flow_definition_request(), Keyword.t()) ::
+
+  @spec delete_flow_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_flow_definition_errors()}
-  def delete_flow_definition(%Client{} = client, input, options \\ []) do
+
+  def delete_flow_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18966,12 +20122,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete a hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteHub&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hub_request`)
+    %{
+      required("HubName") => String.t()
+    }
   """
-  @spec delete_hub(AWS.Client.t(), delete_hub_request(), Keyword.t()) ::
+
+  @spec delete_hub(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hub_errors()}
-  def delete_hub(%Client{} = client, input, options \\ []) do
+
+  def delete_hub(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18980,12 +20146,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete the contents of a hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteHubContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hub_content_request`)
+    %{
+      required("HubContentName") => String.t(),
+      required("HubContentType") => list(any()),
+      required("HubContentVersion") => String.t(),
+      required("HubName") => String.t()
+    }
   """
-  @spec delete_hub_content(AWS.Client.t(), delete_hub_content_request(), Keyword.t()) ::
+
+  @spec delete_hub_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hub_content_errors()}
-  def delete_hub_content(%Client{} = client, input, options \\ []) do
+
+  def delete_hub_content(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -18994,16 +20173,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete a hub content reference in order to remove a model from a private hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteHubContentReference&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hub_content_reference_request`)
+    %{
+      required("HubContentName") => String.t(),
+      required("HubContentType") => list(any()),
+      required("HubName") => String.t()
+    }
   """
-  @spec delete_hub_content_reference(
-          AWS.Client.t(),
-          delete_hub_content_reference_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_hub_content_reference(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hub_content_reference_errors()}
-  def delete_hub_content_reference(%Client{} = client, input, options \\ []) do
+
+  def delete_hub_content_reference(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19012,12 +20199,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Use this operation to delete a human task user interface (worker task template).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteHumanTaskUi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_human_task_ui_request`)
+    %{
+      required("HumanTaskUiName") => String.t()
+    }
   """
-  @spec delete_human_task_ui(AWS.Client.t(), delete_human_task_ui_request(), Keyword.t()) ::
+
+  @spec delete_human_task_ui(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_human_task_ui_errors()}
-  def delete_human_task_ui(%Client{} = client, input, options \\ []) do
+
+  def delete_human_task_ui(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19029,15 +20226,22 @@ defmodule AWS.SageMaker do
   deletes only the tuning job entry that was created in SageMaker when you
   called the `CreateHyperParameterTuningJob` API. It does not delete training
   jobs, artifacts, or the IAM role that you specified when creating the model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteHyperParameterTuningJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hyper_parameter_tuning_job_request`)
+    %{
+      required("HyperParameterTuningJobName") => String.t()
+    }
   """
-  @spec delete_hyper_parameter_tuning_job(
-          AWS.Client.t(),
-          delete_hyper_parameter_tuning_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_hyper_parameter_tuning_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
+
+  def delete_hyper_parameter_tuning_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19047,12 +20251,22 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes a SageMaker image and all versions of the image. The container images
   aren't deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_image_request`)
+    %{
+      required("ImageName") => String.t()
+    }
   """
-  @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
+
+  @spec delete_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_errors()}
-  def delete_image(%Client{} = client, input, options \\ []) do
+
+  def delete_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19062,12 +20276,24 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes a version of a SageMaker image. The container image the version
   represents isn't deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteImageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_image_version_request`)
+    %{
+      optional("Alias") => String.t(),
+      optional("Version") => integer(),
+      required("ImageName") => String.t()
+    }
   """
-  @spec delete_image_version(AWS.Client.t(), delete_image_version_request(), Keyword.t()) ::
+
+  @spec delete_image_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_image_version_errors()}
-  def delete_image_version(%Client{} = client, input, options \\ []) do
+
+  def delete_image_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19076,15 +20302,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an inference component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteInferenceComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_inference_component_input`)
+    %{
+      required("InferenceComponentName") => String.t()
+    }
   """
-  @spec delete_inference_component(
-          AWS.Client.t(),
-          delete_inference_component_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_inference_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_inference_component(%Client{} = client, input, options \\ []) do
+
+  def delete_inference_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19093,16 +20325,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an inference experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteInferenceExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_inference_experiment_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_inference_experiment(
-          AWS.Client.t(),
-          delete_inference_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_inference_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_inference_experiment_errors()}
-  def delete_inference_experiment(%Client{} = client, input, options \\ []) do
+
+  def delete_inference_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19112,16 +20350,23 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an MLflow Tracking Server. For more information, see [Clean up MLflow
   resources](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-cleanup.html.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteMlflowTrackingServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_mlflow_tracking_server_request`)
+    %{
+      required("TrackingServerName") => String.t()
+    }
   """
-  @spec delete_mlflow_tracking_server(
-          AWS.Client.t(),
-          delete_mlflow_tracking_server_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_mlflow_tracking_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mlflow_tracking_server_errors()}
-  def delete_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+
+  def delete_mlflow_tracking_server(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19133,11 +20378,21 @@ defmodule AWS.SageMaker do
   created in SageMaker when you called the `CreateModel` API. It does not delete
   model artifacts, inference code, or the IAM role that you specified when
   creating the model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_input`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec delete_model(AWS.Client.t(), delete_model_input(), Keyword.t()) ::
+
+  @spec delete_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_model(%Client{} = client, input, options \\ []) do
+
+  def delete_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19146,16 +20401,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an Amazon SageMaker model bias job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModelBiasJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_bias_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec delete_model_bias_job_definition(
-          AWS.Client.t(),
-          delete_model_bias_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_model_bias_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_bias_job_definition_errors()}
-  def delete_model_bias_job_definition(%Client{} = client, input, options \\ []) do
+
+  def delete_model_bias_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19164,12 +20426,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an Amazon SageMaker Model Card.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModelCard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_card_request`)
+    %{
+      required("ModelCardName") => String.t()
+    }
   """
-  @spec delete_model_card(AWS.Client.t(), delete_model_card_request(), Keyword.t()) ::
+
+  @spec delete_model_card(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_card_errors()}
-  def delete_model_card(%Client{} = client, input, options \\ []) do
+
+  def delete_model_card(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19178,16 +20450,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an Amazon SageMaker model explainability job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModelExplainabilityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_explainability_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec delete_model_explainability_job_definition(
-          AWS.Client.t(),
-          delete_model_explainability_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_model_explainability_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_explainability_job_definition_errors()}
-  def delete_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
+
+  def delete_model_explainability_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19196,12 +20475,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes a model package.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModelPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_package_input`)
+    %{
+      required("ModelPackageName") => String.t()
+    }
   """
-  @spec delete_model_package(AWS.Client.t(), delete_model_package_input(), Keyword.t()) ::
+
+  @spec delete_model_package(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_package_errors()}
-  def delete_model_package(%Client{} = client, input, options \\ []) do
+
+  def delete_model_package(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19210,16 +20499,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes the specified model group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModelPackageGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_package_group_input`)
+    %{
+      required("ModelPackageGroupName") => String.t()
+    }
   """
-  @spec delete_model_package_group(
-          AWS.Client.t(),
-          delete_model_package_group_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_model_package_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_package_group_errors()}
-  def delete_model_package_group(%Client{} = client, input, options \\ []) do
+
+  def delete_model_package_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19228,15 +20523,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes a model group resource policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModelPackageGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_package_group_policy_input`)
+    %{
+      required("ModelPackageGroupName") => String.t()
+    }
   """
-  @spec delete_model_package_group_policy(
-          AWS.Client.t(),
-          delete_model_package_group_policy_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_model_package_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_model_package_group_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_model_package_group_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19245,16 +20547,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes the secified model quality monitoring job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteModelQualityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_quality_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec delete_model_quality_job_definition(
-          AWS.Client.t(),
-          delete_model_quality_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_model_quality_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_quality_job_definition_errors()}
-  def delete_model_quality_job_definition(%Client{} = client, input, options \\ []) do
+
+  def delete_model_quality_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19265,16 +20574,22 @@ defmodule AWS.SageMaker do
   Deletes a monitoring schedule. Also stops the schedule had not already been
   stopped. This does not delete the job execution history of the monitoring
   schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteMonitoringSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_monitoring_schedule_request`)
+    %{
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec delete_monitoring_schedule(
-          AWS.Client.t(),
-          delete_monitoring_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_monitoring_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_monitoring_schedule_errors()}
-  def delete_monitoring_schedule(%Client{} = client, input, options \\ []) do
+
+  def delete_monitoring_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19284,11 +20599,21 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an SageMaker notebook instance. Before you can delete a notebook
   instance, you must call the `StopNotebookInstance` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteNotebookInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_notebook_instance_input`)
+    %{
+      required("NotebookInstanceName") => String.t()
+    }
   """
-  @spec delete_notebook_instance(AWS.Client.t(), delete_notebook_instance_input(), Keyword.t()) ::
+
+  @spec delete_notebook_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_notebook_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_notebook_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19297,15 +20622,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes a notebook instance lifecycle configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteNotebookInstanceLifecycleConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_notebook_instance_lifecycle_config_input`)
+    %{
+      required("NotebookInstanceLifecycleConfigName") => String.t()
+    }
   """
-  @spec delete_notebook_instance_lifecycle_config(
-          AWS.Client.t(),
-          delete_notebook_instance_lifecycle_config_input(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_notebook_instance_lifecycle_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
+
+  def delete_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19314,12 +20646,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an optimization job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteOptimizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_optimization_job_request`)
+    %{
+      required("OptimizationJobName") => String.t()
+    }
   """
-  @spec delete_optimization_job(AWS.Client.t(), delete_optimization_job_request(), Keyword.t()) ::
+
+  @spec delete_optimization_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_optimization_job_errors()}
-  def delete_optimization_job(%Client{} = client, input, options \\ []) do
+
+  def delete_optimization_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19331,12 +20673,23 @@ defmodule AWS.SageMaker do
   a pipeline, you must stop all running instances of the pipeline using the
   `StopPipelineExecution` API. When you delete a pipeline, all instances of the
   pipeline are deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeletePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_pipeline_request`)
+    %{
+      required("ClientRequestToken") => String.t(),
+      required("PipelineName") => String.t()
+    }
   """
-  @spec delete_pipeline(AWS.Client.t(), delete_pipeline_request(), Keyword.t()) ::
+
+  @spec delete_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_pipeline_errors()}
-  def delete_pipeline(%Client{} = client, input, options \\ []) do
+
+  def delete_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19345,12 +20698,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete the specified project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_project_input`)
+    %{
+      required("ProjectName") => String.t()
+    }
   """
-  @spec delete_project(AWS.Client.t(), delete_project_input(), Keyword.t()) ::
+
+  @spec delete_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-  def delete_project(%Client{} = client, input, options \\ []) do
+
+  def delete_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19359,12 +20722,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Used to delete a space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_space_request`)
+    %{
+      required("DomainId") => String.t(),
+      required("SpaceName") => String.t()
+    }
   """
-  @spec delete_space(AWS.Client.t(), delete_space_request(), Keyword.t()) ::
+
+  @spec delete_space(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_space_errors()}
-  def delete_space(%Client{} = client, input, options \\ []) do
+
+  def delete_space(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19376,16 +20750,23 @@ defmodule AWS.SageMaker do
   the Lifecycle Configuration, there must be no running apps using the Lifecycle
   Configuration. You must also remove the Lifecycle Configuration from
   UserSettings in all Domains and UserProfiles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteStudioLifecycleConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_studio_lifecycle_config_request`)
+    %{
+      required("StudioLifecycleConfigName") => String.t()
+    }
   """
-  @spec delete_studio_lifecycle_config(
-          AWS.Client.t(),
-          delete_studio_lifecycle_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_studio_lifecycle_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_lifecycle_config_errors()}
-  def delete_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
+
+  def delete_studio_lifecycle_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19395,11 +20776,22 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes the specified tags from an SageMaker resource. To list a resource's
   tags, use the `ListTags` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_tags_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec delete_tags(AWS.Client.t(), delete_tags_input(), Keyword.t()) ::
+
+  @spec delete_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_tags(%Client{} = client, input, options \\ []) do
+
+  def delete_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19411,12 +20803,22 @@ defmodule AWS.SageMaker do
   deleted first. Use the
   [DescribeTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html)
   API to get the list of trial components.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteTrial&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_trial_request`)
+    %{
+      required("TrialName") => String.t()
+    }
   """
-  @spec delete_trial(AWS.Client.t(), delete_trial_request(), Keyword.t()) ::
+
+  @spec delete_trial(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trial_errors()}
-  def delete_trial(%Client{} = client, input, options \\ []) do
+
+  def delete_trial(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19429,12 +20831,22 @@ defmodule AWS.SageMaker do
   trial component from a trial, call the
   [DisassociateTrialComponent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteTrialComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_trial_component_request`)
+    %{
+      required("TrialComponentName") => String.t()
+    }
   """
-  @spec delete_trial_component(AWS.Client.t(), delete_trial_component_request(), Keyword.t()) ::
+
+  @spec delete_trial_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trial_component_errors()}
-  def delete_trial_component(%Client{} = client, input, options \\ []) do
+
+  def delete_trial_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19444,12 +20856,23 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes a user profile. When a user profile is deleted, the user loses access to
   their EFS volume, including data, notebooks, and other artifacts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_profile_request`)
+    %{
+      required("DomainId") => String.t(),
+      required("UserProfileName") => String.t()
+    }
   """
-  @spec delete_user_profile(AWS.Client.t(), delete_user_profile_request(), Keyword.t()) ::
+
+  @spec delete_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_profile_errors()}
-  def delete_user_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19458,11 +20881,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Use this operation to delete a workforce.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteWorkforce&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_workforce_request`)
+    %{
+      required("WorkforceName") => String.t()
+    }
   """
-  @spec delete_workforce(AWS.Client.t(), delete_workforce_request(), Keyword.t()) ::
+
+  @spec delete_workforce(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def delete_workforce(%Client{} = client, input, options \\ []) do
+
+  def delete_workforce(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19471,12 +20904,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Deletes an existing work team. This operation can't be undone.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeleteWorkteam&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_workteam_request`)
+    %{
+      required("WorkteamName") => String.t()
+    }
   """
-  @spec delete_workteam(AWS.Client.t(), delete_workteam_request(), Keyword.t()) ::
+
+  @spec delete_workteam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workteam_errors()}
-  def delete_workteam(%Client{} = client, input, options \\ []) do
+
+  def delete_workteam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19486,11 +20929,22 @@ defmodule AWS.SageMaker do
   @doc """
   Deregisters the specified devices. After you deregister a device, you will need
   to re-register the devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DeregisterDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_devices_request`)
+    %{
+      required("DeviceFleetName") => String.t(),
+      required("DeviceNames") => list(String.t()())
+    }
   """
-  @spec deregister_devices(AWS.Client.t(), deregister_devices_request(), Keyword.t()) ::
+
+  @spec deregister_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def deregister_devices(%Client{} = client, input, options \\ []) do
+
+  def deregister_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19499,12 +20953,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes an action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_action_request`)
+    %{
+      required("ActionName") => String.t()
+    }
   """
-  @spec describe_action(AWS.Client.t(), describe_action_request(), Keyword.t()) ::
+
+  @spec describe_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_action_errors()}
-  def describe_action(%Client{} = client, input, options \\ []) do
+
+  def describe_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19513,11 +20977,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a description of the specified algorithm that is in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeAlgorithm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_algorithm_input`)
+    %{
+      required("AlgorithmName") => String.t()
+    }
   """
-  @spec describe_algorithm(AWS.Client.t(), describe_algorithm_input(), Keyword.t()) ::
+
+  @spec describe_algorithm(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_algorithm_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_algorithm(%Client{} = client, input, options \\ []) do
+
+  def describe_algorithm(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19526,12 +21000,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the app.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_app_request`)
+    %{
+      optional("SpaceName") => String.t(),
+      optional("UserProfileName") => String.t(),
+      required("AppName") => String.t(),
+      required("AppType") => list(any()),
+      required("DomainId") => String.t()
+    }
   """
-  @spec describe_app(AWS.Client.t(), describe_app_request(), Keyword.t()) ::
+
+  @spec describe_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_errors()}
-  def describe_app(%Client{} = client, input, options \\ []) do
+
+  def describe_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19540,16 +21028,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes an AppImageConfig.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeAppImageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_app_image_config_request`)
+    %{
+      required("AppImageConfigName") => String.t()
+    }
   """
-  @spec describe_app_image_config(
-          AWS.Client.t(),
-          describe_app_image_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_app_image_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_image_config_errors()}
-  def describe_app_image_config(%Client{} = client, input, options \\ []) do
+
+  def describe_app_image_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19558,12 +21052,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes an artifact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeArtifact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_artifact_request`)
+    %{
+      required("ArtifactArn") => String.t()
+    }
   """
-  @spec describe_artifact(AWS.Client.t(), describe_artifact_request(), Keyword.t()) ::
+
+  @spec describe_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_artifact_errors()}
-  def describe_artifact(%Client{} = client, input, options \\ []) do
+
+  def describe_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19576,12 +21080,22 @@ defmodule AWS.SageMaker do
   AutoML jobs created by calling
   [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
   cannot be described by `DescribeAutoMLJob`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeAutoMLJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_auto_ml_job_request`)
+    %{
+      required("AutoMLJobName") => String.t()
+    }
   """
-  @spec describe_auto_ml_job(AWS.Client.t(), describe_auto_ml_job_request(), Keyword.t()) ::
+
+  @spec describe_auto_ml_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_ml_job_errors()}
-  def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
+
+  def describe_auto_ml_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19593,12 +21107,22 @@ defmodule AWS.SageMaker do
   [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
   or
   [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeAutoMLJobV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_auto_ml_job_v2_request`)
+    %{
+      required("AutoMLJobName") => String.t()
+    }
   """
-  @spec describe_auto_ml_job_v2(AWS.Client.t(), describe_auto_ml_job_v2_request(), Keyword.t()) ::
+
+  @spec describe_auto_ml_job_v2(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_auto_ml_job_v2_errors()}
-  def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
+
+  def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19607,12 +21131,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Retrieves information of a SageMaker HyperPod cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cluster_request`)
+    %{
+      required("ClusterName") => String.t()
+    }
   """
-  @spec describe_cluster(AWS.Client.t(), describe_cluster_request(), Keyword.t()) ::
+
+  @spec describe_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_errors()}
-  def describe_cluster(%Client{} = client, input, options \\ []) do
+
+  def describe_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19622,12 +21156,23 @@ defmodule AWS.SageMaker do
   @doc """
   Retrieves information of a node (also called a *instance* interchangeably) of a
   SageMaker HyperPod cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeClusterNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cluster_node_request`)
+    %{
+      required("ClusterName") => String.t(),
+      required("NodeId") => String.t()
+    }
   """
-  @spec describe_cluster_node(AWS.Client.t(), describe_cluster_node_request(), Keyword.t()) ::
+
+  @spec describe_cluster_node(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_cluster_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cluster_node_errors()}
-  def describe_cluster_node(%Client{} = client, input, options \\ []) do
+
+  def describe_cluster_node(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19636,11 +21181,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets details about the specified Git repository.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeCodeRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_code_repository_input`)
+    %{
+      required("CodeRepositoryName") => String.t()
+    }
   """
-  @spec describe_code_repository(AWS.Client.t(), describe_code_repository_input(), Keyword.t()) ::
+
+  @spec describe_code_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_code_repository(%Client{} = client, input, options \\ []) do
+
+  def describe_code_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19649,12 +21204,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about a model compilation job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeCompilationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_compilation_job_request`)
+    %{
+      required("CompilationJobName") => String.t()
+    }
   """
-  @spec describe_compilation_job(AWS.Client.t(), describe_compilation_job_request(), Keyword.t()) ::
+
+  @spec describe_compilation_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_compilation_job_errors()}
-  def describe_compilation_job(%Client{} = client, input, options \\ []) do
+
+  def describe_compilation_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19663,12 +21228,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes a context.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeContext&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_context_request`)
+    %{
+      required("ContextName") => String.t()
+    }
   """
-  @spec describe_context(AWS.Client.t(), describe_context_request(), Keyword.t()) ::
+
+  @spec describe_context(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_context_errors()}
-  def describe_context(%Client{} = client, input, options \\ []) do
+
+  def describe_context(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19677,16 +21252,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets the details of a data quality monitoring job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeDataQualityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_data_quality_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec describe_data_quality_job_definition(
-          AWS.Client.t(),
-          describe_data_quality_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_data_quality_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_data_quality_job_definition_errors()}
-  def describe_data_quality_job_definition(%Client{} = client, input, options \\ []) do
+
+  def describe_data_quality_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19695,12 +21277,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_device_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("DeviceFleetName") => String.t(),
+      required("DeviceName") => String.t()
+    }
   """
-  @spec describe_device(AWS.Client.t(), describe_device_request(), Keyword.t()) ::
+
+  @spec describe_device(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_errors()}
-  def describe_device(%Client{} = client, input, options \\ []) do
+
+  def describe_device(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19709,12 +21303,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   A description of the fleet the device belongs to.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeDeviceFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_device_fleet_request`)
+    %{
+      required("DeviceFleetName") => String.t()
+    }
   """
-  @spec describe_device_fleet(AWS.Client.t(), describe_device_fleet_request(), Keyword.t()) ::
+
+  @spec describe_device_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_device_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_device_fleet_errors()}
-  def describe_device_fleet(%Client{} = client, input, options \\ []) do
+
+  def describe_device_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19723,12 +21327,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   The description of the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_domain_request`)
+    %{
+      required("DomainId") => String.t()
+    }
   """
-  @spec describe_domain(AWS.Client.t(), describe_domain_request(), Keyword.t()) ::
+
+  @spec describe_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
-  def describe_domain(%Client{} = client, input, options \\ []) do
+
+  def describe_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19737,16 +21351,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes an edge deployment plan with deployment status per stage.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeEdgeDeploymentPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_edge_deployment_plan_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("EdgeDeploymentPlanName") => String.t()
+    }
   """
-  @spec describe_edge_deployment_plan(
-          AWS.Client.t(),
-          describe_edge_deployment_plan_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_edge_deployment_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_edge_deployment_plan_errors()}
-  def describe_edge_deployment_plan(%Client{} = client, input, options \\ []) do
+
+  def describe_edge_deployment_plan(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19755,16 +21378,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   A description of edge packaging jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeEdgePackagingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_edge_packaging_job_request`)
+    %{
+      required("EdgePackagingJobName") => String.t()
+    }
   """
-  @spec describe_edge_packaging_job(
-          AWS.Client.t(),
-          describe_edge_packaging_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_edge_packaging_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_edge_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_edge_packaging_job_errors()}
-  def describe_edge_packaging_job(%Client{} = client, input, options \\ []) do
+
+  def describe_edge_packaging_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19773,11 +21402,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns the description of an endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_endpoint_input`)
+    %{
+      required("EndpointName") => String.t()
+    }
   """
-  @spec describe_endpoint(AWS.Client.t(), describe_endpoint_input(), Keyword.t()) ::
+
+  @spec describe_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_endpoint(%Client{} = client, input, options \\ []) do
+
+  def describe_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19787,11 +21426,21 @@ defmodule AWS.SageMaker do
   @doc """
   Returns the description of an endpoint configuration created using the
   `CreateEndpointConfig` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeEndpointConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_endpoint_config_input`)
+    %{
+      required("EndpointConfigName") => String.t()
+    }
   """
-  @spec describe_endpoint_config(AWS.Client.t(), describe_endpoint_config_input(), Keyword.t()) ::
+
+  @spec describe_endpoint_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoint_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_endpoint_config(%Client{} = client, input, options \\ []) do
+
+  def describe_endpoint_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19800,12 +21449,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Provides a list of an experiment's properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_experiment_request`)
+    %{
+      required("ExperimentName") => String.t()
+    }
   """
-  @spec describe_experiment(AWS.Client.t(), describe_experiment_request(), Keyword.t()) ::
+
+  @spec describe_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_experiment_errors()}
-  def describe_experiment(%Client{} = client, input, options \\ []) do
+
+  def describe_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19816,12 +21475,23 @@ defmodule AWS.SageMaker do
   Use this operation to describe a `FeatureGroup`. The response includes
   information on the creation time, `FeatureGroup` name, the unique identifier
   for each `FeatureGroup`, and more.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeFeatureGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_feature_group_request`)
+    %{
+      optional("NextToken") => String.t(),
+      required("FeatureGroupName") => String.t()
+    }
   """
-  @spec describe_feature_group(AWS.Client.t(), describe_feature_group_request(), Keyword.t()) ::
+
+  @spec describe_feature_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_feature_group_errors()}
-  def describe_feature_group(%Client{} = client, input, options \\ []) do
+
+  def describe_feature_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19830,16 +21500,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Shows the metadata for a feature within a feature group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeFeatureMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_feature_metadata_request`)
+    %{
+      required("FeatureGroupName") => String.t(),
+      required("FeatureName") => String.t()
+    }
   """
-  @spec describe_feature_metadata(
-          AWS.Client.t(),
-          describe_feature_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_feature_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_feature_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_feature_metadata_errors()}
-  def describe_feature_metadata(%Client{} = client, input, options \\ []) do
+
+  def describe_feature_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19848,12 +21525,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about the specified flow definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeFlowDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_flow_definition_request`)
+    %{
+      required("FlowDefinitionName") => String.t()
+    }
   """
-  @spec describe_flow_definition(AWS.Client.t(), describe_flow_definition_request(), Keyword.t()) ::
+
+  @spec describe_flow_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_flow_definition_errors()}
-  def describe_flow_definition(%Client{} = client, input, options \\ []) do
+
+  def describe_flow_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19862,12 +21549,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes a hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeHub&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_hub_request`)
+    %{
+      required("HubName") => String.t()
+    }
   """
-  @spec describe_hub(AWS.Client.t(), describe_hub_request(), Keyword.t()) ::
+
+  @spec describe_hub(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hub_errors()}
-  def describe_hub(%Client{} = client, input, options \\ []) do
+
+  def describe_hub(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19876,12 +21573,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describe the content of a hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeHubContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_hub_content_request`)
+    %{
+      optional("HubContentVersion") => String.t(),
+      required("HubContentName") => String.t(),
+      required("HubContentType") => list(any()),
+      required("HubName") => String.t()
+    }
   """
-  @spec describe_hub_content(AWS.Client.t(), describe_hub_content_request(), Keyword.t()) ::
+
+  @spec describe_hub_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hub_content_errors()}
-  def describe_hub_content(%Client{} = client, input, options \\ []) do
+
+  def describe_hub_content(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19891,12 +21601,22 @@ defmodule AWS.SageMaker do
   @doc """
   Returns information about the requested human task user interface (worker task
   template).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeHumanTaskUi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_human_task_ui_request`)
+    %{
+      required("HumanTaskUiName") => String.t()
+    }
   """
-  @spec describe_human_task_ui(AWS.Client.t(), describe_human_task_ui_request(), Keyword.t()) ::
+
+  @spec describe_human_task_ui(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_human_task_ui_errors()}
-  def describe_human_task_ui(%Client{} = client, input, options \\ []) do
+
+  def describe_human_task_ui(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19907,16 +21627,23 @@ defmodule AWS.SageMaker do
   Returns a description of a hyperparameter tuning job, depending on the fields
   selected. These fields can include the name, Amazon Resource Name (ARN), job
   status of your tuning job and more.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeHyperParameterTuningJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_hyper_parameter_tuning_job_request`)
+    %{
+      required("HyperParameterTuningJobName") => String.t()
+    }
   """
-  @spec describe_hyper_parameter_tuning_job(
-          AWS.Client.t(),
-          describe_hyper_parameter_tuning_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_hyper_parameter_tuning_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hyper_parameter_tuning_job_errors()}
-  def describe_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
+
+  def describe_hyper_parameter_tuning_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19925,12 +21652,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes a SageMaker image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_image_request`)
+    %{
+      required("ImageName") => String.t()
+    }
   """
-  @spec describe_image(AWS.Client.t(), describe_image_request(), Keyword.t()) ::
+
+  @spec describe_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_errors()}
-  def describe_image(%Client{} = client, input, options \\ []) do
+
+  def describe_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19939,12 +21676,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes a version of a SageMaker image.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeImageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_image_version_request`)
+    %{
+      optional("Alias") => String.t(),
+      optional("Version") => integer(),
+      required("ImageName") => String.t()
+    }
   """
-  @spec describe_image_version(AWS.Client.t(), describe_image_version_request(), Keyword.t()) ::
+
+  @spec describe_image_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_image_version_errors()}
-  def describe_image_version(%Client{} = client, input, options \\ []) do
+
+  def describe_image_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19953,15 +21702,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about an inference component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeInferenceComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_inference_component_input`)
+    %{
+      required("InferenceComponentName") => String.t()
+    }
   """
-  @spec describe_inference_component(
-          AWS.Client.t(),
-          describe_inference_component_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_inference_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_inference_component(%Client{} = client, input, options \\ []) do
+
+  def describe_inference_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -19970,16 +21725,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns details about an inference experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeInferenceExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_inference_experiment_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec describe_inference_experiment(
-          AWS.Client.t(),
-          describe_inference_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_inference_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inference_experiment_errors()}
-  def describe_inference_experiment(%Client{} = client, input, options \\ []) do
+
+  def describe_inference_experiment(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -19989,16 +21751,23 @@ defmodule AWS.SageMaker do
   @doc """
   Provides the results of the Inference Recommender job. One or more
   recommendation jobs are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeInferenceRecommendationsJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_inference_recommendations_job_request`)
+    %{
+      required("JobName") => String.t()
+    }
   """
-  @spec describe_inference_recommendations_job(
-          AWS.Client.t(),
-          describe_inference_recommendations_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_inference_recommendations_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_inference_recommendations_job_errors()}
-  def describe_inference_recommendations_job(%Client{} = client, input, options \\ []) do
+
+  def describe_inference_recommendations_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20007,12 +21776,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets information about a labeling job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeLabelingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_labeling_job_request`)
+    %{
+      required("LabelingJobName") => String.t()
+    }
   """
-  @spec describe_labeling_job(AWS.Client.t(), describe_labeling_job_request(), Keyword.t()) ::
+
+  @spec describe_labeling_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_labeling_job_errors()}
-  def describe_labeling_job(%Client{} = client, input, options \\ []) do
+
+  def describe_labeling_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20024,12 +21803,22 @@ defmodule AWS.SageMaker do
   information, see [ Cross-Account Lineage Tracking
   ](https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html)
   in the *Amazon SageMaker Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeLineageGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_lineage_group_request`)
+    %{
+      required("LineageGroupName") => String.t()
+    }
   """
-  @spec describe_lineage_group(AWS.Client.t(), describe_lineage_group_request(), Keyword.t()) ::
+
+  @spec describe_lineage_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_lineage_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lineage_group_errors()}
-  def describe_lineage_group(%Client{} = client, input, options \\ []) do
+
+  def describe_lineage_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20038,16 +21827,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about an MLflow Tracking Server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeMlflowTrackingServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_mlflow_tracking_server_request`)
+    %{
+      required("TrackingServerName") => String.t()
+    }
   """
-  @spec describe_mlflow_tracking_server(
-          AWS.Client.t(),
-          describe_mlflow_tracking_server_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_mlflow_tracking_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mlflow_tracking_server_errors()}
-  def describe_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+
+  def describe_mlflow_tracking_server(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20056,11 +21852,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes a model that you created using the `CreateModel` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_input`)
+    %{
+      required("ModelName") => String.t()
+    }
   """
-  @spec describe_model(AWS.Client.t(), describe_model_input(), Keyword.t()) ::
+
+  @spec describe_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_model(%Client{} = client, input, options \\ []) do
+
+  def describe_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20069,16 +21875,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a description of a model bias job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModelBiasJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_bias_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec describe_model_bias_job_definition(
-          AWS.Client.t(),
-          describe_model_bias_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_model_bias_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_bias_job_definition_errors()}
-  def describe_model_bias_job_definition(%Client{} = client, input, options \\ []) do
+
+  def describe_model_bias_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20088,12 +21901,23 @@ defmodule AWS.SageMaker do
   @doc """
   Describes the content, creation time, and security configuration of an Amazon
   SageMaker Model Card.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModelCard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_card_request`)
+    %{
+      optional("ModelCardVersion") => integer(),
+      required("ModelCardName") => String.t()
+    }
   """
-  @spec describe_model_card(AWS.Client.t(), describe_model_card_request(), Keyword.t()) ::
+
+  @spec describe_model_card(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_card_errors()}
-  def describe_model_card(%Client{} = client, input, options \\ []) do
+
+  def describe_model_card(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20102,16 +21926,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes an Amazon SageMaker Model Card export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModelCardExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_card_export_job_request`)
+    %{
+      required("ModelCardExportJobArn") => String.t()
+    }
   """
-  @spec describe_model_card_export_job(
-          AWS.Client.t(),
-          describe_model_card_export_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_model_card_export_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_card_export_job_errors()}
-  def describe_model_card_export_job(%Client{} = client, input, options \\ []) do
+
+  def describe_model_card_export_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20120,16 +21951,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a description of a model explainability job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModelExplainabilityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_explainability_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec describe_model_explainability_job_definition(
-          AWS.Client.t(),
-          describe_model_explainability_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_model_explainability_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_explainability_job_definition_errors()}
-  def describe_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
+
+  def describe_model_explainability_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20143,11 +21981,21 @@ defmodule AWS.SageMaker do
   [KMS
   Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)
   API call in your CloudTrail logs when you use this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModelPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_package_input`)
+    %{
+      required("ModelPackageName") => String.t()
+    }
   """
-  @spec describe_model_package(AWS.Client.t(), describe_model_package_input(), Keyword.t()) ::
+
+  @spec describe_model_package(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_model_package(%Client{} = client, input, options \\ []) do
+
+  def describe_model_package(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20156,15 +22004,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a description for the specified model group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModelPackageGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_package_group_input`)
+    %{
+      required("ModelPackageGroupName") => String.t()
+    }
   """
-  @spec describe_model_package_group(
-          AWS.Client.t(),
-          describe_model_package_group_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_model_package_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_package_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_model_package_group(%Client{} = client, input, options \\ []) do
+
+  def describe_model_package_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20173,16 +22027,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a description of a model quality job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeModelQualityJobDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_model_quality_job_definition_request`)
+    %{
+      required("JobDefinitionName") => String.t()
+    }
   """
-  @spec describe_model_quality_job_definition(
-          AWS.Client.t(),
-          describe_model_quality_job_definition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_model_quality_job_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_model_quality_job_definition_errors()}
-  def describe_model_quality_job_definition(%Client{} = client, input, options \\ []) do
+
+  def describe_model_quality_job_definition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20191,16 +22052,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the schedule for a monitoring job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeMonitoringSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_monitoring_schedule_request`)
+    %{
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec describe_monitoring_schedule(
-          AWS.Client.t(),
-          describe_monitoring_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_monitoring_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_monitoring_schedule_errors()}
-  def describe_monitoring_schedule(%Client{} = client, input, options \\ []) do
+
+  def describe_monitoring_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20209,15 +22076,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about a notebook instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeNotebookInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_notebook_instance_input`)
+    %{
+      required("NotebookInstanceName") => String.t()
+    }
   """
-  @spec describe_notebook_instance(
-          AWS.Client.t(),
-          describe_notebook_instance_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_notebook_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_notebook_instance(%Client{} = client, input, options \\ []) do
+
+  def describe_notebook_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20226,15 +22099,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a description of a notebook instance lifecycle configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeNotebookInstanceLifecycleConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_notebook_instance_lifecycle_config_input`)
+    %{
+      required("NotebookInstanceLifecycleConfigName") => String.t()
+    }
   """
-  @spec describe_notebook_instance_lifecycle_config(
-          AWS.Client.t(),
-          describe_notebook_instance_lifecycle_config_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_notebook_instance_lifecycle_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
+
+  def describe_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20243,16 +22123,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Provides the properties of the specified optimization job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeOptimizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_optimization_job_request`)
+    %{
+      required("OptimizationJobName") => String.t()
+    }
   """
-  @spec describe_optimization_job(
-          AWS.Client.t(),
-          describe_optimization_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_optimization_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_optimization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_optimization_job_errors()}
-  def describe_optimization_job(%Client{} = client, input, options \\ []) do
+
+  def describe_optimization_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20261,12 +22147,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the details of a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_pipeline_request`)
+    %{
+      required("PipelineName") => String.t()
+    }
   """
-  @spec describe_pipeline(AWS.Client.t(), describe_pipeline_request(), Keyword.t()) ::
+
+  @spec describe_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_errors()}
-  def describe_pipeline(%Client{} = client, input, options \\ []) do
+
+  def describe_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20275,16 +22171,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the details of an execution's pipeline definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribePipelineDefinitionForExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_pipeline_definition_for_execution_request`)
+    %{
+      required("PipelineExecutionArn") => String.t()
+    }
   """
-  @spec describe_pipeline_definition_for_execution(
-          AWS.Client.t(),
-          describe_pipeline_definition_for_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_pipeline_definition_for_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pipeline_definition_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_definition_for_execution_errors()}
-  def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ []) do
+
+  def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20293,16 +22196,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the details of a pipeline execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribePipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_pipeline_execution_request`)
+    %{
+      required("PipelineExecutionArn") => String.t()
+    }
   """
-  @spec describe_pipeline_execution(
-          AWS.Client.t(),
-          describe_pipeline_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_pipeline_execution_errors()}
-  def describe_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def describe_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20311,12 +22220,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a description of a processing job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeProcessingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_processing_job_request`)
+    %{
+      required("ProcessingJobName") => String.t()
+    }
   """
-  @spec describe_processing_job(AWS.Client.t(), describe_processing_job_request(), Keyword.t()) ::
+
+  @spec describe_processing_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_processing_job_errors()}
-  def describe_processing_job(%Client{} = client, input, options \\ []) do
+
+  def describe_processing_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20325,11 +22244,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the details of a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_project_input`)
+    %{
+      required("ProjectName") => String.t()
+    }
   """
-  @spec describe_project(AWS.Client.t(), describe_project_input(), Keyword.t()) ::
+
+  @spec describe_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_project(%Client{} = client, input, options \\ []) do
+
+  def describe_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20338,12 +22267,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_space_request`)
+    %{
+      required("DomainId") => String.t(),
+      required("SpaceName") => String.t()
+    }
   """
-  @spec describe_space(AWS.Client.t(), describe_space_request(), Keyword.t()) ::
+
+  @spec describe_space(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_space_errors()}
-  def describe_space(%Client{} = client, input, options \\ []) do
+
+  def describe_space(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20352,16 +22292,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes the Amazon SageMaker Studio Lifecycle Configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeStudioLifecycleConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_studio_lifecycle_config_request`)
+    %{
+      required("StudioLifecycleConfigName") => String.t()
+    }
   """
-  @spec describe_studio_lifecycle_config(
-          AWS.Client.t(),
-          describe_studio_lifecycle_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_studio_lifecycle_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_studio_lifecycle_config_errors()}
-  def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
+
+  def describe_studio_lifecycle_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20371,15 +22318,21 @@ defmodule AWS.SageMaker do
   @doc """
   Gets information about a work team provided by a vendor. It returns details
   about the subscription with a vendor in the Amazon Web Services Marketplace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeSubscribedWorkteam&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_subscribed_workteam_request`)
+    %{
+      required("WorkteamArn") => String.t()
+    }
   """
-  @spec describe_subscribed_workteam(
-          AWS.Client.t(),
-          describe_subscribed_workteam_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_subscribed_workteam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_subscribed_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_subscribed_workteam(%Client{} = client, input, options \\ []) do
+
+  def describe_subscribed_workteam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20388,12 +22341,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about a training job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeTrainingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_training_job_request`)
+    %{
+      required("TrainingJobName") => String.t()
+    }
   """
-  @spec describe_training_job(AWS.Client.t(), describe_training_job_request(), Keyword.t()) ::
+
+  @spec describe_training_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_training_job_errors()}
-  def describe_training_job(%Client{} = client, input, options \\ []) do
+
+  def describe_training_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20402,12 +22365,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about a transform job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeTransformJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_transform_job_request`)
+    %{
+      required("TransformJobName") => String.t()
+    }
   """
-  @spec describe_transform_job(AWS.Client.t(), describe_transform_job_request(), Keyword.t()) ::
+
+  @spec describe_transform_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_transform_job_errors()}
-  def describe_transform_job(%Client{} = client, input, options \\ []) do
+
+  def describe_transform_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20416,12 +22389,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Provides a list of a trial's properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeTrial&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trial_request`)
+    %{
+      required("TrialName") => String.t()
+    }
   """
-  @spec describe_trial(AWS.Client.t(), describe_trial_request(), Keyword.t()) ::
+
+  @spec describe_trial(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trial_errors()}
-  def describe_trial(%Client{} = client, input, options \\ []) do
+
+  def describe_trial(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20430,12 +22413,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Provides a list of a trials component's properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeTrialComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_trial_component_request`)
+    %{
+      required("TrialComponentName") => String.t()
+    }
   """
-  @spec describe_trial_component(AWS.Client.t(), describe_trial_component_request(), Keyword.t()) ::
+
+  @spec describe_trial_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_trial_component_errors()}
-  def describe_trial_component(%Client{} = client, input, options \\ []) do
+
+  def describe_trial_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20444,12 +22437,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes a user profile. For more information, see `CreateUserProfile`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_user_profile_request`)
+    %{
+      required("DomainId") => String.t(),
+      required("UserProfileName") => String.t()
+    }
   """
-  @spec describe_user_profile(AWS.Client.t(), describe_user_profile_request(), Keyword.t()) ::
+
+  @spec describe_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_profile_errors()}
-  def describe_user_profile(%Client{} = client, input, options \\ []) do
+
+  def describe_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20462,11 +22466,21 @@ defmodule AWS.SageMaker do
   ([CIDRs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html)).
   Allowable IP address ranges are the IP addresses that workers can use to
   access tasks.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeWorkforce&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workforce_request`)
+    %{
+      required("WorkforceName") => String.t()
+    }
   """
-  @spec describe_workforce(AWS.Client.t(), describe_workforce_request(), Keyword.t()) ::
+
+  @spec describe_workforce(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_workforce(%Client{} = client, input, options \\ []) do
+
+  def describe_workforce(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20477,11 +22491,21 @@ defmodule AWS.SageMaker do
   Gets information about a specific work team. You can see information such as the
   creation date, the last updated date, membership information, and the work
   team's Amazon Resource Name (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DescribeWorkteam&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workteam_request`)
+    %{
+      required("WorkteamName") => String.t()
+    }
   """
-  @spec describe_workteam(AWS.Client.t(), describe_workteam_request(), Keyword.t()) ::
+
+  @spec describe_workteam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_workteam(%Client{} = client, input, options \\ []) do
+
+  def describe_workteam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20491,15 +22515,22 @@ defmodule AWS.SageMaker do
   @doc """
   Disables using Service Catalog in SageMaker. Service Catalog is used to create
   SageMaker projects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DisableSagemakerServicecatalogPortfolio&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_sagemaker_servicecatalog_portfolio_input`)
+    %{
+      
+    }
   """
-  @spec disable_sagemaker_servicecatalog_portfolio(
-          AWS.Client.t(),
-          disable_sagemaker_servicecatalog_portfolio_input(),
-          Keyword.t()
-        ) ::
+
+  @spec disable_sagemaker_servicecatalog_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disable_sagemaker_servicecatalog_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def disable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
+
+  def disable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20516,16 +22547,23 @@ defmodule AWS.SageMaker do
   [Search](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html)
   API. Specify `ExperimentTrialComponent` for the `Resource` parameter. The list
   appears in the response under `Results.TrialComponent.Parents`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20DisassociateTrialComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_trial_component_request`)
+    %{
+      required("TrialComponentName") => String.t(),
+      required("TrialName") => String.t()
+    }
   """
-  @spec disassociate_trial_component(
-          AWS.Client.t(),
-          disassociate_trial_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_trial_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_trial_component_errors()}
-  def disassociate_trial_component(%Client{} = client, input, options \\ []) do
+
+  def disassociate_trial_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20535,15 +22573,22 @@ defmodule AWS.SageMaker do
   @doc """
   Enables using Service Catalog in SageMaker. Service Catalog is used to create
   SageMaker projects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20EnableSagemakerServicecatalogPortfolio&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_sagemaker_servicecatalog_portfolio_input`)
+    %{
+      
+    }
   """
-  @spec enable_sagemaker_servicecatalog_portfolio(
-          AWS.Client.t(),
-          enable_sagemaker_servicecatalog_portfolio_input(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_sagemaker_servicecatalog_portfolio(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_sagemaker_servicecatalog_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def enable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
+
+  def enable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20552,11 +22597,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describes a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20GetDeviceFleetReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_device_fleet_report_request`)
+    %{
+      required("DeviceFleetName") => String.t()
+    }
   """
-  @spec get_device_fleet_report(AWS.Client.t(), get_device_fleet_report_request(), Keyword.t()) ::
+
+  @spec get_device_fleet_report(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_device_fleet_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_device_fleet_report(%Client{} = client, input, options \\ []) do
+
+  def get_device_fleet_report(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20565,12 +22620,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   The resource policy for the lineage group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20GetLineageGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_lineage_group_policy_request`)
+    %{
+      required("LineageGroupName") => String.t()
+    }
   """
-  @spec get_lineage_group_policy(AWS.Client.t(), get_lineage_group_policy_request(), Keyword.t()) ::
+
+  @spec get_lineage_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lineage_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lineage_group_policy_errors()}
-  def get_lineage_group_policy(%Client{} = client, input, options \\ []) do
+
+  def get_lineage_group_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20582,15 +22647,22 @@ defmodule AWS.SageMaker do
   about resource policies, see [Identity-based policies and resource-based
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
   in the *Amazon Web Services Identity and Access Management User Guide.*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20GetModelPackageGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_model_package_group_policy_input`)
+    %{
+      required("ModelPackageGroupName") => String.t()
+    }
   """
-  @spec get_model_package_group_policy(
-          AWS.Client.t(),
-          get_model_package_group_policy_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_model_package_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_model_package_group_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_model_package_group_policy(%Client{} = client, input, options \\ []) do
+
+  def get_model_package_group_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20600,15 +22672,22 @@ defmodule AWS.SageMaker do
   @doc """
   Gets the status of Service Catalog in SageMaker. Service Catalog is used to
   create SageMaker projects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20GetSagemakerServicecatalogPortfolioStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_sagemaker_servicecatalog_portfolio_status_input`)
+    %{
+      
+    }
   """
-  @spec get_sagemaker_servicecatalog_portfolio_status(
-          AWS.Client.t(),
-          get_sagemaker_servicecatalog_portfolio_status_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_sagemaker_servicecatalog_portfolio_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_sagemaker_servicecatalog_portfolio_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_sagemaker_servicecatalog_portfolio_status(%Client{} = client, input, options \\ []) do
+
+  def get_sagemaker_servicecatalog_portfolio_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20625,16 +22704,27 @@ defmodule AWS.SageMaker do
   Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job.
   Returns recommendations for autoscaling policies that you can apply to your
   SageMaker endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20GetScalingConfigurationRecommendation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_scaling_configuration_recommendation_request`)
+    %{
+      optional("EndpointName") => String.t(),
+      optional("RecommendationId") => String.t(),
+      optional("ScalingPolicyObjective") => scaling_policy_objective(),
+      optional("TargetCpuUtilizationPerCore") => integer(),
+      required("InferenceRecommendationsJobName") => String.t()
+    }
   """
-  @spec get_scaling_configuration_recommendation(
-          AWS.Client.t(),
-          get_scaling_configuration_recommendation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_scaling_configuration_recommendation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_scaling_configuration_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scaling_configuration_recommendation_errors()}
-  def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ []) do
+
+  def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20646,11 +22736,22 @@ defmodule AWS.SageMaker do
   returns suggestions of possible matches for the property name to use in
   `Search` queries. Provides suggestions for `HyperParameters`, `Tags`, and
   `Metrics`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20GetSearchSuggestions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_search_suggestions_request`)
+    %{
+      optional("SuggestionQuery") => suggestion_query(),
+      required("Resource") => list(any())
+    }
   """
-  @spec get_search_suggestions(AWS.Client.t(), get_search_suggestions_request(), Keyword.t()) ::
+
+  @spec get_search_suggestions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_search_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_search_suggestions(%Client{} = client, input, options \\ []) do
+
+  def get_search_suggestions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20659,12 +22760,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   Import hub content.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ImportHubContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_hub_content_request`)
+    %{
+      optional("HubContentDescription") => String.t(),
+      optional("HubContentDisplayName") => String.t(),
+      optional("HubContentMarkdown") => String.t(),
+      optional("HubContentSearchKeywords") => list(String.t()()),
+      optional("HubContentVersion") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("DocumentSchemaVersion") => String.t(),
+      required("HubContentDocument") => String.t(),
+      required("HubContentName") => String.t(),
+      required("HubContentType") => list(any()),
+      required("HubName") => String.t()
+    }
   """
-  @spec import_hub_content(AWS.Client.t(), import_hub_content_request(), Keyword.t()) ::
+
+  @spec import_hub_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_hub_content_errors()}
-  def import_hub_content(%Client{} = client, input, options \\ []) do
+
+  def import_hub_content(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20673,12 +22794,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the actions in your account and their properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_actions_request`)
+    %{
+      optional("ActionType") => String.t(),
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("SourceUri") => String.t()
+    }
   """
-  @spec list_actions(AWS.Client.t(), list_actions_request(), Keyword.t()) ::
+
+  @spec list_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_actions_errors()}
-  def list_actions(%Client{} = client, input, options \\ []) do
+
+  def list_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20687,11 +22825,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the machine learning algorithms that have been created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListAlgorithms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_algorithms_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_algorithms(AWS.Client.t(), list_algorithms_input(), Keyword.t()) ::
+
+  @spec list_algorithms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_algorithms_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_algorithms(%Client{} = client, input, options \\ []) do
+
+  def list_algorithms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20700,12 +22854,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the aliases of a specified image or image version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_aliases_request`)
+    %{
+      optional("Alias") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Version") => integer(),
+      required("ImageName") => String.t()
+    }
   """
-  @spec list_aliases(AWS.Client.t(), list_aliases_request(), Keyword.t()) ::
+
+  @spec list_aliases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_aliases_errors()}
-  def list_aliases(%Client{} = client, input, options \\ []) do
+
+  def list_aliases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20716,11 +22884,29 @@ defmodule AWS.SageMaker do
   Lists the AppImageConfigs in your account and their properties. The list can be
   filtered by creation time or modified time, and whether the AppImageConfig
   name contains a specified string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListAppImageConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_app_image_configs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModifiedTimeAfter") => non_neg_integer(),
+      optional("ModifiedTimeBefore") => non_neg_integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_app_image_configs(AWS.Client.t(), list_app_image_configs_request(), Keyword.t()) ::
+
+  @spec list_app_image_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_app_image_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_app_image_configs(%Client{} = client, input, options \\ []) do
+
+  def list_app_image_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20729,11 +22915,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists apps.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListApps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_apps_request`)
+    %{
+      optional("DomainIdEquals") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("SpaceNameEquals") => String.t(),
+      optional("UserProfileNameEquals") => String.t()
+    }
   """
-  @spec list_apps(AWS.Client.t(), list_apps_request(), Keyword.t()) ::
+
+  @spec list_apps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_apps(%Client{} = client, input, options \\ []) do
+
+  def list_apps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20742,12 +22944,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the artifacts in your account and their properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListArtifacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_artifacts_request`)
+    %{
+      optional("ArtifactType") => String.t(),
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("SourceUri") => String.t()
+    }
   """
-  @spec list_artifacts(AWS.Client.t(), list_artifacts_request(), Keyword.t()) ::
+
+  @spec list_artifacts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_artifacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_artifacts_errors()}
-  def list_artifacts(%Client{} = client, input, options \\ []) do
+
+  def list_artifacts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20756,12 +22975,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the associations in your account and their properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_associations_request`)
+    %{
+      optional("AssociationType") => list(any()),
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("DestinationArn") => String.t(),
+      optional("DestinationType") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("SourceArn") => String.t(),
+      optional("SourceType") => String.t()
+    }
   """
-  @spec list_associations(AWS.Client.t(), list_associations_request(), Keyword.t()) ::
+
+  @spec list_associations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associations_errors()}
-  def list_associations(%Client{} = client, input, options \\ []) do
+
+  def list_associations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20770,11 +23009,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Request a list of jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListAutoMLJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_auto_ml_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_auto_ml_jobs(AWS.Client.t(), list_auto_ml_jobs_request(), Keyword.t()) ::
+
+  @spec list_auto_ml_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_auto_ml_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_auto_ml_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_auto_ml_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20783,16 +23041,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   List the candidates created for the job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListCandidatesForAutoMLJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_candidates_for_auto_ml_job_request`)
+    %{
+      optional("CandidateNameEquals") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any()),
+      required("AutoMLJobName") => String.t()
+    }
   """
-  @spec list_candidates_for_auto_ml_job(
-          AWS.Client.t(),
-          list_candidates_for_auto_ml_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_candidates_for_auto_ml_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_candidates_for_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_candidates_for_auto_ml_job_errors()}
-  def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ []) do
+
+  def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20802,12 +23073,29 @@ defmodule AWS.SageMaker do
   @doc """
   Retrieves the list of instances (also called *nodes* interchangeably) in a
   SageMaker HyperPod cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListClusterNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_cluster_nodes_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("InstanceGroupNameContains") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      required("ClusterName") => String.t()
+    }
   """
-  @spec list_cluster_nodes(AWS.Client.t(), list_cluster_nodes_request(), Keyword.t()) ::
+
+  @spec list_cluster_nodes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_cluster_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_cluster_nodes_errors()}
-  def list_cluster_nodes(%Client{} = client, input, options \\ []) do
+
+  def list_cluster_nodes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20816,11 +23104,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Retrieves the list of SageMaker HyperPod clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_clusters_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_clusters(AWS.Client.t(), list_clusters_request(), Keyword.t()) ::
+
+  @spec list_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_clusters(%Client{} = client, input, options \\ []) do
+
+  def list_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20829,11 +23133,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of the Git repositories in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListCodeRepositories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_code_repositories_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_code_repositories(AWS.Client.t(), list_code_repositories_input(), Keyword.t()) ::
+
+  @spec list_code_repositories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_code_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_code_repositories(%Client{} = client, input, options \\ []) do
+
+  def list_code_repositories(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20842,11 +23164,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists model compilation jobs that satisfy various filters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListCompilationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_compilation_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_compilation_jobs(AWS.Client.t(), list_compilation_jobs_request(), Keyword.t()) ::
+
+  @spec list_compilation_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_compilation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_compilation_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_compilation_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20855,12 +23196,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the contexts in your account and their properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListContexts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_contexts_request`)
+    %{
+      optional("ContextType") => String.t(),
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("SourceUri") => String.t()
+    }
   """
-  @spec list_contexts(AWS.Client.t(), list_contexts_request(), Keyword.t()) ::
+
+  @spec list_contexts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_contexts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contexts_errors()}
-  def list_contexts(%Client{} = client, input, options \\ []) do
+
+  def list_contexts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20869,15 +23227,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the data quality job definitions in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListDataQualityJobDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_quality_job_definitions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("EndpointName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_data_quality_job_definitions(
-          AWS.Client.t(),
-          list_data_quality_job_definitions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_data_quality_job_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_quality_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_data_quality_job_definitions(%Client{} = client, input, options \\ []) do
+
+  def list_data_quality_job_definitions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -20886,11 +23258,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a list of devices in the fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListDeviceFleets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_device_fleets_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_device_fleets(AWS.Client.t(), list_device_fleets_request(), Keyword.t()) ::
+
+  @spec list_device_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_device_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_device_fleets(%Client{} = client, input, options \\ []) do
+
+  def list_device_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20899,11 +23289,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   A list of devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_devices_request`)
+    %{
+      optional("DeviceFleetName") => String.t(),
+      optional("LatestHeartbeatAfter") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModelName") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_devices(AWS.Client.t(), list_devices_request(), Keyword.t()) ::
+
+  @spec list_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_devices(%Client{} = client, input, options \\ []) do
+
+  def list_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20912,11 +23316,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the domains.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_domains_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
+
+  @spec list_domains(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_domains(%Client{} = client, input, options \\ []) do
+
+  def list_domains(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20925,15 +23340,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists all edge deployment plans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListEdgeDeploymentPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_edge_deployment_plans_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("DeviceFleetNameContains") => String.t(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_edge_deployment_plans(
-          AWS.Client.t(),
-          list_edge_deployment_plans_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_edge_deployment_plans(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_edge_deployment_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_edge_deployment_plans(%Client{} = client, input, options \\ []) do
+
+  def list_edge_deployment_plans(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20942,11 +23372,31 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a list of edge packaging jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListEdgePackagingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_edge_packaging_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModelNameContains") => String.t(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_edge_packaging_jobs(AWS.Client.t(), list_edge_packaging_jobs_request(), Keyword.t()) ::
+
+  @spec list_edge_packaging_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_edge_packaging_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20955,11 +23405,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists endpoint configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListEndpointConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_endpoint_configs_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_endpoint_configs(AWS.Client.t(), list_endpoint_configs_input(), Keyword.t()) ::
+
+  @spec list_endpoint_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_endpoint_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_endpoint_configs(%Client{} = client, input, options \\ []) do
+
+  def list_endpoint_configs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20968,11 +23434,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists endpoints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_endpoints_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_endpoints(AWS.Client.t(), list_endpoints_input(), Keyword.t()) ::
+
+  @spec list_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_endpoints(%Client{} = client, input, options \\ []) do
+
+  def list_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20983,11 +23468,26 @@ defmodule AWS.SageMaker do
   Lists all the experiments in your account. The list can be filtered to show only
   experiments that were created in a specific time range. The list can be sorted
   by experiment name or creation time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListExperiments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_experiments_request`)
+    %{
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_experiments(AWS.Client.t(), list_experiments_request(), Keyword.t()) ::
+
+  @spec list_experiments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_experiments(%Client{} = client, input, options \\ []) do
+
+  def list_experiments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -20996,11 +23496,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   List `FeatureGroup`s based on given filter and order.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListFeatureGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_feature_groups_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("FeatureGroupStatusEquals") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("OfflineStoreStatusEquals") => list(any()),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_feature_groups(AWS.Client.t(), list_feature_groups_request(), Keyword.t()) ::
+
+  @spec list_feature_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_feature_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_feature_groups(%Client{} = client, input, options \\ []) do
+
+  def list_feature_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21009,11 +23527,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about the flow definitions in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListFlowDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_flow_definitions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_flow_definitions(AWS.Client.t(), list_flow_definitions_request(), Keyword.t()) ::
+
+  @spec list_flow_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_flow_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_flow_definitions(%Client{} = client, input, options \\ []) do
+
+  def list_flow_definitions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21022,16 +23554,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   List hub content versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListHubContentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hub_content_versions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("MaxSchemaVersion") => String.t(),
+      optional("MinVersion") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      required("HubContentName") => String.t(),
+      required("HubContentType") => list(any()),
+      required("HubName") => String.t()
+    }
   """
-  @spec list_hub_content_versions(
-          AWS.Client.t(),
-          list_hub_content_versions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_hub_content_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hub_content_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hub_content_versions_errors()}
-  def list_hub_content_versions(%Client{} = client, input, options \\ []) do
+
+  def list_hub_content_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21040,12 +23588,31 @@ defmodule AWS.SageMaker do
 
   @doc """
   List the contents of a hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListHubContents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hub_contents_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("MaxSchemaVersion") => String.t(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      required("HubContentType") => list(any()),
+      required("HubName") => String.t()
+    }
   """
-  @spec list_hub_contents(AWS.Client.t(), list_hub_contents_request(), Keyword.t()) ::
+
+  @spec list_hub_contents(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hub_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hub_contents_errors()}
-  def list_hub_contents(%Client{} = client, input, options \\ []) do
+
+  def list_hub_contents(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21054,11 +23621,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   List all existing hubs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListHubs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hubs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_hubs(AWS.Client.t(), list_hubs_request(), Keyword.t()) ::
+
+  @spec list_hubs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hubs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_hubs(%Client{} = client, input, options \\ []) do
+
+  def list_hubs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21067,11 +23652,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns information about the human task user interfaces in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListHumanTaskUis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_human_task_uis_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_human_task_uis(AWS.Client.t(), list_human_task_uis_request(), Keyword.t()) ::
+
+  @spec list_human_task_uis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_human_task_uis_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_human_task_uis(%Client{} = client, input, options \\ []) do
+
+  def list_human_task_uis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21082,15 +23681,31 @@ defmodule AWS.SageMaker do
   Gets a list of
   [HyperParameterTuningJobSummary](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html)
   objects that describe the hyperparameter tuning jobs launched in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListHyperParameterTuningJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hyper_parameter_tuning_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_hyper_parameter_tuning_jobs(
-          AWS.Client.t(),
-          list_hyper_parameter_tuning_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_hyper_parameter_tuning_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hyper_parameter_tuning_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_hyper_parameter_tuning_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_hyper_parameter_tuning_jobs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21100,12 +23715,30 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the versions of a specified image and their properties. The list can be
   filtered by creation time or modified time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListImageVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_image_versions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      required("ImageName") => String.t()
+    }
   """
-  @spec list_image_versions(AWS.Client.t(), list_image_versions_request(), Keyword.t()) ::
+
+  @spec list_image_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_image_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_image_versions_errors()}
-  def list_image_versions(%Client{} = client, input, options \\ []) do
+
+  def list_image_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21116,11 +23749,29 @@ defmodule AWS.SageMaker do
   Lists the images in your account and their properties. The list can be filtered
   by creation time or modified time, and whether the image name contains a
   specified string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListImages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_images_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_images(AWS.Client.t(), list_images_request(), Keyword.t()) ::
+
+  @spec list_images(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_images(%Client{} = client, input, options \\ []) do
+
+  def list_images(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21129,11 +23780,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the inference components in your account and their properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListInferenceComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inference_components_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("EndpointNameEquals") => String.t(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any()),
+      optional("VariantNameEquals") => String.t()
+    }
   """
-  @spec list_inference_components(AWS.Client.t(), list_inference_components_input(), Keyword.t()) ::
+
+  @spec list_inference_components(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inference_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_inference_components(%Client{} = client, input, options \\ []) do
+
+  def list_inference_components(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21142,15 +23814,31 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns the list of all inference experiments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListInferenceExperiments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inference_experiments_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any()),
+      optional("Type") => list(any())
+    }
   """
-  @spec list_inference_experiments(
-          AWS.Client.t(),
-          list_inference_experiments_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_inference_experiments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inference_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_inference_experiments(%Client{} = client, input, options \\ []) do
+
+  def list_inference_experiments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21159,16 +23847,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns a list of the subtasks for an Inference Recommender job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListInferenceRecommendationsJobSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inference_recommendations_job_steps_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any()),
+      optional("StepType") => list(any()),
+      required("JobName") => String.t()
+    }
   """
-  @spec list_inference_recommendations_job_steps(
-          AWS.Client.t(),
-          list_inference_recommendations_job_steps_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_inference_recommendations_job_steps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inference_recommendations_job_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_recommendations_job_steps_errors()}
-  def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ []) do
+
+  def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21177,15 +23876,33 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists recommendation jobs that satisfy various filters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListInferenceRecommendationsJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_inference_recommendations_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModelNameEquals") => String.t(),
+      optional("ModelPackageVersionArnEquals") => String.t(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_inference_recommendations_jobs(
-          AWS.Client.t(),
-          list_inference_recommendations_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_inference_recommendations_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_inference_recommendations_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_inference_recommendations_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_inference_recommendations_jobs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21194,11 +23911,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of labeling jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListLabelingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_labeling_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_labeling_jobs(AWS.Client.t(), list_labeling_jobs_request(), Keyword.t()) ::
+
+  @spec list_labeling_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_labeling_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_labeling_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_labeling_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21207,16 +23943,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of labeling jobs assigned to a specified work team.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListLabelingJobsForWorkteam&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_labeling_jobs_for_workteam_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("JobReferenceCodeContains") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      required("WorkteamArn") => String.t()
+    }
   """
-  @spec list_labeling_jobs_for_workteam(
-          AWS.Client.t(),
-          list_labeling_jobs_for_workteam_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_labeling_jobs_for_workteam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_labeling_jobs_for_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_labeling_jobs_for_workteam_errors()}
-  def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ []) do
+
+  def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21228,11 +23978,26 @@ defmodule AWS.SageMaker do
   information, see [ Cross-Account Lineage Tracking
   ](https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html)
   in the *Amazon SageMaker Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListLineageGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_lineage_groups_request`)
+    %{
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_lineage_groups(AWS.Client.t(), list_lineage_groups_request(), Keyword.t()) ::
+
+  @spec list_lineage_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_lineage_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_lineage_groups(%Client{} = client, input, options \\ []) do
+
+  def list_lineage_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21241,15 +24006,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists all MLflow Tracking Servers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListMlflowTrackingServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_mlflow_tracking_servers_request`)
+    %{
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("MlflowVersion") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("TrackingServerStatus") => list(any())
+    }
   """
-  @spec list_mlflow_tracking_servers(
-          AWS.Client.t(),
-          list_mlflow_tracking_servers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_mlflow_tracking_servers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_mlflow_tracking_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_mlflow_tracking_servers(%Client{} = client, input, options \\ []) do
+
+  def list_mlflow_tracking_servers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21258,15 +24036,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists model bias jobs definitions that satisfy various filters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelBiasJobDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_bias_job_definitions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("EndpointName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_model_bias_job_definitions(
-          AWS.Client.t(),
-          list_model_bias_job_definitions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_model_bias_job_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_bias_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_bias_job_definitions(%Client{} = client, input, options \\ []) do
+
+  def list_model_bias_job_definitions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21275,15 +24067,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   List the export jobs for the Amazon SageMaker Model Card.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelCardExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_card_export_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModelCardExportJobNameContains") => String.t(),
+      optional("ModelCardVersion") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any()),
+      required("ModelCardName") => String.t()
+    }
   """
-  @spec list_model_card_export_jobs(
-          AWS.Client.t(),
-          list_model_card_export_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_model_card_export_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_card_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_card_export_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_model_card_export_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21292,12 +24099,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   List existing versions of an Amazon SageMaker Model Card.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelCardVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_card_versions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModelCardStatus") => list(any()),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      required("ModelCardName") => String.t()
+    }
   """
-  @spec list_model_card_versions(AWS.Client.t(), list_model_card_versions_request(), Keyword.t()) ::
+
+  @spec list_model_card_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_card_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_card_versions_errors()}
-  def list_model_card_versions(%Client{} = client, input, options \\ []) do
+
+  def list_model_card_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21306,11 +24130,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   List existing model cards.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelCards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_cards_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModelCardStatus") => list(any()),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_model_cards(AWS.Client.t(), list_model_cards_request(), Keyword.t()) ::
+
+  @spec list_model_cards(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_cards_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_cards(%Client{} = client, input, options \\ []) do
+
+  def list_model_cards(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21319,15 +24160,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists model explainability job definitions that satisfy various filters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelExplainabilityJobDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_explainability_job_definitions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("EndpointName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_model_explainability_job_definitions(
-          AWS.Client.t(),
-          list_model_explainability_job_definitions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_model_explainability_job_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_explainability_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_explainability_job_definitions(%Client{} = client, input, options \\ []) do
+
+  def list_model_explainability_job_definitions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21337,11 +24192,23 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the domain, framework, task, and model name of standard machine learning
   models found in common model zoos.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_metadata_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SearchExpression") => model_metadata_search_expression()
+    }
   """
-  @spec list_model_metadata(AWS.Client.t(), list_model_metadata_request(), Keyword.t()) ::
+
+  @spec list_model_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_metadata(%Client{} = client, input, options \\ []) do
+
+  def list_model_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21350,11 +24217,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of the model groups in your Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelPackageGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_package_groups_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("CrossAccountFilterOption") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_model_package_groups(AWS.Client.t(), list_model_package_groups_input(), Keyword.t()) ::
+
+  @spec list_model_package_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_package_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_package_groups(%Client{} = client, input, options \\ []) do
+
+  def list_model_package_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21363,11 +24247,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the model packages that have been created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_packages_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModelApprovalStatus") => list(any()),
+      optional("ModelPackageGroupName") => String.t(),
+      optional("ModelPackageType") => list(any()),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_model_packages(AWS.Client.t(), list_model_packages_input(), Keyword.t()) ::
+
+  @spec list_model_packages(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_packages(%Client{} = client, input, options \\ []) do
+
+  def list_model_packages(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21376,15 +24279,29 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of model quality monitoring job definitions in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModelQualityJobDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_quality_job_definitions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("EndpointName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_model_quality_job_definitions(
-          AWS.Client.t(),
-          list_model_quality_job_definitions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_model_quality_job_definitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_quality_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_model_quality_job_definitions(%Client{} = client, input, options \\ []) do
+
+  def list_model_quality_job_definitions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21393,11 +24310,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists models created with the `CreateModel` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_models_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_models(AWS.Client.t(), list_models_input(), Keyword.t()) ::
+
+  @spec list_models(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_models_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_models(%Client{} = client, input, options \\ []) do
+
+  def list_models(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21406,16 +24339,31 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of past alerts in a model monitoring schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListMonitoringAlertHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_monitoring_alert_history_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("MonitoringAlertName") => String.t(),
+      optional("MonitoringScheduleName") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_monitoring_alert_history(
-          AWS.Client.t(),
-          list_monitoring_alert_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_monitoring_alert_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_monitoring_alert_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitoring_alert_history_errors()}
-  def list_monitoring_alert_history(%Client{} = client, input, options \\ []) do
+
+  def list_monitoring_alert_history(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21424,12 +24372,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets the alerts for a single monitoring schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListMonitoringAlerts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_monitoring_alerts_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec list_monitoring_alerts(AWS.Client.t(), list_monitoring_alerts_request(), Keyword.t()) ::
+
+  @spec list_monitoring_alerts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_monitoring_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_monitoring_alerts_errors()}
-  def list_monitoring_alerts(%Client{} = client, input, options \\ []) do
+
+  def list_monitoring_alerts(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21438,15 +24398,35 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns list of all monitoring job executions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListMonitoringExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_monitoring_executions_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("EndpointName") => String.t(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("MonitoringJobDefinitionName") => String.t(),
+      optional("MonitoringScheduleName") => String.t(),
+      optional("MonitoringTypeEquals") => list(any()),
+      optional("NextToken") => String.t(),
+      optional("ScheduledTimeAfter") => non_neg_integer(),
+      optional("ScheduledTimeBefore") => non_neg_integer(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_monitoring_executions(
-          AWS.Client.t(),
-          list_monitoring_executions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_monitoring_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_monitoring_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_monitoring_executions(%Client{} = client, input, options \\ []) do
+
+  def list_monitoring_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21455,15 +24435,33 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns list of all monitoring schedules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListMonitoringSchedules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_monitoring_schedules_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("EndpointName") => String.t(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("MonitoringJobDefinitionName") => String.t(),
+      optional("MonitoringTypeEquals") => list(any()),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_monitoring_schedules(
-          AWS.Client.t(),
-          list_monitoring_schedules_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_monitoring_schedules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_monitoring_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_monitoring_schedules(%Client{} = client, input, options \\ []) do
+
+  def list_monitoring_schedules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21474,15 +24472,30 @@ defmodule AWS.SageMaker do
   Lists notebook instance lifestyle configurations created with the
   [CreateNotebookInstanceLifecycleConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListNotebookInstanceLifecycleConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_notebook_instance_lifecycle_configs_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_notebook_instance_lifecycle_configs(
-          AWS.Client.t(),
-          list_notebook_instance_lifecycle_configs_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_notebook_instance_lifecycle_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_notebook_instance_lifecycle_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_notebook_instance_lifecycle_configs(%Client{} = client, input, options \\ []) do
+
+  def list_notebook_instance_lifecycle_configs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21492,11 +24505,33 @@ defmodule AWS.SageMaker do
   @doc """
   Returns a list of the SageMaker notebook instances in the requester's account in
   an Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListNotebookInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_notebook_instances_input`)
+    %{
+      optional("AdditionalCodeRepositoryEquals") => String.t(),
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("DefaultCodeRepositoryContains") => String.t(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("NotebookInstanceLifecycleConfigNameContains") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_notebook_instances(AWS.Client.t(), list_notebook_instances_input(), Keyword.t()) ::
+
+  @spec list_notebook_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_notebook_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_notebook_instances(%Client{} = client, input, options \\ []) do
+
+  def list_notebook_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21505,11 +24540,31 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the optimization jobs in your account and their properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListOptimizationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_optimization_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("OptimizationContains") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_optimization_jobs(AWS.Client.t(), list_optimization_jobs_request(), Keyword.t()) ::
+
+  @spec list_optimization_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_optimization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_optimization_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_optimization_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21518,16 +24573,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of `PipeLineExecutionStep` objects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListPipelineExecutionSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_pipeline_execution_steps_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PipelineExecutionArn") => String.t(),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_pipeline_execution_steps(
-          AWS.Client.t(),
-          list_pipeline_execution_steps_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_pipeline_execution_steps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pipeline_execution_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_execution_steps_errors()}
-  def list_pipeline_execution_steps(%Client{} = client, input, options \\ []) do
+
+  def list_pipeline_execution_steps(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21536,12 +24601,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of the pipeline executions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListPipelineExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_pipeline_executions_request`)
+    %{
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      required("PipelineName") => String.t()
+    }
   """
-  @spec list_pipeline_executions(AWS.Client.t(), list_pipeline_executions_request(), Keyword.t()) ::
+
+  @spec list_pipeline_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pipeline_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_executions_errors()}
-  def list_pipeline_executions(%Client{} = client, input, options \\ []) do
+
+  def list_pipeline_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21550,16 +24631,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of parameters for a pipeline execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListPipelineParametersForExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_pipeline_parameters_for_execution_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("PipelineExecutionArn") => String.t()
+    }
   """
-  @spec list_pipeline_parameters_for_execution(
-          AWS.Client.t(),
-          list_pipeline_parameters_for_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_pipeline_parameters_for_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pipeline_parameters_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_pipeline_parameters_for_execution_errors()}
-  def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ []) do
+
+  def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21568,11 +24658,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of pipelines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_pipelines_request`)
+    %{
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PipelineNamePrefix") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_pipelines(AWS.Client.t(), list_pipelines_request(), Keyword.t()) ::
+
+  @spec list_pipelines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_pipelines(%Client{} = client, input, options \\ []) do
+
+  def list_pipelines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21581,11 +24687,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists processing jobs that satisfy various filters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListProcessingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_processing_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_processing_jobs(AWS.Client.t(), list_processing_jobs_request(), Keyword.t()) ::
+
+  @spec list_processing_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_processing_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_processing_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_processing_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21594,11 +24719,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Gets a list of the projects in an Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_projects_input`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_projects(AWS.Client.t(), list_projects_input(), Keyword.t()) ::
+
+  @spec list_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_projects(%Client{} = client, input, options \\ []) do
+
+  def list_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21608,11 +24749,27 @@ defmodule AWS.SageMaker do
   @doc """
   Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum
   number of `ResourceCatalog`s viewable is 1000.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListResourceCatalogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_catalogs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_resource_catalogs(AWS.Client.t(), list_resource_catalogs_request(), Keyword.t()) ::
+
+  @spec list_resource_catalogs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_catalogs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_resource_catalogs(%Client{} = client, input, options \\ []) do
+
+  def list_resource_catalogs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21621,11 +24778,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists spaces.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListSpaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_spaces_request`)
+    %{
+      optional("DomainIdEquals") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("SpaceNameContains") => String.t()
+    }
   """
-  @spec list_spaces(AWS.Client.t(), list_spaces_request(), Keyword.t()) ::
+
+  @spec list_spaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_spaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_spaces(%Client{} = client, input, options \\ []) do
+
+  def list_spaces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21635,11 +24807,25 @@ defmodule AWS.SageMaker do
   @doc """
   Lists devices allocated to the stage, containing detailed device information and
   deployment status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListStageDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stage_devices_request`)
+    %{
+      optional("ExcludeDevicesDeployedInOtherStage") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("EdgeDeploymentPlanName") => String.t(),
+      required("StageName") => String.t()
+    }
   """
-  @spec list_stage_devices(AWS.Client.t(), list_stage_devices_request(), Keyword.t()) ::
+
+  @spec list_stage_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stage_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_stage_devices(%Client{} = client, input, options \\ []) do
+
+  def list_stage_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21649,16 +24835,32 @@ defmodule AWS.SageMaker do
   @doc """
   Lists the Amazon SageMaker Studio Lifecycle Configurations in your Amazon Web
   Services Account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListStudioLifecycleConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_studio_lifecycle_configs_request`)
+    %{
+      optional("AppTypeEquals") => list(any()),
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("ModifiedTimeAfter") => non_neg_integer(),
+      optional("ModifiedTimeBefore") => non_neg_integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_studio_lifecycle_configs(
-          AWS.Client.t(),
-          list_studio_lifecycle_configs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_studio_lifecycle_configs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_studio_lifecycle_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studio_lifecycle_configs_errors()}
-  def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
+
+  def list_studio_lifecycle_configs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21669,15 +24871,23 @@ defmodule AWS.SageMaker do
   Gets a list of the work teams that you are subscribed to in the Amazon Web
   Services Marketplace. The list may be empty if no work team satisfies the
   filter specified in the `NameContains` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListSubscribedWorkteams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_subscribed_workteams_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_subscribed_workteams(
-          AWS.Client.t(),
-          list_subscribed_workteams_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_subscribed_workteams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_subscribed_workteams_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_subscribed_workteams(%Client{} = client, input, options \\ []) do
+
+  def list_subscribed_workteams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21686,11 +24896,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Returns the tags for the specified SageMaker resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags(AWS.Client.t(), list_tags_input(), Keyword.t()) ::
+
+  @spec list_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_tags(%Client{} = client, input, options \\ []) do
+
+  def list_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21699,11 +24921,31 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists training jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListTrainingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_training_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any()),
+      optional("WarmPoolStatusEquals") => list(any())
+    }
   """
-  @spec list_training_jobs(AWS.Client.t(), list_training_jobs_request(), Keyword.t()) ::
+
+  @spec list_training_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_training_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_training_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_training_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21715,16 +24957,32 @@ defmodule AWS.SageMaker do
   [TrainingJobSummary](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html)
   objects that describe the training jobs that a hyperparameter tuning job
   launched.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListTrainingJobsForHyperParameterTuningJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_training_jobs_for_hyper_parameter_tuning_job_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any()),
+      required("HyperParameterTuningJobName") => String.t()
+    }
   """
+
   @spec list_training_jobs_for_hyper_parameter_tuning_job(
           AWS.Client.t(),
-          list_training_jobs_for_hyper_parameter_tuning_job_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, list_training_jobs_for_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_training_jobs_for_hyper_parameter_tuning_job_errors()}
-  def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
+
+  def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21739,11 +24997,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists transform jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListTransformJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_transform_jobs_request`)
+    %{
+      optional("CreationTimeAfter") => non_neg_integer(),
+      optional("CreationTimeBefore") => non_neg_integer(),
+      optional("LastModifiedTimeAfter") => non_neg_integer(),
+      optional("LastModifiedTimeBefore") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_transform_jobs(AWS.Client.t(), list_transform_jobs_request(), Keyword.t()) ::
+
+  @spec list_transform_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_transform_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_transform_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_transform_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21755,12 +25032,30 @@ defmodule AWS.SageMaker do
   component name or creation time. You can filter the list to show only
   components that were created in a specific time range. You can also filter on
   one of the following:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListTrialComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_trial_components_request`)
+    %{
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("ExperimentName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("SourceArn") => String.t(),
+      optional("TrialName") => String.t()
+    }
   """
-  @spec list_trial_components(AWS.Client.t(), list_trial_components_request(), Keyword.t()) ::
+
+  @spec list_trial_components(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_trial_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trial_components_errors()}
-  def list_trial_components(%Client{} = client, input, options \\ []) do
+
+  def list_trial_components(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21773,12 +25068,29 @@ defmodule AWS.SageMaker do
   to limit the list to the trials that associated with that trial component. The
   list can be filtered to show only trials that were created in a specific time
   range. The list can be sorted by trial name or creation time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListTrials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_trials_request`)
+    %{
+      optional("CreatedAfter") => non_neg_integer(),
+      optional("CreatedBefore") => non_neg_integer(),
+      optional("ExperimentName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("TrialComponentName") => String.t()
+    }
   """
-  @spec list_trials(AWS.Client.t(), list_trials_request(), Keyword.t()) ::
+
+  @spec list_trials(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_trials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trials_errors()}
-  def list_trials(%Client{} = client, input, options \\ []) do
+
+  def list_trials(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21787,11 +25099,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists user profiles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListUserProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_user_profiles_request`)
+    %{
+      optional("DomainIdEquals") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any()),
+      optional("UserProfileNameContains") => String.t()
+    }
   """
-  @spec list_user_profiles(AWS.Client.t(), list_user_profiles_request(), Keyword.t()) ::
+
+  @spec list_user_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_user_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_user_profiles(%Client{} = client, input, options \\ []) do
+
+  def list_user_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21802,11 +25129,25 @@ defmodule AWS.SageMaker do
   Use this operation to list all private and vendor workforces in an Amazon Web
   Services Region. Note that you can only have one private workforce per Amazon
   Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListWorkforces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_workforces_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_workforces(AWS.Client.t(), list_workforces_request(), Keyword.t()) ::
+
+  @spec list_workforces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_workforces_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_workforces(%Client{} = client, input, options \\ []) do
+
+  def list_workforces(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21817,11 +25158,25 @@ defmodule AWS.SageMaker do
   Gets a list of private work teams that you have defined in a region. The list
   may be empty if no work team satisfies the filter specified in the
   `NameContains` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20ListWorkteams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_workteams_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("SortBy") => list(any()),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_workteams(AWS.Client.t(), list_workteams_request(), Keyword.t()) ::
+
+  @spec list_workteams(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_workteams_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_workteams(%Client{} = client, input, options \\ []) do
+
+  def list_workteams(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21833,16 +25188,24 @@ defmodule AWS.SageMaker do
   resoure policies, see [Identity-based policies and resource-based
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
   in the *Amazon Web Services Identity and Access Management User Guide.*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20PutModelPackageGroupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_model_package_group_policy_input`)
+    %{
+      required("ModelPackageGroupName") => String.t(),
+      required("ResourcePolicy") => String.t()
+    }
   """
-  @spec put_model_package_group_policy(
-          AWS.Client.t(),
-          put_model_package_group_policy_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_model_package_group_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_model_package_group_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_model_package_group_policy_errors()}
-  def put_model_package_group_policy(%Client{} = client, input, options \\ []) do
+
+  def put_model_package_group_policy(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21854,12 +25217,28 @@ defmodule AWS.SageMaker do
   entities. For more information, see [ Querying Lineage
   Entities](https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html)
   in the *Amazon SageMaker Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20QueryLineage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:query_lineage_request`)
+    %{
+      optional("Direction") => list(any()),
+      optional("Filters") => query_filters(),
+      optional("IncludeEdges") => boolean(),
+      optional("MaxDepth") => integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StartArns") => list(String.t()())
+    }
   """
-  @spec query_lineage(AWS.Client.t(), query_lineage_request(), Keyword.t()) ::
+
+  @spec query_lineage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_lineage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_lineage_errors()}
-  def query_lineage(%Client{} = client, input, options \\ []) do
+
+  def query_lineage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21868,12 +25247,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Register devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20RegisterDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_devices_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("DeviceFleetName") => String.t(),
+      required("Devices") => list(device()())
+    }
   """
-  @spec register_devices(AWS.Client.t(), register_devices_request(), Keyword.t()) ::
+
+  @spec register_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_devices_errors()}
-  def register_devices(%Client{} = client, input, options \\ []) do
+
+  def register_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21882,12 +25273,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Renders the UI template so that you can preview the worker's experience.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20RenderUiTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:render_ui_template_request`)
+    %{
+      optional("HumanTaskUiArn") => String.t(),
+      optional("UiTemplate") => ui_template(),
+      required("RoleArn") => String.t(),
+      required("Task") => renderable_task()
+    }
   """
-  @spec render_ui_template(AWS.Client.t(), render_ui_template_request(), Keyword.t()) ::
+
+  @spec render_ui_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, render_ui_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, render_ui_template_errors()}
-  def render_ui_template(%Client{} = client, input, options \\ []) do
+
+  def render_ui_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21896,12 +25300,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Retry the execution of the pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20RetryPipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:retry_pipeline_execution_request`)
+    %{
+      optional("ParallelismConfiguration") => parallelism_configuration(),
+      required("ClientRequestToken") => String.t(),
+      required("PipelineExecutionArn") => String.t()
+    }
   """
-  @spec retry_pipeline_execution(AWS.Client.t(), retry_pipeline_execution_request(), Keyword.t()) ::
+
+  @spec retry_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, retry_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, retry_pipeline_execution_errors()}
-  def retry_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def retry_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21914,11 +25330,28 @@ defmodule AWS.SageMaker do
   search results by any resource property in a ascending or descending order.
   You can query against the following value types: numeric, text, Boolean, and
   timestamp.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20Search&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:search_request`)
+    %{
+      optional("CrossAccountFilterOption") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SearchExpression") => search_expression(),
+      optional("SortBy") => String.t(),
+      optional("SortOrder") => list(any()),
+      optional("VisibilityConditions") => list(visibility_conditions()()),
+      required("Resource") => list(any())
+    }
   """
-  @spec search(AWS.Client.t(), search_request(), Keyword.t()) ::
+
+  @spec search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_response(), any()}
           | {:error, {:unexpected_response, any()}}
-  def search(%Client{} = client, input, options \\ []) do
+
+  def search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21930,16 +25363,25 @@ defmodule AWS.SageMaker do
   message describing why. When a callback step is run, the pipeline generates a
   callback token and includes the token in a message sent to Amazon Simple Queue
   Service (Amazon SQS).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20SendPipelineExecutionStepFailure&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_pipeline_execution_step_failure_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("FailureReason") => String.t(),
+      required("CallbackToken") => String.t()
+    }
   """
-  @spec send_pipeline_execution_step_failure(
-          AWS.Client.t(),
-          send_pipeline_execution_step_failure_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_pipeline_execution_step_failure(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_pipeline_execution_step_failure_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_pipeline_execution_step_failure_errors()}
-  def send_pipeline_execution_step_failure(%Client{} = client, input, options \\ []) do
+
+  def send_pipeline_execution_step_failure(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21951,16 +25393,25 @@ defmodule AWS.SageMaker do
   provides a list of the step's output parameters. When a callback step is run,
   the pipeline generates a callback token and includes the token in a message
   sent to Amazon Simple Queue Service (Amazon SQS).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20SendPipelineExecutionStepSuccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_pipeline_execution_step_success_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("OutputParameters") => list(output_parameter()()),
+      required("CallbackToken") => String.t()
+    }
   """
-  @spec send_pipeline_execution_step_success(
-          AWS.Client.t(),
-          send_pipeline_execution_step_success_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_pipeline_execution_step_success(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_pipeline_execution_step_success_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_pipeline_execution_step_success_errors()}
-  def send_pipeline_execution_step_success(%Client{} = client, input, options \\ []) do
+
+  def send_pipeline_execution_step_success(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -21969,15 +25420,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Starts a stage in an edge deployment plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StartEdgeDeploymentStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_edge_deployment_stage_request`)
+    %{
+      required("EdgeDeploymentPlanName") => String.t(),
+      required("StageName") => String.t()
+    }
   """
-  @spec start_edge_deployment_stage(
-          AWS.Client.t(),
-          start_edge_deployment_stage_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_edge_deployment_stage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def start_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+
+  def start_edge_deployment_stage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -21986,16 +25444,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Starts an inference experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StartInferenceExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_inference_experiment_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec start_inference_experiment(
-          AWS.Client.t(),
-          start_inference_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_inference_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_inference_experiment_errors()}
-  def start_inference_experiment(%Client{} = client, input, options \\ []) do
+
+  def start_inference_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22004,16 +25468,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Programmatically start an MLflow Tracking Server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StartMlflowTrackingServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_mlflow_tracking_server_request`)
+    %{
+      required("TrackingServerName") => String.t()
+    }
   """
-  @spec start_mlflow_tracking_server(
-          AWS.Client.t(),
-          start_mlflow_tracking_server_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_mlflow_tracking_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_mlflow_tracking_server_errors()}
-  def start_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+
+  def start_mlflow_tracking_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22022,16 +25492,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Starts a previously stopped monitoring schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StartMonitoringSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_monitoring_schedule_request`)
+    %{
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec start_monitoring_schedule(
-          AWS.Client.t(),
-          start_monitoring_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_monitoring_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_monitoring_schedule_errors()}
-  def start_monitoring_schedule(%Client{} = client, input, options \\ []) do
+
+  def start_monitoring_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22044,12 +25520,22 @@ defmodule AWS.SageMaker do
   SageMaker sets the notebook instance status to `InService`. A notebook
   instance's status must be `InService` before you can connect to your Jupyter
   notebook.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StartNotebookInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_notebook_instance_input`)
+    %{
+      required("NotebookInstanceName") => String.t()
+    }
   """
-  @spec start_notebook_instance(AWS.Client.t(), start_notebook_instance_input(), Keyword.t()) ::
+
+  @spec start_notebook_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_notebook_instance_errors()}
-  def start_notebook_instance(%Client{} = client, input, options \\ []) do
+
+  def start_notebook_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22058,12 +25544,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Starts a pipeline execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StartPipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_pipeline_execution_request`)
+    %{
+      optional("ParallelismConfiguration") => parallelism_configuration(),
+      optional("PipelineExecutionDescription") => String.t(),
+      optional("PipelineExecutionDisplayName") => String.t(),
+      optional("PipelineParameters") => list(parameter()()),
+      optional("SelectiveExecutionConfig") => selective_execution_config(),
+      required("ClientRequestToken") => String.t(),
+      required("PipelineName") => String.t()
+    }
   """
-  @spec start_pipeline_execution(AWS.Client.t(), start_pipeline_execution_request(), Keyword.t()) ::
+
+  @spec start_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_pipeline_execution_errors()}
-  def start_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def start_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22072,12 +25574,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   A method for forcing a running job to shut down.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopAutoMLJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_auto_ml_job_request`)
+    %{
+      required("AutoMLJobName") => String.t()
+    }
   """
-  @spec stop_auto_ml_job(AWS.Client.t(), stop_auto_ml_job_request(), Keyword.t()) ::
+
+  @spec stop_auto_ml_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_auto_ml_job_errors()}
-  def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
+
+  def stop_auto_ml_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22088,12 +25600,22 @@ defmodule AWS.SageMaker do
   Stops a model compilation job. To stop a job, Amazon SageMaker sends the
   algorithm the SIGTERM signal. This gracefully shuts the job down. If the job
   hasn't stopped, it sends the SIGKILL signal.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopCompilationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_compilation_job_request`)
+    %{
+      required("CompilationJobName") => String.t()
+    }
   """
-  @spec stop_compilation_job(AWS.Client.t(), stop_compilation_job_request(), Keyword.t()) ::
+
+  @spec stop_compilation_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_compilation_job_errors()}
-  def stop_compilation_job(%Client{} = client, input, options \\ []) do
+
+  def stop_compilation_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22102,15 +25624,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Stops a stage in an edge deployment plan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopEdgeDeploymentStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_edge_deployment_stage_request`)
+    %{
+      required("EdgeDeploymentPlanName") => String.t(),
+      required("StageName") => String.t()
+    }
   """
-  @spec stop_edge_deployment_stage(
-          AWS.Client.t(),
-          stop_edge_deployment_stage_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_edge_deployment_stage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def stop_edge_deployment_stage(%Client{} = client, input, options \\ []) do
+
+  def stop_edge_deployment_stage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22119,11 +25648,21 @@ defmodule AWS.SageMaker do
 
   @doc """
   Request to stop an edge packaging job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopEdgePackagingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_edge_packaging_job_request`)
+    %{
+      required("EdgePackagingJobName") => String.t()
+    }
   """
-  @spec stop_edge_packaging_job(AWS.Client.t(), stop_edge_packaging_job_request(), Keyword.t()) ::
+
+  @spec stop_edge_packaging_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def stop_edge_packaging_job(%Client{} = client, input, options \\ []) do
+
+  def stop_edge_packaging_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22133,16 +25672,23 @@ defmodule AWS.SageMaker do
   @doc """
   Stops a running hyperparameter tuning job and all running training jobs that the
   tuning job launched.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopHyperParameterTuningJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_hyper_parameter_tuning_job_request`)
+    %{
+      required("HyperParameterTuningJobName") => String.t()
+    }
   """
-  @spec stop_hyper_parameter_tuning_job(
-          AWS.Client.t(),
-          stop_hyper_parameter_tuning_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_hyper_parameter_tuning_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_hyper_parameter_tuning_job_errors()}
-  def stop_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
+
+  def stop_hyper_parameter_tuning_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -22151,16 +25697,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Stops an inference experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopInferenceExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_inference_experiment_request`)
+    %{
+      optional("DesiredModelVariants") => list(model_variant_config()()),
+      optional("DesiredState") => list(any()),
+      optional("Reason") => String.t(),
+      required("ModelVariantActions") => map(),
+      required("Name") => String.t()
+    }
   """
-  @spec stop_inference_experiment(
-          AWS.Client.t(),
-          stop_inference_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_inference_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_inference_experiment_errors()}
-  def stop_inference_experiment(%Client{} = client, input, options \\ []) do
+
+  def stop_inference_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22169,16 +25725,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Stops an Inference Recommender job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopInferenceRecommendationsJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_inference_recommendations_job_request`)
+    %{
+      required("JobName") => String.t()
+    }
   """
-  @spec stop_inference_recommendations_job(
-          AWS.Client.t(),
-          stop_inference_recommendations_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_inference_recommendations_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_inference_recommendations_job_errors()}
-  def stop_inference_recommendations_job(%Client{} = client, input, options \\ []) do
+
+  def stop_inference_recommendations_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -22189,12 +25752,22 @@ defmodule AWS.SageMaker do
   Stops a running labeling job. A job that is stopped cannot be restarted. Any
   results obtained before the job is stopped are placed in the Amazon S3 output
   bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopLabelingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_labeling_job_request`)
+    %{
+      required("LabelingJobName") => String.t()
+    }
   """
-  @spec stop_labeling_job(AWS.Client.t(), stop_labeling_job_request(), Keyword.t()) ::
+
+  @spec stop_labeling_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_labeling_job_errors()}
-  def stop_labeling_job(%Client{} = client, input, options \\ []) do
+
+  def stop_labeling_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22203,16 +25776,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Programmatically stop an MLflow Tracking Server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopMlflowTrackingServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_mlflow_tracking_server_request`)
+    %{
+      required("TrackingServerName") => String.t()
+    }
   """
-  @spec stop_mlflow_tracking_server(
-          AWS.Client.t(),
-          stop_mlflow_tracking_server_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_mlflow_tracking_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_mlflow_tracking_server_errors()}
-  def stop_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+
+  def stop_mlflow_tracking_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22221,12 +25800,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Stops a previously started monitoring schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopMonitoringSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_monitoring_schedule_request`)
+    %{
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec stop_monitoring_schedule(AWS.Client.t(), stop_monitoring_schedule_request(), Keyword.t()) ::
+
+  @spec stop_monitoring_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_monitoring_schedule_errors()}
-  def stop_monitoring_schedule(%Client{} = client, input, options \\ []) do
+
+  def stop_monitoring_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22238,11 +25827,21 @@ defmodule AWS.SageMaker do
   disconnects the ML storage volume from it. SageMaker preserves the ML storage
   volume. SageMaker stops charging you for the ML compute instance when you call
   `StopNotebookInstance`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopNotebookInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_notebook_instance_input`)
+    %{
+      required("NotebookInstanceName") => String.t()
+    }
   """
-  @spec stop_notebook_instance(AWS.Client.t(), stop_notebook_instance_input(), Keyword.t()) ::
+
+  @spec stop_notebook_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def stop_notebook_instance(%Client{} = client, input, options \\ []) do
+
+  def stop_notebook_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22251,12 +25850,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Ends a running inference optimization job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopOptimizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_optimization_job_request`)
+    %{
+      required("OptimizationJobName") => String.t()
+    }
   """
-  @spec stop_optimization_job(AWS.Client.t(), stop_optimization_job_request(), Keyword.t()) ::
+
+  @spec stop_optimization_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_optimization_job_errors()}
-  def stop_optimization_job(%Client{} = client, input, options \\ []) do
+
+  def stop_optimization_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22265,12 +25874,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Stops a pipeline execution. **Callback Step**
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopPipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_pipeline_execution_request`)
+    %{
+      required("ClientRequestToken") => String.t(),
+      required("PipelineExecutionArn") => String.t()
+    }
   """
-  @spec stop_pipeline_execution(AWS.Client.t(), stop_pipeline_execution_request(), Keyword.t()) ::
+
+  @spec stop_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_pipeline_execution_errors()}
-  def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def stop_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22279,12 +25899,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Stops a processing job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopProcessingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_processing_job_request`)
+    %{
+      required("ProcessingJobName") => String.t()
+    }
   """
-  @spec stop_processing_job(AWS.Client.t(), stop_processing_job_request(), Keyword.t()) ::
+
+  @spec stop_processing_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_processing_job_errors()}
-  def stop_processing_job(%Client{} = client, input, options \\ []) do
+
+  def stop_processing_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22296,12 +25926,22 @@ defmodule AWS.SageMaker do
   signal, which delays job termination for 120 seconds. Algorithms might use
   this 120-second window to save the model artifacts, so the results of the
   training is not lost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopTrainingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_training_job_request`)
+    %{
+      required("TrainingJobName") => String.t()
+    }
   """
-  @spec stop_training_job(AWS.Client.t(), stop_training_job_request(), Keyword.t()) ::
+
+  @spec stop_training_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_training_job_errors()}
-  def stop_training_job(%Client{} = client, input, options \\ []) do
+
+  def stop_training_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22310,12 +25950,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Stops a batch transform job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20StopTransformJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_transform_job_request`)
+    %{
+      required("TransformJobName") => String.t()
+    }
   """
-  @spec stop_transform_job(AWS.Client.t(), stop_transform_job_request(), Keyword.t()) ::
+
+  @spec stop_transform_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_transform_job_errors()}
-  def stop_transform_job(%Client{} = client, input, options \\ []) do
+
+  def stop_transform_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22324,12 +25974,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates an action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_action_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Properties") => map(),
+      optional("PropertiesToRemove") => list(String.t()()),
+      optional("Status") => list(any()),
+      required("ActionName") => String.t()
+    }
   """
-  @spec update_action(AWS.Client.t(), update_action_request(), Keyword.t()) ::
+
+  @spec update_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_action_errors()}
-  def update_action(%Client{} = client, input, options \\ []) do
+
+  def update_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22338,12 +26002,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates the properties of an AppImageConfig.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateAppImageConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_app_image_config_request`)
+    %{
+      optional("CodeEditorAppImageConfig") => code_editor_app_image_config(),
+      optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
+      optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
+      required("AppImageConfigName") => String.t()
+    }
   """
-  @spec update_app_image_config(AWS.Client.t(), update_app_image_config_request(), Keyword.t()) ::
+
+  @spec update_app_image_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_image_config_errors()}
-  def update_app_image_config(%Client{} = client, input, options \\ []) do
+
+  def update_app_image_config(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22352,12 +26029,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates an artifact.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateArtifact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_artifact_request`)
+    %{
+      optional("ArtifactName") => String.t(),
+      optional("Properties") => map(),
+      optional("PropertiesToRemove") => list(String.t()()),
+      required("ArtifactArn") => String.t()
+    }
   """
-  @spec update_artifact(AWS.Client.t(), update_artifact_request(), Keyword.t()) ::
+
+  @spec update_artifact(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_artifact_errors()}
-  def update_artifact(%Client{} = client, input, options \\ []) do
+
+  def update_artifact(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22366,12 +26056,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a SageMaker HyperPod cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_cluster_request`)
+    %{
+      required("ClusterName") => String.t(),
+      required("InstanceGroups") => list(cluster_instance_group_specification()())
+    }
   """
-  @spec update_cluster(AWS.Client.t(), update_cluster_request(), Keyword.t()) ::
+
+  @spec update_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_errors()}
-  def update_cluster(%Client{} = client, input, options \\ []) do
+
+  def update_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22383,12 +26084,22 @@ defmodule AWS.SageMaker do
   patching. To learn how to use this API, see [Update the SageMaker HyperPod
   platform software of a
   cluster](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateClusterSoftware&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_cluster_software_request`)
+    %{
+      required("ClusterName") => String.t()
+    }
   """
-  @spec update_cluster_software(AWS.Client.t(), update_cluster_software_request(), Keyword.t()) ::
+
+  @spec update_cluster_software(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_software_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_cluster_software_errors()}
-  def update_cluster_software(%Client{} = client, input, options \\ []) do
+
+  def update_cluster_software(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22397,12 +26108,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates the specified Git repository with the specified values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateCodeRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_code_repository_input`)
+    %{
+      optional("GitConfig") => git_config_for_update(),
+      required("CodeRepositoryName") => String.t()
+    }
   """
-  @spec update_code_repository(AWS.Client.t(), update_code_repository_input(), Keyword.t()) ::
+
+  @spec update_code_repository(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_code_repository_errors()}
-  def update_code_repository(%Client{} = client, input, options \\ []) do
+
+  def update_code_repository(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22411,12 +26133,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a context.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateContext&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_context_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Properties") => map(),
+      optional("PropertiesToRemove") => list(String.t()()),
+      required("ContextName") => String.t()
+    }
   """
-  @spec update_context(AWS.Client.t(), update_context_request(), Keyword.t()) ::
+
+  @spec update_context(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_context_errors()}
-  def update_context(%Client{} = client, input, options \\ []) do
+
+  def update_context(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22425,12 +26160,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a fleet of devices.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateDeviceFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_device_fleet_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("EnableIotRoleAlias") => boolean(),
+      optional("RoleArn") => String.t(),
+      required("DeviceFleetName") => String.t(),
+      required("OutputConfig") => edge_output_config()
+    }
   """
-  @spec update_device_fleet(AWS.Client.t(), update_device_fleet_request(), Keyword.t()) ::
+
+  @spec update_device_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_device_fleet_errors()}
-  def update_device_fleet(%Client{} = client, input, options \\ []) do
+
+  def update_device_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22439,11 +26188,22 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates one or more devices in a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_devices_request`)
+    %{
+      required("DeviceFleetName") => String.t(),
+      required("Devices") => list(device()())
+    }
   """
-  @spec update_devices(AWS.Client.t(), update_devices_request(), Keyword.t()) ::
+
+  @spec update_devices(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def update_devices(%Client{} = client, input, options \\ []) do
+
+  def update_devices(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22452,12 +26212,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates the default settings for new user profiles in the domain.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_domain_request`)
+    %{
+      optional("AppNetworkAccessType") => list(any()),
+      optional("AppSecurityGroupManagement") => list(any()),
+      optional("DefaultSpaceSettings") => default_space_settings(),
+      optional("DefaultUserSettings") => user_settings(),
+      optional("DomainSettingsForUpdate") => domain_settings_for_update(),
+      optional("SubnetIds") => list(String.t()()),
+      required("DomainId") => String.t()
+    }
   """
-  @spec update_domain(AWS.Client.t(), update_domain_request(), Keyword.t()) ::
+
+  @spec update_domain(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_domain_errors()}
-  def update_domain(%Client{} = client, input, options \\ []) do
+
+  def update_domain(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22477,12 +26253,27 @@ defmodule AWS.SageMaker do
   check the status of an endpoint, use the
   [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_endpoint_input`)
+    %{
+      optional("DeploymentConfig") => deployment_config(),
+      optional("ExcludeRetainedVariantProperties") => list(variant_property()()),
+      optional("RetainAllVariantProperties") => boolean(),
+      optional("RetainDeploymentConfig") => boolean(),
+      required("EndpointConfigName") => String.t(),
+      required("EndpointName") => String.t()
+    }
   """
-  @spec update_endpoint(AWS.Client.t(), update_endpoint_input(), Keyword.t()) ::
+
+  @spec update_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_errors()}
-  def update_endpoint(%Client{} = client, input, options \\ []) do
+
+  def update_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22497,16 +26288,24 @@ defmodule AWS.SageMaker do
   check the status of an endpoint, use the
   [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateEndpointWeightsAndCapacities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_endpoint_weights_and_capacities_input`)
+    %{
+      required("DesiredWeightsAndCapacities") => list(desired_weight_and_capacity()()),
+      required("EndpointName") => String.t()
+    }
   """
-  @spec update_endpoint_weights_and_capacities(
-          AWS.Client.t(),
-          update_endpoint_weights_and_capacities_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_endpoint_weights_and_capacities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoint_weights_and_capacities_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_weights_and_capacities_errors()}
-  def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
+
+  def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -22516,12 +26315,24 @@ defmodule AWS.SageMaker do
   @doc """
   Adds, updates, or removes the description of an experiment. Updates the display
   name of an experiment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_experiment_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      required("ExperimentName") => String.t()
+    }
   """
-  @spec update_experiment(AWS.Client.t(), update_experiment_request(), Keyword.t()) ::
+
+  @spec update_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_experiment_errors()}
-  def update_experiment(%Client{} = client, input, options \\ []) do
+
+  def update_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22534,12 +26345,25 @@ defmodule AWS.SageMaker do
   using the `UpdateFeatureGroup` API. You can add features for your feature
   group using the `FeatureAdditions` request parameter. Features cannot be
   removed from a feature group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateFeatureGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_feature_group_request`)
+    %{
+      optional("FeatureAdditions") => list(feature_definition()()),
+      optional("OnlineStoreConfig") => online_store_config_update(),
+      optional("ThroughputConfig") => throughput_config_update(),
+      required("FeatureGroupName") => String.t()
+    }
   """
-  @spec update_feature_group(AWS.Client.t(), update_feature_group_request(), Keyword.t()) ::
+
+  @spec update_feature_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_feature_group_errors()}
-  def update_feature_group(%Client{} = client, input, options \\ []) do
+
+  def update_feature_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22548,12 +26372,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates the description and parameters of the feature group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateFeatureMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_feature_metadata_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("ParameterAdditions") => list(feature_parameter()()),
+      optional("ParameterRemovals") => list(String.t()()),
+      required("FeatureGroupName") => String.t(),
+      required("FeatureName") => String.t()
+    }
   """
-  @spec update_feature_metadata(AWS.Client.t(), update_feature_metadata_request(), Keyword.t()) ::
+
+  @spec update_feature_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_feature_metadata_errors()}
-  def update_feature_metadata(%Client{} = client, input, options \\ []) do
+
+  def update_feature_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22562,12 +26400,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Update a hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateHub&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_hub_request`)
+    %{
+      optional("HubDescription") => String.t(),
+      optional("HubDisplayName") => String.t(),
+      optional("HubSearchKeywords") => list(String.t()()),
+      required("HubName") => String.t()
+    }
   """
-  @spec update_hub(AWS.Client.t(), update_hub_request(), Keyword.t()) ::
+
+  @spec update_hub(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hub_errors()}
-  def update_hub(%Client{} = client, input, options \\ []) do
+
+  def update_hub(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22580,12 +26431,26 @@ defmodule AWS.SageMaker do
   and
   [DeleteTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html)
   APIs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_image_request`)
+    %{
+      optional("DeleteProperties") => list(String.t()()),
+      optional("Description") => String.t(),
+      optional("DisplayName") => String.t(),
+      optional("RoleArn") => String.t(),
+      required("ImageName") => String.t()
+    }
   """
-  @spec update_image(AWS.Client.t(), update_image_request(), Keyword.t()) ::
+
+  @spec update_image(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_errors()}
-  def update_image(%Client{} = client, input, options \\ []) do
+
+  def update_image(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22594,12 +26459,33 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates the properties of a SageMaker image version.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateImageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_image_version_request`)
+    %{
+      optional("Alias") => String.t(),
+      optional("AliasesToAdd") => list(String.t()()),
+      optional("AliasesToDelete") => list(String.t()()),
+      optional("Horovod") => boolean(),
+      optional("JobType") => list(any()),
+      optional("MLFramework") => String.t(),
+      optional("Processor") => list(any()),
+      optional("ProgrammingLang") => String.t(),
+      optional("ReleaseNotes") => String.t(),
+      optional("VendorGuidance") => list(any()),
+      optional("Version") => integer(),
+      required("ImageName") => String.t()
+    }
   """
-  @spec update_image_version(AWS.Client.t(), update_image_version_request(), Keyword.t()) ::
+
+  @spec update_image_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_image_version_errors()}
-  def update_image_version(%Client{} = client, input, options \\ []) do
+
+  def update_image_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22608,16 +26494,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates an inference component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateInferenceComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_inference_component_input`)
+    %{
+      optional("RuntimeConfig") => inference_component_runtime_config(),
+      optional("Specification") => inference_component_specification(),
+      required("InferenceComponentName") => String.t()
+    }
   """
-  @spec update_inference_component(
-          AWS.Client.t(),
-          update_inference_component_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_inference_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_component_errors()}
-  def update_inference_component(%Client{} = client, input, options \\ []) do
+
+  def update_inference_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22626,16 +26520,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Runtime settings for a model that is deployed with an inference component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateInferenceComponentRuntimeConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_inference_component_runtime_config_input`)
+    %{
+      required("DesiredRuntimeConfig") => inference_component_runtime_config(),
+      required("InferenceComponentName") => String.t()
+    }
   """
-  @spec update_inference_component_runtime_config(
-          AWS.Client.t(),
-          update_inference_component_runtime_config_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_inference_component_runtime_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_inference_component_runtime_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_component_runtime_config_errors()}
-  def update_inference_component_runtime_config(%Client{} = client, input, options \\ []) do
+
+  def update_inference_component_runtime_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -22647,16 +26549,27 @@ defmodule AWS.SageMaker do
   experiment has to be either `Created`, `Running`. For more information on the
   status of an inference experiment, see
   [DescribeInferenceExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateInferenceExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_inference_experiment_request`)
+    %{
+      optional("DataStorageConfig") => inference_experiment_data_storage_config(),
+      optional("Description") => String.t(),
+      optional("ModelVariants") => list(model_variant_config()()),
+      optional("Schedule") => inference_experiment_schedule(),
+      optional("ShadowModeConfig") => shadow_mode_config(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_inference_experiment(
-          AWS.Client.t(),
-          update_inference_experiment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_inference_experiment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_inference_experiment_errors()}
-  def update_inference_experiment(%Client{} = client, input, options \\ []) do
+
+  def update_inference_experiment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22665,16 +26578,27 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates properties of an existing MLflow Tracking Server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateMlflowTrackingServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_mlflow_tracking_server_request`)
+    %{
+      optional("ArtifactStoreUri") => String.t(),
+      optional("AutomaticModelRegistration") => boolean(),
+      optional("TrackingServerSize") => list(any()),
+      optional("WeeklyMaintenanceWindowStart") => String.t(),
+      required("TrackingServerName") => String.t()
+    }
   """
-  @spec update_mlflow_tracking_server(
-          AWS.Client.t(),
-          update_mlflow_tracking_server_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_mlflow_tracking_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mlflow_tracking_server_errors()}
-  def update_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+
+  def update_mlflow_tracking_server(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -22683,12 +26607,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Update an Amazon SageMaker Model Card.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateModelCard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_model_card_request`)
+    %{
+      optional("Content") => String.t(),
+      optional("ModelCardStatus") => list(any()),
+      required("ModelCardName") => String.t()
+    }
   """
-  @spec update_model_card(AWS.Client.t(), update_model_card_request(), Keyword.t()) ::
+
+  @spec update_model_card(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_card_errors()}
-  def update_model_card(%Client{} = client, input, options \\ []) do
+
+  def update_model_card(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22697,12 +26633,30 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a versioned model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateModelPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_model_package_input`)
+    %{
+      optional("AdditionalInferenceSpecificationsToAdd") => list(additional_inference_specification_definition()()),
+      optional("ApprovalDescription") => String.t(),
+      optional("CustomerMetadataProperties") => map(),
+      optional("CustomerMetadataPropertiesToRemove") => list(String.t()()),
+      optional("InferenceSpecification") => inference_specification(),
+      optional("ModelApprovalStatus") => list(any()),
+      optional("ModelCard") => model_package_model_card(),
+      optional("SourceUri") => String.t(),
+      required("ModelPackageArn") => String.t()
+    }
   """
-  @spec update_model_package(AWS.Client.t(), update_model_package_input(), Keyword.t()) ::
+
+  @spec update_model_package(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_package_errors()}
-  def update_model_package(%Client{} = client, input, options \\ []) do
+
+  def update_model_package(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22711,12 +26665,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Update the parameters of a model monitor alert.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateMonitoringAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_monitoring_alert_request`)
+    %{
+      required("DatapointsToAlert") => integer(),
+      required("EvaluationPeriod") => integer(),
+      required("MonitoringAlertName") => String.t(),
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec update_monitoring_alert(AWS.Client.t(), update_monitoring_alert_request(), Keyword.t()) ::
+
+  @spec update_monitoring_alert(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_monitoring_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitoring_alert_errors()}
-  def update_monitoring_alert(%Client{} = client, input, options \\ []) do
+
+  def update_monitoring_alert(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22725,16 +26692,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a previously created schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateMonitoringSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_monitoring_schedule_request`)
+    %{
+      required("MonitoringScheduleConfig") => monitoring_schedule_config(),
+      required("MonitoringScheduleName") => String.t()
+    }
   """
-  @spec update_monitoring_schedule(
-          AWS.Client.t(),
-          update_monitoring_schedule_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_monitoring_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_monitoring_schedule_errors()}
-  def update_monitoring_schedule(%Client{} = client, input, options \\ []) do
+
+  def update_monitoring_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22745,12 +26719,35 @@ defmodule AWS.SageMaker do
   Updates a notebook instance. NotebookInstance updates include upgrading or
   downgrading the ML compute instance used for your notebook instance to
   accommodate changes in your workload requirements.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateNotebookInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_notebook_instance_input`)
+    %{
+      optional("AcceleratorTypes") => list(list(any())()),
+      optional("AdditionalCodeRepositories") => list(String.t()()),
+      optional("DefaultCodeRepository") => String.t(),
+      optional("DisassociateAcceleratorTypes") => boolean(),
+      optional("DisassociateAdditionalCodeRepositories") => boolean(),
+      optional("DisassociateDefaultCodeRepository") => boolean(),
+      optional("DisassociateLifecycleConfig") => boolean(),
+      optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
+      optional("InstanceType") => list(any()),
+      optional("LifecycleConfigName") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("RootAccess") => list(any()),
+      optional("VolumeSizeInGB") => integer(),
+      required("NotebookInstanceName") => String.t()
+    }
   """
-  @spec update_notebook_instance(AWS.Client.t(), update_notebook_instance_input(), Keyword.t()) ::
+
+  @spec update_notebook_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notebook_instance_errors()}
-  def update_notebook_instance(%Client{} = client, input, options \\ []) do
+
+  def update_notebook_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22761,16 +26758,25 @@ defmodule AWS.SageMaker do
   Updates a notebook instance lifecycle configuration created with the
   [CreateNotebookInstanceLifecycleConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html)
   API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateNotebookInstanceLifecycleConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_notebook_instance_lifecycle_config_input`)
+    %{
+      optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
+      optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
+      required("NotebookInstanceLifecycleConfigName") => String.t()
+    }
   """
-  @spec update_notebook_instance_lifecycle_config(
-          AWS.Client.t(),
-          update_notebook_instance_lifecycle_config_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_notebook_instance_lifecycle_config(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notebook_instance_lifecycle_config_errors()}
-  def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
+
+  def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -22779,12 +26785,28 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a pipeline.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_pipeline_request`)
+    %{
+      optional("ParallelismConfiguration") => parallelism_configuration(),
+      optional("PipelineDefinition") => String.t(),
+      optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
+      optional("PipelineDescription") => String.t(),
+      optional("PipelineDisplayName") => String.t(),
+      optional("RoleArn") => String.t(),
+      required("PipelineName") => String.t()
+    }
   """
-  @spec update_pipeline(AWS.Client.t(), update_pipeline_request(), Keyword.t()) ::
+
+  @spec update_pipeline(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_errors()}
-  def update_pipeline(%Client{} = client, input, options \\ []) do
+
+  def update_pipeline(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22793,16 +26815,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a pipeline execution.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdatePipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_pipeline_execution_request`)
+    %{
+      optional("ParallelismConfiguration") => parallelism_configuration(),
+      optional("PipelineExecutionDescription") => String.t(),
+      optional("PipelineExecutionDisplayName") => String.t(),
+      required("PipelineExecutionArn") => String.t()
+    }
   """
-  @spec update_pipeline_execution(
-          AWS.Client.t(),
-          update_pipeline_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_pipeline_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pipeline_execution_errors()}
-  def update_pipeline_execution(%Client{} = client, input, options \\ []) do
+
+  def update_pipeline_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22812,12 +26843,25 @@ defmodule AWS.SageMaker do
   @doc """
   Updates a machine learning (ML) project that is created from a template that
   sets up an ML pipeline from training to deploying an approved model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_project_input`)
+    %{
+      optional("ProjectDescription") => String.t(),
+      optional("ServiceCatalogProvisioningUpdateDetails") => service_catalog_provisioning_update_details(),
+      optional("Tags") => list(tag()()),
+      required("ProjectName") => String.t()
+    }
   """
-  @spec update_project(AWS.Client.t(), update_project_input(), Keyword.t()) ::
+
+  @spec update_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-  def update_project(%Client{} = client, input, options \\ []) do
+
+  def update_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22826,12 +26870,25 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates the settings of a space.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_space_request`)
+    %{
+      optional("SpaceDisplayName") => String.t(),
+      optional("SpaceSettings") => space_settings(),
+      required("DomainId") => String.t(),
+      required("SpaceName") => String.t()
+    }
   """
-  @spec update_space(AWS.Client.t(), update_space_request(), Keyword.t()) ::
+
+  @spec update_space(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_space_errors()}
-  def update_space(%Client{} = client, input, options \\ []) do
+
+  def update_space(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22841,12 +26898,26 @@ defmodule AWS.SageMaker do
   @doc """
   Update a model training job to request a new Debugger profiling configuration or
   to change warm pool retention length.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateTrainingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_training_job_request`)
+    %{
+      optional("ProfilerConfig") => profiler_config_for_update(),
+      optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
+      optional("RemoteDebugConfig") => remote_debug_config_for_update(),
+      optional("ResourceConfig") => resource_config_for_update(),
+      required("TrainingJobName") => String.t()
+    }
   """
-  @spec update_training_job(AWS.Client.t(), update_training_job_request(), Keyword.t()) ::
+
+  @spec update_training_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_training_job_errors()}
-  def update_training_job(%Client{} = client, input, options \\ []) do
+
+  def update_training_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22855,12 +26926,23 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates the display name of a trial.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateTrial&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_trial_request`)
+    %{
+      optional("DisplayName") => String.t(),
+      required("TrialName") => String.t()
+    }
   """
-  @spec update_trial(AWS.Client.t(), update_trial_request(), Keyword.t()) ::
+
+  @spec update_trial(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trial_errors()}
-  def update_trial(%Client{} = client, input, options \\ []) do
+
+  def update_trial(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22869,12 +26951,32 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates one or more properties of a trial component.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateTrialComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_trial_component_request`)
+    %{
+      optional("DisplayName") => String.t(),
+      optional("EndTime") => non_neg_integer(),
+      optional("InputArtifacts") => map(),
+      optional("InputArtifactsToRemove") => list(String.t()()),
+      optional("OutputArtifacts") => map(),
+      optional("OutputArtifactsToRemove") => list(String.t()()),
+      optional("Parameters") => map(),
+      optional("ParametersToRemove") => list(String.t()()),
+      optional("StartTime") => non_neg_integer(),
+      optional("Status") => trial_component_status(),
+      required("TrialComponentName") => String.t()
+    }
   """
-  @spec update_trial_component(AWS.Client.t(), update_trial_component_request(), Keyword.t()) ::
+
+  @spec update_trial_component(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trial_component_errors()}
-  def update_trial_component(%Client{} = client, input, options \\ []) do
+
+  def update_trial_component(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22883,12 +26985,24 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates a user profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_user_profile_request`)
+    %{
+      optional("UserSettings") => user_settings(),
+      required("DomainId") => String.t(),
+      required("UserProfileName") => String.t()
+    }
   """
-  @spec update_user_profile(AWS.Client.t(), update_user_profile_request(), Keyword.t()) ::
+
+  @spec update_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_profile_errors()}
-  def update_user_profile(%Client{} = client, input, options \\ []) do
+
+  def update_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22900,12 +27014,25 @@ defmodule AWS.SageMaker do
   require that workers use specific IP addresses to work on tasks and to update
   your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.
   The worker portal is now supported in VPC and public internet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateWorkforce&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_workforce_request`)
+    %{
+      optional("OidcConfig") => oidc_config(),
+      optional("SourceIpConfig") => source_ip_config(),
+      optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
+      required("WorkforceName") => String.t()
+    }
   """
-  @spec update_workforce(AWS.Client.t(), update_workforce_request(), Keyword.t()) ::
+
+  @spec update_workforce(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workforce_errors()}
-  def update_workforce(%Client{} = client, input, options \\ []) do
+
+  def update_workforce(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -22914,12 +27041,26 @@ defmodule AWS.SageMaker do
 
   @doc """
   Updates an existing work team with new member definitions or description.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemaker%20UpdateWorkteam&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_workteam_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("MemberDefinitions") => list(member_definition()()),
+      optional("NotificationConfiguration") => notification_configuration(),
+      optional("WorkerAccessConfiguration") => worker_access_configuration(),
+      required("WorkteamName") => String.t()
+    }
   """
-  @spec update_workteam(AWS.Client.t(), update_workteam_request(), Keyword.t()) ::
+
+  @spec update_workteam(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workteam_errors()}
-  def update_workteam(%Client{} = client, input, options \\ []) do
+
+  def update_workteam(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

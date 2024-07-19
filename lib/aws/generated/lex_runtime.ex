@@ -22,111 +22,111 @@ defmodule AWS.LexRuntime do
   @typedoc """
 
   ## Example:
-
+      
       active_context() :: %{
         "name" => String.t(),
         "parameters" => map(),
         "timeToLive" => active_context_time_to_live()
       }
-
+      
   """
   @type active_context() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       active_context_time_to_live() :: %{
         "timeToLiveInSeconds" => integer(),
         "turnsToLive" => integer()
       }
-
+      
   """
   @type active_context_time_to_live() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_gateway_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type bad_gateway_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       button() :: %{
         "text" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type button() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_session_request() :: %{}
-
+      
   """
   @type delete_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_session_response() :: %{
         "botAlias" => String.t(),
         "botName" => String.t(),
         "sessionId" => String.t(),
         "userId" => String.t()
       }
-
+      
   """
   @type delete_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dependency_failed_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type dependency_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dialog_action() :: %{
         "fulfillmentState" => list(any()),
         "intentName" => String.t(),
@@ -136,14 +136,14 @@ defmodule AWS.LexRuntime do
         "slots" => map(),
         "type" => list(any())
       }
-
+      
   """
   @type dialog_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generic_attachment() :: %{
         "attachmentLinkUrl" => String.t(),
         "buttons" => list(button()()),
@@ -151,25 +151,25 @@ defmodule AWS.LexRuntime do
         "subTitle" => String.t(),
         "title" => String.t()
       }
-
+      
   """
   @type generic_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_session_request() :: %{
         optional("checkpointLabelFilter") => String.t()
       }
-
+      
   """
   @type get_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_session_response() :: %{
         "activeContexts" => list(active_context()()),
         "dialogAction" => dialog_action(),
@@ -177,25 +177,25 @@ defmodule AWS.LexRuntime do
         "sessionAttributes" => map(),
         "sessionId" => String.t()
       }
-
+      
   """
   @type get_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       intent_confidence() :: %{
         "score" => float()
       }
-
+      
   """
   @type intent_confidence() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       intent_summary() :: %{
         "checkpointLabel" => String.t(),
         "confirmationStatus" => list(any()),
@@ -205,70 +205,70 @@ defmodule AWS.LexRuntime do
         "slotToElicit" => String.t(),
         "slots" => map()
       }
-
+      
   """
   @type intent_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_failure_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       loop_detected_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type loop_detected_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_acceptable_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type not_acceptable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_content_request() :: %{
         optional("accept") => String.t(),
         optional("activeContexts") => String.t(),
@@ -277,14 +277,14 @@ defmodule AWS.LexRuntime do
         required("contentType") => String.t(),
         required("inputStream") => binary()
       }
-
+      
   """
   @type post_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_content_response() :: %{
         "activeContexts" => String.t(),
         "alternativeIntents" => String.t(),
@@ -305,28 +305,28 @@ defmodule AWS.LexRuntime do
         "slotToElicit" => String.t(),
         "slots" => String.t()
       }
-
+      
   """
   @type post_content_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_text_request() :: %{
         optional("activeContexts") => list(active_context()()),
         optional("requestAttributes") => map(),
         optional("sessionAttributes") => map(),
         required("inputText") => String.t()
       }
-
+      
   """
   @type post_text_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_text_response() :: %{
         "activeContexts" => list(active_context()()),
         "alternativeIntents" => list(predicted_intent()()),
@@ -343,27 +343,27 @@ defmodule AWS.LexRuntime do
         "slotToElicit" => String.t(),
         "slots" => map()
       }
-
+      
   """
   @type post_text_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       predicted_intent() :: %{
         "intentName" => String.t(),
         "nluIntentConfidence" => intent_confidence(),
         "slots" => map()
       }
-
+      
   """
   @type predicted_intent() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_session_request() :: %{
         optional("accept") => String.t(),
         optional("activeContexts") => list(active_context()()),
@@ -371,14 +371,14 @@ defmodule AWS.LexRuntime do
         optional("recentIntentSummaryView") => list(intent_summary()()),
         optional("sessionAttributes") => map()
       }
-
+      
   """
   @type put_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_session_response() :: %{
         "activeContexts" => String.t(),
         "audioStream" => binary(),
@@ -393,54 +393,54 @@ defmodule AWS.LexRuntime do
         "slotToElicit" => String.t(),
         "slots" => String.t()
       }
-
+      
   """
   @type put_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       request_timeout_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type request_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       response_card() :: %{
         "contentType" => list(any()),
         "genericAttachments" => list(generic_attachment()()),
         "version" => String.t()
       }
-
+      
   """
   @type response_card() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sentiment_response() :: %{
         "sentimentLabel" => String.t(),
         "sentimentScore" => String.t()
       }
-
+      
   """
   @type sentiment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_media_type_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unsupported_media_type_exception() :: %{String.t() => any()}
 
@@ -513,33 +513,46 @@ defmodule AWS.LexRuntime do
 
   ## Parameters:
   * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
-    session data.
+  session data.
   * `:bot_name` (`t:string`) The name of the bot that contains the session data.
   * `:user_id` (`t:string`) The identifier of the user associated with the session
-    data.
+  data.
 
   ## Optional parameters:
   """
-  @spec delete_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_session_errors()}
-  def delete_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+
+  def delete_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -548,7 +561,7 @@ defmodule AWS.LexRuntime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -561,19 +574,21 @@ defmodule AWS.LexRuntime do
 
   ## Parameters:
   * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
-    session data.
+  session data.
   * `:bot_name` (`t:string`) The name of the bot that contains the session data.
   * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-    this to identify a user's conversation with your bot.
+  this to identify a user's conversation with your bot.
 
   ## Optional parameters:
   * `:checkpoint_label_filter` (`t:string`) A string used to filter the intents
-    returned in the recentIntentSummaryView structure.
+  returned in the recentIntentSummaryView structure.
   """
+
   @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
+
   def get_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
@@ -628,40 +643,55 @@ defmodule AWS.LexRuntime do
   * `:bot_alias` (`t:string`) Alias of the Amazon Lex bot.
   * `:bot_name` (`t:string`) Name of the Amazon Lex bot.
   * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-    this to identify a user's conversation with your bot. At runtime, each
-    request must contain the userID field.
+  this to identify a user's conversation with your bot. At runtime, each
+  request must contain the userID field.
   * `:content_type` (`t:string`) You pass this value as the Content-Type HTTP
-    header.
+  header.
+  * `:input` (`t:map`):
+    * `:input_stream` (`t:blob`) User input in PCM or Opus audio format or text
+  format as described in the Content-Type HTTP header.
 
   ## Optional parameters:
   * `:accept` (`t:string`) You pass this value as the Accept HTTP header.
   * `:active_contexts` (`t:string`) A list of contexts active for the request. A
-    context can be activated when a previous intent is fulfilled, or by
-    including the context in the request,
+  context can be activated when a previous intent is fulfilled, or by
+  including the context in the request,
   * `:request_attributes` (`t:string`) You pass this value as the
-    x-amz-lex-request-attributes HTTP header.
+  x-amz-lex-request-attributes HTTP header.
   * `:session_attributes` (`t:string`) You pass this value as the
-    x-amz-lex-session-attributes HTTP header.
+  x-amz-lex-session-attributes HTTP header.
   """
+
   @spec post_content(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          post_content_request(),
+          String.t(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, post_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_content_errors()}
-  def post_content(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+
+  def post_content(
+        %Client{} = client,
+        bot_alias,
+        bot_name,
+        user_id,
+        content_type,
+        input,
+        options \\ []
+      )
+      when is_map(input) and is_binary(content_type) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/content"
 
+    # Validate optional parameters
     optional_params = [
       accept: nil,
       active_contexts: nil,
-      content_type: nil,
       request_attributes: nil,
       session_attributes: nil
     ]
@@ -672,17 +702,66 @@ defmodule AWS.LexRuntime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"accept", "Accept"},
-        {"activeContexts", "x-amz-lex-active-contexts"},
-        {"contentType", "Content-Type"},
-        {"requestAttributes", "x-amz-lex-request-attributes"},
-        {"sessionAttributes", "x-amz-lex-session-attributes"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"Content-Type", content_type}]
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :session_attributes) do
+        [{"x-amz-lex-session-attributes", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :request_attributes) do
+        [{"x-amz-lex-request-attributes", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :active_contexts) do
+        [{"x-amz-lex-active-contexts", opt_val} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if opt_val = Keyword.get(options, :accept) do
+        [{"Accept", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-lex-active-contexts", "activeContexts"},
+          {"x-amz-lex-alternative-intents", "alternativeIntents"},
+          {"x-amz-lex-bot-version", "botVersion"},
+          {"Content-Type", "contentType"},
+          {"x-amz-lex-dialog-state", "dialogState"},
+          {"x-amz-lex-encoded-input-transcript", "encodedInputTranscript"},
+          {"x-amz-lex-encoded-message", "encodedMessage"},
+          {"x-amz-lex-input-transcript", "inputTranscript"},
+          {"x-amz-lex-intent-name", "intentName"},
+          {"x-amz-lex-message", "message"},
+          {"x-amz-lex-message-format", "messageFormat"},
+          {"x-amz-lex-nlu-intent-confidence", "nluIntentConfidence"},
+          {"x-amz-lex-sentiment", "sentimentResponse"},
+          {"x-amz-lex-session-attributes", "sessionAttributes"},
+          {"x-amz-lex-session-id", "sessionId"},
+          {"x-amz-lex-slot-to-elicit", "slotToElicit"},
+          {"x-amz-lex-slots", "slots"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -717,17 +796,9 @@ defmodule AWS.LexRuntime do
       options
       |> Keyword.drop([:accept, :active_contexts, :request_attributes, :session_attributes])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -743,43 +814,46 @@ defmodule AWS.LexRuntime do
   * `:bot_alias` (`t:string`) The alias of the Amazon Lex bot.
   * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
   * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-    this to identify a user's conversation with your bot. At runtime, each
-    request must contain the userID field.
+  this to identify a user's conversation with your bot. At runtime, each
+  request must contain the userID field.
 
   ## Optional parameters:
   """
-  @spec post_text(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          post_text_request(),
-          Keyword.t()
-        ) ::
+
+  @spec post_text(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, post_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_text_errors()}
-  def post_text(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+
+  def post_text(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/text"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -790,30 +864,26 @@ defmodule AWS.LexRuntime do
 
   ## Parameters:
   * `:bot_alias` (`t:string`) The alias in use for the bot that contains the
-    session data.
+  session data.
   * `:bot_name` (`t:string`) The name of the bot that contains the session data.
   * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses
-    this to identify a user's conversation with your bot.
+  this to identify a user's conversation with your bot.
 
   ## Optional parameters:
   * `:accept` (`t:string`) The message that Amazon Lex returns in the response can
-    be either text or speech based depending on the value of this field.
+  be either text or speech based depending on the value of this field.
   """
-  @spec put_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          put_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_session_errors()}
-  def put_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
+
+  def put_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
 
+    # Validate optional parameters
     optional_params = [accept: nil]
 
     options =
@@ -822,13 +892,39 @@ defmodule AWS.LexRuntime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"accept", "Accept"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :accept) do
+        [{"Accept", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-lex-active-contexts", "activeContexts"},
+          {"Content-Type", "contentType"},
+          {"x-amz-lex-dialog-state", "dialogState"},
+          {"x-amz-lex-encoded-message", "encodedMessage"},
+          {"x-amz-lex-intent-name", "intentName"},
+          {"x-amz-lex-message", "message"},
+          {"x-amz-lex-message-format", "messageFormat"},
+          {"x-amz-lex-session-attributes", "sessionAttributes"},
+          {"x-amz-lex-session-id", "sessionId"},
+          {"x-amz-lex-slot-to-elicit", "slotToElicit"},
+          {"x-amz-lex-slots", "slots"}
+        ]
+      )
 
     options =
       Keyword.put(
@@ -857,16 +953,8 @@ defmodule AWS.LexRuntime do
       options
       |> Keyword.drop([:accept])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

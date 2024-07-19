@@ -19,129 +19,129 @@ defmodule AWS.CloudTrailData do
   @typedoc """
 
   ## Example:
-
+      
       audit_event() :: %{
         "eventData" => [String.t()],
         "eventDataChecksum" => [String.t()],
         "id" => String.t()
       }
-
+      
   """
   @type audit_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audit_event_result_entry() :: %{
         "eventID" => String.t(),
         "id" => String.t()
       }
-
+      
   """
   @type audit_event_result_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_insufficient_permission() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type channel_insufficient_permission() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_not_found() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type channel_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_unsupported_schema() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type channel_unsupported_schema() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       duplicated_audit_event_id() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type duplicated_audit_event_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_channel_arn() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type invalid_channel_arn() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_audit_events_request() :: %{
         optional("externalId") => String.t(),
         required("auditEvents") => list(audit_event()()),
         required("channelArn") => String.t()
       }
-
+      
   """
   @type put_audit_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_audit_events_response() :: %{
         required("failed") => list(result_error_entry()()),
         required("successful") => list(audit_event_result_entry()())
       }
-
+      
   """
   @type put_audit_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       result_error_entry() :: %{
         "errorCode" => String.t(),
         "errorMessage" => String.t(),
         "id" => String.t()
       }
-
+      
   """
   @type result_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_operation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type unsupported_operation_exception() :: %{String.t() => any()}
 
@@ -182,23 +182,43 @@ defmodule AWS.CloudTrailData do
 
   ## Optional parameters:
   * `:external_id` (`t:string`) A unique identifier that is conditionally required
-    when the channel's resource policy includes an external ID. This value can
-    be any string, such as a passphrase or account number.
+  when the channel's resource policy includes an external ID. This value can
+  be any string, such as a passphrase or account number.
   """
-  @spec put_audit_events(AWS.Client.t(), put_audit_events_request(), Keyword.t()) ::
+
+  @spec put_audit_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_audit_events_errors()}
-  def put_audit_events(%Client{} = client, input, options \\ []) do
+
+  def put_audit_events(%Client{} = client, channel_arn, options \\ [])
+      when is_binary(channel_arn) do
     url_path = "/PutAuditEvents"
+
+    # Validate optional parameters
+    optional_params = [external_id: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"channelArn", "channelArn"},
-        {"externalId", "externalId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"channelArn", channel_arn}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :external_id) do
+        [{"externalId", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -208,16 +228,8 @@ defmodule AWS.CloudTrailData do
       options
       |> Keyword.drop([:external_id])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

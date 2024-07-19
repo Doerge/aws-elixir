@@ -12,18 +12,18 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @typedoc """
 
   ## Example:
-
+      
       lambda_endpoint_summary() :: %{
         "Arn" => String.t()
       }
-
+      
   """
   @type lambda_endpoint_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       environment_vpc() :: %{
         "AccountId" => String.t(),
         "CidrBlocks" => list(String.t()()),
@@ -33,57 +33,57 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "VpcId" => String.t(),
         "VpcName" => String.t()
       }
-
+      
   """
   @type environment_vpc() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_response() :: %{}
-
+      
   """
   @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       default_route_input() :: %{
         "ActivationState" => String.t()
       }
-
+      
   """
   @type default_route_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_gateway_proxy_input() :: %{
         "EndpointType" => String.t(),
         "StageName" => String.t()
       }
-
+      
   """
   @type api_gateway_proxy_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_route_response() :: %{
         optional("ApplicationId") => String.t(),
         optional("Arn") => String.t(),
@@ -92,14 +92,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("ServiceId") => String.t(),
         optional("State") => String.t()
       }
-
+      
   """
   @type update_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_response() :: %{
         optional("ApplicationId") => String.t(),
         optional("Arn") => String.t(),
@@ -119,34 +119,34 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("UrlEndpoint") => url_endpoint_config(),
         optional("VpcId") => String.t()
       }
-
+      
   """
   @type get_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_endpoint_config() :: %{
         "Arn" => String.t()
       }
-
+      
   """
   @type lambda_endpoint_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       route_summary() :: %{
         "AppendSourcePath" => boolean(),
         "ApplicationId" => String.t(),
@@ -167,14 +167,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "State" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type route_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       environment_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -189,45 +189,45 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "Tags" => map(),
         "TransitGatewayId" => String.t()
       }
-
+      
   """
   @type environment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_environment_request() :: %{}
-
+      
   """
   @type get_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_endpoint_input() :: %{
         "Arn" => String.t()
       }
-
+      
   """
   @type lambda_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_response() :: %{
         optional("Policy") => String.t()
       }
-
+      
   """
   @type get_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_environment_response() :: %{
         optional("Arn") => String.t(),
         optional("CreatedTime") => non_neg_integer(),
@@ -242,84 +242,84 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("Tags") => map(),
         optional("TransitGatewayId") => String.t()
       }
-
+      
   """
   @type get_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_service_request() :: %{}
-
+      
   """
   @type get_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_services_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_services_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_services_response() :: %{
         optional("NextToken") => String.t(),
         optional("ServiceSummaryList") => list(service_summary()())
       }
-
+      
   """
   @type list_services_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t(),
         "QuotaCode" => String.t(),
@@ -327,14 +327,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "ResourceType" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_summary() :: %{
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
@@ -354,14 +354,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "UrlEndpoint" => url_endpoint_summary(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type service_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -372,14 +372,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         required("EndpointType") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_service_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_response() :: %{
         "AccountId" => String.t(),
         "AdditionalDetails" => map(),
@@ -388,25 +388,25 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "ResourceIdentifier" => String.t(),
         "ResourceType" => String.t()
       }
-
+      
   """
   @type error_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_request() :: %{
         optional("ApiGatewayProxy") => api_gateway_proxy_input(),
         optional("ClientToken") => String.t(),
@@ -415,26 +415,26 @@ defmodule AWS.MigrationHubRefactorSpaces do
         required("ProxyType") => String.t(),
         required("VpcId") => String.t()
       }
-
+      
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_environments_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_environments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_response() :: %{
         optional("ApiGatewayProxy") => api_gateway_proxy_input(),
         optional("ApplicationId") => String.t(),
@@ -450,34 +450,34 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("Tags") => map(),
         optional("VpcId") => String.t()
       }
-
+      
   """
   @type create_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_request() :: %{}
-
+      
   """
   @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_route_request() :: %{
         required("ActivationState") => String.t()
       }
-
+      
   """
   @type update_route_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_response() :: %{
         optional("ApplicationId") => String.t(),
         optional("Arn") => String.t(),
@@ -486,26 +486,26 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("Name") => String.t(),
         optional("State") => String.t()
       }
-
+      
   """
   @type delete_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       url_endpoint_config() :: %{
         "HealthUrl" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type url_endpoint_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_environment_response() :: %{
         optional("Arn") => String.t(),
         optional("CreatedTime") => non_neg_integer(),
@@ -518,14 +518,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("State") => String.t(),
         optional("Tags") => map()
       }
-
+      
   """
   @type create_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       uri_path_route_input() :: %{
         "ActivationState" => String.t(),
         "AppendSourcePath" => boolean(),
@@ -533,46 +533,46 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "Methods" => list(String.t()()),
         "SourcePath" => String.t()
       }
-
+      
   """
   @type uri_path_route_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_environment_request() :: %{}
-
+      
   """
   @type delete_environment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_routes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_response() :: %{
         optional("ApiGatewayProxy") => api_gateway_proxy_config(),
         optional("ApplicationId") => String.t(),
@@ -589,26 +589,26 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("Tags") => map(),
         optional("VpcId") => String.t()
       }
-
+      
   """
   @type get_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_route_response() :: %{
         optional("AppendSourcePath") => boolean(),
         optional("ApplicationId") => String.t(),
@@ -629,26 +629,26 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("State") => String.t(),
         optional("Tags") => map()
       }
-
+      
   """
   @type get_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_request() :: %{
         required("Policy") => String.t(),
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_gateway_proxy_config() :: %{
         "ApiGatewayId" => String.t(),
         "EndpointType" => String.t(),
@@ -658,70 +658,70 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "StageName" => String.t(),
         "VpcLinkId" => String.t()
       }
-
+      
   """
   @type api_gateway_proxy_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routes_response() :: %{
         optional("NextToken") => String.t(),
         optional("RouteSummaryList") => list(route_summary()())
       }
-
+      
   """
   @type list_routes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_environment_vpcs_response() :: %{
         optional("EnvironmentVpcList") => list(environment_vpc()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_environment_vpcs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       url_endpoint_input() :: %{
         "HealthUrl" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type url_endpoint_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_route_response() :: %{
         optional("ApplicationId") => String.t(),
         optional("Arn") => String.t(),
@@ -730,25 +730,25 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("ServiceId") => String.t(),
         optional("State") => String.t()
       }
-
+      
   """
   @type delete_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_resource_policy_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_resource_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_route_response() :: %{
         optional("ApplicationId") => String.t(),
         optional("Arn") => String.t(),
@@ -763,78 +763,78 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("Tags") => map(),
         optional("UriPathRoute") => uri_path_route_input()
       }
-
+      
   """
   @type create_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_request() :: %{}
-
+      
   """
   @type delete_service_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_route_request() :: %{}
-
+      
   """
   @type delete_route_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t(),
         "QuotaCode" => String.t(),
         "RetryAfterSeconds" => integer(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_environments_response() :: %{
         optional("EnvironmentSummaryList") => list(environment_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_environments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_summary() :: %{
         "ApiGatewayProxy" => api_gateway_proxy_summary(),
         "ApplicationId" => String.t(),
@@ -851,44 +851,44 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "Tags" => map(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type application_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_response() :: %{}
-
+      
   """
   @type put_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_response() :: %{
         optional("ApplicationSummaryList") => list(application_summary()()),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_request() :: %{}
-
+      
   """
   @type delete_resource_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       api_gateway_proxy_summary() :: %{
         "ApiGatewayId" => String.t(),
         "EndpointType" => String.t(),
@@ -898,14 +898,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "StageName" => String.t(),
         "VpcLinkId" => String.t()
       }
-
+      
   """
   @type api_gateway_proxy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_service_response() :: %{
         optional("ApplicationId") => String.t(),
         optional("Arn") => String.t(),
@@ -915,14 +915,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("ServiceId") => String.t(),
         optional("State") => String.t()
       }
-
+      
   """
   @type delete_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_route_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DefaultRoute") => default_route_input(),
@@ -931,14 +931,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
         required("RouteType") => String.t(),
         required("ServiceIdentifier") => String.t()
       }
-
+      
   """
   @type create_route_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_environment_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -946,26 +946,26 @@ defmodule AWS.MigrationHubRefactorSpaces do
         required("Name") => String.t(),
         required("NetworkFabricType") => String.t()
       }
-
+      
   """
   @type create_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_environment_vpcs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_environment_vpcs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_service_response() :: %{
         optional("ApplicationId") => String.t(),
         optional("Arn") => String.t(),
@@ -984,23 +984,23 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("UrlEndpoint") => url_endpoint_input(),
         optional("VpcId") => String.t()
       }
-
+      
   """
   @type create_service_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_request() :: %{}
-
+      
   """
   @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_environment_response() :: %{
         optional("Arn") => String.t(),
         optional("EnvironmentId") => String.t(),
@@ -1008,37 +1008,37 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("Name") => String.t(),
         optional("State") => String.t()
       }
-
+      
   """
   @type delete_environment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_route_request() :: %{}
-
+      
   """
   @type get_route_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_request() :: %{}
-
+      
   """
   @type delete_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       url_endpoint_summary() :: %{
         "HealthUrl" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type url_endpoint_summary() :: %{String.t() => any()}
 
@@ -1244,33 +1244,44 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Parameters:
   * `:environment_identifier` (`t:string`) The unique identifier of the
-    environment.
+  environment.
 
   ## Optional parameters:
   """
-  @spec create_application(AWS.Client.t(), String.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, environment_identifier, input, options \\ []) do
+
+  def create_application(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1287,29 +1298,40 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
-  @spec create_environment(AWS.Client.t(), create_environment_request(), Keyword.t()) ::
+
+  @spec create_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_environment_errors()}
-  def create_environment(%Client{} = client, input, options \\ []) do
+
+  def create_environment(%Client{} = client, options \\ []) do
     url_path = "/environments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1327,43 +1349,52 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Parameters:
   * `:application_identifier` (`t:string`) The ID of the application within which
-    the route is being created.
+  the route is being created.
   * `:environment_identifier` (`t:string`) The ID of the environment in which the
-    route is created.
+  route is created.
 
   ## Optional parameters:
   """
-  @spec create_route(AWS.Client.t(), String.t(), String.t(), create_route_request(), Keyword.t()) ::
+
+  @spec create_route(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_route_errors()}
+
   def create_route(
         %Client{} = client,
         application_identifier,
         environment_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/routes"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1376,49 +1407,52 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Parameters:
   * `:application_identifier` (`t:string`) The ID of the application which the
-    service is created.
+  service is created.
   * `:environment_identifier` (`t:string`) The ID of the environment in which the
-    service is created.
+  service is created.
 
   ## Optional parameters:
   """
-  @spec create_service(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_service_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_service_errors()}
+
   def create_service(
         %Client{} = client,
         application_identifier,
         environment_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/services"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1434,31 +1468,44 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
-  @spec delete_application(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_application(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
+
   def delete_application(
         %Client{} = client,
         application_identifier,
         environment_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1467,7 +1514,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1485,17 +1532,38 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
-  @spec delete_environment(AWS.Client.t(), String.t(), delete_environment_request(), Keyword.t()) ::
+
+  @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_environment_errors()}
-  def delete_environment(%Client{} = client, environment_identifier, input, options \\ []) do
+
+  def delete_environment(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1504,7 +1572,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1517,26 +1585,42 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Parameters:
   * `:identifier` (`t:string`) Amazon Resource Name (ARN) of the resource
-    associated with the policy.
+  associated with the policy.
 
   ## Optional parameters:
   """
-  @spec delete_resource_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_resource_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, identifier, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1545,7 +1629,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1558,40 +1642,52 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Parameters:
   * `:application_identifier` (`t:string`) The ID of the application to delete the
-    route from.
+  route from.
   * `:environment_identifier` (`t:string`) The ID of the environment to delete the
-    route from.
+  route from.
   * `:route_identifier` (`t:string`) The ID of the route to delete.
 
   ## Optional parameters:
   """
-  @spec delete_route(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_route_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_route_errors()}
+
   def delete_route(
         %Client{} = client,
         application_identifier,
         environment_identifier,
         route_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/routes/#{AWS.Util.encode_uri(route_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1600,7 +1696,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1614,38 +1710,50 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Parameters:
   * `:application_identifier` (`t:string`) Deletes a Refactor Spaces service.
   * `:environment_identifier` (`t:string`) The ID of the environment that the
-    service is in.
+  service is in.
   * `:service_identifier` (`t:string`) The ID of the service to delete.
 
   ## Optional parameters:
   """
-  @spec delete_service(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_service_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_service(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_service_errors()}
+
   def delete_service(
         %Client{} = client,
         application_identifier,
         environment_identifier,
         service_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/services/#{AWS.Util.encode_uri(service_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1654,7 +1762,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1671,10 +1779,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
+
   @spec get_application(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
+
   def get_application(
         %Client{} = client,
         application_identifier,
@@ -1719,10 +1829,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
+
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_environment_errors()}
+
   def get_environment(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
 
@@ -1758,14 +1870,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Parameters:
   * `:identifier` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    associated with the policy.
+  associated with the policy.
 
   ## Optional parameters:
   """
+
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
+
   def get_resource_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
 
@@ -1806,10 +1920,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
+
   @spec get_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_route_errors()}
+
   def get_route(
         %Client{} = client,
         application_identifier,
@@ -1857,10 +1973,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
+
   @spec get_service(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_service_errors()}
+
   def get_service(
         %Client{} = client,
         application_identifier,
@@ -1907,14 +2025,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-    single call. To retrieve the remaining results, make another call with the
-    returned nextToken value.
+  single call. To retrieve the remaining results, make another call with the
+  returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_applications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
+
   def list_applications(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications"
 
@@ -1972,14 +2092,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-    single call. To retrieve the remaining results, make another call with the
-    returned nextToken value.
+  single call. To retrieve the remaining results, make another call with the
+  returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_environment_vpcs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_vpcs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environment_vpcs_errors()}
+
   def list_environment_vpcs(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/vpcs"
 
@@ -2036,14 +2158,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-    single call. To retrieve the remaining results, make another call with the
-    returned nextToken value.
+  single call. To retrieve the remaining results, make another call with the
+  returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_environments_errors()}
+
   def list_environments(%Client{} = client, options \\ []) do
     url_path = "/environments"
 
@@ -2102,14 +2226,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-    single call. To retrieve the remaining results, make another call with the
-    returned nextToken value.
+  single call. To retrieve the remaining results, make another call with the
+  returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routes_errors()}
+
   def list_routes(
         %Client{} = client,
         application_identifier,
@@ -2174,14 +2300,16 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-    single call. To retrieve the remaining results, make another call with the
-    returned nextToken value.
+  single call. To retrieve the remaining results, make another call with the
+  returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
+
   @spec list_services(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
+
   def list_services(
         %Client{} = client,
         application_identifier,
@@ -2245,10 +2373,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2291,19 +2421,40 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/resourcepolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2319,29 +2470,40 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2355,26 +2517,43 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.migrationhubrefactorspaces#String]`) The
-    list of keys of the tags to be removed from the resource.
+  list of keys of the tags to be removed from the resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2383,7 +2562,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2396,40 +2575,52 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
   ## Parameters:
   * `:application_identifier` (`t:string`) The ID of the application within which
-    the route is being updated.
+  the route is being updated.
   * `:environment_identifier` (`t:string`) The ID of the environment in which the
-    route is being updated.
+  route is being updated.
   * `:route_identifier` (`t:string`) The unique identifier of the route to update.
 
   ## Optional parameters:
   """
-  @spec update_route(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_route_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_route_errors()}
+
   def update_route(
         %Client{} = client,
         application_identifier,
         environment_identifier,
         route_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/routes/#{AWS.Util.encode_uri(route_identifier)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2438,7 +2629,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

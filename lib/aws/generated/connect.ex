@@ -13,222 +13,222 @@ defmodule AWS.Connect do
   @typedoc """
 
   ## Example:
-
+      
       associate_instance_storage_config_request() :: %{
         required("ResourceType") => list(any()),
         required("StorageConfig") => instance_storage_config()
       }
-
+      
   """
   @type associate_instance_storage_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_attached_file_request() :: %{
         required("AssociatedResourceArn") => String.t()
       }
-
+      
   """
   @type delete_attached_file_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_filter() :: %{
         "ContactStates" => list(list(any())())
       }
-
+      
   """
   @type contact_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       answer_machine_detection_config() :: %{
         "AwaitAnswerMachinePrompt" => boolean(),
         "EnableAnswerMachineDetection" => boolean()
       }
-
+      
   """
   @type answer_machine_detection_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_identity_info_request() :: %{
         required("IdentityInfo") => user_identity_info()
       }
-
+      
   """
   @type update_user_identity_info_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_evaluations_request() :: %{
         optional("NextToken") => String.t(),
         required("ContactId") => String.t()
       }
-
+      
   """
   @type list_contact_evaluations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       outbound_caller_config() :: %{
         "OutboundCallerIdName" => String.t(),
         "OutboundCallerIdNumberId" => String.t(),
         "OutboundFlowId" => String.t()
       }
-
+      
   """
   @type outbound_caller_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       queue_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type queue_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       action_summary() :: %{
         "ActionType" => list(any())
       }
-
+      
   """
   @type action_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_proficiencies_request() :: %{
         required("UserProficiencies") => list(user_proficiency()())
       }
-
+      
   """
   @type update_user_proficiencies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_default_vocabulary_request() :: %{
         optional("VocabularyId") => String.t()
       }
-
+      
   """
   @type associate_default_vocabulary_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_persistent_contact_association_response() :: %{
         "ContinuedFromContactId" => String.t()
       }
-
+      
   """
   @type create_persistent_contact_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_contact_flow_module_request() :: %{}
-
+      
   """
   @type delete_contact_flow_module_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_view_version_response() :: %{}
-
+      
   """
   @type delete_view_version_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_current_user_data_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Filters") => user_data_filters()
       }
-
+      
   """
   @type get_current_user_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       chat_streaming_configuration() :: %{
         "StreamingEndpointArn" => String.t()
       }
-
+      
   """
   @type chat_streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       view_input_content() :: %{
         "Actions" => list(String.t()()),
         "Template" => String.t()
       }
-
+      
   """
   @type view_input_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_references_response() :: %{
         "NextToken" => String.t(),
         "ReferenceSummaryList" => list(list()())
       }
-
+      
   """
   @type list_contact_references_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_vocabularies_response() :: %{
         "NextToken" => String.t(),
         "VocabularySummaryList" => list(vocabulary_summary()())
       }
-
+      
   """
   @type search_vocabularies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_current_metric_data_request() :: %{
         optional("Groupings") => list(list(any())()),
         optional("MaxResults") => integer(),
@@ -237,25 +237,25 @@ defmodule AWS.Connect do
         required("CurrentMetrics") => list(current_metric()()),
         required("Filters") => filters()
       }
-
+      
   """
   @type get_current_metric_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participant_capabilities() :: %{
         "Video" => list(any())
       }
-
+      
   """
   @type participant_capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_rule_request() :: %{
         optional("ClientToken") => String.t(),
         required("Actions") => list(rule_action()()),
@@ -264,14 +264,14 @@ defmodule AWS.Connect do
         required("PublishStatus") => list(any()),
         required("TriggerEventSource") => rule_trigger_event_source()
       }
-
+      
   """
   @type create_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_evaluation_form_request() :: %{
         optional("ClientToken") => String.t(),
         optional("CreateNewVersion") => boolean(),
@@ -281,99 +281,99 @@ defmodule AWS.Connect do
         required("Items") => list(list()()),
         required("Title") => String.t()
       }
-
+      
   """
   @type update_evaluation_form_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_profile_search_criteria() :: %{
         "AndConditions" => list(security_profile_search_criteria()()),
         "OrConditions" => list(security_profile_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type security_profile_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_traffic_distribution_group_user_request() :: %{
         required("InstanceId") => String.t(),
         required("UserId") => String.t()
       }
-
+      
   """
   @type disassociate_traffic_distribution_group_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_reference() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type email_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       number_reference() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type number_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_participant_request() :: %{
         optional("ClientToken") => String.t(),
         required("ContactId") => String.t(),
         required("InstanceId") => String.t(),
         required("ParticipantDetails") => participant_details_to_add()
       }
-
+      
   """
   @type create_participant_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       output_type_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type output_type_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       traffic_distribution_group_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -382,14 +382,14 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type traffic_distribution_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_module() :: %{
         "Arn" => String.t(),
         "Content" => String.t(),
@@ -400,14 +400,14 @@ defmodule AWS.Connect do
         "Status" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type contact_flow_module() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -415,69 +415,69 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Username" => String.t()
       }
-
+      
   """
   @type user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_hierarchy_structure_request() :: %{}
-
+      
   """
   @type describe_user_hierarchy_structure_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_federation_token_request() :: %{}
-
+      
   """
   @type get_federation_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_queues_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("QueueTypes") => list(list(any())())
       }
-
+      
   """
   @type list_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lambda_functions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_lambda_functions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encryption_config() :: %{
         "EncryptionType" => list(any()),
         "KeyId" => String.t()
       }
-
+      
   """
   @type encryption_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_contact_flow_modules_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -485,14 +485,14 @@ defmodule AWS.Connect do
         optional("SearchFilter") => contact_flow_module_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_contact_flow_modules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_summary() :: %{
         "InstanceId" => String.t(),
         "PhoneNumber" => String.t(),
@@ -504,34 +504,34 @@ defmodule AWS.Connect do
         "SourcePhoneNumberArn" => String.t(),
         "TargetArn" => String.t()
       }
-
+      
   """
   @type list_phone_numbers_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign() :: %{
         "CampaignId" => String.t()
       }
-
+      
   """
   @type campaign() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_hierarchy_group_request() :: %{}
-
+      
   """
   @type describe_user_hierarchy_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_search_criteria() :: %{
         "AndConditions" => list(contact_flow_search_criteria()()),
         "OrConditions" => list(contact_flow_search_criteria()()),
@@ -540,62 +540,73 @@ defmodule AWS.Connect do
         "StringCondition" => string_condition(),
         "TypeCondition" => list(any())
       }
-
+      
   """
   @type contact_flow_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_users_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "Users" => list(user_search_summary()())
       }
-
+      
   """
   @type search_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_contact_recording_request() :: %{
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t(),
         required("VoiceRecordingConfiguration") => voice_recording_configuration()
       }
-
+      
   """
   @type start_contact_recording_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_traffic_distribution_group_users_response() :: %{
         "NextToken" => String.t(),
         "TrafficDistributionGroupUserSummaryList" => list(traffic_distribution_group_user_summary()())
       }
-
+      
   """
   @type list_traffic_distribution_group_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      user_hierarchy_group_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+      
+  """
+  @type user_hierarchy_group_search_filter() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       describe_traffic_distribution_group_request() :: %{}
-
+      
   """
   @type describe_traffic_distribution_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_condition() :: %{
         "ComparisonOperator" => String.t(),
         "MatchCriteria" => match_criteria(),
@@ -603,14 +614,14 @@ defmodule AWS.Connect do
         "ProficiencyLevel" => float(),
         "Value" => String.t()
       }
-
+      
   """
   @type attribute_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prompt_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -618,85 +629,97 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type prompt_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_flow_request() :: %{}
-
+      
   """
   @type disassociate_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
+      
+      list_condition() :: %{
+        "Conditions" => list(condition()()),
+        "TargetListType" => list(any())
+      }
+      
+  """
+  @type list_condition() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       create_use_case_response() :: %{
         "UseCaseArn" => String.t(),
         "UseCaseId" => String.t()
       }
-
+      
   """
   @type create_use_case_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replicate_instance_request() :: %{
         optional("ClientToken") => String.t(),
         required("ReplicaAlias") => String.t(),
         required("ReplicaRegion") => String.t()
       }
-
+      
   """
   @type replicate_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       deactivate_evaluation_form_response() :: %{
         "EvaluationFormArn" => String.t(),
         "EvaluationFormId" => String.t(),
         "EvaluationFormVersion" => integer()
       }
-
+      
   """
   @type deactivate_evaluation_form_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type contact_flow_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_hours_of_operations_response() :: %{
         "ApproximateTotalCount" => float(),
         "HoursOfOperations" => list(hours_of_operation()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type search_hours_of_operations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       view_summary() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
@@ -705,57 +728,57 @@ defmodule AWS.Connect do
         "Status" => list(any()),
         "Type" => list(any())
       }
-
+      
   """
   @type view_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_evaluation_form_request() :: %{
         required("EvaluationFormVersion") => integer()
       }
-
+      
   """
   @type activate_evaluation_form_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       successful_request() :: %{
         "ContactId" => String.t(),
         "RequestIdentifier" => String.t()
       }
-
+      
   """
   @type successful_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_instance_storage_config_response() :: %{
         "StorageConfig" => instance_storage_config()
       }
-
+      
   """
   @type describe_instance_storage_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_request() :: %{}
-
+      
   """
   @type describe_contact_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_status() :: %{
         "AgentStatusARN" => String.t(),
         "AgentStatusId" => String.t(),
@@ -768,40 +791,40 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "Type" => list(any())
       }
-
+      
   """
   @type agent_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_available_phone_numbers_response() :: %{
         "AvailableNumbersList" => list(available_number_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type search_available_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dimensions() :: %{
         "Channel" => list(any()),
         "Queue" => queue_reference(),
         "RoutingProfile" => routing_profile_reference(),
         "RoutingStepExpression" => String.t()
       }
-
+      
   """
   @type dimensions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_task_template_response() :: %{
         "Arn" => String.t(),
         "Constraints" => task_template_constraints(),
@@ -817,127 +840,127 @@ defmodule AWS.Connect do
         "Status" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type get_task_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_use_case_request() :: %{}
-
+      
   """
   @type delete_use_case_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_prompt_response() :: %{
         "Prompt" => prompt()
       }
-
+      
   """
   @type describe_prompt_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_hours_of_operations_response() :: %{
         "HoursOfOperationSummaryList" => list(hours_of_operation_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_hours_of_operations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_validation_exception() :: %{
         "Message" => String.t(),
         "PropertyList" => list(property_validation_exception_property()())
       }
-
+      
   """
   @type property_validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_identity_info_lite() :: %{
         "FirstName" => String.t(),
         "LastName" => String.t()
       }
-
+      
   """
   @type user_identity_info_lite() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_response() :: %{
         "Contact" => contact()
       }
-
+      
   """
   @type describe_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_flow_associations_response() :: %{
         "FlowAssociationSummaryList" => list(flow_association_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_flow_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_contacts_time_range() :: %{
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
         "Type" => list(any())
       }
-
+      
   """
   @type search_contacts_time_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       threshold_v2() :: %{
         "Comparison" => String.t(),
         "ThresholdValue" => float()
       }
-
+      
   """
   @type threshold_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_attributes_response() :: %{}
-
+      
   """
   @type update_contact_attributes_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_contact_flow_request() :: %{
         optional("Description") => String.t(),
         optional("Status") => list(any()),
@@ -946,79 +969,79 @@ defmodule AWS.Connect do
         required("Name") => String.t(),
         required("Type") => list(any())
       }
-
+      
   """
   @type create_contact_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_interval() :: %{
         "EndTime" => non_neg_integer(),
         "Interval" => list(any()),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type metric_interval() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upload_url_metadata() :: %{
         "HeadersToInclude" => map(),
         "Url" => String.t(),
         "UrlExpiry" => String.t()
       }
-
+      
   """
   @type upload_url_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_transcript_item_with_content() :: %{
         "CharacterOffsets" => real_time_contact_analysis_character_interval(),
         "Content" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type real_time_contact_analysis_transcript_item_with_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_predefined_attributes_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "PredefinedAttributes" => list(predefined_attribute()())
       }
-
+      
   """
   @type search_predefined_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_in_use_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_hours_of_operations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1026,36 +1049,36 @@ defmodule AWS.Connect do
         optional("SearchFilter") => hours_of_operation_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_hours_of_operations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_predefined_attribute_request() :: %{}
-
+      
   """
   @type describe_predefined_attribute_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_prompt_file_response() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "PromptPresignedUrl" => String.t()
       }
-
+      
   """
   @type get_prompt_file_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_path_reference() :: %{
         "LevelFive" => hierarchy_group_summary_reference(),
         "LevelFour" => hierarchy_group_summary_reference(),
@@ -1063,27 +1086,27 @@ defmodule AWS.Connect do
         "LevelThree" => hierarchy_group_summary_reference(),
         "LevelTwo" => hierarchy_group_summary_reference()
       }
-
+      
   """
   @type hierarchy_path_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_flow_association_response() :: %{
         "FlowId" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type get_flow_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_version_summary() :: %{
         "CreatedBy" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -1095,90 +1118,90 @@ defmodule AWS.Connect do
         "Locked" => boolean(),
         "Status" => list(any())
       }
-
+      
   """
   @type evaluation_form_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_criteria() :: %{
         "ActivationTimestamp" => non_neg_integer(),
         "Index" => integer(),
         "Steps" => list(step()())
       }
-
+      
   """
   @type routing_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_user_proficiencies_response() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "UserProficiencyList" => list(user_proficiency()())
       }
-
+      
   """
   @type list_user_proficiencies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       historical_metric_result() :: %{
         "Collections" => list(historical_metric_data()()),
         "Dimensions" => dimensions()
       }
-
+      
   """
   @type historical_metric_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_agent_status_response() :: %{
         "AgentStatus" => agent_status()
       }
-
+      
   """
   @type describe_agent_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_chat_integration_event_response() :: %{
         "InitialContactId" => String.t(),
         "NewChatCreated" => boolean()
       }
-
+      
   """
   @type send_chat_integration_event_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       meeting() :: %{
         "MediaPlacement" => media_placement(),
         "MediaRegion" => String.t(),
         "MeetingFeatures" => meeting_features_configuration(),
         "MeetingId" => String.t()
       }
-
+      
   """
   @type meeting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attached_file() :: %{
         "AssociatedResourceArn" => String.t(),
         "CreatedBy" => list(),
@@ -1191,94 +1214,107 @@ defmodule AWS.Connect do
         "FileUseCaseType" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type attached_file() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_resource_tags_response() :: %{
         "NextToken" => String.t(),
         "Tags" => list(tag_set()())
       }
-
+      
   """
   @type search_resource_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_quick_connect_config() :: %{
         "PhoneNumber" => String.t()
       }
-
+      
   """
   @type phone_number_quick_connect_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_security_profile_response() :: %{
         "SecurityProfile" => security_profile()
       }
-
+      
   """
   @type describe_security_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_evaluation_form_request() :: %{
         optional("EvaluationFormVersion") => integer()
       }
-
+      
   """
   @type delete_evaluation_form_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      agent_status_search_criteria() :: %{
+        "AndConditions" => list(agent_status_search_criteria()()),
+        "OrConditions" => list(agent_status_search_criteria()()),
+        "StringCondition" => string_condition()
+      }
+      
+  """
+  @type agent_status_search_criteria() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       create_security_profile_response() :: %{
         "SecurityProfileArn" => String.t(),
         "SecurityProfileId" => String.t()
       }
-
+      
   """
   @type create_security_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       outbound_contact_not_permitted_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type outbound_contact_not_permitted_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_prompts_response() :: %{
         "NextToken" => String.t(),
         "PromptSummaryList" => list(prompt_summary()())
       }
-
+      
   """
   @type list_prompts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_data_filters() :: %{
         "Agents" => list(String.t()()),
         "ContactFilter" => contact_filter(),
@@ -1286,35 +1322,35 @@ defmodule AWS.Connect do
         "RoutingProfiles" => list(String.t()()),
         "UserHierarchyGroups" => list(String.t()())
       }
-
+      
   """
   @type user_data_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_view_request() :: %{}
-
+      
   """
   @type delete_view_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       chat_message() :: %{
         "Content" => String.t(),
         "ContentType" => String.t()
       }
-
+      
   """
   @type chat_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_hours_of_operation_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
@@ -1322,46 +1358,46 @@ defmodule AWS.Connect do
         required("Name") => String.t(),
         required("TimeZone") => String.t()
       }
-
+      
   """
   @type create_hours_of_operation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_point_of_interest() :: %{
         "TranscriptItems" => list(real_time_contact_analysis_transcript_item_with_character_offsets()())
       }
-
+      
   """
   @type real_time_contact_analysis_point_of_interest() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_metadata_response() :: %{}
-
+      
   """
   @type update_contact_flow_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_lex_bot_request() :: %{
         required("BotName") => String.t(),
         required("LexRegion") => String.t()
       }
-
+      
   """
   @type disassociate_lex_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t(),
         optional("AllowedAccessControlTags") => map(),
@@ -1371,74 +1407,87 @@ defmodule AWS.Connect do
         optional("Permissions") => list(String.t()()),
         optional("TagRestrictedResources") => list(String.t()())
       }
-
+      
   """
   @type update_security_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      search_user_hierarchy_groups_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t(),
+        "UserHierarchyGroups" => list(hierarchy_group()())
+      }
+      
+  """
+  @type search_user_hierarchy_groups_response() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       credentials() :: %{
         "AccessToken" => String.t(),
         "AccessTokenExpiration" => non_neg_integer(),
         "RefreshToken" => String.t(),
         "RefreshTokenExpiration" => non_neg_integer()
       }
-
+      
   """
   @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_contact_flow_modules_response() :: %{
         "ApproximateTotalCount" => float(),
         "ContactFlowModules" => list(contact_flow_module()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type search_contact_flow_modules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vocabulary_request() :: %{}
-
+      
   """
   @type describe_vocabulary_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_instance_storage_config_request() :: %{
         required("ResourceType") => list(any()),
         required("StorageConfig") => instance_storage_config()
       }
-
+      
   """
   @type update_instance_storage_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_condition() :: %{
         "TagKey" => String.t(),
         "TagValue" => String.t()
       }
-
+      
   """
   @type tag_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       view() :: %{
         "Arn" => String.t(),
         "Content" => view_content(),
@@ -1454,34 +1503,47 @@ defmodule AWS.Connect do
         "VersionDescription" => String.t(),
         "ViewContentSha256" => String.t()
       }
-
+      
   """
   @type view() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_queue_response() :: %{
         "Queue" => queue()
       }
-
+      
   """
   @type describe_queue_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_attached_file_response() :: %{}
-
+      
   """
   @type delete_attached_file_response() :: %{}
 
   @typedoc """
 
   ## Example:
+      
+      control_plane_attribute_filter() :: %{
+        "AndCondition" => common_attribute_and_condition(),
+        "OrConditions" => list(common_attribute_and_condition()()),
+        "TagCondition" => tag_condition()
+      }
+      
+  """
+  @type control_plane_attribute_filter() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       hours_of_operation() :: %{
         "Config" => list(hours_of_operation_config()()),
         "Description" => String.t(),
@@ -1493,59 +1555,59 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "TimeZone" => String.t()
       }
-
+      
   """
   @type hours_of_operation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       read_only_field_info() :: %{
         "Id" => task_template_field_identifier()
       }
-
+      
   """
   @type read_only_field_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_quick_connect_name_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_quick_connect_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_contact_recording_response() :: %{}
-
+      
   """
   @type stop_contact_recording_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_filter_v2() :: %{
         "MetricFilterKey" => String.t(),
         "MetricFilterValues" => list(String.t()()),
         "Negate" => boolean()
       }
-
+      
   """
   @type metric_filter_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile_queue_config_summary() :: %{
         "Channel" => list(any()),
         "Delay" => integer(),
@@ -1554,50 +1616,50 @@ defmodule AWS.Connect do
         "QueueId" => String.t(),
         "QueueName" => String.t()
       }
-
+      
   """
   @type routing_profile_queue_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_metric_data_v2_response() :: %{
         "MetricResults" => list(metric_result_v2()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_metric_data_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_flow_associations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ResourceType") => list(any())
       }
-
+      
   """
   @type list_flow_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hours_of_operation_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type hours_of_operation_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_task_template_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Constraints") => task_template_constraints(),
@@ -1608,116 +1670,116 @@ defmodule AWS.Connect do
         required("Fields") => list(task_template_field()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_task_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_result() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t()
       }
-
+      
   """
   @type error_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kinesis_firehose_config() :: %{
         "FirehoseArn" => String.t()
       }
-
+      
   """
   @type kinesis_firehose_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_template_field() :: %{
         "Description" => String.t(),
         "Id" => task_template_field_identifier(),
         "SingleSelectOptions" => list(String.t()()),
         "Type" => list(any())
       }
-
+      
   """
   @type task_template_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_evaluation_form_response() :: %{
         "EvaluationForm" => evaluation_form()
       }
-
+      
   """
   @type describe_evaluation_form_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_template_defaults() :: %{
         "DefaultFieldValues" => list(task_template_default_field_value()())
       }
-
+      
   """
   @type task_template_defaults() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_queue_max_contacts_request() :: %{
         optional("MaxContacts") => integer()
       }
-
+      
   """
   @type update_queue_max_contacts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_task_template_response() :: %{}
-
+      
   """
   @type delete_task_template_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_integration_association_response() :: %{
         "IntegrationAssociationArn" => String.t(),
         "IntegrationAssociationId" => String.t()
       }
-
+      
   """
   @type create_integration_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       required_field_info() :: %{
         "Id" => task_template_field_identifier()
       }
-
+      
   """
   @type required_field_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_search_summary() :: %{
         "Arn" => String.t(),
         "DirectoryUserId" => String.t(),
@@ -1730,134 +1792,148 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "Username" => String.t()
       }
-
+      
   """
   @type user_search_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attached_file_error() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "FileId" => String.t()
       }
-
+      
   """
   @type attached_file_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lex_v2_bot() :: %{
         "AliasArn" => String.t()
       }
-
+      
   """
   @type lex_v2_bot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_traffic_distribution_group_response() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type create_traffic_distribution_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type contact_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_not_published_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type contact_flow_not_published_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_module_search_criteria() :: %{
         "AndConditions" => list(contact_flow_module_search_criteria()()),
         "OrConditions" => list(contact_flow_module_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type contact_flow_module_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       traffic_distribution_group_user_summary() :: %{
         "UserId" => String.t()
       }
-
+      
   """
   @type traffic_distribution_group_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       use_case() :: %{
         "UseCaseArn" => String.t(),
         "UseCaseId" => String.t(),
         "UseCaseType" => list(any())
       }
-
+      
   """
   @type use_case() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_hours_of_operation_request() :: %{
         optional("Config") => list(hours_of_operation_config()()),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("TimeZone") => String.t()
       }
-
+      
   """
   @type update_hours_of_operation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       customer_quality_metrics() :: %{
         "Audio" => audio_quality_metrics_info()
       }
-
+      
   """
   @type customer_quality_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      number_condition() :: %{
+        "ComparisonType" => list(any()),
+        "FieldName" => String.t(),
+        "MaxValue" => integer(),
+        "MinValue" => integer()
+      }
+      
+  """
+  @type number_condition() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       search_routing_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1865,52 +1941,52 @@ defmodule AWS.Connect do
         optional("SearchFilter") => routing_profile_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_routing_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_rule_request() :: %{
         required("Actions") => list(rule_action()()),
         required("Function") => String.t(),
         required("Name") => String.t(),
         required("PublishStatus") => list(any())
       }
-
+      
   """
   @type update_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_outbound_voice_contact_response() :: %{
         "ContactId" => String.t()
       }
-
+      
   """
   @type start_outbound_voice_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_flows_request() :: %{
         optional("ContactFlowTypes") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_contact_flows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_identity_info() :: %{
         "Email" => String.t(),
         "FirstName" => String.t(),
@@ -1918,165 +1994,165 @@ defmodule AWS.Connect do
         "Mobile" => String.t(),
         "SecondaryEmail" => String.t()
       }
-
+      
   """
   @type user_identity_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_instance_attributes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_instance_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_vocabulary_response() :: %{
         "State" => list(any()),
         "VocabularyArn" => String.t(),
         "VocabularyId" => String.t()
       }
-
+      
   """
   @type create_vocabulary_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       wisdom_info() :: %{
         "SessionArn" => String.t()
       }
-
+      
   """
   @type wisdom_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       release_phone_number_request() :: %{
         optional("ClientToken") => String.t()
       }
-
+      
   """
   @type release_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_contact_request() :: %{
         optional("DisconnectReason") => disconnect_reason(),
         required("ContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type stop_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_response() :: %{
         "PhoneNumberArn" => String.t(),
         "PhoneNumberId" => String.t()
       }
-
+      
   """
   @type update_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_hierarchy_group_request() :: %{}
-
+      
   """
   @type delete_user_hierarchy_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lex_bot_config() :: %{
         "LexBot" => lex_bot(),
         "LexV2Bot" => lex_v2_bot()
       }
-
+      
   """
   @type lex_bot_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_hierarchy_group() :: %{
         "Arn" => String.t()
       }
-
+      
   """
   @type agent_hierarchy_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_segment_issues() :: %{
         "IssuesDetected" => list(real_time_contact_analysis_issue_detected()())
       }
-
+      
   """
   @type real_time_contact_analysis_segment_issues() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_instance_response() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type create_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_evaluations_response() :: %{
         "EvaluationSummaryList" => list(evaluation_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_contact_evaluations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_template_default_field_value() :: %{
         "DefaultValue" => String.t(),
         "Id" => task_template_field_identifier()
       }
-
+      
   """
   @type task_template_default_field_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authentication_profile() :: %{
         "AllowedIps" => list(String.t()()),
         "Arn" => String.t(),
@@ -2091,124 +2167,139 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "PeriodicSessionDuration" => integer()
       }
-
+      
   """
   @type authentication_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_note() :: %{
         "Value" => String.t()
       }
-
+      
   """
   @type evaluation_note() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_module_metadata_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("State") => list(any())
       }
-
+      
   """
   @type update_contact_flow_module_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_prompt_response() :: %{
         "PromptARN" => String.t(),
         "PromptId" => String.t()
       }
-
+      
   """
   @type update_prompt_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_contact_flow_exception() :: %{
         "problems" => list(problem_detail()())
       }
-
+      
   """
   @type invalid_contact_flow_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_view_metadata_response() :: %{}
-
+      
   """
   @type update_view_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_evaluation_form_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_evaluation_form_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      search_agent_statuses_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => agent_status_search_criteria(),
+        optional("SearchFilter") => agent_status_search_filter(),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type search_agent_statuses_request() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       delete_view_version_request() :: %{}
-
+      
   """
   @type delete_view_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       import_phone_number_response() :: %{
         "PhoneNumberArn" => String.t(),
         "PhoneNumberId" => String.t()
       }
-
+      
   """
   @type import_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       persistent_chat() :: %{
         "RehydrationType" => list(any()),
         "SourceContactId" => String.t()
       }
-
+      
   """
   @type persistent_chat() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_schedule_response() :: %{}
-
+      
   """
   @type update_contact_schedule_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       queue() :: %{
         "Description" => String.t(),
         "HoursOfOperationId" => String.t(),
@@ -2222,267 +2313,267 @@ defmodule AWS.Connect do
         "Status" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type queue() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_proficiency_disassociate() :: %{
         "AttributeName" => String.t(),
         "AttributeValue" => String.t()
       }
-
+      
   """
   @type user_proficiency_disassociate() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_use_cases_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_use_cases_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_approved_origin_request() :: %{
         required("Origin") => String.t()
       }
-
+      
   """
   @type disassociate_approved_origin_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_attribute_value() :: %{
         "ValueString" => String.t()
       }
-
+      
   """
   @type segment_attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_segment_categories() :: %{
         "MatchedDetails" => map()
       }
-
+      
   """
   @type real_time_contact_analysis_segment_categories() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_lambda_function_request() :: %{
         required("FunctionArn") => String.t()
       }
-
+      
   """
   @type associate_lambda_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transcript() :: %{
         "Criteria" => list(transcript_criteria()()),
         "MatchType" => list(any())
       }
-
+      
   """
   @type transcript() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       download_url_metadata() :: %{
         "Url" => String.t(),
         "UrlExpiry" => String.t()
       }
-
+      
   """
   @type download_url_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suspend_contact_recording_response() :: %{}
-
+      
   """
   @type suspend_contact_recording_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_participant_role_config_response() :: %{}
-
+      
   """
   @type update_participant_role_config_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_queue_quick_connects_request() :: %{
         required("QuickConnectIds") => list(String.t()())
       }
-
+      
   """
   @type disassociate_queue_quick_connects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       complete_attached_file_upload_response() :: %{}
-
+      
   """
   @type complete_attached_file_upload_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_profile_applications_response() :: %{
         "Applications" => list(application()()),
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_security_profile_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_quick_connect_config_request() :: %{
         required("QuickConnectConfig") => quick_connect_config()
       }
-
+      
   """
   @type update_quick_connect_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_queue_hours_of_operation_request() :: %{
         required("HoursOfOperationId") => String.t()
       }
-
+      
   """
   @type update_queue_hours_of_operation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participant_details_to_add() :: %{
         "DisplayName" => String.t(),
         "ParticipantRole" => list(any())
       }
-
+      
   """
   @type participant_details_to_add() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_contact_streaming_request() :: %{
         required("ChatStreamingConfiguration") => chat_streaming_configuration(),
         required("ClientToken") => String.t(),
         required("ContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type start_contact_streaming_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_analytics_data_set_response() :: %{
         "DataSetId" => String.t(),
         "ResourceShareArn" => String.t(),
         "ResourceShareId" => String.t(),
         "TargetAccountId" => String.t()
       }
-
+      
   """
   @type associate_analytics_data_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rules_request() :: %{
         optional("EventSourceName") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("PublishStatus") => list(any())
       }
-
+      
   """
   @type list_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_phone_number_request() :: %{
         optional("ClientToken") => String.t(),
         optional("PhoneNumberDescription") => String.t(),
@@ -2490,85 +2581,85 @@ defmodule AWS.Connect do
         required("InstanceId") => String.t(),
         required("SourcePhoneNumberArn") => String.t()
       }
-
+      
   """
   @type import_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       claim_phone_number_response() :: %{
         "PhoneNumberArn" => String.t(),
         "PhoneNumberId" => String.t()
       }
-
+      
   """
   @type claim_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       queue_info() :: %{
         "EnqueueTimestamp" => non_neg_integer(),
         "Id" => String.t()
       }
-
+      
   """
   @type queue_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_answer_output() :: %{
         "SystemSuggestedValue" => list(),
         "Value" => list()
       }
-
+      
   """
   @type evaluation_answer_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       available_number_summary() :: %{
         "PhoneNumber" => String.t(),
         "PhoneNumberCountryCode" => list(any()),
         "PhoneNumberType" => list(any())
       }
-
+      
   """
   @type available_number_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_view_version_response() :: %{
         "View" => view()
       }
-
+      
   """
   @type create_view_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_phone_number_response() :: %{
         "ClaimedPhoneNumberSummary" => claimed_phone_number_summary()
       }
-
+      
   """
   @type describe_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_group_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -2576,129 +2667,129 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type hierarchy_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participant_token_credentials() :: %{
         "Expiry" => String.t(),
         "ParticipantToken" => String.t()
       }
-
+      
   """
   @type participant_token_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_flow_module_request() :: %{}
-
+      
   """
   @type describe_contact_flow_module_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       pause_contact_request() :: %{
         optional("ContactFlowId") => String.t(),
         required("ContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type pause_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_instance_attribute_response() :: %{
         "Attribute" => attribute()
       }
-
+      
   """
   @type describe_instance_attribute_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participant_timer_configuration() :: %{
         "ParticipantRole" => list(any()),
         "TimerType" => list(any()),
         "TimerValue" => list()
       }
-
+      
   """
   @type participant_timer_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_approved_origin_request() :: %{
         required("Origin") => String.t()
       }
-
+      
   """
   @type associate_approved_origin_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_not_allowed_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type destination_not_allowed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invisible_field_info() :: %{
         "Id" => task_template_field_identifier()
       }
-
+      
   """
   @type invisible_field_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_quick_connect_response() :: %{
         "QuickConnectARN" => String.t(),
         "QuickConnectId" => String.t()
       }
-
+      
   """
   @type create_quick_connect_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lex_bots_response() :: %{
         "LexBots" => list(lex_bot()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_lex_bots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_vocabulary_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
@@ -2706,51 +2797,51 @@ defmodule AWS.Connect do
         required("LanguageCode") => list(any()),
         required("VocabularyName") => String.t()
       }
-
+      
   """
   @type create_vocabulary_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_result_v2() :: %{
         "Collections" => list(metric_data_v2()()),
         "Dimensions" => map(),
         "MetricInterval" => metric_interval()
       }
-
+      
   """
   @type metric_result_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_attached_file_metadata_response() :: %{
         "Errors" => list(attached_file_error()()),
         "Files" => list(attached_file()())
       }
-
+      
   """
   @type batch_get_attached_file_metadata_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attached_file_request() :: %{
         optional("UrlExpiryInSeconds") => integer(),
         required("AssociatedResourceArn") => String.t()
       }
-
+      
   """
   @type get_attached_file_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transfer_contact_request() :: %{
         optional("ClientToken") => String.t(),
         optional("QueueId") => String.t(),
@@ -2759,45 +2850,45 @@ defmodule AWS.Connect do
         required("ContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type transfer_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_phone_number_request() :: %{}
-
+      
   """
   @type describe_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resume_contact_recording_response() :: %{}
-
+      
   """
   @type resume_contact_recording_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_agent_status_request() :: %{
         optional("AgentStatusTypes") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_agent_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       queue_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -2806,66 +2897,66 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "QueueType" => list(any())
       }
-
+      
   """
   @type queue_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_name_response() :: %{}
-
+      
   """
   @type update_contact_flow_name_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_task_templates_response() :: %{
         "NextToken" => String.t(),
         "TaskTemplates" => list(task_template_metadata()())
       }
-
+      
   """
   @type list_task_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_current_user_data_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "UserDataList" => list(user_data()())
       }
-
+      
   """
   @type get_current_user_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_rule_request() :: %{}
-
+      
   """
   @type delete_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_authentication_profile_request() :: %{}
-
+      
   """
   @type describe_authentication_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_summary() :: %{
         "Arn" => String.t(),
         "ContactFlowState" => list(any()),
@@ -2874,38 +2965,38 @@ defmodule AWS.Connect do
         "Id" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type contact_flow_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_evaluation_request() :: %{
         optional("Answers") => map(),
         optional("Notes") => map()
       }
-
+      
   """
   @type update_contact_evaluation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lex_bots_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_lex_bots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_v2_request() :: %{
         optional("InstanceId") => String.t(),
         optional("MaxResults") => integer(),
@@ -2915,23 +3006,23 @@ defmodule AWS.Connect do
         optional("PhoneNumberTypes") => list(list(any())()),
         optional("TargetArn") => String.t()
       }
-
+      
   """
   @type list_phone_numbers_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_prompt_request() :: %{}
-
+      
   """
   @type delete_prompt_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       send_chat_integration_event_request() :: %{
         optional("NewSessionDetails") => new_session_details(),
         optional("Subtype") => String.t(),
@@ -2939,25 +3030,25 @@ defmodule AWS.Connect do
         required("Event") => chat_event(),
         required("SourceId") => String.t()
       }
-
+      
   """
   @type send_chat_integration_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_hierarchy_structure_response() :: %{
         "HierarchyStructure" => hierarchy_structure()
       }
-
+      
   """
   @type describe_user_hierarchy_structure_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_data() :: %{
         "ActiveSlotsByChannel" => map(),
         "AvailableSlotsByChannel" => map(),
@@ -2969,88 +3060,88 @@ defmodule AWS.Connect do
         "Status" => agent_status_reference(),
         "User" => user_reference()
       }
-
+      
   """
   @type user_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connect_reference() :: %{
         "Type" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type connect_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_predefined_attribute_response() :: %{
         "PredefinedAttribute" => predefined_attribute()
       }
-
+      
   """
   @type describe_predefined_attribute_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_federation_token_response() :: %{
         "Credentials" => credentials(),
         "SignInUrl" => String.t(),
         "UserArn" => String.t(),
         "UserId" => String.t()
       }
-
+      
   """
   @type get_federation_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_traffic_distribution_groups_request() :: %{
         optional("InstanceId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_traffic_distribution_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quick_connect_search_criteria() :: %{
         "AndConditions" => list(quick_connect_search_criteria()()),
         "OrConditions" => list(quick_connect_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type quick_connect_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_view_response() :: %{
         "View" => view()
       }
-
+      
   """
   @type describe_view_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitor_contact_request() :: %{
         optional("AllowedMonitorCapabilities") => list(list(any())()),
         optional("ClientToken") => String.t(),
@@ -3058,86 +3149,86 @@ defmodule AWS.Connect do
         required("InstanceId") => String.t(),
         required("UserId") => String.t()
       }
-
+      
   """
   @type monitor_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_quick_connect_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t(),
         required("QuickConnectConfig") => quick_connect_config()
       }
-
+      
   """
   @type create_quick_connect_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_action_definition() :: %{
         "ContactFlowId" => String.t(),
         "Description" => String.t(),
         "Name" => String.t(),
         "References" => map()
       }
-
+      
   """
   @type task_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_traffic_distribution_group_user_request() :: %{
         required("InstanceId") => String.t(),
         required("UserId") => String.t()
       }
-
+      
   """
   @type associate_traffic_distribution_group_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       customer() :: %{
         "Capabilities" => participant_capabilities(),
         "DeviceInfo" => device_info()
       }
-
+      
   """
   @type customer() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_contact_flow_response() :: %{}
-
+      
   """
   @type delete_contact_flow_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_instance_attribute_request() :: %{
         required("Value") => String.t()
       }
-
+      
   """
   @type update_instance_attribute_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hours_of_operation_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -3145,26 +3236,26 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type hours_of_operation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_evaluation_form_response() :: %{
         "EvaluationFormArn" => String.t(),
         "EvaluationFormId" => String.t()
       }
-
+      
   """
   @type create_evaluation_form_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_contact_reference() :: %{
         "AgentContactState" => list(any()),
         "Channel" => list(any()),
@@ -3174,68 +3265,68 @@ defmodule AWS.Connect do
         "Queue" => queue_reference(),
         "StateStartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type agent_contact_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_lambda_functions_response() :: %{
         "LambdaFunctions" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_lambda_functions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_routing_profile_request() :: %{}
-
+      
   """
   @type delete_routing_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cross_channel_behavior() :: %{
         "BehaviorType" => list(any())
       }
-
+      
   """
   @type cross_channel_behavior() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       empty_field_value() :: %{}
-
+      
   """
   @type empty_field_value() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       view_content() :: %{
         "Actions" => list(String.t()()),
         "InputSchema" => String.t(),
         "Template" => String.t()
       }
-
+      
   """
   @type view_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_summary() :: %{
         "ActiveVersion" => integer(),
         "CreatedBy" => String.t(),
@@ -3249,58 +3340,58 @@ defmodule AWS.Connect do
         "LatestVersion" => integer(),
         "Title" => String.t()
       }
-
+      
   """
   @type evaluation_form_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_task_template_request() :: %{
         optional("SnapshotVersion") => String.t()
       }
-
+      
   """
   @type get_task_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t(),
         required("DataSetId") => String.t()
       }
-
+      
   """
   @type disassociate_analytics_data_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_agent_status_request() :: %{}
-
+      
   """
   @type describe_agent_status_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_keys_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_security_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       authentication_profile_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -3309,87 +3400,87 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type authentication_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_prompt_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t(),
         required("S3Uri") => String.t()
       }
-
+      
   """
   @type create_prompt_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_routing_profile_queues_request() :: %{
         required("QueueConfigs") => list(routing_profile_queue_config()())
       }
-
+      
   """
   @type associate_routing_profile_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_prompts_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "Prompts" => list(prompt()())
       }
-
+      
   """
   @type search_prompts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bots_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("LexVersion") => list(any())
       }
-
+      
   """
   @type list_bots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t(),
         optional("AllowedAccessControlTags") => map(),
@@ -3401,85 +3492,85 @@ defmodule AWS.Connect do
         optional("Tags") => map(),
         required("SecurityProfileName") => String.t()
       }
-
+      
   """
   @type create_security_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_view_version_request() :: %{
         optional("VersionDescription") => String.t(),
         optional("ViewContentSha256") => String.t()
       }
-
+      
   """
   @type create_view_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_instance_attribute_request() :: %{}
-
+      
   """
   @type describe_instance_attribute_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_profile_permissions_response() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "Permissions" => list(String.t()())
       }
-
+      
   """
   @type list_security_profile_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_predefined_attribute_request() :: %{
         required("Name") => String.t(),
         required("Values") => list()
       }
-
+      
   """
   @type create_predefined_attribute_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_contact_recording_request() :: %{
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type stop_contact_recording_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_category_details() :: %{
         "PointsOfInterest" => list(real_time_contact_analysis_point_of_interest()())
       }
-
+      
   """
   @type real_time_contact_analysis_category_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_traffic_distribution_group_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -3487,14 +3578,14 @@ defmodule AWS.Connect do
         required("InstanceId") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_traffic_distribution_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_profile_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -3502,37 +3593,37 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type security_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_evaluation_response() :: %{
         "Evaluation" => evaluation(),
         "EvaluationForm" => evaluation_form_content()
       }
-
+      
   """
   @type describe_contact_evaluation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_evaluation_form_request() :: %{
         optional("EvaluationFormVersion") => integer()
       }
-
+      
   """
   @type describe_evaluation_form_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_notification_action_definition() :: %{
         "Content" => String.t(),
         "ContentType" => list(any()),
@@ -3540,38 +3631,38 @@ defmodule AWS.Connect do
         "Recipient" => notification_recipient_type(),
         "Subject" => String.t()
       }
-
+      
   """
   @type send_notification_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_quick_connect_config() :: %{
         "ContactFlowId" => String.t(),
         "UserId" => String.t()
       }
-
+      
   """
   @type user_quick_connect_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_status() :: %{
         "Message" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type phone_number_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_info() :: %{
         "AgentPauseDurationInSeconds" => integer(),
         "Capabilities" => participant_capabilities(),
@@ -3580,49 +3671,49 @@ defmodule AWS.Connect do
         "HierarchyGroups" => hierarchy_groups(),
         "Id" => String.t()
       }
-
+      
   """
   @type agent_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_hours_of_operation_response() :: %{
         "HoursOfOperation" => hours_of_operation()
       }
-
+      
   """
   @type describe_hours_of_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t(),
         required("DataSetIds") => list(String.t()())
       }
-
+      
   """
   @type batch_disassociate_analytics_data_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_prompt_response() :: %{
         "PromptARN" => String.t(),
         "PromptId" => String.t()
       }
-
+      
   """
   @type create_prompt_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_integration_association_request() :: %{
         optional("SourceApplicationName") => String.t(),
         optional("SourceApplicationUrl") => String.t(),
@@ -3631,50 +3722,50 @@ defmodule AWS.Connect do
         required("IntegrationArn") => String.t(),
         required("IntegrationType") => list(any())
       }
-
+      
   """
   @type create_integration_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audio_features() :: %{
         "EchoReduction" => list(any())
       }
-
+      
   """
   @type audio_features() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile_queue_config() :: %{
         "Delay" => integer(),
         "Priority" => integer(),
         "QueueReference" => routing_profile_queue_reference()
       }
-
+      
   """
   @type routing_profile_queue_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "Message" => String.t(),
         "Reason" => list()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_task_template_request() :: %{
         optional("Constraints") => task_template_constraints(),
         optional("ContactFlowId") => String.t(),
@@ -3684,121 +3775,121 @@ defmodule AWS.Connect do
         optional("Name") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type update_task_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_response() :: %{}
-
+      
   """
   @type update_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_bot_request() :: %{
         optional("LexBot") => lex_bot(),
         optional("LexV2Bot") => lex_v2_bot()
       }
-
+      
   """
   @type disassociate_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_score() :: %{
         "AutomaticFail" => boolean(),
         "NotApplicable" => boolean(),
         "Percentage" => float()
       }
-
+      
   """
   @type evaluation_score() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_contact_request() :: %{
         optional("ClientToken") => String.t(),
         required("ContactDataRequestList") => list(contact_data_request()())
       }
-
+      
   """
   @type batch_put_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_task_templates_request() :: %{
         optional("MaxResults") => integer(),
         optional("Name") => String.t(),
         optional("NextToken") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_task_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       telephony_config() :: %{
         "Distributions" => list(distribution()())
       }
-
+      
   """
   @type telephony_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_profiles_response() :: %{
         "NextToken" => String.t(),
         "SecurityProfileSummaryList" => list(security_profile_summary()())
       }
-
+      
   """
   @type list_security_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_participant_response() :: %{
         "ParticipantCredentials" => participant_token_credentials(),
         "ParticipantId" => String.t()
       }
-
+      
   """
   @type create_participant_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_group_condition() :: %{
         "HierarchyGroupMatchType" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type hierarchy_group_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vocabulary_summary() :: %{
         "Arn" => String.t(),
         "FailureReason" => String.t(),
@@ -3808,26 +3899,26 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type vocabulary_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_view_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_view_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_contact_flow_module_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -3835,131 +3926,131 @@ defmodule AWS.Connect do
         required("Content") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_contact_flow_module_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_instance_request() :: %{}
-
+      
   """
   @type describe_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       security_profiles_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type security_profiles_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_attached_file_metadata_request() :: %{
         required("AssociatedResourceArn") => String.t(),
         required("FileIds") => list(String.t()())
       }
-
+      
   """
   @type batch_get_attached_file_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_flow_association_request() :: %{
         optional("ResourceType") => list(any()),
         required("ResourceIds") => list(String.t()())
       }
-
+      
   """
   @type batch_get_flow_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_config() :: %{
         "BucketName" => String.t(),
         "BucketPrefix" => String.t(),
         "EncryptionConfig" => encryption_config()
       }
-
+      
   """
   @type s3_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_authentication_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_authentication_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_content_request() :: %{
         required("Content") => String.t()
       }
-
+      
   """
   @type update_contact_flow_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_phone_config() :: %{
         "AfterContactWorkTimeLimit" => integer(),
         "AutoAccept" => boolean(),
         "DeskPhoneNumber" => String.t(),
         "PhoneType" => list(any())
       }
-
+      
   """
   @type user_phone_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_contact_evaluation_response() :: %{
         "EvaluationArn" => String.t(),
         "EvaluationId" => String.t()
       }
-
+      
   """
   @type submit_contact_evaluation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form() :: %{
         "CreatedBy" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -3976,19 +4067,19 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "Title" => String.t()
       }
-
+      
   """
   @type evaluation_form() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_transcript_item_with_character_offsets() :: %{
         "CharacterOffsets" => real_time_contact_analysis_character_interval(),
         "Id" => String.t()
       }
-
+      
   """
   @type real_time_contact_analysis_transcript_item_with_character_offsets() :: %{
           String.t() => any()
@@ -3997,7 +4088,7 @@ defmodule AWS.Connect do
   @typedoc """
 
   ## Example:
-
+      
       view_version_summary() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
@@ -4007,70 +4098,70 @@ defmodule AWS.Connect do
         "Version" => integer(),
         "VersionDescription" => String.t()
       }
-
+      
   """
   @type view_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       numeric_question_property_value_automation() :: %{
         "Label" => list(any())
       }
-
+      
   """
   @type numeric_question_property_value_automation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_traffic_distribution_request() :: %{
         optional("AgentConfig") => agent_config(),
         optional("SignInConfig") => sign_in_config(),
         optional("TelephonyConfig") => telephony_config()
       }
-
+      
   """
   @type update_traffic_distribution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_task_template_request() :: %{}
-
+      
   """
   @type delete_task_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_contact_response() :: %{}
-
+      
   """
   @type tag_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("PhoneNumberCountryCodes") => list(list(any())()),
         optional("PhoneNumberTypes") => list(list(any())())
       }
-
+      
   """
   @type list_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_metric_data_request() :: %{
         optional("Groupings") => list(list(any())()),
         optional("MaxResults") => integer(),
@@ -4080,14 +4171,14 @@ defmodule AWS.Connect do
         required("HistoricalMetrics") => list(historical_metric()()),
         required("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_metric_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       vocabulary() :: %{
         "Arn" => String.t(),
         "Content" => String.t(),
@@ -4099,37 +4190,37 @@ defmodule AWS.Connect do
         "State" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type vocabulary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_routing_profile_queues_request() :: %{
         required("QueueReferences") => list(routing_profile_queue_reference()())
       }
-
+      
   """
   @type disassociate_routing_profile_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_v2() :: %{
         "FilterKey" => String.t(),
         "FilterValues" => list(String.t()())
       }
-
+      
   """
   @type filter_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_agent_status_request() :: %{
         optional("Description") => String.t(),
         optional("DisplayOrder") => integer(),
@@ -4137,70 +4228,70 @@ defmodule AWS.Connect do
         optional("ResetOrderNumber") => boolean(),
         optional("State") => list(any())
       }
-
+      
   """
   @type update_agent_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_default_vocabulary_response() :: %{}
-
+      
   """
   @type associate_default_vocabulary_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type routing_profile_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_view_metadata_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_view_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_response() :: %{
         "NextToken" => String.t(),
         "UserSummaryList" => list(user_summary()())
       }
-
+      
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application() :: %{
         "ApplicationPermissions" => list(String.t()()),
         "Namespace" => String.t()
       }
-
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_level() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -4208,23 +4299,23 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type hierarchy_level() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_view_request() :: %{}
-
+      
   """
   @type describe_view_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attached_file_response() :: %{
         "AssociatedResourceArn" => String.t(),
         "CreatedBy" => list(),
@@ -4238,50 +4329,50 @@ defmodule AWS.Connect do
         "FileUseCaseType" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type get_attached_file_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_evaluation_form_response() :: %{
         "EvaluationFormArn" => String.t(),
         "EvaluationFormId" => String.t(),
         "EvaluationFormVersion" => integer()
       }
-
+      
   """
   @type update_evaluation_form_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type user_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_evaluation_form_versions_response() :: %{
         "EvaluationFormVersionSummaryList" => list(evaluation_form_version_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_evaluation_form_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_evaluation_form_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -4289,23 +4380,23 @@ defmodule AWS.Connect do
         required("Items") => list(list()()),
         required("Title") => String.t()
       }
-
+      
   """
   @type create_evaluation_form_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_contact_recording_response() :: %{}
-
+      
   """
   @type start_contact_recording_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_metric_data_v2_request() :: %{
         optional("Groupings") => list(String.t()()),
         optional("Interval") => interval_details(),
@@ -4317,14 +4408,14 @@ defmodule AWS.Connect do
         required("ResourceArn") => String.t(),
         required("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_metric_data_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       claim_phone_number_request() :: %{
         optional("ClientToken") => String.t(),
         optional("InstanceId") => String.t(),
@@ -4333,52 +4424,52 @@ defmodule AWS.Connect do
         optional("TargetArn") => String.t(),
         required("PhoneNumber") => String.t()
       }
-
+      
   """
   @type claim_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_contact_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_quick_connects_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "QuickConnects" => list(quick_connect()())
       }
-
+      
   """
   @type search_quick_connects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_realtime_contact_analysis_segments_v2_response() :: %{
         "Channel" => list(any()),
         "NextToken" => String.t(),
         "Segments" => list(list()()),
         "Status" => list(any())
       }
-
+      
   """
   @type list_realtime_contact_analysis_segments_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integration_association_summary() :: %{
         "InstanceId" => String.t(),
         "IntegrationArn" => String.t(),
@@ -4389,165 +4480,165 @@ defmodule AWS.Connect do
         "SourceApplicationUrl" => String.t(),
         "SourceType" => list(any())
       }
-
+      
   """
   @type integration_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_analytics_data_associations_request() :: %{
         optional("DataSetId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_analytics_data_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_contacts_response() :: %{
         "Contacts" => list(contact_search_summary()()),
         "NextToken" => String.t(),
         "TotalCount" => float()
       }
-
+      
   """
   @type search_contacts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_predefined_attributes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_predefined_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_quick_connects_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("QuickConnectTypes") => list(list(any())())
       }
-
+      
   """
   @type list_quick_connects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       distribution() :: %{
         "Percentage" => integer(),
         "Region" => String.t()
       }
-
+      
   """
   @type distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_quality_metrics() :: %{
         "Audio" => audio_quality_metrics_info()
       }
-
+      
   """
   @type agent_quality_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_contact_streaming_response() :: %{
         "StreamingId" => String.t()
       }
-
+      
   """
   @type start_contact_streaming_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_hierarchy_request() :: %{
         optional("HierarchyGroupId") => String.t()
       }
-
+      
   """
   @type update_user_hierarchy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quick_connect_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type quick_connect_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_lambda_function_request() :: %{
         required("FunctionArn") => String.t()
       }
-
+      
   """
   @type disassociate_lambda_function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_instance_storage_config_request() :: %{
         required("ResourceType") => list(any())
       }
-
+      
   """
   @type disassociate_instance_storage_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_routing_profile_queues_request() :: %{
         required("QueueConfigs") => list(routing_profile_queue_config()())
       }
-
+      
   """
   @type update_routing_profile_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_phone_config_request() :: %{
         required("PhoneConfig") => user_phone_config()
       }
-
+      
   """
   @type update_user_phone_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_question() :: %{
         "Instructions" => String.t(),
         "NotApplicableEnabled" => boolean(),
@@ -4557,37 +4648,37 @@ defmodule AWS.Connect do
         "Title" => String.t(),
         "Weight" => float()
       }
-
+      
   """
   @type evaluation_form_question() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       notification_recipient_type() :: %{
         "UserIds" => list(String.t()()),
         "UserTags" => map()
       }
-
+      
   """
   @type notification_recipient_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       kinesis_stream_config() :: %{
         "StreamArn" => String.t()
       }
-
+      
   """
   @type kinesis_stream_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_segment_event() :: %{
         "DisplayName" => String.t(),
         "EventType" => String.t(),
@@ -4596,14 +4687,14 @@ defmodule AWS.Connect do
         "ParticipantRole" => list(any()),
         "Time" => list()
       }
-
+      
   """
   @type real_time_contact_analysis_segment_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_hierarchy_groups() :: %{
         "L1Ids" => list(String.t()()),
         "L2Ids" => list(String.t()()),
@@ -4611,71 +4702,71 @@ defmodule AWS.Connect do
         "L4Ids" => list(String.t()()),
         "L5Ids" => list(String.t()())
       }
-
+      
   """
   @type agent_hierarchy_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_use_cases_response() :: %{
         "NextToken" => String.t(),
         "UseCaseSummaryList" => list(use_case()())
       }
-
+      
   """
   @type list_use_cases_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_set() :: %{
         "key" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type tag_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       match_criteria() :: %{
         "AgentsCriteria" => agents_criteria()
       }
-
+      
   """
   @type match_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       problem_detail() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type problem_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_queues_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -4683,26 +4774,26 @@ defmodule AWS.Connect do
         optional("SearchFilter") => queue_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t(),
         required("DataSetId") => String.t()
       }
-
+      
   """
   @type associate_analytics_data_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -4710,37 +4801,37 @@ defmodule AWS.Connect do
         optional("SearchFilter") => user_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_hierarchy_group_response() :: %{
         "HierarchyGroupArn" => String.t(),
         "HierarchyGroupId" => String.t()
       }
-
+      
   """
   @type create_user_hierarchy_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_user_proficiencies_request() :: %{
         required("UserProficiencies") => list(user_proficiency_disassociate()())
       }
-
+      
   """
   @type disassociate_user_proficiencies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_data_request() :: %{
         "Attributes" => map(),
         "Campaign" => campaign(),
@@ -4749,48 +4840,48 @@ defmodule AWS.Connect do
         "RequestIdentifier" => String.t(),
         "SystemEndpoint" => endpoint()
       }
-
+      
   """
   @type contact_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_number_contact_flow_request() :: %{
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type disassociate_phone_number_contact_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_analysis() :: %{
         "Transcript" => transcript()
       }
-
+      
   """
   @type contact_analysis() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_approved_origins_response() :: %{
         "NextToken" => String.t(),
         "Origins" => list(String.t()())
       }
-
+      
   """
   @type list_approved_origins_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_profile_search_summary() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
@@ -4799,63 +4890,63 @@ defmodule AWS.Connect do
         "SecurityProfileName" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type security_profile_search_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agents_criteria() :: %{
         "AgentIds" => list(String.t()())
       }
-
+      
   """
   @type agents_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_view_response() :: %{
         "View" => view()
       }
-
+      
   """
   @type create_view_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile_search_criteria() :: %{
         "AndConditions" => list(routing_profile_search_criteria()()),
         "OrConditions" => list(routing_profile_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type routing_profile_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_numeric_question_option() :: %{
         "AutomaticFail" => boolean(),
         "MaxValue" => integer(),
         "MinValue" => integer(),
         "Score" => integer()
       }
-
+      
   """
   @type evaluation_form_numeric_question_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_task_contact_request() :: %{
         optional("Attributes") => map(),
         optional("ClientToken") => String.t(),
@@ -4870,87 +4961,99 @@ defmodule AWS.Connect do
         required("InstanceId") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type start_task_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_case_action_definition() :: %{
         "Fields" => list(field_value()()),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type create_case_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_rule_response() :: %{
         "RuleArn" => String.t(),
         "RuleId" => String.t()
       }
-
+      
   """
   @type create_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       current_metric_result() :: %{
         "Collections" => list(current_metric_data()()),
         "Dimensions" => dimensions()
       }
-
+      
   """
   @type current_metric_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      condition() :: %{
+        "NumberCondition" => number_condition(),
+        "StringCondition" => string_condition()
+      }
+      
+  """
+  @type condition() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       associate_phone_number_contact_flow_request() :: %{
         required("ContactFlowId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type associate_phone_number_contact_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_predefined_attribute_request() :: %{
         optional("Values") => list()
       }
-
+      
   """
   @type update_predefined_attribute_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_integration_associations_request() :: %{
         optional("IntegrationArn") => String.t(),
         optional("IntegrationType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_integration_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_queue_request() :: %{
         optional("Description") => String.t(),
         optional("MaxContacts") => integer(),
@@ -4960,84 +5063,84 @@ defmodule AWS.Connect do
         required("HoursOfOperationId") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_and_condition() :: %{
         "HierarchyGroupCondition" => hierarchy_group_condition(),
         "TagConditions" => list(tag_condition()())
       }
-
+      
   """
   @type attribute_and_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_contact_flow_module_response() :: %{}
-
+      
   """
   @type delete_contact_flow_module_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       chat_participant_role_config() :: %{
         "ParticipantTimerConfigList" => list(participant_timer_configuration()())
       }
-
+      
   """
   @type chat_participant_role_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       single_select_question_rule_category_automation() :: %{
         "Category" => String.t(),
         "Condition" => list(any()),
         "OptionRefId" => String.t()
       }
-
+      
   """
   @type single_select_question_rule_category_automation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lex_bot() :: %{
         "LexRegion" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type lex_bot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device_info() :: %{
         "OperatingSystem" => String.t(),
         "PlatformName" => String.t(),
         "PlatformVersion" => String.t()
       }
-
+      
   """
   @type device_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_path() :: %{
         "LevelFive" => hierarchy_group_summary(),
         "LevelFour" => hierarchy_group_summary(),
@@ -5045,147 +5148,147 @@ defmodule AWS.Connect do
         "LevelThree" => hierarchy_group_summary(),
         "LevelTwo" => hierarchy_group_summary()
       }
-
+      
   """
   @type hierarchy_path() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quick_connect_config() :: %{
         "PhoneConfig" => phone_number_quick_connect_config(),
         "QueueConfig" => queue_quick_connect_config(),
         "QuickConnectType" => list(any()),
         "UserConfig" => user_quick_connect_config()
       }
-
+      
   """
   @type quick_connect_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_instances_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connection_data() :: %{
         "Attendee" => attendee(),
         "Meeting" => meeting()
       }
-
+      
   """
   @type connection_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       monitor_contact_response() :: %{
         "ContactArn" => String.t(),
         "ContactId" => String.t()
       }
-
+      
   """
   @type monitor_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_instance_storage_config_response() :: %{
         "AssociationId" => String.t()
       }
-
+      
   """
   @type associate_instance_storage_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_traffic_distribution_group_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_traffic_distribution_group_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_request() :: %{}
-
+      
   """
   @type delete_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_metric_data_response() :: %{
         "MetricResults" => list(historical_metric_result()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_metric_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_evaluation_forms_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_evaluation_forms_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_module_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type contact_flow_module_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flow_association_summary() :: %{
         "FlowId" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type flow_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule() :: %{
         "Actions" => list(rule_action()()),
         "CreatedTime" => non_neg_integer(),
@@ -5199,38 +5302,38 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "TriggerEventSource" => rule_trigger_event_source()
       }
-
+      
   """
   @type rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_user_hierarchy_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_user_hierarchy_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sort() :: %{
         "FieldName" => list(any()),
         "Order" => list(any())
       }
-
+      
   """
   @type sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact() :: %{
         "AgentInfo" => agent_info(),
         "AnsweringMachineDetectionStatus" => list(any()),
@@ -5265,125 +5368,125 @@ defmodule AWS.Connect do
         "TotalPauseDurationInSeconds" => integer(),
         "WisdomInfo" => wisdom_info()
       }
-
+      
   """
   @type contact() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_routing_profile_default_outbound_queue_request() :: %{
         required("DefaultOutboundQueueId") => String.t()
       }
-
+      
   """
   @type update_routing_profile_default_outbound_queue_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_routing_profile_concurrency_request() :: %{
         required("MediaConcurrencies") => list(media_concurrency()())
       }
-
+      
   """
   @type update_routing_profile_concurrency_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile_queue_reference() :: %{
         "Channel" => list(any()),
         "QueueId" => String.t()
       }
-
+      
   """
   @type routing_profile_queue_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       control_plane_user_attribute_filter() :: %{
         "AndCondition" => attribute_and_condition(),
         "HierarchyGroupCondition" => hierarchy_group_condition(),
         "OrConditions" => list(attribute_and_condition()()),
         "TagCondition" => tag_condition()
       }
-
+      
   """
   @type control_plane_user_attribute_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_agent_status_response() :: %{
         "AgentStatusARN" => String.t(),
         "AgentStatusId" => String.t()
       }
-
+      
   """
   @type create_agent_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_views_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type list_views_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_contact_streaming_request() :: %{
         required("ContactId") => String.t(),
         required("InstanceId") => String.t(),
         required("StreamingId") => String.t()
       }
-
+      
   """
   @type stop_contact_streaming_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_reference() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type user_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_metadata_request() :: %{
         optional("ContactFlowState") => list(any()),
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_contact_flow_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -5391,73 +5494,73 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type routing_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dismiss_user_contact_request() :: %{
         required("ContactId") => String.t()
       }
-
+      
   """
   @type dismiss_user_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_recording_configuration() :: %{
         "VoiceRecordingTrack" => list(any())
       }
-
+      
   """
   @type voice_recording_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_numeric_question_properties() :: %{
         "Automation" => list(),
         "MaxValue" => integer(),
         "MinValue" => integer(),
         "Options" => list(evaluation_form_numeric_question_option()())
       }
-
+      
   """
   @type evaluation_form_numeric_question_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_instance_attributes_response() :: %{
         "Attributes" => list(attribute()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_instance_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_user_status_request() :: %{
         required("AgentStatusId") => String.t()
       }
-
+      
   """
   @type put_user_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_group() :: %{
         "Arn" => String.t(),
         "HierarchyPath" => hierarchy_path(),
@@ -5468,86 +5571,86 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type hierarchy_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       searchable_contact_attributes_criteria() :: %{
         "Key" => String.t(),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type searchable_contact_attributes_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_view_versions_response() :: %{
         "NextToken" => String.t(),
         "ViewVersionSummaryList" => list(view_version_summary()())
       }
-
+      
   """
   @type list_view_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint() :: %{
         "Address" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       queue_reference() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type queue_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       interval_details() :: %{
         "IntervalPeriod" => list(any()),
         "TimeZone" => String.t()
       }
-
+      
   """
   @type interval_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_flow_modules_response() :: %{
         "ContactFlowModulesSummaryList" => list(contact_flow_module_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_contact_flow_modules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_action() :: %{
         "ActionType" => list(any()),
         "AssignContactCategoryAction" => assign_contact_category_action_definition(),
@@ -5559,99 +5662,99 @@ defmodule AWS.Connect do
         "TaskAction" => task_action_definition(),
         "UpdateCaseAction" => update_case_action_definition()
       }
-
+      
   """
   @type rule_action() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_instances_response() :: %{
         "InstanceSummaryList" => list(instance_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_routing_profile_agent_availability_timer_request() :: %{
         required("AgentAvailabilityTimer") => list(any())
       }
-
+      
   """
   @type update_routing_profile_agent_availability_timer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resume_contact_response() :: %{}
-
+      
   """
   @type resume_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_prompts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_prompts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_contact_evaluation_request() :: %{}
-
+      
   """
   @type delete_contact_evaluation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_profile_permissions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_security_profile_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_case_action_definition() :: %{
         "Fields" => list(field_value()())
       }
-
+      
   """
   @type update_case_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_contact_response() :: %{}
-
+      
   """
   @type untag_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       security_profile() :: %{
         "AllowedAccessControlHierarchyGroupId" => String.t(),
         "AllowedAccessControlTags" => map(),
@@ -5666,14 +5769,14 @@ defmodule AWS.Connect do
         "TagRestrictedResources" => list(String.t()()),
         "Tags" => map()
       }
-
+      
   """
   @type security_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quick_connect_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -5682,37 +5785,37 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "QuickConnectType" => list(any())
       }
-
+      
   """
   @type quick_connect_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_security_key_request() :: %{
         required("Key") => String.t()
       }
-
+      
   """
   @type associate_security_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       current_metric() :: %{
         "Name" => list(any()),
         "Unit" => list(any())
       }
-
+      
   """
   @type current_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       traffic_distribution_group() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
@@ -5723,14 +5826,27 @@ defmodule AWS.Connect do
         "Status" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type traffic_distribution_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      user_hierarchy_group_search_criteria() :: %{
+        "AndConditions" => list(user_hierarchy_group_search_criteria()()),
+        "OrConditions" => list(user_hierarchy_group_search_criteria()()),
+        "StringCondition" => string_condition()
+      }
+      
+  """
+  @type user_hierarchy_group_search_criteria() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       rule_summary() :: %{
         "ActionSummaries" => list(action_summary()()),
         "CreatedTime" => non_neg_integer(),
@@ -5741,230 +5857,230 @@ defmodule AWS.Connect do
         "RuleArn" => String.t(),
         "RuleId" => String.t()
       }
-
+      
   """
   @type rule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_profile_applications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_security_profile_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_routing_profile_name_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_routing_profile_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow_module_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type contact_flow_module_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routing_profile_queues_response() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "RoutingProfileQueueConfigSummaryList" => list(routing_profile_queue_config_summary()())
       }
-
+      
   """
   @type list_routing_profile_queues_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_flow_modules_request() :: %{
         optional("ContactFlowModuleState") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_contact_flow_modules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_bot_request() :: %{
         optional("LexBot") => lex_bot(),
         optional("LexV2Bot") => lex_v2_bot()
       }
-
+      
   """
   @type associate_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_lex_bot_request() :: %{
         required("LexBot") => lex_bot()
       }
-
+      
   """
   @type associate_lex_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_security_profile_request() :: %{}
-
+      
   """
   @type delete_security_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_response() :: %{
         "User" => user()
       }
-
+      
   """
   @type describe_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_condition() :: %{
         "ComparisonType" => list(any()),
         "FieldName" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type string_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bots_response() :: %{
         "LexBots" => list(lex_bot_config()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_bots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_search_summary_agent_info() :: %{
         "ConnectedToAgentTimestamp" => non_neg_integer(),
         "Id" => String.t()
       }
-
+      
   """
   @type contact_search_summary_agent_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quality_metrics() :: %{
         "Agent" => agent_quality_metrics(),
         "Customer" => customer_quality_metrics()
       }
-
+      
   """
   @type quality_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_hierarchy_structure_request() :: %{
         required("HierarchyStructure") => hierarchy_structure_update()
       }
-
+      
   """
   @type update_user_hierarchy_structure_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_traffic_distribution_group_request() :: %{}
-
+      
   """
   @type delete_traffic_distribution_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_rule_request() :: %{}
-
+      
   """
   @type describe_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       deactivate_evaluation_form_request() :: %{
         required("EvaluationFormVersion") => integer()
       }
-
+      
   """
   @type deactivate_evaluation_form_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_security_profiles_request() :: %{
         required("SecurityProfileIds") => list(String.t()())
       }
-
+      
   """
   @type update_user_security_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_status_reason() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type instance_status_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_agent_status_request() :: %{
         optional("Description") => String.t(),
         optional("DisplayOrder") => integer(),
@@ -5972,87 +6088,87 @@ defmodule AWS.Connect do
         required("Name") => String.t(),
         required("State") => list(any())
       }
-
+      
   """
   @type create_agent_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resume_contact_request() :: %{
         optional("ContactFlowId") => String.t(),
         required("ContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type resume_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_traffic_distribution_group_user_response() :: %{}
-
+      
   """
   @type associate_traffic_distribution_group_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       customer_voice_activity() :: %{
         "GreetingEndTimestamp" => non_neg_integer(),
         "GreetingStartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type customer_voice_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_routing_data_response() :: %{}
-
+      
   """
   @type update_contact_routing_data_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_flow_association_request() :: %{}
-
+      
   """
   @type get_flow_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_integration_association_request() :: %{}
-
+      
   """
   @type delete_integration_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_keys_response() :: %{
         "NextToken" => String.t(),
         "SecurityKeys" => list(security_key()())
       }
-
+      
   """
   @type list_security_keys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_view_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -6061,50 +6177,62 @@ defmodule AWS.Connect do
         required("Name") => String.t(),
         required("Status") => list(any())
       }
-
+      
   """
   @type create_view_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_prompt_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("S3Uri") => String.t()
       }
-
+      
   """
   @type update_prompt_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_search_criteria() :: %{
         "AndConditions" => list(user_search_criteria()()),
         "HierarchyGroupCondition" => hierarchy_group_condition(),
+        "ListCondition" => list_condition(),
         "OrConditions" => list(user_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type user_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_evaluation_request() :: %{}
-
+      
   """
   @type describe_contact_evaluation_request() :: %{}
 
   @typedoc """
 
   ## Example:
+      
+      agent_status_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+      
+  """
+  @type agent_status_search_filter() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       get_traffic_distribution_response() :: %{
         "AgentConfig" => agent_config(),
         "Arn" => String.t(),
@@ -6112,75 +6240,75 @@ defmodule AWS.Connect do
         "SignInConfig" => sign_in_config(),
         "TelephonyConfig" => telephony_config()
       }
-
+      
   """
   @type get_traffic_distribution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transfer_contact_response() :: %{
         "ContactArn" => String.t(),
         "ContactId" => String.t()
       }
-
+      
   """
   @type transfer_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_view_content_request() :: %{
         required("Content") => view_input_content(),
         required("Status") => list(any())
       }
-
+      
   """
   @type update_view_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_evaluation_response() :: %{
         "EvaluationArn" => String.t(),
         "EvaluationId" => String.t()
       }
-
+      
   """
   @type update_contact_evaluation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_single_select_question_option() :: %{
         "AutomaticFail" => boolean(),
         "RefId" => String.t(),
         "Score" => integer(),
         "Text" => String.t()
       }
-
+      
   """
   @type evaluation_form_single_select_question_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_view_content_response() :: %{
         "View" => view()
       }
-
+      
   """
   @type update_view_content_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_instance_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DirectoryId") => String.t(),
@@ -6190,26 +6318,26 @@ defmodule AWS.Connect do
         required("InboundCallsEnabled") => boolean(),
         required("OutboundCallsEnabled") => boolean()
       }
-
+      
   """
   @type create_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_group_summary_reference() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type hierarchy_group_summary_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_structure() :: %{
         "LevelFive" => hierarchy_level(),
         "LevelFour" => hierarchy_level(),
@@ -6217,48 +6345,48 @@ defmodule AWS.Connect do
         "LevelThree" => hierarchy_level(),
         "LevelTwo" => hierarchy_level()
       }
-
+      
   """
   @type hierarchy_structure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_contact_streaming_response() :: %{}
-
+      
   """
   @type stop_contact_streaming_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_instance_response() :: %{
         "Instance" => instance()
       }
-
+      
   """
   @type describe_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_session_details() :: %{
         "Attributes" => map(),
         "ParticipantDetails" => participant_details(),
         "StreamingConfiguration" => chat_streaming_configuration(),
         "SupportedMessagingContentTypes" => list(String.t()())
       }
-
+      
   """
   @type new_session_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_groups() :: %{
         "Level1" => agent_hierarchy_group(),
         "Level2" => agent_hierarchy_group(),
@@ -6266,36 +6394,36 @@ defmodule AWS.Connect do
         "Level4" => agent_hierarchy_group(),
         "Level5" => agent_hierarchy_group()
       }
-
+      
   """
   @type hierarchy_groups() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_queue_outbound_caller_config_request() :: %{
         required("OutboundCallerConfig") => outbound_caller_config()
       }
-
+      
   """
   @type update_queue_outbound_caller_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_contact_attributes_response() :: %{
         "Attributes" => map()
       }
-
+      
   """
   @type get_contact_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -6310,131 +6438,131 @@ defmodule AWS.Connect do
         "StatusReason" => instance_status_reason(),
         "Tags" => map()
       }
-
+      
   """
   @type instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sign_in_config() :: %{
         "Distributions" => list(sign_in_distribution()())
       }
-
+      
   """
   @type sign_in_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routing_profiles_response() :: %{
         "NextToken" => String.t(),
         "RoutingProfileSummaryList" => list(routing_profile_summary()())
       }
-
+      
   """
   @type list_routing_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_contact_flow_module_response() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type create_contact_flow_module_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_web_r_t_c_contact_response() :: %{
         "ConnectionData" => connection_data(),
         "ContactId" => String.t(),
         "ParticipantId" => String.t(),
         "ParticipantToken" => String.t()
       }
-
+      
   """
   @type start_web_r_t_c_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       current_metric_sort_criteria() :: %{
         "SortByMetric" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type current_metric_sort_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_traffic_distribution_response() :: %{}
-
+      
   """
   @type update_traffic_distribution_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       security_key() :: %{
         "AssociationId" => String.t(),
         "CreationTime" => non_neg_integer(),
         "Key" => String.t()
       }
-
+      
   """
   @type security_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rules_response() :: %{
         "NextToken" => String.t(),
         "RuleSummaryList" => list(rule_summary()())
       }
-
+      
   """
   @type list_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_resource_tags_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -6442,253 +6570,264 @@ defmodule AWS.Connect do
         optional("SearchCriteria") => resource_tags_search_criteria(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_resource_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disconnect_reason() :: %{
         "Code" => String.t()
       }
-
+      
   """
   @type disconnect_reason() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replicate_instance_response() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type replicate_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_character_interval() :: %{
         "BeginOffsetChar" => integer(),
         "EndOffsetChar" => integer()
       }
-
+      
   """
   @type real_time_contact_analysis_character_interval() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_value() :: %{
         "Id" => String.t(),
         "Value" => field_value_union()
       }
-
+      
   """
   @type field_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_template_constraints() :: %{
         "InvisibleFields" => list(invisible_field_info()()),
         "ReadOnlyFields" => list(read_only_field_info()()),
         "RequiredFields" => list(required_field_info()())
       }
-
+      
   """
   @type task_template_constraints() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_routing_data_request() :: %{
         optional("QueuePriority") => float(),
         optional("QueueTimeAdjustmentSeconds") => integer()
       }
-
+      
   """
   @type update_contact_routing_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_traffic_distribution_group_response() :: %{
         "TrafficDistributionGroup" => traffic_distribution_group()
       }
-
+      
   """
   @type describe_traffic_distribution_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_hours_of_operations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_hours_of_operations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_user_hierarchy_group_response() :: %{
         "HierarchyGroup" => hierarchy_group()
       }
-
+      
   """
   @type describe_user_hierarchy_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audio_quality_metrics_info() :: %{
         "PotentialQualityIssues" => list(String.t()()),
         "QualityScore" => float()
       }
-
+      
   """
   @type audio_quality_metrics_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_queue_name_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_queue_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_contact_request() :: %{
         required("ContactId") => String.t(),
         required("InstanceId") => String.t(),
         required("Tags") => map()
       }
-
+      
   """
   @type tag_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_contact_evaluation_response() :: %{
         "EvaluationArn" => String.t(),
         "EvaluationId" => String.t()
       }
-
+      
   """
   @type start_contact_evaluation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_routing_profiles_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "RoutingProfiles" => list(routing_profile()())
       }
-
+      
   """
   @type search_routing_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       queue_quick_connect_config() :: %{
         "ContactFlowId" => String.t(),
         "QueueId" => String.t()
       }
-
+      
   """
   @type queue_quick_connect_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_proficiency() :: %{
         "AttributeName" => String.t(),
         "AttributeValue" => String.t(),
         "Level" => float()
       }
-
+      
   """
   @type user_proficiency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       queue_search_criteria() :: %{
         "AndConditions" => list(queue_search_criteria()()),
         "OrConditions" => list(queue_search_criteria()()),
         "QueueTypeCondition" => list(any()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type queue_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_contact_evaluation_request() :: %{
         optional("Answers") => map(),
         optional("Notes") => map()
       }
-
+      
   """
   @type submit_contact_evaluation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      common_attribute_and_condition() :: %{
+        "TagConditions" => list(tag_condition()())
+      }
+      
+  """
+  @type common_attribute_and_condition() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       describe_user_request() :: %{}
-
+      
   """
   @type describe_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_user_proficiencies_request() :: %{
         required("UserProficiencies") => list(user_proficiency()())
       }
-
+      
   """
   @type associate_user_proficiencies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_security_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -6696,14 +6835,14 @@ defmodule AWS.Connect do
         optional("SearchFilter") => security_profiles_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_security_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_prompts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -6711,239 +6850,239 @@ defmodule AWS.Connect do
         optional("SearchFilter") => prompt_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_prompts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_security_profile_request() :: %{}
-
+      
   """
   @type describe_security_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_security_profiles_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "SecurityProfiles" => list(security_profile_search_summary()())
       }
-
+      
   """
   @type search_security_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_config() :: %{
         "Distributions" => list(distribution()())
       }
-
+      
   """
   @type agent_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_answer_input() :: %{
         "Value" => list()
       }
-
+      
   """
   @type evaluation_answer_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_bridge_action_definition() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type event_bridge_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_default_vocabularies_request() :: %{
         optional("LanguageCode") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_default_vocabularies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_references_request() :: %{
         optional("NextToken") => String.t(),
         required("ReferenceTypes") => list(list(any())())
       }
-
+      
   """
   @type list_contact_references_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       meeting_features_configuration() :: %{
         "Audio" => audio_features()
       }
-
+      
   """
   @type meeting_features_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_attributes_request() :: %{
         required("Attributes") => map(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type update_contact_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("References") => map()
       }
-
+      
   """
   @type update_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_flow_request() :: %{}
-
+      
   """
   @type describe_contact_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_queue_quick_connects_response() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "QuickConnectSummaryList" => list(quick_connect_summary()())
       }
-
+      
   """
   @type list_queue_quick_connects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       searchable_contact_attributes() :: %{
         "Criteria" => list(searchable_contact_attributes_criteria()()),
         "MatchType" => list(any())
       }
-
+      
   """
   @type searchable_contact_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routing_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_routing_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_contact_response() :: %{
         "FailedRequestList" => list(failed_request()()),
         "SuccessfulRequestList" => list(successful_request()())
       }
-
+      
   """
   @type batch_put_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_flow_response() :: %{
         "ContactFlow" => contact_flow()
       }
-
+      
   """
   @type describe_contact_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_content_response() :: %{}
-
+      
   """
   @type update_contact_flow_content_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_contact_response() :: %{}
-
+      
   """
   @type stop_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_contact_flow_module_exception() :: %{
         "Problems" => list(problem_detail()())
       }
-
+      
   """
   @type invalid_contact_flow_module_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_flow() :: %{
         "Arn" => String.t(),
         "Content" => String.t(),
@@ -6955,49 +7094,49 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "Type" => list(any())
       }
-
+      
   """
   @type contact_flow() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_traffic_distribution_groups_response() :: %{
         "NextToken" => String.t(),
         "TrafficDistributionGroupSummaryList" => list(traffic_distribution_group_summary()())
       }
-
+      
   """
   @type list_traffic_distribution_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contact_flows_response() :: %{
         "ContactFlowSummaryList" => list(contact_flow_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_contact_flows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       idempotency_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type idempotency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_quick_connects_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -7005,14 +7144,14 @@ defmodule AWS.Connect do
         optional("SearchFilter") => quick_connect_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_quick_connects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_section() :: %{
         "Instructions" => String.t(),
         "Items" => list(list()()),
@@ -7020,14 +7159,14 @@ defmodule AWS.Connect do
         "Title" => String.t(),
         "Weight" => float()
       }
-
+      
   """
   @type evaluation_form_section() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_contacts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -7036,49 +7175,49 @@ defmodule AWS.Connect do
         required("InstanceId") => String.t(),
         required("TimeRange") => search_contacts_time_range()
       }
-
+      
   """
   @type search_contacts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_quick_connect_request() :: %{}
-
+      
   """
   @type delete_quick_connect_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_integration_associations_response() :: %{
         "IntegrationAssociationSummaryList" => list(integration_association_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_integration_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_value_union() :: %{
         "BooleanValue" => boolean(),
         "DoubleValue" => float(),
         "EmptyValue" => empty_field_value(),
         "StringValue" => String.t()
       }
-
+      
   """
   @type field_value_union() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -7086,47 +7225,47 @@ defmodule AWS.Connect do
         "PhoneNumberCountryCode" => list(any()),
         "PhoneNumberType" => list(any())
       }
-
+      
   """
   @type phone_number_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_level_update() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type hierarchy_level_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resume_contact_recording_request() :: %{
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type resume_contact_recording_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_security_key_request() :: %{}
-
+      
   """
   @type disassociate_security_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -7139,82 +7278,82 @@ defmodule AWS.Connect do
         "OutboundCallsEnabled" => boolean(),
         "ServiceRole" => String.t()
       }
-
+      
   """
   @type instance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_instance_storage_config_request() :: %{
         required("ResourceType") => list(any())
       }
-
+      
   """
   @type describe_instance_storage_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_participant_role_config_request() :: %{
         required("ChannelConfiguration") => list()
       }
-
+      
   """
   @type update_participant_role_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_predefined_attributes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SearchCriteria") => predefined_attribute_search_criteria(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_predefined_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_instance_request() :: %{}
-
+      
   """
   @type delete_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       current_metric_data() :: %{
         "Metric" => current_metric(),
         "Value" => float()
       }
-
+      
   """
   @type current_metric_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user() :: %{
         "Arn" => String.t(),
         "DirectoryUserId" => String.t(),
@@ -7229,48 +7368,48 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "Username" => String.t()
       }
-
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_name_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_contact_flow_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vocabulary_request() :: %{}
-
+      
   """
   @type delete_vocabulary_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       expression() :: %{
         "AndExpression" => list(expression()()),
         "AttributeCondition" => attribute_condition(),
         "OrExpression" => list(expression()())
       }
-
+      
   """
   @type expression() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_search_summary() :: %{
         "AgentInfo" => contact_search_summary_agent_info(),
         "Arn" => String.t(),
@@ -7284,141 +7423,141 @@ defmodule AWS.Connect do
         "QueueInfo" => contact_search_summary_queue_info(),
         "ScheduledTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type contact_search_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_flow_module_response() :: %{
         "ContactFlowModule" => contact_flow_module()
       }
-
+      
   """
   @type describe_contact_flow_module_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_flow_response() :: %{}
-
+      
   """
   @type disassociate_flow_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       predefined_attribute_search_criteria() :: %{
         "AndConditions" => list(predefined_attribute_search_criteria()()),
         "OrConditions" => list(predefined_attribute_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type predefined_attribute_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_quick_connect_response() :: %{
         "QuickConnect" => quick_connect()
       }
-
+      
   """
   @type describe_quick_connect_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       predefined_attribute_summary() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t()
       }
-
+      
   """
   @type predefined_attribute_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_transcript_item_redaction() :: %{
         "CharacterOffsets" => list(real_time_contact_analysis_character_interval()())
       }
-
+      
   """
   @type real_time_contact_analysis_transcript_item_redaction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_hierarchy_group_request() :: %{
         optional("ParentGroupId") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_user_hierarchy_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_hours_of_operation_response() :: %{
         "HoursOfOperationArn" => String.t(),
         "HoursOfOperationId" => String.t()
       }
-
+      
   """
   @type create_hours_of_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hours_of_operation_search_criteria() :: %{
         "AndConditions" => list(hours_of_operation_search_criteria()()),
         "OrConditions" => list(hours_of_operation_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type hours_of_operation_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_routing_profile_response() :: %{
         "RoutingProfileArn" => String.t(),
         "RoutingProfileId" => String.t()
       }
-
+      
   """
   @type create_routing_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       assign_contact_category_action_definition() :: %{}
-
+      
   """
   @type assign_contact_category_action_definition() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_contact_flows_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -7426,37 +7565,37 @@ defmodule AWS.Connect do
         optional("SearchFilter") => contact_flow_search_filter(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type search_contact_flows_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_prompt_file_request() :: %{}
-
+      
   """
   @type get_prompt_file_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       analytics_data_association_result() :: %{
         "DataSetId" => String.t(),
         "ResourceShareArn" => String.t(),
         "ResourceShareId" => String.t(),
         "TargetAccountId" => String.t()
       }
-
+      
   """
   @type analytics_data_association_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_attached_file_upload_response() :: %{
         "CreatedBy" => list(),
         "CreationTime" => String.t(),
@@ -7465,47 +7604,47 @@ defmodule AWS.Connect do
         "FileStatus" => list(any()),
         "UploadUrlMetadata" => upload_url_metadata()
       }
-
+      
   """
   @type start_attached_file_upload_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_view_response() :: %{}
-
+      
   """
   @type delete_view_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_v2_response() :: %{
         "ListPhoneNumbersSummaryList" => list(list_phone_numbers_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_phone_numbers_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_user_proficiencies_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_user_proficiencies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_task_template_response() :: %{
         "Arn" => String.t(),
         "Constraints" => task_template_constraints(),
@@ -7520,39 +7659,39 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type update_task_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_v2() :: %{
         "MetricFilters" => list(metric_filter_v2()()),
         "Name" => String.t(),
         "Threshold" => list(threshold_v2()())
       }
-
+      
   """
   @type metric_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       threshold() :: %{
         "Comparison" => list(any()),
         "ThresholdValue" => float()
       }
-
+      
   """
   @type threshold() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_outbound_voice_contact_request() :: %{
         optional("AnswerMachineDetectionConfig") => answer_machine_detection_config(),
         optional("Attributes") => map(),
@@ -7569,250 +7708,250 @@ defmodule AWS.Connect do
         required("DestinationPhoneNumber") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type start_outbound_voice_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute() :: %{
         "AttributeType" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_use_case_request() :: %{
         optional("Tags") => map(),
         required("UseCaseType") => list(any())
       }
-
+      
   """
   @type create_use_case_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_vocabulary() :: %{
         "InstanceId" => String.t(),
         "LanguageCode" => list(any()),
         "VocabularyId" => String.t(),
         "VocabularyName" => String.t()
       }
-
+      
   """
   @type default_vocabulary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_task_contact_response() :: %{
         "ContactId" => String.t()
       }
-
+      
   """
   @type start_task_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       chat_event() :: %{
         "Content" => String.t(),
         "ContentType" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type chat_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filters() :: %{
         "Channels" => list(list(any())()),
         "Queues" => list(String.t()()),
         "RoutingProfiles" => list(String.t()()),
         "RoutingStepExpressions" => list(String.t()())
       }
-
+      
   """
   @type filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_agent_status_response() :: %{
         "AgentStatusSummaryList" => list(agent_status_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_agent_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_routing_profile_request() :: %{
         required("RoutingProfileId") => String.t()
       }
-
+      
   """
   @type update_user_routing_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_template_field_identifier() :: %{
         "Name" => String.t()
       }
-
+      
   """
   @type task_template_field_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_queue_quick_connects_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_queue_quick_connects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_queues_response() :: %{
         "NextToken" => String.t(),
         "QueueSummaryList" => list(queue_summary()())
       }
-
+      
   """
   @type list_queues_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_evaluation_forms_response() :: %{
         "EvaluationFormSummaryList" => list(evaluation_form_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_evaluation_forms_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_single_select_question_properties() :: %{
         "Automation" => evaluation_form_single_select_question_automation(),
         "DisplayAs" => list(any()),
         "Options" => list(evaluation_form_single_select_question_option()())
       }
-
+      
   """
   @type evaluation_form_single_select_question_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_traffic_distribution_request() :: %{}
-
+      
   """
   @type get_traffic_distribution_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       complete_attached_file_upload_request() :: %{
         required("AssociatedResourceArn") => String.t()
       }
-
+      
   """
   @type complete_attached_file_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attendee() :: %{
         "AttendeeId" => String.t(),
         "JoinToken" => String.t()
       }
-
+      
   """
   @type attendee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_authentication_profile_response() :: %{
         "AuthenticationProfile" => authentication_profile()
       }
-
+      
   """
   @type describe_authentication_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disconnect_details() :: %{
         "PotentialDisconnectIssue" => String.t()
       }
-
+      
   """
   @type disconnect_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_status_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -7821,23 +7960,23 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type agent_status_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_traffic_distribution_group_user_response() :: %{}
-
+      
   """
   @type disassociate_traffic_distribution_group_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_vocabularies_request() :: %{
         optional("LanguageCode") => list(any()),
         optional("MaxResults") => integer(),
@@ -7845,128 +7984,128 @@ defmodule AWS.Connect do
         optional("NextToken") => String.t(),
         optional("State") => list(any())
       }
-
+      
   """
   @type search_vocabularies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prompt_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter()
       }
-
+      
   """
   @type prompt_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_queue_status_request() :: %{
         required("Status") => list(any())
       }
-
+      
   """
   @type update_queue_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_vocabulary_response() :: %{
         "Vocabulary" => vocabulary()
       }
-
+      
   """
   @type describe_vocabulary_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_flow_request() :: %{
         required("FlowId") => String.t(),
         required("ResourceId") => String.t(),
         required("ResourceType") => list(any())
       }
-
+      
   """
   @type associate_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_data_v2() :: %{
         "Metric" => metric_v2(),
         "Value" => float()
       }
-
+      
   """
   @type metric_data_v2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_prompt_request() :: %{}
-
+      
   """
   @type describe_prompt_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_response() :: %{
         "NextToken" => String.t(),
         "PhoneNumberSummaryList" => list(phone_number_summary()())
       }
-
+      
   """
   @type list_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_attachment() :: %{
         "AttachmentId" => String.t(),
         "AttachmentName" => String.t(),
         "ContentType" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type real_time_contact_analysis_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_search_summary_queue_info() :: %{
         "EnqueueTimestamp" => non_neg_integer(),
         "Id" => String.t()
       }
-
+      
   """
   @type contact_search_summary_queue_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_queue_request() :: %{}
-
+      
   """
   @type delete_queue_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation() :: %{
         "Answers" => map(),
         "CreatedTime" => non_neg_integer(),
@@ -7979,103 +8118,116 @@ defmodule AWS.Connect do
         "Status" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type evaluation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_vocabulary_response() :: %{
         "State" => list(any()),
         "VocabularyArn" => String.t(),
         "VocabularyId" => String.t()
       }
-
+      
   """
   @type delete_vocabulary_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_metadata_request() :: %{
         optional("ClientToken") => String.t(),
         optional("PhoneNumberDescription") => String.t()
       }
-
+      
   """
   @type update_phone_number_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sign_in_distribution() :: %{
         "Enabled" => boolean(),
         "Region" => String.t()
       }
-
+      
   """
   @type sign_in_distribution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_concurrency() :: %{
         "Channel" => list(any()),
         "Concurrency" => integer(),
         "CrossChannelBehavior" => cross_channel_behavior()
       }
-
+      
   """
   @type media_concurrency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       control_plane_tag_filter() :: %{
         "AndConditions" => list(tag_condition()()),
         "OrConditions" => list(list(tag_condition()())()),
         "TagCondition" => tag_condition()
       }
-
+      
   """
   @type control_plane_tag_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_metadata() :: %{
         "ContactAgentId" => String.t(),
         "ContactId" => String.t(),
         "EvaluatorArn" => String.t(),
         "Score" => evaluation_score()
       }
-
+      
   """
   @type evaluation_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_scoring_strategy() :: %{
         "Mode" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type evaluation_form_scoring_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      search_agent_statuses_response() :: %{
+        "AgentStatuses" => list(agent_status()()),
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type search_agent_statuses_response() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       quick_connect() :: %{
         "Description" => String.t(),
         "LastModifiedRegion" => String.t(),
@@ -8086,60 +8238,60 @@ defmodule AWS.Connect do
         "QuickConnectId" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type quick_connect() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_contact_flows_response() :: %{
         "ApproximateTotalCount" => float(),
         "ContactFlows" => list(contact_flow()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type search_contact_flows_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pause_contact_response() :: %{}
-
+      
   """
   @type pause_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_security_key_response() :: %{
         "AssociationId" => String.t()
       }
-
+      
   """
   @type associate_security_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hours_of_operation_config() :: %{
         "Day" => list(any()),
         "EndTime" => hours_of_operation_time_slice(),
         "StartTime" => hours_of_operation_time_slice()
       }
-
+      
   """
   @type hours_of_operation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_attached_file_upload_request() :: %{
         optional("ClientToken") => String.t(),
         optional("CreatedBy") => list(),
@@ -8150,116 +8302,116 @@ defmodule AWS.Connect do
         required("FileSizeInBytes") => float(),
         required("FileUseCaseType") => list(any())
       }
-
+      
   """
   @type start_attached_file_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activate_evaluation_form_response() :: %{
         "EvaluationFormArn" => String.t(),
         "EvaluationFormId" => String.t(),
         "EvaluationFormVersion" => integer()
       }
-
+      
   """
   @type activate_evaluation_form_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_approved_origins_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_approved_origins_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       historical_metric() :: %{
         "Name" => list(any()),
         "Statistic" => list(any()),
         "Threshold" => threshold(),
         "Unit" => list(any())
       }
-
+      
   """
   @type historical_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       failed_request() :: %{
         "FailureReasonCode" => list(any()),
         "FailureReasonMessage" => String.t(),
         "RequestIdentifier" => String.t()
       }
-
+      
   """
   @type failed_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t(),
         required("DataSetIds") => list(String.t()())
       }
-
+      
   """
   @type batch_associate_analytics_data_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       step() :: %{
         "Expiry" => expiry(),
         "Expression" => expression(),
         "Status" => list(any())
       }
-
+      
   """
   @type step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_queue_quick_connects_request() :: %{
         required("QuickConnectIds") => list(String.t()())
       }
-
+      
   """
   @type associate_queue_quick_connects_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_search_condition() :: %{
         "tagKey" => String.t(),
         "tagKeyComparisonType" => list(any()),
         "tagValue" => String.t(),
         "tagValueComparisonType" => list(any())
       }
-
+      
   """
   @type tag_search_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       task_template_metadata() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -8269,63 +8421,63 @@ defmodule AWS.Connect do
         "Name" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type task_template_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attachment_reference() :: %{
         "Name" => String.t(),
         "Status" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type attachment_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       url_reference() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type url_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_reference() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type string_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_predefined_attributes_response() :: %{
         "NextToken" => String.t(),
         "PredefinedAttributeSummaryList" => list(predefined_attribute_summary()())
       }
-
+      
   """
   @type list_predefined_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile() :: %{
         "AgentAvailabilityTimer" => list(any()),
         "AssociatedQueueIds" => list(String.t()()),
@@ -8343,37 +8495,37 @@ defmodule AWS.Connect do
         "RoutingProfileId" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type routing_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_routing_profile_response() :: %{
         "RoutingProfile" => routing_profile()
       }
-
+      
   """
   @type describe_routing_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rule_trigger_event_source() :: %{
         "EventSourceName" => list(any()),
         "IntegrationAssociationId" => String.t()
       }
-
+      
   """
   @type rule_trigger_event_source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_routing_profile_request() :: %{
         optional("AgentAvailabilityTimer") => list(any()),
         optional("QueueConfigs") => list(routing_profile_queue_config()()),
@@ -8383,14 +8535,14 @@ defmodule AWS.Connect do
         required("MediaConcurrencies") => list(media_concurrency()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_routing_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_chat_contact_request() :: %{
         optional("Attributes") => map(),
         optional("ChatDurationInMinutes") => integer(),
@@ -8404,88 +8556,88 @@ defmodule AWS.Connect do
         required("InstanceId") => String.t(),
         required("ParticipantDetails") => participant_details()
       }
-
+      
   """
   @type start_chat_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_chat_contact_response() :: %{
         "ContactId" => String.t(),
         "ContinuedFromContactId" => String.t(),
         "ParticipantId" => String.t(),
         "ParticipantToken" => String.t()
       }
-
+      
   """
   @type start_chat_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_request() :: %{
         optional("ClientToken") => String.t(),
         optional("InstanceId") => String.t(),
         optional("TargetArn") => String.t()
       }
-
+      
   """
   @type update_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_schedule_request() :: %{
         required("ContactId") => String.t(),
         required("InstanceId") => String.t(),
         required("ScheduledTime") => non_neg_integer()
       }
-
+      
   """
   @type update_contact_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_user_status_response() :: %{}
-
+      
   """
   @type put_user_status_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       hours_of_operation_time_slice() :: %{
         "Hours" => integer(),
         "Minutes" => integer()
       }
-
+      
   """
   @type hours_of_operation_time_slice() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prompt_search_criteria() :: %{
         "AndConditions" => list(prompt_search_criteria()()),
         "OrConditions" => list(prompt_search_criteria()()),
         "StringCondition" => string_condition()
       }
-
+      
   """
   @type prompt_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_criteria() :: %{
         "AgentHierarchyGroups" => agent_hierarchy_groups(),
         "AgentIds" => list(String.t()()),
@@ -8495,79 +8647,79 @@ defmodule AWS.Connect do
         "QueueIds" => list(String.t()()),
         "SearchableContactAttributes" => searchable_contact_attributes()
       }
-
+      
   """
   @type search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_module_metadata_response() :: %{}
-
+      
   """
   @type update_contact_flow_module_metadata_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_security_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_security_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_hours_of_operation_request() :: %{}
-
+      
   """
   @type describe_hours_of_operation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_routing_profile_request() :: %{}
-
+      
   """
   @type describe_routing_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       kinesis_video_stream_config() :: %{
         "EncryptionConfig" => encryption_config(),
         "Prefix" => String.t(),
         "RetentionPeriodHours" => integer()
       }
-
+      
   """
   @type kinesis_video_stream_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_contact_evaluation_request() :: %{
         optional("ClientToken") => String.t(),
         required("ContactId") => String.t(),
         required("EvaluationFormId") => String.t()
       }
-
+      
   """
   @type start_contact_evaluation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       claimed_phone_number_summary() :: %{
         "InstanceId" => String.t(),
         "PhoneNumber" => String.t(),
@@ -8581,38 +8733,53 @@ defmodule AWS.Connect do
         "Tags" => map(),
         "TargetArn" => String.t()
       }
-
+      
   """
   @type claimed_phone_number_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_quick_connects_response() :: %{
         "NextToken" => String.t(),
         "QuickConnectSummaryList" => list(quick_connect_summary()())
       }
-
+      
   """
   @type list_quick_connects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_task_template_response() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type create_task_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
+      
+      search_user_hierarchy_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => user_hierarchy_group_search_criteria(),
+        optional("SearchFilter") => user_hierarchy_group_search_filter(),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type search_user_hierarchy_groups_request() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
       evaluation_summary() :: %{
         "CreatedTime" => non_neg_integer(),
         "EvaluationArn" => String.t(),
@@ -8624,115 +8791,115 @@ defmodule AWS.Connect do
         "Score" => evaluation_score(),
         "Status" => list(any())
       }
-
+      
   """
   @type evaluation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       end_associated_tasks_action_definition() :: %{}
-
+      
   """
   @type end_associated_tasks_action_definition() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       historical_metric_data() :: %{
         "Metric" => historical_metric(),
         "Value" => float()
       }
-
+      
   """
   @type historical_metric_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_flow_response() :: %{}
-
+      
   """
   @type associate_flow_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_instance_storage_configs_response() :: %{
         "NextToken" => String.t(),
         "StorageConfigs" => list(instance_storage_config()())
       }
-
+      
   """
   @type list_instance_storage_configs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_ready_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_ready_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_single_select_question_automation() :: %{
         "DefaultOptionRefId" => String.t(),
         "Options" => list(list()())
       }
-
+      
   """
   @type evaluation_form_single_select_question_automation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_queues_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
         "Queues" => list(queue()())
       }
-
+      
   """
   @type search_queues_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       routing_profile_reference() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
       }
-
+      
   """
   @type routing_profile_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_issue_detected() :: %{
         "TranscriptItems" => list(real_time_contact_analysis_transcript_item_with_content()())
       }
-
+      
   """
   @type real_time_contact_analysis_issue_detected() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_authentication_profile_request() :: %{
         optional("AllowedIps") => list(String.t()()),
         optional("BlockedIps") => list(String.t()()),
@@ -8740,157 +8907,157 @@ defmodule AWS.Connect do
         optional("Name") => String.t(),
         optional("PeriodicSessionDuration") => integer()
       }
-
+      
   """
   @type update_authentication_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_quick_connect_request() :: %{}
-
+      
   """
   @type describe_quick_connect_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_predefined_attribute_request() :: %{}
-
+      
   """
   @type delete_predefined_attribute_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_response() :: %{
         "UserArn" => String.t(),
         "UserId" => String.t()
       }
-
+      
   """
   @type create_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_instance_storage_configs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ResourceType") => list(any())
       }
-
+      
   """
   @type list_instance_storage_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_views_response() :: %{
         "NextToken" => String.t(),
         "ViewsSummaryList" => list(view_summary()())
       }
-
+      
   """
   @type list_views_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       duplicate_resource_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type duplicate_resource_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_hours_of_operation_request() :: %{}
-
+      
   """
   @type delete_hours_of_operation_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       maximum_result_returned_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type maximum_result_returned_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_persistent_contact_association_request() :: %{
         optional("ClientToken") => String.t(),
         required("RehydrationType") => list(any()),
         required("SourceContactId") => String.t()
       }
-
+      
   """
   @type create_persistent_contact_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_analytics_data_associations_response() :: %{
         "NextToken" => String.t(),
         "Results" => list(analytics_data_association_result()())
       }
-
+      
   """
   @type list_analytics_data_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_traffic_distribution_group_response() :: %{}
-
+      
   """
   @type delete_traffic_distribution_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_user_hierarchy_groups_response() :: %{
         "NextToken" => String.t(),
         "UserHierarchyGroupSummaryList" => list(hierarchy_group_summary()())
       }
-
+      
   """
   @type list_user_hierarchy_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_web_r_t_c_contact_request() :: %{
         optional("AllowedCapabilities") => allowed_capabilities(),
         optional("Attributes") => map(),
@@ -8902,14 +9069,14 @@ defmodule AWS.Connect do
         required("InstanceId") => String.t(),
         required("ParticipantDetails") => participant_details()
       }
-
+      
   """
   @type start_web_r_t_c_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hierarchy_structure_update() :: %{
         "LevelFive" => hierarchy_level_update(),
         "LevelFour" => hierarchy_level_update(),
@@ -8917,38 +9084,38 @@ defmodule AWS.Connect do
         "LevelThree" => hierarchy_level_update(),
         "LevelTwo" => hierarchy_level_update()
       }
-
+      
   """
   @type hierarchy_structure_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_default_vocabularies_response() :: %{
         "DefaultVocabularyList" => list(default_vocabulary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_default_vocabularies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_search_filter() :: %{
         "TagFilter" => control_plane_tag_filter(),
         "UserAttributeFilter" => control_plane_user_attribute_filter()
       }
-
+      
   """
   @type user_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prompt() :: %{
         "Description" => String.t(),
         "LastModifiedRegion" => String.t(),
@@ -8958,14 +9125,14 @@ defmodule AWS.Connect do
         "PromptId" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type prompt() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_placement() :: %{
         "AudioFallbackUrl" => String.t(),
         "AudioHostUrl" => String.t(),
@@ -8973,63 +9140,63 @@ defmodule AWS.Connect do
         "SignalingUrl" => String.t(),
         "TurnControlUrl" => String.t()
       }
-
+      
   """
   @type media_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_realtime_contact_analysis_segments_v2_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("OutputType") => list(any()),
         required("SegmentTypes") => list(list(any())())
       }
-
+      
   """
   @type list_realtime_contact_analysis_segments_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_contact_flow_request() :: %{}
-
+      
   """
   @type delete_contact_flow_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_current_metric_data_response() :: %{
         "ApproximateTotalCount" => float(),
         "DataSnapshotTime" => non_neg_integer(),
         "MetricResults" => list(current_metric_result()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_current_metric_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_authentication_profiles_response() :: %{
         "AuthenticationProfileSummaryList" => list(authentication_profile_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_authentication_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_available_phone_numbers_request() :: %{
         optional("InstanceId") => String.t(),
         optional("MaxResults") => integer(),
@@ -9039,85 +9206,85 @@ defmodule AWS.Connect do
         required("PhoneNumberCountryCode") => list(any()),
         required("PhoneNumberType") => list(any())
       }
-
+      
   """
   @type search_available_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_rule_response() :: %{
         "Rule" => rule()
       }
-
+      
   """
   @type describe_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participant_details() :: %{
         "DisplayName" => String.t()
       }
-
+      
   """
   @type participant_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_reference() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type date_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_queue_response() :: %{
         "QueueArn" => String.t(),
         "QueueId" => String.t()
       }
-
+      
   """
   @type create_queue_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       predefined_attribute() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Values" => list()
       }
-
+      
   """
   @type predefined_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_hierarchy_group_name_request() :: %{
         required("Name") => String.t()
       }
-
+      
   """
   @type update_user_hierarchy_group_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_segment_attachments() :: %{
         "Attachments" => list(real_time_contact_analysis_attachment()()),
         "DisplayName" => String.t(),
@@ -9126,26 +9293,26 @@ defmodule AWS.Connect do
         "ParticipantRole" => list(any()),
         "Time" => list()
       }
-
+      
   """
   @type real_time_contact_analysis_segment_attachments() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       expiry() :: %{
         "DurationInSeconds" => integer(),
         "ExpiryTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type expiry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       real_time_contact_analysis_segment_transcript() :: %{
         "Content" => String.t(),
         "ContentType" => String.t(),
@@ -9157,115 +9324,115 @@ defmodule AWS.Connect do
         "Sentiment" => list(any()),
         "Time" => list()
       }
-
+      
   """
   @type real_time_contact_analysis_segment_transcript() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transcript_criteria() :: %{
         "MatchType" => list(any()),
         "ParticipantRole" => list(any()),
         "SearchText" => list(String.t()())
       }
-
+      
   """
   @type transcript_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_contact_flow_response() :: %{
         "ContactFlowArn" => String.t(),
         "ContactFlowId" => String.t()
       }
-
+      
   """
   @type create_contact_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_queue_request() :: %{}
-
+      
   """
   @type describe_queue_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_disassociate_analytics_data_set_response() :: %{
         "Deleted" => list(String.t()()),
         "Errors" => list(error_result()())
       }
-
+      
   """
   @type batch_disassociate_analytics_data_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_auto_evaluation_action_definition() :: %{
         "EvaluationFormId" => String.t()
       }
-
+      
   """
   @type submit_auto_evaluation_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_module_content_response() :: %{}
-
+      
   """
   @type update_contact_flow_module_content_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_flow_association_response() :: %{
         "FlowAssociationSummaryList" => list(flow_association_summary()())
       }
-
+      
   """
   @type batch_get_flow_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_tags_search_criteria() :: %{
         "TagSearchCondition" => tag_search_condition()
       }
-
+      
   """
   @type resource_tags_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suspend_contact_recording_request() :: %{
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t()
       }
-
+      
   """
   @type suspend_contact_recording_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_request() :: %{
         optional("DirectoryUserId") => String.t(),
         optional("HierarchyGroupId") => String.t(),
@@ -9277,27 +9444,27 @@ defmodule AWS.Connect do
         required("SecurityProfileIds") => list(String.t()()),
         required("Username") => String.t()
       }
-
+      
   """
   @type create_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_validation_exception_property() :: %{
         "Message" => String.t(),
         "PropertyPath" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type property_validation_exception_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       evaluation_form_content() :: %{
         "Description" => String.t(),
         "EvaluationFormArn" => String.t(),
@@ -9307,34 +9474,34 @@ defmodule AWS.Connect do
         "ScoringStrategy" => evaluation_form_scoring_strategy(),
         "Title" => String.t()
       }
-
+      
   """
   @type evaluation_form_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dismiss_user_contact_response() :: %{}
-
+      
   """
   @type dismiss_user_contact_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_contact_flow_module_content_request() :: %{
         required("Content") => String.t()
       }
-
+      
   """
   @type update_contact_flow_module_content_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_storage_config() :: %{
         "AssociationId" => String.t(),
         "KinesisFirehoseConfig" => kinesis_firehose_config(),
@@ -9343,65 +9510,65 @@ defmodule AWS.Connect do
         "S3Config" => s3_config(),
         "StorageType" => list(any())
       }
-
+      
   """
   @type instance_storage_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_routing_profile_queues_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_routing_profile_queues_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_status_reference() :: %{
         "StatusArn" => String.t(),
         "StatusName" => String.t(),
         "StatusStartTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type agent_status_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       allowed_capabilities() :: %{
         "Agent" => participant_capabilities(),
         "Customer" => participant_capabilities()
       }
-
+      
   """
   @type allowed_capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_contact_attributes_request() :: %{}
-
+      
   """
   @type get_contact_attributes_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_associate_analytics_data_set_response() :: %{
         "Created" => list(analytics_data_association_result()()),
         "Errors" => list(error_result()())
       }
-
+      
   """
   @type batch_associate_analytics_data_set_response() :: %{String.t() => any()}
 
@@ -10691,6 +10858,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type search_agent_statuses_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type search_available_phone_numbers_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -10769,6 +10943,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type search_security_profiles_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_user_hierarchy_groups_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
@@ -11305,49 +11486,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-    form.
+  form.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec activate_evaluation_form(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          activate_evaluation_form_request(),
-          Keyword.t()
-        ) ::
+
+  @spec activate_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, activate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_evaluation_form_errors()}
-  def activate_evaluation_form(
-        %Client{} = client,
-        evaluation_form_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def activate_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/activate"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11357,28 +11536,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_analytics_data_set(
-          AWS.Client.t(),
-          String.t(),
-          associate_analytics_data_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_analytics_data_set_errors()}
-  def associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11388,28 +11583,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_approved_origin(
-          AWS.Client.t(),
-          String.t(),
-          associate_approved_origin_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_approved_origin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_approved_origin_errors()}
-  def associate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_approved_origin(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11419,23 +11630,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_bot(AWS.Client.t(), String.t(), associate_bot_request(), Keyword.t()) ::
+
+  @spec associate_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_bot_errors()}
-  def associate_bot(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_bot(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11447,41 +11679,49 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:language_code`
-    (`t:enum["AR_AE|DE_CH|DE_DE|EN_AB|EN_AU|EN_GB|EN_IE|EN_IN|EN_NZ|EN_US|EN_WL|EN_ZA|ES_ES|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|PT_PT|ZH_CN"]`)
-    The language code of the vocabulary entries. For a list of languages and
-    their corresponding language codes, see What is Amazon Transcribe?
+  (`t:enum["AR_AE|DE_CH|DE_DE|EN_AB|EN_AU|EN_GB|EN_IE|EN_IN|EN_NZ|EN_US|EN_WL|EN_ZA|ES_ES|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|PT_PT|ZH_CN"]`)
+  The language code of the vocabulary entries. For a list of languages and
+  their corresponding language codes, see What is Amazon Transcribe?
 
   ## Optional parameters:
   """
-  @spec associate_default_vocabulary(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          associate_default_vocabulary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_default_vocabulary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_default_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_default_vocabulary_errors()}
-  def associate_default_vocabulary(
-        %Client{} = client,
-        instance_id,
-        language_code,
-        input,
-        options \\ []
-      ) do
+
+  def associate_default_vocabulary(%Client{} = client, instance_id, language_code, options \\ []) do
     url_path =
       "/default-vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(language_code)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11491,23 +11731,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_flow(AWS.Client.t(), String.t(), associate_flow_request(), Keyword.t()) ::
+
+  @spec associate_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_flow_errors()}
-  def associate_flow(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_flow(%Client{} = client, instance_id, options \\ []) do
     url_path = "/flow-associations/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11521,28 +11782,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_instance_storage_config(
-          AWS.Client.t(),
-          String.t(),
-          associate_instance_storage_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_instance_storage_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_instance_storage_config_errors()}
-  def associate_instance_storage_config(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_instance_storage_config(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11552,28 +11829,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_lambda_function(
-          AWS.Client.t(),
-          String.t(),
-          associate_lambda_function_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_lambda_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lambda_function_errors()}
-  def associate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_lambda_function(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11583,23 +11876,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_lex_bot(AWS.Client.t(), String.t(), associate_lex_bot_request(), Keyword.t()) ::
+
+  @spec associate_lex_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_lex_bot_errors()}
-  def associate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_lex_bot(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11612,29 +11926,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec associate_phone_number_contact_flow(
-          AWS.Client.t(),
-          String.t(),
-          associate_phone_number_contact_flow_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_phone_number_contact_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_number_contact_flow_errors()}
-  def associate_phone_number_contact_flow(
-        %Client{} = client,
-        phone_number_id,
-        input,
-        options \\ []
-      ) do
+
+  def associate_phone_number_contact_flow(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/contact-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11644,48 +11969,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec associate_queue_quick_connects(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          associate_queue_quick_connects_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_queue_quick_connects_errors()}
-  def associate_queue_quick_connects(
-        %Client{} = client,
-        instance_id,
-        queue_id,
-        input,
-        options \\ []
-      ) do
+
+  def associate_queue_quick_connects(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/associate-quick-connects"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11695,48 +12018,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
-  @spec associate_routing_profile_queues(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          associate_routing_profile_queues_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_routing_profile_queues_errors()}
+
   def associate_routing_profile_queues(
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/associate-queues"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11746,28 +12072,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec associate_security_key(
-          AWS.Client.t(),
-          String.t(),
-          associate_security_key_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_security_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_security_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_security_key_errors()}
-  def associate_security_key(%Client{} = client, instance_id, input, options \\ []) do
+
+  def associate_security_key(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11777,37 +12119,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-    distribution group. This can be the ID or the ARN if the API is being called
-    in the Region where the traffic distribution group was created. The ARN must
-    be provided if the call is from the replicated Region.
+  distribution group. This can be the ID or the ARN if the API is being called
+  in the Region where the traffic distribution group was created. The ARN must
+  be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   """
-  @spec associate_traffic_distribution_group_user(
-          AWS.Client.t(),
-          String.t(),
-          associate_traffic_distribution_group_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_traffic_distribution_group_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_traffic_distribution_group_user_errors()}
+
   def associate_traffic_distribution_group_user(
         %Client{} = client,
         traffic_distribution_group_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11817,42 +12173,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN of the instance).
+  can find the instance ID in the Amazon Resource Name (ARN of the instance).
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec associate_user_proficiencies(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          associate_user_proficiencies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_user_proficiencies_errors()}
-  def associate_user_proficiencies(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def associate_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/associate-proficiencies"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11862,28 +12222,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec batch_associate_analytics_data_set(
-          AWS.Client.t(),
-          String.t(),
-          batch_associate_analytics_data_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_associate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_associate_analytics_data_set_errors()}
-  def batch_associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+
+  def batch_associate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11893,38 +12269,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec batch_disassociate_analytics_data_set(
-          AWS.Client.t(),
-          String.t(),
-          batch_disassociate_analytics_data_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_disassociate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_disassociate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_disassociate_analytics_data_set_errors()}
-  def batch_disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+
+  def batch_disassociate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11937,43 +12319,50 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
   * `:associated_resource_arn` (`t:string`) The resource to which the attached
-    file is (being) uploaded to. Cases are the only current supported resource.
+  file is (being) uploaded to. Cases are the only current supported resource.
 
   ## Optional parameters:
   """
-  @spec batch_get_attached_file_metadata(
-          AWS.Client.t(),
-          String.t(),
-          batch_get_attached_file_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_attached_file_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_attached_file_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_attached_file_metadata_errors()}
-  def batch_get_attached_file_metadata(%Client{} = client, instance_id, input, options \\ []) do
+
+  def batch_get_attached_file_metadata(
+        %Client{} = client,
+        instance_id,
+        associated_resource_arn,
+        options \\ []
+      )
+      when is_binary(associated_resource_arn) do
     url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"AssociatedResourceArn", "associatedResourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"associatedResourceArn", associated_resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11983,38 +12372,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec batch_get_flow_association(
-          AWS.Client.t(),
-          String.t(),
-          batch_get_flow_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_flow_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_flow_association_errors()}
-  def batch_get_flow_association(%Client{} = client, instance_id, input, options \\ []) do
+
+  def batch_get_flow_association(%Client{} = client, instance_id, options \\ []) do
     url_path = "/flow-associations-batch/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12025,23 +12420,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec batch_put_contact(AWS.Client.t(), String.t(), batch_put_contact_request(), Keyword.t()) ::
+
+  @spec batch_put_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_contact_errors()}
-  def batch_put_contact(%Client{} = client, instance_id, input, options \\ []) do
+
+  def batch_put_contact(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact/batch/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12067,29 +12483,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec claim_phone_number(AWS.Client.t(), claim_phone_number_request(), Keyword.t()) ::
+
+  @spec claim_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, claim_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, claim_phone_number_errors()}
-  def claim_phone_number(%Client{} = client, input, options \\ []) do
+
+  def claim_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-number/claim"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12101,54 +12528,60 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:file_id` (`t:string`) The unique identifier of the attached file resource.
   * `:instance_id` (`t:string`) The unique identifier of the Amazon Connect
-    instance.
+  instance.
   * `:associated_resource_arn` (`t:string`) The resource to which the attached
-    file is (being) uploaded to. Cases are the only current supported resource.
+  file is (being) uploaded to. Cases are the only current supported resource.
 
   ## Optional parameters:
   """
+
   @spec complete_attached_file_upload(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          complete_attached_file_upload_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, complete_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_attached_file_upload_errors()}
+
   def complete_attached_file_upload(
         %Client{} = client,
         file_id,
         instance_id,
-        input,
+        associated_resource_arn,
         options \\ []
-      ) do
+      )
+      when is_binary(associated_resource_arn) do
     url_path =
       "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"AssociatedResourceArn", "associatedResourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"associatedResourceArn", associated_resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12158,28 +12591,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_agent_status(
-          AWS.Client.t(),
-          String.t(),
-          create_agent_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_agent_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agent_status_errors()}
-  def create_agent_status(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_agent_status(%Client{} = client, instance_id, options \\ []) do
     url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12192,24 +12641,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec create_contact_flow(
-          AWS.Client.t(),
-          String.t(),
-          create_contact_flow_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_contact_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_flow_errors()}
-  def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_contact_flow(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12219,28 +12684,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_contact_flow_module(
-          AWS.Client.t(),
-          String.t(),
-          create_contact_flow_module_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_contact_flow_module(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_contact_flow_module_errors()}
-  def create_contact_flow_module(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_contact_flow_module(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12253,28 +12734,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_evaluation_form(
-          AWS.Client.t(),
-          String.t(),
-          create_evaluation_form_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_evaluation_form(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_evaluation_form_errors()}
-  def create_evaluation_form(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_evaluation_form(%Client{} = client, instance_id, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12284,28 +12781,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_hours_of_operation(
-          AWS.Client.t(),
-          String.t(),
-          create_hours_of_operation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_hours_of_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hours_of_operation_errors()}
-  def create_hours_of_operation(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_hours_of_operation(%Client{} = client, instance_id, options \\ []) do
     url_path = "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12321,19 +12834,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec create_instance(AWS.Client.t(), create_instance_request(), Keyword.t()) ::
+
+  @spec create_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_instance_errors()}
-  def create_instance(%Client{} = client, input, options \\ []) do
+
+  def create_instance(%Client{} = client, options \\ []) do
     url_path = "/instance"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12344,28 +12878,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_integration_association(
-          AWS.Client.t(),
-          String.t(),
-          create_integration_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_integration_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_integration_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_integration_association_errors()}
-  def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_integration_association(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12379,29 +12929,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec create_participant(AWS.Client.t(), create_participant_request(), Keyword.t()) ::
+
+  @spec create_participant(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_participant_errors()}
-  def create_participant(%Client{} = client, input, options \\ []) do
+
+  def create_participant(%Client{} = client, options \\ []) do
     url_path = "/contact/create-participant"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12414,50 +12975,53 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:initial_contact_id` (`t:string`) This is the contactId of the current
-    contact that the CreatePersistentContactAssociation API is being called
-    from.
+  contact that the CreatePersistentContactAssociation API is being called
+  from.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_persistent_contact_association(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_persistent_contact_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_persistent_contact_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_persistent_contact_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_persistent_contact_association_errors()}
+
   def create_persistent_contact_association(
         %Client{} = client,
         initial_contact_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/contact/persistent-contact-association/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(initial_contact_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12467,28 +13031,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_predefined_attribute(
-          AWS.Client.t(),
-          String.t(),
-          create_predefined_attribute_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_predefined_attribute(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_predefined_attribute_errors()}
-  def create_predefined_attribute(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_predefined_attribute(%Client{} = client, instance_id, options \\ []) do
     url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12501,23 +13081,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_prompt(AWS.Client.t(), String.t(), create_prompt_request(), Keyword.t()) ::
+
+  @spec create_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_prompt_errors()}
-  def create_prompt(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_prompt(%Client{} = client, instance_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12528,23 +13129,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_queue(AWS.Client.t(), String.t(), create_queue_request(), Keyword.t()) ::
+
+  @spec create_queue(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_queue_errors()}
-  def create_queue(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_queue(%Client{} = client, instance_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12554,28 +13176,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_quick_connect(
-          AWS.Client.t(),
-          String.t(),
-          create_quick_connect_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_quick_connect(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_quick_connect_errors()}
-  def create_quick_connect(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_quick_connect(%Client{} = client, instance_id, options \\ []) do
     url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12585,28 +13223,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_routing_profile(
-          AWS.Client.t(),
-          String.t(),
-          create_routing_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_routing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_routing_profile_errors()}
-  def create_routing_profile(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_routing_profile(%Client{} = client, instance_id, options \\ []) do
     url_path = "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12616,33 +13270,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_rule(AWS.Client.t(), String.t(), create_rule_request(), Keyword.t()) ::
+
+  @spec create_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_errors()}
-  def create_rule(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_rule(%Client{} = client, instance_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12652,28 +13317,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_security_profile(
-          AWS.Client.t(),
-          String.t(),
-          create_security_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_security_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_profile_errors()}
-  def create_security_profile(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_security_profile(%Client{} = client, instance_id, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12683,28 +13364,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_task_template(
-          AWS.Client.t(),
-          String.t(),
-          create_task_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_task_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_task_template_errors()}
-  def create_task_template(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_task_template(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12717,23 +13414,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec create_traffic_distribution_group(
-          AWS.Client.t(),
-          create_traffic_distribution_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_traffic_distribution_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_traffic_distribution_group_errors()}
-  def create_traffic_distribution_group(%Client{} = client, input, options \\ []) do
+
+  def create_traffic_distribution_group(%Client{} = client, options \\ []) do
     url_path = "/traffic-distribution-group"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12743,39 +13457,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:integration_association_id` (`t:string`) The identifier for the integration
-    association.
+  association.
 
   ## Optional parameters:
   """
-  @spec create_use_case(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_use_case_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_use_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_use_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_use_case_errors()}
-  def create_use_case(
-        %Client{} = client,
-        instance_id,
-        integration_association_id,
-        input,
-        options \\ []
-      ) do
+
+  def create_use_case(%Client{} = client, instance_id, integration_association_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12785,23 +13507,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_user(AWS.Client.t(), String.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_user(%Client{} = client, instance_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12811,28 +13554,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_user_hierarchy_group(
-          AWS.Client.t(),
-          String.t(),
-          create_user_hierarchy_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_user_hierarchy_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_hierarchy_group_errors()}
-  def create_user_hierarchy_group(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_user_hierarchy_group(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12843,23 +13602,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
 
   ## Optional parameters:
   """
-  @spec create_view(AWS.Client.t(), String.t(), create_view_request(), Keyword.t()) ::
+
+  @spec create_view(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_errors()}
-  def create_view(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_view(%Client{} = client, instance_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12870,33 +13650,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-    can be used.
+  can be used.
 
   ## Optional parameters:
   """
-  @spec create_view_version(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_view_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_view_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_version_errors()}
-  def create_view_version(%Client{} = client, instance_id, view_id, input, options \\ []) do
+
+  def create_view_version(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12909,33 +13703,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec create_vocabulary(AWS.Client.t(), String.t(), create_vocabulary_request(), Keyword.t()) ::
+
+  @spec create_vocabulary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vocabulary_errors()}
-  def create_vocabulary(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_vocabulary(%Client{} = client, instance_id, options \\ []) do
     url_path = "/vocabulary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12947,49 +13752,52 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-    form.
+  form.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec deactivate_evaluation_form(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          deactivate_evaluation_form_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deactivate_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deactivate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_evaluation_form_errors()}
+
   def deactivate_evaluation_form(
         %Client{} = client,
         evaluation_form_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/deactivate"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -13001,34 +13809,50 @@ defmodule AWS.Connect do
   * `:file_id` (`t:string`) The unique identifier of the attached file resource.
   * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
   * `:associated_resource_arn` (`t:string`) The resource to which the attached
-    file is (being) uploaded to. Cases are the only current supported resource.
+  file is (being) uploaded to. Cases are the only current supported resource.
 
   ## Optional parameters:
   """
-  @spec delete_attached_file(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_attached_file_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_attached_file(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attached_file_errors()}
-  def delete_attached_file(%Client{} = client, file_id, instance_id, input, options \\ []) do
+
+  def delete_attached_file(
+        %Client{} = client,
+        file_id,
+        instance_id,
+        associated_resource_arn,
+        options \\ []
+      )
+      when is_binary(associated_resource_arn) do
     url_path =
       "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"AssociatedResourceArn", "associatedResourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"associatedResourceArn", associated_resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13037,7 +13861,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13051,35 +13875,43 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec delete_contact_evaluation(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_contact_evaluation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_evaluation_errors()}
-  def delete_contact_evaluation(
-        %Client{} = client,
-        evaluation_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13088,7 +13920,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13102,29 +13934,43 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_flow_id` (`t:string`) The identifier of the flow.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec delete_contact_flow(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_contact_flow_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_contact_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_flow_errors()}
-  def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, input, options \\ []) do
+
+  def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13133,7 +13979,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13147,35 +13993,48 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec delete_contact_flow_module(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_contact_flow_module_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_contact_flow_module(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_contact_flow_module_errors()}
+
   def delete_contact_flow_module(
         %Client{} = client,
         contact_flow_module_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13184,7 +14043,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13197,41 +14056,48 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-    form.
+  form.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:evaluation_form_version` (`t:integer`) The unique identifier for the
-    evaluation form.
+  evaluation form.
   """
-  @spec delete_evaluation_form(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_evaluation_form_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_evaluation_form_errors()}
-  def delete_evaluation_form(
-        %Client{} = client,
-        evaluation_form_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
 
+    # Validate optional parameters
+    optional_params = [evaluation_form_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"EvaluationFormVersion", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :evaluation_form_version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -13241,6 +14107,8 @@ defmodule AWS.Connect do
       options
       |> Keyword.drop([:evaluation_form_version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -13248,7 +14116,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13261,37 +14129,50 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:hours_of_operation_id` (`t:string`) The identifier for the hours of
-    operation.
+  operation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec delete_hours_of_operation(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_hours_of_operation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hours_of_operation_errors()}
+
   def delete_hours_of_operation(
         %Client{} = client,
         hours_of_operation_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13300,7 +14181,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13314,21 +14195,42 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec delete_instance(AWS.Client.t(), String.t(), delete_instance_request(), Keyword.t()) ::
+
+  @spec delete_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_instance_errors()}
-  def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
+
+  def delete_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13337,7 +14239,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13351,37 +14253,50 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:integration_association_id` (`t:string`) The identifier for the integration
-    association.
+  association.
 
   ## Optional parameters:
   """
-  @spec delete_integration_association(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_integration_association_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_integration_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_integration_association_errors()}
+
   def delete_integration_association(
         %Client{} = client,
         instance_id,
         integration_association_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13390,7 +14305,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13403,30 +14318,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:name` (`t:string`) The name of the predefined attribute.
 
   ## Optional parameters:
   """
-  @spec delete_predefined_attribute(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_predefined_attribute_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_predefined_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_predefined_attribute_errors()}
-  def delete_predefined_attribute(%Client{} = client, instance_id, name, input, options \\ []) do
+
+  def delete_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13435,7 +14364,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13448,28 +14377,43 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
-  @spec delete_prompt(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_prompt_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_prompt(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_prompt_errors()}
-  def delete_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
+
+  def delete_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13478,7 +14422,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13491,22 +14435,43 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec delete_queue(AWS.Client.t(), String.t(), String.t(), delete_queue_request(), Keyword.t()) ::
+
+  @spec delete_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_queue_errors()}
-  def delete_queue(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+
+  def delete_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13515,7 +14480,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13528,36 +14493,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
-  @spec delete_quick_connect(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_quick_connect_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_quick_connect(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_quick_connect_errors()}
-  def delete_quick_connect(
-        %Client{} = client,
-        instance_id,
-        quick_connect_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13566,7 +14539,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13579,36 +14552,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
-  @spec delete_routing_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_routing_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_routing_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_routing_profile_errors()}
-  def delete_routing_profile(
-        %Client{} = client,
-        instance_id,
-        routing_profile_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_routing_profile(%Client{} = client, instance_id, routing_profile_id, options \\ []) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13617,7 +14598,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13630,22 +14611,43 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:rule_id` (`t:string`) A unique identifier for the rule.
 
   ## Optional parameters:
   """
-  @spec delete_rule(AWS.Client.t(), String.t(), String.t(), delete_rule_request(), Keyword.t()) ::
+
+  @spec delete_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-  def delete_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
+
+  def delete_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13654,7 +14656,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13667,36 +14669,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   """
-  @spec delete_security_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_security_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_security_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_profile_errors()}
-  def delete_security_profile(
-        %Client{} = client,
-        instance_id,
-        security_profile_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_security_profile(%Client{} = client, instance_id, security_profile_id, options \\ []) do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13705,7 +14715,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13718,36 +14728,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:task_template_id` (`t:string`) A unique identifier for the task template.
 
   ## Optional parameters:
   """
-  @spec delete_task_template(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_task_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_task_template_errors()}
-  def delete_task_template(
-        %Client{} = client,
-        instance_id,
-        task_template_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_task_template(%Client{} = client, instance_id, task_template_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13756,7 +14774,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13770,33 +14788,48 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-    distribution group. This can be the ID or the ARN if the API is being called
-    in the Region where the traffic distribution group was created. The ARN must
-    be provided if the call is from the replicated Region.
+  distribution group. This can be the ID or the ARN if the API is being called
+  in the Region where the traffic distribution group was created. The ARN must
+  be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   """
-  @spec delete_traffic_distribution_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_traffic_distribution_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_traffic_distribution_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_traffic_distribution_group_errors()}
+
   def delete_traffic_distribution_group(
         %Client{} = client,
         traffic_distribution_group_id,
-        input,
         options \\ []
       ) do
     url_path = "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13805,7 +14838,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13818,40 +14851,52 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:integration_association_id` (`t:string`) The identifier for the integration
-    association.
+  association.
   * `:use_case_id` (`t:string`) The identifier for the use case.
 
   ## Optional parameters:
   """
-  @spec delete_use_case(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_use_case_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_use_case(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_use_case_errors()}
+
   def delete_use_case(
         %Client{} = client,
         instance_id,
         integration_association_id,
         use_case_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases/#{AWS.Util.encode_uri(use_case_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13860,7 +14905,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13873,22 +14918,43 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user.
 
   ## Optional parameters:
   """
-  @spec delete_user(AWS.Client.t(), String.t(), String.t(), delete_user_request(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def delete_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13897,7 +14963,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13912,35 +14978,48 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec delete_user_hierarchy_group(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_user_hierarchy_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_user_hierarchy_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_hierarchy_group_errors()}
+
   def delete_user_hierarchy_group(
         %Client{} = client,
         hierarchy_group_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13949,7 +15028,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -13963,23 +15042,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-    can be used.
+  can be used.
 
   ## Optional parameters:
   """
-  @spec delete_view(AWS.Client.t(), String.t(), String.t(), delete_view_request(), Keyword.t()) ::
+
+  @spec delete_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_view_errors()}
-  def delete_view(%Client{} = client, instance_id, view_id, input, options \\ []) do
+
+  def delete_view(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -13988,7 +15088,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -14001,40 +15101,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-    can be used.
+  can be used.
   * `:view_version` (`t:integer`) The version number of the view.
 
   ## Optional parameters:
   """
-  @spec delete_view_version(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_view_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_view_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_view_version_errors()}
-  def delete_view_version(
-        %Client{} = client,
-        instance_id,
-        view_id,
-        view_version,
-        input,
-        options \\ []
-      ) do
+
+  def delete_view_version(%Client{} = client, instance_id, view_id, view_version, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions/#{AWS.Util.encode_uri(view_version)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -14043,7 +15149,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -14056,42 +15162,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
 
   ## Optional parameters:
   """
-  @spec delete_vocabulary(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_vocabulary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_vocabulary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vocabulary_errors()}
-  def delete_vocabulary(%Client{} = client, instance_id, vocabulary_id, input, options \\ []) do
+
+  def delete_vocabulary(%Client{} = client, instance_id, vocabulary_id, options \\ []) do
     url_path =
       "/vocabulary-remove/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14102,14 +15212,16 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:agent_status_id` (`t:string`) The identifier for the agent status.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_agent_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agent_status_errors()}
+
   def describe_agent_status(%Client{} = client, agent_status_id, instance_id, options \\ []) do
     url_path =
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
@@ -14147,16 +15259,18 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:authentication_profile_id` (`t:string`) A unique identifier for the
-    authentication profile.
+  authentication profile.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_authentication_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_authentication_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_authentication_profile_errors()}
+
   def describe_authentication_profile(
         %Client{} = client,
         authentication_profile_id,
@@ -14200,14 +15314,16 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_id` (`t:string`) The identifier of the contact.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_errors()}
+
   def describe_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
@@ -14244,14 +15360,16 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_evaluation_errors()}
+
   def describe_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
@@ -14294,10 +15412,12 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
+
   @spec describe_contact_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_flow_errors()}
+
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
@@ -14335,14 +15455,16 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_contact_flow_module(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_flow_module_errors()}
+
   def describe_contact_flow_module(
         %Client{} = client,
         contact_flow_module_id,
@@ -14386,17 +15508,19 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:evaluation_form_id` (`t:string`) A unique identifier for the contact
-    evaluation.
+  evaluation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:evaluation_form_version` (`t:integer`) A version of the evaluation form.
   """
+
   @spec describe_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_evaluation_form_errors()}
+
   def describe_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
@@ -14444,16 +15568,18 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:hours_of_operation_id` (`t:string`) The identifier for the hours of
-    operation.
+  operation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_hours_of_operation_errors()}
+
   def describe_hours_of_operation(
         %Client{} = client,
         hours_of_operation_id,
@@ -14497,14 +15623,16 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_errors()}
+
   def describe_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -14540,17 +15668,19 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:attribute_type`
-    (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
-    The type of attribute.
+  (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
+  The type of attribute.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_instance_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_attribute_errors()}
+
   def describe_instance_attribute(%Client{} = client, attribute_type, instance_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
@@ -14587,16 +15717,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:association_id` (`t:string`) The existing association identifier that
-    uniquely identifies the resource type and storage config for the given
-    instance ID.
+  uniquely identifies the resource type and storage config for the given
+  instance ID.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:resource_type`
-    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-    A valid resource type.
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+  A valid resource type.
 
   ## Optional parameters:
   """
+
   @spec describe_instance_storage_config(
           AWS.Client.t(),
           String.t(),
@@ -14607,13 +15738,15 @@ defmodule AWS.Connect do
           {:ok, describe_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_instance_storage_config_errors()}
+
   def describe_instance_storage_config(
         %Client{} = client,
         association_id,
         instance_id,
         resource_type,
         options \\ []
-      ) do
+      )
+      when is_binary(resource_type) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
 
@@ -14653,10 +15786,12 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
+
   @spec describe_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_phone_number_errors()}
+
   def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -14692,15 +15827,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:name` (`t:string`) The name of the predefined attribute.
 
   ## Optional parameters:
   """
+
   @spec describe_predefined_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_predefined_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_predefined_attribute_errors()}
+
   def describe_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
@@ -14737,15 +15874,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
+
   @spec describe_prompt(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_prompt_errors()}
+
   def describe_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
 
@@ -14781,15 +15920,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
+
   @spec describe_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_queue_errors()}
+
   def describe_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
 
@@ -14825,15 +15966,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
+
   @spec describe_quick_connect(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_quick_connect_errors()}
+
   def describe_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
@@ -14870,15 +16013,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
+
   @spec describe_routing_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_routing_profile_errors()}
+
   def describe_routing_profile(%Client{} = client, instance_id, routing_profile_id, options \\ []) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
@@ -14915,15 +16060,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:rule_id` (`t:string`) A unique identifier for the rule.
 
   ## Optional parameters:
   """
+
   @spec describe_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_errors()}
+
   def describe_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
 
@@ -14959,15 +16106,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   """
+
   @spec describe_security_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_profile_errors()}
+
   def describe_security_profile(
         %Client{} = client,
         instance_id,
@@ -15009,16 +16158,18 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-    distribution group. This can be the ID or the ARN if the API is being called
-    in the Region where the traffic distribution group was created. The ARN must
-    be provided if the call is from the replicated Region.
+  distribution group. This can be the ID or the ARN if the API is being called
+  in the Region where the traffic distribution group was created. The ARN must
+  be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   """
+
   @spec describe_traffic_distribution_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_traffic_distribution_group_errors()}
+
   def describe_traffic_distribution_group(
         %Client{} = client,
         traffic_distribution_group_id,
@@ -15062,15 +16213,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
+
   @spec describe_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
+
   def describe_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
 
@@ -15107,14 +16260,16 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_user_hierarchy_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_hierarchy_group_errors()}
+
   def describe_user_hierarchy_group(
         %Client{} = client,
         hierarchy_group_id,
@@ -15156,14 +16311,16 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec describe_user_hierarchy_structure(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_hierarchy_structure_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_hierarchy_structure_errors()}
+
   def describe_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -15200,16 +16357,18 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:view_id` (`t:string`) The ViewId of the view. This must be an ARN for Amazon
-    Web Services managed views.
+  Web Services managed views.
 
   ## Optional parameters:
   """
+
   @spec describe_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_view_errors()}
+
   def describe_view(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
 
@@ -15245,15 +16404,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
 
   ## Optional parameters:
   """
+
   @spec describe_vocabulary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_vocabulary_errors()}
+
   def describe_vocabulary(%Client{} = client, instance_id, vocabulary_id, options \\ []) do
     url_path =
       "/vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
@@ -15290,38 +16451,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec disassociate_analytics_data_set(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_analytics_data_set_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_analytics_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_analytics_data_set_errors()}
-  def disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
+
+  def disassociate_analytics_data_set(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15331,32 +16498,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:origin` (`t:string`) The domain URL of the integrated application.
 
   ## Optional parameters:
   """
-  @spec disassociate_approved_origin(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_approved_origin_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_approved_origin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_approved_origin_errors()}
-  def disassociate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
+
+  def disassociate_approved_origin(%Client{} = client, instance_id, origin, options \\ [])
+      when is_binary(origin) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Origin", "origin"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"origin", origin}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15365,7 +16544,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15378,33 +16557,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec disassociate_bot(AWS.Client.t(), String.t(), disassociate_bot_request(), Keyword.t()) ::
+
+  @spec disassociate_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_bot_errors()}
-  def disassociate_bot(%Client{} = client, instance_id, input, options \\ []) do
+
+  def disassociate_bot(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15414,39 +16604,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:resource_id` (`t:string`) The identifier of the resource.
   * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
 
   ## Optional parameters:
   """
-  @spec disassociate_flow(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          disassociate_flow_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_flow(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_flow_errors()}
+
   def disassociate_flow(
         %Client{} = client,
         instance_id,
         resource_id,
         resource_type,
-        input,
         options \\ []
       ) do
     url_path =
       "/flow-associations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(resource_id)}/#{AWS.Util.encode_uri(resource_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15455,7 +16657,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15468,46 +16670,62 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:association_id` (`t:string`) The existing association identifier that
-    uniquely identifies the resource type and storage config for the given
-    instance ID.
+  uniquely identifies the resource type and storage config for the given
+  instance ID.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:resource_type`
-    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-    A valid resource type.
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+  A valid resource type.
 
   ## Optional parameters:
   """
+
   @spec disassociate_instance_storage_config(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          disassociate_instance_storage_config_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_instance_storage_config_errors()}
+
   def disassociate_instance_storage_config(
         %Client{} = client,
         association_id,
         instance_id,
-        input,
+        resource_type,
         options \\ []
-      ) do
+      )
+      when is_binary(resource_type) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ResourceType", "resourceType"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15516,7 +16734,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15529,33 +16747,45 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance..
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance..
   * `:function_arn` (`t:string`) The Amazon Resource Name (ARN) of the Lambda
-    function being disassociated.
+  function being disassociated.
 
   ## Optional parameters:
   """
-  @spec disassociate_lambda_function(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_lambda_function_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_lambda_function(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lambda_function_errors()}
-  def disassociate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
+
+  def disassociate_lambda_function(%Client{} = client, instance_id, function_arn, options \\ [])
+      when is_binary(function_arn) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"FunctionArn", "functionArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"functionArn", function_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15564,7 +16794,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15577,36 +16807,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:bot_name` (`t:string`) The name of the Amazon Lex bot. Maximum character
-    limit of 50.
+  limit of 50.
   * `:lex_region` (`t:string`) The Amazon Web Services Region in which the Amazon
-    Lex bot has been created.
+  Lex bot has been created.
 
   ## Optional parameters:
   """
-  @spec disassociate_lex_bot(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_lex_bot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_lex_bot(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_lex_bot_errors()}
-  def disassociate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
+
+  def disassociate_lex_bot(%Client{} = client, instance_id, bot_name, lex_region, options \\ [])
+      when is_binary(bot_name) and is_binary(lex_region) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"BotName", "botName"},
-        {"LexRegion", "lexRegion"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"botName", bot_name}, {"lexRegion", lex_region}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15615,7 +16856,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15630,36 +16871,53 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec disassociate_phone_number_contact_flow(
           AWS.Client.t(),
           String.t(),
-          disassociate_phone_number_contact_flow_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_number_contact_flow_errors()}
+
   def disassociate_phone_number_contact_flow(
         %Client{} = client,
         phone_number_id,
-        input,
+        instance_id,
         options \\ []
-      ) do
+      )
+      when is_binary(instance_id) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/contact-flow"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"InstanceId", "instanceId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"instanceId", instance_id}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15668,7 +16926,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15681,48 +16939,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec disassociate_queue_quick_connects(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_queue_quick_connects_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_queue_quick_connects_errors()}
-  def disassociate_queue_quick_connects(
-        %Client{} = client,
-        instance_id,
-        queue_id,
-        input,
-        options \\ []
-      ) do
+
+  def disassociate_queue_quick_connects(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/disassociate-quick-connects"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15732,48 +16988,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
-  @spec disassociate_routing_profile_queues(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_routing_profile_queues_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_routing_profile_queues_errors()}
+
   def disassociate_routing_profile_queues(
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/disassociate-queues"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15783,38 +17042,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:association_id` (`t:string`) The existing association identifier that
-    uniquely identifies the resource type and storage config for the given
-    instance ID.
+  uniquely identifies the resource type and storage config for the given
+  instance ID.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec disassociate_security_key(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_security_key_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_security_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_security_key_errors()}
-  def disassociate_security_key(
-        %Client{} = client,
-        association_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def disassociate_security_key(%Client{} = client, association_id, instance_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key/#{AWS.Util.encode_uri(association_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15823,7 +17090,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15836,45 +17103,62 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-    distribution group. This can be the ID or the ARN if the API is being called
-    in the Region where the traffic distribution group was created. The ARN must
-    be provided if the call is from the replicated Region.
+  distribution group. This can be the ID or the ARN if the API is being called
+  in the Region where the traffic distribution group was created. The ARN must
+  be provided if the call is from the replicated Region.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier for the user. This can be the ID or the
-    ARN of the user.
+  ARN of the user.
 
   ## Optional parameters:
   """
+
   @spec disassociate_traffic_distribution_group_user(
           AWS.Client.t(),
           String.t(),
-          disassociate_traffic_distribution_group_user_request(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, disassociate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_traffic_distribution_group_user_errors()}
+
   def disassociate_traffic_distribution_group_user(
         %Client{} = client,
         traffic_distribution_group_id,
-        input,
+        instance_id,
+        user_id,
         options \\ []
-      ) do
+      )
+      when is_binary(instance_id) and is_binary(user_id) do
     url_path =
       "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"InstanceId", "InstanceId"},
-        {"UserId", "UserId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"InstanceId", instance_id}, {"UserId", user_id}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -15883,7 +17167,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -15896,48 +17180,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec disassociate_user_proficiencies(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_user_proficiencies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_user_proficiencies_errors()}
-  def disassociate_user_proficiencies(
-        %Client{} = client,
-        instance_id,
-        user_id,
-        input,
-        options \\ []
-      ) do
+
+  def disassociate_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/disassociate-proficiencies"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15951,42 +17233,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec dismiss_user_contact(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          dismiss_user_contact_request(),
-          Keyword.t()
-        ) ::
+
+  @spec dismiss_user_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, dismiss_user_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dismiss_user_contact_errors()}
-  def dismiss_user_contact(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def dismiss_user_contact(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/contact"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16000,23 +17286,26 @@ defmodule AWS.Connect do
   * `:file_id` (`t:string`) The unique identifier of the attached file resource.
   * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
   * `:associated_resource_arn` (`t:string`) The resource to which the attached
-    file is (being) uploaded to. Cases are the only current supported resource.
+  file is (being) uploaded to. Cases are the only current supported resource.
 
   ## Optional parameters:
   * `:url_expiry_in_seconds` (`t:integer`) Optional override for the expiry of the
-    pre-signed S3 URL in seconds. The default value is 300.
+  pre-signed S3 URL in seconds. The default value is 300.
   """
+
   @spec get_attached_file(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attached_file_errors()}
+
   def get_attached_file(
         %Client{} = client,
         file_id,
         instance_id,
         associated_resource_arn,
         options \\ []
-      ) do
+      )
+      when is_binary(associated_resource_arn) do
     url_path =
       "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
 
@@ -16067,10 +17356,12 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
+
   @spec get_contact_attributes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_contact_attributes_errors()}
+
   def get_contact_attributes(%Client{} = client, initial_contact_id, instance_id, options \\ []) do
     url_path =
       "/contact/attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(initial_contact_id)}"
@@ -16107,38 +17398,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec get_current_metric_data(
-          AWS.Client.t(),
-          String.t(),
-          get_current_metric_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_current_metric_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_current_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_metric_data_errors()}
-  def get_current_metric_data(%Client{} = client, instance_id, input, options \\ []) do
+
+  def get_current_metric_data(%Client{} = client, instance_id, options \\ []) do
     url_path = "/metrics/current/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16148,38 +17445,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec get_current_user_data(
-          AWS.Client.t(),
-          String.t(),
-          get_current_user_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_current_user_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_current_user_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_current_user_data_errors()}
-  def get_current_user_data(%Client{} = client, instance_id, input, options \\ []) do
+
+  def get_current_user_data(%Client{} = client, instance_id, options \\ []) do
     url_path = "/metrics/userdata/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16195,14 +17498,16 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec get_federation_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_federation_token_errors()}
+
   def get_federation_token(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user/federate/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -16238,16 +17543,18 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:resource_id` (`t:string`) The identifier of the resource.
   * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
 
   ## Optional parameters:
   """
+
   @spec get_flow_association(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_flow_association_errors()}
+
   def get_flow_association(
         %Client{} = client,
         instance_id,
@@ -16290,33 +17597,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec get_metric_data(AWS.Client.t(), String.t(), get_metric_data_request(), Keyword.t()) ::
+
+  @spec get_metric_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_data_errors()}
-  def get_metric_data(%Client{} = client, instance_id, input, options \\ []) do
+
+  def get_metric_data(%Client{} = client, instance_id, options \\ []) do
     url_path = "/metrics/historical/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16328,29 +17646,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec get_metric_data_v2(AWS.Client.t(), get_metric_data_v2_request(), Keyword.t()) ::
+
+  @spec get_metric_data_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_metric_data_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metric_data_v2_errors()}
-  def get_metric_data_v2(%Client{} = client, input, options \\ []) do
+
+  def get_metric_data_v2(%Client{} = client, options \\ []) do
     url_path = "/metrics/data"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16360,15 +17689,17 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
+
   @spec get_prompt_file(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_prompt_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_prompt_file_errors()}
+
   def get_prompt_file(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path =
       "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}/file"
@@ -16406,17 +17737,19 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:task_template_id` (`t:string`) A unique identifier for the task template.
 
   ## Optional parameters:
   * `:snapshot_version` (`t:string`) The system generated version of a task
-    template that is associated with a task, when the task is created.
+  template that is associated with a task, when the task is created.
   """
+
   @spec get_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_task_template_errors()}
+
   def get_task_template(%Client{} = client, instance_id, task_template_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
@@ -16465,16 +17798,18 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the traffic distribution group. This can
-    be the ID or the ARN if the API is being called in the Region where the
-    traffic distribution group was created. The ARN must be provided if the call
-    is from the replicated Region.
+  be the ID or the ARN if the API is being called in the Region where the
+  traffic distribution group was created. The ARN must be provided if the call
+  is from the replicated Region.
 
   ## Optional parameters:
   """
+
   @spec get_traffic_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_traffic_distribution_errors()}
+
   def get_traffic_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
 
@@ -16517,29 +17852,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec import_phone_number(AWS.Client.t(), import_phone_number_request(), Keyword.t()) ::
+
+  @spec import_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_phone_number_errors()}
-  def import_phone_number(%Client{} = client, input, options \\ []) do
+
+  def import_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-number/import"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16549,20 +17895,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:agent_status_types` (`t:list[com.amazonaws.connect#AgentStatusType]`)
-    Available agent status types.
+  Available agent status types.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_agent_statuses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agent_statuses_errors()}
+
   def list_agent_statuses(%Client{} = client, instance_id, options \\ []) do
     url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -16623,20 +17971,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:data_set_id` (`t:string`) The identifier of the dataset to get the
-    association status.
+  association status.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_analytics_data_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analytics_data_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analytics_data_associations_errors()}
+
   def list_analytics_data_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
 
@@ -16697,18 +18047,20 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_approved_origins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_approved_origins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_approved_origins_errors()}
+
   def list_approved_origins(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origins"
 
@@ -16763,18 +18115,20 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_authentication_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_authentication_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_authentication_profiles_errors()}
+
   def list_authentication_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/authentication-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -16828,20 +18182,23 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:lex_version` (`t:enum["V1|V2"]`) The version of Amazon Lex or Amazon Lex V2.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_bots(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bots_errors()}
-  def list_bots(%Client{} = client, instance_id, lex_version, options \\ []) do
+
+  def list_bots(%Client{} = client, instance_id, lex_version, options \\ [])
+      when is_binary(lex_version) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bots"
 
     # Validate optional parameters
@@ -16894,20 +18251,23 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-    Amazon Connect.
+  Amazon Connect.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_contact_evaluations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_evaluations_errors()}
-  def list_contact_evaluations(%Client{} = client, instance_id, contact_id, options \\ []) do
+
+  def list_contact_evaluations(%Client{} = client, instance_id, contact_id, options \\ [])
+      when is_binary(contact_id) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
 
     # Validate optional parameters
@@ -16954,20 +18314,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:contact_flow_module_state` (`t:enum["ACTIVE|ARCHIVED"]`) The state of the
-    flow module.
+  flow module.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_contact_flow_modules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_flow_modules_errors()}
+
   def list_contact_flow_modules(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flow-modules-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17028,21 +18390,23 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:contact_flow_types` (`t:list[com.amazonaws.connect#ContactFlowType]`) The
-    type of flow.
+  type of flow.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_contact_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_flows_errors()}
+
   def list_contact_flows(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-flows-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17104,26 +18468,29 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_id` (`t:string`) The identifier of the initial contact.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:reference_types` (`t:list[com.amazonaws.connect#ReferenceType]`) The type of
-    reference.
+  reference.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_contact_references(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contact_references_errors()}
+
   def list_contact_references(
         %Client{} = client,
         contact_id,
         instance_id,
         reference_types,
         options \\ []
-      ) do
+      )
+      when is_binary(reference_types) do
     url_path =
       "/contact/references/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
@@ -17170,38 +18537,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec list_default_vocabularies(
-          AWS.Client.t(),
-          String.t(),
-          list_default_vocabularies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_default_vocabularies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_default_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_default_vocabularies_errors()}
-  def list_default_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
+
+  def list_default_vocabularies(%Client{} = client, instance_id, options \\ []) do
     url_path = "/default-vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -17211,20 +18584,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-    form.
+  form.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_evaluation_form_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_form_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_form_versions_errors()}
+
   def list_evaluation_form_versions(
         %Client{} = client,
         evaluation_form_id,
@@ -17284,18 +18659,20 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_evaluation_forms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_evaluation_forms_errors()}
+
   def list_evaluation_forms(%Client{} = client, instance_id, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17349,19 +18726,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:resource_type` (`t:enum["VOICE_PHONE_NUMBER"]`) A valid resource type.
   """
+
   @spec list_flow_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_flow_associations_errors()}
+
   def list_flow_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/flow-associations-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17423,19 +18802,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_hours_of_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hours_of_operations_errors()}
+
   def list_hours_of_operations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/hours-of-operations-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -17489,18 +18870,20 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_instance_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_attributes_errors()}
+
   def list_instance_attributes(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/attributes"
 
@@ -17554,22 +18937,25 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:resource_type`
-    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-    A valid resource type.
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+  A valid resource type.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_instance_storage_configs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_storage_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instance_storage_configs_errors()}
-  def list_instance_storage_configs(%Client{} = client, instance_id, resource_type, options \\ []) do
+
+  def list_instance_storage_configs(%Client{} = client, instance_id, resource_type, options \\ [])
+      when is_binary(resource_type) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-configs"
 
     # Validate optional parameters
@@ -17625,13 +19011,15 @@ defmodule AWS.Connect do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_instances_errors()}
+
   def list_instances(%Client{} = client, options \\ []) do
     url_path = "/instance"
 
@@ -17686,23 +19074,25 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:integration_arn` (`t:string`) The Amazon Resource Name (ARN) of the
-    integration.
+  integration.
   * `:integration_type`
-    (`t:enum["APPLICATION|CASES_DOMAIN|EVENT|FILE_SCANNER|PINPOINT_APP|VOICE_ID|WISDOM_ASSISTANT|WISDOM_KNOWLEDGE_BASE|WISDOM_QUICK_RESPONSES"]`)
-    The integration type.
+  (`t:enum["APPLICATION|CASES_DOMAIN|EVENT|FILE_SCANNER|PINPOINT_APP|VOICE_ID|WISDOM_ASSISTANT|WISDOM_KNOWLEDGE_BASE|WISDOM_QUICK_RESPONSES"]`)
+  The integration type.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_integration_associations_errors()}
+
   def list_integration_associations(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
 
@@ -17775,18 +19165,20 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_lambda_functions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lambda_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lambda_functions_errors()}
+
   def list_lambda_functions(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-functions"
 
@@ -17840,19 +19232,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    If no value is specified, the default is 10.
+  If no value is specified, the default is 10.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_lex_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lex_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_lex_bots_errors()}
+
   def list_lex_bots(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bots"
 
@@ -17907,24 +19301,26 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:phone_number_country_codes`
-    (`t:list[com.amazonaws.connect#PhoneNumberCountryCode]`) The ISO country
-    code.
+  (`t:list[com.amazonaws.connect#PhoneNumberCountryCode]`) The ISO country
+  code.
   * `:phone_number_types` (`t:list[com.amazonaws.connect#PhoneNumberType]`) The
-    type of phone number.
+  type of phone number.
   """
+
   @spec list_phone_numbers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
+
   def list_phone_numbers(%Client{} = client, instance_id, options \\ []) do
     url_path = "/phone-numbers-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18010,29 +19406,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec list_phone_numbers_v2(AWS.Client.t(), list_phone_numbers_v2_request(), Keyword.t()) ::
+
+  @spec list_phone_numbers_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_v2_errors()}
-  def list_phone_numbers_v2(%Client{} = client, input, options \\ []) do
+
+  def list_phone_numbers_v2(%Client{} = client, options \\ []) do
     url_path = "/phone-number/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18042,18 +19449,20 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_predefined_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_predefined_attributes_errors()}
+
   def list_predefined_attributes(%Client{} = client, instance_id, options \\ []) do
     url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18111,15 +19520,17 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_prompts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prompts_errors()}
+
   def list_prompts(%Client{} = client, instance_id, options \\ []) do
     url_path = "/prompts-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18173,20 +19584,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queue_quick_connects_errors()}
+
   def list_queue_quick_connects(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/quick-connects"
@@ -18245,20 +19658,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:queue_types` (`t:list[com.amazonaws.connect#QueueType]`) The type of queue.
   """
+
   @spec list_queues(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_queues_errors()}
+
   def list_queues(%Client{} = client, instance_id, options \\ []) do
     url_path = "/queues-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18320,23 +19735,25 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:quick_connect_types` (`t:list[com.amazonaws.connect#QuickConnectType]`) The
-    type of quick connect. In the Amazon Connect admin website, when you create
-    a quick connect, you are prompted to assign one of the following types:
-    Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+  type of quick connect. In the Amazon Connect admin website, when you create
+  a quick connect, you are prompted to assign one of the following types:
+  Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
   """
+
   @spec list_quick_connects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_quick_connects_errors()}
+
   def list_quick_connects(%Client{} = client, instance_id, options \\ []) do
     url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18397,49 +19814,57 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-    Amazon Connect.
+  Amazon Connect.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
+
   @spec list_realtime_contact_analysis_segments_v2(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          list_realtime_contact_analysis_segments_v2_request(),
           Keyword.t()
         ) ::
           {:ok, list_realtime_contact_analysis_segments_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_realtime_contact_analysis_segments_v2_errors()}
+
   def list_realtime_contact_analysis_segments_v2(
         %Client{} = client,
         contact_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/contact/list-real-time-analysis-segments-v2/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -18449,20 +19874,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profile_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_profile_queues_errors()}
+
   def list_routing_profile_queues(
         %Client{} = client,
         instance_id,
@@ -18523,19 +19950,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_routing_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_routing_profiles_errors()}
+
   def list_routing_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/routing-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18589,23 +20018,25 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:event_source_name`
-    (`t:enum["OnCaseCreate|OnCaseUpdate|OnContactEvaluationSubmit|OnMetricDataUpdate|OnPostCallAnalysisAvailable|OnPostChatAnalysisAvailable|OnRealTimeCallAnalysisAvailable|OnRealTimeChatAnalysisAvailable|OnSalesforceCaseCreate|OnZendeskTicketCreate|OnZendeskTicketStatusUpdate"]`)
-    The name of the event source.
+  (`t:enum["OnCaseCreate|OnCaseUpdate|OnContactEvaluationSubmit|OnMetricDataUpdate|OnPostCallAnalysisAvailable|OnPostChatAnalysisAvailable|OnRealTimeCallAnalysisAvailable|OnRealTimeChatAnalysisAvailable|OnSalesforceCaseCreate|OnZendeskTicketCreate|OnZendeskTicketStatusUpdate"]`)
+  The name of the event source.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:publish_status` (`t:enum["DRAFT|PUBLISHED"]`) The publish status of the
-    rule.
+  rule.
   """
+
   @spec list_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
+
   def list_rules(%Client{} = client, instance_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18678,18 +20109,20 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_security_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_keys_errors()}
+
   def list_security_keys(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-keys"
 
@@ -18743,19 +20176,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_security_profile_applications(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profile_applications_errors()}
+
   def list_security_profile_applications(
         %Client{} = client,
         instance_id,
@@ -18815,19 +20250,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_security_profile_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profile_permissions_errors()}
+
   def list_security_profile_permissions(
         %Client{} = client,
         instance_id,
@@ -18888,19 +20325,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_security_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_profiles_errors()}
+
   def list_security_profiles(%Client{} = client, instance_id, options \\ []) do
     url_path = "/security-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -18954,16 +20393,18 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-    All Amazon Connect resources (instances, queues, flows, routing profiles,
-    etc) have an ARN. To locate the ARN for an instance, for example, see Find
-    your Amazon Connect instance ID/ARN.
+  All Amazon Connect resources (instances, queues, flows, routing profiles,
+  etc) have an ARN. To locate the ARN for an instance, for example, see Find
+  your Amazon Connect instance ID/ARN.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -18999,23 +20440,25 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:name` (`t:string`) The name of the task template.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:status` (`t:enum["ACTIVE|INACTIVE"]`) Marks a template as ACTIVE or INACTIVE
-    for a task to refer to it. Tasks can only be created from ACTIVE templates.
-    If a template is marked as INACTIVE, then a task that refers to this
-    template cannot be created.
+  for a task to refer to it. Tasks can only be created from ACTIVE templates.
+  If a template is marked as INACTIVE, then a task that refers to this
+  template cannot be created.
   """
+
   @spec list_task_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_task_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_task_templates_errors()}
+
   def list_task_templates(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
 
@@ -19083,20 +20526,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic
-    distribution group. This can be the ID or the ARN if the API is being called
-    in the Region where the traffic distribution group was created. The ARN must
-    be provided if the call is from the replicated Region.
+  distribution group. This can be the ID or the ARN if the API is being called
+  in the Region where the traffic distribution group was created. The ARN must
+  be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_traffic_distribution_group_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_group_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_distribution_group_users_errors()}
+
   def list_traffic_distribution_group_users(
         %Client{} = client,
         traffic_distribution_group_id,
@@ -19157,16 +20602,18 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_traffic_distribution_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_distribution_groups_errors()}
+
   def list_traffic_distribution_groups(%Client{} = client, options \\ []) do
     url_path = "/traffic-distribution-groups"
 
@@ -19227,20 +20674,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:integration_association_id` (`t:string`) The identifier for the integration
-    association.
+  association.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_use_cases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_use_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_use_cases_errors()}
+
   def list_use_cases(%Client{} = client, instance_id, integration_association_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
@@ -19296,19 +20745,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_user_hierarchy_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_hierarchy_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_hierarchy_groups_errors()}
+
   def list_user_hierarchy_groups(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-groups-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19362,19 +20813,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_proficiencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_proficiencies_errors()}
+
   def list_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
@@ -19430,19 +20883,21 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
+
   def list_users(%Client{} = client, instance_id, options \\ []) do
     url_path = "/users-summary/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19497,21 +20952,23 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-    can be used.
+  can be used.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_view_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_view_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_view_versions_errors()}
+
   def list_view_versions(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
@@ -19566,20 +21023,22 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-    The default MaxResult size is 100.
+  The default MaxResult size is 100.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:type` (`t:enum["AWS_MANAGED|CUSTOMER_MANAGED"]`) The type of the view.
   """
+
   @spec list_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_views_errors()}
+
   def list_views(%Client{} = client, instance_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
 
@@ -19644,29 +21103,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec monitor_contact(AWS.Client.t(), monitor_contact_request(), Keyword.t()) ::
+
+  @spec monitor_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, monitor_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, monitor_contact_errors()}
-  def monitor_contact(%Client{} = client, input, options \\ []) do
+
+  def monitor_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/monitor"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19678,29 +21148,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec pause_contact(AWS.Client.t(), pause_contact_request(), Keyword.t()) ::
+
+  @spec pause_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, pause_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, pause_contact_errors()}
-  def pause_contact(%Client{} = client, input, options \\ []) do
+
+  def pause_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/pause"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19711,30 +21192,45 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user.
 
   ## Optional parameters:
   """
-  @spec put_user_status(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          put_user_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_user_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_user_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_user_status_errors()}
-  def put_user_status(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def put_user_status(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/status"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19754,28 +21250,43 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If not provided, the
-    Amazon Web Services SDK populates this field. For more information about
-    idempotency, see Making retries safe with idempotent APIs.
+  provide to ensure the idempotency of the request. If not provided, the
+  Amazon Web Services SDK populates this field. For more information about
+  idempotency, see Making retries safe with idempotent APIs.
   """
-  @spec release_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          release_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec release_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, release_phone_number_errors()}
-  def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def release_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = [client_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ClientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"clientToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -19785,6 +21296,8 @@ defmodule AWS.Connect do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -19792,7 +21305,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -19807,34 +21320,45 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
-    You can provide the InstanceId, or the entire ARN.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  You can provide the InstanceId, or the entire ARN.
 
   ## Optional parameters:
   """
-  @spec replicate_instance(AWS.Client.t(), String.t(), replicate_instance_request(), Keyword.t()) ::
+
+  @spec replicate_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, replicate_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replicate_instance_errors()}
-  def replicate_instance(%Client{} = client, instance_id, input, options \\ []) do
+
+  def replicate_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/replicate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19846,29 +21370,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec resume_contact(AWS.Client.t(), resume_contact_request(), Keyword.t()) ::
+
+  @spec resume_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, resume_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_contact_errors()}
-  def resume_contact(%Client{} = client, input, options \\ []) do
+
+  def resume_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/resume"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19883,29 +21418,85 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec resume_contact_recording(AWS.Client.t(), resume_contact_recording_request(), Keyword.t()) ::
+
+  @spec resume_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, resume_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_contact_recording_errors()}
-  def resume_contact_recording(%Client{} = client, input, options \\ []) do
+
+  def resume_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/resume-recording"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
+  Searches AgentStatuses in an Amazon Connect instance, with optional filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchAgentStatuses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+
+  @spec search_agent_statuses(AWS.Client.t(), Keyword.t()) ::
+          {:ok, search_agent_statuses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_agent_statuses_errors()}
+
+  def search_agent_statuses(%Client{} = client, options \\ []) do
+    url_path = "/search-agent-statuses"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19920,33 +21511,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_available_phone_numbers(
-          AWS.Client.t(),
-          search_available_phone_numbers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
-  def search_available_phone_numbers(%Client{} = client, input, options \\ []) do
+
+  def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-number/search-available"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19959,33 +21557,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_contact_flow_modules(
-          AWS.Client.t(),
-          search_contact_flow_modules_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_contact_flow_modules(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contact_flow_modules_errors()}
-  def search_contact_flow_modules(%Client{} = client, input, options \\ []) do
+
+  def search_contact_flow_modules(%Client{} = client, options \\ []) do
     url_path = "/search-contact-flow-modules"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -19998,29 +21603,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_contact_flows(AWS.Client.t(), search_contact_flows_request(), Keyword.t()) ::
+
+  @spec search_contact_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contact_flows_errors()}
-  def search_contact_flows(%Client{} = client, input, options \\ []) do
+
+  def search_contact_flows(%Client{} = client, options \\ []) do
     url_path = "/search-contact-flows"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20032,29 +21648,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_contacts(AWS.Client.t(), search_contacts_request(), Keyword.t()) ::
+
+  @spec search_contacts(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_contacts_errors()}
-  def search_contacts(%Client{} = client, input, options \\ []) do
+
+  def search_contacts(%Client{} = client, options \\ []) do
     url_path = "/search-contacts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20067,33 +21694,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_hours_of_operations(
-          AWS.Client.t(),
-          search_hours_of_operations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_hours_of_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_hours_of_operations_errors()}
-  def search_hours_of_operations(%Client{} = client, input, options \\ []) do
+
+  def search_hours_of_operations(%Client{} = client, options \\ []) do
     url_path = "/search-hours-of-operations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20105,33 +21739,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_predefined_attributes(
-          AWS.Client.t(),
-          search_predefined_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_predefined_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_predefined_attributes_errors()}
-  def search_predefined_attributes(%Client{} = client, input, options \\ []) do
+
+  def search_predefined_attributes(%Client{} = client, options \\ []) do
     url_path = "/search-predefined-attributes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20143,29 +21784,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_prompts(AWS.Client.t(), search_prompts_request(), Keyword.t()) ::
+
+  @spec search_prompts(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_prompts_errors()}
-  def search_prompts(%Client{} = client, input, options \\ []) do
+
+  def search_prompts(%Client{} = client, options \\ []) do
     url_path = "/search-prompts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20177,29 +21829,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_queues(AWS.Client.t(), search_queues_request(), Keyword.t()) ::
+
+  @spec search_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_queues_errors()}
-  def search_queues(%Client{} = client, input, options \\ []) do
+
+  def search_queues(%Client{} = client, options \\ []) do
     url_path = "/search-queues"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20211,29 +21874,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_quick_connects(AWS.Client.t(), search_quick_connects_request(), Keyword.t()) ::
+
+  @spec search_quick_connects(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_quick_connects_errors()}
-  def search_quick_connects(%Client{} = client, input, options \\ []) do
+
+  def search_quick_connects(%Client{} = client, options \\ []) do
     url_path = "/search-quick-connects"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20245,29 +21919,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_resource_tags(AWS.Client.t(), search_resource_tags_request(), Keyword.t()) ::
+
+  @spec search_resource_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_resource_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_resource_tags_errors()}
-  def search_resource_tags(%Client{} = client, input, options \\ []) do
+
+  def search_resource_tags(%Client{} = client, options \\ []) do
     url_path = "/search-resource-tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20280,29 +21965,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_routing_profiles(AWS.Client.t(), search_routing_profiles_request(), Keyword.t()) ::
+
+  @spec search_routing_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_routing_profiles_errors()}
-  def search_routing_profiles(%Client{} = client, input, options \\ []) do
+
+  def search_routing_profiles(%Client{} = client, options \\ []) do
     url_path = "/search-routing-profiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20315,29 +22011,86 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_security_profiles(AWS.Client.t(), search_security_profiles_request(), Keyword.t()) ::
+
+  @spec search_security_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_security_profiles_errors()}
-  def search_security_profiles(%Client{} = client, input, options \\ []) do
+
+  def search_security_profiles(%Client{} = client, options \\ []) do
     url_path = "/search-security-profiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
+  Searches UserHierarchyGroups in an Amazon Connect instance, with optional
+  filtering.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connect%20SearchUserHierarchyGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+
+  @spec search_user_hierarchy_groups(AWS.Client.t(), Keyword.t()) ::
+          {:ok, search_user_hierarchy_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_user_hierarchy_groups_errors()}
+
+  def search_user_hierarchy_groups(%Client{} = client, options \\ []) do
+    url_path = "/search-user-hierarchy-groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20349,29 +22102,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec search_users(AWS.Client.t(), search_users_request(), Keyword.t()) ::
+
+  @spec search_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_users_errors()}
-  def search_users(%Client{} = client, input, options \\ []) do
+
+  def search_users(%Client{} = client, options \\ []) do
     url_path = "/search-users"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20382,38 +22146,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec search_vocabularies(
-          AWS.Client.t(),
-          String.t(),
-          search_vocabularies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_vocabularies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_vocabularies_errors()}
-  def search_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
+
+  def search_vocabularies(%Client{} = client, instance_id, options \\ []) do
     url_path = "/vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20426,33 +22196,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec send_chat_integration_event(
-          AWS.Client.t(),
-          send_chat_integration_event_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_chat_integration_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_chat_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_chat_integration_event_errors()}
-  def send_chat_integration_event(%Client{} = client, input, options \\ []) do
+
+  def send_chat_integration_event(%Client{} = client, options \\ []) do
     url_path = "/chat-integration-event"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20462,35 +22239,52 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The unique identifier of the Amazon Connect
-    instance.
+  instance.
   * `:associated_resource_arn` (`t:string`) The resource to which the attached
-    file is (being) uploaded to. Cases are the only current supported resource.
+  file is (being) uploaded to. Cases are the only current supported resource.
 
   ## Optional parameters:
   """
-  @spec start_attached_file_upload(
-          AWS.Client.t(),
-          String.t(),
-          start_attached_file_upload_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_attached_file_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_attached_file_upload_errors()}
-  def start_attached_file_upload(%Client{} = client, instance_id, input, options \\ []) do
+
+  def start_attached_file_upload(
+        %Client{} = client,
+        instance_id,
+        associated_resource_arn,
+        options \\ []
+      )
+      when is_binary(associated_resource_arn) do
     url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"AssociatedResourceArn", "associatedResourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"associatedResourceArn", associated_resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20510,19 +22304,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec start_chat_contact(AWS.Client.t(), start_chat_contact_request(), Keyword.t()) ::
+
+  @spec start_chat_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_chat_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_chat_contact_errors()}
-  def start_chat_contact(%Client{} = client, input, options \\ []) do
+
+  def start_chat_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/chat"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20536,28 +22351,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec start_contact_evaluation(
-          AWS.Client.t(),
-          String.t(),
-          start_contact_evaluation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_contact_evaluation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_evaluation_errors()}
-  def start_contact_evaluation(%Client{} = client, instance_id, input, options \\ []) do
+
+  def start_contact_evaluation(%Client{} = client, instance_id, options \\ []) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20569,29 +22400,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec start_contact_recording(AWS.Client.t(), start_contact_recording_request(), Keyword.t()) ::
+
+  @spec start_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_recording_errors()}
-  def start_contact_recording(%Client{} = client, input, options \\ []) do
+
+  def start_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/start-recording"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20607,29 +22449,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec start_contact_streaming(AWS.Client.t(), start_contact_streaming_request(), Keyword.t()) ::
+
+  @spec start_contact_streaming(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_contact_streaming_errors()}
-  def start_contact_streaming(%Client{} = client, input, options \\ []) do
+
+  def start_contact_streaming(%Client{} = client, options \\ []) do
     url_path = "/contact/start-streaming"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20645,23 +22498,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec start_outbound_voice_contact(
-          AWS.Client.t(),
-          start_outbound_voice_contact_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_outbound_voice_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_outbound_voice_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_outbound_voice_contact_errors()}
-  def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
+
+  def start_outbound_voice_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/outbound-voice"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20677,19 +22547,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec start_task_contact(AWS.Client.t(), start_task_contact_request(), Keyword.t()) ::
+
+  @spec start_task_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_task_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_task_contact_errors()}
-  def start_task_contact(%Client{} = client, input, options \\ []) do
+
+  def start_task_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/task"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20704,19 +22595,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec start_web_r_t_c_contact(AWS.Client.t(), start_web_r_t_c_contact_request(), Keyword.t()) ::
+
+  @spec start_web_r_t_c_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_web_r_t_c_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_web_r_t_c_contact_errors()}
-  def start_web_r_t_c_contact(%Client{} = client, input, options \\ []) do
+
+  def start_web_r_t_c_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/webrtc"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20729,29 +22641,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec stop_contact(AWS.Client.t(), stop_contact_request(), Keyword.t()) ::
+
+  @spec stop_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_errors()}
-  def stop_contact(%Client{} = client, input, options \\ []) do
+
+  def stop_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20768,29 +22691,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec stop_contact_recording(AWS.Client.t(), stop_contact_recording_request(), Keyword.t()) ::
+
+  @spec stop_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_recording_errors()}
-  def stop_contact_recording(%Client{} = client, input, options \\ []) do
+
+  def stop_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/stop-recording"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20805,29 +22739,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec stop_contact_streaming(AWS.Client.t(), stop_contact_streaming_request(), Keyword.t()) ::
+
+  @spec stop_contact_streaming(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_contact_streaming_errors()}
-  def stop_contact_streaming(%Client{} = client, input, options \\ []) do
+
+  def stop_contact_streaming(%Client{} = client, options \\ []) do
     url_path = "/contact/stop-streaming"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20842,47 +22787,45 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec submit_contact_evaluation(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          submit_contact_evaluation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec submit_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, submit_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_contact_evaluation_errors()}
-  def submit_contact_evaluation(
-        %Client{} = client,
-        evaluation_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def submit_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}/submit"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20900,33 +22843,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec suspend_contact_recording(
-          AWS.Client.t(),
-          suspend_contact_recording_request(),
-          Keyword.t()
-        ) ::
+
+  @spec suspend_contact_recording(AWS.Client.t(), Keyword.t()) ::
           {:ok, suspend_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, suspend_contact_recording_errors()}
-  def suspend_contact_recording(%Client{} = client, input, options \\ []) do
+
+  def suspend_contact_recording(%Client{} = client, options \\ []) do
     url_path = "/contact/suspend-recording"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20941,29 +22891,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec tag_contact(AWS.Client.t(), tag_contact_request(), Keyword.t()) ::
+
+  @spec tag_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_contact_errors()}
-  def tag_contact(%Client{} = client, input, options \\ []) do
+
+  def tag_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -20976,29 +22937,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21015,29 +22987,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec transfer_contact(AWS.Client.t(), transfer_contact_request(), Keyword.t()) ::
+
+  @spec transfer_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, transfer_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, transfer_contact_errors()}
-  def transfer_contact(%Client{} = client, input, options \\ []) do
+
+  def transfer_contact(%Client{} = client, options \\ []) do
     url_path = "/contact/transfer"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21050,39 +23033,49 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-    Amazon Connect.
+  Amazon Connect.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:tag_keys` (`t:list[com.amazonaws.connect#ContactTagKey]`) A list of tag
-    keys. Existing tags on the contact whose keys are members of this list will
-    be removed.
+  keys. Existing tags on the contact whose keys are members of this list will
+  be removed.
 
   ## Optional parameters:
   """
-  @spec untag_contact(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          untag_contact_request(),
-          Keyword.t()
-        ) ::
+
+  @spec untag_contact(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_contact_errors()}
-  def untag_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
+
+  def untag_contact(%Client{} = client, contact_id, instance_id, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path =
       "/contact/tags/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "TagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"TagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -21091,7 +23084,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -21108,22 +23101,39 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -21132,7 +23142,7 @@ defmodule AWS.Connect do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -21146,41 +23156,45 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:agent_status_id` (`t:string`) The identifier of the agent status.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_agent_status(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_agent_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_agent_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_status_errors()}
-  def update_agent_status(%Client{} = client, agent_status_id, instance_id, input, options \\ []) do
+
+  def update_agent_status(%Client{} = client, agent_status_id, instance_id, options \\ []) do
     url_path =
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21191,49 +23205,52 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:authentication_profile_id` (`t:string`) A unique identifier for the
-    authentication profile.
+  authentication profile.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_authentication_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_authentication_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_authentication_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_authentication_profile_errors()}
+
   def update_authentication_profile(
         %Client{} = client,
         authentication_profile_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/authentication-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(authentication_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21245,42 +23262,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:contact_id` (`t:string`) The identifier of the contact. This is the
-    identifier of the contact associated with the first interaction with your
-    contact center.
+  identifier of the contact associated with the first interaction with your
+  contact center.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_contact(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_errors()}
-  def update_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
+
+  def update_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21300,33 +23322,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec update_contact_attributes(
-          AWS.Client.t(),
-          update_contact_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_attributes_errors()}
-  def update_contact_attributes(%Client{} = client, input, options \\ []) do
+
+  def update_contact_attributes(%Client{} = client, options \\ []) do
     url_path = "/contact/attributes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21341,47 +23370,45 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_contact_evaluation(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_evaluation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_evaluation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_evaluation_errors()}
-  def update_contact_evaluation(
-        %Client{} = client,
-        evaluation_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21397,43 +23424,41 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec update_contact_flow_content(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_flow_content_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_flow_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_content_errors()}
-  def update_contact_flow_content(
-        %Client{} = client,
-        contact_flow_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_contact_flow_content(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/content"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21444,47 +23469,50 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_flow_id` (`t:string`) The identifier of the flow.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_contact_flow_metadata(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_flow_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_flow_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_metadata_errors()}
+
   def update_contact_flow_metadata(
         %Client{} = client,
         contact_flow_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/metadata"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21495,47 +23523,50 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_contact_flow_module_content(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_flow_module_content_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_flow_module_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_module_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_module_content_errors()}
+
   def update_contact_flow_module_content(
         %Client{} = client,
         contact_flow_module_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/content"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21546,47 +23577,50 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_contact_flow_module_metadata(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_flow_module_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_flow_module_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_module_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_module_metadata_errors()}
+
   def update_contact_flow_module_metadata(
         %Client{} = client,
         contact_flow_module_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/metadata"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21600,43 +23634,41 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec update_contact_flow_name(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_flow_name_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_flow_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_flow_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_flow_name_errors()}
-  def update_contact_flow_name(
-        %Client{} = client,
-        contact_flow_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_contact_flow_name(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/name"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21656,49 +23688,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-    Amazon Connect.
+  Amazon Connect.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_contact_routing_data(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_contact_routing_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_contact_routing_data(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_routing_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_routing_data_errors()}
-  def update_contact_routing_data(
-        %Client{} = client,
-        contact_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_contact_routing_data(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path =
       "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}/routing-data"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21710,29 +23740,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec update_contact_schedule(AWS.Client.t(), update_contact_schedule_request(), Keyword.t()) ::
+
+  @spec update_contact_schedule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_contact_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_contact_schedule_errors()}
-  def update_contact_schedule(%Client{} = client, input, options \\ []) do
+
+  def update_contact_schedule(%Client{} = client, options \\ []) do
     url_path = "/contact/schedule"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21744,39 +23785,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation
-    form.
+  form.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_evaluation_form(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_evaluation_form_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_evaluation_form_errors()}
-  def update_evaluation_form(
-        %Client{} = client,
-        evaluation_form_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_evaluation_form(%Client{} = client, evaluation_form_id, instance_id, options \\ []) do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21786,49 +23835,52 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:hours_of_operation_id` (`t:string`) The identifier of the hours of
-    operation.
+  operation.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_hours_of_operation(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_hours_of_operation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hours_of_operation_errors()}
+
   def update_hours_of_operation(
         %Client{} = client,
         hours_of_operation_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21838,50 +23890,48 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:attribute_type`
-    (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
-    The type of attribute.
+  (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`)
+  The type of attribute.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_instance_attribute(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_instance_attribute_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_instance_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_attribute_errors()}
-  def update_instance_attribute(
-        %Client{} = client,
-        attribute_type,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_instance_attribute(%Client{} = client, attribute_type, instance_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21891,58 +23941,64 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:association_id` (`t:string`) The existing association identifier that
-    uniquely identifies the resource type and storage config for the given
-    instance ID.
+  uniquely identifies the resource type and storage config for the given
+  instance ID.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:resource_type`
-    (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
-    A valid resource type.
+  (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`)
+  A valid resource type.
 
   ## Optional parameters:
   """
+
   @spec update_instance_storage_config(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_instance_storage_config_request(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_instance_storage_config_errors()}
+
   def update_instance_storage_config(
         %Client{} = client,
         association_id,
         instance_id,
-        input,
+        resource_type,
         options \\ []
-      ) do
+      )
+      when is_binary(resource_type) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ResourceType", "resourceType"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceType", resource_type}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -21954,39 +24010,47 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:contact_id` (`t:string`) The identifier of the contact in this instance of
-    Amazon Connect.
+  Amazon Connect.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_participant_role_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_participant_role_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_participant_role_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_participant_role_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_participant_role_config_errors()}
-  def update_participant_role_config(
-        %Client{} = client,
-        contact_id,
-        instance_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_participant_role_config(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path =
       "/contact/participant-role-config/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22001,24 +24065,40 @@ defmodule AWS.Connect do
 
   ## Optional parameters:
   """
-  @spec update_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          update_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
-  def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def update_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22028,28 +24108,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:phone_number_id` (`t:string`) The Amazon Resource Name (ARN) or resource ID
-    of the phone number.
+  of the phone number.
 
   ## Optional parameters:
   """
-  @spec update_phone_number_metadata(
-          AWS.Client.t(),
-          String.t(),
-          update_phone_number_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_phone_number_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_metadata_errors()}
-  def update_phone_number_metadata(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def update_phone_number_metadata(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/metadata"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22059,42 +24155,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:name` (`t:string`) The name of the predefined attribute.
 
   ## Optional parameters:
   """
-  @spec update_predefined_attribute(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_predefined_attribute_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_predefined_attribute(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_predefined_attribute_errors()}
-  def update_predefined_attribute(%Client{} = client, instance_id, name, input, options \\ []) do
+
+  def update_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22104,40 +24204,45 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
-  @spec update_prompt(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_prompt_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_prompt(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_prompt_errors()}
-  def update_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
+
+  def update_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22147,48 +24252,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec update_queue_hours_of_operation(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_queue_hours_of_operation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_queue_hours_of_operation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_hours_of_operation_errors()}
-  def update_queue_hours_of_operation(
-        %Client{} = client,
-        instance_id,
-        queue_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_queue_hours_of_operation(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/hours-of-operation"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22198,42 +24301,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec update_queue_max_contacts(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_queue_max_contacts_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_queue_max_contacts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_max_contacts_errors()}
-  def update_queue_max_contacts(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+
+  def update_queue_max_contacts(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/max-contacts"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22243,40 +24350,45 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec update_queue_name(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_queue_name_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_queue_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_name_errors()}
-  def update_queue_name(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+
+  def update_queue_name(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/name"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22288,48 +24400,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec update_queue_outbound_caller_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_queue_outbound_caller_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_queue_outbound_caller_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_outbound_caller_config_errors()}
+
   def update_queue_outbound_caller_config(
         %Client{} = client,
         instance_id,
         queue_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/outbound-caller-config"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22339,42 +24454,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
-  @spec update_queue_status(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_queue_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_queue_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_queue_status_errors()}
-  def update_queue_status(%Client{} = client, instance_id, queue_id, input, options \\ []) do
+
+  def update_queue_status(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/status"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22384,48 +24503,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
-  @spec update_quick_connect_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_quick_connect_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_quick_connect_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_quick_connect_config_errors()}
+
   def update_quick_connect_config(
         %Client{} = client,
         instance_id,
         quick_connect_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}/config"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22437,48 +24559,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
-  @spec update_quick_connect_name(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_quick_connect_name_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_quick_connect_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_quick_connect_name_errors()}
-  def update_quick_connect_name(
-        %Client{} = client,
-        instance_id,
-        quick_connect_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_quick_connect_name(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
     url_path =
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}/name"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22490,48 +24610,56 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
+
   @spec update_routing_profile_agent_availability_timer(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_routing_profile_agent_availability_timer_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_agent_availability_timer_errors()}
+
   def update_routing_profile_agent_availability_timer(
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/agent-availability-timer"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22542,48 +24670,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
-  @spec update_routing_profile_concurrency(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_routing_profile_concurrency_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_routing_profile_concurrency(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_concurrency_errors()}
+
   def update_routing_profile_concurrency(
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/concurrency"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22593,48 +24724,56 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
+
   @spec update_routing_profile_default_outbound_queue(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_routing_profile_default_outbound_queue_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_default_outbound_queue_errors()}
+
   def update_routing_profile_default_outbound_queue(
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/default-outbound-queue"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22646,48 +24785,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
-  @spec update_routing_profile_name(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_routing_profile_name_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_routing_profile_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_name_errors()}
+
   def update_routing_profile_name(
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/name"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22697,48 +24839,51 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
-  @spec update_routing_profile_queues(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_routing_profile_queues_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_routing_profile_queues_errors()}
+
   def update_routing_profile_queues(
         %Client{} = client,
         instance_id,
         routing_profile_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/queues"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22748,24 +24893,45 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:rule_id` (`t:string`) A unique identifier for the rule.
 
   ## Optional parameters:
   """
-  @spec update_rule(AWS.Client.t(), String.t(), String.t(), update_rule_request(), Keyword.t()) ::
+
+  @spec update_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_errors()}
-  def update_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
+
+  def update_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22775,48 +24941,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   """
-  @spec update_security_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_security_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_security_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_security_profile_errors()}
-  def update_security_profile(
-        %Client{} = client,
-        instance_id,
-        security_profile_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_security_profile(%Client{} = client, instance_id, security_profile_id, options \\ []) do
     url_path =
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22828,48 +24992,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:task_template_id` (`t:string`) A unique identifier for the task template.
 
   ## Optional parameters:
   """
-  @spec update_task_template(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_task_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_task_template_errors()}
-  def update_task_template(
-        %Client{} = client,
-        instance_id,
-        task_template_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_task_template(%Client{} = client, instance_id, task_template_id, options \\ []) do
     url_path =
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22879,30 +25041,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:id` (`t:string`) The identifier of the traffic distribution group. This can
-    be the ID or the ARN if the API is being called in the Region where the
-    traffic distribution group was created. The ARN must be provided if the call
-    is from the replicated Region.
+  be the ID or the ARN if the API is being called in the Region where the
+  traffic distribution group was created. The ARN must be provided if the call
+  is from the replicated Region.
 
   ## Optional parameters:
   """
-  @spec update_traffic_distribution(
-          AWS.Client.t(),
-          String.t(),
-          update_traffic_distribution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_traffic_distribution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_traffic_distribution_errors()}
-  def update_traffic_distribution(%Client{} = client, id, input, options \\ []) do
+
+  def update_traffic_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22912,42 +25090,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec update_user_hierarchy(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_hierarchy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_hierarchy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_hierarchy_errors()}
-  def update_user_hierarchy(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def update_user_hierarchy(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/hierarchy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -22958,47 +25140,50 @@ defmodule AWS.Connect do
   ## Parameters:
   * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_user_hierarchy_group_name(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_hierarchy_group_name_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_hierarchy_group_name(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_hierarchy_group_name_errors()}
+
   def update_user_hierarchy_group_name(
         %Client{} = client,
         hierarchy_group_id,
         instance_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}/name"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23009,38 +25194,44 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
-  @spec update_user_hierarchy_structure(
-          AWS.Client.t(),
-          String.t(),
-          update_user_hierarchy_structure_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_hierarchy_structure(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_hierarchy_structure_errors()}
-  def update_user_hierarchy_structure(%Client{} = client, instance_id, input, options \\ []) do
+
+  def update_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23050,42 +25241,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec update_user_identity_info(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_identity_info_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_identity_info(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_identity_info_errors()}
-  def update_user_identity_info(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def update_user_identity_info(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/identity-info"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23095,42 +25290,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec update_user_phone_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_phone_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_phone_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_phone_config_errors()}
-  def update_user_phone_config(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def update_user_phone_config(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/phone-config"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23140,42 +25339,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec update_user_proficiencies(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_proficiencies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_proficiencies_errors()}
-  def update_user_proficiencies(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def update_user_proficiencies(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23185,42 +25388,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec update_user_routing_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_routing_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_routing_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_routing_profile_errors()}
-  def update_user_routing_profile(%Client{} = client, instance_id, user_id, input, options \\ []) do
+
+  def update_user_routing_profile(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/routing-profile"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23230,48 +25437,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instance ID in the Amazon Resource Name (ARN) of the instance.
+  can find the instance ID in the Amazon Resource Name (ARN) of the instance.
   * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
-  @spec update_user_security_profiles(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_security_profiles_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_security_profiles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_security_profiles_errors()}
-  def update_user_security_profiles(
-        %Client{} = client,
-        instance_id,
-        user_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_user_security_profiles(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path =
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/security-profiles"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23282,41 +25487,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-    can be used.
+  can be used.
 
   ## Optional parameters:
   """
-  @spec update_view_content(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_view_content_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_view_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_view_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_view_content_errors()}
-  def update_view_content(%Client{} = client, instance_id, view_id, input, options \\ []) do
+
+  def update_view_content(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -23327,42 +25537,46 @@ defmodule AWS.Connect do
 
   ## Parameters:
   * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You
-    can find the instanceId in the ARN of the instance.
+  can find the instanceId in the ARN of the instance.
   * `:view_id` (`t:string`) The identifier of the view. Both ViewArn and ViewId
-    can be used.
+  can be used.
 
   ## Optional parameters:
   """
-  @spec update_view_metadata(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_view_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_view_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_view_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_view_metadata_errors()}
-  def update_view_metadata(%Client{} = client, instance_id, view_id, input, options \\ []) do
+
+  def update_view_metadata(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path =
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/metadata"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

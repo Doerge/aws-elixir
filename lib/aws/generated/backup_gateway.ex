@@ -908,16 +908,23 @@ defmodule AWS.BackupGateway do
   @doc """
   Associates a backup gateway with your server. After you complete the association
   process, you can back up and restore your VMs through the gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20AssociateGatewayToServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_gateway_to_server_input`)
+    %{
+      required("GatewayArn") => String.t(),
+      required("ServerArn") => String.t()
+    }
   """
-  @spec associate_gateway_to_server(
-          AWS.Client.t(),
-          associate_gateway_to_server_input(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_gateway_to_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_gateway_to_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_gateway_to_server_errors()}
-  def associate_gateway_to_server(%Client{} = client, input, options \\ []) do
+
+  def associate_gateway_to_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -927,11 +934,24 @@ defmodule AWS.BackupGateway do
   @doc """
   Creates a backup gateway. After you create a gateway, you can associate it with
   a server using the `AssociateGatewayToServer` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20CreateGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_gateway_input`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("ActivationKey") => String.t(),
+      required("GatewayDisplayName") => String.t(),
+      required("GatewayType") => String.t()
+    }
   """
-  @spec create_gateway(AWS.Client.t(), create_gateway_input(), Keyword.t()) ::
+
+  @spec create_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def create_gateway(%Client{} = client, input, options \\ []) do
+
+  def create_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -940,12 +960,22 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Deletes a backup gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20DeleteGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_gateway_input`)
+    %{
+      required("GatewayArn") => String.t()
+    }
   """
-  @spec delete_gateway(AWS.Client.t(), delete_gateway_input(), Keyword.t()) ::
+
+  @spec delete_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gateway_errors()}
-  def delete_gateway(%Client{} = client, input, options \\ []) do
+
+  def delete_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -954,12 +984,22 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Deletes a hypervisor.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20DeleteHypervisor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hypervisor_input`)
+    %{
+      required("HypervisorArn") => String.t()
+    }
   """
-  @spec delete_hypervisor(AWS.Client.t(), delete_hypervisor_input(), Keyword.t()) ::
+
+  @spec delete_hypervisor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hypervisor_errors()}
-  def delete_hypervisor(%Client{} = client, input, options \\ []) do
+
+  def delete_hypervisor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -970,16 +1010,23 @@ defmodule AWS.BackupGateway do
   Disassociates a backup gateway from the specified server. After the
   disassociation process finishes, the gateway can no longer access the virtual
   machines on the server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20DisassociateGatewayFromServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_gateway_from_server_input`)
+    %{
+      required("GatewayArn") => String.t()
+    }
   """
-  @spec disassociate_gateway_from_server(
-          AWS.Client.t(),
-          disassociate_gateway_from_server_input(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_gateway_from_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_gateway_from_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_gateway_from_server_errors()}
-  def disassociate_gateway_from_server(%Client{} = client, input, options \\ []) do
+
+  def disassociate_gateway_from_server(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -991,16 +1038,23 @@ defmodule AWS.BackupGateway do
   gateways do not have bandwidth rate limit schedules, which means no bandwidth
   rate limiting is in effect. Use this to get a gateway's bandwidth rate limit
   schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20GetBandwidthRateLimitSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_bandwidth_rate_limit_schedule_input`)
+    %{
+      required("GatewayArn") => String.t()
+    }
   """
-  @spec get_bandwidth_rate_limit_schedule(
-          AWS.Client.t(),
-          get_bandwidth_rate_limit_schedule_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_bandwidth_rate_limit_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bandwidth_rate_limit_schedule_errors()}
-  def get_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
+
+  def get_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1009,12 +1063,22 @@ defmodule AWS.BackupGateway do
 
   @doc """
   By providing the ARN (Amazon Resource Name), this API returns the gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20GetGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_gateway_input`)
+    %{
+      required("GatewayArn") => String.t()
+    }
   """
-  @spec get_gateway(AWS.Client.t(), get_gateway_input(), Keyword.t()) ::
+
+  @spec get_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gateway_errors()}
-  def get_gateway(%Client{} = client, input, options \\ []) do
+
+  def get_gateway(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1025,12 +1089,22 @@ defmodule AWS.BackupGateway do
   This action requests information about the specified hypervisor to which the
   gateway will connect. A hypervisor is hardware, software, or firmware that
   creates and manages virtual machines, and allocates resources to them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20GetHypervisor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_hypervisor_input`)
+    %{
+      required("HypervisorArn") => String.t()
+    }
   """
-  @spec get_hypervisor(AWS.Client.t(), get_hypervisor_input(), Keyword.t()) ::
+
+  @spec get_hypervisor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hypervisor_errors()}
-  def get_hypervisor(%Client{} = client, input, options \\ []) do
+
+  def get_hypervisor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1042,16 +1116,23 @@ defmodule AWS.BackupGateway do
   hypervisor property mapping displays the relationship of entity properties
   available from the on-premises hypervisor to the properties available in
   Amazon Web Services.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20GetHypervisorPropertyMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_hypervisor_property_mappings_input`)
+    %{
+      required("HypervisorArn") => String.t()
+    }
   """
-  @spec get_hypervisor_property_mappings(
-          AWS.Client.t(),
-          get_hypervisor_property_mappings_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_hypervisor_property_mappings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_hypervisor_property_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hypervisor_property_mappings_errors()}
-  def get_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
+
+  def get_hypervisor_property_mappings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1061,12 +1142,22 @@ defmodule AWS.BackupGateway do
   @doc """
   By providing the ARN (Amazon Resource Name), this API returns the virtual
   machine.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20GetVirtualMachine&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_virtual_machine_input`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_virtual_machine(AWS.Client.t(), get_virtual_machine_input(), Keyword.t()) ::
+
+  @spec get_virtual_machine(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_virtual_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_virtual_machine_errors()}
-  def get_virtual_machine(%Client{} = client, input, options \\ []) do
+
+  def get_virtual_machine(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1075,16 +1166,28 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Connect to a hypervisor by importing its configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20ImportHypervisorConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_hypervisor_configuration_input`)
+    %{
+      optional("KmsKeyArn") => String.t(),
+      optional("Password") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("Username") => String.t(),
+      required("Host") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec import_hypervisor_configuration(
-          AWS.Client.t(),
-          import_hypervisor_configuration_input(),
-          Keyword.t()
-        ) ::
+
+  @spec import_hypervisor_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_hypervisor_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_hypervisor_configuration_errors()}
-  def import_hypervisor_configuration(%Client{} = client, input, options \\ []) do
+
+  def import_hypervisor_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1095,11 +1198,22 @@ defmodule AWS.BackupGateway do
   Lists backup gateways owned by an Amazon Web Services account in an Amazon Web
   Services Region. The returned list is ordered by gateway Amazon Resource Name
   (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20ListGateways&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_gateways_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_gateways(AWS.Client.t(), list_gateways_input(), Keyword.t()) ::
+
+  @spec list_gateways(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_gateways_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_gateways(%Client{} = client, input, options \\ []) do
+
+  def list_gateways(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1108,11 +1222,22 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Lists your hypervisors.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20ListHypervisors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hypervisors_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_hypervisors(AWS.Client.t(), list_hypervisors_input(), Keyword.t()) ::
+
+  @spec list_hypervisors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hypervisors_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_hypervisors(%Client{} = client, input, options \\ []) do
+
+  def list_hypervisors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1122,12 +1247,22 @@ defmodule AWS.BackupGateway do
   @doc """
   Lists the tags applied to the resource identified by its Amazon Resource Name
   (ARN).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1136,11 +1271,23 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Lists your virtual machines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20ListVirtualMachines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_virtual_machines_input`)
+    %{
+      optional("HypervisorArn") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_virtual_machines(AWS.Client.t(), list_virtual_machines_input(), Keyword.t()) ::
+
+  @spec list_virtual_machines(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_virtual_machines_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_virtual_machines(%Client{} = client, input, options \\ []) do
+
+  def list_virtual_machines(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1152,16 +1299,24 @@ defmodule AWS.BackupGateway do
   default, gateways do not have a bandwidth rate limit schedule, which means no
   bandwidth rate limiting is in effect. Use this to initiate a gateway's
   bandwidth rate limit schedule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20PutBandwidthRateLimitSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_bandwidth_rate_limit_schedule_input`)
+    %{
+      required("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()()),
+      required("GatewayArn") => String.t()
+    }
   """
-  @spec put_bandwidth_rate_limit_schedule(
-          AWS.Client.t(),
-          put_bandwidth_rate_limit_schedule_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_bandwidth_rate_limit_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_bandwidth_rate_limit_schedule_errors()}
-  def put_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
+
+  def put_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1173,16 +1328,25 @@ defmodule AWS.BackupGateway do
   hypervisor property mapping displays the relationship of entity properties
   available from the on-premises hypervisor to the properties available in
   Amazon Web Services.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20PutHypervisorPropertyMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_hypervisor_property_mappings_input`)
+    %{
+      required("HypervisorArn") => String.t(),
+      required("IamRoleArn") => String.t(),
+      required("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping()())
+    }
   """
-  @spec put_hypervisor_property_mappings(
-          AWS.Client.t(),
-          put_hypervisor_property_mappings_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_hypervisor_property_mappings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_hypervisor_property_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_hypervisor_property_mappings_errors()}
-  def put_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
+
+  def put_hypervisor_property_mappings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1191,16 +1355,26 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Set the maintenance start time for a gateway.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20PutMaintenanceStartTime&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_maintenance_start_time_input`)
+    %{
+      optional("DayOfMonth") => integer(),
+      optional("DayOfWeek") => integer(),
+      required("GatewayArn") => String.t(),
+      required("HourOfDay") => integer(),
+      required("MinuteOfHour") => integer()
+    }
   """
-  @spec put_maintenance_start_time(
-          AWS.Client.t(),
-          put_maintenance_start_time_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_maintenance_start_time(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_maintenance_start_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_maintenance_start_time_errors()}
-  def put_maintenance_start_time(%Client{} = client, input, options \\ []) do
+
+  def put_maintenance_start_time(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1210,16 +1384,23 @@ defmodule AWS.BackupGateway do
   @doc """
   This action sends a request to sync metadata across the specified virtual
   machines.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20StartVirtualMachinesMetadataSync&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_virtual_machines_metadata_sync_input`)
+    %{
+      required("HypervisorArn") => String.t()
+    }
   """
-  @spec start_virtual_machines_metadata_sync(
-          AWS.Client.t(),
-          start_virtual_machines_metadata_sync_input(),
-          Keyword.t()
-        ) ::
+
+  @spec start_virtual_machines_metadata_sync(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_virtual_machines_metadata_sync_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_virtual_machines_metadata_sync_errors()}
-  def start_virtual_machines_metadata_sync(%Client{} = client, input, options \\ []) do
+
+  def start_virtual_machines_metadata_sync(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1228,12 +1409,23 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Tag the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1243,16 +1435,26 @@ defmodule AWS.BackupGateway do
   @doc """
   Tests your hypervisor configuration to validate that backup gateway can connect
   with the hypervisor and its resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20TestHypervisorConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_hypervisor_configuration_input`)
+    %{
+      optional("Password") => String.t(),
+      optional("Username") => String.t(),
+      required("GatewayArn") => String.t(),
+      required("Host") => String.t()
+    }
   """
-  @spec test_hypervisor_configuration(
-          AWS.Client.t(),
-          test_hypervisor_configuration_input(),
-          Keyword.t()
-        ) ::
+
+  @spec test_hypervisor_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_hypervisor_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_hypervisor_configuration_errors()}
-  def test_hypervisor_configuration(%Client{} = client, input, options \\ []) do
+
+  def test_hypervisor_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1261,12 +1463,23 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Removes tags from the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1276,16 +1489,23 @@ defmodule AWS.BackupGateway do
   @doc """
   Updates a gateway's name. Specify which gateway to update using the Amazon
   Resource Name (ARN) of the gateway in your request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20UpdateGatewayInformation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_gateway_information_input`)
+    %{
+      optional("GatewayDisplayName") => String.t(),
+      required("GatewayArn") => String.t()
+    }
   """
-  @spec update_gateway_information(
-          AWS.Client.t(),
-          update_gateway_information_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_gateway_information(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_gateway_information_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_information_errors()}
-  def update_gateway_information(%Client{} = client, input, options \\ []) do
+
+  def update_gateway_information(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1295,16 +1515,22 @@ defmodule AWS.BackupGateway do
   @doc """
   Updates the gateway virtual machine (VM) software. The request immediately
   triggers the software update.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20UpdateGatewaySoftwareNow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_gateway_software_now_input`)
+    %{
+      required("GatewayArn") => String.t()
+    }
   """
-  @spec update_gateway_software_now(
-          AWS.Client.t(),
-          update_gateway_software_now_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_gateway_software_now(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_gateway_software_now_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gateway_software_now_errors()}
-  def update_gateway_software_now(%Client{} = client, input, options \\ []) do
+
+  def update_gateway_software_now(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1315,12 +1541,27 @@ defmodule AWS.BackupGateway do
   Updates a hypervisor metadata, including its host, username, and password.
   Specify which hypervisor to update using the Amazon Resource Name (ARN) of the
   hypervisor in your request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupgateway%20UpdateHypervisor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_hypervisor_input`)
+    %{
+      optional("Host") => String.t(),
+      optional("LogGroupArn") => String.t(),
+      optional("Name") => String.t(),
+      optional("Password") => String.t(),
+      optional("Username") => String.t(),
+      required("HypervisorArn") => String.t()
+    }
   """
-  @spec update_hypervisor(AWS.Client.t(), update_hypervisor_input(), Keyword.t()) ::
+
+  @spec update_hypervisor(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hypervisor_errors()}
-  def update_hypervisor(%Client{} = client, input, options \\ []) do
+
+  def update_hypervisor(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

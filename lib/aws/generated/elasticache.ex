@@ -4398,12 +4398,23 @@ defmodule AWS.ElastiCache do
   file with your usage and costs aggregated by your tags. You can apply tags
   that represent business categories (such as cost centers, application names,
   or owners) to organize your costs across multiple services.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20AddTagsToResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:add_tags_to_resource_message`)
+    %{
+      required("ResourceName") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_message(), Keyword.t()) ::
+
+  @spec add_tags_to_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_tags_to_resource_errors()}
-  def add_tags_to_resource(%Client{} = client, input, options \\ []) do
+
+  def add_tags_to_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4414,16 +4425,25 @@ defmodule AWS.ElastiCache do
   Allows network ingress to a cache security group. Applications using ElastiCache
   must be running on Amazon EC2, and Amazon EC2 security groups are used as the
   authorization mechanism.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20AuthorizeCacheSecurityGroupIngress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:authorize_cache_security_group_ingress_message`)
+    %{
+      required("CacheSecurityGroupName") => String.t(),
+      required("EC2SecurityGroupName") => String.t(),
+      required("EC2SecurityGroupOwnerId") => String.t()
+    }
   """
-  @spec authorize_cache_security_group_ingress(
-          AWS.Client.t(),
-          authorize_cache_security_group_ingress_message(),
-          Keyword.t()
-        ) ::
+
+  @spec authorize_cache_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, authorize_cache_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, authorize_cache_security_group_ingress_errors()}
-  def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
+
+  def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4434,16 +4454,24 @@ defmodule AWS.ElastiCache do
   Apply the service update. For more information on service updates and applying
   them, see [Applying Service
   Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20BatchApplyUpdateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_apply_update_action_message`)
+    %{
+      optional("CacheClusterIds") => list(String.t()()),
+      optional("ReplicationGroupIds") => list(String.t()()),
+      required("ServiceUpdateName") => String.t()
+    }
   """
-  @spec batch_apply_update_action(
-          AWS.Client.t(),
-          batch_apply_update_action_message(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_apply_update_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_action_results_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_apply_update_action_errors()}
-  def batch_apply_update_action(%Client{} = client, input, options \\ []) do
+
+  def batch_apply_update_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4454,12 +4482,24 @@ defmodule AWS.ElastiCache do
   Stop the service update. For more information on service updates and stopping
   them, see [Stopping Service
   Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20BatchStopUpdateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_stop_update_action_message`)
+    %{
+      optional("CacheClusterIds") => list(String.t()()),
+      optional("ReplicationGroupIds") => list(String.t()()),
+      required("ServiceUpdateName") => String.t()
+    }
   """
-  @spec batch_stop_update_action(AWS.Client.t(), batch_stop_update_action_message(), Keyword.t()) ::
+
+  @spec batch_stop_update_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_action_results_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_stop_update_action_errors()}
-  def batch_stop_update_action(%Client{} = client, input, options \\ []) do
+
+  def batch_stop_update_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4468,12 +4508,23 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Complete the migration of data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CompleteMigration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:complete_migration_message`)
+    %{
+      optional("Force") => boolean(),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec complete_migration(AWS.Client.t(), complete_migration_message(), Keyword.t()) ::
+
+  @spec complete_migration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, complete_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, complete_migration_errors()}
-  def complete_migration(%Client{} = client, input, options \\ []) do
+
+  def complete_migration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4483,16 +4534,26 @@ defmodule AWS.ElastiCache do
   @doc """
   Creates a copy of an existing serverless cache’s snapshot. Available for Redis
   only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CopyServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_serverless_cache_snapshot_request`)
+    %{
+      optional("KmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("SourceServerlessCacheSnapshotName") => String.t(),
+      required("TargetServerlessCacheSnapshotName") => String.t()
+    }
   """
-  @spec copy_serverless_cache_snapshot(
-          AWS.Client.t(),
-          copy_serverless_cache_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec copy_serverless_cache_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_serverless_cache_snapshot_errors()}
-  def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+
+  def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4501,12 +4562,26 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Makes a copy of an existing snapshot. This operation is valid for Redis only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CopySnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:copy_snapshot_message`)
+    %{
+      optional("KmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TargetBucket") => String.t(),
+      required("SourceSnapshotName") => String.t(),
+      required("TargetSnapshotName") => String.t()
+    }
   """
-  @spec copy_snapshot(AWS.Client.t(), copy_snapshot_message(), Keyword.t()) ::
+
+  @spec copy_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_snapshot_errors()}
-  def copy_snapshot(%Client{} = client, input, options \\ []) do
+
+  def copy_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4516,12 +4591,51 @@ defmodule AWS.ElastiCache do
   @doc """
   Creates a cluster. All nodes in the cluster run the same protocol-compliant
   cache engine software, either Memcached or Redis.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateCacheCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cache_cluster_message`)
+    %{
+      optional("AZMode") => list(any()),
+      optional("AuthToken") => String.t(),
+      optional("AutoMinorVersionUpgrade") => boolean(),
+      optional("CacheNodeType") => String.t(),
+      optional("CacheParameterGroupName") => String.t(),
+      optional("CacheSecurityGroupNames") => list(String.t()()),
+      optional("CacheSubnetGroupName") => String.t(),
+      optional("Engine") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("IpDiscovery") => list(any()),
+      optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+      optional("NetworkType") => list(any()),
+      optional("NotificationTopicArn") => String.t(),
+      optional("NumCacheNodes") => integer(),
+      optional("OutpostMode") => list(any()),
+      optional("Port") => integer(),
+      optional("PreferredAvailabilityZone") => String.t(),
+      optional("PreferredAvailabilityZones") => list(String.t()()),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      optional("PreferredOutpostArn") => String.t(),
+      optional("PreferredOutpostArns") => list(String.t()()),
+      optional("ReplicationGroupId") => String.t(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SnapshotArns") => list(String.t()()),
+      optional("SnapshotName") => String.t(),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("SnapshotWindow") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TransitEncryptionEnabled") => boolean(),
+      required("CacheClusterId") => String.t()
+    }
   """
-  @spec create_cache_cluster(AWS.Client.t(), create_cache_cluster_message(), Keyword.t()) ::
+
+  @spec create_cache_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cache_cluster_errors()}
-  def create_cache_cluster(%Client{} = client, input, options \\ []) do
+
+  def create_cache_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4536,16 +4650,25 @@ defmodule AWS.ElastiCache do
   of the default parameter group for the CacheParameterGroupFamily. To customize
   the newly created CacheParameterGroup you can change the values of specific
   parameters. For more information, see:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateCacheParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cache_parameter_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("CacheParameterGroupFamily") => String.t(),
+      required("CacheParameterGroupName") => String.t(),
+      required("Description") => String.t()
+    }
   """
-  @spec create_cache_parameter_group(
-          AWS.Client.t(),
-          create_cache_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_cache_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cache_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cache_parameter_group_errors()}
-  def create_cache_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def create_cache_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4555,16 +4678,24 @@ defmodule AWS.ElastiCache do
   @doc """
   Creates a new cache security group. Use a cache security group to control access
   to one or more clusters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateCacheSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cache_security_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("CacheSecurityGroupName") => String.t(),
+      required("Description") => String.t()
+    }
   """
-  @spec create_cache_security_group(
-          AWS.Client.t(),
-          create_cache_security_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_cache_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cache_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cache_security_group_errors()}
-  def create_cache_security_group(%Client{} = client, input, options \\ []) do
+
+  def create_cache_security_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4573,16 +4704,25 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Creates a new cache subnet group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateCacheSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_cache_subnet_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("CacheSubnetGroupDescription") => String.t(),
+      required("CacheSubnetGroupName") => String.t(),
+      required("SubnetIds") => list(String.t()())
+    }
   """
-  @spec create_cache_subnet_group(
-          AWS.Client.t(),
-          create_cache_subnet_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_cache_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cache_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_cache_subnet_group_errors()}
-  def create_cache_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def create_cache_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4596,16 +4736,25 @@ defmodule AWS.ElastiCache do
   low-latency reads and disaster recovery across regions. For more information,
   see [Replication Across Regions Using Global
   Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_global_replication_group_message`)
+    %{
+      optional("GlobalReplicationGroupDescription") => String.t(),
+      required("GlobalReplicationGroupIdSuffix") => String.t(),
+      required("PrimaryReplicationGroupId") => String.t()
+    }
   """
-  @spec create_global_replication_group(
-          AWS.Client.t(),
-          create_global_replication_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec create_global_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_global_replication_group_errors()}
-  def create_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def create_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4617,12 +4766,60 @@ defmodule AWS.ElastiCache do
   replication group. This API can be used to create a standalone regional
   replication group or a secondary replication group associated with a Global
   datastore.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_replication_group_message`)
+    %{
+      optional("ServerlessCacheSnapshotName") => String.t(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("UserGroupIds") => list(String.t()()),
+      optional("PrimaryClusterId") => String.t(),
+      optional("CacheSubnetGroupName") => String.t(),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("NetworkType") => list(any()),
+      optional("GlobalReplicationGroupId") => String.t(),
+      required("ReplicationGroupId") => String.t(),
+      optional("AuthToken") => String.t(),
+      optional("ReplicasPerNodeGroup") => integer(),
+      optional("PreferredCacheClusterAZs") => list(String.t()()),
+      optional("Engine") => String.t(),
+      optional("IpDiscovery") => list(any()),
+      optional("NumCacheClusters") => integer(),
+      optional("NumNodeGroups") => integer(),
+      optional("CacheParameterGroupName") => String.t(),
+      optional("NotificationTopicArn") => String.t(),
+      optional("TransitEncryptionEnabled") => boolean(),
+      optional("SnapshotWindow") => String.t(),
+      optional("AutoMinorVersionUpgrade") => boolean(),
+      optional("SnapshotArns") => list(String.t()()),
+      optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+      optional("EngineVersion") => String.t(),
+      optional("SnapshotName") => String.t(),
+      optional("ClusterMode") => list(any()),
+      optional("NodeGroupConfiguration") => list(node_group_configuration()()),
+      optional("CacheSecurityGroupNames") => list(String.t()()),
+      optional("DataTieringEnabled") => boolean(),
+      optional("Port") => integer(),
+      optional("AtRestEncryptionEnabled") => boolean(),
+      required("ReplicationGroupDescription") => String.t(),
+      optional("AutomaticFailoverEnabled") => boolean(),
+      optional("MultiAZEnabled") => boolean(),
+      optional("TransitEncryptionMode") => list(any()),
+      optional("KmsKeyId") => String.t(),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      optional("CacheNodeType") => String.t(),
+      optional("Tags") => list(tag()())
+    }
   """
-  @spec create_replication_group(AWS.Client.t(), create_replication_group_message(), Keyword.t()) ::
+
+  @spec create_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_group_errors()}
-  def create_replication_group(%Client{} = client, input, options \\ []) do
+
+  def create_replication_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4631,12 +4828,34 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Creates a serverless cache.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateServerlessCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_serverless_cache_request`)
+    %{
+      optional("CacheUsageLimits") => cache_usage_limits(),
+      optional("DailySnapshotTime") => String.t(),
+      optional("Description") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("MajorEngineVersion") => String.t(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SnapshotArnsToRestore") => list(String.t()()),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("SubnetIds") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("UserGroupId") => String.t(),
+      required("Engine") => String.t(),
+      required("ServerlessCacheName") => String.t()
+    }
   """
-  @spec create_serverless_cache(AWS.Client.t(), create_serverless_cache_request(), Keyword.t()) ::
+
+  @spec create_serverless_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_serverless_cache_errors()}
-  def create_serverless_cache(%Client{} = client, input, options \\ []) do
+
+  def create_serverless_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4646,16 +4865,26 @@ defmodule AWS.ElastiCache do
   @doc """
   This API creates a copy of an entire ServerlessCache at a specific moment in
   time. Available for Redis only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_serverless_cache_snapshot_request`)
+    %{
+      optional("KmsKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ServerlessCacheName") => String.t(),
+      required("ServerlessCacheSnapshotName") => String.t()
+    }
   """
-  @spec create_serverless_cache_snapshot(
-          AWS.Client.t(),
-          create_serverless_cache_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_serverless_cache_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_serverless_cache_snapshot_errors()}
-  def create_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_serverless_cache_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4665,12 +4894,26 @@ defmodule AWS.ElastiCache do
   @doc """
   Creates a copy of an entire cluster or replication group at a specific moment in
   time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_snapshot_message`)
+    %{
+      optional("CacheClusterId") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("ReplicationGroupId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("SnapshotName") => String.t()
+    }
   """
-  @spec create_snapshot(AWS.Client.t(), create_snapshot_message(), Keyword.t()) ::
+
+  @spec create_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_snapshot_errors()}
-  def create_snapshot(%Client{} = client, input, options \\ []) do
+
+  def create_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4681,12 +4924,29 @@ defmodule AWS.ElastiCache do
   For Redis engine version 6.0 onwards: Creates a Redis user. For more
   information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_message`)
+    %{
+      optional("AuthenticationMode") => authentication_mode(),
+      optional("NoPasswordRequired") => boolean(),
+      optional("Passwords") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      required("AccessString") => String.t(),
+      required("Engine") => String.t(),
+      required("UserId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec create_user(AWS.Client.t(), create_user_message(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, input, options \\ []) do
+
+  def create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4697,12 +4957,25 @@ defmodule AWS.ElastiCache do
   For Redis engine version 6.0 onwards: Creates a Redis user group. For more
   information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateUserGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_group_message`)
+    %{
+      optional("Tags") => list(tag()()),
+      optional("UserIds") => list(String.t()()),
+      required("Engine") => String.t(),
+      required("UserGroupId") => String.t()
+    }
   """
-  @spec create_user_group(AWS.Client.t(), create_user_group_message(), Keyword.t()) ::
+
+  @spec create_user_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_group_errors()}
-  def create_user_group(%Client{} = client, input, options \\ []) do
+
+  def create_user_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4711,16 +4984,31 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Decreases the number of node groups in a Global datastore
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DecreaseNodeGroupsInGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:decrease_node_groups_in_global_replication_group_message`)
+    %{
+      optional("GlobalNodeGroupsToRemove") => list(String.t()()),
+      optional("GlobalNodeGroupsToRetain") => list(String.t()()),
+      required("ApplyImmediately") => boolean(),
+      required("GlobalReplicationGroupId") => String.t(),
+      required("NodeGroupCount") => integer()
+    }
   """
+
   @spec decrease_node_groups_in_global_replication_group(
           AWS.Client.t(),
-          decrease_node_groups_in_global_replication_group_message(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, decrease_node_groups_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrease_node_groups_in_global_replication_group_errors()}
-  def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4738,12 +5026,26 @@ defmodule AWS.ElastiCache do
   replication group or the number of replica nodes in one or more node groups
   (shards) of a Redis (cluster mode enabled) replication group. This operation
   is performed with no cluster down time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DecreaseReplicaCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:decrease_replica_count_message`)
+    %{
+      optional("NewReplicaCount") => integer(),
+      optional("ReplicaConfiguration") => list(configure_shard()()),
+      optional("ReplicasToRemove") => list(String.t()()),
+      required("ApplyImmediately") => boolean(),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec decrease_replica_count(AWS.Client.t(), decrease_replica_count_message(), Keyword.t()) ::
+
+  @spec decrease_replica_count(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decrease_replica_count_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrease_replica_count_errors()}
-  def decrease_replica_count(%Client{} = client, input, options \\ []) do
+
+  def decrease_replica_count(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4756,12 +5058,23 @@ defmodule AWS.ElastiCache do
   receive a successful response from this operation, Amazon ElastiCache
   immediately begins deleting the cluster; you cannot cancel or revert this
   operation. This operation is not valid for:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteCacheCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cache_cluster_message`)
+    %{
+      optional("FinalSnapshotIdentifier") => String.t(),
+      required("CacheClusterId") => String.t()
+    }
   """
-  @spec delete_cache_cluster(AWS.Client.t(), delete_cache_cluster_message(), Keyword.t()) ::
+
+  @spec delete_cache_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cache_cluster_errors()}
-  def delete_cache_cluster(%Client{} = client, input, options \\ []) do
+
+  def delete_cache_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4772,16 +5085,22 @@ defmodule AWS.ElastiCache do
   Deletes the specified cache parameter group. You cannot delete a cache parameter
   group if it is associated with any cache clusters. You cannot delete the
   default cache parameter groups in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteCacheParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cache_parameter_group_message`)
+    %{
+      required("CacheParameterGroupName") => String.t()
+    }
   """
-  @spec delete_cache_parameter_group(
-          AWS.Client.t(),
-          delete_cache_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_cache_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cache_parameter_group_errors()}
-  def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def delete_cache_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4790,16 +5109,22 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Deletes a cache security group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteCacheSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cache_security_group_message`)
+    %{
+      required("CacheSecurityGroupName") => String.t()
+    }
   """
-  @spec delete_cache_security_group(
-          AWS.Client.t(),
-          delete_cache_security_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_cache_security_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cache_security_group_errors()}
-  def delete_cache_security_group(%Client{} = client, input, options \\ []) do
+
+  def delete_cache_security_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4808,16 +5133,22 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Deletes a cache subnet group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteCacheSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_cache_subnet_group_message`)
+    %{
+      required("CacheSubnetGroupName") => String.t()
+    }
   """
-  @spec delete_cache_subnet_group(
-          AWS.Client.t(),
-          delete_cache_subnet_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_cache_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_cache_subnet_group_errors()}
-  def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def delete_cache_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4826,16 +5157,24 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Deleting a Global datastore is a two-step process:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_global_replication_group_message`)
+    %{
+      required("GlobalReplicationGroupId") => String.t(),
+      required("RetainPrimaryReplicationGroup") => boolean()
+    }
   """
-  @spec delete_global_replication_group(
-          AWS.Client.t(),
-          delete_global_replication_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_global_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_global_replication_group_errors()}
-  def delete_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def delete_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4850,12 +5189,24 @@ defmodule AWS.ElastiCache do
   `RetainPrimaryCluster=true`. When you receive a successful response from this
   operation, Amazon ElastiCache immediately begins deleting the selected
   resources; you cannot cancel or revert this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_replication_group_message`)
+    %{
+      optional("FinalSnapshotIdentifier") => String.t(),
+      optional("RetainPrimaryCluster") => boolean(),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec delete_replication_group(AWS.Client.t(), delete_replication_group_message(), Keyword.t()) ::
+
+  @spec delete_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_group_errors()}
-  def delete_replication_group(%Client{} = client, input, options \\ []) do
+
+  def delete_replication_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4864,12 +5215,23 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Deletes a specified existing serverless cache.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteServerlessCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_serverless_cache_request`)
+    %{
+      optional("FinalSnapshotName") => String.t(),
+      required("ServerlessCacheName") => String.t()
+    }
   """
-  @spec delete_serverless_cache(AWS.Client.t(), delete_serverless_cache_request(), Keyword.t()) ::
+
+  @spec delete_serverless_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_serverless_cache_errors()}
-  def delete_serverless_cache(%Client{} = client, input, options \\ []) do
+
+  def delete_serverless_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4878,16 +5240,23 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Deletes an existing serverless cache snapshot. Available for Redis only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_serverless_cache_snapshot_request`)
+    %{
+      required("ServerlessCacheSnapshotName") => String.t()
+    }
   """
-  @spec delete_serverless_cache_snapshot(
-          AWS.Client.t(),
-          delete_serverless_cache_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_serverless_cache_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_serverless_cache_snapshot_errors()}
-  def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4898,12 +5267,22 @@ defmodule AWS.ElastiCache do
   Deletes an existing snapshot. When you receive a successful response from this
   operation, ElastiCache immediately begins deleting the snapshot; you cannot
   cancel or revert this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_snapshot_message`)
+    %{
+      required("SnapshotName") => String.t()
+    }
   """
-  @spec delete_snapshot(AWS.Client.t(), delete_snapshot_message(), Keyword.t()) ::
+
+  @spec delete_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_snapshot_errors()}
-  def delete_snapshot(%Client{} = client, input, options \\ []) do
+
+  def delete_snapshot(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4915,12 +5294,22 @@ defmodule AWS.ElastiCache do
   from all user groups and in turn removed from all replication groups. For more
   information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_message`)
+    %{
+      required("UserId") => String.t()
+    }
   """
-  @spec delete_user(AWS.Client.t(), delete_user_message(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, input, options \\ []) do
+
+  def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4932,12 +5321,22 @@ defmodule AWS.ElastiCache do
   first be disassociated from the replication group before it can be deleted.
   For more information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteUserGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_group_message`)
+    %{
+      required("UserGroupId") => String.t()
+    }
   """
-  @spec delete_user_group(AWS.Client.t(), delete_user_group_message(), Keyword.t()) ::
+
+  @spec delete_user_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_group_errors()}
-  def delete_user_group(%Client{} = client, input, options \\ []) do
+
+  def delete_user_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4951,12 +5350,26 @@ defmodule AWS.ElastiCache do
   You can use the optional *ShowCacheNodeInfo* flag to retrieve detailed
   information about the cache nodes associated with the clusters. These details
   include the DNS address and port for the cache node endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeCacheClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cache_clusters_message`)
+    %{
+      optional("CacheClusterId") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("ShowCacheClustersNotInReplicationGroups") => boolean(),
+      optional("ShowCacheNodeInfo") => boolean()
+    }
   """
-  @spec describe_cache_clusters(AWS.Client.t(), describe_cache_clusters_message(), Keyword.t()) ::
+
+  @spec describe_cache_clusters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cache_clusters_errors()}
-  def describe_cache_clusters(%Client{} = client, input, options \\ []) do
+
+  def describe_cache_clusters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4965,15 +5378,27 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Returns a list of the available cache engines and their versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeCacheEngineVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cache_engine_versions_message`)
+    %{
+      optional("CacheParameterGroupFamily") => String.t(),
+      optional("DefaultOnly") => boolean(),
+      optional("Engine") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_cache_engine_versions(
-          AWS.Client.t(),
-          describe_cache_engine_versions_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_cache_engine_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_cache_engine_versions(%Client{} = client, input, options \\ []) do
+
+  def describe_cache_engine_versions(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4983,16 +5408,25 @@ defmodule AWS.ElastiCache do
   @doc """
   Returns a list of cache parameter group descriptions. If a cache parameter group
   name is specified, the list contains only the descriptions for that group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeCacheParameterGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cache_parameter_groups_message`)
+    %{
+      optional("CacheParameterGroupName") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_cache_parameter_groups(
-          AWS.Client.t(),
-          describe_cache_parameter_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_cache_parameter_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cache_parameter_groups_errors()}
-  def describe_cache_parameter_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_cache_parameter_groups(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5001,16 +5435,25 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Returns the detailed parameter list for a particular cache parameter group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeCacheParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cache_parameters_message`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("Source") => String.t(),
+      required("CacheParameterGroupName") => String.t()
+    }
   """
-  @spec describe_cache_parameters(
-          AWS.Client.t(),
-          describe_cache_parameters_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_cache_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cache_parameters_errors()}
-  def describe_cache_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_cache_parameters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5021,16 +5464,25 @@ defmodule AWS.ElastiCache do
   Returns a list of cache security group descriptions. If a cache security group
   name is specified, the list contains only the description of that group. This
   applicable only when you have ElastiCache in Classic setup
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeCacheSecurityGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cache_security_groups_message`)
+    %{
+      optional("CacheSecurityGroupName") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_cache_security_groups(
-          AWS.Client.t(),
-          describe_cache_security_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_cache_security_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cache_security_groups_errors()}
-  def describe_cache_security_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_cache_security_groups(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5042,16 +5494,24 @@ defmodule AWS.ElastiCache do
   specified, the list contains only the description of that group. This is
   applicable only when you have ElastiCache in VPC setup. All ElastiCache
   clusters now launch in VPC by default.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeCacheSubnetGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_cache_subnet_groups_message`)
+    %{
+      optional("CacheSubnetGroupName") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer()
+    }
   """
-  @spec describe_cache_subnet_groups(
-          AWS.Client.t(),
-          describe_cache_subnet_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_cache_subnet_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_cache_subnet_groups_errors()}
-  def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5061,16 +5521,25 @@ defmodule AWS.ElastiCache do
   @doc """
   Returns the default engine and system parameter information for the specified
   cache engine.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeEngineDefaultParameters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_engine_default_parameters_message`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      required("CacheParameterGroupFamily") => String.t()
+    }
   """
-  @spec describe_engine_default_parameters(
-          AWS.Client.t(),
-          describe_engine_default_parameters_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_engine_default_parameters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_engine_default_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_engine_default_parameters_errors()}
-  def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
+
+  def describe_engine_default_parameters(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5081,12 +5550,28 @@ defmodule AWS.ElastiCache do
   Returns events related to clusters, cache security groups, and cache parameter
   groups. You can obtain events specific to a particular cluster, cache security
   group, or cache parameter group by providing the name as a parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_events_message`)
+    %{
+      optional("Duration") => integer(),
+      optional("EndTime") => non_neg_integer(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("SourceIdentifier") => String.t(),
+      optional("SourceType") => list(any()),
+      optional("StartTime") => non_neg_integer()
+    }
   """
-  @spec describe_events(AWS.Client.t(), describe_events_message(), Keyword.t()) ::
+
+  @spec describe_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_events_errors()}
-  def describe_events(%Client{} = client, input, options \\ []) do
+
+  def describe_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5096,16 +5581,26 @@ defmodule AWS.ElastiCache do
   @doc """
   Returns information about a particular global replication group. If no
   identifier is specified, returns information about all Global datastores.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeGlobalReplicationGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_global_replication_groups_message`)
+    %{
+      optional("GlobalReplicationGroupId") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("ShowMemberInfo") => boolean()
+    }
   """
-  @spec describe_global_replication_groups(
-          AWS.Client.t(),
-          describe_global_replication_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_global_replication_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_global_replication_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_global_replication_groups_errors()}
-  def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_global_replication_groups(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5116,16 +5611,24 @@ defmodule AWS.ElastiCache do
   Returns information about a particular replication group. If no identifier is
   specified, `DescribeReplicationGroups` returns information about all
   replication groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeReplicationGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_replication_groups_message`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("ReplicationGroupId") => String.t()
+    }
   """
-  @spec describe_replication_groups(
-          AWS.Client.t(),
-          describe_replication_groups_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_replication_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replication_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_groups_errors()}
-  def describe_replication_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_replication_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5135,16 +5638,30 @@ defmodule AWS.ElastiCache do
   @doc """
   Returns information about reserved cache nodes for this account, or about a
   specified reserved cache node.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeReservedCacheNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_reserved_cache_nodes_message`)
+    %{
+      optional("CacheNodeType") => String.t(),
+      optional("Duration") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("OfferingType") => String.t(),
+      optional("ProductDescription") => String.t(),
+      optional("ReservedCacheNodeId") => String.t(),
+      optional("ReservedCacheNodesOfferingId") => String.t()
+    }
   """
-  @spec describe_reserved_cache_nodes(
-          AWS.Client.t(),
-          describe_reserved_cache_nodes_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_reserved_cache_nodes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reserved_cache_node_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_cache_nodes_errors()}
-  def describe_reserved_cache_nodes(%Client{} = client, input, options \\ []) do
+
+  def describe_reserved_cache_nodes(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5153,16 +5670,29 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Lists available reserved cache node offerings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeReservedCacheNodesOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_reserved_cache_nodes_offerings_message`)
+    %{
+      optional("CacheNodeType") => String.t(),
+      optional("Duration") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("OfferingType") => String.t(),
+      optional("ProductDescription") => String.t(),
+      optional("ReservedCacheNodesOfferingId") => String.t()
+    }
   """
-  @spec describe_reserved_cache_nodes_offerings(
-          AWS.Client.t(),
-          describe_reserved_cache_nodes_offerings_message(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_reserved_cache_nodes_offerings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reserved_cache_nodes_offering_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_reserved_cache_nodes_offerings_errors()}
-  def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ []) do
+
+  def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5174,16 +5704,27 @@ defmodule AWS.ElastiCache do
   all of the customer’s serverless cache snapshots. It can also describe a
   single serverless cache snapshot, or the snapshots associated with a
   particular serverless cache. Available for Redis only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeServerlessCacheSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_serverless_cache_snapshots_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ServerlessCacheName") => String.t(),
+      optional("ServerlessCacheSnapshotName") => String.t(),
+      optional("SnapshotType") => String.t()
+    }
   """
-  @spec describe_serverless_cache_snapshots(
-          AWS.Client.t(),
-          describe_serverless_cache_snapshots_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_serverless_cache_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_serverless_cache_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_serverless_cache_snapshots_errors()}
-  def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5194,16 +5735,24 @@ defmodule AWS.ElastiCache do
   Returns information about a specific serverless cache. If no identifier is
   specified, then the API returns information on all the serverless caches
   belonging to this Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeServerlessCaches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_serverless_caches_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ServerlessCacheName") => String.t()
+    }
   """
-  @spec describe_serverless_caches(
-          AWS.Client.t(),
-          describe_serverless_caches_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_serverless_caches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_serverless_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_serverless_caches_errors()}
-  def describe_serverless_caches(%Client{} = client, input, options \\ []) do
+
+  def describe_serverless_caches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5212,12 +5761,25 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Returns details of the service updates
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeServiceUpdates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_service_updates_message`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("ServiceUpdateName") => String.t(),
+      optional("ServiceUpdateStatus") => list(list(any())())
+    }
   """
-  @spec describe_service_updates(AWS.Client.t(), describe_service_updates_message(), Keyword.t()) ::
+
+  @spec describe_service_updates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, service_updates_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_service_updates_errors()}
-  def describe_service_updates(%Client{} = client, input, options \\ []) do
+
+  def describe_service_updates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5229,12 +5791,28 @@ defmodule AWS.ElastiCache do
   `DescribeSnapshots` lists all of your snapshots; it can optionally describe a
   single snapshot, or just the snapshots associated with a particular cache
   cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_snapshots_message`)
+    %{
+      optional("CacheClusterId") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("ReplicationGroupId") => String.t(),
+      optional("ShowNodeGroupConfig") => boolean(),
+      optional("SnapshotName") => String.t(),
+      optional("SnapshotSource") => String.t()
+    }
   """
-  @spec describe_snapshots(AWS.Client.t(), describe_snapshots_message(), Keyword.t()) ::
+
+  @spec describe_snapshots(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_snapshots_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_snapshots_errors()}
-  def describe_snapshots(%Client{} = client, input, options \\ []) do
+
+  def describe_snapshots(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5243,12 +5821,31 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Returns details of the update actions
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeUpdateActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_update_actions_message`)
+    %{
+      optional("CacheClusterIds") => list(String.t()()),
+      optional("Engine") => String.t(),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("ReplicationGroupIds") => list(String.t()()),
+      optional("ServiceUpdateName") => String.t(),
+      optional("ServiceUpdateStatus") => list(list(any())()),
+      optional("ServiceUpdateTimeRange") => time_range_filter(),
+      optional("ShowNodeLevelUpdateStatus") => boolean(),
+      optional("UpdateActionStatus") => list(list(any())())
+    }
   """
-  @spec describe_update_actions(AWS.Client.t(), describe_update_actions_message(), Keyword.t()) ::
+
+  @spec describe_update_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_update_actions_errors()}
-  def describe_update_actions(%Client{} = client, input, options \\ []) do
+
+  def describe_update_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5257,12 +5854,24 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Returns a list of user groups.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeUserGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_user_groups_message`)
+    %{
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("UserGroupId") => String.t()
+    }
   """
-  @spec describe_user_groups(AWS.Client.t(), describe_user_groups_message(), Keyword.t()) ::
+
+  @spec describe_user_groups(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_groups_errors()}
-  def describe_user_groups(%Client{} = client, input, options \\ []) do
+
+  def describe_user_groups(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5271,12 +5880,26 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Returns a list of users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_users_message`)
+    %{
+      optional("Engine") => String.t(),
+      optional("Filters") => list(filter()()),
+      optional("Marker") => String.t(),
+      optional("MaxRecords") => integer(),
+      optional("UserId") => String.t()
+    }
   """
-  @spec describe_users(AWS.Client.t(), describe_users_message(), Keyword.t()) ::
+
+  @spec describe_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_users_errors()}
-  def describe_users(%Client{} = client, input, options \\ []) do
+
+  def describe_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5287,16 +5910,25 @@ defmodule AWS.ElastiCache do
   Remove a secondary cluster from the Global datastore using the Global datastore
   name. The secondary cluster will no longer receive updates from the primary
   cluster, but will remain as a standalone cluster in that Amazon region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DisassociateGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_global_replication_group_message`)
+    %{
+      required("GlobalReplicationGroupId") => String.t(),
+      required("ReplicationGroupId") => String.t(),
+      required("ReplicationGroupRegion") => String.t()
+    }
   """
-  @spec disassociate_global_replication_group(
-          AWS.Client.t(),
-          disassociate_global_replication_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_global_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_global_replication_group_errors()}
-  def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def disassociate_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5306,16 +5938,24 @@ defmodule AWS.ElastiCache do
   @doc """
   Provides the functionality to export the serverless cache snapshot data to
   Amazon S3. Available for Redis only.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ExportServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:export_serverless_cache_snapshot_request`)
+    %{
+      required("S3BucketName") => String.t(),
+      required("ServerlessCacheSnapshotName") => String.t()
+    }
   """
-  @spec export_serverless_cache_snapshot(
-          AWS.Client.t(),
-          export_serverless_cache_snapshot_request(),
-          Keyword.t()
-        ) ::
+
+  @spec export_serverless_cache_snapshot(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, export_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_serverless_cache_snapshot_errors()}
-  def export_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
+
+  def export_serverless_cache_snapshot(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5325,16 +5965,25 @@ defmodule AWS.ElastiCache do
   @doc """
   Used to failover the primary region to a secondary region. The secondary region
   will become primary, and all other clusters will become secondary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20FailoverGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:failover_global_replication_group_message`)
+    %{
+      required("GlobalReplicationGroupId") => String.t(),
+      required("PrimaryRegion") => String.t(),
+      required("PrimaryReplicationGroupId") => String.t()
+    }
   """
-  @spec failover_global_replication_group(
-          AWS.Client.t(),
-          failover_global_replication_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec failover_global_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, failover_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, failover_global_replication_group_errors()}
-  def failover_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def failover_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5343,16 +5992,30 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Increase the number of node groups in the Global datastore
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20IncreaseNodeGroupsInGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:increase_node_groups_in_global_replication_group_message`)
+    %{
+      optional("RegionalConfigurations") => list(regional_configuration()()),
+      required("ApplyImmediately") => boolean(),
+      required("GlobalReplicationGroupId") => String.t(),
+      required("NodeGroupCount") => integer()
+    }
   """
+
   @spec increase_node_groups_in_global_replication_group(
           AWS.Client.t(),
-          increase_node_groups_in_global_replication_group_message(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, increase_node_groups_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, increase_node_groups_in_global_replication_group_errors()}
-  def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5370,12 +6033,25 @@ defmodule AWS.ElastiCache do
   replication group or the number of replica nodes in one or more node groups
   (shards) of a Redis (cluster mode enabled) replication group. This operation
   is performed with no cluster down time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20IncreaseReplicaCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:increase_replica_count_message`)
+    %{
+      optional("NewReplicaCount") => integer(),
+      optional("ReplicaConfiguration") => list(configure_shard()()),
+      required("ApplyImmediately") => boolean(),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec increase_replica_count(AWS.Client.t(), increase_replica_count_message(), Keyword.t()) ::
+
+  @spec increase_replica_count(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, increase_replica_count_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, increase_replica_count_errors()}
-  def increase_replica_count(%Client{} = client, input, options \\ []) do
+
+  def increase_replica_count(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5385,16 +6061,24 @@ defmodule AWS.ElastiCache do
   @doc """
   Lists all available node types that you can scale your Redis cluster's or
   replication group's current node type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ListAllowedNodeTypeModifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_allowed_node_type_modifications_message`)
+    %{
+      optional("CacheClusterId") => String.t(),
+      optional("ReplicationGroupId") => String.t()
+    }
   """
-  @spec list_allowed_node_type_modifications(
-          AWS.Client.t(),
-          list_allowed_node_type_modifications_message(),
-          Keyword.t()
-        ) ::
+
+  @spec list_allowed_node_type_modifications(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, allowed_node_type_modifications_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_allowed_node_type_modifications_errors()}
-  def list_allowed_node_type_modifications(%Client{} = client, input, options \\ []) do
+
+  def list_allowed_node_type_modifications(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5409,12 +6093,22 @@ defmodule AWS.ElastiCache do
   be replicated to all nodes in the replication group. For more information, see
   [Resource-level
   permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_message`)
+    %{
+      required("ResourceName") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_message(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5425,12 +6119,42 @@ defmodule AWS.ElastiCache do
   Modifies the settings for a cluster. You can use this operation to change one or
   more cluster configuration parameters by specifying the parameters and the new
   values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyCacheCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_cache_cluster_message`)
+    %{
+      optional("AZMode") => list(any()),
+      optional("ApplyImmediately") => boolean(),
+      optional("AuthToken") => String.t(),
+      optional("AuthTokenUpdateStrategy") => list(any()),
+      optional("AutoMinorVersionUpgrade") => boolean(),
+      optional("CacheNodeIdsToRemove") => list(String.t()()),
+      optional("CacheNodeType") => String.t(),
+      optional("CacheParameterGroupName") => String.t(),
+      optional("CacheSecurityGroupNames") => list(String.t()()),
+      optional("EngineVersion") => String.t(),
+      optional("IpDiscovery") => list(any()),
+      optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+      optional("NewAvailabilityZones") => list(String.t()()),
+      optional("NotificationTopicArn") => String.t(),
+      optional("NotificationTopicStatus") => String.t(),
+      optional("NumCacheNodes") => integer(),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("SnapshotWindow") => String.t(),
+      required("CacheClusterId") => String.t()
+    }
   """
-  @spec modify_cache_cluster(AWS.Client.t(), modify_cache_cluster_message(), Keyword.t()) ::
+
+  @spec modify_cache_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cache_cluster_errors()}
-  def modify_cache_cluster(%Client{} = client, input, options \\ []) do
+
+  def modify_cache_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5441,16 +6165,23 @@ defmodule AWS.ElastiCache do
   Modifies the parameters of a cache parameter group. You can modify up to 20
   parameters in a single request by submitting a list parameter name and value
   pairs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyCacheParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_cache_parameter_group_message`)
+    %{
+      required("CacheParameterGroupName") => String.t(),
+      required("ParameterNameValues") => list(parameter_name_value()())
+    }
   """
-  @spec modify_cache_parameter_group(
-          AWS.Client.t(),
-          modify_cache_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_cache_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cache_parameter_group_errors()}
-  def modify_cache_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def modify_cache_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5459,16 +6190,24 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Modifies an existing cache subnet group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyCacheSubnetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_cache_subnet_group_message`)
+    %{
+      optional("CacheSubnetGroupDescription") => String.t(),
+      optional("SubnetIds") => list(String.t()()),
+      required("CacheSubnetGroupName") => String.t()
+    }
   """
-  @spec modify_cache_subnet_group(
-          AWS.Client.t(),
-          modify_cache_subnet_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_cache_subnet_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_cache_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_cache_subnet_group_errors()}
-  def modify_cache_subnet_group(%Client{} = client, input, options \\ []) do
+
+  def modify_cache_subnet_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5477,16 +6216,29 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Modifies the settings for a Global datastore.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_global_replication_group_message`)
+    %{
+      optional("AutomaticFailoverEnabled") => boolean(),
+      optional("CacheNodeType") => String.t(),
+      optional("CacheParameterGroupName") => String.t(),
+      optional("EngineVersion") => String.t(),
+      optional("GlobalReplicationGroupDescription") => String.t(),
+      required("ApplyImmediately") => boolean(),
+      required("GlobalReplicationGroupId") => String.t()
+    }
   """
-  @spec modify_global_replication_group(
-          AWS.Client.t(),
-          modify_global_replication_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_global_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_global_replication_group_errors()}
-  def modify_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def modify_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5496,12 +6248,50 @@ defmodule AWS.ElastiCache do
   @doc """
   Modifies the settings for a replication group. This is limited to Redis 7 and
   newer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_replication_group_message`)
+    %{
+      optional("ApplyImmediately") => boolean(),
+      optional("AuthToken") => String.t(),
+      optional("AuthTokenUpdateStrategy") => list(any()),
+      optional("AutoMinorVersionUpgrade") => boolean(),
+      optional("AutomaticFailoverEnabled") => boolean(),
+      optional("CacheNodeType") => String.t(),
+      optional("CacheParameterGroupName") => String.t(),
+      optional("CacheSecurityGroupNames") => list(String.t()()),
+      optional("ClusterMode") => list(any()),
+      optional("EngineVersion") => String.t(),
+      optional("IpDiscovery") => list(any()),
+      optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+      optional("MultiAZEnabled") => boolean(),
+      optional("NodeGroupId") => String.t(),
+      optional("NotificationTopicArn") => String.t(),
+      optional("NotificationTopicStatus") => String.t(),
+      optional("PreferredMaintenanceWindow") => String.t(),
+      optional("PrimaryClusterId") => String.t(),
+      optional("RemoveUserGroups") => boolean(),
+      optional("ReplicationGroupDescription") => String.t(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("SnapshotWindow") => String.t(),
+      optional("SnapshottingClusterId") => String.t(),
+      optional("TransitEncryptionEnabled") => boolean(),
+      optional("TransitEncryptionMode") => list(any()),
+      optional("UserGroupIdsToAdd") => list(String.t()()),
+      optional("UserGroupIdsToRemove") => list(String.t()()),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec modify_replication_group(AWS.Client.t(), modify_replication_group_message(), Keyword.t()) ::
+
+  @spec modify_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_group_errors()}
-  def modify_replication_group(%Client{} = client, input, options \\ []) do
+
+  def modify_replication_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5511,16 +6301,28 @@ defmodule AWS.ElastiCache do
   @doc """
   Modifies a replication group's shards (node groups) by allowing you to add
   shards, remove shards, or rebalance the keyspaces among existing shards.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyReplicationGroupShardConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_replication_group_shard_configuration_message`)
+    %{
+      optional("NodeGroupsToRemove") => list(String.t()()),
+      optional("NodeGroupsToRetain") => list(String.t()()),
+      optional("ReshardingConfiguration") => list(resharding_configuration()()),
+      required("ApplyImmediately") => boolean(),
+      required("NodeGroupCount") => integer(),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec modify_replication_group_shard_configuration(
-          AWS.Client.t(),
-          modify_replication_group_shard_configuration_message(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_replication_group_shard_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_replication_group_shard_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_replication_group_shard_configuration_errors()}
-  def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
+
+  def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5529,12 +6331,29 @@ defmodule AWS.ElastiCache do
 
   @doc """
   This API modifies the attributes of a serverless cache.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyServerlessCache&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_serverless_cache_request`)
+    %{
+      optional("CacheUsageLimits") => cache_usage_limits(),
+      optional("DailySnapshotTime") => String.t(),
+      optional("Description") => String.t(),
+      optional("RemoveUserGroup") => boolean(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SnapshotRetentionLimit") => integer(),
+      optional("UserGroupId") => String.t(),
+      required("ServerlessCacheName") => String.t()
+    }
   """
-  @spec modify_serverless_cache(AWS.Client.t(), modify_serverless_cache_request(), Keyword.t()) ::
+
+  @spec modify_serverless_cache(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, modify_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_serverless_cache_errors()}
-  def modify_serverless_cache(%Client{} = client, input, options \\ []) do
+
+  def modify_serverless_cache(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5543,12 +6362,27 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Changes user password(s) and/or access string.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_user_message`)
+    %{
+      optional("AccessString") => String.t(),
+      optional("AppendAccessString") => String.t(),
+      optional("AuthenticationMode") => authentication_mode(),
+      optional("NoPasswordRequired") => boolean(),
+      optional("Passwords") => list(String.t()()),
+      required("UserId") => String.t()
+    }
   """
-  @spec modify_user(AWS.Client.t(), modify_user_message(), Keyword.t()) ::
+
+  @spec modify_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_user_errors()}
-  def modify_user(%Client{} = client, input, options \\ []) do
+
+  def modify_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5557,12 +6391,24 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Changes the list of users that belong to the user group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyUserGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:modify_user_group_message`)
+    %{
+      optional("UserIdsToAdd") => list(String.t()()),
+      optional("UserIdsToRemove") => list(String.t()()),
+      required("UserGroupId") => String.t()
+    }
   """
-  @spec modify_user_group(AWS.Client.t(), modify_user_group_message(), Keyword.t()) ::
+
+  @spec modify_user_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_user_group_errors()}
-  def modify_user_group(%Client{} = client, input, options \\ []) do
+
+  def modify_user_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5577,16 +6423,26 @@ defmodule AWS.ElastiCache do
   for Redis or [Managing Costs with Reserved
   Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html)
   for Memcached.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20PurchaseReservedCacheNodesOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:purchase_reserved_cache_nodes_offering_message`)
+    %{
+      optional("CacheNodeCount") => integer(),
+      optional("ReservedCacheNodeId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("ReservedCacheNodesOfferingId") => String.t()
+    }
   """
-  @spec purchase_reserved_cache_nodes_offering(
-          AWS.Client.t(),
-          purchase_reserved_cache_nodes_offering_message(),
-          Keyword.t()
-        ) ::
+
+  @spec purchase_reserved_cache_nodes_offering(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_reserved_cache_nodes_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, purchase_reserved_cache_nodes_offering_errors()}
-  def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
+
+  def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5596,16 +6452,24 @@ defmodule AWS.ElastiCache do
   @doc """
   Redistribute slots to ensure uniform distribution across existing shards in the
   cluster.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20RebalanceSlotsInGlobalReplicationGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:rebalance_slots_in_global_replication_group_message`)
+    %{
+      required("ApplyImmediately") => boolean(),
+      required("GlobalReplicationGroupId") => String.t()
+    }
   """
-  @spec rebalance_slots_in_global_replication_group(
-          AWS.Client.t(),
-          rebalance_slots_in_global_replication_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec rebalance_slots_in_global_replication_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rebalance_slots_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rebalance_slots_in_global_replication_group_errors()}
-  def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ []) do
+
+  def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5619,12 +6483,23 @@ defmodule AWS.ElastiCache do
   outage to the cluster. During the reboot, the cluster status is set to
   REBOOTING. The reboot causes the contents of the cache (for each cache node
   being rebooted) to be lost.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20RebootCacheCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reboot_cache_cluster_message`)
+    %{
+      required("CacheClusterId") => String.t(),
+      required("CacheNodeIdsToReboot") => list(String.t()())
+    }
   """
-  @spec reboot_cache_cluster(AWS.Client.t(), reboot_cache_cluster_message(), Keyword.t()) ::
+
+  @spec reboot_cache_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reboot_cache_cluster_errors()}
-  def reboot_cache_cluster(%Client{} = client, input, options \\ []) do
+
+  def reboot_cache_cluster(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5639,16 +6514,23 @@ defmodule AWS.ElastiCache do
   replication groups, those actions will be replicated to all nodes in the
   replication group. For more information, see [Resource-level
   permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20RemoveTagsFromResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_tags_from_resource_message`)
+    %{
+      required("ResourceName") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec remove_tags_from_resource(
-          AWS.Client.t(),
-          remove_tags_from_resource_message(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_tags_from_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_tags_from_resource_errors()}
-  def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
+
+  def remove_tags_from_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5660,16 +6542,24 @@ defmodule AWS.ElastiCache do
   default value. You can reset specific parameters by submitting a list of
   parameter names. To reset the entire cache parameter group, specify the
   `ResetAllParameters` and `CacheParameterGroupName` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ResetCacheParameterGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_cache_parameter_group_message`)
+    %{
+      optional("ParameterNameValues") => list(parameter_name_value()()),
+      optional("ResetAllParameters") => boolean(),
+      required("CacheParameterGroupName") => String.t()
+    }
   """
-  @spec reset_cache_parameter_group(
-          AWS.Client.t(),
-          reset_cache_parameter_group_message(),
-          Keyword.t()
-        ) ::
+
+  @spec reset_cache_parameter_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cache_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_cache_parameter_group_errors()}
-  def reset_cache_parameter_group(%Client{} = client, input, options \\ []) do
+
+  def reset_cache_parameter_group(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5679,16 +6569,25 @@ defmodule AWS.ElastiCache do
   @doc """
   Revokes ingress from a cache security group. Use this operation to disallow
   access from an Amazon EC2 security group that had been previously authorized.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20RevokeCacheSecurityGroupIngress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:revoke_cache_security_group_ingress_message`)
+    %{
+      required("CacheSecurityGroupName") => String.t(),
+      required("EC2SecurityGroupName") => String.t(),
+      required("EC2SecurityGroupOwnerId") => String.t()
+    }
   """
-  @spec revoke_cache_security_group_ingress(
-          AWS.Client.t(),
-          revoke_cache_security_group_ingress_message(),
-          Keyword.t()
-        ) ::
+
+  @spec revoke_cache_security_group_ingress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, revoke_cache_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, revoke_cache_security_group_ingress_errors()}
-  def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
+
+  def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5697,12 +6596,23 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Start the migration of data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20StartMigration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_migration_message`)
+    %{
+      required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec start_migration(AWS.Client.t(), start_migration_message(), Keyword.t()) ::
+
+  @spec start_migration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_migration_errors()}
-  def start_migration(%Client{} = client, input, options \\ []) do
+
+  def start_migration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5717,12 +6627,23 @@ defmodule AWS.ElastiCache do
   is not designed to be an operational tool for initiating a failover to
   overcome a problem you may have with the cluster. Moreover, in certain
   conditions such as large-scale operational events, Amazon may block this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20TestFailover&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_failover_message`)
+    %{
+      required("NodeGroupId") => String.t(),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec test_failover(AWS.Client.t(), test_failover_message(), Keyword.t()) ::
+
+  @spec test_failover(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_failover_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_failover_errors()}
-  def test_failover(%Client{} = client, input, options \\ []) do
+
+  def test_failover(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5731,12 +6652,23 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Async API to test connection between source and target replication group.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20TestMigration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_migration_message`)
+    %{
+      required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
+      required("ReplicationGroupId") => String.t()
+    }
   """
-  @spec test_migration(AWS.Client.t(), test_migration_message(), Keyword.t()) ::
+
+  @spec test_migration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_migration_errors()}
-  def test_migration(%Client{} = client, input, options \\ []) do
+
+  def test_migration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -12126,12 +12126,25 @@ defmodule AWS.Glue do
 
   @doc """
   Creates one or more partitions in a batch operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchCreatePartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_create_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionInputList") => list(partition_input()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec batch_create_partition(AWS.Client.t(), batch_create_partition_request(), Keyword.t()) ::
+
+  @spec batch_create_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_create_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_partition_errors()}
-  def batch_create_partition(%Client{} = client, input, options \\ []) do
+
+  def batch_create_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12140,12 +12153,23 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a list of connection definitions from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchDeleteConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_connection_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ConnectionNameList") => list(String.t()())
+    }
   """
-  @spec batch_delete_connection(AWS.Client.t(), batch_delete_connection_request(), Keyword.t()) ::
+
+  @spec batch_delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_connection_errors()}
-  def batch_delete_connection(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12154,12 +12178,25 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes one or more partitions in a batch operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchDeletePartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionsToDelete") => list(partition_value_list()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec batch_delete_partition(AWS.Client.t(), batch_delete_partition_request(), Keyword.t()) ::
+
+  @spec batch_delete_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_partition_errors()}
-  def batch_delete_partition(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12168,12 +12205,25 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes multiple tables at once.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchDeleteTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("TransactionId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TablesToDelete") => list(String.t()())
+    }
   """
-  @spec batch_delete_table(AWS.Client.t(), batch_delete_table_request(), Keyword.t()) ::
+
+  @spec batch_delete_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_table_errors()}
-  def batch_delete_table(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12182,16 +12232,25 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a specified batch of versions of a table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchDeleteTableVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_delete_table_version_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t(),
+      required("VersionIds") => list(String.t()())
+    }
   """
-  @spec batch_delete_table_version(
-          AWS.Client.t(),
-          batch_delete_table_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_table_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_delete_table_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_table_version_errors()}
-  def batch_delete_table_version(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_table_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12200,12 +12259,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves information about a list of blueprints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetBlueprints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_blueprints_request`)
+    %{
+      optional("IncludeBlueprint") => boolean(),
+      optional("IncludeParameterSpec") => boolean(),
+      required("Names") => list(String.t()())
+    }
   """
-  @spec batch_get_blueprints(AWS.Client.t(), batch_get_blueprints_request(), Keyword.t()) ::
+
+  @spec batch_get_blueprints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_blueprints_errors()}
-  def batch_get_blueprints(%Client{} = client, input, options \\ []) do
+
+  def batch_get_blueprints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12217,12 +12288,22 @@ defmodule AWS.Glue do
   calling the `ListCrawlers` operation, you can call this operation to access
   the data to which you have been granted permissions. This operation supports
   all IAM permissions, including permission conditions that uses tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetCrawlers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_crawlers_request`)
+    %{
+      required("CrawlerNames") => list(String.t()())
+    }
   """
-  @spec batch_get_crawlers(AWS.Client.t(), batch_get_crawlers_request(), Keyword.t()) ::
+
+  @spec batch_get_crawlers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_crawlers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_crawlers_errors()}
-  def batch_get_crawlers(%Client{} = client, input, options \\ []) do
+
+  def batch_get_crawlers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12231,16 +12312,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the details for the custom patterns specified by a list of names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetCustomEntityTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_custom_entity_types_request`)
+    %{
+      required("Names") => list(String.t()())
+    }
   """
-  @spec batch_get_custom_entity_types(
-          AWS.Client.t(),
-          batch_get_custom_entity_types_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_custom_entity_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_custom_entity_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_custom_entity_types_errors()}
-  def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
+
+  def batch_get_custom_entity_types(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12249,16 +12337,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a list of data quality results for the specified result IDs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetDataQualityResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_data_quality_result_request`)
+    %{
+      required("ResultIds") => list(String.t()())
+    }
   """
-  @spec batch_get_data_quality_result(
-          AWS.Client.t(),
-          batch_get_data_quality_result_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_data_quality_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_data_quality_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_data_quality_result_errors()}
-  def batch_get_data_quality_result(%Client{} = client, input, options \\ []) do
+
+  def batch_get_data_quality_result(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12271,12 +12366,22 @@ defmodule AWS.Glue do
   operation to access the data to which you have been granted permissions. This
   operation supports all IAM permissions, including permission conditions that
   uses tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetDevEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_dev_endpoints_request`)
+    %{
+      required("DevEndpointNames") => list(String.t()())
+    }
   """
-  @spec batch_get_dev_endpoints(AWS.Client.t(), batch_get_dev_endpoints_request(), Keyword.t()) ::
+
+  @spec batch_get_dev_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_dev_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_dev_endpoints_errors()}
-  def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) do
+
+  def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12288,12 +12393,22 @@ defmodule AWS.Glue do
   the `ListJobs` operation, you can call this operation to access the data to
   which you have been granted permissions. This operation supports all IAM
   permissions, including permission conditions that uses tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_jobs_request`)
+    %{
+      required("JobNames") => list(String.t()())
+    }
   """
-  @spec batch_get_jobs(AWS.Client.t(), batch_get_jobs_request(), Keyword.t()) ::
+
+  @spec batch_get_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_jobs_errors()}
-  def batch_get_jobs(%Client{} = client, input, options \\ []) do
+
+  def batch_get_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12302,12 +12417,25 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves partitions in a batch request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetPartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionsToGet") => list(partition_value_list()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec batch_get_partition(AWS.Client.t(), batch_get_partition_request(), Keyword.t()) ::
+
+  @spec batch_get_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_partition_errors()}
-  def batch_get_partition(%Client{} = client, input, options \\ []) do
+
+  def batch_get_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12316,16 +12444,22 @@ defmodule AWS.Glue do
 
   @doc """
   Returns the configuration for the specified table optimizers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetTableOptimizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_table_optimizer_request`)
+    %{
+      required("Entries") => list(batch_get_table_optimizer_entry()())
+    }
   """
-  @spec batch_get_table_optimizer(
-          AWS.Client.t(),
-          batch_get_table_optimizer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_table_optimizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_table_optimizer_errors()}
-  def batch_get_table_optimizer(%Client{} = client, input, options \\ []) do
+
+  def batch_get_table_optimizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12337,12 +12471,22 @@ defmodule AWS.Glue do
   calling the `ListTriggers` operation, you can call this operation to access
   the data to which you have been granted permissions. This operation supports
   all IAM permissions, including permission conditions that uses tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetTriggers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_triggers_request`)
+    %{
+      required("TriggerNames") => list(String.t()())
+    }
   """
-  @spec batch_get_triggers(AWS.Client.t(), batch_get_triggers_request(), Keyword.t()) ::
+
+  @spec batch_get_triggers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_triggers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_triggers_errors()}
-  def batch_get_triggers(%Client{} = client, input, options \\ []) do
+
+  def batch_get_triggers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12354,12 +12498,23 @@ defmodule AWS.Glue do
   calling the `ListWorkflows` operation, you can call this operation to access
   the data to which you have been granted permissions. This operation supports
   all IAM permissions, including permission conditions that uses tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchGetWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_workflows_request`)
+    %{
+      optional("IncludeGraph") => boolean(),
+      required("Names") => list(String.t()())
+    }
   """
-  @spec batch_get_workflows(AWS.Client.t(), batch_get_workflows_request(), Keyword.t()) ::
+
+  @spec batch_get_workflows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_workflows_errors()}
-  def batch_get_workflows(%Client{} = client, input, options \\ []) do
+
+  def batch_get_workflows(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12368,12 +12523,23 @@ defmodule AWS.Glue do
 
   @doc """
   Stops one or more job runs for a specified job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchStopJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_stop_job_run_request`)
+    %{
+      required("JobName") => String.t(),
+      required("JobRunIds") => list(String.t()())
+    }
   """
-  @spec batch_stop_job_run(AWS.Client.t(), batch_stop_job_run_request(), Keyword.t()) ::
+
+  @spec batch_stop_job_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_stop_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_stop_job_run_errors()}
-  def batch_stop_job_run(%Client{} = client, input, options \\ []) do
+
+  def batch_stop_job_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12382,12 +12548,25 @@ defmodule AWS.Glue do
 
   @doc """
   Updates one or more partitions in a batch operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20BatchUpdatePartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_update_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("Entries") => list(batch_update_partition_request_entry()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec batch_update_partition(AWS.Client.t(), batch_update_partition_request(), Keyword.t()) ::
+
+  @spec batch_update_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_update_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_partition_errors()}
-  def batch_update_partition(%Client{} = client, input, options \\ []) do
+
+  def batch_update_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12396,16 +12575,23 @@ defmodule AWS.Glue do
 
   @doc """
   Cancels the specified recommendation run that was being used to generate rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CancelDataQualityRuleRecommendationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_data_quality_rule_recommendation_run_request`)
+    %{
+      required("RunId") => String.t()
+    }
   """
-  @spec cancel_data_quality_rule_recommendation_run(
-          AWS.Client.t(),
-          cancel_data_quality_rule_recommendation_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_data_quality_rule_recommendation_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_data_quality_rule_recommendation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_data_quality_rule_recommendation_run_errors()}
-  def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
+
+  def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12414,16 +12600,23 @@ defmodule AWS.Glue do
 
   @doc """
   Cancels a run where a ruleset is being evaluated against a data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CancelDataQualityRulesetEvaluationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_data_quality_ruleset_evaluation_run_request`)
+    %{
+      required("RunId") => String.t()
+    }
   """
-  @spec cancel_data_quality_ruleset_evaluation_run(
-          AWS.Client.t(),
-          cancel_data_quality_ruleset_evaluation_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_data_quality_ruleset_evaluation_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_data_quality_ruleset_evaluation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_data_quality_ruleset_evaluation_run_errors()}
-  def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
+
+  def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12436,12 +12629,23 @@ defmodule AWS.Glue do
   You can cancel a machine learning task run at any time by calling
   `CancelMLTaskRun` with a task run's parent transform's `TransformID` and the
   task run's `TaskRunId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CancelMLTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_ml_task_run_request`)
+    %{
+      required("TaskRunId") => String.t(),
+      required("TransformId") => String.t()
+    }
   """
-  @spec cancel_ml_task_run(AWS.Client.t(), cancel_ml_task_run_request(), Keyword.t()) ::
+
+  @spec cancel_ml_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_ml_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_ml_task_run_errors()}
-  def cancel_ml_task_run(%Client{} = client, input, options \\ []) do
+
+  def cancel_ml_task_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12450,12 +12654,24 @@ defmodule AWS.Glue do
 
   @doc """
   Cancels the statement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CancelStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_statement_request`)
+    %{
+      optional("RequestOrigin") => String.t(),
+      required("Id") => integer(),
+      required("SessionId") => String.t()
+    }
   """
-  @spec cancel_statement(AWS.Client.t(), cancel_statement_request(), Keyword.t()) ::
+
+  @spec cancel_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_statement_errors()}
-  def cancel_statement(%Client{} = client, input, options \\ []) do
+
+  def cancel_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12466,16 +12682,24 @@ defmodule AWS.Glue do
   Validates the supplied schema. This call has no side effects, it simply
   validates using the supplied schema using `DataFormat` as the format. Since it
   does not take a schema set name, no compatibility checks are performed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CheckSchemaVersionValidity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:check_schema_version_validity_input`)
+    %{
+      required("DataFormat") => list(any()),
+      required("SchemaDefinition") => String.t()
+    }
   """
-  @spec check_schema_version_validity(
-          AWS.Client.t(),
-          check_schema_version_validity_input(),
-          Keyword.t()
-        ) ::
+
+  @spec check_schema_version_validity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, check_schema_version_validity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, check_schema_version_validity_errors()}
-  def check_schema_version_validity(%Client{} = client, input, options \\ []) do
+
+  def check_schema_version_validity(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12484,12 +12708,25 @@ defmodule AWS.Glue do
 
   @doc """
   Registers a blueprint with Glue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_blueprint_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => map(),
+      required("BlueprintLocation") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_blueprint(AWS.Client.t(), create_blueprint_request(), Keyword.t()) ::
+
+  @spec create_blueprint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_blueprint_errors()}
-  def create_blueprint(%Client{} = client, input, options \\ []) do
+
+  def create_blueprint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12500,12 +12737,25 @@ defmodule AWS.Glue do
   Creates a classifier in the user's account. This can be a `GrokClassifier`, an
   `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on which
   field of the request is present.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateClassifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_classifier_request`)
+    %{
+      optional("CsvClassifier") => create_csv_classifier_request(),
+      optional("GrokClassifier") => create_grok_classifier_request(),
+      optional("JsonClassifier") => create_json_classifier_request(),
+      optional("XMLClassifier") => create_x_ml_classifier_request()
+    }
   """
-  @spec create_classifier(AWS.Client.t(), create_classifier_request(), Keyword.t()) ::
+
+  @spec create_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_classifier_errors()}
-  def create_classifier(%Client{} = client, input, options \\ []) do
+
+  def create_classifier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12514,12 +12764,24 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a connection definition in the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_connection_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("Tags") => map(),
+      required("ConnectionInput") => connection_input()
+    }
   """
-  @spec create_connection(AWS.Client.t(), create_connection_request(), Keyword.t()) ::
+
+  @spec create_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
-  def create_connection(%Client{} = client, input, options \\ []) do
+
+  def create_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12530,12 +12792,36 @@ defmodule AWS.Glue do
   Creates a new crawler with specified targets, role, configuration, and optional
   schedule. At least one crawl target must be specified, in the `s3Targets`
   field, the `jdbcTargets` field, or the `DynamoDBTargets` field.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateCrawler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_crawler_request`)
+    %{
+      optional("Classifiers") => list(String.t()()),
+      optional("Configuration") => String.t(),
+      optional("CrawlerSecurityConfiguration") => String.t(),
+      optional("DatabaseName") => String.t(),
+      optional("Description") => String.t(),
+      optional("LakeFormationConfiguration") => lake_formation_configuration(),
+      optional("LineageConfiguration") => lineage_configuration(),
+      optional("RecrawlPolicy") => recrawl_policy(),
+      optional("Schedule") => String.t(),
+      optional("SchemaChangePolicy") => schema_change_policy(),
+      optional("TablePrefix") => String.t(),
+      optional("Tags") => map(),
+      required("Name") => String.t(),
+      required("Role") => String.t(),
+      required("Targets") => crawler_targets()
+    }
   """
-  @spec create_crawler(AWS.Client.t(), create_crawler_request(), Keyword.t()) ::
+
+  @spec create_crawler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_crawler_errors()}
-  def create_crawler(%Client{} = client, input, options \\ []) do
+
+  def create_crawler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12545,16 +12831,25 @@ defmodule AWS.Glue do
   @doc """
   Creates a custom pattern that is used to detect sensitive data across the
   columns and rows of your structured data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateCustomEntityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_custom_entity_type_request`)
+    %{
+      optional("ContextWords") => list(String.t()()),
+      optional("Tags") => map(),
+      required("Name") => String.t(),
+      required("RegexString") => String.t()
+    }
   """
-  @spec create_custom_entity_type(
-          AWS.Client.t(),
-          create_custom_entity_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_custom_entity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_entity_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_custom_entity_type_errors()}
-  def create_custom_entity_type(%Client{} = client, input, options \\ []) do
+
+  def create_custom_entity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12564,16 +12859,27 @@ defmodule AWS.Glue do
   @doc """
   Creates a data quality ruleset with DQDL rules applied to a specified Glue
   table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateDataQualityRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_data_quality_ruleset_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("Tags") => map(),
+      optional("TargetTable") => data_quality_target_table(),
+      required("Name") => String.t(),
+      required("Ruleset") => String.t()
+    }
   """
-  @spec create_data_quality_ruleset(
-          AWS.Client.t(),
-          create_data_quality_ruleset_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_data_quality_ruleset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_data_quality_ruleset_errors()}
-  def create_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+
+  def create_data_quality_ruleset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12582,12 +12888,24 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new database in a Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_database_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("Tags") => map(),
+      required("DatabaseInput") => database_input()
+    }
   """
-  @spec create_database(AWS.Client.t(), create_database_request(), Keyword.t()) ::
+
+  @spec create_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_database_errors()}
-  def create_database(%Client{} = client, input, options \\ []) do
+
+  def create_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12596,12 +12914,36 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new development endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateDevEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_dev_endpoint_request`)
+    %{
+      optional("Arguments") => map(),
+      optional("ExtraJarsS3Path") => String.t(),
+      optional("ExtraPythonLibsS3Path") => String.t(),
+      optional("GlueVersion") => String.t(),
+      optional("NumberOfNodes") => integer(),
+      optional("NumberOfWorkers") => integer(),
+      optional("PublicKey") => String.t(),
+      optional("PublicKeys") => list(String.t()()),
+      optional("SecurityConfiguration") => String.t(),
+      optional("SecurityGroupIds") => list(String.t()()),
+      optional("SubnetId") => String.t(),
+      optional("Tags") => map(),
+      optional("WorkerType") => list(any()),
+      required("EndpointName") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec create_dev_endpoint(AWS.Client.t(), create_dev_endpoint_request(), Keyword.t()) ::
+
+  @spec create_dev_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dev_endpoint_errors()}
-  def create_dev_endpoint(%Client{} = client, input, options \\ []) do
+
+  def create_dev_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12610,12 +12952,45 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_job_request`)
+    %{
+      optional("AllocatedCapacity") => integer(),
+      optional("CodeGenConfigurationNodes") => map(),
+      optional("Connections") => connections_list(),
+      optional("DefaultArguments") => map(),
+      optional("Description") => String.t(),
+      optional("ExecutionClass") => list(any()),
+      optional("ExecutionProperty") => execution_property(),
+      optional("GlueVersion") => String.t(),
+      optional("JobMode") => list(any()),
+      optional("LogUri") => String.t(),
+      optional("MaintenanceWindow") => String.t(),
+      optional("MaxCapacity") => float(),
+      optional("MaxRetries") => integer(),
+      optional("NonOverridableArguments") => map(),
+      optional("NotificationProperty") => notification_property(),
+      optional("NumberOfWorkers") => integer(),
+      optional("SecurityConfiguration") => String.t(),
+      optional("SourceControlDetails") => source_control_details(),
+      optional("Tags") => map(),
+      optional("Timeout") => integer(),
+      optional("WorkerType") => list(any()),
+      required("Command") => job_command(),
+      required("Name") => String.t(),
+      required("Role") => String.t()
+    }
   """
-  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
+
+  @spec create_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_job_errors()}
-  def create_job(%Client{} = client, input, options \\ []) do
+
+  def create_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12629,12 +13004,34 @@ defmodule AWS.Glue do
   `FindMatches` transform) for deduplicating data. You can provide an optional
   `Description`, in addition to the parameters that you want to use for your
   algorithm.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateMLTransform&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_ml_transform_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("GlueVersion") => String.t(),
+      optional("MaxCapacity") => float(),
+      optional("MaxRetries") => integer(),
+      optional("NumberOfWorkers") => integer(),
+      optional("Tags") => map(),
+      optional("Timeout") => integer(),
+      optional("TransformEncryption") => transform_encryption(),
+      optional("WorkerType") => list(any()),
+      required("InputRecordTables") => list(glue_table()()),
+      required("Name") => String.t(),
+      required("Parameters") => transform_parameters(),
+      required("Role") => String.t()
+    }
   """
-  @spec create_ml_transform(AWS.Client.t(), create_ml_transform_request(), Keyword.t()) ::
+
+  @spec create_ml_transform(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ml_transform_errors()}
-  def create_ml_transform(%Client{} = client, input, options \\ []) do
+
+  def create_ml_transform(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12643,12 +13040,25 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new partition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreatePartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionInput") => partition_input(),
+      required("TableName") => String.t()
+    }
   """
-  @spec create_partition(AWS.Client.t(), create_partition_request(), Keyword.t()) ::
+
+  @spec create_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partition_errors()}
-  def create_partition(%Client{} = client, input, options \\ []) do
+
+  def create_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12657,12 +13067,25 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a specified partition index in an existing table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreatePartitionIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_partition_index_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionIndex") => partition_index(),
+      required("TableName") => String.t()
+    }
   """
-  @spec create_partition_index(AWS.Client.t(), create_partition_index_request(), Keyword.t()) ::
+
+  @spec create_partition_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_partition_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partition_index_errors()}
-  def create_partition_index(%Client{} = client, input, options \\ []) do
+
+  def create_partition_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12671,12 +13094,24 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new registry which may be used to hold a collection of schemas.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_registry_input`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => map(),
+      required("RegistryName") => String.t()
+    }
   """
-  @spec create_registry(AWS.Client.t(), create_registry_input(), Keyword.t()) ::
+
+  @spec create_registry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registry_errors()}
-  def create_registry(%Client{} = client, input, options \\ []) do
+
+  def create_registry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12691,12 +13126,28 @@ defmodule AWS.Glue do
   versions from being added after the first schema version. For all other
   compatibility modes, validation of compatibility settings will be applied only
   from the second version onwards when the `RegisterSchemaVersion` API is used.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_schema_input`)
+    %{
+      optional("Compatibility") => list(any()),
+      optional("Description") => String.t(),
+      optional("RegistryId") => registry_id(),
+      optional("SchemaDefinition") => String.t(),
+      optional("Tags") => map(),
+      required("DataFormat") => list(any()),
+      required("SchemaName") => String.t()
+    }
   """
-  @spec create_schema(AWS.Client.t(), create_schema_input(), Keyword.t()) ::
+
+  @spec create_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
-  def create_schema(%Client{} = client, input, options \\ []) do
+
+  def create_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12705,12 +13156,24 @@ defmodule AWS.Glue do
 
   @doc """
   Transforms a directed acyclic graph (DAG) into code.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateScript&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_script_request`)
+    %{
+      optional("DagEdges") => list(code_gen_edge()()),
+      optional("DagNodes") => list(code_gen_node()()),
+      optional("Language") => list(any())
+    }
   """
-  @spec create_script(AWS.Client.t(), create_script_request(), Keyword.t()) ::
+
+  @spec create_script(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_script_errors()}
-  def create_script(%Client{} = client, input, options \\ []) do
+
+  def create_script(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12724,16 +13187,24 @@ defmodule AWS.Glue do
   configurations in Glue, see [Encrypting Data Written by Crawlers, Jobs, and
   Development
   Endpoints](https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateSecurityConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_security_configuration_request`)
+    %{
+      required("EncryptionConfiguration") => encryption_configuration(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_security_configuration(
-          AWS.Client.t(),
-          create_security_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_security_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_security_configuration_errors()}
-  def create_security_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_security_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12742,12 +13213,36 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_session_request`)
+    %{
+      optional("Connections") => connections_list(),
+      optional("DefaultArguments") => map(),
+      optional("Description") => String.t(),
+      optional("GlueVersion") => String.t(),
+      optional("IdleTimeout") => integer(),
+      optional("MaxCapacity") => float(),
+      optional("NumberOfWorkers") => integer(),
+      optional("RequestOrigin") => String.t(),
+      optional("SecurityConfiguration") => String.t(),
+      optional("Tags") => map(),
+      optional("Timeout") => integer(),
+      optional("WorkerType") => list(any()),
+      required("Command") => session_command(),
+      required("Id") => String.t(),
+      required("Role") => String.t()
+    }
   """
-  @spec create_session(AWS.Client.t(), create_session_request(), Keyword.t()) ::
+
+  @spec create_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_session_errors()}
-  def create_session(%Client{} = client, input, options \\ []) do
+
+  def create_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12756,12 +13251,27 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new table definition in the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("OpenTableFormatInput") => open_table_format_input(),
+      optional("PartitionIndexes") => list(partition_index()()),
+      optional("TransactionId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableInput") => table_input()
+    }
   """
-  @spec create_table(AWS.Client.t(), create_table_request(), Keyword.t()) ::
+
+  @spec create_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_table_errors()}
-  def create_table(%Client{} = client, input, options \\ []) do
+
+  def create_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12771,12 +13281,26 @@ defmodule AWS.Glue do
   @doc """
   Creates a new table optimizer for a specific function. `compaction` is the only
   currently supported optimizer type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateTableOptimizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_table_optimizer_request`)
+    %{
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t(),
+      required("TableOptimizerConfiguration") => table_optimizer_configuration(),
+      required("Type") => list(any())
+    }
   """
-  @spec create_table_optimizer(AWS.Client.t(), create_table_optimizer_request(), Keyword.t()) ::
+
+  @spec create_table_optimizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_table_optimizer_errors()}
-  def create_table_optimizer(%Client{} = client, input, options \\ []) do
+
+  def create_table_optimizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12785,12 +13309,31 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new trigger.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateTrigger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_trigger_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("EventBatchingCondition") => event_batching_condition(),
+      optional("Predicate") => predicate(),
+      optional("Schedule") => String.t(),
+      optional("StartOnCreation") => boolean(),
+      optional("Tags") => map(),
+      optional("WorkflowName") => String.t(),
+      required("Actions") => list(action()()),
+      required("Name") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec create_trigger(AWS.Client.t(), create_trigger_request(), Keyword.t()) ::
+
+  @spec create_trigger(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trigger_errors()}
-  def create_trigger(%Client{} = client, input, options \\ []) do
+
+  def create_trigger(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12799,12 +13342,25 @@ defmodule AWS.Glue do
 
   @doc """
   Creates an Glue usage profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateUsageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_usage_profile_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => map(),
+      required("Configuration") => profile_configuration(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_usage_profile(AWS.Client.t(), create_usage_profile_request(), Keyword.t()) ::
+
+  @spec create_usage_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_usage_profile_errors()}
-  def create_usage_profile(%Client{} = client, input, options \\ []) do
+
+  def create_usage_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12813,16 +13369,24 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new function definition in the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateUserDefinedFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_defined_function_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("FunctionInput") => user_defined_function_input()
+    }
   """
-  @spec create_user_defined_function(
-          AWS.Client.t(),
-          create_user_defined_function_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_user_defined_function(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_defined_function_errors()}
-  def create_user_defined_function(%Client{} = client, input, options \\ []) do
+
+  def create_user_defined_function(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12831,12 +13395,26 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workflow_request`)
+    %{
+      optional("DefaultRunProperties") => map(),
+      optional("Description") => String.t(),
+      optional("MaxConcurrentRuns") => integer(),
+      optional("Tags") => map(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
+
+  @spec create_workflow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
-  def create_workflow(%Client{} = client, input, options \\ []) do
+
+  def create_workflow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12845,12 +13423,22 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes an existing blueprint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_blueprint_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_blueprint(AWS.Client.t(), delete_blueprint_request(), Keyword.t()) ::
+
+  @spec delete_blueprint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_blueprint_errors()}
-  def delete_blueprint(%Client{} = client, input, options \\ []) do
+
+  def delete_blueprint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12859,12 +13447,22 @@ defmodule AWS.Glue do
 
   @doc """
   Removes a classifier from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteClassifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_classifier_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_classifier(AWS.Client.t(), delete_classifier_request(), Keyword.t()) ::
+
+  @spec delete_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_classifier_errors()}
-  def delete_classifier(%Client{} = client, input, options \\ []) do
+
+  def delete_classifier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12873,16 +13471,27 @@ defmodule AWS.Glue do
 
   @doc """
   Delete the partition column statistics of a column.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteColumnStatisticsForPartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_column_statistics_for_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ColumnName") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionValues") => list(String.t()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec delete_column_statistics_for_partition(
-          AWS.Client.t(),
-          delete_column_statistics_for_partition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_column_statistics_for_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_column_statistics_for_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_column_statistics_for_partition_errors()}
-  def delete_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
+
+  def delete_column_statistics_for_partition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12891,16 +13500,26 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves table statistics of columns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteColumnStatisticsForTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_column_statistics_for_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ColumnName") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec delete_column_statistics_for_table(
-          AWS.Client.t(),
-          delete_column_statistics_for_table_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_column_statistics_for_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_column_statistics_for_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_column_statistics_for_table_errors()}
-  def delete_column_statistics_for_table(%Client{} = client, input, options \\ []) do
+
+  def delete_column_statistics_for_table(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -12909,12 +13528,23 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a connection from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_connection_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ConnectionName") => String.t()
+    }
   """
-  @spec delete_connection(AWS.Client.t(), delete_connection_request(), Keyword.t()) ::
+
+  @spec delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-  def delete_connection(%Client{} = client, input, options \\ []) do
+
+  def delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12924,12 +13554,22 @@ defmodule AWS.Glue do
   @doc """
   Removes a specified crawler from the Glue Data Catalog, unless the crawler state
   is `RUNNING`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteCrawler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_crawler_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_crawler(AWS.Client.t(), delete_crawler_request(), Keyword.t()) ::
+
+  @spec delete_crawler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_crawler_errors()}
-  def delete_crawler(%Client{} = client, input, options \\ []) do
+
+  def delete_crawler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12938,16 +13578,22 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a custom pattern by specifying its name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteCustomEntityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_custom_entity_type_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_custom_entity_type(
-          AWS.Client.t(),
-          delete_custom_entity_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_custom_entity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_custom_entity_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_custom_entity_type_errors()}
-  def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
+
+  def delete_custom_entity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12956,16 +13602,22 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a data quality ruleset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteDataQualityRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_data_quality_ruleset_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_data_quality_ruleset(
-          AWS.Client.t(),
-          delete_data_quality_ruleset_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_data_quality_ruleset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_data_quality_ruleset_errors()}
-  def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+
+  def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12974,12 +13626,23 @@ defmodule AWS.Glue do
 
   @doc """
   Removes a specified database from a Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_database_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec delete_database(AWS.Client.t(), delete_database_request(), Keyword.t()) ::
+
+  @spec delete_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_database_errors()}
-  def delete_database(%Client{} = client, input, options \\ []) do
+
+  def delete_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -12988,12 +13651,22 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a specified development endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteDevEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_dev_endpoint_request`)
+    %{
+      required("EndpointName") => String.t()
+    }
   """
-  @spec delete_dev_endpoint(AWS.Client.t(), delete_dev_endpoint_request(), Keyword.t()) ::
+
+  @spec delete_dev_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dev_endpoint_errors()}
-  def delete_dev_endpoint(%Client{} = client, input, options \\ []) do
+
+  def delete_dev_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13003,12 +13676,22 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified job definition. If the job definition is not found, no
   exception is thrown.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_job_request`)
+    %{
+      required("JobName") => String.t()
+    }
   """
-  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
+
+  @spec delete_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_job_errors()}
-  def delete_job(%Client{} = client, input, options \\ []) do
+
+  def delete_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13022,12 +13705,22 @@ defmodule AWS.Glue do
   humans. These transformations are then saved by Glue. If you no longer need a
   transform, you can delete it by calling `DeleteMLTransforms`. However, any
   Glue jobs that still reference the deleted transform will no longer succeed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteMLTransform&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ml_transform_request`)
+    %{
+      required("TransformId") => String.t()
+    }
   """
-  @spec delete_ml_transform(AWS.Client.t(), delete_ml_transform_request(), Keyword.t()) ::
+
+  @spec delete_ml_transform(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ml_transform_errors()}
-  def delete_ml_transform(%Client{} = client, input, options \\ []) do
+
+  def delete_ml_transform(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13036,12 +13729,25 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a specified partition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeletePartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionValues") => list(String.t()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec delete_partition(AWS.Client.t(), delete_partition_request(), Keyword.t()) ::
+
+  @spec delete_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partition_errors()}
-  def delete_partition(%Client{} = client, input, options \\ []) do
+
+  def delete_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13050,12 +13756,25 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a specified partition index from an existing table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeletePartitionIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_partition_index_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("IndexName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec delete_partition_index(AWS.Client.t(), delete_partition_index_request(), Keyword.t()) ::
+
+  @spec delete_partition_index(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_partition_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partition_index_errors()}
-  def delete_partition_index(%Client{} = client, input, options \\ []) do
+
+  def delete_partition_index(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13068,12 +13787,22 @@ defmodule AWS.Glue do
   asynchronous call. Deleting a registry will deactivate all online operations
   for the registry such as the `UpdateRegistry`, `CreateSchema`, `UpdateSchema`,
   and `RegisterSchemaVersion` APIs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_registry_input`)
+    %{
+      required("RegistryId") => registry_id()
+    }
   """
-  @spec delete_registry(AWS.Client.t(), delete_registry_input(), Keyword.t()) ::
+
+  @spec delete_registry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registry_errors()}
-  def delete_registry(%Client{} = client, input, options \\ []) do
+
+  def delete_registry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13082,12 +13811,23 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a specified policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_policy_request`)
+    %{
+      optional("PolicyHashCondition") => String.t(),
+      optional("ResourceArn") => String.t()
+    }
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13100,12 +13840,22 @@ defmodule AWS.Glue do
   the asynchronous call. Deleting a registry will deactivate all online
   operations for the schema, such as the `GetSchemaByDefinition`, and
   `RegisterSchemaVersion` APIs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_schema_input`)
+    %{
+      required("SchemaId") => schema_id()
+    }
   """
-  @spec delete_schema(AWS.Client.t(), delete_schema_input(), Keyword.t()) ::
+
+  @spec delete_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
-  def delete_schema(%Client{} = client, input, options \\ []) do
+
+  def delete_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13121,12 +13871,23 @@ defmodule AWS.Glue do
   API will return a 409 conflict and will not proceed with the deletion. You
   have to remove the checkpoint first using the `DeleteSchemaCheckpoint` API
   before using this API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteSchemaVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_schema_versions_input`)
+    %{
+      required("SchemaId") => schema_id(),
+      required("Versions") => String.t()
+    }
   """
-  @spec delete_schema_versions(AWS.Client.t(), delete_schema_versions_input(), Keyword.t()) ::
+
+  @spec delete_schema_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_versions_errors()}
-  def delete_schema_versions(%Client{} = client, input, options \\ []) do
+
+  def delete_schema_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13135,16 +13896,23 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a specified security configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteSecurityConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_security_configuration_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_security_configuration(
-          AWS.Client.t(),
-          delete_security_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_security_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_security_configuration_errors()}
-  def delete_security_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_security_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13153,12 +13921,23 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes the session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_session_request`)
+    %{
+      optional("RequestOrigin") => String.t(),
+      required("Id") => String.t()
+    }
   """
-  @spec delete_session(AWS.Client.t(), delete_session_request(), Keyword.t()) ::
+
+  @spec delete_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_session_errors()}
-  def delete_session(%Client{} = client, input, options \\ []) do
+
+  def delete_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13167,12 +13946,25 @@ defmodule AWS.Glue do
 
   @doc """
   Removes a table definition from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("TransactionId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec delete_table(AWS.Client.t(), delete_table_request(), Keyword.t()) ::
+
+  @spec delete_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_errors()}
-  def delete_table(%Client{} = client, input, options \\ []) do
+
+  def delete_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13182,12 +13974,25 @@ defmodule AWS.Glue do
   @doc """
   Deletes an optimizer and all associated metadata for a table. The optimization
   will no longer be performed on the table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteTableOptimizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_table_optimizer_request`)
+    %{
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec delete_table_optimizer(AWS.Client.t(), delete_table_optimizer_request(), Keyword.t()) ::
+
+  @spec delete_table_optimizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_optimizer_errors()}
-  def delete_table_optimizer(%Client{} = client, input, options \\ []) do
+
+  def delete_table_optimizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13196,12 +14001,25 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a specified version of a table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteTableVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_table_version_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t(),
+      required("VersionId") => String.t()
+    }
   """
-  @spec delete_table_version(AWS.Client.t(), delete_table_version_request(), Keyword.t()) ::
+
+  @spec delete_table_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_table_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_table_version_errors()}
-  def delete_table_version(%Client{} = client, input, options \\ []) do
+
+  def delete_table_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13211,12 +14029,22 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified trigger. If the trigger is not found, no exception is
   thrown.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteTrigger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_trigger_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_trigger(AWS.Client.t(), delete_trigger_request(), Keyword.t()) ::
+
+  @spec delete_trigger(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trigger_errors()}
-  def delete_trigger(%Client{} = client, input, options \\ []) do
+
+  def delete_trigger(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13225,12 +14053,22 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes the Glue specified usage profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteUsageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_usage_profile_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_usage_profile(AWS.Client.t(), delete_usage_profile_request(), Keyword.t()) ::
+
+  @spec delete_usage_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_usage_profile_errors()}
-  def delete_usage_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_usage_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13239,16 +14077,24 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes an existing function definition from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteUserDefinedFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_defined_function_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("FunctionName") => String.t()
+    }
   """
-  @spec delete_user_defined_function(
-          AWS.Client.t(),
-          delete_user_defined_function_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_user_defined_function(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_defined_function_errors()}
-  def delete_user_defined_function(%Client{} = client, input, options \\ []) do
+
+  def delete_user_defined_function(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13257,12 +14103,22 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20DeleteWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_workflow_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
+
+  @spec delete_workflow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-  def delete_workflow(%Client{} = client, input, options \\ []) do
+
+  def delete_workflow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13271,12 +14127,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the details of a blueprint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_blueprint_request`)
+    %{
+      optional("IncludeBlueprint") => boolean(),
+      optional("IncludeParameterSpec") => boolean(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_blueprint(AWS.Client.t(), get_blueprint_request(), Keyword.t()) ::
+
+  @spec get_blueprint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blueprint_errors()}
-  def get_blueprint(%Client{} = client, input, options \\ []) do
+
+  def get_blueprint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13285,12 +14153,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the details of a blueprint run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetBlueprintRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_blueprint_run_request`)
+    %{
+      required("BlueprintName") => String.t(),
+      required("RunId") => String.t()
+    }
   """
-  @spec get_blueprint_run(AWS.Client.t(), get_blueprint_run_request(), Keyword.t()) ::
+
+  @spec get_blueprint_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_blueprint_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blueprint_run_errors()}
-  def get_blueprint_run(%Client{} = client, input, options \\ []) do
+
+  def get_blueprint_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13299,12 +14178,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the details of blueprint runs for a specified blueprint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetBlueprintRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_blueprint_runs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("BlueprintName") => String.t()
+    }
   """
-  @spec get_blueprint_runs(AWS.Client.t(), get_blueprint_runs_request(), Keyword.t()) ::
+
+  @spec get_blueprint_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_blueprint_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_blueprint_runs_errors()}
-  def get_blueprint_runs(%Client{} = client, input, options \\ []) do
+
+  def get_blueprint_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13313,16 +14204,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the status of a migration operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetCatalogImportStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_catalog_import_status_request`)
+    %{
+      optional("CatalogId") => String.t()
+    }
   """
-  @spec get_catalog_import_status(
-          AWS.Client.t(),
-          get_catalog_import_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_catalog_import_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_catalog_import_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_catalog_import_status_errors()}
-  def get_catalog_import_status(%Client{} = client, input, options \\ []) do
+
+  def get_catalog_import_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13331,12 +14228,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieve a classifier by name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetClassifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_classifier_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_classifier(AWS.Client.t(), get_classifier_request(), Keyword.t()) ::
+
+  @spec get_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_classifier_errors()}
-  def get_classifier(%Client{} = client, input, options \\ []) do
+
+  def get_classifier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13345,12 +14252,23 @@ defmodule AWS.Glue do
 
   @doc """
   Lists all classifier objects in the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetClassifiers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_classifiers_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_classifiers(AWS.Client.t(), get_classifiers_request(), Keyword.t()) ::
+
+  @spec get_classifiers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_classifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_classifiers_errors()}
-  def get_classifiers(%Client{} = client, input, options \\ []) do
+
+  def get_classifiers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13359,16 +14277,27 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves partition statistics of columns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetColumnStatisticsForPartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_column_statistics_for_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ColumnNames") => list(String.t()()),
+      required("DatabaseName") => String.t(),
+      required("PartitionValues") => list(String.t()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_column_statistics_for_partition(
-          AWS.Client.t(),
-          get_column_statistics_for_partition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_column_statistics_for_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_column_statistics_for_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_for_partition_errors()}
-  def get_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
+
+  def get_column_statistics_for_partition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13377,16 +14306,26 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves table statistics of columns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetColumnStatisticsForTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_column_statistics_for_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ColumnNames") => list(String.t()()),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_column_statistics_for_table(
-          AWS.Client.t(),
-          get_column_statistics_for_table_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_column_statistics_for_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_column_statistics_for_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_for_table_errors()}
-  def get_column_statistics_for_table(%Client{} = client, input, options \\ []) do
+
+  def get_column_statistics_for_table(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13395,16 +14334,23 @@ defmodule AWS.Glue do
 
   @doc """
   Get the associated metadata/information for a task run, given a task run ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetColumnStatisticsTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_column_statistics_task_run_request`)
+    %{
+      required("ColumnStatisticsTaskRunId") => String.t()
+    }
   """
-  @spec get_column_statistics_task_run(
-          AWS.Client.t(),
-          get_column_statistics_task_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_column_statistics_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_column_statistics_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_task_run_errors()}
-  def get_column_statistics_task_run(%Client{} = client, input, options \\ []) do
+
+  def get_column_statistics_task_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13413,16 +14359,26 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves information about all runs associated with the specified table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetColumnStatisticsTaskRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_column_statistics_task_runs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_column_statistics_task_runs(
-          AWS.Client.t(),
-          get_column_statistics_task_runs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_column_statistics_task_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_column_statistics_task_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_column_statistics_task_runs_errors()}
-  def get_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
+
+  def get_column_statistics_task_runs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13431,12 +14387,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a connection definition from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_connection_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("HidePassword") => boolean(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_connection(AWS.Client.t(), get_connection_request(), Keyword.t()) ::
+
+  @spec get_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
-  def get_connection(%Client{} = client, input, options \\ []) do
+
+  def get_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13445,12 +14413,26 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a list of connection definitions from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_connections_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("Filter") => get_connections_filter(),
+      optional("HidePassword") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_connections(AWS.Client.t(), get_connections_request(), Keyword.t()) ::
+
+  @spec get_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connections_errors()}
-  def get_connections(%Client{} = client, input, options \\ []) do
+
+  def get_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13459,12 +14441,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves metadata for a specified crawler.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetCrawler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_crawler_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_crawler(AWS.Client.t(), get_crawler_request(), Keyword.t()) ::
+
+  @spec get_crawler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crawler_errors()}
-  def get_crawler(%Client{} = client, input, options \\ []) do
+
+  def get_crawler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13473,12 +14465,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves metrics about specified crawlers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetCrawlerMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_crawler_metrics_request`)
+    %{
+      optional("CrawlerNameList") => list(String.t()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_crawler_metrics(AWS.Client.t(), get_crawler_metrics_request(), Keyword.t()) ::
+
+  @spec get_crawler_metrics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_crawler_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crawler_metrics_errors()}
-  def get_crawler_metrics(%Client{} = client, input, options \\ []) do
+
+  def get_crawler_metrics(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13487,12 +14491,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves metadata for all crawlers defined in the customer account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetCrawlers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_crawlers_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_crawlers(AWS.Client.t(), get_crawlers_request(), Keyword.t()) ::
+
+  @spec get_crawlers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_crawlers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crawlers_errors()}
-  def get_crawlers(%Client{} = client, input, options \\ []) do
+
+  def get_crawlers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13501,12 +14516,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the details of a custom pattern by specifying its name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetCustomEntityType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_custom_entity_type_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_custom_entity_type(AWS.Client.t(), get_custom_entity_type_request(), Keyword.t()) ::
+
+  @spec get_custom_entity_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_custom_entity_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_custom_entity_type_errors()}
-  def get_custom_entity_type(%Client{} = client, input, options \\ []) do
+
+  def get_custom_entity_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13515,16 +14540,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the security configuration for a specified catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDataCatalogEncryptionSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_data_catalog_encryption_settings_request`)
+    %{
+      optional("CatalogId") => String.t()
+    }
   """
-  @spec get_data_catalog_encryption_settings(
-          AWS.Client.t(),
-          get_data_catalog_encryption_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_data_catalog_encryption_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_catalog_encryption_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_catalog_encryption_settings_errors()}
-  def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
+
+  def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13533,12 +14565,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the result of a data quality rule evaluation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDataQualityResult&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_data_quality_result_request`)
+    %{
+      required("ResultId") => String.t()
+    }
   """
-  @spec get_data_quality_result(AWS.Client.t(), get_data_quality_result_request(), Keyword.t()) ::
+
+  @spec get_data_quality_result(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_quality_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_result_errors()}
-  def get_data_quality_result(%Client{} = client, input, options \\ []) do
+
+  def get_data_quality_result(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13547,16 +14589,23 @@ defmodule AWS.Glue do
 
   @doc """
   Gets the specified recommendation run that was used to generate rules.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDataQualityRuleRecommendationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_data_quality_rule_recommendation_run_request`)
+    %{
+      required("RunId") => String.t()
+    }
   """
-  @spec get_data_quality_rule_recommendation_run(
-          AWS.Client.t(),
-          get_data_quality_rule_recommendation_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_data_quality_rule_recommendation_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_quality_rule_recommendation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_rule_recommendation_run_errors()}
-  def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
+
+  def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13565,12 +14614,22 @@ defmodule AWS.Glue do
 
   @doc """
   Returns an existing ruleset by identifier or name.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDataQualityRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_data_quality_ruleset_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_data_quality_ruleset(AWS.Client.t(), get_data_quality_ruleset_request(), Keyword.t()) ::
+
+  @spec get_data_quality_ruleset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_ruleset_errors()}
-  def get_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+
+  def get_data_quality_ruleset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13579,16 +14638,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a specific run where a ruleset is evaluated against a data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDataQualityRulesetEvaluationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_data_quality_ruleset_evaluation_run_request`)
+    %{
+      required("RunId") => String.t()
+    }
   """
-  @spec get_data_quality_ruleset_evaluation_run(
-          AWS.Client.t(),
-          get_data_quality_ruleset_evaluation_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_data_quality_ruleset_evaluation_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_data_quality_ruleset_evaluation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_data_quality_ruleset_evaluation_run_errors()}
-  def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
+
+  def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -13597,12 +14663,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the definition of a specified database.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_database_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_database(AWS.Client.t(), get_database_request(), Keyword.t()) ::
+
+  @spec get_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_database_errors()}
-  def get_database(%Client{} = client, input, options \\ []) do
+
+  def get_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13611,12 +14688,26 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves all databases defined in a given Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDatabases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_databases_request`)
+    %{
+      optional("AttributesToGet") => list(list(any())()),
+      optional("CatalogId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceShareType") => list(any())
+    }
   """
-  @spec get_databases(AWS.Client.t(), get_databases_request(), Keyword.t()) ::
+
+  @spec get_databases(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_databases_errors()}
-  def get_databases(%Client{} = client, input, options \\ []) do
+
+  def get_databases(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13625,12 +14716,22 @@ defmodule AWS.Glue do
 
   @doc """
   Transforms a Python script into a directed acyclic graph (DAG).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDataflowGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_dataflow_graph_request`)
+    %{
+      optional("PythonScript") => String.t()
+    }
   """
-  @spec get_dataflow_graph(AWS.Client.t(), get_dataflow_graph_request(), Keyword.t()) ::
+
+  @spec get_dataflow_graph(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_dataflow_graph_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataflow_graph_errors()}
-  def get_dataflow_graph(%Client{} = client, input, options \\ []) do
+
+  def get_dataflow_graph(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13639,12 +14740,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves information about a specified development endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDevEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_dev_endpoint_request`)
+    %{
+      required("EndpointName") => String.t()
+    }
   """
-  @spec get_dev_endpoint(AWS.Client.t(), get_dev_endpoint_request(), Keyword.t()) ::
+
+  @spec get_dev_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dev_endpoint_errors()}
-  def get_dev_endpoint(%Client{} = client, input, options \\ []) do
+
+  def get_dev_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13653,12 +14764,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves all the development endpoints in this Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetDevEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_dev_endpoints_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_dev_endpoints(AWS.Client.t(), get_dev_endpoints_request(), Keyword.t()) ::
+
+  @spec get_dev_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_dev_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dev_endpoints_errors()}
-  def get_dev_endpoints(%Client{} = client, input, options \\ []) do
+
+  def get_dev_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13667,12 +14789,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves an existing job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_job_request`)
+    %{
+      required("JobName") => String.t()
+    }
   """
-  @spec get_job(AWS.Client.t(), get_job_request(), Keyword.t()) ::
+
+  @spec get_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_errors()}
-  def get_job(%Client{} = client, input, options \\ []) do
+
+  def get_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13682,12 +14814,23 @@ defmodule AWS.Glue do
   @doc """
   Returns information on a job bookmark entry. For more information about enabling
   and using job bookmarks, see:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetJobBookmark&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_job_bookmark_request`)
+    %{
+      optional("RunId") => String.t(),
+      required("JobName") => String.t()
+    }
   """
-  @spec get_job_bookmark(AWS.Client.t(), get_job_bookmark_request(), Keyword.t()) ::
+
+  @spec get_job_bookmark(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_bookmark_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_bookmark_errors()}
-  def get_job_bookmark(%Client{} = client, input, options \\ []) do
+
+  def get_job_bookmark(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13697,12 +14840,24 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the metadata for a given job run. Job run history is accessible for 90
   days for your workflow and job run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_job_run_request`)
+    %{
+      optional("PredecessorsIncluded") => boolean(),
+      required("JobName") => String.t(),
+      required("RunId") => String.t()
+    }
   """
-  @spec get_job_run(AWS.Client.t(), get_job_run_request(), Keyword.t()) ::
+
+  @spec get_job_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_run_errors()}
-  def get_job_run(%Client{} = client, input, options \\ []) do
+
+  def get_job_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13711,12 +14866,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves metadata for all runs of a given job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetJobRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_job_runs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("JobName") => String.t()
+    }
   """
-  @spec get_job_runs(AWS.Client.t(), get_job_runs_request(), Keyword.t()) ::
+
+  @spec get_job_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_runs_errors()}
-  def get_job_runs(%Client{} = client, input, options \\ []) do
+
+  def get_job_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13725,12 +14892,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves all current job definitions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_jobs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_jobs(AWS.Client.t(), get_jobs_request(), Keyword.t()) ::
+
+  @spec get_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_jobs_errors()}
-  def get_jobs(%Client{} = client, input, options \\ []) do
+
+  def get_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13739,12 +14917,24 @@ defmodule AWS.Glue do
 
   @doc """
   Creates mappings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_mapping_request`)
+    %{
+      optional("Location") => location(),
+      optional("Sinks") => list(catalog_entry()()),
+      required("Source") => catalog_entry()
+    }
   """
-  @spec get_mapping(AWS.Client.t(), get_mapping_request(), Keyword.t()) ::
+
+  @spec get_mapping(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mapping_errors()}
-  def get_mapping(%Client{} = client, input, options \\ []) do
+
+  def get_mapping(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13757,12 +14947,23 @@ defmodule AWS.Glue do
   part of various machine learning workflows. You can check the stats of any
   task run by calling `GetMLTaskRun` with the `TaskRunID` and its parent
   transform's `TransformID`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetMLTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ml_task_run_request`)
+    %{
+      required("TaskRunId") => String.t(),
+      required("TransformId") => String.t()
+    }
   """
-  @spec get_ml_task_run(AWS.Client.t(), get_ml_task_run_request(), Keyword.t()) ::
+
+  @spec get_ml_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ml_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_task_run_errors()}
-  def get_ml_task_run(%Client{} = client, input, options \\ []) do
+
+  def get_ml_task_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13775,12 +14976,26 @@ defmodule AWS.Glue do
   machine learning workflows. You can get a sortable, filterable list of machine
   learning task runs by calling `GetMLTaskRuns` with their parent transform's
   `TransformID` and other optional parameters as documented in this section.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetMLTaskRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ml_task_runs_request`)
+    %{
+      optional("Filter") => task_run_filter_criteria(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Sort") => task_run_sort_criteria(),
+      required("TransformId") => String.t()
+    }
   """
-  @spec get_ml_task_runs(AWS.Client.t(), get_ml_task_runs_request(), Keyword.t()) ::
+
+  @spec get_ml_task_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ml_task_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_task_runs_errors()}
-  def get_ml_task_runs(%Client{} = client, input, options \\ []) do
+
+  def get_ml_task_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13793,12 +15008,22 @@ defmodule AWS.Glue do
   machine learning to learn the details of the transformation to be performed by
   learning from examples provided by humans. These transformations are then
   saved by Glue. You can retrieve their metadata by calling `GetMLTransform`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetMLTransform&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ml_transform_request`)
+    %{
+      required("TransformId") => String.t()
+    }
   """
-  @spec get_ml_transform(AWS.Client.t(), get_ml_transform_request(), Keyword.t()) ::
+
+  @spec get_ml_transform(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_transform_errors()}
-  def get_ml_transform(%Client{} = client, input, options \\ []) do
+
+  def get_ml_transform(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13812,12 +15037,25 @@ defmodule AWS.Glue do
   learning from examples provided by humans. These transformations are then
   saved by Glue, and you can retrieve their metadata by calling
   `GetMLTransforms`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetMLTransforms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ml_transforms_request`)
+    %{
+      optional("Filter") => transform_filter_criteria(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Sort") => transform_sort_criteria()
+    }
   """
-  @spec get_ml_transforms(AWS.Client.t(), get_ml_transforms_request(), Keyword.t()) ::
+
+  @spec get_ml_transforms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ml_transforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ml_transforms_errors()}
-  def get_ml_transforms(%Client{} = client, input, options \\ []) do
+
+  def get_ml_transforms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13826,12 +15064,25 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves information about a specified partition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetPartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionValues") => list(String.t()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_partition(AWS.Client.t(), get_partition_request(), Keyword.t()) ::
+
+  @spec get_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partition_errors()}
-  def get_partition(%Client{} = client, input, options \\ []) do
+
+  def get_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13840,12 +15091,25 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the partition indexes associated with a table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetPartitionIndexes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_partition_indexes_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("NextToken") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_partition_indexes(AWS.Client.t(), get_partition_indexes_request(), Keyword.t()) ::
+
+  @spec get_partition_indexes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_partition_indexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partition_indexes_errors()}
-  def get_partition_indexes(%Client{} = client, input, options \\ []) do
+
+  def get_partition_indexes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13854,12 +15118,31 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves information about the partitions in a table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetPartitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_partitions_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("ExcludeColumnSchema") => boolean(),
+      optional("Expression") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QueryAsOfTime") => non_neg_integer(),
+      optional("Segment") => segment(),
+      optional("TransactionId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_partitions(AWS.Client.t(), get_partitions_request(), Keyword.t()) ::
+
+  @spec get_partitions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_partitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_partitions_errors()}
-  def get_partitions(%Client{} = client, input, options \\ []) do
+
+  def get_partitions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13868,12 +15151,27 @@ defmodule AWS.Glue do
 
   @doc """
   Gets code to perform a specified mapping.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_plan_request`)
+    %{
+      optional("AdditionalPlanOptionsMap") => map(),
+      optional("Language") => list(any()),
+      optional("Location") => location(),
+      optional("Sinks") => list(catalog_entry()()),
+      required("Mapping") => list(mapping_entry()()),
+      required("Source") => catalog_entry()
+    }
   """
-  @spec get_plan(AWS.Client.t(), get_plan_request(), Keyword.t()) ::
+
+  @spec get_plan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_plan_errors()}
-  def get_plan(%Client{} = client, input, options \\ []) do
+
+  def get_plan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13882,12 +15180,22 @@ defmodule AWS.Glue do
 
   @doc """
   Describes the specified registry in detail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_registry_input`)
+    %{
+      required("RegistryId") => registry_id()
+    }
   """
-  @spec get_registry(AWS.Client.t(), get_registry_input(), Keyword.t()) ::
+
+  @spec get_registry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_registry_errors()}
-  def get_registry(%Client{} = client, input, options \\ []) do
+
+  def get_registry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13898,12 +15206,23 @@ defmodule AWS.Glue do
   Retrieves the resource policies set on individual resources by Resource Access
   Manager during cross-account permission grants. Also retrieves the Data
   Catalog resource policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetResourcePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_policies_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_resource_policies(AWS.Client.t(), get_resource_policies_request(), Keyword.t()) ::
+
+  @spec get_resource_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policies_errors()}
-  def get_resource_policies(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13912,12 +15231,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a specified resource policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_policy_request`)
+    %{
+      optional("ResourceArn") => String.t()
+    }
   """
-  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_request(), Keyword.t()) ::
+
+  @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-  def get_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13926,12 +15255,22 @@ defmodule AWS.Glue do
 
   @doc """
   Describes the specified schema in detail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_schema_input`)
+    %{
+      required("SchemaId") => schema_id()
+    }
   """
-  @spec get_schema(AWS.Client.t(), get_schema_input(), Keyword.t()) ::
+
+  @spec get_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_errors()}
-  def get_schema(%Client{} = client, input, options \\ []) do
+
+  def get_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13945,12 +15284,23 @@ defmodule AWS.Glue do
   supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound
   error is returned. Schema versions in `Deleted` statuses will not be included
   in the results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetSchemaByDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_schema_by_definition_input`)
+    %{
+      required("SchemaDefinition") => String.t(),
+      required("SchemaId") => schema_id()
+    }
   """
-  @spec get_schema_by_definition(AWS.Client.t(), get_schema_by_definition_input(), Keyword.t()) ::
+
+  @spec get_schema_by_definition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_schema_by_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_by_definition_errors()}
-  def get_schema_by_definition(%Client{} = client, input, options \\ []) do
+
+  def get_schema_by_definition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13961,12 +15311,24 @@ defmodule AWS.Glue do
   Get the specified schema by its unique ID assigned when a version of the schema
   is created or registered. Schema versions in Deleted status will not be
   included in the results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetSchemaVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_schema_version_input`)
+    %{
+      optional("SchemaId") => schema_id(),
+      optional("SchemaVersionId") => String.t(),
+      optional("SchemaVersionNumber") => schema_version_number()
+    }
   """
-  @spec get_schema_version(AWS.Client.t(), get_schema_version_input(), Keyword.t()) ::
+
+  @spec get_schema_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_version_errors()}
-  def get_schema_version(%Client{} = client, input, options \\ []) do
+
+  def get_schema_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13976,12 +15338,25 @@ defmodule AWS.Glue do
   @doc """
   Fetches the schema version difference in the specified difference type between
   two stored schema versions in the Schema Registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetSchemaVersionsDiff&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_schema_versions_diff_input`)
+    %{
+      required("FirstSchemaVersionNumber") => schema_version_number(),
+      required("SchemaDiffType") => list(any()),
+      required("SchemaId") => schema_id(),
+      required("SecondSchemaVersionNumber") => schema_version_number()
+    }
   """
-  @spec get_schema_versions_diff(AWS.Client.t(), get_schema_versions_diff_input(), Keyword.t()) ::
+
+  @spec get_schema_versions_diff(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_schema_versions_diff_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_schema_versions_diff_errors()}
-  def get_schema_versions_diff(%Client{} = client, input, options \\ []) do
+
+  def get_schema_versions_diff(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -13990,16 +15365,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a specified security configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetSecurityConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_security_configuration_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_security_configuration(
-          AWS.Client.t(),
-          get_security_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_security_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_configuration_errors()}
-  def get_security_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_security_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14008,16 +15389,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a list of all security configurations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetSecurityConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_security_configurations_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_security_configurations(
-          AWS.Client.t(),
-          get_security_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_security_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_security_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_security_configurations_errors()}
-  def get_security_configurations(%Client{} = client, input, options \\ []) do
+
+  def get_security_configurations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14026,12 +15414,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_session_request`)
+    %{
+      optional("RequestOrigin") => String.t(),
+      required("Id") => String.t()
+    }
   """
-  @spec get_session(AWS.Client.t(), get_session_request(), Keyword.t()) ::
+
+  @spec get_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_session_errors()}
-  def get_session(%Client{} = client, input, options \\ []) do
+
+  def get_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14040,12 +15439,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the statement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_statement_request`)
+    %{
+      optional("RequestOrigin") => String.t(),
+      required("Id") => integer(),
+      required("SessionId") => String.t()
+    }
   """
-  @spec get_statement(AWS.Client.t(), get_statement_request(), Keyword.t()) ::
+
+  @spec get_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_statement_errors()}
-  def get_statement(%Client{} = client, input, options \\ []) do
+
+  def get_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14054,12 +15465,26 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the `Table` definition in a Data Catalog for a specified table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("QueryAsOfTime") => non_neg_integer(),
+      optional("TransactionId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_table(AWS.Client.t(), get_table_request(), Keyword.t()) ::
+
+  @spec get_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_errors()}
-  def get_table(%Client{} = client, input, options \\ []) do
+
+  def get_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14068,12 +15493,25 @@ defmodule AWS.Glue do
 
   @doc """
   Returns the configuration of all optimizers associated with a specified table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTableOptimizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_table_optimizer_request`)
+    %{
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec get_table_optimizer(AWS.Client.t(), get_table_optimizer_request(), Keyword.t()) ::
+
+  @spec get_table_optimizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_optimizer_errors()}
-  def get_table_optimizer(%Client{} = client, input, options \\ []) do
+
+  def get_table_optimizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14082,12 +15520,25 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a specified version of a table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTableVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_table_version_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("VersionId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_table_version(AWS.Client.t(), get_table_version_request(), Keyword.t()) ::
+
+  @spec get_table_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_version_errors()}
-  def get_table_version(%Client{} = client, input, options \\ []) do
+
+  def get_table_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14097,12 +15548,26 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of strings that identify available versions of a specified
   table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTableVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_table_versions_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_table_versions(AWS.Client.t(), get_table_versions_request(), Keyword.t()) ::
+
+  @spec get_table_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_table_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_table_versions_errors()}
-  def get_table_versions(%Client{} = client, input, options \\ []) do
+
+  def get_table_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14111,12 +15576,28 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the definitions of some or all of the tables in a given `Database`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTables&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_tables_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("Expression") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QueryAsOfTime") => non_neg_integer(),
+      optional("TransactionId") => String.t(),
+      required("DatabaseName") => String.t()
+    }
   """
-  @spec get_tables(AWS.Client.t(), get_tables_request(), Keyword.t()) ::
+
+  @spec get_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tables_errors()}
-  def get_tables(%Client{} = client, input, options \\ []) do
+
+  def get_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14125,12 +15606,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a list of tags associated with a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_tags_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec get_tags(AWS.Client.t(), get_tags_request(), Keyword.t()) ::
+
+  @spec get_tags(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_tags_errors()}
-  def get_tags(%Client{} = client, input, options \\ []) do
+
+  def get_tags(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14139,12 +15630,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the definition of a trigger.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTrigger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_trigger_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_trigger(AWS.Client.t(), get_trigger_request(), Keyword.t()) ::
+
+  @spec get_trigger(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trigger_errors()}
-  def get_trigger(%Client{} = client, input, options \\ []) do
+
+  def get_trigger(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14153,12 +15654,24 @@ defmodule AWS.Glue do
 
   @doc """
   Gets all the triggers associated with a job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetTriggers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_triggers_request`)
+    %{
+      optional("DependentJobName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec get_triggers(AWS.Client.t(), get_triggers_request(), Keyword.t()) ::
+
+  @spec get_triggers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_triggers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_triggers_errors()}
-  def get_triggers(%Client{} = client, input, options \\ []) do
+
+  def get_triggers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14168,16 +15681,30 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partition metadata from the Data Catalog that contains unfiltered
   metadata.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetUnfilteredPartitionMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_unfiltered_partition_metadata_request`)
+    %{
+      optional("AuditContext") => audit_context(),
+      optional("QuerySessionContext") => query_session_context(),
+      optional("Region") => String.t(),
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionValues") => list(String.t()()),
+      required("SupportedPermissionTypes") => list(list(any())()),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_unfiltered_partition_metadata(
-          AWS.Client.t(),
-          get_unfiltered_partition_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_unfiltered_partition_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_unfiltered_partition_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_unfiltered_partition_metadata_errors()}
-  def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14187,16 +15714,33 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partition metadata from the Data Catalog that contains unfiltered
   metadata.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetUnfilteredPartitionsMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_unfiltered_partitions_metadata_request`)
+    %{
+      optional("AuditContext") => audit_context(),
+      optional("Expression") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QuerySessionContext") => query_session_context(),
+      optional("Region") => String.t(),
+      optional("Segment") => segment(),
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("SupportedPermissionTypes") => list(list(any())()),
+      required("TableName") => String.t()
+    }
   """
-  @spec get_unfiltered_partitions_metadata(
-          AWS.Client.t(),
-          get_unfiltered_partitions_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_unfiltered_partitions_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_unfiltered_partitions_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_unfiltered_partitions_metadata_errors()}
-  def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14206,16 +15750,33 @@ defmodule AWS.Glue do
   @doc """
   Allows a third-party analytical engine to retrieve unfiltered table metadata
   from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetUnfilteredTableMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_unfiltered_table_metadata_request`)
+    %{
+      optional("AuditContext") => audit_context(),
+      optional("ParentResourceArn") => String.t(),
+      optional("Permissions") => list(list(any())()),
+      optional("QuerySessionContext") => query_session_context(),
+      optional("Region") => String.t(),
+      optional("RootResourceArn") => String.t(),
+      optional("SupportedDialect") => supported_dialect(),
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("Name") => String.t(),
+      required("SupportedPermissionTypes") => list(list(any())())
+    }
   """
-  @spec get_unfiltered_table_metadata(
-          AWS.Client.t(),
-          get_unfiltered_table_metadata_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_unfiltered_table_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_unfiltered_table_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_unfiltered_table_metadata_errors()}
-  def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
+
+  def get_unfiltered_table_metadata(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14224,12 +15785,22 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves information about the specified Glue usage profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetUsageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_usage_profile_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec get_usage_profile(AWS.Client.t(), get_usage_profile_request(), Keyword.t()) ::
+
+  @spec get_usage_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_usage_profile_errors()}
-  def get_usage_profile(%Client{} = client, input, options \\ []) do
+
+  def get_usage_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14238,16 +15809,24 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a specified function definition from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetUserDefinedFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_user_defined_function_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("FunctionName") => String.t()
+    }
   """
-  @spec get_user_defined_function(
-          AWS.Client.t(),
-          get_user_defined_function_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_user_defined_function(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_defined_function_errors()}
-  def get_user_defined_function(%Client{} = client, input, options \\ []) do
+
+  def get_user_defined_function(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14256,16 +15835,26 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves multiple function definitions from the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetUserDefinedFunctions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_user_defined_functions_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("DatabaseName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Pattern") => String.t()
+    }
   """
-  @spec get_user_defined_functions(
-          AWS.Client.t(),
-          get_user_defined_functions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_user_defined_functions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_user_defined_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_defined_functions_errors()}
-  def get_user_defined_functions(%Client{} = client, input, options \\ []) do
+
+  def get_user_defined_functions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14274,12 +15863,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves resource metadata for a workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_workflow_request`)
+    %{
+      optional("IncludeGraph") => boolean(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_workflow(AWS.Client.t(), get_workflow_request(), Keyword.t()) ::
+
+  @spec get_workflow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-  def get_workflow(%Client{} = client, input, options \\ []) do
+
+  def get_workflow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14289,12 +15889,24 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the metadata for a given workflow run. Job run history is accessible
   for 90 days for your workflow and job run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_workflow_run_request`)
+    %{
+      optional("IncludeGraph") => boolean(),
+      required("Name") => String.t(),
+      required("RunId") => String.t()
+    }
   """
-  @spec get_workflow_run(AWS.Client.t(), get_workflow_run_request(), Keyword.t()) ::
+
+  @spec get_workflow_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_run_errors()}
-  def get_workflow_run(%Client{} = client, input, options \\ []) do
+
+  def get_workflow_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14303,16 +15915,23 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the workflow run properties which were set during the run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetWorkflowRunProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_workflow_run_properties_request`)
+    %{
+      required("Name") => String.t(),
+      required("RunId") => String.t()
+    }
   """
-  @spec get_workflow_run_properties(
-          AWS.Client.t(),
-          get_workflow_run_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_workflow_run_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_workflow_run_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_run_properties_errors()}
-  def get_workflow_run_properties(%Client{} = client, input, options \\ []) do
+
+  def get_workflow_run_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14321,12 +15940,25 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves metadata for all runs of a given workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20GetWorkflowRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_workflow_runs_request`)
+    %{
+      optional("IncludeGraph") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec get_workflow_runs(AWS.Client.t(), get_workflow_runs_request(), Keyword.t()) ::
+
+  @spec get_workflow_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_workflow_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_runs_errors()}
-  def get_workflow_runs(%Client{} = client, input, options \\ []) do
+
+  def get_workflow_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14335,12 +15967,22 @@ defmodule AWS.Glue do
 
   @doc """
   Imports an existing Amazon Athena Data Catalog to Glue.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ImportCatalogToGlue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_catalog_to_glue_request`)
+    %{
+      optional("CatalogId") => String.t()
+    }
   """
-  @spec import_catalog_to_glue(AWS.Client.t(), import_catalog_to_glue_request(), Keyword.t()) ::
+
+  @spec import_catalog_to_glue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_catalog_to_glue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_catalog_to_glue_errors()}
-  def import_catalog_to_glue(%Client{} = client, input, options \\ []) do
+
+  def import_catalog_to_glue(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14349,12 +15991,24 @@ defmodule AWS.Glue do
 
   @doc """
   Lists all the blueprint names in an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListBlueprints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_blueprints_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_blueprints(AWS.Client.t(), list_blueprints_request(), Keyword.t()) ::
+
+  @spec list_blueprints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_blueprints_errors()}
-  def list_blueprints(%Client{} = client, input, options \\ []) do
+
+  def list_blueprints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14363,16 +16017,24 @@ defmodule AWS.Glue do
 
   @doc """
   List all task runs for a particular account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListColumnStatisticsTaskRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_column_statistics_task_runs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_column_statistics_task_runs(
-          AWS.Client.t(),
-          list_column_statistics_task_runs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_column_statistics_task_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_column_statistics_task_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_column_statistics_task_runs_errors()}
-  def list_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
+
+  def list_column_statistics_task_runs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14383,12 +16045,24 @@ defmodule AWS.Glue do
   Retrieves the names of all crawler resources in this Amazon Web Services
   account, or the resources with the specified tag. This operation allows you to
   see which resources are available in your account, and their names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListCrawlers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_crawlers_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_crawlers(AWS.Client.t(), list_crawlers_request(), Keyword.t()) ::
+
+  @spec list_crawlers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_crawlers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_crawlers_errors()}
-  def list_crawlers(%Client{} = client, input, options \\ []) do
+
+  def list_crawlers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14400,12 +16074,25 @@ defmodule AWS.Glue do
   occurred since the launch date of the crawler history feature, and only
   retains up to 12 months of crawls. Older crawls will not be returned. You may
   use this API to:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListCrawls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_crawls_request`)
+    %{
+      optional("Filters") => list(crawls_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("CrawlerName") => String.t()
+    }
   """
-  @spec list_crawls(AWS.Client.t(), list_crawls_request(), Keyword.t()) ::
+
+  @spec list_crawls(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_crawls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_crawls_errors()}
-  def list_crawls(%Client{} = client, input, options \\ []) do
+
+  def list_crawls(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14414,12 +16101,24 @@ defmodule AWS.Glue do
 
   @doc """
   Lists all the custom patterns that have been created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListCustomEntityTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_custom_entity_types_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_custom_entity_types(AWS.Client.t(), list_custom_entity_types_request(), Keyword.t()) ::
+
+  @spec list_custom_entity_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_custom_entity_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_custom_entity_types_errors()}
-  def list_custom_entity_types(%Client{} = client, input, options \\ []) do
+
+  def list_custom_entity_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14428,16 +16127,24 @@ defmodule AWS.Glue do
 
   @doc """
   Returns all data quality execution results for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListDataQualityResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_quality_results_request`)
+    %{
+      optional("Filter") => data_quality_result_filter_criteria(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_data_quality_results(
-          AWS.Client.t(),
-          list_data_quality_results_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_data_quality_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_quality_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_results_errors()}
-  def list_data_quality_results(%Client{} = client, input, options \\ []) do
+
+  def list_data_quality_results(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14446,16 +16153,25 @@ defmodule AWS.Glue do
 
   @doc """
   Lists the recommendation runs meeting the filter criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListDataQualityRuleRecommendationRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_quality_rule_recommendation_runs_request`)
+    %{
+      optional("Filter") => data_quality_rule_recommendation_run_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_data_quality_rule_recommendation_runs(
-          AWS.Client.t(),
-          list_data_quality_rule_recommendation_runs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_data_quality_rule_recommendation_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_quality_rule_recommendation_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_rule_recommendation_runs_errors()}
-  def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ []) do
+
+  def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14465,16 +16181,25 @@ defmodule AWS.Glue do
   @doc """
   Lists all the runs meeting the filter criteria, where a ruleset is evaluated
   against a data source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListDataQualityRulesetEvaluationRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_quality_ruleset_evaluation_runs_request`)
+    %{
+      optional("Filter") => data_quality_ruleset_evaluation_run_filter(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_data_quality_ruleset_evaluation_runs(
-          AWS.Client.t(),
-          list_data_quality_ruleset_evaluation_runs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_data_quality_ruleset_evaluation_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_quality_ruleset_evaluation_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_ruleset_evaluation_runs_errors()}
-  def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ []) do
+
+  def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14483,16 +16208,25 @@ defmodule AWS.Glue do
 
   @doc """
   Returns a paginated list of rulesets for the specified list of Glue tables.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListDataQualityRulesets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_data_quality_rulesets_request`)
+    %{
+      optional("Filter") => data_quality_ruleset_filter_criteria(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_data_quality_rulesets(
-          AWS.Client.t(),
-          list_data_quality_rulesets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_data_quality_rulesets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_data_quality_rulesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_data_quality_rulesets_errors()}
-  def list_data_quality_rulesets(%Client{} = client, input, options \\ []) do
+
+  def list_data_quality_rulesets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14503,12 +16237,24 @@ defmodule AWS.Glue do
   Retrieves the names of all `DevEndpoint` resources in this Amazon Web Services
   account, or the resources with the specified tag. This operation allows you to
   see which resources are available in your account, and their names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListDevEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_dev_endpoints_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_dev_endpoints(AWS.Client.t(), list_dev_endpoints_request(), Keyword.t()) ::
+
+  @spec list_dev_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_dev_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dev_endpoints_errors()}
-  def list_dev_endpoints(%Client{} = client, input, options \\ []) do
+
+  def list_dev_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14519,12 +16265,24 @@ defmodule AWS.Glue do
   Retrieves the names of all job resources in this Amazon Web Services account, or
   the resources with the specified tag. This operation allows you to see which
   resources are available in your account, and their names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_jobs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_jobs(AWS.Client.t(), list_jobs_request(), Keyword.t()) ::
+
+  @spec list_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_jobs_errors()}
-  def list_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14538,12 +16296,26 @@ defmodule AWS.Glue do
   use as a filter of the responses so that tagged resources can be retrieved as
   a group. If you choose to use tag filtering, only resources with the tags are
   retrieved.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListMLTransforms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ml_transforms_request`)
+    %{
+      optional("Filter") => transform_filter_criteria(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Sort") => transform_sort_criteria(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_ml_transforms(AWS.Client.t(), list_ml_transforms_request(), Keyword.t()) ::
+
+  @spec list_ml_transforms(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ml_transforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ml_transforms_errors()}
-  def list_ml_transforms(%Client{} = client, input, options \\ []) do
+
+  def list_ml_transforms(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14554,12 +16326,23 @@ defmodule AWS.Glue do
   Returns a list of registries that you have created, with minimal registry
   information. Registries in the `Deleting` status will not be included in the
   results. Empty results will be returned if there are no registries available.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListRegistries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_registries_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_registries(AWS.Client.t(), list_registries_input(), Keyword.t()) ::
+
+  @spec list_registries(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_registries_errors()}
-  def list_registries(%Client{} = client, input, options \\ []) do
+
+  def list_registries(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14571,12 +16354,24 @@ defmodule AWS.Glue do
   information. Schema versions in Deleted status will not be included in the
   results. Empty results will be returned if there are no schema versions
   available.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListSchemaVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_schema_versions_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("SchemaId") => schema_id()
+    }
   """
-  @spec list_schema_versions(AWS.Client.t(), list_schema_versions_input(), Keyword.t()) ::
+
+  @spec list_schema_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_versions_errors()}
-  def list_schema_versions(%Client{} = client, input, options \\ []) do
+
+  def list_schema_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14587,12 +16382,24 @@ defmodule AWS.Glue do
   Returns a list of schemas with minimal details. Schemas in Deleting status will
   not be included in the results. Empty results will be returned if there are no
   schemas available.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListSchemas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_schemas_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("RegistryId") => registry_id()
+    }
   """
-  @spec list_schemas(AWS.Client.t(), list_schemas_input(), Keyword.t()) ::
+
+  @spec list_schemas(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
-  def list_schemas(%Client{} = client, input, options \\ []) do
+
+  def list_schemas(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14601,12 +16408,25 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieve a list of sessions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_sessions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("RequestOrigin") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_sessions(AWS.Client.t(), list_sessions_request(), Keyword.t()) ::
+
+  @spec list_sessions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sessions_errors()}
-  def list_sessions(%Client{} = client, input, options \\ []) do
+
+  def list_sessions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14615,12 +16435,24 @@ defmodule AWS.Glue do
 
   @doc """
   Lists statements for the session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListStatements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_statements_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("RequestOrigin") => String.t(),
+      required("SessionId") => String.t()
+    }
   """
-  @spec list_statements(AWS.Client.t(), list_statements_request(), Keyword.t()) ::
+
+  @spec list_statements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_statements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_statements_errors()}
-  def list_statements(%Client{} = client, input, options \\ []) do
+
+  def list_statements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14629,16 +16461,27 @@ defmodule AWS.Glue do
 
   @doc """
   Lists the history of previous optimizer runs for a specific table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListTableOptimizerRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_table_optimizer_runs_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec list_table_optimizer_runs(
-          AWS.Client.t(),
-          list_table_optimizer_runs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_table_optimizer_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_table_optimizer_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_table_optimizer_runs_errors()}
-  def list_table_optimizer_runs(%Client{} = client, input, options \\ []) do
+
+  def list_table_optimizer_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14649,12 +16492,25 @@ defmodule AWS.Glue do
   Retrieves the names of all trigger resources in this Amazon Web Services
   account, or the resources with the specified tag. This operation allows you to
   see which resources are available in your account, and their names.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListTriggers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_triggers_request`)
+    %{
+      optional("DependentJobName") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Tags") => map()
+    }
   """
-  @spec list_triggers(AWS.Client.t(), list_triggers_request(), Keyword.t()) ::
+
+  @spec list_triggers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_triggers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_triggers_errors()}
-  def list_triggers(%Client{} = client, input, options \\ []) do
+
+  def list_triggers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14663,12 +16519,23 @@ defmodule AWS.Glue do
 
   @doc """
   List all the Glue usage profiles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListUsageProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_usage_profiles_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_usage_profiles(AWS.Client.t(), list_usage_profiles_request(), Keyword.t()) ::
+
+  @spec list_usage_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_usage_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_usage_profiles_errors()}
-  def list_usage_profiles(%Client{} = client, input, options \\ []) do
+
+  def list_usage_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14677,12 +16544,23 @@ defmodule AWS.Glue do
 
   @doc """
   Lists names of workflows created in the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_workflows_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_workflows(AWS.Client.t(), list_workflows_request(), Keyword.t()) ::
+
+  @spec list_workflows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-  def list_workflows(%Client{} = client, input, options \\ []) do
+
+  def list_workflows(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14693,16 +16571,24 @@ defmodule AWS.Glue do
   Sets the security configuration for a specified catalog. After the configuration
   has been set, the specified encryption is applied to every catalog write
   thereafter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20PutDataCatalogEncryptionSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_data_catalog_encryption_settings_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DataCatalogEncryptionSettings") => data_catalog_encryption_settings()
+    }
   """
-  @spec put_data_catalog_encryption_settings(
-          AWS.Client.t(),
-          put_data_catalog_encryption_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_data_catalog_encryption_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_data_catalog_encryption_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_data_catalog_encryption_settings_errors()}
-  def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
+
+  def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14711,12 +16597,26 @@ defmodule AWS.Glue do
 
   @doc """
   Sets the Data Catalog resource policy for access control.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_policy_request`)
+    %{
+      optional("EnableHybrid") => list(any()),
+      optional("PolicyExistsCondition") => list(any()),
+      optional("PolicyHashCondition") => String.t(),
+      optional("ResourceArn") => String.t(),
+      required("PolicyInJson") => String.t()
+    }
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14727,16 +16627,25 @@ defmodule AWS.Glue do
   Puts the metadata key value pair for a specified schema version ID. A maximum of
   10 key value pairs will be allowed per schema version. They can be added over
   one or more calls.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20PutSchemaVersionMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_schema_version_metadata_input`)
+    %{
+      optional("SchemaId") => schema_id(),
+      optional("SchemaVersionId") => String.t(),
+      optional("SchemaVersionNumber") => schema_version_number(),
+      required("MetadataKeyValue") => metadata_key_value_pair()
+    }
   """
-  @spec put_schema_version_metadata(
-          AWS.Client.t(),
-          put_schema_version_metadata_input(),
-          Keyword.t()
-        ) ::
+
+  @spec put_schema_version_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_schema_version_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_schema_version_metadata_errors()}
-  def put_schema_version_metadata(%Client{} = client, input, options \\ []) do
+
+  def put_schema_version_metadata(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14747,16 +16656,24 @@ defmodule AWS.Glue do
   Puts the specified workflow run properties for the given workflow run. If a
   property already exists for the specified run, then it overrides the value
   otherwise adds the property to existing properties.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20PutWorkflowRunProperties&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_workflow_run_properties_request`)
+    %{
+      required("Name") => String.t(),
+      required("RunId") => String.t(),
+      required("RunProperties") => map()
+    }
   """
-  @spec put_workflow_run_properties(
-          AWS.Client.t(),
-          put_workflow_run_properties_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_workflow_run_properties(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_workflow_run_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_workflow_run_properties_errors()}
-  def put_workflow_run_properties(%Client{} = client, input, options \\ []) do
+
+  def put_workflow_run_properties(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14765,16 +16682,28 @@ defmodule AWS.Glue do
 
   @doc """
   Queries for the schema version metadata information.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20QuerySchemaVersionMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:query_schema_version_metadata_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("MetadataList") => list(metadata_key_value_pair()()),
+      optional("NextToken") => String.t(),
+      optional("SchemaId") => schema_id(),
+      optional("SchemaVersionId") => String.t(),
+      optional("SchemaVersionNumber") => schema_version_number()
+    }
   """
-  @spec query_schema_version_metadata(
-          AWS.Client.t(),
-          query_schema_version_metadata_input(),
-          Keyword.t()
-        ) ::
+
+  @spec query_schema_version_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_schema_version_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_schema_version_metadata_errors()}
-  def query_schema_version_metadata(%Client{} = client, input, options \\ []) do
+
+  def query_schema_version_metadata(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14791,12 +16720,23 @@ defmodule AWS.Glue do
   to run longer than other operations due to compatibility modes. You can call
   the `GetSchemaVersion` API with the `SchemaVersionId` to check compatibility
   modes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20RegisterSchemaVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_schema_version_input`)
+    %{
+      required("SchemaDefinition") => String.t(),
+      required("SchemaId") => schema_id()
+    }
   """
-  @spec register_schema_version(AWS.Client.t(), register_schema_version_input(), Keyword.t()) ::
+
+  @spec register_schema_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_schema_version_errors()}
-  def register_schema_version(%Client{} = client, input, options \\ []) do
+
+  def register_schema_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14806,16 +16746,26 @@ defmodule AWS.Glue do
   @doc """
   Removes a key value pair from the schema version metadata for the specified
   schema version ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20RemoveSchemaVersionMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_schema_version_metadata_input`)
+    %{
+      optional("SchemaId") => schema_id(),
+      optional("SchemaVersionId") => String.t(),
+      optional("SchemaVersionNumber") => schema_version_number(),
+      required("MetadataKeyValue") => metadata_key_value_pair()
+    }
   """
-  @spec remove_schema_version_metadata(
-          AWS.Client.t(),
-          remove_schema_version_metadata_input(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_schema_version_metadata(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_schema_version_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_schema_version_metadata_errors()}
-  def remove_schema_version_metadata(%Client{} = client, input, options \\ []) do
+
+  def remove_schema_version_metadata(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14825,12 +16775,23 @@ defmodule AWS.Glue do
   @doc """
   Resets a bookmark entry. For more information about enabling and using job
   bookmarks, see:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ResetJobBookmark&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reset_job_bookmark_request`)
+    %{
+      optional("RunId") => String.t(),
+      required("JobName") => String.t()
+    }
   """
-  @spec reset_job_bookmark(AWS.Client.t(), reset_job_bookmark_request(), Keyword.t()) ::
+
+  @spec reset_job_bookmark(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reset_job_bookmark_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_job_bookmark_errors()}
-  def reset_job_bookmark(%Client{} = client, input, options \\ []) do
+
+  def reset_job_bookmark(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14841,12 +16802,24 @@ defmodule AWS.Glue do
   Restarts selected nodes of a previous partially completed workflow run and
   resumes the workflow run. The selected nodes and all nodes that are downstream
   from the selected nodes are run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20ResumeWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:resume_workflow_run_request`)
+    %{
+      required("Name") => String.t(),
+      required("NodeIds") => list(String.t()()),
+      required("RunId") => String.t()
+    }
   """
-  @spec resume_workflow_run(AWS.Client.t(), resume_workflow_run_request(), Keyword.t()) ::
+
+  @spec resume_workflow_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, resume_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, resume_workflow_run_errors()}
-  def resume_workflow_run(%Client{} = client, input, options \\ []) do
+
+  def resume_workflow_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14855,12 +16828,24 @@ defmodule AWS.Glue do
 
   @doc """
   Executes the statement.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20RunStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:run_statement_request`)
+    %{
+      optional("RequestOrigin") => String.t(),
+      required("Code") => String.t(),
+      required("SessionId") => String.t()
+    }
   """
-  @spec run_statement(AWS.Client.t(), run_statement_request(), Keyword.t()) ::
+
+  @spec run_statement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, run_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, run_statement_errors()}
-  def run_statement(%Client{} = client, input, options \\ []) do
+
+  def run_statement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14870,12 +16855,28 @@ defmodule AWS.Glue do
   @doc """
   Searches a set of tables based on properties in the table metadata as well as on
   the parent database. You can search against text or filter conditions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20SearchTables&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:search_tables_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("Filters") => list(property_predicate()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceShareType") => list(any()),
+      optional("SearchText") => String.t(),
+      optional("SortCriteria") => list(sort_criterion()())
+    }
   """
-  @spec search_tables(AWS.Client.t(), search_tables_request(), Keyword.t()) ::
+
+  @spec search_tables(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, search_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_tables_errors()}
-  def search_tables(%Client{} = client, input, options \\ []) do
+
+  def search_tables(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14884,12 +16885,24 @@ defmodule AWS.Glue do
 
   @doc """
   Starts a new run of the specified blueprint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartBlueprintRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_blueprint_run_request`)
+    %{
+      optional("Parameters") => String.t(),
+      required("BlueprintName") => String.t(),
+      required("RoleArn") => String.t()
+    }
   """
-  @spec start_blueprint_run(AWS.Client.t(), start_blueprint_run_request(), Keyword.t()) ::
+
+  @spec start_blueprint_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_blueprint_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_blueprint_run_errors()}
-  def start_blueprint_run(%Client{} = client, input, options \\ []) do
+
+  def start_blueprint_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14898,16 +16911,29 @@ defmodule AWS.Glue do
 
   @doc """
   Starts a column statistics task run, for a specified table and columns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartColumnStatisticsTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_column_statistics_task_run_request`)
+    %{
+      optional("CatalogID") => String.t(),
+      optional("ColumnNameList") => list(String.t()()),
+      optional("SampleSize") => float(),
+      optional("SecurityConfiguration") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("Role") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec start_column_statistics_task_run(
-          AWS.Client.t(),
-          start_column_statistics_task_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_column_statistics_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_column_statistics_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_column_statistics_task_run_errors()}
-  def start_column_statistics_task_run(%Client{} = client, input, options \\ []) do
+
+  def start_column_statistics_task_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14918,12 +16944,22 @@ defmodule AWS.Glue do
   Starts a crawl using the specified crawler, regardless of what is scheduled. If
   the crawler is already running, returns a
   [CrawlerRunningException](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartCrawler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_crawler_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec start_crawler(AWS.Client.t(), start_crawler_request(), Keyword.t()) ::
+
+  @spec start_crawler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_crawler_errors()}
-  def start_crawler(%Client{} = client, input, options \\ []) do
+
+  def start_crawler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14933,12 +16969,22 @@ defmodule AWS.Glue do
   @doc """
   Changes the schedule state of the specified crawler to `SCHEDULED`, unless the
   crawler is already running or the schedule state is already `SCHEDULED`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartCrawlerSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_crawler_schedule_request`)
+    %{
+      required("CrawlerName") => String.t()
+    }
   """
-  @spec start_crawler_schedule(AWS.Client.t(), start_crawler_schedule_request(), Keyword.t()) ::
+
+  @spec start_crawler_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_crawler_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_crawler_schedule_errors()}
-  def start_crawler_schedule(%Client{} = client, input, options \\ []) do
+
+  def start_crawler_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -14950,16 +16996,28 @@ defmodule AWS.Glue do
   what rules to write. Glue Data Quality analyzes the data and comes up with
   recommendations for a potential ruleset. You can then triage the ruleset and
   modify the generated ruleset to your liking.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartDataQualityRuleRecommendationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_data_quality_rule_recommendation_run_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("CreatedRulesetName") => String.t(),
+      optional("NumberOfWorkers") => integer(),
+      optional("Timeout") => integer(),
+      required("DataSource") => data_source(),
+      required("Role") => String.t()
+    }
   """
-  @spec start_data_quality_rule_recommendation_run(
-          AWS.Client.t(),
-          start_data_quality_rule_recommendation_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_data_quality_rule_recommendation_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_data_quality_rule_recommendation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_quality_rule_recommendation_run_errors()}
-  def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
+
+  def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14971,16 +17029,30 @@ defmodule AWS.Glue do
   this operation to evaluate the ruleset against a data source (Glue table). The
   evaluation computes results which you can retrieve with the
   `GetDataQualityResult` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartDataQualityRulesetEvaluationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_data_quality_ruleset_evaluation_run_request`)
+    %{
+      optional("AdditionalDataSources") => map(),
+      optional("AdditionalRunOptions") => data_quality_evaluation_run_additional_run_options(),
+      optional("ClientToken") => String.t(),
+      optional("NumberOfWorkers") => integer(),
+      optional("Timeout") => integer(),
+      required("DataSource") => data_source(),
+      required("Role") => String.t(),
+      required("RulesetNames") => list(String.t()())
+    }
   """
-  @spec start_data_quality_ruleset_evaluation_run(
-          AWS.Client.t(),
-          start_data_quality_ruleset_evaluation_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_data_quality_ruleset_evaluation_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_data_quality_ruleset_evaluation_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_data_quality_ruleset_evaluation_run_errors()}
-  def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
+
+  def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -14998,16 +17070,23 @@ defmodule AWS.Glue do
   Service (Amazon S3) path to export the labels to. The operation returns a
   `TaskRunId`. You can check on the status of your task run by calling the
   `GetMLTaskRun` API.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartExportLabelsTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_export_labels_task_run_request`)
+    %{
+      required("OutputS3Path") => String.t(),
+      required("TransformId") => String.t()
+    }
   """
-  @spec start_export_labels_task_run(
-          AWS.Client.t(),
-          start_export_labels_task_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_export_labels_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_export_labels_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_export_labels_task_run_errors()}
-  def start_export_labels_task_run(%Client{} = client, input, options \\ []) do
+
+  def start_export_labels_task_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15030,16 +17109,24 @@ defmodule AWS.Glue do
   `StartImportLabelsTaskRun` finishes, all future runs of the machine learning
   transform use the new and improved labels and perform a higher-quality
   transformation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartImportLabelsTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_import_labels_task_run_request`)
+    %{
+      optional("ReplaceAllLabels") => boolean(),
+      required("InputS3Path") => String.t(),
+      required("TransformId") => String.t()
+    }
   """
-  @spec start_import_labels_task_run(
-          AWS.Client.t(),
-          start_import_labels_task_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_import_labels_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_import_labels_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_labels_task_run_errors()}
-  def start_import_labels_task_run(%Client{} = client, input, options \\ []) do
+
+  def start_import_labels_task_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15048,12 +17135,32 @@ defmodule AWS.Glue do
 
   @doc """
   Starts a job run using a job definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_job_run_request`)
+    %{
+      optional("AllocatedCapacity") => integer(),
+      optional("Arguments") => map(),
+      optional("ExecutionClass") => list(any()),
+      optional("JobRunId") => String.t(),
+      optional("MaxCapacity") => float(),
+      optional("NotificationProperty") => notification_property(),
+      optional("NumberOfWorkers") => integer(),
+      optional("SecurityConfiguration") => String.t(),
+      optional("Timeout") => integer(),
+      optional("WorkerType") => list(any()),
+      required("JobName") => String.t()
+    }
   """
-  @spec start_job_run(AWS.Client.t(), start_job_run_request(), Keyword.t()) ::
+
+  @spec start_job_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_job_run_errors()}
-  def start_job_run(%Client{} = client, input, options \\ []) do
+
+  def start_job_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15065,16 +17172,22 @@ defmodule AWS.Glue do
   sets as examples of truth, Glue machine learning uses some of those examples
   to learn from them. The rest of the labels are used as a test to estimate
   quality.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartMLEvaluationTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_ml_evaluation_task_run_request`)
+    %{
+      required("TransformId") => String.t()
+    }
   """
-  @spec start_ml_evaluation_task_run(
-          AWS.Client.t(),
-          start_ml_evaluation_task_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_ml_evaluation_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_ml_evaluation_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_evaluation_task_run_errors()}
-  def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) do
+
+  def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15086,16 +17199,24 @@ defmodule AWS.Glue do
   improve the transform's quality by generating label sets and adding labels.
   When the `StartMLLabelingSetGenerationTaskRun` finishes, Glue will have
   generated a "labeling set" or a set of questions for humans to answer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartMLLabelingSetGenerationTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_ml_labeling_set_generation_task_run_request`)
+    %{
+      required("OutputS3Path") => String.t(),
+      required("TransformId") => String.t()
+    }
   """
-  @spec start_ml_labeling_set_generation_task_run(
-          AWS.Client.t(),
-          start_ml_labeling_set_generation_task_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_ml_labeling_set_generation_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_ml_labeling_set_generation_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_ml_labeling_set_generation_task_run_errors()}
-  def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
+
+  def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -15106,12 +17227,22 @@ defmodule AWS.Glue do
   Starts an existing trigger. See [Triggering
   Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for
   information about how different types of trigger are started.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartTrigger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_trigger_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec start_trigger(AWS.Client.t(), start_trigger_request(), Keyword.t()) ::
+
+  @spec start_trigger(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_trigger_errors()}
-  def start_trigger(%Client{} = client, input, options \\ []) do
+
+  def start_trigger(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15120,12 +17251,23 @@ defmodule AWS.Glue do
 
   @doc """
   Starts a new run of the specified workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StartWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_workflow_run_request`)
+    %{
+      optional("RunProperties") => map(),
+      required("Name") => String.t()
+    }
   """
-  @spec start_workflow_run(AWS.Client.t(), start_workflow_run_request(), Keyword.t()) ::
+
+  @spec start_workflow_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_workflow_run_errors()}
-  def start_workflow_run(%Client{} = client, input, options \\ []) do
+
+  def start_workflow_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15134,16 +17276,24 @@ defmodule AWS.Glue do
 
   @doc """
   Stops a task run for the specified table.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StopColumnStatisticsTaskRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_column_statistics_task_run_request`)
+    %{
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec stop_column_statistics_task_run(
-          AWS.Client.t(),
-          stop_column_statistics_task_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_column_statistics_task_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_column_statistics_task_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_column_statistics_task_run_errors()}
-  def stop_column_statistics_task_run(%Client{} = client, input, options \\ []) do
+
+  def stop_column_statistics_task_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -15152,12 +17302,22 @@ defmodule AWS.Glue do
 
   @doc """
   If the specified crawler is running, stops the crawl.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StopCrawler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_crawler_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec stop_crawler(AWS.Client.t(), stop_crawler_request(), Keyword.t()) ::
+
+  @spec stop_crawler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_crawler_errors()}
-  def stop_crawler(%Client{} = client, input, options \\ []) do
+
+  def stop_crawler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15167,12 +17327,22 @@ defmodule AWS.Glue do
   @doc """
   Sets the schedule state of the specified crawler to `NOT_SCHEDULED`, but does
   not stop the crawler if it is already running.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StopCrawlerSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_crawler_schedule_request`)
+    %{
+      required("CrawlerName") => String.t()
+    }
   """
-  @spec stop_crawler_schedule(AWS.Client.t(), stop_crawler_schedule_request(), Keyword.t()) ::
+
+  @spec stop_crawler_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_crawler_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_crawler_schedule_errors()}
-  def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
+
+  def stop_crawler_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15181,12 +17351,23 @@ defmodule AWS.Glue do
 
   @doc """
   Stops the session.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StopSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_session_request`)
+    %{
+      optional("RequestOrigin") => String.t(),
+      required("Id") => String.t()
+    }
   """
-  @spec stop_session(AWS.Client.t(), stop_session_request(), Keyword.t()) ::
+
+  @spec stop_session(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_session_errors()}
-  def stop_session(%Client{} = client, input, options \\ []) do
+
+  def stop_session(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15195,12 +17376,22 @@ defmodule AWS.Glue do
 
   @doc """
   Stops a specified trigger.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StopTrigger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_trigger_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec stop_trigger(AWS.Client.t(), stop_trigger_request(), Keyword.t()) ::
+
+  @spec stop_trigger(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_trigger_errors()}
-  def stop_trigger(%Client{} = client, input, options \\ []) do
+
+  def stop_trigger(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15209,12 +17400,23 @@ defmodule AWS.Glue do
 
   @doc """
   Stops the execution of the specified workflow run.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20StopWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_workflow_run_request`)
+    %{
+      required("Name") => String.t(),
+      required("RunId") => String.t()
+    }
   """
-  @spec stop_workflow_run(AWS.Client.t(), stop_workflow_run_request(), Keyword.t()) ::
+
+  @spec stop_workflow_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_workflow_run_errors()}
-  def stop_workflow_run(%Client{} = client, input, options \\ []) do
+
+  def stop_workflow_run(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15226,12 +17428,23 @@ defmodule AWS.Glue do
   Services resource. In Glue, you can tag only certain resources. For
   information about what resources you can tag, see [Amazon Web Services Tags in
   Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagsToAdd") => map()
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15240,12 +17453,23 @@ defmodule AWS.Glue do
 
   @doc """
   Removes tags from a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagsToRemove") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15254,12 +17478,24 @@ defmodule AWS.Glue do
 
   @doc """
   Updates a registered blueprint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_blueprint_request`)
+    %{
+      optional("Description") => String.t(),
+      required("BlueprintLocation") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_blueprint(AWS.Client.t(), update_blueprint_request(), Keyword.t()) ::
+
+  @spec update_blueprint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_blueprint_errors()}
-  def update_blueprint(%Client{} = client, input, options \\ []) do
+
+  def update_blueprint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15269,12 +17505,25 @@ defmodule AWS.Glue do
   @doc """
   Modifies an existing classifier (a `GrokClassifier`, an `XMLClassifier`, a
   `JsonClassifier`, or a `CsvClassifier`, depending on which field is present).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateClassifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_classifier_request`)
+    %{
+      optional("CsvClassifier") => update_csv_classifier_request(),
+      optional("GrokClassifier") => update_grok_classifier_request(),
+      optional("JsonClassifier") => update_json_classifier_request(),
+      optional("XMLClassifier") => update_x_ml_classifier_request()
+    }
   """
-  @spec update_classifier(AWS.Client.t(), update_classifier_request(), Keyword.t()) ::
+
+  @spec update_classifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_classifier_errors()}
-  def update_classifier(%Client{} = client, input, options \\ []) do
+
+  def update_classifier(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15283,16 +17532,27 @@ defmodule AWS.Glue do
 
   @doc """
   Creates or updates partition statistics of columns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateColumnStatisticsForPartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_column_statistics_for_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ColumnStatisticsList") => list(column_statistics()()),
+      required("DatabaseName") => String.t(),
+      required("PartitionValues") => list(String.t()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec update_column_statistics_for_partition(
-          AWS.Client.t(),
-          update_column_statistics_for_partition_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_column_statistics_for_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_column_statistics_for_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_column_statistics_for_partition_errors()}
-  def update_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
+
+  def update_column_statistics_for_partition(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -15301,16 +17561,26 @@ defmodule AWS.Glue do
 
   @doc """
   Creates or updates table statistics of columns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateColumnStatisticsForTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_column_statistics_for_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ColumnStatisticsList") => list(column_statistics()()),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t()
+    }
   """
-  @spec update_column_statistics_for_table(
-          AWS.Client.t(),
-          update_column_statistics_for_table_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_column_statistics_for_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_column_statistics_for_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_column_statistics_for_table_errors()}
-  def update_column_statistics_for_table(%Client{} = client, input, options \\ []) do
+
+  def update_column_statistics_for_table(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -15319,12 +17589,24 @@ defmodule AWS.Glue do
 
   @doc """
   Updates a connection definition in the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_connection_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("ConnectionInput") => connection_input(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_connection(AWS.Client.t(), update_connection_request(), Keyword.t()) ::
+
+  @spec update_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_errors()}
-  def update_connection(%Client{} = client, input, options \\ []) do
+
+  def update_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15334,12 +17616,35 @@ defmodule AWS.Glue do
   @doc """
   Updates a crawler. If a crawler is running, you must stop it using `StopCrawler`
   before updating it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateCrawler&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_crawler_request`)
+    %{
+      optional("Classifiers") => list(String.t()()),
+      optional("Configuration") => String.t(),
+      optional("CrawlerSecurityConfiguration") => String.t(),
+      optional("DatabaseName") => String.t(),
+      optional("Description") => String.t(),
+      optional("LakeFormationConfiguration") => lake_formation_configuration(),
+      optional("LineageConfiguration") => lineage_configuration(),
+      optional("RecrawlPolicy") => recrawl_policy(),
+      optional("Role") => String.t(),
+      optional("Schedule") => String.t(),
+      optional("SchemaChangePolicy") => schema_change_policy(),
+      optional("TablePrefix") => String.t(),
+      optional("Targets") => crawler_targets(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_crawler(AWS.Client.t(), update_crawler_request(), Keyword.t()) ::
+
+  @spec update_crawler(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_crawler_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_crawler_errors()}
-  def update_crawler(%Client{} = client, input, options \\ []) do
+
+  def update_crawler(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15348,12 +17653,23 @@ defmodule AWS.Glue do
 
   @doc """
   Updates the schedule of a crawler using a `cron` expression.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateCrawlerSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_crawler_schedule_request`)
+    %{
+      optional("Schedule") => String.t(),
+      required("CrawlerName") => String.t()
+    }
   """
-  @spec update_crawler_schedule(AWS.Client.t(), update_crawler_schedule_request(), Keyword.t()) ::
+
+  @spec update_crawler_schedule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_crawler_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_crawler_schedule_errors()}
-  def update_crawler_schedule(%Client{} = client, input, options \\ []) do
+
+  def update_crawler_schedule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15362,16 +17678,24 @@ defmodule AWS.Glue do
 
   @doc """
   Updates the specified data quality ruleset.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateDataQualityRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_data_quality_ruleset_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Ruleset") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_data_quality_ruleset(
-          AWS.Client.t(),
-          update_data_quality_ruleset_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_data_quality_ruleset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_data_quality_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_data_quality_ruleset_errors()}
-  def update_data_quality_ruleset(%Client{} = client, input, options \\ []) do
+
+  def update_data_quality_ruleset(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15380,12 +17704,24 @@ defmodule AWS.Glue do
 
   @doc """
   Updates an existing database definition in a Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_database_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseInput") => database_input(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_database(AWS.Client.t(), update_database_request(), Keyword.t()) ::
+
+  @spec update_database(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_database_errors()}
-  def update_database(%Client{} = client, input, options \\ []) do
+
+  def update_database(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15394,12 +17730,29 @@ defmodule AWS.Glue do
 
   @doc """
   Updates a specified development endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateDevEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_dev_endpoint_request`)
+    %{
+      optional("AddArguments") => map(),
+      optional("AddPublicKeys") => list(String.t()()),
+      optional("CustomLibraries") => dev_endpoint_custom_libraries(),
+      optional("DeleteArguments") => list(String.t()()),
+      optional("DeletePublicKeys") => list(String.t()()),
+      optional("PublicKey") => String.t(),
+      optional("UpdateEtlLibraries") => boolean(),
+      required("EndpointName") => String.t()
+    }
   """
-  @spec update_dev_endpoint(AWS.Client.t(), update_dev_endpoint_request(), Keyword.t()) ::
+
+  @spec update_dev_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_dev_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_dev_endpoint_errors()}
-  def update_dev_endpoint(%Client{} = client, input, options \\ []) do
+
+  def update_dev_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15409,12 +17762,23 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing job definition. The previous job definition is completely
   overwritten by this information.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_job_request`)
+    %{
+      required("JobName") => String.t(),
+      required("JobUpdate") => job_update()
+    }
   """
-  @spec update_job(AWS.Client.t(), update_job_request(), Keyword.t()) ::
+
+  @spec update_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_errors()}
-  def update_job(%Client{} = client, input, options \\ []) do
+
+  def update_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15425,16 +17789,31 @@ defmodule AWS.Glue do
   Synchronizes a job from the source control repository. This operation takes the
   job artifacts that are located in the remote repository and updates the Glue
   internal stores with these artifacts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateJobFromSourceControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_job_from_source_control_request`)
+    %{
+      optional("AuthStrategy") => list(any()),
+      optional("AuthToken") => String.t(),
+      optional("BranchName") => String.t(),
+      optional("CommitId") => String.t(),
+      optional("Folder") => String.t(),
+      optional("JobName") => String.t(),
+      optional("Provider") => list(any()),
+      optional("RepositoryName") => String.t(),
+      optional("RepositoryOwner") => String.t()
+    }
   """
-  @spec update_job_from_source_control(
-          AWS.Client.t(),
-          update_job_from_source_control_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_job_from_source_control(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_job_from_source_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_from_source_control_errors()}
-  def update_job_from_source_control(%Client{} = client, input, options \\ []) do
+
+  def update_job_from_source_control(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -15444,12 +17823,32 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing machine learning transform. Call this operation to tune the
   algorithm parameters to achieve better results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateMLTransform&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_ml_transform_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("GlueVersion") => String.t(),
+      optional("MaxCapacity") => float(),
+      optional("MaxRetries") => integer(),
+      optional("Name") => String.t(),
+      optional("NumberOfWorkers") => integer(),
+      optional("Parameters") => transform_parameters(),
+      optional("Role") => String.t(),
+      optional("Timeout") => integer(),
+      optional("WorkerType") => list(any()),
+      required("TransformId") => String.t()
+    }
   """
-  @spec update_ml_transform(AWS.Client.t(), update_ml_transform_request(), Keyword.t()) ::
+
+  @spec update_ml_transform(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ml_transform_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ml_transform_errors()}
-  def update_ml_transform(%Client{} = client, input, options \\ []) do
+
+  def update_ml_transform(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15458,12 +17857,26 @@ defmodule AWS.Glue do
 
   @doc """
   Updates a partition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdatePartition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_partition_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("PartitionInput") => partition_input(),
+      required("PartitionValueList") => list(String.t()()),
+      required("TableName") => String.t()
+    }
   """
-  @spec update_partition(AWS.Client.t(), update_partition_request(), Keyword.t()) ::
+
+  @spec update_partition(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_partition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_partition_errors()}
-  def update_partition(%Client{} = client, input, options \\ []) do
+
+  def update_partition(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15474,12 +17887,23 @@ defmodule AWS.Glue do
   Updates an existing registry which is used to hold a collection of schemas. The
   updated properties relate to the registry, and do not modify any of the
   schemas within the registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_registry_input`)
+    %{
+      required("Description") => String.t(),
+      required("RegistryId") => registry_id()
+    }
   """
-  @spec update_registry(AWS.Client.t(), update_registry_input(), Keyword.t()) ::
+
+  @spec update_registry(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_registry_errors()}
-  def update_registry(%Client{} = client, input, options \\ []) do
+
+  def update_registry(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15493,12 +17917,25 @@ defmodule AWS.Glue do
   setting. If the value for `Compatibility` is provided, the `VersionNumber` (a
   checkpoint) is also required. The API will validate the checkpoint version
   number for consistency.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_schema_input`)
+    %{
+      optional("Compatibility") => list(any()),
+      optional("Description") => String.t(),
+      optional("SchemaVersionNumber") => schema_version_number(),
+      required("SchemaId") => schema_id()
+    }
   """
-  @spec update_schema(AWS.Client.t(), update_schema_input(), Keyword.t()) ::
+
+  @spec update_schema(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_errors()}
-  def update_schema(%Client{} = client, input, options \\ []) do
+
+  def update_schema(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15509,16 +17946,31 @@ defmodule AWS.Glue do
   Synchronizes a job to the source control repository. This operation takes the
   job artifacts from the Glue internal stores and makes a commit to the remote
   repository that is configured on the job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateSourceControlFromJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_source_control_from_job_request`)
+    %{
+      optional("AuthStrategy") => list(any()),
+      optional("AuthToken") => String.t(),
+      optional("BranchName") => String.t(),
+      optional("CommitId") => String.t(),
+      optional("Folder") => String.t(),
+      optional("JobName") => String.t(),
+      optional("Provider") => list(any()),
+      optional("RepositoryName") => String.t(),
+      optional("RepositoryOwner") => String.t()
+    }
   """
-  @spec update_source_control_from_job(
-          AWS.Client.t(),
-          update_source_control_from_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_source_control_from_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_source_control_from_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_source_control_from_job_errors()}
-  def update_source_control_from_job(%Client{} = client, input, options \\ []) do
+
+  def update_source_control_from_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -15527,12 +17979,29 @@ defmodule AWS.Glue do
 
   @doc """
   Updates a metadata table in the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateTable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_table_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      optional("Force") => boolean(),
+      optional("SkipArchive") => boolean(),
+      optional("TransactionId") => String.t(),
+      optional("VersionId") => String.t(),
+      optional("ViewUpdateAction") => list(any()),
+      required("DatabaseName") => String.t(),
+      required("TableInput") => table_input()
+    }
   """
-  @spec update_table(AWS.Client.t(), update_table_request(), Keyword.t()) ::
+
+  @spec update_table(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_errors()}
-  def update_table(%Client{} = client, input, options \\ []) do
+
+  def update_table(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15541,12 +18010,26 @@ defmodule AWS.Glue do
 
   @doc """
   Updates the configuration for an existing table optimizer.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateTableOptimizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_table_optimizer_request`)
+    %{
+      required("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("TableName") => String.t(),
+      required("TableOptimizerConfiguration") => table_optimizer_configuration(),
+      required("Type") => list(any())
+    }
   """
-  @spec update_table_optimizer(AWS.Client.t(), update_table_optimizer_request(), Keyword.t()) ::
+
+  @spec update_table_optimizer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_table_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_table_optimizer_errors()}
-  def update_table_optimizer(%Client{} = client, input, options \\ []) do
+
+  def update_table_optimizer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15555,12 +18038,23 @@ defmodule AWS.Glue do
 
   @doc """
   Updates a trigger definition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateTrigger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_trigger_request`)
+    %{
+      required("Name") => String.t(),
+      required("TriggerUpdate") => trigger_update()
+    }
   """
-  @spec update_trigger(AWS.Client.t(), update_trigger_request(), Keyword.t()) ::
+
+  @spec update_trigger(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trigger_errors()}
-  def update_trigger(%Client{} = client, input, options \\ []) do
+
+  def update_trigger(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15569,12 +18063,24 @@ defmodule AWS.Glue do
 
   @doc """
   Update an Glue usage profile.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateUsageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_usage_profile_request`)
+    %{
+      optional("Description") => String.t(),
+      required("Configuration") => profile_configuration(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_usage_profile(AWS.Client.t(), update_usage_profile_request(), Keyword.t()) ::
+
+  @spec update_usage_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_usage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_usage_profile_errors()}
-  def update_usage_profile(%Client{} = client, input, options \\ []) do
+
+  def update_usage_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15583,16 +18089,25 @@ defmodule AWS.Glue do
 
   @doc """
   Updates an existing function definition in the Data Catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateUserDefinedFunction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_user_defined_function_request`)
+    %{
+      optional("CatalogId") => String.t(),
+      required("DatabaseName") => String.t(),
+      required("FunctionInput") => user_defined_function_input(),
+      required("FunctionName") => String.t()
+    }
   """
-  @spec update_user_defined_function(
-          AWS.Client.t(),
-          update_user_defined_function_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_defined_function(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_defined_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_defined_function_errors()}
-  def update_user_defined_function(%Client{} = client, input, options \\ []) do
+
+  def update_user_defined_function(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -15601,12 +18116,25 @@ defmodule AWS.Glue do
 
   @doc """
   Updates an existing workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=glue%20UpdateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_workflow_request`)
+    %{
+      optional("DefaultRunProperties") => map(),
+      optional("Description") => String.t(),
+      optional("MaxConcurrentRuns") => integer(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_workflow(AWS.Client.t(), update_workflow_request(), Keyword.t()) ::
+
+  @spec update_workflow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workflow_errors()}
-  def update_workflow(%Client{} = client, input, options \\ []) do
+
+  def update_workflow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

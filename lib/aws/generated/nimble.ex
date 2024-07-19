@@ -14,54 +14,54 @@ defmodule AWS.Nimble do
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_profile_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_launch_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_image_request() :: %{}
-
+      
   """
   @type get_streaming_image_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_studio_members_request() :: %{
         optional("clientToken") => String.t(),
         required("identityStoreId") => String.t(),
         required("members") => list(new_studio_member()())
       }
-
+      
   """
   @type put_studio_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       studio_component_initialization_script() :: %{
         "launchProfileProtocolVersion" => String.t(),
         "platform" => list(any()),
         "runContext" => list(any()),
         "script" => String.t()
       }
-
+      
   """
   @type studio_component_initialization_script() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_profile_initialization() :: %{
         "activeDirectory" => launch_profile_initialization_active_directory(),
         "ec2SecurityGroupIds" => list(String.t()()),
@@ -73,51 +73,51 @@ defmodule AWS.Nimble do
         "systemInitializationScripts" => list(launch_profile_initialization_script()()),
         "userInitializationScripts" => list(launch_profile_initialization_script()())
       }
-
+      
   """
   @type launch_profile_initialization() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_sessions_response() :: %{
         "nextToken" => String.t(),
         "sessions" => list(streaming_session()())
       }
-
+      
   """
   @type list_streaming_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_profile_membership() :: %{
         "identityStoreId" => String.t(),
         "persona" => list(any()),
         "principalId" => String.t(),
         "sid" => String.t()
       }
-
+      
   """
   @type launch_profile_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_studio_component_request() :: %{
         optional("clientToken") => String.t(),
         optional("configuration") => list(),
@@ -132,50 +132,50 @@ defmodule AWS.Nimble do
         required("name") => String.t(),
         required("type") => list(any())
       }
-
+      
   """
   @type create_studio_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_profile_member_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_launch_profile_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_streaming_image_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("name") => String.t()
       }
-
+      
   """
   @type update_streaming_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_eulas_response() :: %{
         "eulas" => list(eula()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_eulas_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eula_acceptance() :: %{
         "acceptedAt" => non_neg_integer(),
         "acceptedBy" => String.t(),
@@ -183,34 +183,34 @@ defmodule AWS.Nimble do
         "eulaAcceptanceId" => String.t(),
         "eulaId" => String.t()
       }
-
+      
   """
   @type eula_acceptance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_session_backup_request() :: %{}
-
+      
   """
   @type get_streaming_session_backup_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_launch_profile_response() :: %{
         "launchProfile" => launch_profile()
       }
-
+      
   """
   @type create_launch_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_profile_initialization_script() :: %{
         "runtimeRoleArn" => String.t(),
         "script" => String.t(),
@@ -218,14 +218,14 @@ defmodule AWS.Nimble do
         "studioComponentId" => String.t(),
         "studioComponentName" => String.t()
       }
-
+      
   """
   @type launch_profile_initialization_script() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       studio_component() :: %{
         "arn" => String.t(),
         "configuration" => list(),
@@ -248,25 +248,25 @@ defmodule AWS.Nimble do
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
-
+      
   """
   @type studio_component() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_studio_response() :: %{
         "studio" => studio()
       }
-
+      
   """
   @type delete_studio_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_session() :: %{
         "arn" => String.t(),
         "automaticTerminationMode" => list(any()),
@@ -296,185 +296,185 @@ defmodule AWS.Nimble do
         "volumeConfiguration" => volume_configuration(),
         "volumeRetentionMode" => list(any())
       }
-
+      
   """
   @type streaming_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launch_profiles_response() :: %{
         "launchProfiles" => list(launch_profile()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_launch_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_profile_member_response() :: %{}
-
+      
   """
   @type delete_launch_profile_member_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_studio_members_response() :: %{
         "members" => list(studio_membership()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_studio_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_images_response() :: %{
         "nextToken" => String.t(),
         "streamingImages" => list(streaming_image()())
       }
-
+      
   """
   @type list_streaming_images_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_studio_response() :: %{
         "studio" => studio()
       }
-
+      
   """
   @type get_studio_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_streaming_session_request() :: %{
         optional("clientToken") => String.t(),
         optional("volumeRetentionMode") => list(any())
       }
-
+      
   """
   @type stop_streaming_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_studio_component_request() :: %{}
-
+      
   """
   @type get_studio_component_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launch_profiles_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("principalId") => String.t(),
         optional("states") => list(list(any())())
       }
-
+      
   """
   @type list_launch_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_configuration_session_storage() :: %{
         "mode" => list(list(any())()),
         "root" => streaming_session_storage_root()
       }
-
+      
   """
   @type stream_configuration_session_storage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_eula_response() :: %{
         "eula" => eula()
       }
-
+      
   """
   @type get_eula_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launch_profile_members_response() :: %{
         "members" => list(launch_profile_membership()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_launch_profile_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_session_response() :: %{
         "session" => streaming_session()
       }
-
+      
   """
   @type get_streaming_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_initialization_request() :: %{
         required("launchProfileProtocolVersions") => list(String.t()()),
         required("launchPurpose") => String.t(),
         required("platform") => String.t()
       }
-
+      
   """
   @type get_launch_profile_initialization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_streaming_session_request() :: %{
         optional("backupId") => String.t(),
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type start_streaming_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_session_request() :: %{
         optional("clientToken") => String.t(),
         optional("ec2InstanceType") => list(any()),
@@ -483,93 +483,93 @@ defmodule AWS.Nimble do
         optional("tags") => map(),
         required("launchProfileId") => String.t()
       }
-
+      
   """
   @type create_streaming_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_session_backups_response() :: %{
         "nextToken" => String.t(),
         "streamingSessionBackups" => list(streaming_session_backup()())
       }
-
+      
   """
   @type list_streaming_session_backups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_profile_response() :: %{
         "launchProfile" => launch_profile()
       }
-
+      
   """
   @type update_launch_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_profile_member_request() :: %{
         optional("clientToken") => String.t(),
         required("persona") => list(any())
       }
-
+      
   """
   @type update_launch_profile_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_eula_request() :: %{}
-
+      
   """
   @type get_eula_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_studios_response() :: %{
         "nextToken" => String.t(),
         "studios" => list(studio()())
       }
-
+      
   """
   @type list_studios_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_launch_profile_members_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_launch_profile_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       shared_file_system_configuration() :: %{
         "endpoint" => String.t(),
         "fileSystemId" => String.t(),
@@ -577,51 +577,51 @@ defmodule AWS.Nimble do
         "shareName" => String.t(),
         "windowsMountDrive" => String.t()
       }
-
+      
   """
   @type shared_file_system_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_streaming_session_response() :: %{
         "session" => streaming_session()
       }
-
+      
   """
   @type delete_streaming_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_studio_member() :: %{
         "persona" => list(any()),
         "principalId" => String.t()
       }
-
+      
   """
   @type new_studio_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_result() :: %{
         "state" => list(any()),
         "statusCode" => list(any()),
         "statusMessage" => String.t(),
         "type" => list(any())
       }
-
+      
   """
   @type validation_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_session_stream() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -632,138 +632,138 @@ defmodule AWS.Nimble do
         "streamId" => String.t(),
         "url" => String.t()
       }
-
+      
   """
   @type streaming_session_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_configuration_session_backup() :: %{
         "maxBackupsToRetain" => integer(),
         "mode" => list(any())
       }
-
+      
   """
   @type stream_configuration_session_backup() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_studio_component_response() :: %{
         "studioComponent" => studio_component()
       }
-
+      
   """
   @type update_studio_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_session_response() :: %{
         "session" => streaming_session()
       }
-
+      
   """
   @type create_streaming_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_details_response() :: %{
         "launchProfile" => launch_profile(),
         "streamingImages" => list(streaming_image()()),
         "studioComponentSummaries" => list(studio_component_summary()())
       }
-
+      
   """
   @type get_launch_profile_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_session_stream_response() :: %{
         "stream" => streaming_session_stream()
       }
-
+      
   """
   @type create_streaming_session_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_session_stream_request() :: %{}
-
+      
   """
   @type get_streaming_session_stream_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_studio_component_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_studio_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_response() :: %{
         "launchProfile" => launch_profile()
       }
-
+      
   """
   @type get_launch_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_studio_member_request() :: %{}
-
+      
   """
   @type get_studio_member_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "code" => String.t(),
         "context" => map(),
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "code" => String.t(),
         "context" => map(),
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_profile_initialization_active_directory() :: %{
         "computerAttributes" => list(active_directory_computer_attribute()()),
         "directoryId" => String.t(),
@@ -773,107 +773,107 @@ defmodule AWS.Nimble do
         "studioComponentId" => String.t(),
         "studioComponentName" => String.t()
       }
-
+      
   """
   @type launch_profile_initialization_active_directory() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_studio_s_s_o_configuration_repair_response() :: %{
         "studio" => studio()
       }
-
+      
   """
   @type start_studio_s_s_o_configuration_repair_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_studio_member_response() :: %{
         "member" => studio_membership()
       }
-
+      
   """
   @type get_studio_member_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_eula_acceptances_response() :: %{
         "eulaAcceptances" => list(eula_acceptance()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_eula_acceptances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "code" => String.t(),
         "context" => map(),
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_launch_profile_response() :: %{
         "launchProfile" => launch_profile()
       }
-
+      
   """
   @type delete_launch_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_studio_response() :: %{
         "studio" => studio()
       }
-
+      
   """
   @type create_studio_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_streaming_image_response() :: %{
         "streamingImage" => streaming_image()
       }
-
+      
   """
   @type delete_streaming_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_launch_profile_members_request() :: %{
         optional("clientToken") => String.t(),
         required("identityStoreId") => String.t(),
         required("members") => list(new_launch_profile_member()())
       }
-
+      
   """
   @type put_launch_profile_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_session_backup() :: %{
         "arn" => String.t(),
         "backupId" => String.t(),
@@ -886,59 +886,59 @@ defmodule AWS.Nimble do
         "statusMessage" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type streaming_session_backup() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_streaming_session_response() :: %{
         "session" => streaming_session()
       }
-
+      
   """
   @type start_streaming_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_studio_members_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_studio_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_studio_component_response() :: %{
         "studioComponent" => studio_component()
       }
-
+      
   """
   @type create_studio_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eula() :: %{
         "content" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -946,14 +946,14 @@ defmodule AWS.Nimble do
         "name" => String.t(),
         "updatedAt" => non_neg_integer()
       }
-
+      
   """
   @type eula() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_studio_request() :: %{
         optional("clientToken") => String.t(),
         optional("studioEncryptionConfiguration") => studio_encryption_configuration(),
@@ -963,64 +963,64 @@ defmodule AWS.Nimble do
         required("studioName") => String.t(),
         required("userRoleArn") => String.t()
       }
-
+      
   """
   @type create_studio_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_image_encryption_configuration() :: %{
         "keyArn" => String.t(),
         "keyType" => list(any())
       }
-
+      
   """
   @type streaming_image_encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_studio_components_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("states") => list(list(any())()),
         optional("types") => list(list(any())())
       }
-
+      
   """
   @type list_studio_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_session_backups_request() :: %{
         optional("nextToken") => String.t(),
         optional("ownedBy") => String.t()
       }
-
+      
   """
   @type list_streaming_session_backups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_session_stream_request() :: %{
         optional("clientToken") => String.t(),
         optional("expirationInSeconds") => integer()
       }
-
+      
   """
   @type create_streaming_session_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_launch_profile_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -1031,69 +1031,69 @@ defmodule AWS.Nimble do
         required("streamConfiguration") => stream_configuration_create(),
         required("studioComponentIds") => list(String.t()())
       }
-
+      
   """
   @type create_launch_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_session_request() :: %{}
-
+      
   """
   @type get_streaming_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_profile_member_response() :: %{
         "member" => launch_profile_membership()
       }
-
+      
   """
   @type update_launch_profile_member_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       active_directory_computer_attribute() :: %{
         "name" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type active_directory_computer_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_studio_s_s_o_configuration_repair_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type start_studio_s_s_o_configuration_repair_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       studio_encryption_configuration() :: %{
         "keyArn" => String.t(),
         "keyType" => list(any())
       }
-
+      
   """
   @type studio_encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_launch_profile_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -1102,183 +1102,183 @@ defmodule AWS.Nimble do
         optional("streamConfiguration") => stream_configuration_create(),
         optional("studioComponentIds") => list(String.t()())
       }
-
+      
   """
   @type update_launch_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_studios_request() :: %{
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_studios_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_request() :: %{}
-
+      
   """
   @type get_launch_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_studio_component_response() :: %{
         "studioComponent" => studio_component()
       }
-
+      
   """
   @type delete_studio_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_launch_profile_members_response() :: %{}
-
+      
   """
   @type put_launch_profile_members_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_streaming_session_response() :: %{
         "session" => streaming_session()
       }
-
+      
   """
   @type stop_streaming_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "code" => String.t(),
         "context" => map(),
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_sessions_request() :: %{
         optional("createdBy") => String.t(),
         optional("nextToken") => String.t(),
         optional("ownedBy") => String.t(),
         optional("sessionIds") => String.t()
       }
-
+      
   """
   @type list_streaming_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       studio_membership() :: %{
         "identityStoreId" => String.t(),
         "persona" => list(any()),
         "principalId" => String.t(),
         "sid" => String.t()
       }
-
+      
   """
   @type studio_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_session_backup_response() :: %{
         "streamingSessionBackup" => streaming_session_backup()
       }
-
+      
   """
   @type get_streaming_session_backup_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_details_request() :: %{}
-
+      
   """
   @type get_launch_profile_details_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_studio_request() :: %{
         optional("adminRoleArn") => String.t(),
         optional("clientToken") => String.t(),
         optional("displayName") => String.t(),
         optional("userRoleArn") => String.t()
       }
-
+      
   """
   @type update_studio_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "code" => String.t(),
         "context" => map(),
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_studio_components_response() :: %{
         "nextToken" => String.t(),
         "studioComponents" => list(studio_component()())
       }
-
+      
   """
   @type list_studio_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_image() :: %{
         "arn" => String.t(),
         "description" => String.t(),
@@ -1294,38 +1294,38 @@ defmodule AWS.Nimble do
         "streamingImageId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type streaming_image() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "code" => String.t(),
         "context" => map(),
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_streaming_session_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_streaming_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       launch_profile() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -1345,96 +1345,96 @@ defmodule AWS.Nimble do
         "updatedBy" => String.t(),
         "validationResults" => list(validation_result()())
       }
-
+      
   """
   @type launch_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_studio_member_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_studio_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_eulas_response() :: %{
         "eulaAcceptances" => list(eula_acceptance()())
       }
-
+      
   """
   @type accept_eulas_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "code" => String.t(),
         "context" => map(),
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_launch_profile_member() :: %{
         "persona" => list(any()),
         "principalId" => String.t()
       }
-
+      
   """
   @type new_launch_profile_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_image_response() :: %{
         "streamingImage" => streaming_image()
       }
-
+      
   """
   @type get_streaming_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compute_farm_configuration() :: %{
         "activeDirectoryUser" => String.t(),
         "endpoint" => String.t()
       }
-
+      
   """
   @type compute_farm_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_streaming_images_request() :: %{
         optional("nextToken") => String.t(),
         optional("owner") => String.t()
       }
-
+      
   """
   @type list_streaming_images_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_configuration_create() :: %{
         "automaticTerminationMode" => list(any()),
         "clipboardMode" => list(any()),
@@ -1447,37 +1447,37 @@ defmodule AWS.Nimble do
         "streamingImageIds" => list(String.t()()),
         "volumeConfiguration" => volume_configuration()
       }
-
+      
   """
   @type stream_configuration_create() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_eulas_request() :: %{
         optional("clientToken") => String.t(),
         optional("eulaIds") => list(String.t()())
       }
-
+      
   """
   @type accept_eulas_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_studio_component_response() :: %{
         "studioComponent" => studio_component()
       }
-
+      
   """
   @type get_studio_component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_studio_component_request() :: %{
         optional("clientToken") => String.t(),
         optional("configuration") => list(),
@@ -1491,62 +1491,62 @@ defmodule AWS.Nimble do
         optional("subtype") => list(any()),
         optional("type") => list(any())
       }
-
+      
   """
   @type update_studio_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_streaming_image_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_streaming_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       active_directory_configuration() :: %{
         "computerAttributes" => list(active_directory_computer_attribute()()),
         "directoryId" => String.t(),
         "organizationalUnitDistinguishedName" => String.t()
       }
-
+      
   """
   @type active_directory_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       volume_configuration() :: %{
         "iops" => integer(),
         "size" => integer(),
         "throughput" => integer()
       }
-
+      
   """
   @type volume_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_image_response() :: %{
         "streamingImage" => streaming_image()
       }
-
+      
   """
   @type create_streaming_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_streaming_image_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -1554,86 +1554,86 @@ defmodule AWS.Nimble do
         required("ec2ImageId") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_streaming_image_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_streaming_session_stream_response() :: %{
         "stream" => streaming_session_stream()
       }
-
+      
   """
   @type get_streaming_session_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_studio_request() :: %{
         optional("clientToken") => String.t()
       }
-
+      
   """
   @type delete_studio_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_studio_request() :: %{}
-
+      
   """
   @type get_studio_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_studio_response() :: %{
         "studio" => studio()
       }
-
+      
   """
   @type update_studio_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       script_parameter_key_value() :: %{
         "key" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type script_parameter_key_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_studio_member_response() :: %{}
-
+      
   """
   @type delete_studio_member_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_studio_members_response() :: %{}
-
+      
   """
   @type put_studio_members_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       studio() :: %{
         "adminRoleArn" => String.t(),
         "arn" => String.t(),
@@ -1652,80 +1652,80 @@ defmodule AWS.Nimble do
         "updatedAt" => non_neg_integer(),
         "userRoleArn" => String.t()
       }
-
+      
   """
   @type studio() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_member_request() :: %{}
-
+      
   """
   @type get_launch_profile_member_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       license_service_configuration() :: %{
         "endpoint" => String.t()
       }
-
+      
   """
   @type license_service_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_eula_acceptances_request() :: %{
         optional("eulaIds") => list(String.t()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_eula_acceptances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_session_storage_root() :: %{
         "linux" => String.t(),
         "windows" => String.t()
       }
-
+      
   """
   @type streaming_session_storage_root() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_streaming_image_response() :: %{
         "streamingImage" => streaming_image()
       }
-
+      
   """
   @type update_streaming_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_member_response() :: %{
         "member" => launch_profile_membership()
       }
-
+      
   """
   @type get_launch_profile_member_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       studio_component_summary() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -1737,14 +1737,14 @@ defmodule AWS.Nimble do
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
-
+      
   """
   @type studio_component_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stream_configuration() :: %{
         "automaticTerminationMode" => list(any()),
         "clipboardMode" => list(any()),
@@ -1757,30 +1757,30 @@ defmodule AWS.Nimble do
         "streamingImageIds" => list(String.t()()),
         "volumeConfiguration" => volume_configuration()
       }
-
+      
   """
   @type stream_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_launch_profile_initialization_response() :: %{
         "launchProfileInitialization" => launch_profile_initialization()
       }
-
+      
   """
   @type get_launch_profile_initialization_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_eulas_request() :: %{
         optional("eulaIds") => list(String.t()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_eulas_request() :: %{String.t() => any()}
 
@@ -2249,17 +2249,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec accept_eulas(AWS.Client.t(), String.t(), accept_eulas_request(), Keyword.t()) ::
+
+  @spec accept_eulas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_eulas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_eulas_errors()}
-  def accept_eulas(%Client{} = client, studio_id, input, options \\ []) do
+
+  def accept_eulas(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/eula-acceptances"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2268,13 +2271,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2284,17 +2295,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2307,22 +2310,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec create_launch_profile(
-          AWS.Client.t(),
-          String.t(),
-          create_launch_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_launch_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_launch_profile_errors()}
-  def create_launch_profile(%Client{} = client, studio_id, input, options \\ []) do
+
+  def create_launch_profile(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2331,13 +2332,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2347,17 +2356,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2370,22 +2371,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec create_streaming_image(
-          AWS.Client.t(),
-          String.t(),
-          create_streaming_image_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_streaming_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_image_errors()}
-  def create_streaming_image(%Client{} = client, studio_id, input, options \\ []) do
+
+  def create_streaming_image(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2394,13 +2393,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2410,17 +2417,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2433,22 +2432,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec create_streaming_session(
-          AWS.Client.t(),
-          String.t(),
-          create_streaming_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_streaming_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_session_errors()}
-  def create_streaming_session(%Client{} = client, studio_id, input, options \\ []) do
+
+  def create_streaming_session(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2457,13 +2454,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2473,17 +2478,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2497,30 +2494,21 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec create_streaming_session_stream(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_streaming_session_stream_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_streaming_session_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_streaming_session_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_streaming_session_stream_errors()}
-  def create_streaming_session_stream(
-        %Client{} = client,
-        session_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def create_streaming_session_stream(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/streams"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2529,13 +2517,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2545,17 +2541,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2569,17 +2557,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec create_studio(AWS.Client.t(), create_studio_request(), Keyword.t()) ::
+
+  @spec create_studio(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_errors()}
-  def create_studio(%Client{} = client, input, options \\ []) do
+
+  def create_studio(%Client{} = client, options \\ []) do
     url_path = "/2020-08-01/studios"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2588,13 +2579,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2604,17 +2603,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2627,22 +2618,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec create_studio_component(
-          AWS.Client.t(),
-          String.t(),
-          create_studio_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_studio_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_studio_component_errors()}
-  def create_studio_component(%Client{} = client, studio_id, input, options \\ []) do
+
+  def create_studio_component(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2651,13 +2640,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2667,17 +2664,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2687,35 +2676,26 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec delete_launch_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_launch_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_launch_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_profile_errors()}
-  def delete_launch_profile(
-        %Client{} = client,
-        launch_profile_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_launch_profile(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2724,13 +2704,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2740,6 +2728,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2747,7 +2737,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2760,39 +2750,40 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-    Identity Center UserId.
+  Identity Center UserId.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
+
   @spec delete_launch_profile_member(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          delete_launch_profile_member_request(),
           Keyword.t()
         ) ::
           {:ok, delete_launch_profile_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_launch_profile_member_errors()}
+
   def delete_launch_profile_member(
         %Client{} = client,
         launch_profile_id,
         principal_id,
         studio_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2801,13 +2792,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2817,6 +2816,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2824,7 +2825,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2841,30 +2842,21 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec delete_streaming_image(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_streaming_image_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_streaming_image(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_streaming_image_errors()}
-  def delete_streaming_image(
-        %Client{} = client,
-        streaming_image_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_streaming_image(%Client{} = client, streaming_image_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2873,13 +2865,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2889,6 +2889,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2896,7 +2898,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2915,24 +2917,21 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec delete_streaming_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_streaming_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_streaming_session_errors()}
-  def delete_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
+
+  def delete_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2941,13 +2940,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -2957,6 +2964,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2964,7 +2973,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2980,17 +2989,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec delete_studio(AWS.Client.t(), String.t(), delete_studio_request(), Keyword.t()) ::
+
+  @spec delete_studio(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_errors()}
-  def delete_studio(%Client{} = client, studio_id, input, options \\ []) do
+
+  def delete_studio(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -2999,13 +3011,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -3015,6 +3035,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3022,7 +3044,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3039,30 +3061,21 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec delete_studio_component(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_studio_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_studio_component(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_component_errors()}
-  def delete_studio_component(
-        %Client{} = client,
-        studio_component_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_studio_component(%Client{} = client, studio_component_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -3071,13 +3084,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -3087,6 +3108,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3094,7 +3117,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3107,29 +3130,26 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-    Identity Center UserId.
+  Identity Center UserId.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec delete_studio_member(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_studio_member_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_studio_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_studio_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_studio_member_errors()}
-  def delete_studio_member(%Client{} = client, principal_id, studio_id, input, options \\ []) do
+
+  def delete_studio_member(%Client{} = client, principal_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -3138,13 +3158,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -3154,6 +3182,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3161,7 +3191,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3177,10 +3207,12 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   """
+
   @spec get_eula(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_eula_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_eula_errors()}
+
   def get_eula(%Client{} = client, eula_id, options \\ []) do
     url_path = "/2020-08-01/eulas/#{AWS.Util.encode_uri(eula_id)}"
 
@@ -3216,15 +3248,17 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   """
+
   @spec get_launch_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_errors()}
+
   def get_launch_profile(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
@@ -3265,15 +3299,17 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   """
+
   @spec get_launch_profile_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_profile_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_details_errors()}
+
   def get_launch_profile_details(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/details"
@@ -3310,16 +3346,17 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:studio_id` (`t:string`) The studio ID.
   * `:launch_profile_protocol_versions` (`t:list[com.amazonaws.nimble#String]`)
-    The launch profile protocol versions supported by the client.
+  The launch profile protocol versions supported by the client.
   * `:launch_purpose` (`t:string`) The launch purpose.
   * `:platform` (`t:string`) The platform where this Launch Profile will be used,
-    either Windows or Linux.
+  either Windows or Linux.
 
   ## Optional parameters:
   """
+
   @spec get_launch_profile_initialization(
           AWS.Client.t(),
           String.t(),
@@ -3332,6 +3369,7 @@ defmodule AWS.Nimble do
           {:ok, get_launch_profile_initialization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_initialization_errors()}
+
   def get_launch_profile_initialization(
         %Client{} = client,
         launch_profile_id,
@@ -3340,7 +3378,9 @@ defmodule AWS.Nimble do
         launch_purpose,
         platform,
         options \\ []
-      ) do
+      )
+      when is_binary(launch_profile_protocol_versions) and is_binary(launch_purpose) and
+             is_binary(platform) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/init"
 
@@ -3380,17 +3420,19 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-    Identity Center UserId.
+  Identity Center UserId.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   """
+
   @spec get_launch_profile_member(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_profile_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_launch_profile_member_errors()}
+
   def get_launch_profile_member(
         %Client{} = client,
         launch_profile_id,
@@ -3437,10 +3479,12 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   """
+
   @spec get_streaming_image(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_image_errors()}
+
   def get_streaming_image(%Client{} = client, streaming_image_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
@@ -3481,10 +3525,12 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   """
+
   @spec get_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_session_errors()}
+
   def get_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}"
@@ -3525,10 +3571,12 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   """
+
   @spec get_streaming_session_backup(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_streaming_session_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_session_backup_errors()}
+
   def get_streaming_session_backup(%Client{} = client, backup_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-session-backups/#{AWS.Util.encode_uri(backup_id)}"
@@ -3571,6 +3619,7 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   """
+
   @spec get_streaming_session_stream(
           AWS.Client.t(),
           String.t(),
@@ -3581,6 +3630,7 @@ defmodule AWS.Nimble do
           {:ok, get_streaming_session_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_streaming_session_stream_errors()}
+
   def get_streaming_session_stream(
         %Client{} = client,
         session_id,
@@ -3626,10 +3676,12 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   """
+
   @spec get_studio(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_studio_errors()}
+
   def get_studio(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
@@ -3669,10 +3721,12 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   """
+
   @spec get_studio_component(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_studio_component_errors()}
+
   def get_studio_component(%Client{} = client, studio_component_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
@@ -3709,15 +3763,17 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-    Identity Center UserId.
+  Identity Center UserId.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   """
+
   @spec get_studio_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_studio_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_studio_member_errors()}
+
   def get_studio_member(%Client{} = client, principal_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
@@ -3757,14 +3813,16 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:eula_ids` (`t:list[com.amazonaws.nimble#String]`) The list of EULA IDs that
-    have been previously accepted.
+  have been previously accepted.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_eula_acceptances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_eula_acceptances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_eula_acceptances_errors()}
+
   def list_eula_acceptances(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/eula-acceptances"
 
@@ -3820,14 +3878,16 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:eula_ids` (`t:list[com.amazonaws.nimble#String]`) The list of EULA IDs that
-    should be returned
+  should be returned
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_eulas(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_eulas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_eulas_errors()}
+
   def list_eulas(%Client{} = client, options \\ []) do
     url_path = "/2020-08-01/eulas"
 
@@ -3881,19 +3941,21 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_launch_profile_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_launch_profile_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launch_profile_members_errors()}
+
   def list_launch_profile_members(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership"
@@ -3951,18 +4013,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-    Identity Center UserId.
+  Identity Center UserId.
   * `:states` (`t:list[com.amazonaws.nimble#LaunchProfileState]`) Filter this
-    request to launch profiles in any of the given states.
+  request to launch profiles in any of the given states.
   """
+
   @spec list_launch_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launch_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_launch_profiles_errors()}
+
   def list_launch_profiles(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles"
 
@@ -4033,14 +4097,16 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   * `:owner` (`t:string`) Filter this request to streaming images with the given
-    owner
+  owner
   """
+
   @spec list_streaming_images(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_images_errors()}
+
   def list_streaming_images(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images"
 
@@ -4097,14 +4163,16 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   * `:owned_by` (`t:string`) The user ID of the user that owns the streaming
-    session.
+  session.
   """
+
   @spec list_streaming_session_backups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_session_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_session_backups_errors()}
+
   def list_streaming_session_backups(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-session-backups"
 
@@ -4161,18 +4229,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:created_by` (`t:string`) Filters the request to streaming sessions created
-    by the given user.
+  by the given user.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   * `:owned_by` (`t:string`) Filters the request to streaming session owned by the
-    given user
+  given user
   * `:session_ids` (`t:string`) Filters the request to only the provided session
-    IDs.
+  IDs.
   """
+
   @spec list_streaming_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_streaming_sessions_errors()}
+
   def list_streaming_sessions(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions"
 
@@ -4243,18 +4313,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   * `:states` (`t:list[com.amazonaws.nimble#StudioComponentState]`) Filters the
-    request to studio components that are in one of the given states.
+  request to studio components that are in one of the given states.
   * `:types` (`t:list[com.amazonaws.nimble#StudioComponentType]`) Filters the
-    request to studio components that are of one of the given types.
+  request to studio components that are of one of the given types.
   """
+
   @spec list_studio_components(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_studio_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studio_components_errors()}
+
   def list_studio_components(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components"
 
@@ -4325,14 +4397,16 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The max number of results to return in the
-    response.
+  response.
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_studio_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_studio_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studio_members_errors()}
+
   def list_studio_members(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership"
 
@@ -4389,12 +4463,14 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The token for the next set of results, or null if
-    there are no more results.
+  there are no more results.
   """
+
   @spec list_studios(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_studios_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_studios_errors()}
+
   def list_studios(%Client{} = client, options \\ []) do
     url_path = "/2020-08-01/studios"
 
@@ -4441,14 +4517,16 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    for which you want to list tags.
+  for which you want to list tags.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4484,35 +4562,26 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec put_launch_profile_members(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          put_launch_profile_members_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_launch_profile_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_launch_profile_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_launch_profile_members_errors()}
-  def put_launch_profile_members(
-        %Client{} = client,
-        launch_profile_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def put_launch_profile_members(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -4521,13 +4590,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -4537,17 +4614,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4560,17 +4629,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec put_studio_members(AWS.Client.t(), String.t(), put_studio_members_request(), Keyword.t()) ::
+
+  @spec put_studio_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_studio_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_studio_members_errors()}
-  def put_studio_members(%Client{} = client, studio_id, input, options \\ []) do
+
+  def put_studio_members(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/membership"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -4579,13 +4651,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -4595,17 +4675,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4617,29 +4689,26 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:session_id` (`t:string`) The streaming session ID for the
-    StartStreamingSessionRequest.
+  StartStreamingSessionRequest.
   * `:studio_id` (`t:string`) The studio ID for the StartStreamingSessionRequest.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec start_streaming_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          start_streaming_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_streaming_session_errors()}
-  def start_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
+
+  def start_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/start"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -4648,13 +4717,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -4664,17 +4741,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4689,22 +4758,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec start_studio_s_s_o_configuration_repair(
-          AWS.Client.t(),
-          String.t(),
-          start_studio_s_s_o_configuration_repair_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_studio_s_s_o_configuration_repair(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_studio_s_s_o_configuration_repair_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_studio_s_s_o_configuration_repair_errors()}
-  def start_studio_s_s_o_configuration_repair(%Client{} = client, studio_id, input, options \\ []) do
+
+  def start_studio_s_s_o_configuration_repair(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/sso-configuration"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -4713,13 +4780,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -4729,7 +4804,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4741,29 +4818,26 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:session_id` (`t:string`) The streaming session ID for the
-    StopStreamingSessionRequest.
+  StopStreamingSessionRequest.
   * `:studio_id` (`t:string`) The studioId for the StopStreamingSessionRequest.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec stop_streaming_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          stop_streaming_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_streaming_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_streaming_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_streaming_session_errors()}
-  def stop_streaming_session(%Client{} = client, session_id, studio_id, input, options \\ []) do
+
+  def stop_streaming_session(%Client{} = client, session_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-sessions/#{AWS.Util.encode_uri(session_id)}/stop"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -4772,13 +4846,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -4788,17 +4870,9 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4808,33 +4882,44 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    you want to add tags to.
+  you want to add tags to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4844,28 +4929,45 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) Identifies the Amazon Resource Name(ARN) key from
-    which you are removing tags.
+  which you are removing tags.
   * `:tag_keys` (`t:list[com.amazonaws.nimble#String]`) One or more tag keys.
-    Specify only the tag keys, not the tag values.
+  Specify only the tag keys, not the tag values.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/2020-08-01/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4874,7 +4976,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4887,35 +4989,26 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec update_launch_profile(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_launch_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_launch_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_launch_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_profile_errors()}
-  def update_launch_profile(
-        %Client{} = client,
-        launch_profile_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_launch_profile(%Client{} = client, launch_profile_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -4924,13 +5017,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -4940,6 +5041,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -4947,7 +5050,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4960,39 +5063,40 @@ defmodule AWS.Nimble do
 
   ## Parameters:
   * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control
-    access from the streaming session.
+  access from the streaming session.
   * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM
-    Identity Center UserId.
+  Identity Center UserId.
   * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
+
   @spec update_launch_profile_member(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          update_launch_profile_member_request(),
           Keyword.t()
         ) ::
           {:ok, update_launch_profile_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_launch_profile_member_errors()}
+
   def update_launch_profile_member(
         %Client{} = client,
         launch_profile_id,
         principal_id,
         studio_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/launch-profiles/#{AWS.Util.encode_uri(launch_profile_id)}/membership/#{AWS.Util.encode_uri(principal_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -5001,13 +5105,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5017,6 +5129,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5024,7 +5138,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5041,30 +5155,21 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec update_streaming_image(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_streaming_image_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_streaming_image(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_streaming_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_streaming_image_errors()}
-  def update_streaming_image(
-        %Client{} = client,
-        streaming_image_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_streaming_image(%Client{} = client, streaming_image_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/streaming-images/#{AWS.Util.encode_uri(streaming_image_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -5073,13 +5178,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5089,6 +5202,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5096,7 +5211,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5112,17 +5227,20 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec update_studio(AWS.Client.t(), String.t(), update_studio_request(), Keyword.t()) ::
+
+  @spec update_studio(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_studio_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_studio_errors()}
-  def update_studio(%Client{} = client, studio_id, input, options \\ []) do
+
+  def update_studio(%Client{} = client, studio_id, options \\ []) do
     url_path = "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -5131,13 +5249,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5147,6 +5273,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5154,7 +5282,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5171,30 +5299,21 @@ defmodule AWS.Nimble do
 
   ## Optional parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-    provide to ensure the idempotency of the request. If you don’t specify a
-    client token, the Amazon Web Services SDK automatically generates a client
-    token and uses it for the request to ensure idempotency.
+  provide to ensure the idempotency of the request. If you don’t specify a
+  client token, the Amazon Web Services SDK automatically generates a client
+  token and uses it for the request to ensure idempotency.
   """
-  @spec update_studio_component(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_studio_component_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_studio_component(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_studio_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_studio_component_errors()}
-  def update_studio_component(
-        %Client{} = client,
-        studio_component_id,
-        studio_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_studio_component(%Client{} = client, studio_component_id, studio_id, options \\ []) do
     url_path =
       "/2020-08-01/studios/#{AWS.Util.encode_uri(studio_id)}/studio-components/#{AWS.Util.encode_uri(studio_component_id)}"
 
+    # Validate optional parameters
     optional_params = [client_token: nil]
 
     options =
@@ -5203,13 +5322,21 @@ defmodule AWS.Nimble do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"clientToken", "X-Amz-Client-Token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_token) do
+        [{"X-Amz-Client-Token", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -5219,6 +5346,8 @@ defmodule AWS.Nimble do
       options
       |> Keyword.drop([:client_token])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -5226,7 +5355,7 @@ defmodule AWS.Nimble do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

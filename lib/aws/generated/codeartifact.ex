@@ -19,31 +19,31 @@ defmodule AWS.Codeartifact do
   @typedoc """
 
   ## Example:
-
+      
       describe_package_group_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type describe_package_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_package_group_result() :: %{
         "packageGroup" => package_group_description()
       }
-
+      
   """
   @type update_package_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_version_assets_request() :: %{
         optional("domainOwner") => String.t(),
         optional("maxResults") => integer(),
@@ -55,50 +55,50 @@ defmodule AWS.Codeartifact do
         required("packageVersion") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type list_package_version_assets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_groups_result() :: %{
         "nextToken" => String.t(),
         "packageGroups" => list(package_group_summary()())
       }
-
+      
   """
   @type list_package_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_package_versions_status_result() :: %{
         "failedVersions" => map(),
         "successfulVersions" => map()
       }
-
+      
   """
   @type update_package_versions_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_version_assets_result() :: %{
         "assets" => list(asset_summary()()),
         "format" => list(any()),
@@ -108,14 +108,14 @@ defmodule AWS.Codeartifact do
         "version" => String.t(),
         "versionRevision" => String.t()
       }
-
+      
   """
   @type list_package_version_assets_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_package_group_request() :: %{
         optional("contactInfo") => String.t(),
         optional("description") => String.t(),
@@ -124,14 +124,14 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type create_package_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_version_dependencies_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -142,23 +142,23 @@ defmodule AWS.Codeartifact do
         required("packageVersion") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type list_package_version_dependencies_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_result() :: %{}
-
+      
   """
   @type untag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       dispose_package_versions_request() :: %{
         optional("domainOwner") => String.t(),
         optional("expectedStatus") => list(any()),
@@ -170,60 +170,60 @@ defmodule AWS.Codeartifact do
         required("repository") => String.t(),
         required("versions") => list(String.t()())
       }
-
+      
   """
   @type dispose_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_origin_configuration() :: %{
         "restrictions" => package_origin_restrictions()
       }
-
+      
   """
   @type package_origin_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_repository_result() :: %{
         "repository" => repository_description()
       }
-
+      
   """
   @type describe_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_allowed_repositories_for_group_result() :: %{
         "allowedRepositories" => list(String.t()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_allowed_repositories_for_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_version_origin() :: %{
         "domainEntryPoint" => domain_entry_point(),
         "originType" => list(any())
       }
-
+      
   """
   @type package_version_origin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_summary() :: %{
         "arn" => String.t(),
         "createdTime" => non_neg_integer(),
@@ -232,14 +232,14 @@ defmodule AWS.Codeartifact do
         "owner" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_packages_request() :: %{
         optional("domainOwner") => String.t(),
         optional("format") => list(any()),
@@ -252,50 +252,50 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type list_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_repository_result() :: %{
         "repository" => repository_description()
       }
-
+      
   """
   @type delete_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_package_group_result() :: %{
         "packageGroup" => package_group_description()
       }
-
+      
   """
   @type delete_package_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_package_version_asset_result() :: %{
         "asset" => binary(),
         "assetName" => String.t(),
         "packageVersion" => String.t(),
         "packageVersionRevision" => String.t()
       }
-
+      
   """
   @type get_package_version_asset_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_package_version_result() :: %{
         "asset" => asset_summary(),
         "format" => list(any()),
@@ -305,50 +305,50 @@ defmodule AWS.Codeartifact do
         "version" => String.t(),
         "versionRevision" => String.t()
       }
-
+      
   """
   @type publish_package_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_domain_result() :: %{
         "domain" => domain_description()
       }
-
+      
   """
   @type create_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_summary() :: %{
         "hashes" => map(),
         "name" => String.t(),
         "size" => float()
       }
-
+      
   """
   @type asset_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_package_group_request() :: %{
         optional("contactInfo") => String.t(),
         optional("description") => String.t(),
@@ -356,14 +356,14 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type update_package_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_associated_package_group_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -371,14 +371,14 @@ defmodule AWS.Codeartifact do
         required("format") => list(any()),
         required("package") => String.t()
       }
-
+      
   """
   @type get_associated_package_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_allowed_repositories_for_group_request() :: %{
         optional("domainOwner") => String.t(),
         optional("maxResults") => integer(),
@@ -387,14 +387,14 @@ defmodule AWS.Codeartifact do
         required("originRestrictionType") => list(any()),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type list_allowed_repositories_for_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_repository_permissions_policy_request() :: %{
         optional("domainOwner") => String.t(),
         optional("policyRevision") => String.t(),
@@ -402,26 +402,26 @@ defmodule AWS.Codeartifact do
         required("policyDocument") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type put_repository_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_group_reference() :: %{
         "arn" => String.t(),
         "pattern" => String.t()
       }
-
+      
   """
   @type package_group_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_version_description() :: %{
         "displayName" => String.t(),
         "format" => list(any()),
@@ -437,14 +437,14 @@ defmodule AWS.Codeartifact do
         "summary" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type package_version_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_package_version_readme_result() :: %{
         "format" => list(any()),
         "namespace" => String.t(),
@@ -453,14 +453,14 @@ defmodule AWS.Codeartifact do
         "version" => String.t(),
         "versionRevision" => String.t()
       }
-
+      
   """
   @type get_package_version_readme_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_version_dependencies_result() :: %{
         "dependencies" => list(package_dependency()()),
         "format" => list(any()),
@@ -470,61 +470,61 @@ defmodule AWS.Codeartifact do
         "version" => String.t(),
         "versionRevision" => String.t()
       }
-
+      
   """
   @type list_package_version_dependencies_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upstream_repository() :: %{
         "repositoryName" => String.t()
       }
-
+      
   """
   @type upstream_repository() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_repositories_result() :: %{
         "nextToken" => String.t(),
         "repositories" => list(repository_summary()())
       }
-
+      
   """
   @type list_repositories_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_domain_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t()
       }
-
+      
   """
   @type delete_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_packages_result() :: %{
         "nextToken" => String.t(),
         "packages" => list(associated_package()())
       }
-
+      
   """
   @type list_associated_packages_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       repository_summary() :: %{
         "administratorAccount" => String.t(),
         "arn" => String.t(),
@@ -534,26 +534,26 @@ defmodule AWS.Codeartifact do
         "domainOwner" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type repository_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_package_versions_result() :: %{
         "failedVersions" => map(),
         "successfulVersions" => map()
       }
-
+      
   """
   @type delete_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sub_package_groups_request() :: %{
         optional("domainOwner") => String.t(),
         optional("maxResults") => integer(),
@@ -561,127 +561,127 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type list_sub_package_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_domain_permissions_policy_result() :: %{
         "policy" => resource_policy()
       }
-
+      
   """
   @type delete_domain_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => list(any())
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => list(any())
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_group_origin_restriction() :: %{
         "effectiveMode" => list(any()),
         "inheritedFrom" => package_group_reference(),
         "mode" => list(any()),
         "repositoriesCount" => float()
       }
-
+      
   """
   @type package_group_origin_restriction() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_package_group_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type delete_package_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_repositories_in_domain_result() :: %{
         "nextToken" => String.t(),
         "repositories" => list(repository_summary()())
       }
-
+      
   """
   @type list_repositories_in_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_domain_request() :: %{
         optional("encryptionKey") => String.t(),
         optional("tags") => list(tag()()),
         required("domain") => String.t()
       }
-
+      
   """
   @type create_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_entry_point() :: %{
         "externalConnectionName" => String.t(),
         "repositoryName" => String.t()
       }
-
+      
   """
   @type domain_entry_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "key" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_package_versions_request() :: %{
         optional("domainOwner") => String.t(),
         optional("expectedStatus") => list(any()),
@@ -692,49 +692,49 @@ defmodule AWS.Codeartifact do
         required("repository") => String.t(),
         required("versions") => list(String.t()())
       }
-
+      
   """
   @type delete_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_repository_endpoint_result() :: %{
         "repositoryEndpoint" => String.t()
       }
-
+      
   """
   @type get_repository_endpoint_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => list(any())
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_domain_result() :: %{
         "domain" => domain_description()
       }
-
+      
   """
   @type delete_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_package_version_readme_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -744,39 +744,39 @@ defmodule AWS.Codeartifact do
         required("packageVersion") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type get_package_version_readme_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_repository_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type delete_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_group_allowed_repository() :: %{
         "originRestrictionType" => list(any()),
         "repositoryName" => String.t()
       }
-
+      
   """
   @type package_group_allowed_repository() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_repositories_in_domain_request() :: %{
         optional("administratorAccount") => String.t(),
         optional("domainOwner") => String.t(),
@@ -785,63 +785,63 @@ defmodule AWS.Codeartifact do
         optional("repositoryPrefix") => String.t(),
         required("domain") => String.t()
       }
-
+      
   """
   @type list_repositories_in_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_external_connection_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("externalConnection") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type associate_external_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_package_result() :: %{
         "package" => package_description()
       }
-
+      
   """
   @type describe_package_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dispose_package_versions_result() :: %{
         "failedVersions" => map(),
         "successfulVersions" => map()
       }
-
+      
   """
   @type dispose_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domains_result() :: %{
         "domains" => list(domain_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_domains_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_package_group_origin_configuration_request() :: %{
         optional("addAllowedRepositories") => list(package_group_allowed_repository()()),
         optional("domainOwner") => String.t(),
@@ -850,63 +850,63 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type update_package_group_origin_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_packages_result() :: %{
         "nextToken" => String.t(),
         "packages" => list(package_summary()())
       }
-
+      
   """
   @type list_packages_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       successful_package_version_info() :: %{
         "revision" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type successful_package_version_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_authorization_token_request() :: %{
         optional("domainOwner") => String.t(),
         optional("durationSeconds") => float(),
         required("domain") => String.t()
       }
-
+      
   """
   @type get_authorization_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       copy_package_versions_result() :: %{
         "failedVersions" => map(),
         "successfulVersions" => map()
       }
-
+      
   """
   @type copy_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_groups_request() :: %{
         optional("domainOwner") => String.t(),
         optional("maxResults") => integer(),
@@ -914,26 +914,26 @@ defmodule AWS.Codeartifact do
         optional("prefix") => String.t(),
         required("domain") => String.t()
       }
-
+      
   """
   @type list_package_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       license_info() :: %{
         "name" => String.t(),
         "url" => String.t()
       }
-
+      
   """
   @type license_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       publish_package_version_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -947,36 +947,36 @@ defmodule AWS.Codeartifact do
         required("packageVersion") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type publish_package_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_package_group_result() :: %{
         "packageGroup" => package_group_description()
       }
-
+      
   """
   @type describe_package_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_repository_permissions_policy_result() :: %{
         "policy" => resource_policy()
       }
-
+      
   """
   @type delete_repository_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_group_summary() :: %{
         "arn" => String.t(),
         "contactInfo" => String.t(),
@@ -988,123 +988,123 @@ defmodule AWS.Codeartifact do
         "parent" => package_group_reference(),
         "pattern" => String.t()
       }
-
+      
   """
   @type package_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_description() :: %{
         "format" => list(any()),
         "name" => String.t(),
         "namespace" => String.t(),
         "originConfiguration" => package_origin_configuration()
       }
-
+      
   """
   @type package_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_domains_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_summary() :: %{
         "format" => list(any()),
         "namespace" => String.t(),
         "originConfiguration" => package_origin_configuration(),
         "package" => String.t()
       }
-
+      
   """
   @type package_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sub_package_groups_result() :: %{
         "nextToken" => String.t(),
         "packageGroups" => list(package_group_summary()())
       }
-
+      
   """
   @type list_sub_package_groups_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_policy() :: %{
         "document" => String.t(),
         "resourceArn" => String.t(),
         "revision" => String.t()
       }
-
+      
   """
   @type resource_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_permissions_policy_result() :: %{
         "policy" => resource_policy()
       }
-
+      
   """
   @type get_domain_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_result() :: %{
         "tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_external_connection_result() :: %{
         "repository" => repository_description()
       }
-
+      
   """
   @type disassociate_external_connection_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_repository_request() :: %{
         optional("description") => String.t(),
         optional("domainOwner") => String.t(),
@@ -1113,39 +1113,39 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type create_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_external_connection_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("externalConnection") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type disassociate_external_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_domain_permissions_policy_result() :: %{
         "policy" => resource_policy()
       }
-
+      
   """
   @type put_domain_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_group_description() :: %{
         "arn" => String.t(),
         "contactInfo" => String.t(),
@@ -1157,25 +1157,25 @@ defmodule AWS.Codeartifact do
         "parent" => package_group_reference(),
         "pattern" => String.t()
       }
-
+      
   """
   @type package_group_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_package_version_result() :: %{
         "packageVersion" => package_version_description()
       }
-
+      
   """
   @type describe_package_version_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_package_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -1184,85 +1184,85 @@ defmodule AWS.Codeartifact do
         required("package") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type delete_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_repository_permissions_policy_result() :: %{
         "policy" => resource_policy()
       }
-
+      
   """
   @type put_repository_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_domain_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t()
       }
-
+      
   """
   @type describe_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upstream_repository_info() :: %{
         "repositoryName" => String.t()
       }
-
+      
   """
   @type upstream_repository_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associated_package() :: %{
         "associationType" => list(any()),
         "format" => list(any()),
         "namespace" => String.t(),
         "package" => String.t()
       }
-
+      
   """
   @type associated_package() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_authorization_token_result() :: %{
         "authorizationToken" => String.t(),
         "expiration" => non_neg_integer()
       }
-
+      
   """
   @type get_authorization_token_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_package_origin_configuration_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -1272,65 +1272,65 @@ defmodule AWS.Codeartifact do
         required("repository") => String.t(),
         required("restrictions") => package_origin_restrictions()
       }
-
+      
   """
   @type put_package_origin_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_repository_endpoint_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("format") => list(any()),
         required("repository") => String.t()
       }
-
+      
   """
   @type get_repository_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_domain_permissions_policy_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t()
       }
-
+      
   """
   @type get_domain_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_associated_package_group_result() :: %{
         "associationType" => list(any()),
         "packageGroup" => package_group_description()
       }
-
+      
   """
   @type get_associated_package_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_repository_permissions_policy_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type get_repository_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_packages_request() :: %{
         optional("domainOwner") => String.t(),
         optional("maxResults") => integer(),
@@ -1339,51 +1339,51 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
-
+      
   """
   @type list_associated_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t(),
         "reason" => list(any())
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_domain_permissions_policy_request() :: %{
         optional("domainOwner") => String.t(),
         optional("policyRevision") => String.t(),
         required("domain") => String.t(),
         required("policyDocument") => String.t()
       }
-
+      
   """
   @type put_domain_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_versions_request() :: %{
         optional("domainOwner") => String.t(),
         optional("maxResults") => integer(),
@@ -1397,36 +1397,36 @@ defmodule AWS.Codeartifact do
         required("package") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type list_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_package_group_result() :: %{
         "packageGroup" => package_group_description()
       }
-
+      
   """
   @type create_package_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_external_connection_result() :: %{
         "repository" => repository_description()
       }
-
+      
   """
   @type associate_external_connection_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_package_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -1435,40 +1435,40 @@ defmodule AWS.Codeartifact do
         required("package") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type describe_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => integer()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_dependency() :: %{
         "dependencyType" => String.t(),
         "namespace" => String.t(),
         "package" => String.t(),
         "versionRequirement" => String.t()
       }
-
+      
   """
   @type package_dependency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       domain_description() :: %{
         "arn" => String.t(),
         "assetSizeBytes" => float(),
@@ -1480,14 +1480,14 @@ defmodule AWS.Codeartifact do
         "s3BucketArn" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type domain_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_package_versions_result() :: %{
         "defaultDisplayVersion" => String.t(),
         "format" => list(any()),
@@ -1496,38 +1496,38 @@ defmodule AWS.Codeartifact do
         "package" => String.t(),
         "versions" => list(package_version_summary()())
       }
-
+      
   """
   @type list_package_versions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_package_result() :: %{
         "deletedPackage" => package_summary()
       }
-
+      
   """
   @type delete_package_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       repository_external_connection_info() :: %{
         "externalConnectionName" => String.t(),
         "packageFormat" => list(any()),
         "status" => list(any())
       }
-
+      
   """
   @type repository_external_connection_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_repository_request() :: %{
         optional("description") => String.t(),
         optional("domainOwner") => String.t(),
@@ -1535,73 +1535,73 @@ defmodule AWS.Codeartifact do
         required("domain") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type update_repository_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_result() :: %{}
-
+      
   """
   @type tag_resource_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_repositories_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("repositoryPrefix") => String.t()
       }
-
+      
   """
   @type list_repositories_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_version_summary() :: %{
         "origin" => package_version_origin(),
         "revision" => String.t(),
         "status" => list(any()),
         "version" => String.t()
       }
-
+      
   """
   @type package_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_package_group_origin_configuration_result() :: %{
         "allowedRepositoryUpdates" => map(),
         "packageGroup" => package_group_description()
       }
-
+      
   """
   @type update_package_group_origin_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_domain_result() :: %{
         "domain" => domain_description()
       }
-
+      
   """
   @type describe_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_package_version_asset_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -1613,25 +1613,25 @@ defmodule AWS.Codeartifact do
         required("packageVersion") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type get_package_version_asset_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_repository_result() :: %{
         "repository" => repository_description()
       }
-
+      
   """
   @type create_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_package_version_request() :: %{
         optional("domainOwner") => String.t(),
         optional("namespace") => String.t(),
@@ -1641,14 +1641,14 @@ defmodule AWS.Codeartifact do
         required("packageVersion") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type describe_package_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       repository_description() :: %{
         "administratorAccount" => String.t(),
         "arn" => String.t(),
@@ -1660,74 +1660,74 @@ defmodule AWS.Codeartifact do
         "name" => String.t(),
         "upstreams" => list(upstream_repository_info()())
       }
-
+      
   """
   @type repository_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_repository_permissions_policy_result() :: %{
         "policy" => resource_policy()
       }
-
+      
   """
   @type get_repository_permissions_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_version_error() :: %{
         "errorCode" => list(any()),
         "errorMessage" => String.t()
       }
-
+      
   """
   @type package_version_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_package_origin_configuration_result() :: %{
         "originConfiguration" => package_origin_configuration()
       }
-
+      
   """
   @type put_package_origin_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_repository_permissions_policy_request() :: %{
         optional("domainOwner") => String.t(),
         optional("policyRevision") => String.t(),
         required("domain") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type delete_repository_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_origin_restrictions() :: %{
         "publish" => list(any()),
         "upstream" => list(any())
       }
-
+      
   """
   @type package_origin_restrictions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       copy_package_versions_request() :: %{
         optional("allowOverwrite") => boolean(),
         optional("domainOwner") => String.t(),
@@ -1741,14 +1741,14 @@ defmodule AWS.Codeartifact do
         required("package") => String.t(),
         required("sourceRepository") => String.t()
       }
-
+      
   """
   @type copy_package_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_package_versions_status_request() :: %{
         optional("domainOwner") => String.t(),
         optional("expectedStatus") => list(any()),
@@ -1761,55 +1761,55 @@ defmodule AWS.Codeartifact do
         required("targetStatus") => list(any()),
         required("versions") => list(String.t()())
       }
-
+      
   """
   @type update_package_versions_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_repository_result() :: %{
         "repository" => repository_description()
       }
-
+      
   """
   @type update_repository_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_domain_permissions_policy_request() :: %{
         optional("domainOwner") => String.t(),
         optional("policyRevision") => String.t(),
         required("domain") => String.t()
       }
-
+      
   """
   @type delete_domain_permissions_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       package_group_origin_configuration() :: %{
         "restrictions" => map()
       }
-
+      
   """
   @type package_group_origin_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_repository_request() :: %{
         optional("domainOwner") => String.t(),
         required("domain") => String.t(),
         required("repository") => String.t()
       }
-
+      
   """
   @type describe_repository_request() :: %{String.t() => any()}
 
@@ -2202,34 +2202,64 @@ defmodule AWS.Codeartifact do
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository.
   * `:external_connection` (`t:string`) The name of the external connection to add
-    to the repository. The following values are supported:
+  to the repository. The following values are supported:
   * `:repository` (`t:string`) The name of the repository to which the external
-    connection is added.
+  connection is added.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec associate_external_connection(
           AWS.Client.t(),
-          associate_external_connection_request(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, associate_external_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_external_connection_errors()}
-  def associate_external_connection(%Client{} = client, input, options \\ []) do
+
+  def associate_external_connection(
+        %Client{} = client,
+        domain,
+        external_connection,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(external_connection) and is_binary(repository) do
     url_path = "/v1/repository/external-connection"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"externalConnection", "external-connection"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"external-connection", external_connection},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2239,17 +2269,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2260,42 +2282,87 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:destination_repository` (`t:string`) The name of the repository into which
-    package versions are copied.
+  package versions are copied.
   * `:domain` (`t:string`) The name of the domain that contains the source and
-    destination repositories.
+  destination repositories.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format of the package versions to be copied.
+  format of the package versions to be copied.
   * `:package` (`t:string`) The name of the package that contains the versions to
-    be copied.
+  be copied.
   * `:source_repository` (`t:string`) The name of the repository that contains the
-    package versions to be copied.
+  package versions to be copied.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package versions to be copied.
-    The package component that specifies its namespace depends on its type. For
-    example:
+  The package component that specifies its namespace depends on its type. For
+  example:
   """
-  @spec copy_package_versions(AWS.Client.t(), copy_package_versions_request(), Keyword.t()) ::
+
+  @spec copy_package_versions(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, copy_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, copy_package_versions_errors()}
-  def copy_package_versions(%Client{} = client, input, options \\ []) do
+
+  def copy_package_versions(
+        %Client{} = client,
+        destination_repository,
+        domain,
+        format,
+        package,
+        source_repository,
+        options \\ []
+      )
+      when is_binary(destination_repository) and is_binary(domain) and is_binary(format) and
+             is_binary(package) and is_binary(source_repository) do
     url_path = "/v1/package/versions/copy"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"destinationRepository", "destination-repository"},
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"package", "package"},
-        {"sourceRepository", "source-repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"destination-repository", destination_repository},
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"source-repository", source_repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2305,17 +2372,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2328,41 +2387,47 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain to create. All domain names in
-    an Amazon Web Services Region that are in the same Amazon Web Services
-    account must be unique. The domain name is used as the prefix in DNS
-    hostnames. Do not use sensitive information in a domain name because it is
-    publicly discoverable.
+  an Amazon Web Services Region that are in the same Amazon Web Services
+  account must be unique. The domain name is used as the prefix in DNS
+  hostnames. Do not use sensitive information in a domain name because it is
+  publicly discoverable.
 
   ## Optional parameters:
   """
-  @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
+
+  @spec create_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_domain_errors()}
-  def create_domain(%Client{} = client, input, options \\ []) do
+
+  def create_domain(%Client{} = client, domain, options \\ []) when is_binary(domain) do
     url_path = "/v1/domain"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2375,26 +2440,45 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain in which you want to create a
-    package group.
+  package group.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec create_package_group(AWS.Client.t(), create_package_group_request(), Keyword.t()) ::
+
+  @spec create_package_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_package_group_errors()}
-  def create_package_group(%Client{} = client, input, options \\ []) do
+
+  def create_package_group(%Client{} = client, domain, options \\ []) when is_binary(domain) do
     url_path = "/v1/package-group"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2404,17 +2488,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2424,28 +2500,47 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the created
-    repository.
+  repository.
   * `:repository` (`t:string`) The name of the repository to create.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec create_repository(AWS.Client.t(), create_repository_request(), Keyword.t()) ::
+
+  @spec create_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_repository_errors()}
-  def create_repository(%Client{} = client, input, options \\ []) do
+
+  def create_repository(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/repository"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"repository", repository}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2455,17 +2550,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2479,22 +2566,41 @@ defmodule AWS.Codeartifact do
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
+
+  @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_errors()}
-  def delete_domain(%Client{} = client, input, options \\ []) do
+
+  def delete_domain(%Client{} = client, domain, options \\ []) when is_binary(domain) do
     url_path = "/v1/domain"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2504,6 +2610,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2511,7 +2619,7 @@ defmodule AWS.Codeartifact do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2524,34 +2632,56 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain associated with the resource
-    policy to be deleted.
+  policy to be deleted.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:policy_revision` (`t:string`) The current revision of the resource policy to
-    be deleted. This revision is used for optimistic locking, which prevents
-    others from overwriting your changes to the domain's resource policy.
+  be deleted. This revision is used for optimistic locking, which prevents
+  others from overwriting your changes to the domain's resource policy.
   """
-  @spec delete_domain_permissions_policy(
-          AWS.Client.t(),
-          delete_domain_permissions_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_domain_permissions_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_domain_permissions_policy_errors()}
-  def delete_domain_permissions_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_domain_permissions_policy(%Client{} = client, domain, options \\ [])
+      when is_binary(domain) do
     url_path = "/v1/domain/permissions/policy"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, policy_revision: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"policyRevision", "policy-revision"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :policy_revision) do
+        [{"policy-revision", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2561,6 +2691,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :policy_revision])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2568,7 +2700,7 @@ defmodule AWS.Codeartifact do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2584,37 +2716,73 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the package to
-    delete.
+  delete.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format of the requested package to delete.
+  format of the requested package to delete.
   * `:package` (`t:string`) The name of the package to delete.
   * `:repository` (`t:string`) The name of the repository that contains the
-    package to delete.
+  package to delete.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package to delete. The package
-    component that specifies its namespace depends on its type. For example:
+  component that specifies its namespace depends on its type. For example:
   """
-  @spec delete_package(AWS.Client.t(), delete_package_request(), Keyword.t()) ::
+
+  @spec delete_package(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, delete_package_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_errors()}
-  def delete_package(%Client{} = client, input, options \\ []) do
+
+  def delete_package(%Client{} = client, domain, format, package, repository, options \\ [])
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(repository) do
     url_path = "/v1/package"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"package", "package"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2624,6 +2792,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2631,7 +2801,7 @@ defmodule AWS.Codeartifact do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2648,28 +2818,47 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The domain that contains the package group to be
-    deleted.
+  deleted.
   * `:package_group` (`t:string`) The pattern of the package group to be deleted.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec delete_package_group(AWS.Client.t(), delete_package_group_request(), Keyword.t()) ::
+
+  @spec delete_package_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_group_errors()}
-  def delete_package_group(%Client{} = client, input, options \\ []) do
+
+  def delete_package_group(%Client{} = client, domain, package_group, options \\ [])
+      when is_binary(domain) and is_binary(package_group) do
     url_path = "/v1/package-group"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"packageGroup", "package-group"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"package-group", package_group}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2679,6 +2868,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2686,7 +2877,7 @@ defmodule AWS.Codeartifact do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2706,38 +2897,81 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the package to
-    delete.
+  delete.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format of the package versions to delete.
+  format of the package versions to delete.
   * `:package` (`t:string`) The name of the package with the versions to delete.
   * `:repository` (`t:string`) The name of the repository that contains the
-    package versions to delete.
+  package versions to delete.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package versions to be deleted.
-    The package component that specifies its namespace depends on its type. For
-    example:
+  The package component that specifies its namespace depends on its type. For
+  example:
   """
-  @spec delete_package_versions(AWS.Client.t(), delete_package_versions_request(), Keyword.t()) ::
+
+  @spec delete_package_versions(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, delete_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_package_versions_errors()}
-  def delete_package_versions(%Client{} = client, input, options \\ []) do
+
+  def delete_package_versions(
+        %Client{} = client,
+        domain,
+        format,
+        package,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(repository) do
     url_path = "/v1/package/versions/delete"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"package", "package"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2747,17 +2981,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2767,28 +2993,47 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository to
-    delete.
+  delete.
   * `:repository` (`t:string`) The name of the repository to delete.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec delete_repository(AWS.Client.t(), delete_repository_request(), Keyword.t()) ::
+
+  @spec delete_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_errors()}
-  def delete_repository(%Client{} = client, input, options \\ []) do
+
+  def delete_repository(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/repository"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"repository", repository}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2798,6 +3043,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2805,7 +3052,7 @@ defmodule AWS.Codeartifact do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2820,38 +3067,59 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    associated with the resource policy to be deleted.
+  associated with the resource policy to be deleted.
   * `:repository` (`t:string`) The name of the repository that is associated with
-    the resource policy to be deleted
+  the resource policy to be deleted
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:policy_revision` (`t:string`) The revision of the repository's resource
-    policy to be deleted. This revision is used for optimistic locking, which
-    prevents others from accidentally overwriting your changes to the
-    repository's resource policy.
+  policy to be deleted. This revision is used for optimistic locking, which
+  prevents others from accidentally overwriting your changes to the
+  repository's resource policy.
   """
-  @spec delete_repository_permissions_policy(
-          AWS.Client.t(),
-          delete_repository_permissions_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_repository_permissions_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_repository_permissions_policy_errors()}
-  def delete_repository_permissions_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_repository_permissions_policy(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/repository/permissions/policies"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, policy_revision: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"policyRevision", "policy-revision"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"repository", repository}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :policy_revision) do
+        [{"policy-revision", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2861,6 +3129,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :policy_revision])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2868,7 +3138,7 @@ defmodule AWS.Codeartifact do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2883,17 +3153,19 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) A string that specifies the name of the requested
-    domain.
+  domain.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec describe_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_domain_errors()}
-  def describe_domain(%Client{} = client, domain, options \\ []) do
+
+  def describe_domain(%Client{} = client, domain, options \\ []) when is_binary(domain) do
     url_path = "/v1/domain"
 
     # Validate optional parameters
@@ -2941,19 +3213,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the package.
+  that contains the package.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of the requested package.
+  that specifies the type of the requested package.
   * `:package` (`t:string`) The name of the requested package.
   * `:repository` (`t:string`) The name of the repository that contains the
-    requested package.
+  requested package.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the requested package. The package
-    component that specifies its namespace depends on its type. For example:
+  component that specifies its namespace depends on its type. For example:
   """
+
   @spec describe_package(
           AWS.Client.t(),
           String.t(),
@@ -2965,7 +3238,10 @@ defmodule AWS.Codeartifact do
           {:ok, describe_package_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_errors()}
-  def describe_package(%Client{} = client, domain, format, package, repository, options \\ []) do
+
+  def describe_package(%Client{} = client, domain, format, package, repository, options \\ [])
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(repository) do
     url_path = "/v1/package"
 
     # Validate optional parameters
@@ -3029,13 +3305,16 @@ defmodule AWS.Codeartifact do
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec describe_package_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_group_errors()}
-  def describe_package_group(%Client{} = client, domain, package_group, options \\ []) do
+
+  def describe_package_group(%Client{} = client, domain, package_group, options \\ [])
+      when is_binary(domain) and is_binary(package_group) do
     url_path = "/v1/package-group"
 
     # Validate optional parameters
@@ -3083,22 +3362,23 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the package version.
+  that contains the package version.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of the requested package version.
+  that specifies the type of the requested package version.
   * `:package` (`t:string`) The name of the requested package version.
   * `:package_version` (`t:string`) A string that contains the package version
-    (for example, 3.5.2).
+  (for example, 3.5.2).
   * `:repository` (`t:string`) The name of the repository that contains the
-    package version.
+  package version.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the requested package version. The
-    package component that specifies its namespace depends on its type. For
-    example:
+  package component that specifies its namespace depends on its type. For
+  example:
   """
+
   @spec describe_package_version(
           AWS.Client.t(),
           String.t(),
@@ -3111,6 +3391,7 @@ defmodule AWS.Codeartifact do
           {:ok, describe_package_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_package_version_errors()}
+
   def describe_package_version(
         %Client{} = client,
         domain,
@@ -3119,7 +3400,9 @@ defmodule AWS.Codeartifact do
         package_version,
         repository,
         options \\ []
-      ) do
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(package_version) and is_binary(repository) do
     url_path = "/v1/package/version"
 
     # Validate optional parameters
@@ -3179,19 +3462,22 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository to
-    describe.
+  describe.
   * `:repository` (`t:string`) A string that specifies the name of the requested
-    repository.
+  repository.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec describe_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_repository_errors()}
-  def describe_repository(%Client{} = client, domain, repository, options \\ []) do
+
+  def describe_repository(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/repository"
 
     # Validate optional parameters
@@ -3237,36 +3523,66 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    from which to remove the external repository.
+  from which to remove the external repository.
   * `:external_connection` (`t:string`) The name of the external connection to be
-    removed from the repository.
+  removed from the repository.
   * `:repository` (`t:string`) The name of the repository from which the external
-    connection will be removed.
+  connection will be removed.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec disassociate_external_connection(
           AWS.Client.t(),
-          disassociate_external_connection_request(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, disassociate_external_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_external_connection_errors()}
-  def disassociate_external_connection(%Client{} = client, input, options \\ []) do
+
+  def disassociate_external_connection(
+        %Client{} = client,
+        domain,
+        external_connection,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(external_connection) and is_binary(repository) do
     url_path = "/v1/repository/external-connection"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"externalConnection", "external-connection"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"external-connection", external_connection},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -3276,6 +3592,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3283,7 +3601,7 @@ defmodule AWS.Codeartifact do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3298,39 +3616,82 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository you
-    want to dispose.
+  want to dispose.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of package versions you want to dispose.
+  that specifies the type of package versions you want to dispose.
   * `:package` (`t:string`) The name of the package with the versions you want to
-    dispose.
+  dispose.
   * `:repository` (`t:string`) The name of the repository that contains the
-    package versions you want to dispose.
+  package versions you want to dispose.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package versions to be
-    disposed. The package component that specifies its namespace depends on its
-    type. For example:
+  disposed. The package component that specifies its namespace depends on its
+  type. For example:
   """
-  @spec dispose_package_versions(AWS.Client.t(), dispose_package_versions_request(), Keyword.t()) ::
+
+  @spec dispose_package_versions(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, dispose_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, dispose_package_versions_errors()}
-  def dispose_package_versions(%Client{} = client, input, options \\ []) do
+
+  def dispose_package_versions(
+        %Client{} = client,
+        domain,
+        format,
+        package,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(repository) do
     url_path = "/v1/package/versions/dispose"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"package", "package"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -3340,17 +3701,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3365,19 +3718,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the package from
-    which to get the associated package group.
+  which to get the associated package group.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format of the package from which to get the associated package group.
+  format of the package from which to get the associated package group.
   * `:package` (`t:string`) The package from which to get the associated package
-    group.
+  group.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package from which to get the
-    associated package group. The package component that specifies its namespace
-    depends on its type. For example:
+  associated package group. The package component that specifies its namespace
+  depends on its type. For example:
   """
+
   @spec get_associated_package_group(
           AWS.Client.t(),
           String.t(),
@@ -3388,7 +3742,9 @@ defmodule AWS.Codeartifact do
           {:ok, get_associated_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_associated_package_group_errors()}
-  def get_associated_package_group(%Client{} = client, domain, format, package, options \\ []) do
+
+  def get_associated_package_group(%Client{} = client, domain, format, package, options \\ [])
+      when is_binary(domain) and is_binary(format) and is_binary(package) do
     url_path = "/v1/get-associated-package-group"
 
     # Validate optional parameters
@@ -3459,32 +3815,57 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that is in scope for the
-    generated authorization token.
+  generated authorization token.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:duration_seconds` (`t:long`) The time, in seconds, that the generated
-    authorization token is valid. Valid values are 0 and any number between 900
-    (15 minutes) and 43200 (12 hours). A value of 0 will set the expiration of
-    the authorization token to the same expiration of the user's role's
-    temporary credentials.
+  authorization token is valid. Valid values are 0 and any number between 900
+  (15 minutes) and 43200 (12 hours). A value of 0 will set the expiration of
+  the authorization token to the same expiration of the user's role's
+  temporary credentials.
   """
-  @spec get_authorization_token(AWS.Client.t(), get_authorization_token_request(), Keyword.t()) ::
+
+  @spec get_authorization_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_authorization_token_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_authorization_token_errors()}
-  def get_authorization_token(%Client{} = client, input, options \\ []) do
+
+  def get_authorization_token(%Client{} = client, domain, options \\ []) when is_binary(domain) do
     url_path = "/v1/authorization-token"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, duration_seconds: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"durationSeconds", "duration"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :duration_seconds) do
+        [{"duration", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -3494,17 +3875,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :duration_seconds])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3514,17 +3887,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain to which the resource policy is
-    attached.
+  attached.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec get_domain_permissions_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_permissions_policy_errors()}
-  def get_domain_permissions_policy(%Client{} = client, domain, options \\ []) do
+
+  def get_domain_permissions_policy(%Client{} = client, domain, options \\ [])
+      when is_binary(domain) do
     url_path = "/v1/domain/permissions/policy"
 
     # Validate optional parameters
@@ -3573,26 +3949,27 @@ defmodule AWS.Codeartifact do
   ## Parameters:
   * `:asset` (`t:string`) The name of the requested asset.
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the package version with the requested asset.
+  that contains the package version with the requested asset.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of the package version with the requested asset
-    file.
+  that specifies the type of the package version with the requested asset
+  file.
   * `:package` (`t:string`) The name of the package that contains the requested
-    asset.
+  asset.
   * `:package_version` (`t:string`) A string that contains the package version
-    (for example, 3.5.2).
+  (for example, 3.5.2).
   * `:repository` (`t:string`) The repository that contains the package version
-    with the requested asset.
+  with the requested asset.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version with the
-    requested asset file. The package component that specifies its namespace
-    depends on its type. For example:
+  requested asset file. The package component that specifies its namespace
+  depends on its type. For example:
   * `:package_version_revision` (`t:string`) The name of the package version
-    revision that contains the requested asset.
+  revision that contains the requested asset.
   """
+
   @spec get_package_version_asset(
           AWS.Client.t(),
           String.t(),
@@ -3606,6 +3983,7 @@ defmodule AWS.Codeartifact do
           {:ok, get_package_version_asset_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_version_asset_errors()}
+
   def get_package_version_asset(
         %Client{} = client,
         asset,
@@ -3615,7 +3993,9 @@ defmodule AWS.Codeartifact do
         package_version,
         repository,
         options \\ []
-      ) do
+      )
+      when is_binary(asset) and is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(package_version) and is_binary(repository) do
     url_path = "/v1/package/version/asset"
 
     # Validate optional parameters
@@ -3693,24 +4073,25 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the package version with the requested readme file.
+  that contains the package version with the requested readme file.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of the package version with the requested readme
-    file.
+  that specifies the type of the package version with the requested readme
+  file.
   * `:package` (`t:string`) The name of the package version that contains the
-    requested readme file.
+  requested readme file.
   * `:package_version` (`t:string`) A string that contains the package version
-    (for example, 3.5.2).
+  (for example, 3.5.2).
   * `:repository` (`t:string`) The repository that contains the package with the
-    requested readme file.
+  requested readme file.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version with the
-    requested readme file. The package component that specifies its namespace
-    depends on its type. For example:
+  requested readme file. The package component that specifies its namespace
+  depends on its type. For example:
   """
+
   @spec get_package_version_readme(
           AWS.Client.t(),
           String.t(),
@@ -3723,6 +4104,7 @@ defmodule AWS.Codeartifact do
           {:ok, get_package_version_readme_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_package_version_readme_errors()}
+
   def get_package_version_readme(
         %Client{} = client,
         domain,
@@ -3731,7 +4113,9 @@ defmodule AWS.Codeartifact do
         package_version,
         repository,
         options \\ []
-      ) do
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(package_version) and is_binary(repository) do
     url_path = "/v1/package/version/readme"
 
     # Validate optional parameters
@@ -3792,20 +4176,23 @@ defmodule AWS.Codeartifact do
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) Returns
-    which endpoint of a repository to return. A repository has one endpoint for
-    each package format.
+  which endpoint of a repository to return. A repository has one endpoint for
+  each package format.
   * `:repository` (`t:string`) The name of the repository.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain that contains the repository. It does
-    not include dashes or spaces.
+  Services account that owns the domain that contains the repository. It does
+  not include dashes or spaces.
   """
+
   @spec get_repository_endpoint(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_repository_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_endpoint_errors()}
-  def get_repository_endpoint(%Client{} = client, domain, format, repository, options \\ []) do
+
+  def get_repository_endpoint(%Client{} = client, domain, format, repository, options \\ [])
+      when is_binary(domain) and is_binary(format) and is_binary(repository) do
     url_path = "/v1/repository/endpoint"
 
     # Validate optional parameters
@@ -3851,19 +4238,22 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain containing the repository whose
-    associated resource policy is to be retrieved.
+  associated resource policy is to be retrieved.
   * `:repository` (`t:string`) The name of the repository whose associated
-    resource policy is to be retrieved.
+  resource policy is to be retrieved.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec get_repository_permissions_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_repository_permissions_policy_errors()}
-  def get_repository_permissions_policy(%Client{} = client, domain, repository, options \\ []) do
+
+  def get_repository_permissions_policy(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/repository/permissions/policy"
 
     # Validate optional parameters
@@ -3913,21 +4303,22 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the package group
-    from which to list allowed repositories.
+  from which to list allowed repositories.
   * `:origin_restriction_type`
-    (`t:enum["EXTERNAL_UPSTREAM|INTERNAL_UPSTREAM|PUBLISH"]`) The origin
-    configuration restriction type of which to list allowed repositories.
+  (`t:enum["EXTERNAL_UPSTREAM|INTERNAL_UPSTREAM|PUBLISH"]`) The origin
+  configuration restriction type of which to list allowed repositories.
   * `:package_group` (`t:string`) The pattern of the package group from which to
-    list allowed repositories.
+  list allowed repositories.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_allowed_repositories_for_group(
           AWS.Client.t(),
           String.t(),
@@ -3938,13 +4329,15 @@ defmodule AWS.Codeartifact do
           {:ok, list_allowed_repositories_for_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_allowed_repositories_for_group_errors()}
+
   def list_allowed_repositories_for_group(
         %Client{} = client,
         domain,
         origin_restriction_type,
         package_group,
         options \\ []
-      ) do
+      )
+      when is_binary(domain) and is_binary(origin_restriction_type) and is_binary(package_group) do
     url_path = "/v1/package-group-allowed-repositories"
 
     # Validate optional parameters
@@ -4012,26 +4405,29 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the package group
-    from which to list associated packages.
+  from which to list associated packages.
   * `:package_group` (`t:string`) The pattern of the package group from which to
-    list associated packages.
+  list associated packages.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:preview` (`t:boolean`) When this flag is included, ListAssociatedPackages
-    will return a list of packages that would be associated with a package
-    group, even if it does not exist.
+  will return a list of packages that would be associated with a package
+  group, even if it does not exist.
   """
+
   @spec list_associated_packages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_packages_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_packages_errors()}
-  def list_associated_packages(%Client{} = client, domain, package_group, options \\ []) do
+
+  def list_associated_packages(%Client{} = client, domain, package_group, options \\ [])
+      when is_binary(domain) and is_binary(package_group) do
     url_path = "/v1/list-associated-packages"
 
     # Validate optional parameters
@@ -4104,29 +4500,40 @@ defmodule AWS.Codeartifact do
 
   ## Optional parameters:
   """
-  @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
+
+  @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_domains_errors()}
-  def list_domains(%Client{} = client, input, options \\ []) do
+
+  def list_domains(%Client{} = client, options \\ []) do
     url_path = "/v1/domains"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4139,32 +4546,69 @@ defmodule AWS.Codeartifact do
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:prefix` (`t:string`) A prefix for which to search package groups. When
-    included, ListPackageGroups will return only package groups with patterns
-    that match the prefix.
+  included, ListPackageGroups will return only package groups with patterns
+  that match the prefix.
   """
-  @spec list_package_groups(AWS.Client.t(), list_package_groups_request(), Keyword.t()) ::
+
+  @spec list_package_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_package_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_package_groups_errors()}
-  def list_package_groups(%Client{} = client, input, options \\ []) do
+
+  def list_package_groups(%Client{} = client, domain, options \\ []) when is_binary(domain) do
     url_path = "/v1/package-groups"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, max_results: nil, next_token: nil, prefix: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"maxResults", "max-results"},
-        {"nextToken", "next-token"},
-        {"prefix", "prefix"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :prefix) do
+        [{"prefix", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4174,17 +4618,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :max_results, :next_token, :prefix])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4196,52 +4632,105 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    associated with the package version assets.
+  associated with the package version assets.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format of the package that contains the requested package version assets.
+  format of the package that contains the requested package version assets.
   * `:package` (`t:string`) The name of the package that contains the requested
-    package version assets.
+  package version assets.
   * `:package_version` (`t:string`) A string that contains the package version
-    (for example, 3.5.2).
+  (for example, 3.5.2).
   * `:repository` (`t:string`) The name of the repository that contains the
-    package that contains the requested package version assets.
+  package that contains the requested package version assets.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:namespace` (`t:string`) The namespace of the package version that contains
-    the requested package version assets. The package component that specifies
-    its namespace depends on its type. For example:
+  the requested package version assets. The package component that specifies
+  its namespace depends on its type. For example:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_package_version_assets(
           AWS.Client.t(),
-          list_package_version_assets_request(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, list_package_version_assets_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_package_version_assets_errors()}
-  def list_package_version_assets(%Client{} = client, input, options \\ []) do
+
+  def list_package_version_assets(
+        %Client{} = client,
+        domain,
+        format,
+        package,
+        package_version,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(package_version) and is_binary(repository) do
     url_path = "/v1/package/version/assets"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, max_results: nil, namespace: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"maxResults", "max-results"},
-        {"namespace", "namespace"},
-        {"nextToken", "next-token"},
-        {"package", "package"},
-        {"packageVersion", "version"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"version", package_version},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4251,17 +4740,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :max_results, :namespace, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4277,49 +4758,96 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the requested package version dependencies.
+  that contains the requested package version dependencies.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format of the package with the requested dependencies.
+  format of the package with the requested dependencies.
   * `:package` (`t:string`) The name of the package versions' package.
   * `:package_version` (`t:string`) A string that contains the package version
-    (for example, 3.5.2).
+  (for example, 3.5.2).
   * `:repository` (`t:string`) The name of the repository that contains the
-    requested package version.
+  requested package version.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version with the
-    requested dependencies. The package component that specifies its namespace
-    depends on its type. For example:
+  requested dependencies. The package component that specifies its namespace
+  depends on its type. For example:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
+
   @spec list_package_version_dependencies(
           AWS.Client.t(),
-          list_package_version_dependencies_request(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, list_package_version_dependencies_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_package_version_dependencies_errors()}
-  def list_package_version_dependencies(%Client{} = client, input, options \\ []) do
+
+  def list_package_version_dependencies(
+        %Client{} = client,
+        domain,
+        format,
+        package,
+        package_version,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(package_version) and is_binary(repository) do
     url_path = "/v1/package/version/dependencies"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"nextToken", "next-token"},
-        {"package", "package"},
-        {"packageVersion", "version"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"version", package_version},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4329,17 +4857,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4353,56 +4873,137 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the requested package versions.
+  that contains the requested package versions.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format of the package versions you want to list.
+  format of the package versions you want to list.
   * `:package` (`t:string`) The name of the package for which you want to request
-    package versions.
+  package versions.
   * `:repository` (`t:string`) The name of the repository that contains the
-    requested package versions.
+  requested package versions.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:namespace` (`t:string`) The namespace of the package that contains the
-    requested package versions. The package component that specifies its
-    namespace depends on its type. For example:
+  requested package versions. The package component that specifies its
+  namespace depends on its type. For example:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:origin_type` (`t:enum["EXTERNAL|INTERNAL|UNKNOWN"]`) The originType used to
-    filter package versions. Only package versions with the provided originType
-    will be returned.
+  filter package versions. Only package versions with the provided originType
+  will be returned.
   * `:sort_by` (`t:enum["PUBLISHED_TIME"]`) How to sort the requested list of
-    package versions.
+  package versions.
   * `:status`
-    (`t:enum["ARCHIVED|DELETED|DISPOSED|PUBLISHED|UNFINISHED|UNLISTED"]`) A
-    string that filters the requested package versions by status.
+  (`t:enum["ARCHIVED|DELETED|DISPOSED|PUBLISHED|UNFINISHED|UNLISTED"]`) A
+  string that filters the requested package versions by status.
   """
-  @spec list_package_versions(AWS.Client.t(), list_package_versions_request(), Keyword.t()) ::
+
+  @spec list_package_versions(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
           {:ok, list_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_package_versions_errors()}
-  def list_package_versions(%Client{} = client, input, options \\ []) do
+
+  def list_package_versions(
+        %Client{} = client,
+        domain,
+        format,
+        package,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(repository) do
     url_path = "/v1/package/versions"
+
+    # Validate optional parameters
+    optional_params = [
+      domain_owner: nil,
+      max_results: nil,
+      namespace: nil,
+      next_token: nil,
+      origin_type: nil,
+      sort_by: nil,
+      status: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"maxResults", "max-results"},
-        {"namespace", "namespace"},
-        {"nextToken", "next-token"},
-        {"originType", "originType"},
-        {"package", "package"},
-        {"repository", "repository"},
-        {"sortBy", "sortBy"},
-        {"status", "status"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :status) do
+        [{"status", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :sort_by) do
+        [{"sortBy", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :origin_type) do
+        [{"originType", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4420,17 +5021,9 @@ defmodule AWS.Codeartifact do
         :status
       ])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4442,57 +5035,127 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the requested packages.
+  that contains the requested packages.
   * `:repository` (`t:string`) The name of the repository that contains the
-    requested packages.
+  requested packages.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-    format used to filter requested packages. Only packages from the provided
-    format will be returned.
+  format used to filter requested packages. Only packages from the provided
+  format will be returned.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:namespace` (`t:string`) The namespace prefix used to filter requested
-    packages. Only packages with a namespace that starts with the provided
-    string value are returned. Note that although this option is called
-    --namespace and not --namespace-prefix, it has prefix-matching behavior.
+  packages. Only packages with a namespace that starts with the provided
+  string value are returned. Note that although this option is called
+  --namespace and not --namespace-prefix, it has prefix-matching behavior.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:package_prefix` (`t:string`) A prefix used to filter requested packages.
-    Only packages with names that start with packagePrefix are returned.
+  Only packages with names that start with packagePrefix are returned.
   * `:publish` (`t:enum["ALLOW|BLOCK"]`) The value of the Publish package origin
-    control restriction used to filter requested packages. Only packages with
-    the provided restriction are returned. For more information, see
-    PackageOriginRestrictions.
+  control restriction used to filter requested packages. Only packages with
+  the provided restriction are returned. For more information, see
+  PackageOriginRestrictions.
   * `:upstream` (`t:enum["ALLOW|BLOCK"]`) The value of the Upstream package origin
-    control restriction used to filter requested packages. Only packages with
-    the provided restriction are returned. For more information, see
-    PackageOriginRestrictions.
+  control restriction used to filter requested packages. Only packages with
+  the provided restriction are returned. For more information, see
+  PackageOriginRestrictions.
   """
-  @spec list_packages(AWS.Client.t(), list_packages_request(), Keyword.t()) ::
+
+  @spec list_packages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_packages_errors()}
-  def list_packages(%Client{} = client, input, options \\ []) do
+
+  def list_packages(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/packages"
+
+    # Validate optional parameters
+    optional_params = [
+      domain_owner: nil,
+      format: nil,
+      max_results: nil,
+      namespace: nil,
+      next_token: nil,
+      package_prefix: nil,
+      publish: nil,
+      upstream: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"maxResults", "max-results"},
-        {"namespace", "namespace"},
-        {"nextToken", "next-token"},
-        {"packagePrefix", "package-prefix"},
-        {"publish", "publish"},
-        {"repository", "repository"},
-        {"upstream", "upstream"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"repository", repository}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :upstream) do
+        [{"upstream", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :publish) do
+        [{"publish", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :package_prefix) do
+        [{"package-prefix", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :format) do
+        [{"format", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4511,17 +5174,9 @@ defmodule AWS.Codeartifact do
         :upstream
       ])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4538,27 +5193,59 @@ defmodule AWS.Codeartifact do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:repository_prefix` (`t:string`) A prefix used to filter returned
-    repositories. Only repositories with names that start with repositoryPrefix
-    are returned.
+  repositories. Only repositories with names that start with repositoryPrefix
+  are returned.
   """
-  @spec list_repositories(AWS.Client.t(), list_repositories_request(), Keyword.t()) ::
+
+  @spec list_repositories(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_repositories_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repositories_errors()}
-  def list_repositories(%Client{} = client, input, options \\ []) do
+
+  def list_repositories(%Client{} = client, options \\ []) do
     url_path = "/v1/repositories"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil, repository_prefix: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "max-results"},
-        {"nextToken", "next-token"},
-        {"repositoryPrefix", "repository-prefix"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :repository_prefix) do
+        [{"repository-prefix", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4568,17 +5255,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:max_results, :next_token, :repository_prefix])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4591,43 +5270,89 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the returned list
-    of repositories.
+  of repositories.
 
   ## Optional parameters:
   * `:administrator_account` (`t:string`) Filter the list of repositories to only
-    include those that are managed by the Amazon Web Services account ID.
+  include those that are managed by the Amazon Web Services account ID.
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   * `:repository_prefix` (`t:string`) A prefix used to filter returned
-    repositories. Only repositories with names that start with repositoryPrefix
-    are returned.
+  repositories. Only repositories with names that start with repositoryPrefix
+  are returned.
   """
-  @spec list_repositories_in_domain(
-          AWS.Client.t(),
-          list_repositories_in_domain_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_repositories_in_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_repositories_in_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_repositories_in_domain_errors()}
-  def list_repositories_in_domain(%Client{} = client, input, options \\ []) do
+
+  def list_repositories_in_domain(%Client{} = client, domain, options \\ [])
+      when is_binary(domain) do
     url_path = "/v1/domain/repositories"
+
+    # Validate optional parameters
+    optional_params = [
+      administrator_account: nil,
+      domain_owner: nil,
+      max_results: nil,
+      next_token: nil,
+      repository_prefix: nil
+    ]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"administratorAccount", "administrator-account"},
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"maxResults", "max-results"},
-        {"nextToken", "next-token"},
-        {"repositoryPrefix", "repository-prefix"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :repository_prefix) do
+        [{"repository-prefix", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :administrator_account) do
+        [{"administrator-account", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4643,17 +5368,9 @@ defmodule AWS.Codeartifact do
         :repository_prefix
       ])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4663,35 +5380,66 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain which contains the package group
-    from which to list sub package groups.
+  from which to list sub package groups.
   * `:package_group` (`t:string`) The pattern of the package group from which to
-    list sub package groups.
+  list sub package groups.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-    value returned in the previous response in the next request to retrieve the
-    next set of results.
+  value returned in the previous response in the next request to retrieve the
+  next set of results.
   """
-  @spec list_sub_package_groups(AWS.Client.t(), list_sub_package_groups_request(), Keyword.t()) ::
+
+  @spec list_sub_package_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sub_package_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sub_package_groups_errors()}
-  def list_sub_package_groups(%Client{} = client, input, options \\ []) do
+
+  def list_sub_package_groups(%Client{} = client, domain, package_group, options \\ [])
+      when is_binary(domain) and is_binary(package_group) do
     url_path = "/v1/package-groups/sub-groups"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"maxResults", "max-results"},
-        {"nextToken", "next-token"},
-        {"packageGroup", "package-group"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"package-group", package_group}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"next-token", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"max-results", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4701,17 +5449,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4722,38 +5462,45 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
-    get tags for.
+  get tags for.
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/v1/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceArn", "resourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4763,50 +5510,69 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:asset_name` (`t:string`) The name of the asset to publish. Asset names can
-    include Unicode letters and numbers, and the following special characters: ~
-    ! @ ^ & ( ) - ` _ + [ ] { } ; , . `
+  include Unicode letters and numbers, and the following special characters: ~
+  ! @ ^ & ( ) - ` _ + [ ] { } ; , . `
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the package version to publish.
+  that contains the package version to publish.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of the package version with the requested asset
-    file.
+  that specifies the type of the package version with the requested asset
+  file.
   * `:package` (`t:string`) The name of the package version to publish.
   * `:package_version` (`t:string`) The package version to publish (for example,
-    3.5.2).
+  3.5.2).
   * `:repository` (`t:string`) The name of the repository that the package version
-    will be published to.
+  will be published to.
   * `:asset_s_h_a256` (`t:string`) The SHA256 hash of the assetContent to publish.
-    This value must be calculated by the caller and provided with the request
-    (see Publishing a generic package in the CodeArtifact User Guide).
+  This value must be calculated by the caller and provided with the request
+  (see Publishing a generic package in the CodeArtifact User Guide).
+  * `:input` (`t:map`):
+    * `:asset_content` (`t:blob`) The content of the asset to publish.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the AWS account
-    that owns the domain. It does not include dashes or spaces.
+  that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version to publish.
   * `:unfinished` (`t:boolean`) Specifies whether the package version should
-    remain in the unfinished state. If omitted, the package version status will
-    be set to Published (see Package version status in the CodeArtifact User
-    Guide).
+  remain in the unfinished state. If omitted, the package version status will
+  be set to Published (see Package version status in the CodeArtifact User
+  Guide).
   """
-  @spec publish_package_version(AWS.Client.t(), publish_package_version_request(), Keyword.t()) ::
+
+  @spec publish_package_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          input :: map(),
+          Keyword.t()
+        ) ::
           {:ok, publish_package_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_package_version_errors()}
-  def publish_package_version(%Client{} = client, input, options \\ []) do
+
+  def publish_package_version(
+        %Client{} = client,
+        asset_name,
+        domain,
+        format,
+        package,
+        package_version,
+        repository,
+        asset_s_h_a256,
+        input,
+        options \\ []
+      )
+      when is_map(input) and is_binary(asset_name) and is_binary(domain) and is_binary(format) and
+             is_binary(package) and is_binary(package_version) and is_binary(repository) and
+             is_binary(asset_s_h_a256) do
     url_path = "/v1/package/version/publish"
 
-    optional_params = [
-      asset_name: nil,
-      domain: nil,
-      domain_owner: nil,
-      format: nil,
-      namespace: nil,
-      package: nil,
-      package_version: nil,
-      repository: nil,
-      unfinished: nil,
-      asset_s_h_a256: nil
-    ]
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil, unfinished: nil]
 
     options =
       Keyword.validate!(
@@ -4814,25 +5580,42 @@ defmodule AWS.Codeartifact do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"assetSHA256", "x-amz-content-sha256"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-content-sha256", asset_s_h_a256}]
 
-    {query_params, input} =
-      [
-        {"assetName", "asset"},
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"package", "package"},
-        {"packageVersion", "version"},
-        {"repository", "repository"},
-        {"unfinished", "unfinished"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"asset", asset_name},
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"version", package_version},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :unfinished) do
+        [{"unfinished", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4842,17 +5625,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace, :unfinished])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4864,23 +5639,40 @@ defmodule AWS.Codeartifact do
 
   ## Optional parameters:
   """
-  @spec put_domain_permissions_policy(
-          AWS.Client.t(),
-          put_domain_permissions_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_domain_permissions_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_domain_permissions_policy_errors()}
-  def put_domain_permissions_policy(%Client{} = client, input, options \\ []) do
+
+  def put_domain_permissions_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/domain/permissions/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4897,42 +5689,81 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the package.
+  that contains the package.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of the package to be updated.
+  that specifies the type of the package to be updated.
   * `:package` (`t:string`) The name of the package to be updated.
   * `:repository` (`t:string`) The name of the repository that contains the
-    package.
+  package.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package to be updated. The
-    package component that specifies its namespace depends on its type. For
-    example:
+  package component that specifies its namespace depends on its type. For
+  example:
   """
+
   @spec put_package_origin_configuration(
           AWS.Client.t(),
-          put_package_origin_configuration_request(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, put_package_origin_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_package_origin_configuration_errors()}
-  def put_package_origin_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_package_origin_configuration(
+        %Client{} = client,
+        domain,
+        format,
+        package,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(repository) do
     url_path = "/v1/package"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"package", "package"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4942,17 +5773,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4963,33 +5786,48 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain containing the repository to set
-    the resource policy on.
+  the resource policy on.
   * `:repository` (`t:string`) The name of the repository to set the resource
-    policy on.
+  policy on.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec put_repository_permissions_policy(
-          AWS.Client.t(),
-          put_repository_permissions_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_repository_permissions_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_repository_permissions_policy_errors()}
-  def put_repository_permissions_policy(%Client{} = client, input, options \\ []) do
+
+  def put_repository_permissions_policy(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/repository/permissions/policy"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"repository", repository}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -4999,7 +5837,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5009,38 +5849,45 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to add or update tags for.
+  that you want to add or update tags for.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/v1/tag"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceArn", "resourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5050,38 +5897,45 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that you want to remove tags from.
+  that you want to remove tags from.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/v1/untag"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceArn", "resourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5094,26 +5948,45 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain which contains the package group
-    to be updated.
+  to be updated.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec update_package_group(AWS.Client.t(), update_package_group_request(), Keyword.t()) ::
+
+  @spec update_package_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_group_errors()}
-  def update_package_group(%Client{} = client, input, options \\ []) do
+
+  def update_package_group(%Client{} = client, domain, options \\ []) when is_binary(domain) do
     url_path = "/v1/package-group"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -5123,7 +5996,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5133,33 +6008,58 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain which contains the package group
-    for which to update the origin configuration.
+  for which to update the origin configuration.
   * `:package_group` (`t:string`) The pattern of the package group for which to
-    update the origin configuration.
+  update the origin configuration.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
+
   @spec update_package_group_origin_configuration(
           AWS.Client.t(),
-          update_package_group_origin_configuration_request(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, update_package_group_origin_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_group_origin_configuration_errors()}
-  def update_package_group_origin_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_package_group_origin_configuration(
+        %Client{} = client,
+        domain,
+        package_group,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(package_group) do
     url_path = "/v1/package-group-origin-configuration"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"packageGroup", "package-group"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"package-group", package_group}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -5169,7 +6069,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5183,43 +6085,82 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain that contains the repository
-    that contains the package versions with a status to be updated.
+  that contains the package versions with a status to be updated.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) A format
-    that specifies the type of the package with the statuses to update.
+  that specifies the type of the package with the statuses to update.
   * `:package` (`t:string`) The name of the package with the version statuses to
-    update.
+  update.
   * `:repository` (`t:string`) The repository that contains the package versions
-    with the status you want to update.
+  with the status you want to update.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version to be updated.
-    The package component that specifies its namespace depends on its type. For
-    example:
+  The package component that specifies its namespace depends on its type. For
+  example:
   """
+
   @spec update_package_versions_status(
           AWS.Client.t(),
-          update_package_versions_status_request(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
           Keyword.t()
         ) ::
           {:ok, update_package_versions_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_package_versions_status_errors()}
-  def update_package_versions_status(%Client{} = client, input, options \\ []) do
+
+  def update_package_versions_status(
+        %Client{} = client,
+        domain,
+        format,
+        package,
+        repository,
+        options \\ []
+      )
+      when is_binary(domain) and is_binary(format) and is_binary(package) and
+             is_binary(repository) do
     url_path = "/v1/package/versions/update_status"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil, namespace: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"format", "format"},
-        {"namespace", "namespace"},
-        {"package", "package"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [
+      {"domain", domain},
+      {"format", format},
+      {"package", package},
+      {"repository", repository}
+    ]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :namespace) do
+        [{"namespace", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -5229,17 +6170,9 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner, :namespace])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5249,28 +6182,47 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string`) The name of the domain associated with the repository
-    to update.
+  to update.
   * `:repository` (`t:string`) The name of the repository to update.
 
   ## Optional parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-    Services account that owns the domain. It does not include dashes or spaces.
+  Services account that owns the domain. It does not include dashes or spaces.
   """
-  @spec update_repository(AWS.Client.t(), update_repository_request(), Keyword.t()) ::
+
+  @spec update_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_repository_errors()}
-  def update_repository(%Client{} = client, input, options \\ []) do
+
+  def update_repository(%Client{} = client, domain, repository, options \\ [])
+      when is_binary(domain) and is_binary(repository) do
     url_path = "/v1/repository"
+
+    # Validate optional parameters
+    optional_params = [domain_owner: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"domain", "domain"},
-        {"domainOwner", "domain-owner"},
-        {"repository", "repository"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"domain", domain}, {"repository", repository}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :domain_owner) do
+        [{"domain-owner", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -5280,6 +6232,8 @@ defmodule AWS.Codeartifact do
       options
       |> Keyword.drop([:domain_owner])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

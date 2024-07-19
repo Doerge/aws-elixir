@@ -1903,16 +1903,24 @@ defmodule AWS.Transcribe do
   to your Call Analytics transcriptions. Note that in order to apply categories
   to your transcriptions, you must create them before submitting your
   transcription request, as categories cannot be applied retroactively.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20CreateCallAnalyticsCategory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_call_analytics_category_request`)
+    %{
+      optional("InputType") => list(any()),
+      required("Rules") => list(list()())
+    }
   """
-  @spec create_call_analytics_category(
-          AWS.Client.t(),
-          create_call_analytics_category_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_call_analytics_category(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_call_analytics_category_errors()}
-  def create_call_analytics_category(%Client{} = client, input, options \\ []) do
+
+  def create_call_analytics_category(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1922,12 +1930,25 @@ defmodule AWS.Transcribe do
   @doc """
   Creates a new custom language model. When creating a new custom language model,
   you must specify:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20CreateLanguageModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_language_model_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("BaseModelName") => list(any()),
+      required("InputDataConfig") => input_data_config(),
+      required("LanguageCode") => list(any())
+    }
   """
-  @spec create_language_model(AWS.Client.t(), create_language_model_request(), Keyword.t()) ::
+
+  @spec create_language_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_language_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_language_model_errors()}
-  def create_language_model(%Client{} = client, input, options \\ []) do
+
+  def create_language_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1941,16 +1962,24 @@ defmodule AWS.Transcribe do
   include a list of terms within your request using the `Phrases` flag;
   `CreateMedicalVocabulary` does not support the `Phrases` flag and only accepts
   vocabularies in table format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20CreateMedicalVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_medical_vocabulary_request`)
+    %{
+      optional("Tags") => list(tag()()),
+      required("LanguageCode") => list(any()),
+      required("VocabularyFileUri") => String.t()
+    }
   """
-  @spec create_medical_vocabulary(
-          AWS.Client.t(),
-          create_medical_vocabulary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_medical_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_medical_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_medical_vocabulary_errors()}
-  def create_medical_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def create_medical_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1962,12 +1991,26 @@ defmodule AWS.Transcribe do
   either upload a text file that contains your new entries, phrases, and terms
   into an Amazon S3 bucket and include the URI in your request. Or you can
   include a list of terms directly in your request using the `Phrases` flag.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20CreateVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_vocabulary_request`)
+    %{
+      optional("DataAccessRoleArn") => String.t(),
+      optional("Phrases") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("VocabularyFileUri") => String.t(),
+      required("LanguageCode") => list(any())
+    }
   """
-  @spec create_vocabulary(AWS.Client.t(), create_vocabulary_request(), Keyword.t()) ::
+
+  @spec create_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vocabulary_errors()}
-  def create_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def create_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1978,12 +2021,26 @@ defmodule AWS.Transcribe do
   Creates a new custom vocabulary filter. You can use custom vocabulary filters to
   mask, delete, or flag specific words from your transcript. Custom vocabulary
   filters are commonly used to mask profanity in transcripts.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20CreateVocabularyFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_vocabulary_filter_request`)
+    %{
+      optional("DataAccessRoleArn") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("VocabularyFilterFileUri") => String.t(),
+      optional("Words") => list(String.t()()),
+      required("LanguageCode") => list(any())
+    }
   """
-  @spec create_vocabulary_filter(AWS.Client.t(), create_vocabulary_filter_request(), Keyword.t()) ::
+
+  @spec create_vocabulary_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vocabulary_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vocabulary_filter_errors()}
-  def create_vocabulary_filter(%Client{} = client, input, options \\ []) do
+
+  def create_vocabulary_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1994,16 +2051,23 @@ defmodule AWS.Transcribe do
   Deletes a Call Analytics category. To use this operation, specify the name of
   the category you want to delete using `CategoryName`. Category names are case
   sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteCallAnalyticsCategory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_call_analytics_category_request`)
+    %{
+      
+    }
   """
-  @spec delete_call_analytics_category(
-          AWS.Client.t(),
-          delete_call_analytics_category_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_call_analytics_category(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_call_analytics_category_errors()}
-  def delete_call_analytics_category(%Client{} = client, input, options \\ []) do
+
+  def delete_call_analytics_category(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2013,16 +2077,22 @@ defmodule AWS.Transcribe do
   @doc """
   Deletes a Call Analytics job. To use this operation, specify the name of the job
   you want to delete using `CallAnalyticsJobName`. Job names are case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteCallAnalyticsJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_call_analytics_job_request`)
+    %{
+      
+    }
   """
-  @spec delete_call_analytics_job(
-          AWS.Client.t(),
-          delete_call_analytics_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_call_analytics_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_call_analytics_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_call_analytics_job_errors()}
-  def delete_call_analytics_job(%Client{} = client, input, options \\ []) do
+
+  def delete_call_analytics_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2033,12 +2103,22 @@ defmodule AWS.Transcribe do
   Deletes a custom language model. To use this operation, specify the name of the
   language model you want to delete using `ModelName`. custom language model
   names are case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteLanguageModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_language_model_request`)
+    %{
+      
+    }
   """
-  @spec delete_language_model(AWS.Client.t(), delete_language_model_request(), Keyword.t()) ::
+
+  @spec delete_language_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_language_model_errors()}
-  def delete_language_model(%Client{} = client, input, options \\ []) do
+
+  def delete_language_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2048,16 +2128,22 @@ defmodule AWS.Transcribe do
   @doc """
   Deletes a Medical Scribe job. To use this operation, specify the name of the job
   you want to delete using `MedicalScribeJobName`. Job names are case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteMedicalScribeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_medical_scribe_job_request`)
+    %{
+      
+    }
   """
-  @spec delete_medical_scribe_job(
-          AWS.Client.t(),
-          delete_medical_scribe_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_medical_scribe_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_medical_scribe_job_errors()}
-  def delete_medical_scribe_job(%Client{} = client, input, options \\ []) do
+
+  def delete_medical_scribe_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2068,16 +2154,23 @@ defmodule AWS.Transcribe do
   Deletes a medical transcription job. To use this operation, specify the name of
   the job you want to delete using `MedicalTranscriptionJobName`. Job names are
   case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteMedicalTranscriptionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_medical_transcription_job_request`)
+    %{
+      
+    }
   """
-  @spec delete_medical_transcription_job(
-          AWS.Client.t(),
-          delete_medical_transcription_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_medical_transcription_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_medical_transcription_job_errors()}
-  def delete_medical_transcription_job(%Client{} = client, input, options \\ []) do
+
+  def delete_medical_transcription_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2088,16 +2181,22 @@ defmodule AWS.Transcribe do
   Deletes a custom medical vocabulary. To use this operation, specify the name of
   the custom vocabulary you want to delete using `VocabularyName`. Custom
   vocabulary names are case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteMedicalVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_medical_vocabulary_request`)
+    %{
+      
+    }
   """
-  @spec delete_medical_vocabulary(
-          AWS.Client.t(),
-          delete_medical_vocabulary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_medical_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_medical_vocabulary_errors()}
-  def delete_medical_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def delete_medical_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2107,12 +2206,22 @@ defmodule AWS.Transcribe do
   @doc """
   Deletes a transcription job. To use this operation, specify the name of the job
   you want to delete using `TranscriptionJobName`. Job names are case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteTranscriptionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_transcription_job_request`)
+    %{
+      
+    }
   """
-  @spec delete_transcription_job(AWS.Client.t(), delete_transcription_job_request(), Keyword.t()) ::
+
+  @spec delete_transcription_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_transcription_job_errors()}
-  def delete_transcription_job(%Client{} = client, input, options \\ []) do
+
+  def delete_transcription_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2123,12 +2232,22 @@ defmodule AWS.Transcribe do
   Deletes a custom vocabulary. To use this operation, specify the name of the
   custom vocabulary you want to delete using `VocabularyName`. Custom vocabulary
   names are case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_vocabulary_request`)
+    %{
+      
+    }
   """
-  @spec delete_vocabulary(AWS.Client.t(), delete_vocabulary_request(), Keyword.t()) ::
+
+  @spec delete_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vocabulary_errors()}
-  def delete_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def delete_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2139,12 +2258,22 @@ defmodule AWS.Transcribe do
   Deletes a custom vocabulary filter. To use this operation, specify the name of
   the custom vocabulary filter you want to delete using `VocabularyFilterName`.
   Custom vocabulary filter names are case sensitive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DeleteVocabularyFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_vocabulary_filter_request`)
+    %{
+      
+    }
   """
-  @spec delete_vocabulary_filter(AWS.Client.t(), delete_vocabulary_filter_request(), Keyword.t()) ::
+
+  @spec delete_vocabulary_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vocabulary_filter_errors()}
-  def delete_vocabulary_filter(%Client{} = client, input, options \\ []) do
+
+  def delete_vocabulary_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2157,12 +2286,22 @@ defmodule AWS.Transcribe do
   language model has been updated. If Amazon Transcribe has updated the base
   model, you can create a new custom language model using the updated base
   model.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20DescribeLanguageModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_language_model_request`)
+    %{
+      
+    }
   """
-  @spec describe_language_model(AWS.Client.t(), describe_language_model_request(), Keyword.t()) ::
+
+  @spec describe_language_model(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_language_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_language_model_errors()}
-  def describe_language_model(%Client{} = client, input, options \\ []) do
+
+  def describe_language_model(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2171,16 +2310,22 @@ defmodule AWS.Transcribe do
 
   @doc """
   Provides information about the specified Call Analytics category.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetCallAnalyticsCategory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_call_analytics_category_request`)
+    %{
+      
+    }
   """
-  @spec get_call_analytics_category(
-          AWS.Client.t(),
-          get_call_analytics_category_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_call_analytics_category(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_call_analytics_category_errors()}
-  def get_call_analytics_category(%Client{} = client, input, options \\ []) do
+
+  def get_call_analytics_category(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2193,12 +2338,22 @@ defmodule AWS.Transcribe do
   job is finished. You can find your completed transcript at the URI specified
   in `TranscriptFileUri`. If the status is `FAILED`, `FailureReason` provides
   details on why your transcription job failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetCallAnalyticsJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_call_analytics_job_request`)
+    %{
+      
+    }
   """
-  @spec get_call_analytics_job(AWS.Client.t(), get_call_analytics_job_request(), Keyword.t()) ::
+
+  @spec get_call_analytics_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_call_analytics_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_call_analytics_job_errors()}
-  def get_call_analytics_job(%Client{} = client, input, options \\ []) do
+
+  def get_call_analytics_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2212,12 +2367,22 @@ defmodule AWS.Transcribe do
   results at the location specified in `MedicalScribeOutput`. If the status is
   `FAILED`, `FailureReason` provides details on why your Medical Scribe job
   failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetMedicalScribeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_medical_scribe_job_request`)
+    %{
+      
+    }
   """
-  @spec get_medical_scribe_job(AWS.Client.t(), get_medical_scribe_job_request(), Keyword.t()) ::
+
+  @spec get_medical_scribe_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_medical_scribe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_medical_scribe_job_errors()}
-  def get_medical_scribe_job(%Client{} = client, input, options \\ []) do
+
+  def get_medical_scribe_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2231,16 +2396,23 @@ defmodule AWS.Transcribe do
   finished. You can find the results at the location specified in
   `TranscriptFileUri`. If the status is `FAILED`, `FailureReason` provides
   details on why your transcription job failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetMedicalTranscriptionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_medical_transcription_job_request`)
+    %{
+      
+    }
   """
-  @spec get_medical_transcription_job(
-          AWS.Client.t(),
-          get_medical_transcription_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_medical_transcription_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_medical_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_medical_transcription_job_errors()}
-  def get_medical_transcription_job(%Client{} = client, input, options \\ []) do
+
+  def get_medical_transcription_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2253,12 +2425,22 @@ defmodule AWS.Transcribe do
   field. If the status is `READY`, your custom vocabulary is available to use.
   If the status is `FAILED`, `FailureReason` provides details on why your
   vocabulary failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetMedicalVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_medical_vocabulary_request`)
+    %{
+      
+    }
   """
-  @spec get_medical_vocabulary(AWS.Client.t(), get_medical_vocabulary_request(), Keyword.t()) ::
+
+  @spec get_medical_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_medical_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_medical_vocabulary_errors()}
-  def get_medical_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def get_medical_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2271,12 +2453,22 @@ defmodule AWS.Transcribe do
   If the status is `COMPLETED`, the job is finished. You can find the results at
   the location specified in `TranscriptFileUri`. If the status is `FAILED`,
   `FailureReason` provides details on why your transcription job failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetTranscriptionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_transcription_job_request`)
+    %{
+      
+    }
   """
-  @spec get_transcription_job(AWS.Client.t(), get_transcription_job_request(), Keyword.t()) ::
+
+  @spec get_transcription_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_transcription_job_errors()}
-  def get_transcription_job(%Client{} = client, input, options \\ []) do
+
+  def get_transcription_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2289,12 +2481,22 @@ defmodule AWS.Transcribe do
   status is `READY`, your custom vocabulary is available to use. If the status
   is `FAILED`, `FailureReason` provides details on why your custom vocabulary
   failed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_vocabulary_request`)
+    %{
+      
+    }
   """
-  @spec get_vocabulary(AWS.Client.t(), get_vocabulary_request(), Keyword.t()) ::
+
+  @spec get_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vocabulary_errors()}
-  def get_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def get_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2303,12 +2505,22 @@ defmodule AWS.Transcribe do
 
   @doc """
   Provides information about the specified custom vocabulary filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20GetVocabularyFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_vocabulary_filter_request`)
+    %{
+      
+    }
   """
-  @spec get_vocabulary_filter(AWS.Client.t(), get_vocabulary_filter_request(), Keyword.t()) ::
+
+  @spec get_vocabulary_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_vocabulary_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vocabulary_filter_errors()}
-  def get_vocabulary_filter(%Client{} = client, input, options \\ []) do
+
+  def get_vocabulary_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2318,16 +2530,24 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of Call Analytics categories, including all rules that make up
   each category.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListCallAnalyticsCategories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_call_analytics_categories_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_call_analytics_categories(
-          AWS.Client.t(),
-          list_call_analytics_categories_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_call_analytics_categories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_call_analytics_categories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_call_analytics_categories_errors()}
-  def list_call_analytics_categories(%Client{} = client, input, options \\ []) do
+
+  def list_call_analytics_categories(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2337,12 +2557,25 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of Call Analytics jobs that match the specified criteria. If no
   criteria are specified, all Call Analytics jobs are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListCallAnalyticsJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_call_analytics_jobs_request`)
+    %{
+      optional("JobNameContains") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_call_analytics_jobs(AWS.Client.t(), list_call_analytics_jobs_request(), Keyword.t()) ::
+
+  @spec list_call_analytics_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_call_analytics_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_call_analytics_jobs_errors()}
-  def list_call_analytics_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_call_analytics_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2352,12 +2585,25 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of custom language models that match the specified criteria. If
   no criteria are specified, all custom language models are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListLanguageModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_language_models_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("StatusEquals") => list(any())
+    }
   """
-  @spec list_language_models(AWS.Client.t(), list_language_models_request(), Keyword.t()) ::
+
+  @spec list_language_models(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_language_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_language_models_errors()}
-  def list_language_models(%Client{} = client, input, options \\ []) do
+
+  def list_language_models(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2367,12 +2613,25 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of Medical Scribe jobs that match the specified criteria. If no
   criteria are specified, all Medical Scribe jobs are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListMedicalScribeJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_medical_scribe_jobs_request`)
+    %{
+      optional("JobNameContains") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_medical_scribe_jobs(AWS.Client.t(), list_medical_scribe_jobs_request(), Keyword.t()) ::
+
+  @spec list_medical_scribe_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_medical_scribe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_medical_scribe_jobs_errors()}
-  def list_medical_scribe_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_medical_scribe_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2382,16 +2641,26 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of medical transcription jobs that match the specified criteria.
   If no criteria are specified, all medical transcription jobs are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListMedicalTranscriptionJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_medical_transcription_jobs_request`)
+    %{
+      optional("JobNameContains") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_medical_transcription_jobs(
-          AWS.Client.t(),
-          list_medical_transcription_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_medical_transcription_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_medical_transcription_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_medical_transcription_jobs_errors()}
-  def list_medical_transcription_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_medical_transcription_jobs(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2402,16 +2671,25 @@ defmodule AWS.Transcribe do
   Provides a list of custom medical vocabularies that match the specified
   criteria. If no criteria are specified, all custom medical vocabularies are
   returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListMedicalVocabularies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_medical_vocabularies_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("StateEquals") => list(any())
+    }
   """
-  @spec list_medical_vocabularies(
-          AWS.Client.t(),
-          list_medical_vocabularies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_medical_vocabularies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_medical_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_medical_vocabularies_errors()}
-  def list_medical_vocabularies(%Client{} = client, input, options \\ []) do
+
+  def list_medical_vocabularies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2421,12 +2699,22 @@ defmodule AWS.Transcribe do
   @doc """
   Lists all tags associated with the specified transcription job, vocabulary,
   model, or resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2436,12 +2724,25 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of transcription jobs that match the specified criteria. If no
   criteria are specified, all transcription jobs are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListTranscriptionJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_transcription_jobs_request`)
+    %{
+      optional("JobNameContains") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_transcription_jobs(AWS.Client.t(), list_transcription_jobs_request(), Keyword.t()) ::
+
+  @spec list_transcription_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_transcription_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_transcription_jobs_errors()}
-  def list_transcription_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_transcription_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2451,12 +2752,25 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of custom vocabularies that match the specified criteria. If no
   criteria are specified, all custom vocabularies are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListVocabularies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_vocabularies_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("StateEquals") => list(any())
+    }
   """
-  @spec list_vocabularies(AWS.Client.t(), list_vocabularies_request(), Keyword.t()) ::
+
+  @spec list_vocabularies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vocabularies_errors()}
-  def list_vocabularies(%Client{} = client, input, options \\ []) do
+
+  def list_vocabularies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2466,12 +2780,24 @@ defmodule AWS.Transcribe do
   @doc """
   Provides a list of custom vocabulary filters that match the specified criteria.
   If no criteria are specified, all custom vocabularies are returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20ListVocabularyFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_vocabulary_filters_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NameContains") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_vocabulary_filters(AWS.Client.t(), list_vocabulary_filters_request(), Keyword.t()) ::
+
+  @spec list_vocabulary_filters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vocabulary_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vocabulary_filters_errors()}
-  def list_vocabulary_filters(%Client{} = client, input, options \\ []) do
+
+  def list_vocabulary_filters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2497,12 +2823,27 @@ defmodule AWS.Transcribe do
   To make a `StartCallAnalyticsJob` request, you must first upload your media
   file into an Amazon S3 bucket; you can then specify the Amazon S3 location of
   the file using the `Media` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20StartCallAnalyticsJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_call_analytics_job_request`)
+    %{
+      optional("ChannelDefinitions") => list(channel_definition()()),
+      optional("DataAccessRoleArn") => String.t(),
+      optional("OutputEncryptionKMSKeyId") => String.t(),
+      optional("OutputLocation") => String.t(),
+      optional("Settings") => call_analytics_job_settings(),
+      required("Media") => media()
+    }
   """
-  @spec start_call_analytics_job(AWS.Client.t(), start_call_analytics_job_request(), Keyword.t()) ::
+
+  @spec start_call_analytics_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_call_analytics_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_call_analytics_job_errors()}
-  def start_call_analytics_job(%Client{} = client, input, options \\ []) do
+
+  def start_call_analytics_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2516,12 +2857,29 @@ defmodule AWS.Transcribe do
   terms, and generates preliminary clinical notes. To learn more about these
   features, refer to [Amazon Web Services
   HealthScribe](https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20StartMedicalScribeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_medical_scribe_job_request`)
+    %{
+      optional("ChannelDefinitions") => list(medical_scribe_channel_definition()()),
+      optional("KMSEncryptionContext") => map(),
+      optional("OutputEncryptionKMSKeyId") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("DataAccessRoleArn") => String.t(),
+      required("Media") => media(),
+      required("OutputBucketName") => String.t(),
+      required("Settings") => medical_scribe_settings()
+    }
   """
-  @spec start_medical_scribe_job(AWS.Client.t(), start_medical_scribe_job_request(), Keyword.t()) ::
+
+  @spec start_medical_scribe_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_medical_scribe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_medical_scribe_job_errors()}
-  def start_medical_scribe_job(%Client{} = client, input, options \\ []) do
+
+  def start_medical_scribe_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2539,16 +2897,35 @@ defmodule AWS.Transcribe do
   To make a `StartMedicalTranscriptionJob` request, you must first upload your
   media file into an Amazon S3 bucket; you can then specify the Amazon S3
   location of the file using the `Media` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20StartMedicalTranscriptionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_medical_transcription_job_request`)
+    %{
+      optional("ContentIdentificationType") => list(any()),
+      optional("KMSEncryptionContext") => map(),
+      optional("MediaFormat") => list(any()),
+      optional("MediaSampleRateHertz") => integer(),
+      optional("OutputEncryptionKMSKeyId") => String.t(),
+      optional("OutputKey") => String.t(),
+      optional("Settings") => medical_transcription_setting(),
+      optional("Tags") => list(tag()()),
+      required("LanguageCode") => list(any()),
+      required("Media") => media(),
+      required("OutputBucketName") => String.t(),
+      required("Specialty") => list(any()),
+      required("Type") => list(any())
+    }
   """
-  @spec start_medical_transcription_job(
-          AWS.Client.t(),
-          start_medical_transcription_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_medical_transcription_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_medical_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_medical_transcription_job_errors()}
-  def start_medical_transcription_job(%Client{} = client, input, options \\ []) do
+
+  def start_medical_transcription_job(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2561,12 +2938,40 @@ defmodule AWS.Transcribe do
   `StartTranscriptionJob` request, you must first upload your media file into an
   Amazon S3 bucket; you can then specify the Amazon S3 location of the file
   using the `Media` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20StartTranscriptionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_transcription_job_request`)
+    %{
+      optional("ContentRedaction") => content_redaction(),
+      optional("IdentifyLanguage") => boolean(),
+      optional("IdentifyMultipleLanguages") => boolean(),
+      optional("JobExecutionSettings") => job_execution_settings(),
+      optional("KMSEncryptionContext") => map(),
+      optional("LanguageCode") => list(any()),
+      optional("LanguageIdSettings") => map(),
+      optional("LanguageOptions") => list(list(any())()),
+      optional("MediaFormat") => list(any()),
+      optional("MediaSampleRateHertz") => integer(),
+      optional("ModelSettings") => model_settings(),
+      optional("OutputBucketName") => String.t(),
+      optional("OutputEncryptionKMSKeyId") => String.t(),
+      optional("OutputKey") => String.t(),
+      optional("Settings") => settings(),
+      optional("Subtitles") => subtitles(),
+      optional("Tags") => list(tag()()),
+      optional("ToxicityDetection") => list(toxicity_detection_settings()()),
+      required("Media") => media()
+    }
   """
-  @spec start_transcription_job(AWS.Client.t(), start_transcription_job_request(), Keyword.t()) ::
+
+  @spec start_transcription_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_transcription_job_errors()}
-  def start_transcription_job(%Client{} = client, input, options \\ []) do
+
+  def start_transcription_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2576,12 +2981,22 @@ defmodule AWS.Transcribe do
   @doc """
   Adds one or more custom tags, each in the form of a key:value pair, to the
   specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2590,12 +3005,22 @@ defmodule AWS.Transcribe do
 
   @doc """
   Removes the specified tags from the specified Amazon Transcribe resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2607,16 +3032,24 @@ defmodule AWS.Transcribe do
   `UpdateCallAnalyticsCategory` operation overwrites all existing rules
   contained in the specified category. You cannot append additional rules onto
   an existing category.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20UpdateCallAnalyticsCategory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_call_analytics_category_request`)
+    %{
+      optional("InputType") => list(any()),
+      required("Rules") => list(list()())
+    }
   """
-  @spec update_call_analytics_category(
-          AWS.Client.t(),
-          update_call_analytics_category_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_call_analytics_category(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_call_analytics_category_errors()}
-  def update_call_analytics_category(%Client{} = client, input, options \\ []) do
+
+  def update_call_analytics_category(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2627,16 +3060,23 @@ defmodule AWS.Transcribe do
   Updates an existing custom medical vocabulary with new values. This operation
   overwrites all existing information with your new values; you cannot append
   new terms onto an existing custom vocabulary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20UpdateMedicalVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_medical_vocabulary_request`)
+    %{
+      required("LanguageCode") => list(any()),
+      required("VocabularyFileUri") => String.t()
+    }
   """
-  @spec update_medical_vocabulary(
-          AWS.Client.t(),
-          update_medical_vocabulary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_medical_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_medical_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_medical_vocabulary_errors()}
-  def update_medical_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def update_medical_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2647,12 +3087,25 @@ defmodule AWS.Transcribe do
   Updates an existing custom vocabulary with new values. This operation overwrites
   all existing information with your new values; you cannot append new terms
   onto an existing custom vocabulary.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20UpdateVocabulary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_vocabulary_request`)
+    %{
+      optional("DataAccessRoleArn") => String.t(),
+      optional("Phrases") => list(String.t()()),
+      optional("VocabularyFileUri") => String.t(),
+      required("LanguageCode") => list(any())
+    }
   """
-  @spec update_vocabulary(AWS.Client.t(), update_vocabulary_request(), Keyword.t()) ::
+
+  @spec update_vocabulary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vocabulary_errors()}
-  def update_vocabulary(%Client{} = client, input, options \\ []) do
+
+  def update_vocabulary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2663,12 +3116,24 @@ defmodule AWS.Transcribe do
   Updates an existing custom vocabulary filter with a new list of words. The new
   list you provide overwrites all previous entries; you cannot append new terms
   onto an existing custom vocabulary filter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transcribe%20UpdateVocabularyFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_vocabulary_filter_request`)
+    %{
+      optional("DataAccessRoleArn") => String.t(),
+      optional("VocabularyFilterFileUri") => String.t(),
+      optional("Words") => list(String.t()())
+    }
   """
-  @spec update_vocabulary_filter(AWS.Client.t(), update_vocabulary_filter_request(), Keyword.t()) ::
+
+  @spec update_vocabulary_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_vocabulary_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vocabulary_filter_errors()}
-  def update_vocabulary_filter(%Client{} = client, input, options \\ []) do
+
+  def update_vocabulary_filter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

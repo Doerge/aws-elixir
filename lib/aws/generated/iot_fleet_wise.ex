@@ -2492,12 +2492,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Adds, or associates, a vehicle with a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20AssociateVehicleFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_vehicle_fleet_request`)
+    %{
+      required("fleetId") => String.t()
+    }
   """
-  @spec associate_vehicle_fleet(AWS.Client.t(), associate_vehicle_fleet_request(), Keyword.t()) ::
+
+  @spec associate_vehicle_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_vehicle_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_vehicle_fleet_errors()}
-  def associate_vehicle_fleet(%Client{} = client, input, options \\ []) do
+
+  def associate_vehicle_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2507,12 +2517,22 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a group, or batch, of vehicles. You must specify a decoder manifest and
   a vehicle model (model manifest) for each vehicle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20BatchCreateVehicle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_create_vehicle_request`)
+    %{
+      required("vehicles") => list(create_vehicle_request_item()())
+    }
   """
-  @spec batch_create_vehicle(AWS.Client.t(), batch_create_vehicle_request(), Keyword.t()) ::
+
+  @spec batch_create_vehicle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_create_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_vehicle_errors()}
-  def batch_create_vehicle(%Client{} = client, input, options \\ []) do
+
+  def batch_create_vehicle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2522,12 +2542,22 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Updates a group, or batch, of vehicles. You must specify a decoder manifest and
   a vehicle model (model manifest) for each vehicle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20BatchUpdateVehicle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_update_vehicle_request`)
+    %{
+      required("vehicles") => list(update_vehicle_request_item()())
+    }
   """
-  @spec batch_update_vehicle(AWS.Client.t(), batch_update_vehicle_request(), Keyword.t()) ::
+
+  @spec batch_update_vehicle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_update_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_vehicle_errors()}
-  def batch_update_vehicle(%Client{} = client, input, options \\ []) do
+
+  def batch_update_vehicle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2540,12 +2570,36 @@ defmodule AWS.IoTFleetWise do
   to collect and transfer data to the cloud. You create campaigns in the cloud.
   After you or your team approve campaigns, Amazon Web Services IoT FleetWise
   automatically deploys them to vehicles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20CreateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_campaign_request`)
+    %{
+      optional("compression") => list(any()),
+      optional("dataDestinationConfigs") => list(list()()),
+      optional("dataExtraDimensions") => list(String.t()()),
+      optional("description") => String.t(),
+      optional("diagnosticsMode") => list(any()),
+      optional("expiryTime") => non_neg_integer(),
+      optional("postTriggerCollectionDuration") => float(),
+      optional("priority") => integer(),
+      optional("signalsToCollect") => list(signal_information()()),
+      optional("spoolingMode") => list(any()),
+      optional("startTime") => non_neg_integer(),
+      optional("tags") => list(tag()()),
+      required("collectionScheme") => list(),
+      required("signalCatalogArn") => String.t(),
+      required("targetArn") => String.t()
+    }
   """
-  @spec create_campaign(AWS.Client.t(), create_campaign_request(), Keyword.t()) ::
+
+  @spec create_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_campaign_errors()}
-  def create_campaign(%Client{} = client, input, options \\ []) do
+
+  def create_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2555,12 +2609,26 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates the decoder manifest associated with a model manifest. To create a
   decoder manifest, the following must be true:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20CreateDecoderManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_decoder_manifest_request`)
+    %{
+      optional("description") => String.t(),
+      optional("networkInterfaces") => list(network_interface()()),
+      optional("signalDecoders") => list(signal_decoder()()),
+      optional("tags") => list(tag()()),
+      required("modelManifestArn") => String.t()
+    }
   """
-  @spec create_decoder_manifest(AWS.Client.t(), create_decoder_manifest_request(), Keyword.t()) ::
+
+  @spec create_decoder_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_decoder_manifest_errors()}
-  def create_decoder_manifest(%Client{} = client, input, options \\ []) do
+
+  def create_decoder_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2570,12 +2638,24 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a fleet that represents a group of vehicles. You must create both a
   signal catalog and vehicles before you can create a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20CreateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_fleet_request`)
+    %{
+      optional("description") => String.t(),
+      optional("tags") => list(tag()()),
+      required("signalCatalogArn") => String.t()
+    }
   """
-  @spec create_fleet(AWS.Client.t(), create_fleet_request(), Keyword.t()) ::
+
+  @spec create_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_fleet_errors()}
-  def create_fleet(%Client{} = client, input, options \\ []) do
+
+  def create_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2585,12 +2665,25 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a vehicle model (model manifest) that specifies signals (attributes,
   branches, sensors, and actuators).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20CreateModelManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_model_manifest_request`)
+    %{
+      optional("description") => String.t(),
+      optional("tags") => list(tag()()),
+      required("nodes") => list(String.t()()),
+      required("signalCatalogArn") => String.t()
+    }
   """
-  @spec create_model_manifest(AWS.Client.t(), create_model_manifest_request(), Keyword.t()) ::
+
+  @spec create_model_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_model_manifest_errors()}
-  def create_model_manifest(%Client{} = client, input, options \\ []) do
+
+  def create_model_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2600,12 +2693,24 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a collection of standardized signals that can be reused to create
   vehicle models.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20CreateSignalCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_signal_catalog_request`)
+    %{
+      optional("description") => String.t(),
+      optional("nodes") => list(list()()),
+      optional("tags") => list(tag()())
+    }
   """
-  @spec create_signal_catalog(AWS.Client.t(), create_signal_catalog_request(), Keyword.t()) ::
+
+  @spec create_signal_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_signal_catalog_errors()}
-  def create_signal_catalog(%Client{} = client, input, options \\ []) do
+
+  def create_signal_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2618,12 +2723,26 @@ defmodule AWS.IoTFleetWise do
   inherited from the vehicle model. If you have an existing Amazon Web Services
   IoT thing, you can use Amazon Web Services IoT FleetWise to create a vehicle
   and collect data from your thing.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20CreateVehicle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_vehicle_request`)
+    %{
+      optional("associationBehavior") => list(any()),
+      optional("attributes") => map(),
+      optional("tags") => list(tag()()),
+      required("decoderManifestArn") => String.t(),
+      required("modelManifestArn") => String.t()
+    }
   """
-  @spec create_vehicle(AWS.Client.t(), create_vehicle_request(), Keyword.t()) ::
+
+  @spec create_vehicle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_vehicle_errors()}
-  def create_vehicle(%Client{} = client, input, options \\ []) do
+
+  def create_vehicle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2633,12 +2752,22 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Deletes a data collection campaign. Deleting a campaign suspends all data
   collection and removes it from any vehicles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20DeleteCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_campaign_request`)
+    %{
+      
+    }
   """
-  @spec delete_campaign(AWS.Client.t(), delete_campaign_request(), Keyword.t()) ::
+
+  @spec delete_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_campaign_errors()}
-  def delete_campaign(%Client{} = client, input, options \\ []) do
+
+  def delete_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2648,12 +2777,22 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Deletes a decoder manifest. You can't delete a decoder manifest if it has
   vehicles associated with it.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20DeleteDecoderManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_decoder_manifest_request`)
+    %{
+      
+    }
   """
-  @spec delete_decoder_manifest(AWS.Client.t(), delete_decoder_manifest_request(), Keyword.t()) ::
+
+  @spec delete_decoder_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_decoder_manifest_errors()}
-  def delete_decoder_manifest(%Client{} = client, input, options \\ []) do
+
+  def delete_decoder_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2665,12 +2804,22 @@ defmodule AWS.IoTFleetWise do
   from the fleet. For more information, see [Delete a fleet (AWS
   CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html)
   in the *Amazon Web Services IoT FleetWise Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20DeleteFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_fleet_request`)
+    %{
+      
+    }
   """
-  @spec delete_fleet(AWS.Client.t(), delete_fleet_request(), Keyword.t()) ::
+
+  @spec delete_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_fleet_errors()}
-  def delete_fleet(%Client{} = client, input, options \\ []) do
+
+  def delete_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2679,12 +2828,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a vehicle model (model manifest).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20DeleteModelManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_model_manifest_request`)
+    %{
+      
+    }
   """
-  @spec delete_model_manifest(AWS.Client.t(), delete_model_manifest_request(), Keyword.t()) ::
+
+  @spec delete_model_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_model_manifest_errors()}
-  def delete_model_manifest(%Client{} = client, input, options \\ []) do
+
+  def delete_model_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2693,12 +2852,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a signal catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20DeleteSignalCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_signal_catalog_request`)
+    %{
+      
+    }
   """
-  @spec delete_signal_catalog(AWS.Client.t(), delete_signal_catalog_request(), Keyword.t()) ::
+
+  @spec delete_signal_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_signal_catalog_errors()}
-  def delete_signal_catalog(%Client{} = client, input, options \\ []) do
+
+  def delete_signal_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2707,12 +2876,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a vehicle and removes it from any campaigns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20DeleteVehicle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_vehicle_request`)
+    %{
+      
+    }
   """
-  @spec delete_vehicle(AWS.Client.t(), delete_vehicle_request(), Keyword.t()) ::
+
+  @spec delete_vehicle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_vehicle_errors()}
-  def delete_vehicle(%Client{} = client, input, options \\ []) do
+
+  def delete_vehicle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2722,16 +2901,22 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from
   a fleet doesn't delete the vehicle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20DisassociateVehicleFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_vehicle_fleet_request`)
+    %{
+      required("fleetId") => String.t()
+    }
   """
-  @spec disassociate_vehicle_fleet(
-          AWS.Client.t(),
-          disassociate_vehicle_fleet_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_vehicle_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_vehicle_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_vehicle_fleet_errors()}
-  def disassociate_vehicle_fleet(%Client{} = client, input, options \\ []) do
+
+  def disassociate_vehicle_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2740,12 +2925,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about a campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_campaign_request`)
+    %{
+      
+    }
   """
-  @spec get_campaign(AWS.Client.t(), get_campaign_request(), Keyword.t()) ::
+
+  @spec get_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_errors()}
-  def get_campaign(%Client{} = client, input, options \\ []) do
+
+  def get_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2754,12 +2949,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about a created decoder manifest.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetDecoderManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_decoder_manifest_request`)
+    %{
+      
+    }
   """
-  @spec get_decoder_manifest(AWS.Client.t(), get_decoder_manifest_request(), Keyword.t()) ::
+
+  @spec get_decoder_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_decoder_manifest_errors()}
-  def get_decoder_manifest(%Client{} = client, input, options \\ []) do
+
+  def get_decoder_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2769,16 +2974,22 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Retrieves the encryption configuration for resources and data in Amazon Web
   Services IoT FleetWise.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetEncryptionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_encryption_configuration_request`)
+    %{
+      
+    }
   """
-  @spec get_encryption_configuration(
-          AWS.Client.t(),
-          get_encryption_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_encryption_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_encryption_configuration_errors()}
-  def get_encryption_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_encryption_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2787,12 +2998,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_fleet_request`)
+    %{
+      
+    }
   """
-  @spec get_fleet(AWS.Client.t(), get_fleet_request(), Keyword.t()) ::
+
+  @spec get_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_fleet_errors()}
-  def get_fleet(%Client{} = client, input, options \\ []) do
+
+  def get_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2801,12 +3022,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves the logging options.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_logging_options_request`)
+    %{
+      
+    }
   """
-  @spec get_logging_options(AWS.Client.t(), get_logging_options_request(), Keyword.t()) ::
+
+  @spec get_logging_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_logging_options_errors()}
-  def get_logging_options(%Client{} = client, input, options \\ []) do
+
+  def get_logging_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2815,12 +3046,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about a vehicle model (model manifest).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetModelManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_model_manifest_request`)
+    %{
+      
+    }
   """
-  @spec get_model_manifest(AWS.Client.t(), get_model_manifest_request(), Keyword.t()) ::
+
+  @spec get_model_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_model_manifest_errors()}
-  def get_model_manifest(%Client{} = client, input, options \\ []) do
+
+  def get_model_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2834,16 +3075,22 @@ defmodule AWS.IoTFleetWise do
   more information, including step-by-step procedures, see [Setting up Amazon
   Web Services IoT
   FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetRegisterAccountStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_register_account_status_request`)
+    %{
+      
+    }
   """
-  @spec get_register_account_status(
-          AWS.Client.t(),
-          get_register_account_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_register_account_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_register_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_register_account_status_errors()}
-  def get_register_account_status(%Client{} = client, input, options \\ []) do
+
+  def get_register_account_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2852,12 +3099,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about a signal catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetSignalCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_signal_catalog_request`)
+    %{
+      
+    }
   """
-  @spec get_signal_catalog(AWS.Client.t(), get_signal_catalog_request(), Keyword.t()) ::
+
+  @spec get_signal_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_signal_catalog_errors()}
-  def get_signal_catalog(%Client{} = client, input, options \\ []) do
+
+  def get_signal_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2866,12 +3123,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about a vehicle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetVehicle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_vehicle_request`)
+    %{
+      
+    }
   """
-  @spec get_vehicle(AWS.Client.t(), get_vehicle_request(), Keyword.t()) ::
+
+  @spec get_vehicle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vehicle_errors()}
-  def get_vehicle(%Client{} = client, input, options \\ []) do
+
+  def get_vehicle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2881,12 +3148,23 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Retrieves information about the status of a vehicle with any associated
   campaigns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20GetVehicleStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_vehicle_status_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec get_vehicle_status(AWS.Client.t(), get_vehicle_status_request(), Keyword.t()) ::
+
+  @spec get_vehicle_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_vehicle_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_vehicle_status_errors()}
-  def get_vehicle_status(%Client{} = client, input, options \\ []) do
+
+  def get_vehicle_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2896,12 +3174,22 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a decoder manifest using your existing CAN DBC file from your local
   device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ImportDecoderManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_decoder_manifest_request`)
+    %{
+      required("networkFileDefinitions") => list(list()())
+    }
   """
-  @spec import_decoder_manifest(AWS.Client.t(), import_decoder_manifest_request(), Keyword.t()) ::
+
+  @spec import_decoder_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_decoder_manifest_errors()}
-  def import_decoder_manifest(%Client{} = client, input, options \\ []) do
+
+  def import_decoder_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2911,12 +3199,24 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a signal catalog using your existing VSS formatted content from your
   local device.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ImportSignalCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_signal_catalog_request`)
+    %{
+      optional("description") => String.t(),
+      optional("tags") => list(tag()()),
+      optional("vss") => list()
+    }
   """
-  @spec import_signal_catalog(AWS.Client.t(), import_signal_catalog_request(), Keyword.t()) ::
+
+  @spec import_signal_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_signal_catalog_errors()}
-  def import_signal_catalog(%Client{} = client, input, options \\ []) do
+
+  def import_signal_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2925,12 +3225,24 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists information about created campaigns.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_campaigns_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("status") => String.t()
+    }
   """
-  @spec list_campaigns(AWS.Client.t(), list_campaigns_request(), Keyword.t()) ::
+
+  @spec list_campaigns(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_campaigns_errors()}
-  def list_campaigns(%Client{} = client, input, options \\ []) do
+
+  def list_campaigns(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2939,16 +3251,24 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists the network interfaces specified in a decoder manifest.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListDecoderManifestNetworkInterfaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_decoder_manifest_network_interfaces_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_decoder_manifest_network_interfaces(
-          AWS.Client.t(),
-          list_decoder_manifest_network_interfaces_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_decoder_manifest_network_interfaces(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_decoder_manifest_network_interfaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_decoder_manifest_network_interfaces_errors()}
-  def list_decoder_manifest_network_interfaces(%Client{} = client, input, options \\ []) do
+
+  def list_decoder_manifest_network_interfaces(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2957,16 +3277,24 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   A list of information about signal decoders specified in a decoder manifest.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListDecoderManifestSignals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_decoder_manifest_signals_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_decoder_manifest_signals(
-          AWS.Client.t(),
-          list_decoder_manifest_signals_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_decoder_manifest_signals(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_decoder_manifest_signals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_decoder_manifest_signals_errors()}
-  def list_decoder_manifest_signals(%Client{} = client, input, options \\ []) do
+
+  def list_decoder_manifest_signals(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2975,12 +3303,24 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists decoder manifests.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListDecoderManifests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_decoder_manifests_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("modelManifestArn") => String.t(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_decoder_manifests(AWS.Client.t(), list_decoder_manifests_request(), Keyword.t()) ::
+
+  @spec list_decoder_manifests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_decoder_manifests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_decoder_manifests_errors()}
-  def list_decoder_manifests(%Client{} = client, input, options \\ []) do
+
+  def list_decoder_manifests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2989,12 +3329,23 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information for each created fleet in an Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListFleets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_fleets_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_fleets(AWS.Client.t(), list_fleets_request(), Keyword.t()) ::
+
+  @spec list_fleets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_errors()}
-  def list_fleets(%Client{} = client, input, options \\ []) do
+
+  def list_fleets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3003,12 +3354,23 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of IDs for all fleets that the vehicle is associated with.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListFleetsForVehicle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_fleets_for_vehicle_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_fleets_for_vehicle(AWS.Client.t(), list_fleets_for_vehicle_request(), Keyword.t()) ::
+
+  @spec list_fleets_for_vehicle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_fleets_for_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_fleets_for_vehicle_errors()}
-  def list_fleets_for_vehicle(%Client{} = client, input, options \\ []) do
+
+  def list_fleets_for_vehicle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3017,16 +3379,23 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists information about nodes specified in a vehicle model (model manifest).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListModelManifestNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_manifest_nodes_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_model_manifest_nodes(
-          AWS.Client.t(),
-          list_model_manifest_nodes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_model_manifest_nodes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_manifest_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_manifest_nodes_errors()}
-  def list_model_manifest_nodes(%Client{} = client, input, options \\ []) do
+
+  def list_model_manifest_nodes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3035,12 +3404,24 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of vehicle models (model manifests).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListModelManifests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_model_manifests_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("signalCatalogArn") => String.t()
+    }
   """
-  @spec list_model_manifests(AWS.Client.t(), list_model_manifests_request(), Keyword.t()) ::
+
+  @spec list_model_manifests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_model_manifests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_model_manifests_errors()}
-  def list_model_manifests(%Client{} = client, input, options \\ []) do
+
+  def list_model_manifests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3049,16 +3430,24 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists of information about the signals (nodes) specified in a signal catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListSignalCatalogNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_signal_catalog_nodes_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("signalNodeType") => list(any())
+    }
   """
-  @spec list_signal_catalog_nodes(
-          AWS.Client.t(),
-          list_signal_catalog_nodes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_signal_catalog_nodes(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_signal_catalog_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signal_catalog_nodes_errors()}
-  def list_signal_catalog_nodes(%Client{} = client, input, options \\ []) do
+
+  def list_signal_catalog_nodes(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3069,12 +3458,23 @@ defmodule AWS.IoTFleetWise do
   Lists all the created signal catalogs in an Amazon Web Services account. You can
   use to list information about each signal (node) specified in a signal
   catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListSignalCatalogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_signal_catalogs_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_signal_catalogs(AWS.Client.t(), list_signal_catalogs_request(), Keyword.t()) ::
+
+  @spec list_signal_catalogs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_signal_catalogs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_signal_catalogs_errors()}
-  def list_signal_catalogs(%Client{} = client, input, options \\ []) do
+
+  def list_signal_catalogs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3083,12 +3483,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3097,12 +3507,26 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of summaries of created vehicles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListVehicles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_vehicles_request`)
+    %{
+      optional("attributeNames") => list(String.t()()),
+      optional("attributeValues") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("modelManifestArn") => String.t(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_vehicles(AWS.Client.t(), list_vehicles_request(), Keyword.t()) ::
+
+  @spec list_vehicles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vehicles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vehicles_errors()}
-  def list_vehicles(%Client{} = client, input, options \\ []) do
+
+  def list_vehicles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3111,12 +3535,23 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of summaries of all vehicles associated with a fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20ListVehiclesInFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_vehicles_in_fleet_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_vehicles_in_fleet(AWS.Client.t(), list_vehicles_in_fleet_request(), Keyword.t()) ::
+
+  @spec list_vehicles_in_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_vehicles_in_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_vehicles_in_fleet_errors()}
-  def list_vehicles_in_fleet(%Client{} = client, input, options \\ []) do
+
+  def list_vehicles_in_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3130,16 +3565,23 @@ defmodule AWS.IoTFleetWise do
   information, see [Data
   encryption](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html)
   in the *Amazon Web Services IoT FleetWise Developer Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20PutEncryptionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_encryption_configuration_request`)
+    %{
+      optional("kmsKeyId") => [String.t()],
+      required("encryptionType") => list(any())
+    }
   """
-  @spec put_encryption_configuration(
-          AWS.Client.t(),
-          put_encryption_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_encryption_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_encryption_configuration_errors()}
-  def put_encryption_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_encryption_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3148,12 +3590,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Creates or updates the logging option.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20PutLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_logging_options_request`)
+    %{
+      required("cloudWatchLogDelivery") => cloud_watch_log_delivery_options()
+    }
   """
-  @spec put_logging_options(AWS.Client.t(), put_logging_options_request(), Keyword.t()) ::
+
+  @spec put_logging_options(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_logging_options_errors()}
-  def put_logging_options(%Client{} = client, input, options \\ []) do
+
+  def put_logging_options(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3182,12 +3634,23 @@ defmodule AWS.IoTFleetWise do
   Services Cloud. For more information, including step-by-step procedures, see
   [Setting up Amazon Web Services IoT
   FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20RegisterAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_account_request`)
+    %{
+      optional("iamResources") => iam_resources(),
+      optional("timestreamResources") => timestream_resources()
+    }
   """
-  @spec register_account(AWS.Client.t(), register_account_request(), Keyword.t()) ::
+
+  @spec register_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_account_errors()}
-  def register_account(%Client{} = client, input, options \\ []) do
+
+  def register_account(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3197,12 +3660,23 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Adds to or modifies the tags of the given resource. Tags are metadata which can
   be used to manage a resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3211,12 +3685,23 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Removes the given tags (metadata) from the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3225,12 +3710,24 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates a campaign.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20UpdateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_campaign_request`)
+    %{
+      optional("dataExtraDimensions") => list(String.t()()),
+      optional("description") => String.t(),
+      required("action") => list(any())
+    }
   """
-  @spec update_campaign(AWS.Client.t(), update_campaign_request(), Keyword.t()) ::
+
+  @spec update_campaign(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_errors()}
-  def update_campaign(%Client{} = client, input, options \\ []) do
+
+  def update_campaign(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3239,12 +3736,29 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates a decoder manifest.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20UpdateDecoderManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_decoder_manifest_request`)
+    %{
+      optional("description") => String.t(),
+      optional("networkInterfacesToAdd") => list(network_interface()()),
+      optional("networkInterfacesToRemove") => list(String.t()()),
+      optional("networkInterfacesToUpdate") => list(network_interface()()),
+      optional("signalDecodersToAdd") => list(signal_decoder()()),
+      optional("signalDecodersToRemove") => list(String.t()()),
+      optional("signalDecodersToUpdate") => list(signal_decoder()()),
+      optional("status") => list(any())
+    }
   """
-  @spec update_decoder_manifest(AWS.Client.t(), update_decoder_manifest_request(), Keyword.t()) ::
+
+  @spec update_decoder_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_decoder_manifest_errors()}
-  def update_decoder_manifest(%Client{} = client, input, options \\ []) do
+
+  def update_decoder_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3253,12 +3767,22 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates the description of an existing fleet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20UpdateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_fleet_request`)
+    %{
+      optional("description") => String.t()
+    }
   """
-  @spec update_fleet(AWS.Client.t(), update_fleet_request(), Keyword.t()) ::
+
+  @spec update_fleet(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_fleet_errors()}
-  def update_fleet(%Client{} = client, input, options \\ []) do
+
+  def update_fleet(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3268,12 +3792,25 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Updates a vehicle model (model manifest). If created vehicles are associated
   with a vehicle model, it can't be updated.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20UpdateModelManifest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_model_manifest_request`)
+    %{
+      optional("description") => String.t(),
+      optional("nodesToAdd") => list(String.t()()),
+      optional("nodesToRemove") => list(String.t()()),
+      optional("status") => list(any())
+    }
   """
-  @spec update_model_manifest(AWS.Client.t(), update_model_manifest_request(), Keyword.t()) ::
+
+  @spec update_model_manifest(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_model_manifest_errors()}
-  def update_model_manifest(%Client{} = client, input, options \\ []) do
+
+  def update_model_manifest(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3282,12 +3819,25 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates a signal catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20UpdateSignalCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_signal_catalog_request`)
+    %{
+      optional("description") => String.t(),
+      optional("nodesToAdd") => list(list()()),
+      optional("nodesToRemove") => list(String.t()()),
+      optional("nodesToUpdate") => list(list()())
+    }
   """
-  @spec update_signal_catalog(AWS.Client.t(), update_signal_catalog_request(), Keyword.t()) ::
+
+  @spec update_signal_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_signal_catalog_errors()}
-  def update_signal_catalog(%Client{} = client, input, options \\ []) do
+
+  def update_signal_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3296,12 +3846,25 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates a vehicle.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleetwise%20UpdateVehicle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_vehicle_request`)
+    %{
+      optional("attributeUpdateMode") => list(any()),
+      optional("attributes") => map(),
+      optional("decoderManifestArn") => String.t(),
+      optional("modelManifestArn") => String.t()
+    }
   """
-  @spec update_vehicle(AWS.Client.t(), update_vehicle_request(), Keyword.t()) ::
+
+  @spec update_vehicle(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_vehicle_errors()}
-  def update_vehicle(%Client{} = client, input, options \\ []) do
+
+  def update_vehicle(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

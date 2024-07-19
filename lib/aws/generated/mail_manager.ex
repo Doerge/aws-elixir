@@ -1942,12 +1942,24 @@ defmodule AWS.MailManager do
   Creates an Add On instance for the subscription indicated in the request. The
   resulting Amazon Resource Name (ARN) can be used in a conditional statement
   for a rule set or traffic policy.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateAddonInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_addon_instance_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("AddonSubscriptionId") => String.t()
+    }
   """
-  @spec create_addon_instance(AWS.Client.t(), create_addon_instance_request(), Keyword.t()) ::
+
+  @spec create_addon_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_addon_instance_errors()}
-  def create_addon_instance(%Client{} = client, input, options \\ []) do
+
+  def create_addon_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1958,16 +1970,24 @@ defmodule AWS.MailManager do
   Creates a subscription for an Add On representing the acceptance of its terms of
   use and additional pricing. The subscription can then be used to create an
   instance for use in rule sets or traffic policies.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateAddonSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_addon_subscription_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("AddonName") => String.t()
+    }
   """
-  @spec create_addon_subscription(
-          AWS.Client.t(),
-          create_addon_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_addon_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_addon_subscription_errors()}
-  def create_addon_subscription(%Client{} = client, input, options \\ []) do
+
+  def create_addon_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1976,12 +1996,26 @@ defmodule AWS.MailManager do
 
   @doc """
   Creates a new email archive resource for storing and retaining emails.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_archive_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("KmsKeyArn") => String.t(),
+      optional("Retention") => list(),
+      optional("Tags") => list(tag()()),
+      required("ArchiveName") => String.t()
+    }
   """
-  @spec create_archive(AWS.Client.t(), create_archive_request(), Keyword.t()) ::
+
+  @spec create_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_archive_errors()}
-  def create_archive(%Client{} = client, input, options \\ []) do
+
+  def create_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1990,12 +2024,28 @@ defmodule AWS.MailManager do
 
   @doc """
   Provision a new ingress endpoint resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateIngressPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_ingress_point_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("IngressPointConfiguration") => list(),
+      optional("Tags") => list(tag()()),
+      required("IngressPointName") => String.t(),
+      required("RuleSetId") => String.t(),
+      required("TrafficPolicyId") => String.t(),
+      required("Type") => list(any())
+    }
   """
-  @spec create_ingress_point(AWS.Client.t(), create_ingress_point_request(), Keyword.t()) ::
+
+  @spec create_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ingress_point_errors()}
-  def create_ingress_point(%Client{} = client, input, options \\ []) do
+
+  def create_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2005,12 +2055,27 @@ defmodule AWS.MailManager do
   @doc """
   Creates a relay resource which can be used in rules to relay incoming emails to
   defined relay destinations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateRelay&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_relay_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Authentication") => list(),
+      required("RelayName") => String.t(),
+      required("ServerName") => String.t(),
+      required("ServerPort") => integer()
+    }
   """
-  @spec create_relay(AWS.Client.t(), create_relay_request(), Keyword.t()) ::
+
+  @spec create_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_relay_errors()}
-  def create_relay(%Client{} = client, input, options \\ []) do
+
+  def create_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2019,12 +2084,25 @@ defmodule AWS.MailManager do
 
   @doc """
   Provision a new rule set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_rule_set_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("RuleSetName") => String.t(),
+      required("Rules") => list(rule()())
+    }
   """
-  @spec create_rule_set(AWS.Client.t(), create_rule_set_request(), Keyword.t()) ::
+
+  @spec create_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_rule_set_errors()}
-  def create_rule_set(%Client{} = client, input, options \\ []) do
+
+  def create_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2033,12 +2111,27 @@ defmodule AWS.MailManager do
 
   @doc """
   Provision a new traffic policy resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20CreateTrafficPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_traffic_policy_request`)
+    %{
+      optional("ClientToken") => String.t(),
+      optional("MaxMessageSizeBytes") => integer(),
+      optional("Tags") => list(tag()()),
+      required("DefaultAction") => list(any()),
+      required("PolicyStatements") => list(policy_statement()()),
+      required("TrafficPolicyName") => String.t()
+    }
   """
-  @spec create_traffic_policy(AWS.Client.t(), create_traffic_policy_request(), Keyword.t()) ::
+
+  @spec create_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_traffic_policy_errors()}
-  def create_traffic_policy(%Client{} = client, input, options \\ []) do
+
+  def create_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2047,12 +2140,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Deletes an Add On instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteAddonInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_addon_instance_request`)
+    %{
+      required("AddonInstanceId") => String.t()
+    }
   """
-  @spec delete_addon_instance(AWS.Client.t(), delete_addon_instance_request(), Keyword.t()) ::
+
+  @spec delete_addon_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_addon_instance_errors()}
-  def delete_addon_instance(%Client{} = client, input, options \\ []) do
+
+  def delete_addon_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2061,16 +2164,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Deletes an Add On subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteAddonSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_addon_subscription_request`)
+    %{
+      required("AddonSubscriptionId") => String.t()
+    }
   """
-  @spec delete_addon_subscription(
-          AWS.Client.t(),
-          delete_addon_subscription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_addon_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_addon_subscription_errors()}
-  def delete_addon_subscription(%Client{} = client, input, options \\ []) do
+
+  def delete_addon_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2083,12 +2192,22 @@ defmodule AWS.MailManager do
   archived emails become inaccessible (search, export, download). The archive
   and all of its contents will be permanently deleted 30 days after entering the
   pending deletion state, regardless of the configured retention period.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_archive_request`)
+    %{
+      required("ArchiveId") => String.t()
+    }
   """
-  @spec delete_archive(AWS.Client.t(), delete_archive_request(), Keyword.t()) ::
+
+  @spec delete_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_archive_errors()}
-  def delete_archive(%Client{} = client, input, options \\ []) do
+
+  def delete_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2097,12 +2216,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Delete an ingress endpoint resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteIngressPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ingress_point_request`)
+    %{
+      required("IngressPointId") => String.t()
+    }
   """
-  @spec delete_ingress_point(AWS.Client.t(), delete_ingress_point_request(), Keyword.t()) ::
+
+  @spec delete_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ingress_point_errors()}
-  def delete_ingress_point(%Client{} = client, input, options \\ []) do
+
+  def delete_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2111,12 +2240,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Deletes an existing relay resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteRelay&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_relay_request`)
+    %{
+      required("RelayId") => String.t()
+    }
   """
-  @spec delete_relay(AWS.Client.t(), delete_relay_request(), Keyword.t()) ::
+
+  @spec delete_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_relay_errors()}
-  def delete_relay(%Client{} = client, input, options \\ []) do
+
+  def delete_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2125,12 +2264,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Delete a rule set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_rule_set_request`)
+    %{
+      required("RuleSetId") => String.t()
+    }
   """
-  @spec delete_rule_set(AWS.Client.t(), delete_rule_set_request(), Keyword.t()) ::
+
+  @spec delete_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_set_errors()}
-  def delete_rule_set(%Client{} = client, input, options \\ []) do
+
+  def delete_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2139,12 +2288,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Delete a traffic policy resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20DeleteTrafficPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_traffic_policy_request`)
+    %{
+      required("TrafficPolicyId") => String.t()
+    }
   """
-  @spec delete_traffic_policy(AWS.Client.t(), delete_traffic_policy_request(), Keyword.t()) ::
+
+  @spec delete_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_traffic_policy_errors()}
-  def delete_traffic_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2153,12 +2312,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Gets detailed information about an Add On instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetAddonInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_addon_instance_request`)
+    %{
+      required("AddonInstanceId") => String.t()
+    }
   """
-  @spec get_addon_instance(AWS.Client.t(), get_addon_instance_request(), Keyword.t()) ::
+
+  @spec get_addon_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_addon_instance_errors()}
-  def get_addon_instance(%Client{} = client, input, options \\ []) do
+
+  def get_addon_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2167,12 +2336,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Gets detailed information about an Add On subscription.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetAddonSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_addon_subscription_request`)
+    %{
+      required("AddonSubscriptionId") => String.t()
+    }
   """
-  @spec get_addon_subscription(AWS.Client.t(), get_addon_subscription_request(), Keyword.t()) ::
+
+  @spec get_addon_subscription(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_addon_subscription_errors()}
-  def get_addon_subscription(%Client{} = client, input, options \\ []) do
+
+  def get_addon_subscription(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2181,12 +2360,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Retrieves the full details and current state of a specified email archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_archive_request`)
+    %{
+      required("ArchiveId") => String.t()
+    }
   """
-  @spec get_archive(AWS.Client.t(), get_archive_request(), Keyword.t()) ::
+
+  @spec get_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_errors()}
-  def get_archive(%Client{} = client, input, options \\ []) do
+
+  def get_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2195,12 +2384,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Retrieves the details and current status of a specific email archive export job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_archive_export_request`)
+    %{
+      required("ExportId") => String.t()
+    }
   """
-  @spec get_archive_export(AWS.Client.t(), get_archive_export_request(), Keyword.t()) ::
+
+  @spec get_archive_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_export_errors()}
-  def get_archive_export(%Client{} = client, input, options \\ []) do
+
+  def get_archive_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2210,12 +2409,22 @@ defmodule AWS.MailManager do
   @doc """
   Returns a pre-signed URL that provides temporary download access to the specific
   email message stored in the archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_archive_message_request`)
+    %{
+      required("ArchivedMessageId") => String.t()
+    }
   """
-  @spec get_archive_message(AWS.Client.t(), get_archive_message_request(), Keyword.t()) ::
+
+  @spec get_archive_message(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_message_errors()}
-  def get_archive_message(%Client{} = client, input, options \\ []) do
+
+  def get_archive_message(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2225,16 +2434,22 @@ defmodule AWS.MailManager do
   @doc """
   Returns the textual content of a specific email message stored in the archive.
   Attachments are not included.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveMessageContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_archive_message_content_request`)
+    %{
+      required("ArchivedMessageId") => String.t()
+    }
   """
-  @spec get_archive_message_content(
-          AWS.Client.t(),
-          get_archive_message_content_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_archive_message_content(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_message_content_errors()}
-  def get_archive_message_content(%Client{} = client, input, options \\ []) do
+
+  def get_archive_message_content(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2243,12 +2458,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Retrieves the details and current status of a specific email archive search job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveSearch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_archive_search_request`)
+    %{
+      required("SearchId") => String.t()
+    }
   """
-  @spec get_archive_search(AWS.Client.t(), get_archive_search_request(), Keyword.t()) ::
+
+  @spec get_archive_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_search_errors()}
-  def get_archive_search(%Client{} = client, input, options \\ []) do
+
+  def get_archive_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2257,16 +2482,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Returns the results of a completed email archive search job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetArchiveSearchResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_archive_search_results_request`)
+    %{
+      required("SearchId") => String.t()
+    }
   """
-  @spec get_archive_search_results(
-          AWS.Client.t(),
-          get_archive_search_results_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_archive_search_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_archive_search_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_archive_search_results_errors()}
-  def get_archive_search_results(%Client{} = client, input, options \\ []) do
+
+  def get_archive_search_results(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2275,12 +2506,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Fetch ingress endpoint resource attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetIngressPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_ingress_point_request`)
+    %{
+      required("IngressPointId") => String.t()
+    }
   """
-  @spec get_ingress_point(AWS.Client.t(), get_ingress_point_request(), Keyword.t()) ::
+
+  @spec get_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_ingress_point_errors()}
-  def get_ingress_point(%Client{} = client, input, options \\ []) do
+
+  def get_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2289,12 +2530,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Fetch the relay resource and it's attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetRelay&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_relay_request`)
+    %{
+      required("RelayId") => String.t()
+    }
   """
-  @spec get_relay(AWS.Client.t(), get_relay_request(), Keyword.t()) ::
+
+  @spec get_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_relay_errors()}
-  def get_relay(%Client{} = client, input, options \\ []) do
+
+  def get_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2303,12 +2554,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Fetch attributes of a rule set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_rule_set_request`)
+    %{
+      required("RuleSetId") => String.t()
+    }
   """
-  @spec get_rule_set(AWS.Client.t(), get_rule_set_request(), Keyword.t()) ::
+
+  @spec get_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_rule_set_errors()}
-  def get_rule_set(%Client{} = client, input, options \\ []) do
+
+  def get_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2317,12 +2578,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Fetch attributes of a traffic policy resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20GetTrafficPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_traffic_policy_request`)
+    %{
+      required("TrafficPolicyId") => String.t()
+    }
   """
-  @spec get_traffic_policy(AWS.Client.t(), get_traffic_policy_request(), Keyword.t()) ::
+
+  @spec get_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_traffic_policy_errors()}
-  def get_traffic_policy(%Client{} = client, input, options \\ []) do
+
+  def get_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2331,12 +2602,23 @@ defmodule AWS.MailManager do
 
   @doc """
   Lists all Add On instances in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListAddonInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_addon_instances_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer()
+    }
   """
-  @spec list_addon_instances(AWS.Client.t(), list_addon_instances_request(), Keyword.t()) ::
+
+  @spec list_addon_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_addon_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_addon_instances_errors()}
-  def list_addon_instances(%Client{} = client, input, options \\ []) do
+
+  def list_addon_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2345,12 +2627,23 @@ defmodule AWS.MailManager do
 
   @doc """
   Lists all Add On subscriptions in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListAddonSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_addon_subscriptions_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer()
+    }
   """
-  @spec list_addon_subscriptions(AWS.Client.t(), list_addon_subscriptions_request(), Keyword.t()) ::
+
+  @spec list_addon_subscriptions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_addon_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_addon_subscriptions_errors()}
-  def list_addon_subscriptions(%Client{} = client, input, options \\ []) do
+
+  def list_addon_subscriptions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2359,12 +2652,24 @@ defmodule AWS.MailManager do
 
   @doc """
   Returns a list of email archive export jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListArchiveExports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_archive_exports_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer(),
+      required("ArchiveId") => String.t()
+    }
   """
-  @spec list_archive_exports(AWS.Client.t(), list_archive_exports_request(), Keyword.t()) ::
+
+  @spec list_archive_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archive_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archive_exports_errors()}
-  def list_archive_exports(%Client{} = client, input, options \\ []) do
+
+  def list_archive_exports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2373,12 +2678,24 @@ defmodule AWS.MailManager do
 
   @doc """
   Returns a list of email archive search jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListArchiveSearches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_archive_searches_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer(),
+      required("ArchiveId") => String.t()
+    }
   """
-  @spec list_archive_searches(AWS.Client.t(), list_archive_searches_request(), Keyword.t()) ::
+
+  @spec list_archive_searches(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archive_searches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archive_searches_errors()}
-  def list_archive_searches(%Client{} = client, input, options \\ []) do
+
+  def list_archive_searches(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2387,12 +2704,23 @@ defmodule AWS.MailManager do
 
   @doc """
   Returns a list of all email archives in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListArchives&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_archives_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer()
+    }
   """
-  @spec list_archives(AWS.Client.t(), list_archives_request(), Keyword.t()) ::
+
+  @spec list_archives(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archives_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archives_errors()}
-  def list_archives(%Client{} = client, input, options \\ []) do
+
+  def list_archives(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2401,12 +2729,23 @@ defmodule AWS.MailManager do
 
   @doc """
   List all ingress endpoint resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListIngressPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_ingress_points_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer()
+    }
   """
-  @spec list_ingress_points(AWS.Client.t(), list_ingress_points_request(), Keyword.t()) ::
+
+  @spec list_ingress_points(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_ingress_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ingress_points_errors()}
-  def list_ingress_points(%Client{} = client, input, options \\ []) do
+
+  def list_ingress_points(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2415,12 +2754,23 @@ defmodule AWS.MailManager do
 
   @doc """
   Lists all the existing relay resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListRelays&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_relays_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => [integer()]
+    }
   """
-  @spec list_relays(AWS.Client.t(), list_relays_request(), Keyword.t()) ::
+
+  @spec list_relays(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_relays_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_relays_errors()}
-  def list_relays(%Client{} = client, input, options \\ []) do
+
+  def list_relays(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2429,12 +2779,23 @@ defmodule AWS.MailManager do
 
   @doc """
   List rule sets for this account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListRuleSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rule_sets_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer()
+    }
   """
-  @spec list_rule_sets(AWS.Client.t(), list_rule_sets_request(), Keyword.t()) ::
+
+  @spec list_rule_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_sets_errors()}
-  def list_rule_sets(%Client{} = client, input, options \\ []) do
+
+  def list_rule_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2443,12 +2804,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Retrieves the list of tags (keys and values) assigned to the resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2457,12 +2828,23 @@ defmodule AWS.MailManager do
 
   @doc """
   List traffic policy resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20ListTrafficPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_traffic_policies_request`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("PageSize") => integer()
+    }
   """
-  @spec list_traffic_policies(AWS.Client.t(), list_traffic_policies_request(), Keyword.t()) ::
+
+  @spec list_traffic_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_traffic_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_traffic_policies_errors()}
-  def list_traffic_policies(%Client{} = client, input, options \\ []) do
+
+  def list_traffic_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2471,12 +2853,27 @@ defmodule AWS.MailManager do
 
   @doc """
   Initiates an export of emails from the specified archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StartArchiveExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_archive_export_request`)
+    %{
+      optional("Filters") => archive_filters(),
+      optional("MaxResults") => integer(),
+      required("ArchiveId") => String.t(),
+      required("ExportDestinationConfiguration") => list(),
+      required("FromTimestamp") => [non_neg_integer()],
+      required("ToTimestamp") => [non_neg_integer()]
+    }
   """
-  @spec start_archive_export(AWS.Client.t(), start_archive_export_request(), Keyword.t()) ::
+
+  @spec start_archive_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_archive_export_errors()}
-  def start_archive_export(%Client{} = client, input, options \\ []) do
+
+  def start_archive_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2485,12 +2882,26 @@ defmodule AWS.MailManager do
 
   @doc """
   Initiates a search across emails in the specified archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StartArchiveSearch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_archive_search_request`)
+    %{
+      optional("Filters") => archive_filters(),
+      required("ArchiveId") => String.t(),
+      required("FromTimestamp") => [non_neg_integer()],
+      required("MaxResults") => integer(),
+      required("ToTimestamp") => [non_neg_integer()]
+    }
   """
-  @spec start_archive_search(AWS.Client.t(), start_archive_search_request(), Keyword.t()) ::
+
+  @spec start_archive_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_archive_search_errors()}
-  def start_archive_search(%Client{} = client, input, options \\ []) do
+
+  def start_archive_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2499,12 +2910,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Stops an in-progress export of emails from an archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StopArchiveExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_archive_export_request`)
+    %{
+      required("ExportId") => String.t()
+    }
   """
-  @spec stop_archive_export(AWS.Client.t(), stop_archive_export_request(), Keyword.t()) ::
+
+  @spec stop_archive_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_archive_export_errors()}
-  def stop_archive_export(%Client{} = client, input, options \\ []) do
+
+  def stop_archive_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2513,12 +2934,22 @@ defmodule AWS.MailManager do
 
   @doc """
   Stops an in-progress archive search job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20StopArchiveSearch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_archive_search_request`)
+    %{
+      required("SearchId") => String.t()
+    }
   """
-  @spec stop_archive_search(AWS.Client.t(), stop_archive_search_request(), Keyword.t()) ::
+
+  @spec stop_archive_search(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_archive_search_errors()}
-  def stop_archive_search(%Client{} = client, input, options \\ []) do
+
+  def stop_archive_search(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2527,12 +2958,23 @@ defmodule AWS.MailManager do
 
   @doc """
   Adds one or more tags (keys and values) to a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2541,12 +2983,23 @@ defmodule AWS.MailManager do
 
   @doc """
   Remove one or more tags (keys and values) from a specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2555,12 +3008,24 @@ defmodule AWS.MailManager do
 
   @doc """
   Updates the attributes of an existing email archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_archive_request`)
+    %{
+      optional("ArchiveName") => String.t(),
+      optional("Retention") => list(),
+      required("ArchiveId") => String.t()
+    }
   """
-  @spec update_archive(AWS.Client.t(), update_archive_request(), Keyword.t()) ::
+
+  @spec update_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_archive_errors()}
-  def update_archive(%Client{} = client, input, options \\ []) do
+
+  def update_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2569,12 +3034,27 @@ defmodule AWS.MailManager do
 
   @doc """
   Update attributes of a provisioned ingress endpoint resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateIngressPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_ingress_point_request`)
+    %{
+      optional("IngressPointConfiguration") => list(),
+      optional("IngressPointName") => String.t(),
+      optional("RuleSetId") => String.t(),
+      optional("StatusToUpdate") => list(any()),
+      optional("TrafficPolicyId") => String.t(),
+      required("IngressPointId") => String.t()
+    }
   """
-  @spec update_ingress_point(AWS.Client.t(), update_ingress_point_request(), Keyword.t()) ::
+
+  @spec update_ingress_point(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ingress_point_errors()}
-  def update_ingress_point(%Client{} = client, input, options \\ []) do
+
+  def update_ingress_point(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2583,12 +3063,26 @@ defmodule AWS.MailManager do
 
   @doc """
   Updates the attributes of an existing relay resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateRelay&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_relay_request`)
+    %{
+      optional("Authentication") => list(),
+      optional("RelayName") => String.t(),
+      optional("ServerName") => String.t(),
+      optional("ServerPort") => integer(),
+      required("RelayId") => String.t()
+    }
   """
-  @spec update_relay(AWS.Client.t(), update_relay_request(), Keyword.t()) ::
+
+  @spec update_relay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_relay_errors()}
-  def update_relay(%Client{} = client, input, options \\ []) do
+
+  def update_relay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2597,12 +3091,24 @@ defmodule AWS.MailManager do
 
   @doc """
   >Update attributes of an already provisioned rule set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateRuleSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_rule_set_request`)
+    %{
+      optional("RuleSetName") => String.t(),
+      optional("Rules") => list(rule()()),
+      required("RuleSetId") => String.t()
+    }
   """
-  @spec update_rule_set(AWS.Client.t(), update_rule_set_request(), Keyword.t()) ::
+
+  @spec update_rule_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_rule_set_errors()}
-  def update_rule_set(%Client{} = client, input, options \\ []) do
+
+  def update_rule_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2611,12 +3117,26 @@ defmodule AWS.MailManager do
 
   @doc """
   Update attributes of an already provisioned traffic policy resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mailmanager%20UpdateTrafficPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_traffic_policy_request`)
+    %{
+      optional("DefaultAction") => list(any()),
+      optional("MaxMessageSizeBytes") => integer(),
+      optional("PolicyStatements") => list(policy_statement()()),
+      optional("TrafficPolicyName") => String.t(),
+      required("TrafficPolicyId") => String.t()
+    }
   """
-  @spec update_traffic_policy(AWS.Client.t(), update_traffic_policy_request(), Keyword.t()) ::
+
+  @spec update_traffic_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_traffic_policy_errors()}
-  def update_traffic_policy(%Client{} = client, input, options \\ []) do
+
+  def update_traffic_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

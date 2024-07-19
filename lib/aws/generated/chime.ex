@@ -28,151 +28,151 @@ defmodule AWS.Chime do
   @typedoc """
 
   ## Example:
-
+      
       create_media_capture_pipeline_response() :: %{
         "MediaCapturePipeline" => media_capture_pipeline()
       }
-
+      
   """
   @type create_media_capture_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_dial_out_response() :: %{
         "TransactionId" => String.t()
       }
-
+      
   """
   @type create_meeting_dial_out_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       events_configuration() :: %{
         "BotId" => String.t(),
         "LambdaFunctionArn" => String.t(),
         "OutboundEventsHTTPSEndpoint" => String.t()
       }
-
+      
   """
   @type events_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_configuration() :: %{
         "DataRetentionInHours" => integer(),
         "Disabled" => boolean(),
         "StreamingNotificationTargets" => list(streaming_notification_target()())
       }
-
+      
   """
   @type streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_memberships_for_app_instance_user_request() :: %{
         optional("AppInstanceUserArn") => String.t(),
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_channel_memberships_for_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       business_calling_settings() :: %{
         "CdrBucket" => String.t()
       }
-
+      
   """
   @type business_calling_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_channel_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type delete_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_phone_number_request() :: %{
         required("PhoneNumberIds") => list(String.t()())
       }
-
+      
   """
   @type batch_delete_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_instances_response() :: %{
         "AppInstances" => list(app_instance_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_app_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_bans_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_channel_bans_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_termination_credentials_request() :: %{
         optional("Credentials") => list(credential()())
       }
-
+      
   """
   @type put_voice_connector_termination_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
         optional("TargetApplications") => list(sip_rule_target_application()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_sip_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_rule() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Disabled" => boolean(),
@@ -183,348 +183,348 @@ defmodule AWS.Chime do
         "TriggerValue" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type sip_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_moderated_by_app_instance_user_request() :: %{
         optional("ChimeBearer") => String.t(),
         required("AppInstanceUserArn") => String.t()
       }
-
+      
   """
   @type describe_channel_moderated_by_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_phone_number_order_response() :: %{
         "PhoneNumberOrder" => phone_number_order()
       }
-
+      
   """
   @type create_phone_number_order_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_instance_admin_request() :: %{}
-
+      
   """
   @type delete_app_instance_admin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_moderator_response() :: %{
         "ChannelModerator" => channel_moderator()
       }
-
+      
   """
   @type describe_channel_moderator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_user_response() :: %{
         "UserErrors" => list(user_error()())
       }
-
+      
   """
   @type batch_update_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_request() :: %{
         required("AwsRegion") => String.t(),
         required("Endpoints") => list(sip_media_application_endpoint()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_sip_media_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_instance_user_request() :: %{}
-
+      
   """
   @type delete_app_instance_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_call_response() :: %{
         "SipMediaApplicationCall" => sip_media_application_call()
       }
-
+      
   """
   @type update_sip_media_application_call_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_room_membership_response() :: %{
         "Errors" => list(member_error()())
       }
-
+      
   """
   @type batch_create_room_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_instance_admins_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_app_instance_admins_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       member_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t(),
         "MemberId" => String.t()
       }
-
+      
   """
   @type member_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sip_media_application_logging_configuration_request() :: %{
         optional("SipMediaApplicationLoggingConfiguration") => sip_media_application_logging_configuration()
       }
-
+      
   """
   @type put_sip_media_application_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       proxy() :: %{
         "DefaultSessionExpiryMinutes" => integer(),
         "Disabled" => boolean(),
         "FallBackPhoneNumber" => String.t(),
         "PhoneNumberCountries" => list(String.t()())
       }
-
+      
   """
   @type proxy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_proxy_session_request() :: %{
         optional("ExpiryMinutes") => integer(),
         required("Capabilities") => list(list(any())())
       }
-
+      
   """
   @type update_proxy_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redact_room_message_request() :: %{}
-
+      
   """
   @type redact_room_message_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_phone_number_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type batch_update_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_response() :: %{
         "Account" => account()
       }
-
+      
   """
   @type get_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redact_channel_message_response() :: %{
         "ChannelArn" => String.t(),
         "MessageId" => String.t()
       }
-
+      
   """
   @type redact_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_health_request() :: %{}
-
+      
   """
   @type get_voice_connector_termination_health_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_e911_address_response() :: %{
         "Address" => address(),
         "AddressExternalId" => String.t(),
         "CandidateAddressList" => list(candidate_address()()),
         "ValidationResult" => integer()
       }
-
+      
   """
   @type validate_e911_address_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attendee_response() :: %{
         "Attendee" => attendee()
       }
-
+      
   """
   @type get_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_room_request() :: %{}
-
+      
   """
   @type delete_room_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_personal_pin_request() :: %{}
-
+      
   """
   @type reset_personal_pin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_moderator_response() :: %{
         "ChannelArn" => String.t(),
         "ChannelModerator" => identity()
       }
-
+      
   """
   @type create_channel_moderator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_response() :: %{
         "VoiceConnector" => voice_connector()
       }
-
+      
   """
   @type update_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_number_orders_response() :: %{
         "NextToken" => String.t(),
         "PhoneNumberOrders" => list(phone_number_order()())
       }
-
+      
   """
   @type list_phone_number_orders_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       termination_health() :: %{
         "Source" => String.t(),
         "Timestamp" => non_neg_integer()
       }
-
+      
   """
   @type termination_health() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_channel_moderator_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type delete_channel_moderator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redact_conversation_message_response() :: %{}
-
+      
   """
   @type redact_conversation_message_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       room() :: %{
         "AccountId" => String.t(),
         "CreatedBy" => String.t(),
@@ -533,340 +533,340 @@ defmodule AWS.Chime do
         "RoomId" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type room() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_response() :: %{
         "ChannelArn" => String.t()
       }
-
+      
   """
   @type create_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_instance_response() :: %{
         "AppInstanceArn" => String.t()
       }
-
+      
   """
   @type create_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_instance_response() :: %{
         "AppInstanceArn" => String.t()
       }
-
+      
   """
   @type update_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_membership_for_app_instance_user_summary() :: %{
         "AppInstanceUserMembershipSummary" => app_instance_user_membership_summary(),
         "ChannelSummary" => channel_summary()
       }
-
+      
   """
   @type channel_membership_for_app_instance_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participant() :: %{
         "PhoneNumber" => String.t(),
         "ProxyPhoneNumber" => String.t()
       }
-
+      
   """
   @type participant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_request() :: %{
         optional("Endpoints") => list(sip_media_application_endpoint()()),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_sip_media_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_unsuspend_user_response() :: %{
         "UserErrors" => list(user_error()())
       }
-
+      
   """
   @type batch_unsuspend_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_group_request() :: %{}
-
+      
   """
   @type delete_voice_connector_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       origination() :: %{
         "Disabled" => boolean(),
         "Routes" => list(origination_route()())
       }
-
+      
   """
   @type origination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_room_memberships_response() :: %{
         "NextToken" => String.t(),
         "RoomMemberships" => list(room_membership()())
       }
-
+      
   """
   @type list_room_memberships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connectors_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_voice_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_response() :: %{
         "User" => user()
       }
-
+      
   """
   @type update_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_country() :: %{
         "CountryCode" => String.t(),
         "SupportedPhoneNumberTypes" => list(list(any())())
       }
-
+      
   """
   @type phone_number_country() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_meetings_response() :: %{
         "Meetings" => list(meeting()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_meetings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geo_match_params() :: %{
         "AreaCode" => String.t(),
         "Country" => String.t()
       }
-
+      
   """
   @type geo_match_params() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_available_phone_numbers_response() :: %{
         "E164PhoneNumbers" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type search_available_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_request() :: %{}
-
+      
   """
   @type get_voice_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_origination_response() :: %{
         "Origination" => origination()
       }
-
+      
   """
   @type put_voice_connector_origination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_messages_response() :: %{
         "ChannelArn" => String.t(),
         "ChannelMessages" => list(channel_message_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_channel_messages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_meeting_request() :: %{
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_meeting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_attendee_request() :: %{
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rooms_response() :: %{
         "NextToken" => String.t(),
         "Rooms" => list(room()())
       }
-
+      
   """
   @type list_rooms_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_rule_response() :: %{
         "SipRule" => sip_rule()
       }
-
+      
   """
   @type create_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_group_request() :: %{
         optional("ForceAssociate") => boolean(),
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_channel_membership_response() :: %{
         "BatchChannelMemberships" => batch_channel_memberships(),
         "Errors" => list(batch_create_channel_membership_error()())
       }
-
+      
   """
   @type batch_create_channel_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_media_capture_pipeline_response() :: %{
         "MediaCapturePipeline" => media_capture_pipeline()
       }
-
+      
   """
   @type get_media_capture_pipeline_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_group_response() :: %{
         "VoiceConnectorGroup" => voice_connector_group()
       }
-
+      
   """
   @type create_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_termination_credentials_request() :: %{}
-
+      
   """
   @type list_voice_connector_termination_credentials_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_settings_request() :: %{}
-
+      
   """
   @type get_account_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_with_attendees_request() :: %{
         optional("Attendees") => list(create_attendee_request_item()()),
         optional("ExternalMeetingId") => String.t(),
@@ -876,269 +876,269 @@ defmodule AWS.Chime do
         optional("Tags") => list(tag()()),
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type create_meeting_with_attendees_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_settings_request() :: %{
         required("CallingName") => String.t()
       }
-
+      
   """
   @type update_phone_number_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       video_artifacts_configuration() :: %{
         "MuxType" => list(any()),
         "State" => list(any())
       }
-
+      
   """
   @type video_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_proxy_response() :: %{
         "Proxy" => proxy()
       }
-
+      
   """
   @type get_voice_connector_proxy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_instance_admins_response() :: %{
         "AppInstanceAdmins" => list(app_instance_admin_summary()()),
         "AppInstanceArn" => String.t(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_app_instance_admins_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bot_request() :: %{}
-
+      
   """
   @type get_bot_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_logging_configuration_request() :: %{}
-
+      
   """
   @type get_voice_connector_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_failure_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type service_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_settings_response() :: %{
         "AccountSettings" => account_settings()
       }
-
+      
   """
   @type get_account_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sip_rule_request() :: %{}
-
+      
   """
   @type delete_sip_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_emergency_calling_configuration_request() :: %{}
-
+      
   """
   @type get_voice_connector_emergency_calling_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_phone_number_request() :: %{}
-
+      
   """
   @type restore_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_meeting_transcription_response() :: %{}
-
+      
   """
   @type start_meeting_transcription_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       identity() :: %{
         "Arn" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_emergency_calling_configuration_request() :: %{
         required("EmergencyCallingConfiguration") => emergency_calling_configuration()
       }
-
+      
   """
   @type put_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       meeting() :: %{
         "ExternalMeetingId" => String.t(),
         "MediaPlacement" => media_placement(),
         "MediaRegion" => String.t(),
         "MeetingId" => String.t()
       }
-
+      
   """
   @type meeting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_media_capture_pipeline_request() :: %{}
-
+      
   """
   @type get_media_capture_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_response() :: %{
         "VoiceConnector" => voice_connector()
       }
-
+      
   """
   @type get_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bot_response() :: %{
         "Bot" => bot()
       }
-
+      
   """
   @type get_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_proxy_session_response() :: %{
         "ProxySession" => proxy_session()
       }
-
+      
   """
   @type create_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_termination_request() :: %{
         required("Termination") => termination()
       }
-
+      
   """
   @type put_voice_connector_termination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_moderated_by_app_instance_user_response() :: %{
         "Channel" => channel_moderated_by_app_instance_user_summary()
       }
-
+      
   """
   @type describe_channel_moderated_by_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logout_user_request() :: %{}
-
+      
   """
   @type logout_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_settings_response() :: %{}
-
+      
   """
   @type update_account_settings_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_membership() :: %{
         "ChannelArn" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -1147,84 +1147,84 @@ defmodule AWS.Chime do
         "Member" => identity(),
         "Type" => list(any())
       }
-
+      
   """
   @type channel_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       selected_video_streams() :: %{
         "AttendeeIds" => list(String.t()()),
         "ExternalUserIds" => list(String.t()())
       }
-
+      
   """
   @type selected_video_streams() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       telephony_settings() :: %{
         "InboundCalling" => boolean(),
         "OutboundCalling" => boolean(),
         "SMS" => boolean()
       }
-
+      
   """
   @type telephony_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_association() :: %{
         "AssociatedTimestamp" => non_neg_integer(),
         "Name" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type phone_number_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_user_response() :: %{
         "User" => user()
       }
-
+      
   """
   @type get_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_client_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type unauthorized_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_streaming_configuration_request() :: %{}
-
+      
   """
   @type get_voice_connector_streaming_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number() :: %{
         "Associations" => list(phone_number_association()()),
         "CallingName" => String.t(),
@@ -1240,43 +1240,43 @@ defmodule AWS.Chime do
         "Type" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type phone_number() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       redact_channel_message_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type redact_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_instance_request() :: %{}
-
+      
   """
   @type describe_app_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_instance_streaming_configurations_request() :: %{}
-
+      
   """
   @type delete_app_instance_streaming_configurations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       termination() :: %{
         "CallingRegions" => list(String.t()()),
         "CidrAllowedList" => list(String.t()()),
@@ -1284,468 +1284,468 @@ defmodule AWS.Chime do
         "DefaultPhoneNumber" => String.t(),
         "Disabled" => boolean()
       }
-
+      
   """
   @type termination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_order_request() :: %{}
-
+      
   """
   @type get_phone_number_order_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_instances_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_app_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_message_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("Content") => String.t(),
         optional("Metadata") => String.t()
       }
-
+      
   """
   @type update_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_room_membership_request() :: %{}
-
+      
   """
   @type delete_room_membership_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_response() :: %{
         "PhoneNumber" => phone_number()
       }
-
+      
   """
   @type update_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_moderator_request() :: %{
         optional("ChimeBearer") => String.t(),
         required("ChannelModeratorArn") => String.t()
       }
-
+      
   """
   @type create_channel_moderator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_instance_request() :: %{
         optional("Metadata") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_app_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       content_artifacts_configuration() :: %{
         "MuxType" => list(any()),
         "State" => list(any())
       }
-
+      
   """
   @type content_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttled_client_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type throttled_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_events_configuration_request() :: %{}
-
+      
   """
   @type delete_events_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       signin_delegate_group() :: %{
         "GroupName" => String.t()
       }
-
+      
   """
   @type signin_delegate_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_membership_response() :: %{
         "ChannelMembership" => channel_membership()
       }
-
+      
   """
   @type describe_channel_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_room_response() :: %{
         "Room" => room()
       }
-
+      
   """
   @type update_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_health_response() :: %{
         "TerminationHealth" => termination_health()
       }
-
+      
   """
   @type get_voice_connector_termination_health_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_request() :: %{
         optional("ForceAssociate") => boolean(),
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_user_settings_response() :: %{
         "UserSettings" => user_settings()
       }
-
+      
   """
   @type get_user_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_ban_request() :: %{
         optional("ChimeBearer") => String.t(),
         required("MemberArn") => String.t()
       }
-
+      
   """
   @type create_channel_ban_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_origination_request() :: %{}
-
+      
   """
   @type delete_voice_connector_origination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_response() :: %{
         "Meeting" => meeting()
       }
-
+      
   """
   @type create_meeting_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_user_membership_summary() :: %{
         "ReadMarkerTimestamp" => non_neg_integer(),
         "Type" => list(any())
       }
-
+      
   """
   @type app_instance_user_membership_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_meeting_tags_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_meeting_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_meeting_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_meeting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_instance_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AppInstanceArn") => String.t()
       }
-
+      
   """
   @type list_app_instance_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_media_capture_pipelines_response() :: %{
         "MediaCapturePipelines" => list(media_capture_pipeline()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_media_capture_pipelines_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_channel_message_response() :: %{
         "ChannelArn" => String.t(),
         "MessageId" => String.t()
       }
-
+      
   """
   @type send_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_meeting_response() :: %{
         "Meeting" => meeting()
       }
-
+      
   """
   @type get_meeting_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_media_applications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_sip_media_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ordered_phone_number() :: %{
         "E164PhoneNumber" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type ordered_phone_number() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_app_instance_retention_settings_request() :: %{
         required("AppInstanceRetentionSettings") => app_instance_retention_settings()
       }
-
+      
   """
   @type put_app_instance_retention_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_logging_configuration_response() :: %{
         "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
       }
-
+      
   """
   @type get_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_proxy_session_response() :: %{
         "ProxySession" => proxy_session()
       }
-
+      
   """
   @type update_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_phone_number_order_request() :: %{
         required("E164PhoneNumbers") => list(String.t()()),
         required("ProductType") => list(any())
       }
-
+      
   """
   @type create_phone_number_order_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sip_media_application_request() :: %{}
-
+      
   """
   @type delete_sip_media_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_response() :: %{
         "SipMediaApplication" => sip_media_application()
       }
-
+      
   """
   @type get_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_meeting_transcription_request() :: %{}
-
+      
   """
   @type stop_meeting_transcription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_rule_response() :: %{
         "SipRule" => sip_rule()
       }
-
+      
   """
   @type get_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector_settings() :: %{
         "CdrBucket" => String.t()
       }
-
+      
   """
   @type voice_connector_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_proxy_session_request() :: %{}
-
+      
   """
   @type delete_proxy_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration() :: %{
         "EnableMediaMetricLogs" => boolean(),
         "EnableSIPLogs" => boolean()
       }
-
+      
   """
   @type logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_app_instance_streaming_configurations_request() :: %{}
-
+      
   """
   @type get_app_instance_streaming_configurations_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       engine_transcribe_settings() :: %{
         "ContentIdentificationType" => list(any()),
         "ContentRedactionType" => list(any()),
@@ -1764,301 +1764,301 @@ defmodule AWS.Chime do
         "VocabularyName" => String.t(),
         "VocabularyNames" => String.t()
       }
-
+      
   """
   @type engine_transcribe_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_media_capture_pipeline_request() :: %{}
-
+      
   """
   @type delete_media_capture_pipeline_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_phone_number_response() :: %{
         "PhoneNumber" => phone_number()
       }
-
+      
   """
   @type restore_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_number_orders_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_phone_number_orders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       meeting_notification_configuration() :: %{
         "SnsTopicArn" => String.t(),
         "SqsQueueArn" => String.t()
       }
-
+      
   """
   @type meeting_notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channels_moderated_by_app_instance_user_response() :: %{
         "Channels" => list(channel_moderated_by_app_instance_user_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_channels_moderated_by_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_termination_response() :: %{
         "Termination" => termination()
       }
-
+      
   """
   @type put_voice_connector_termination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_retention_settings_response() :: %{
         "InitiateDeletionTimestamp" => non_neg_integer(),
         "RetentionSettings" => retention_settings()
       }
-
+      
   """
   @type put_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_group_request() :: %{
         required("Name") => String.t(),
         required("VoiceConnectorItems") => list(voice_connector_item()())
       }
-
+      
   """
   @type update_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attendees_response() :: %{
         "Attendees" => list(attendee()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_attendees_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_with_attendees_response() :: %{
         "Attendees" => list(attendee()()),
         "Errors" => list(create_attendee_error()()),
         "Meeting" => meeting()
       }
-
+      
   """
   @type create_meeting_with_attendees_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_supported_phone_number_countries_response() :: %{
         "PhoneNumberCountries" => list(phone_number_country()())
       }
-
+      
   """
   @type list_supported_phone_number_countries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_response() :: %{
         "SipMediaApplication" => sip_media_application()
       }
-
+      
   """
   @type update_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channels_moderated_by_app_instance_user_request() :: %{
         optional("AppInstanceUserArn") => String.t(),
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_channels_moderated_by_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       d_n_i_s_emergency_calling_configuration() :: %{
         "CallingCountry" => String.t(),
         "EmergencyPhoneNumber" => String.t(),
         "TestPhoneNumber" => String.t()
       }
-
+      
   """
   @type d_n_i_s_emergency_calling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_logging_configuration_response() :: %{
         "LoggingConfiguration" => logging_configuration()
       }
-
+      
   """
   @type get_voice_connector_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_room_membership_request() :: %{
         required("MembershipItemList") => list(membership_item()())
       }
-
+      
   """
   @type batch_create_room_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_app_instance_streaming_configurations_response() :: %{
         "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
       }
-
+      
   """
   @type get_app_instance_streaming_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       retention_settings() :: %{
         "ConversationRetentionSettings" => conversation_retention_settings(),
         "RoomRetentionSettings" => room_retention_settings()
       }
-
+      
   """
   @type retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_request() :: %{
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_proxy_request() :: %{}
-
+      
   """
   @type delete_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_groups_response() :: %{
         "NextToken" => String.t(),
         "VoiceConnectorGroups" => list(voice_connector_group()())
       }
-
+      
   """
   @type list_voice_connector_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_number_with_user_response() :: %{}
-
+      
   """
   @type associate_phone_number_with_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_rules_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SipMediaApplicationId") => String.t()
       }
-
+      
   """
   @type list_sip_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_moderator_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type describe_channel_moderator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transcription_configuration() :: %{
         "EngineTranscribeMedicalSettings" => engine_transcribe_medical_settings(),
         "EngineTranscribeSettings" => engine_transcribe_settings()
       }
-
+      
   """
   @type transcription_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       room_membership() :: %{
         "InvitedBy" => String.t(),
         "Member" => member(),
@@ -2066,14 +2066,14 @@ defmodule AWS.Chime do
         "RoomId" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type room_membership() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_summary() :: %{
         "ChannelArn" => String.t(),
         "LastMessageTimestamp" => non_neg_integer(),
@@ -2082,23 +2082,23 @@ defmodule AWS.Chime do
         "Name" => String.t(),
         "Privacy" => list(any())
       }
-
+      
   """
   @type channel_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_app_instance_retention_settings_request() :: %{}
-
+      
   """
   @type get_app_instance_retention_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       media_capture_pipeline() :: %{
         "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -2110,116 +2110,116 @@ defmodule AWS.Chime do
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type media_capture_pipeline() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_channel_message_response() :: %{
         "ChannelMessage" => channel_message()
       }
-
+      
   """
   @type get_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_proxy_sessions_response() :: %{
         "NextToken" => String.t(),
         "ProxySessions" => list(proxy_session()())
       }
-
+      
   """
   @type list_proxy_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bots_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_bots_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_membership_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type describe_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_meeting_request() :: %{}
-
+      
   """
   @type delete_meeting_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_room_memberships_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_room_memberships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_accounts_response() :: %{
         "Accounts" => list(account()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_streaming_configuration_response() :: %{
         "StreamingConfiguration" => streaming_configuration()
       }
-
+      
   """
   @type put_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_e911_address_request() :: %{
         required("AwsAccountId") => String.t(),
         required("City") => String.t(),
@@ -2229,112 +2229,112 @@ defmodule AWS.Chime do
         required("StreetInfo") => String.t(),
         required("StreetNumber") => String.t()
       }
-
+      
   """
   @type validate_e911_address_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_user_request() :: %{}
-
+      
   """
   @type get_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_voice_connector_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_request() :: %{}
-
+      
   """
   @type get_voice_connector_termination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_rules_response() :: %{
         "NextToken" => String.t(),
         "SipRules" => list(sip_rule()())
       }
-
+      
   """
   @type list_sip_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_number_with_user_request() :: %{
         required("E164PhoneNumber") => String.t()
       }
-
+      
   """
   @type associate_phone_number_with_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_group_request() :: %{
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_instance_user_response() :: %{
         "AppInstanceUser" => app_instance_user()
       }
-
+      
   """
   @type describe_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
         required("Name") => String.t(),
@@ -2342,14 +2342,14 @@ defmodule AWS.Chime do
         required("TriggerType") => list(any()),
         required("TriggerValue") => String.t()
       }
-
+      
   """
   @type create_sip_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       engine_transcribe_medical_settings() :: %{
         "ContentIdentificationType" => list(any()),
         "LanguageCode" => list(any()),
@@ -2358,67 +2358,67 @@ defmodule AWS.Chime do
         "Type" => list(any()),
         "VocabularyName" => String.t()
       }
-
+      
   """
   @type engine_transcribe_medical_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_user_settings_request() :: %{}
-
+      
   """
   @type get_user_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_ban_summary() :: %{
         "Member" => identity()
       }
-
+      
   """
   @type channel_ban_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_streaming_configuration_request() :: %{
         required("StreamingConfiguration") => streaming_configuration()
       }
-
+      
   """
   @type put_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_phone_number_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type batch_delete_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_streaming_configuration_response() :: %{
         "StreamingConfiguration" => streaming_configuration()
       }
-
+      
   """
   @type get_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       proxy_session() :: %{
         "Capabilities" => list(list(any())()),
         "CreatedTimestamp" => non_neg_integer(),
@@ -2434,102 +2434,102 @@ defmodule AWS.Chime do
         "UpdatedTimestamp" => non_neg_integer(),
         "VoiceConnectorId" => String.t()
       }
-
+      
   """
   @type proxy_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_order_response() :: %{
         "PhoneNumberOrder" => phone_number_order()
       }
-
+      
   """
   @type get_phone_number_order_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_instance_response() :: %{
         "AppInstance" => app_instance()
       }
-
+      
   """
   @type describe_app_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_response() :: %{
         "Channel" => channel()
       }
-
+      
   """
   @type describe_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_meeting_tags_request() :: %{}
-
+      
   """
   @type list_meeting_tags_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_channel_ban_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type delete_channel_ban_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_instance_user_response() :: %{
         "AppInstanceUserArn" => String.t()
       }
-
+      
   """
   @type update_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_room_membership_response() :: %{
         "RoomMembership" => room_membership()
       }
-
+      
   """
   @type create_room_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_app_instance_users_response() :: %{
         "AppInstanceArn" => String.t(),
         "AppInstanceUsers" => list(app_instance_user_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_app_instance_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_request() :: %{
         optional("FilterName") => list(any()),
         optional("FilterValue") => String.t(),
@@ -2538,86 +2538,86 @@ defmodule AWS.Chime do
         optional("ProductType") => list(any()),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_limit_exceeded_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type resource_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_summary() :: %{
         "AppInstanceArn" => String.t(),
         "Metadata" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type app_instance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_request() :: %{
         optional("AwsRegion") => list(any()),
         required("Name") => String.t(),
         required("RequireEncryption") => boolean()
       }
-
+      
   """
   @type create_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_request() :: %{}
-
+      
   """
   @type get_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_bans_response() :: %{
         "ChannelArn" => String.t(),
         "ChannelBans" => list(channel_ban_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_channel_bans_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_response() :: %{
         "NextToken" => String.t(),
         "Users" => list(user()())
       }
-
+      
   """
   @type list_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_request() :: %{
         optional("ExternalMeetingId") => String.t(),
         optional("MediaRegion") => String.t(),
@@ -2626,37 +2626,37 @@ defmodule AWS.Chime do
         optional("Tags") => list(tag()()),
         required("ClientRequestToken") => String.t()
       }
-
+      
   """
   @type create_meeting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type describe_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account() :: %{
         "AccountId" => String.t(),
         "AccountStatus" => list(any()),
@@ -2668,86 +2668,86 @@ defmodule AWS.Chime do
         "SigninDelegateGroups" => list(signin_delegate_group()()),
         "SupportedLicenses" => list(list(any())())
       }
-
+      
   """
   @type account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_app_instance_streaming_configurations_response() :: %{
         "AppInstanceStreamingConfigurations" => list(app_instance_streaming_configuration()())
       }
-
+      
   """
   @type put_app_instance_streaming_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_proxy_request() :: %{
         optional("Disabled") => boolean(),
         optional("FallBackPhoneNumber") => String.t(),
         required("DefaultSessionExpiryMinutes") => integer(),
         required("PhoneNumberPoolCountries") => list(String.t()())
       }
-
+      
   """
   @type put_voice_connector_proxy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_logging_configuration_request() :: %{
         required("LoggingConfiguration") => logging_configuration()
       }
-
+      
   """
   @type put_voice_connector_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_memberships_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type list_channel_memberships_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_membership_summary() :: %{
         "Member" => identity()
       }
-
+      
   """
   @type channel_membership_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_order() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "OrderedPhoneNumbers" => list(ordered_phone_number()()),
@@ -2756,14 +2756,14 @@ defmodule AWS.Chime do
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type phone_number_order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_user() :: %{
         "AppInstanceUserArn" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -2771,26 +2771,26 @@ defmodule AWS.Chime do
         "Metadata" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type app_instance_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_request_item() :: %{
         "ExternalUserId" => String.t(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type create_attendee_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("Metadata") => String.t(),
@@ -2801,167 +2801,167 @@ defmodule AWS.Chime do
         required("ClientRequestToken") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audio_artifacts_configuration() :: %{
         "MuxType" => list(any())
       }
-
+      
   """
   @type audio_artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_messaging_session_endpoint_request() :: %{}
-
+      
   """
   @type get_messaging_session_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_media_capture_pipelines_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_media_capture_pipelines_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_retention_settings_request() :: %{
         required("RetentionSettings") => retention_settings()
       }
-
+      
   """
   @type put_retention_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_phone_number_request() :: %{}
-
+      
   """
   @type delete_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_response() :: %{
         "Attendee" => attendee()
       }
-
+      
   """
   @type create_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_streaming_configuration() :: %{
         "AppInstanceDataType" => list(any()),
         "ResourceArn" => String.t()
       }
-
+      
   """
   @type app_instance_streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_signin_delegate_groups_from_account_request() :: %{
         required("GroupNames") => list(String.t()())
       }
-
+      
   """
   @type disassociate_signin_delegate_groups_from_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_room_membership_request() :: %{
         optional("Role") => list(any())
       }
-
+      
   """
   @type update_room_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application_endpoint() :: %{
         "LambdaArn" => String.t()
       }
-
+      
   """
   @type sip_media_application_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_group_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_retention_settings() :: %{
         "RetentionDays" => integer()
       }
-
+      
   """
   @type channel_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_global_settings_response() :: %{
         "BusinessCalling" => business_calling_settings(),
         "VoiceConnector" => voice_connector_settings()
       }
-
+      
   """
   @type get_global_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector() :: %{
         "AwsRegion" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
@@ -2972,38 +2972,38 @@ defmodule AWS.Chime do
         "VoiceConnectorArn" => String.t(),
         "VoiceConnectorId" => String.t()
       }
-
+      
   """
   @type voice_connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_proxy_sessions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_proxy_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_configuration() :: %{
         "SelectedVideoStreams" => selected_video_streams()
       }
-
+      
   """
   @type source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origination_route() :: %{
         "Host" => String.t(),
         "Port" => integer(),
@@ -3011,291 +3011,291 @@ defmodule AWS.Chime do
         "Protocol" => list(any()),
         "Weight" => integer()
       }
-
+      
   """
   @type origination_route() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_settings_request() :: %{
         required("AccountSettings") => account_settings()
       }
-
+      
   """
   @type update_account_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_memberships_for_app_instance_user_response() :: %{
         "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_channel_memberships_for_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_signin_delegate_groups_with_account_response() :: %{}
-
+      
   """
   @type associate_signin_delegate_groups_with_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_notification_target() :: %{
         "NotificationTarget" => list(any())
       }
-
+      
   """
   @type streaming_notification_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector_item() :: %{
         "Priority" => integer(),
         "VoiceConnectorId" => String.t()
       }
-
+      
   """
   @type voice_connector_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_app_instance_retention_settings_response() :: %{
         "AppInstanceRetentionSettings" => app_instance_retention_settings(),
         "InitiateDeletionTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type get_app_instance_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channels_response() :: %{
         "Channels" => list(channel_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_membership_request() :: %{
         optional("ChimeBearer") => String.t(),
         required("MemberArn") => String.t(),
         required("Type") => list(any())
       }
-
+      
   """
   @type create_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sip_media_application_logging_configuration_response() :: %{
         "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
       }
-
+      
   """
   @type put_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_group_response() :: %{
         "VoiceConnectorGroup" => voice_connector_group()
       }
-
+      
   """
   @type update_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       chime_sdk_meeting_configuration() :: %{
         "ArtifactsConfiguration" => artifacts_configuration(),
         "SourceConfiguration" => source_configuration()
       }
-
+      
   """
   @type chime_sdk_meeting_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_response() :: %{
         "PhoneNumber" => phone_number()
       }
-
+      
   """
   @type get_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_messaging_session_endpoint_response() :: %{
         "Endpoint" => messaging_session_endpoint()
       }
-
+      
   """
   @type get_messaging_session_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_termination_credentials_response() :: %{
         "Usernames" => list(String.t()())
       }
-
+      
   """
   @type list_voice_connector_termination_credentials_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("Metadata") => String.t(),
         required("Mode") => list(any()),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_global_settings_request() :: %{
         optional("BusinessCalling") => business_calling_settings(),
         optional("VoiceConnector") => voice_connector_settings()
       }
-
+      
   """
   @type update_global_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_read_marker_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type update_channel_read_marker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_settings_request() :: %{
         required("UserSettings") => user_settings()
       }
-
+      
   """
   @type update_user_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_request() :: %{
         optional("DefaultLicense") => list(any()),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_meeting_request() :: %{}
-
+      
   """
   @type get_meeting_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       user_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t(),
         "UserId" => String.t()
       }
-
+      
   """
   @type user_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_admin() :: %{
         "Admin" => identity(),
         "AppInstanceArn" => String.t(),
         "CreatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type app_instance_admin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_moderated_by_app_instance_user_summary() :: %{
         "ChannelSummary" => channel_summary()
       }
-
+      
   """
   @type channel_moderated_by_app_instance_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_proxy_session_request() :: %{
         optional("ExpiryMinutes") => integer(),
         optional("GeoMatchLevel") => list(any()),
@@ -3305,14 +3305,14 @@ defmodule AWS.Chime do
         required("Capabilities") => list(list(any())()),
         required("ParticipantPhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type create_proxy_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       candidate_address() :: %{
         "city" => String.t(),
         "country" => String.t(),
@@ -3322,23 +3322,23 @@ defmodule AWS.Chime do
         "streetInfo" => String.t(),
         "streetNumber" => String.t()
       }
-
+      
   """
   @type candidate_address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_rule_request() :: %{}
-
+      
   """
   @type get_sip_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_message() :: %{
         "ChannelArn" => String.t(),
         "Content" => String.t(),
@@ -3352,353 +3352,353 @@ defmodule AWS.Chime do
         "Sender" => identity(),
         "Type" => list(any())
       }
-
+      
   """
   @type channel_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_proxy_request() :: %{}
-
+      
   """
   @type get_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_account_request() :: %{}
-
+      
   """
   @type delete_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       redact_conversation_message_request() :: %{}
-
+      
   """
   @type redact_conversation_message_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       messaging_session_endpoint() :: %{
         "Url" => String.t()
       }
-
+      
   """
   @type messaging_session_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_message_response() :: %{
         "ChannelArn" => String.t(),
         "MessageId" => String.t()
       }
-
+      
   """
   @type update_channel_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_media_applications_response() :: %{
         "NextToken" => String.t(),
         "SipMediaApplications" => list(sip_media_application()())
       }
-
+      
   """
   @type list_sip_media_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_account_response() :: %{}
-
+      
   """
   @type delete_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       alexa_for_business_metadata() :: %{
         "AlexaForBusinessRoomArn" => String.t(),
         "IsAlexaForBusinessEnabled" => boolean()
       }
-
+      
   """
   @type alexa_for_business_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_logging_configuration_request() :: %{}
-
+      
   """
   @type get_sip_media_application_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_account_request() :: %{
         required("Name") => String.t()
       }
-
+      
   """
   @type create_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invite_users_response() :: %{
         "Invites" => list(invite()())
       }
-
+      
   """
   @type invite_users_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_meeting_transcription_response() :: %{}
-
+      
   """
   @type stop_meeting_transcription_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_room_request() :: %{}
-
+      
   """
   @type get_room_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application_logging_configuration() :: %{
         "EnableSipMediaApplicationMessageLogs" => boolean()
       }
-
+      
   """
   @type sip_media_application_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_bots_response() :: %{
         "Bots" => list(bot()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_bots_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_proxy_session_response() :: %{
         "ProxySession" => proxy_session()
       }
-
+      
   """
   @type get_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_attendee_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_channel_message_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type delete_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_rule_response() :: %{
         "SipRule" => sip_rule()
       }
-
+      
   """
   @type update_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_number_from_user_request() :: %{}
-
+      
   """
   @type disassociate_phone_number_from_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_app_instance_streaming_configurations_request() :: %{
         required("AppInstanceStreamingConfigurations") => list(app_instance_streaming_configuration()())
       }
-
+      
   """
   @type put_app_instance_streaming_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_moderators_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_channel_moderators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_error() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "ExternalUserId" => String.t()
       }
-
+      
   """
   @type create_attendee_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessable_entity_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type unprocessable_entity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_group_request() :: %{
         optional("VoiceConnectorItems") => list(voice_connector_item()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_channel_membership_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("Type") => list(any()),
         required("MemberArns") => list(String.t()())
       }
-
+      
   """
   @type batch_create_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_room_response() :: %{
         "Room" => room()
       }
-
+      
   """
   @type get_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_app_instance_user_request() :: %{
         optional("Metadata") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_instance_admin_response() :: %{
         "AppInstanceAdmin" => app_instance_admin()
       }
-
+      
   """
   @type describe_app_instance_admin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_call_response() :: %{
         "SipMediaApplicationCall" => sip_media_application_call()
       }
-
+      
   """
   @type create_sip_media_application_call_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_media_capture_pipeline_request() :: %{
         optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
         optional("ClientRequestToken") => String.t(),
@@ -3707,129 +3707,129 @@ defmodule AWS.Chime do
         required("SourceArn") => String.t(),
         required("SourceType") => list(any())
       }
-
+      
   """
   @type create_media_capture_pipeline_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_instance_request() :: %{
         optional("Metadata") => String.t(),
         optional("Tags") => list(tag()()),
         required("ClientRequestToken") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_app_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t(),
         "PhoneNumberId" => String.t()
       }
-
+      
   """
   @type phone_number_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attendee_request() :: %{}
-
+      
   """
   @type get_attendee_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_request_item() :: %{
         "CallingName" => String.t(),
         "PhoneNumberId" => String.t(),
         "ProductType" => list(any())
       }
-
+      
   """
   @type update_phone_number_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_membership_for_app_instance_user_request() :: %{
         optional("ChimeBearer") => String.t(),
         required("AppInstanceUserArn") => String.t()
       }
-
+      
   """
   @type describe_channel_membership_for_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_channel_membership_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type delete_channel_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_settings() :: %{
         "DisableRemoteControl" => boolean(),
         "EnableDialOut" => boolean()
       }
-
+      
   """
   @type account_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attendee_tags_request() :: %{}
-
+      
   """
   @type list_attendee_tags_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_admin_summary() :: %{
         "Admin" => identity()
       }
-
+      
   """
   @type app_instance_admin_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_suspend_user_request() :: %{
         required("UserIdList") => list(String.t()())
       }
-
+      
   """
   @type batch_suspend_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_messages_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
@@ -3838,36 +3838,36 @@ defmodule AWS.Chime do
         optional("NotBefore") => non_neg_integer(),
         optional("SortOrder") => list(any())
       }
-
+      
   """
   @type list_channel_messages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_group_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bot_request() :: %{
         optional("Disabled") => boolean()
       }
-
+      
   """
   @type update_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_channel_message_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("Metadata") => String.t(),
@@ -3876,174 +3876,174 @@ defmodule AWS.Chime do
         required("Persistence") => list(any()),
         required("Type") => list(any())
       }
-
+      
   """
   @type send_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_request() :: %{
         optional("AlexaForBusinessMetadata") => alexa_for_business_metadata(),
         optional("LicenseType") => list(any()),
         optional("UserType") => list(any())
       }
-
+      
   """
   @type update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_user_request_item() :: %{
         "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
         "LicenseType" => list(any()),
         "UserId" => String.t(),
         "UserType" => list(any())
       }
-
+      
   """
   @type update_user_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_events_configuration_request() :: %{}
-
+      
   """
   @type get_events_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("ResourceARN") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_origination_request() :: %{
         required("Origination") => origination()
       }
-
+      
   """
   @type put_voice_connector_origination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_termination_credentials_request() :: %{
         required("Usernames") => list(String.t()())
       }
-
+      
   """
   @type delete_voice_connector_termination_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_moderators_response() :: %{
         "ChannelArn" => String.t(),
         "ChannelModerators" => list(channel_moderator_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_channel_moderators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_room_membership_request() :: %{
         optional("Role") => list(any()),
         required("MemberId") => String.t()
       }
-
+      
   """
   @type create_room_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_room_request() :: %{
         optional("ClientRequestToken") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connectors_response() :: %{
         "NextToken" => String.t(),
         "VoiceConnectors" => list(voice_connector()())
       }
-
+      
   """
   @type list_voice_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_channel_message_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type get_channel_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_unsuspend_user_request() :: %{
         required("UserIdList") => list(String.t()())
       }
-
+      
   """
   @type batch_unsuspend_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_ban_response() :: %{
         "ChannelBan" => channel_ban()
       }
-
+      
   """
   @type describe_channel_ban_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_group_request() :: %{}
-
+      
   """
   @type get_voice_connector_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector_group() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Name" => String.t(),
@@ -4052,63 +4052,63 @@ defmodule AWS.Chime do
         "VoiceConnectorGroupId" => String.t(),
         "VoiceConnectorItems" => list(voice_connector_item()())
       }
-
+      
   """
   @type voice_connector_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_meeting_transcription_request() :: %{
         required("TranscriptionConfiguration") => transcription_configuration()
       }
-
+      
   """
   @type start_meeting_transcription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_ban() :: %{
         "ChannelArn" => String.t(),
         "CreatedBy" => identity(),
         "CreatedTimestamp" => non_neg_integer(),
         "Member" => identity()
       }
-
+      
   """
   @type channel_ban() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_rooms_request() :: %{
         optional("MaxResults") => integer(),
         optional("MemberId") => String.t(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_rooms_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_origination_response() :: %{
         "Origination" => origination()
       }
-
+      
   """
   @type get_voice_connector_origination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user() :: %{
         "AccountId" => String.t(),
         "AlexaForBusinessMetadata" => alexa_for_business_metadata(),
@@ -4124,37 +4124,37 @@ defmodule AWS.Chime do
         "UserRegistrationStatus" => list(any()),
         "UserType" => list(any())
       }
-
+      
   """
   @type user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invite_users_request() :: %{
         optional("UserType") => list(any()),
         required("UserEmailList") => list(String.t()())
       }
-
+      
   """
   @type invite_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_attendee_request() :: %{
         required("Attendees") => list(create_attendee_request_item()())
       }
-
+      
   """
   @type batch_create_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel() :: %{
         "ChannelArn" => String.t(),
         "CreatedBy" => identity(),
@@ -4166,168 +4166,168 @@ defmodule AWS.Chime do
         "Name" => String.t(),
         "Privacy" => list(any())
       }
-
+      
   """
   @type channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_settings_response() :: %{
         "CallingName" => String.t(),
         "CallingNameUpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type get_phone_number_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       membership_item() :: %{
         "MemberId" => String.t(),
         "Role" => list(any())
       }
-
+      
   """
   @type membership_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bot_request() :: %{
         optional("Domain") => String.t(),
         required("DisplayName") => String.t()
       }
-
+      
   """
   @type create_bot_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_attendee_response() :: %{
         "Attendees" => list(attendee()()),
         "Errors" => list(create_attendee_error()())
       }
-
+      
   """
   @type batch_create_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_instance_admin_response() :: %{
         "AppInstanceAdmin" => identity(),
         "AppInstanceArn" => String.t()
       }
-
+      
   """
   @type create_app_instance_admin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       regenerate_security_token_response() :: %{
         "Bot" => bot()
       }
-
+      
   """
   @type regenerate_security_token_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_app_instance_retention_settings_response() :: %{
         "AppInstanceRetentionSettings" => app_instance_retention_settings(),
         "InitiateDeletionTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type put_app_instance_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channel_memberships_response() :: %{
         "ChannelArn" => String.t(),
         "ChannelMemberships" => list(channel_membership_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_channel_memberships_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_call_request() :: %{
         optional("SipHeaders") => map(),
         required("FromPhoneNumber") => String.t(),
         required("ToPhoneNumber") => String.t()
       }
-
+      
   """
   @type create_sip_media_application_call_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_call_request() :: %{
         required("Arguments") => map()
       }
-
+      
   """
   @type update_sip_media_application_call_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attendee_tags_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_attendee_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attendees_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_attendees_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_retention_settings() :: %{
         "ChannelRetentionSettings" => channel_retention_settings()
       }
-
+      
   """
   @type app_instance_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       member() :: %{
         "AccountId" => String.t(),
         "Email" => String.t(),
@@ -4335,388 +4335,388 @@ defmodule AWS.Chime do
         "MemberId" => String.t(),
         "MemberType" => list(any())
       }
-
+      
   """
   @type member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("UserEmail") => String.t(),
         optional("UserType") => list(any())
       }
-
+      
   """
   @type list_users_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_termination_request() :: %{}
-
+      
   """
   @type delete_voice_connector_termination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_group_response() :: %{
         "VoiceConnectorGroup" => voice_connector_group()
       }
-
+      
   """
   @type get_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_events_configuration_response() :: %{
         "EventsConfiguration" => events_configuration()
       }
-
+      
   """
   @type get_events_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_moderator() :: %{
         "ChannelArn" => String.t(),
         "CreatedBy" => identity(),
         "CreatedTimestamp" => non_neg_integer(),
         "Moderator" => identity()
       }
-
+      
   """
   @type channel_moderator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attendee() :: %{
         "AttendeeId" => String.t(),
         "ExternalUserId" => String.t(),
         "JoinToken" => String.t()
       }
-
+      
   """
   @type attendee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_logging_configuration_response() :: %{
         "LoggingConfiguration" => logging_configuration()
       }
-
+      
   """
   @type put_voice_connector_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_ban_response() :: %{
         "ChannelArn" => String.t(),
         "Member" => identity()
       }
-
+      
   """
   @type create_channel_ban_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bot_response() :: %{
         "Bot" => bot()
       }
-
+      
   """
   @type create_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_account_response() :: %{
         "Account" => account()
       }
-
+      
   """
   @type create_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_response() :: %{
         "VoiceConnector" => voice_connector()
       }
-
+      
   """
   @type create_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_channel_membership_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t(),
         "MemberArn" => String.t()
       }
-
+      
   """
   @type batch_create_channel_membership_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_proxy_session_request() :: %{}
-
+      
   """
   @type get_proxy_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_instance_admin_request() :: %{
         required("AppInstanceAdminArn") => String.t()
       }
-
+      
   """
   @type create_app_instance_admin_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application_call() :: %{
         "TransactionId" => String.t()
       }
-
+      
   """
   @type sip_media_application_call() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_personal_pin_response() :: %{
         "User" => user()
       }
-
+      
   """
   @type reset_personal_pin_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_instance_admin_request() :: %{}
-
+      
   """
   @type describe_app_instance_admin_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_response() :: %{
         "NextToken" => String.t(),
         "PhoneNumbers" => list(phone_number()())
       }
-
+      
   """
   @type list_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_request() :: %{
         required("Name") => String.t(),
         required("RequireEncryption") => boolean()
       }
-
+      
   """
   @type update_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invite() :: %{
         "EmailAddress" => String.t(),
         "EmailStatus" => list(any()),
         "InviteId" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type invite() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_settings() :: %{
         "Telephony" => telephony_settings()
       }
-
+      
   """
   @type user_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_read_marker_response() :: %{
         "ChannelArn" => String.t()
       }
-
+      
   """
   @type update_channel_read_marker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_moderator_summary() :: %{
         "Moderator" => identity()
       }
-
+      
   """
   @type channel_moderator_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_channel_memberships() :: %{
         "ChannelArn" => String.t(),
         "InvitedBy" => identity(),
         "Members" => list(identity()()),
         "Type" => list(any())
       }
-
+      
   """
   @type batch_channel_memberships() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       credential() :: %{
         "Password" => String.t(),
         "Username" => String.t()
       }
-
+      
   """
   @type credential() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_room_membership_response() :: %{
         "RoomMembership" => room_membership()
       }
-
+      
   """
   @type update_room_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logout_user_response() :: %{}
-
+      
   """
   @type logout_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_number_from_user_response() :: %{}
-
+      
   """
   @type disassociate_phone_number_from_user_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_signin_delegate_groups_with_account_request() :: %{
         required("SigninDelegateGroups") => list(signin_delegate_group()())
       }
-
+      
   """
   @type associate_signin_delegate_groups_with_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_channel_response() :: %{
         "ChannelArn" => String.t()
       }
-
+      
   """
   @type update_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_instance_request() :: %{}
-
+      
   """
   @type delete_app_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance_user_summary() :: %{
         "AppInstanceUserArn" => String.t(),
         "Metadata" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type app_instance_user_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_capabilities() :: %{
         "InboundCall" => boolean(),
         "InboundMMS" => boolean(),
@@ -4725,97 +4725,97 @@ defmodule AWS.Chime do
         "OutboundMMS" => boolean(),
         "OutboundSMS" => boolean()
       }
-
+      
   """
   @type phone_number_capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_ban_request() :: %{
         optional("ChimeBearer") => String.t()
       }
-
+      
   """
   @type describe_channel_ban_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_meetings_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_meetings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_streaming_configuration_request() :: %{}
-
+      
   """
   @type delete_voice_connector_streaming_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_emergency_calling_configuration_request() :: %{}
-
+      
   """
   @type delete_voice_connector_emergency_calling_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_request() :: %{}
-
+      
   """
   @type get_sip_media_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_channel_membership_for_app_instance_user_response() :: %{
         "ChannelMembership" => channel_membership_for_app_instance_user_summary()
       }
-
+      
   """
   @type describe_channel_membership_for_app_instance_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_response() :: %{
         "SipMediaApplication" => sip_media_application()
       }
-
+      
   """
   @type create_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_proxy_response() :: %{
         "Proxy" => proxy()
       }
-
+      
   """
   @type put_voice_connector_proxy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bot() :: %{
         "BotEmail" => String.t(),
         "BotId" => String.t(),
@@ -4827,14 +4827,14 @@ defmodule AWS.Chime do
         "UpdatedTimestamp" => non_neg_integer(),
         "UserId" => String.t()
       }
-
+      
   """
   @type bot() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       address() :: %{
         "city" => String.t(),
         "country" => String.t(),
@@ -4847,169 +4847,169 @@ defmodule AWS.Chime do
         "streetNumber" => String.t(),
         "streetSuffix" => String.t()
       }
-
+      
   """
   @type address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_rule_target_application() :: %{
         "AwsRegion" => String.t(),
         "Priority" => integer(),
         "SipMediaApplicationId" => String.t()
       }
-
+      
   """
   @type sip_rule_target_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_emergency_calling_configuration_response() :: %{
         "EmergencyCallingConfiguration" => emergency_calling_configuration()
       }
-
+      
   """
   @type get_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_request() :: %{}
-
+      
   """
   @type delete_voice_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_accounts_request() :: %{
         optional("MaxResults") => integer(),
         optional("Name") => String.t(),
         optional("NextToken") => String.t(),
         optional("UserEmail") => String.t()
       }
-
+      
   """
   @type list_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_request() :: %{
         optional("CallingName") => String.t(),
         optional("ProductType") => list(any())
       }
-
+      
   """
   @type update_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_request() :: %{}
-
+      
   """
   @type get_account_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       redact_room_message_response() :: %{}
-
+      
   """
   @type redact_room_message_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_events_configuration_request() :: %{
         optional("LambdaFunctionArn") => String.t(),
         optional("OutboundEventsHTTPSEndpoint") => String.t()
       }
-
+      
   """
   @type put_events_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_retention_settings_response() :: %{
         "InitiateDeletionTimestamp" => non_neg_integer(),
         "RetentionSettings" => retention_settings()
       }
-
+      
   """
   @type get_retention_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_origination_request() :: %{}
-
+      
   """
   @type get_voice_connector_origination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_emergency_calling_configuration_response() :: %{
         "EmergencyCallingConfiguration" => emergency_calling_configuration()
       }
-
+      
   """
   @type put_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_response() :: %{
         "Termination" => termination()
       }
-
+      
   """
   @type get_voice_connector_termination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_request() :: %{
         optional("Tags") => list(tag()()),
         required("ExternalUserId") => String.t()
       }
-
+      
   """
   @type create_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_room_request() :: %{
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_room_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_channels_request() :: %{
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
@@ -5017,100 +5017,100 @@ defmodule AWS.Chime do
         optional("Privacy") => list(any()),
         required("AppInstanceArn") => String.t()
       }
-
+      
   """
   @type list_channels_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_app_instance_user_request() :: %{}
-
+      
   """
   @type describe_app_instance_user_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_retention_settings_request() :: %{}
-
+      
   """
   @type get_retention_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_response() :: %{
         "Account" => account()
       }
-
+      
   """
   @type update_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_response() :: %{
         "User" => user()
       }
-
+      
   """
   @type create_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_bot_response() :: %{
         "Bot" => bot()
       }
-
+      
   """
   @type update_bot_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_suspend_user_response() :: %{
         "UserErrors" => list(user_error()())
       }
-
+      
   """
   @type batch_suspend_user_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_phone_number_request() :: %{
         required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item()())
       }
-
+      
   """
   @type batch_update_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       artifacts_configuration() :: %{
         "Audio" => audio_artifacts_configuration(),
         "Content" => content_artifacts_configuration(),
         "Video" => video_artifacts_configuration()
       }
-
+      
   """
   @type artifacts_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_message_summary() :: %{
         "Content" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -5122,14 +5122,14 @@ defmodule AWS.Chime do
         "Sender" => identity(),
         "Type" => list(any())
       }
-
+      
   """
   @type channel_message_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_placement() :: %{
         "AudioFallbackUrl" => String.t(),
         "AudioHostUrl" => String.t(),
@@ -5140,14 +5140,14 @@ defmodule AWS.Chime do
         "SignalingUrl" => String.t(),
         "TurnControlUrl" => String.t()
       }
-
+      
   """
   @type media_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application() :: %{
         "AwsRegion" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -5156,14 +5156,14 @@ defmodule AWS.Chime do
         "SipMediaApplicationId" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type sip_media_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_available_phone_numbers_request() :: %{
         optional("AreaCode") => String.t(),
         optional("City") => String.t(),
@@ -5174,58 +5174,58 @@ defmodule AWS.Chime do
         optional("State") => String.t(),
         optional("TollFreePrefix") => String.t()
       }
-
+      
   """
   @type search_available_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_events_configuration_response() :: %{
         "EventsConfiguration" => events_configuration()
       }
-
+      
   """
   @type put_events_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_dial_out_request() :: %{
         required("FromPhoneNumber") => String.t(),
         required("JoinToken") => String.t(),
         required("ToPhoneNumber") => String.t()
       }
-
+      
   """
   @type create_meeting_dial_out_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_attendee_request() :: %{}
-
+      
   """
   @type delete_attendee_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_room_response() :: %{
         "Room" => room()
       }
-
+      
   """
   @type create_room_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_instance_user_request() :: %{
         optional("Metadata") => String.t(),
         optional("Tags") => list(tag()()),
@@ -5234,36 +5234,36 @@ defmodule AWS.Chime do
         required("ClientRequestToken") => String.t(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_app_instance_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       room_retention_settings() :: %{
         "RetentionDays" => integer()
       }
-
+      
   """
   @type room_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_supported_phone_number_countries_request() :: %{
         required("ProductType") => list(any())
       }
-
+      
   """
   @type list_supported_phone_number_countries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_instance() :: %{
         "AppInstanceArn" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -5271,94 +5271,94 @@ defmodule AWS.Chime do
         "Metadata" => String.t(),
         "Name" => String.t()
       }
-
+      
   """
   @type app_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conversation_retention_settings() :: %{
         "RetentionDays" => integer()
       }
-
+      
   """
   @type conversation_retention_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       emergency_calling_configuration() :: %{
         "DNIS" => list(d_n_i_s_emergency_calling_configuration()())
       }
-
+      
   """
   @type emergency_calling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_user_request() :: %{
         optional("Email") => String.t(),
         optional("UserType") => list(any()),
         optional("Username") => String.t()
       }
-
+      
   """
   @type create_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_user_request() :: %{
         required("UpdateUserRequestItems") => list(update_user_request_item()())
       }
-
+      
   """
   @type batch_update_user_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       regenerate_security_token_request() :: %{}
-
+      
   """
   @type regenerate_security_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_signin_delegate_groups_from_account_response() :: %{}
-
+      
   """
   @type disassociate_signin_delegate_groups_from_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_channel_membership_response() :: %{
         "ChannelArn" => String.t(),
         "Member" => identity()
       }
-
+      
   """
   @type create_channel_membership_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_instance_user_response() :: %{
         "AppInstanceUserArn" => String.t()
       }
-
+      
   """
   @type create_app_instance_user_response() :: %{String.t() => any()}
 
@@ -7115,43 +7115,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec associate_phone_number_with_user(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          associate_phone_number_with_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_phone_number_with_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_number_with_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_number_with_user_errors()}
-  def associate_phone_number_with_user(
-        %Client{} = client,
-        account_id,
-        user_id,
-        input,
-        options \\ []
-      ) do
+
+  def associate_phone_number_with_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=associate-phone-number"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7164,41 +7162,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec associate_phone_numbers_with_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          associate_phone_numbers_with_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_phone_numbers_with_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_errors()}
+
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=associate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7208,45 +7210,53 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-    group ID.
+  group ID.
 
   ## Optional parameters:
   """
+
   @spec associate_phone_numbers_with_voice_connector_group(
           AWS.Client.t(),
           String.t(),
-          associate_phone_numbers_with_voice_connector_group_request(),
           Keyword.t()
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_group_errors()}
+
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=associate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7260,41 +7270,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec associate_signin_delegate_groups_with_account(
-          AWS.Client.t(),
-          String.t(),
-          associate_signin_delegate_groups_with_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_signin_delegate_groups_with_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_signin_delegate_groups_with_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_signin_delegate_groups_with_account_errors()}
-  def associate_signin_delegate_groups_with_account(
-        %Client{} = client,
-        account_id,
-        input,
-        options \\ []
-      ) do
+
+  def associate_signin_delegate_groups_with_account(%Client{} = client, account_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}?operation=associate-signin-delegate-groups"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7307,34 +7317,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec batch_create_attendee(
-          AWS.Client.t(),
-          String.t(),
-          batch_create_attendee_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_attendee_errors()}
-  def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def batch_create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7344,24 +7360,22 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
-    users.
+  users.
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec batch_create_channel_membership(
-          AWS.Client.t(),
-          String.t(),
-          batch_create_channel_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_create_channel_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_channel_membership_errors()}
-  def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def batch_create_channel_membership(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -7370,13 +7384,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -7386,17 +7408,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7412,37 +7426,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec batch_create_room_membership(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          batch_create_room_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_create_room_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_room_membership_errors()}
-  def batch_create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
+
+  def batch_create_room_membership(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships?operation=batch-create"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7456,33 +7474,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec batch_delete_phone_number(
-          AWS.Client.t(),
-          batch_delete_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_phone_number_errors()}
-  def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7503,29 +7528,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec batch_suspend_user(AWS.Client.t(), String.t(), batch_suspend_user_request(), Keyword.t()) ::
+
+  @spec batch_suspend_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_suspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_suspend_user_errors()}
-  def batch_suspend_user(%Client{} = client, account_id, input, options \\ []) do
+
+  def batch_suspend_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=suspend"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7543,34 +7579,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec batch_unsuspend_user(
-          AWS.Client.t(),
-          String.t(),
-          batch_unsuspend_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_unsuspend_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_unsuspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_unsuspend_user_errors()}
-  def batch_unsuspend_user(%Client{} = client, account_id, input, options \\ []) do
+
+  def batch_unsuspend_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=unsuspend"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7587,33 +7629,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec batch_update_phone_number(
-          AWS.Client.t(),
-          batch_update_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_phone_number_errors()}
-  def batch_update_phone_number(%Client{} = client, input, options \\ []) do
+
+  def batch_update_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7628,29 +7677,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec batch_update_user(AWS.Client.t(), String.t(), batch_update_user_request(), Keyword.t()) ::
+
+  @spec batch_update_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_user_errors()}
-  def batch_update_user(%Client{} = client, account_id, input, options \\ []) do
+
+  def batch_update_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7666,29 +7726,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_account(AWS.Client.t(), create_account_request(), Keyword.t()) ::
+
+  @spec create_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_account_errors()}
-  def create_account(%Client{} = client, input, options \\ []) do
+
+  def create_account(%Client{} = client, options \\ []) do
     url_path = "/accounts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7702,29 +7773,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_app_instance(AWS.Client.t(), create_app_instance_request(), Keyword.t()) ::
+
+  @spec create_app_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_errors()}
-  def create_app_instance(%Client{} = client, input, options \\ []) do
+
+  def create_app_instance(%Client{} = client, options \\ []) do
     url_path = "/app-instances"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7745,34 +7827,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_app_instance_admin(
-          AWS.Client.t(),
-          String.t(),
-          create_app_instance_admin_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_app_instance_admin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_admin_errors()}
-  def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
+
+  def create_app_instance_admin(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7785,29 +7873,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_app_instance_user(AWS.Client.t(), create_app_instance_user_request(), Keyword.t()) ::
+
+  @spec create_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_instance_user_errors()}
-  def create_app_instance_user(%Client{} = client, input, options \\ []) do
+
+  def create_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/app-instance-users"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7830,29 +7929,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_attendee(AWS.Client.t(), String.t(), create_attendee_request(), Keyword.t()) ::
+
+  @spec create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attendee_errors()}
-  def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7865,29 +7975,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_bot(AWS.Client.t(), String.t(), create_bot_request(), Keyword.t()) ::
+
+  @spec create_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bot_errors()}
-  def create_bot(%Client{} = client, account_id, input, options \\ []) do
+
+  def create_bot(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7900,15 +8021,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
+
+  @spec create_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_errors()}
-  def create_channel(%Client{} = client, input, options \\ []) do
+
+  def create_channel(%Client{} = client, options \\ []) do
     url_path = "/channels"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -7917,13 +8041,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -7933,17 +8065,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7960,15 +8084,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec create_channel_ban(AWS.Client.t(), String.t(), create_channel_ban_request(), Keyword.t()) ::
+
+  @spec create_channel_ban(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_ban_errors()}
-  def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def create_channel_ban(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -7977,13 +8104,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -7993,17 +8128,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8014,24 +8141,22 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
-    users.
+  users.
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec create_channel_membership(
-          AWS.Client.t(),
-          String.t(),
-          create_channel_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_channel_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_membership_errors()}
-  def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def create_channel_membership(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -8040,13 +8165,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -8056,17 +8189,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8079,20 +8204,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec create_channel_moderator(
-          AWS.Client.t(),
-          String.t(),
-          create_channel_moderator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_channel_moderator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_channel_moderator_errors()}
-  def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def create_channel_moderator(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -8101,13 +8224,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -8117,17 +8248,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8139,33 +8262,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_media_capture_pipeline(
-          AWS.Client.t(),
-          create_media_capture_pipeline_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_media_capture_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_media_capture_pipeline_errors()}
-  def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
+
+  def create_media_capture_pipeline(%Client{} = client, options \\ []) do
     url_path = "/media-capture-pipelines"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8191,29 +8321,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_meeting(AWS.Client.t(), create_meeting_request(), Keyword.t()) ::
+
+  @spec create_meeting(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_errors()}
-  def create_meeting(%Client{} = client, input, options \\ []) do
+
+  def create_meeting(%Client{} = client, options \\ []) do
     url_path = "/meetings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8231,34 +8372,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_meeting_dial_out(
-          AWS.Client.t(),
-          String.t(),
-          create_meeting_dial_out_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_meeting_dial_out(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_meeting_dial_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_dial_out_errors()}
-  def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def create_meeting_dial_out(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8284,33 +8431,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_meeting_with_attendees(
-          AWS.Client.t(),
-          create_meeting_with_attendees_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_meeting_with_attendees(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_with_attendees_errors()}
-  def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
+
+  def create_meeting_with_attendees(%Client{} = client, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8325,33 +8479,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_phone_number_order(
-          AWS.Client.t(),
-          create_phone_number_order_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_phone_number_order(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_phone_number_order_errors()}
-  def create_phone_number_order(%Client{} = client, input, options \\ []) do
+
+  def create_phone_number_order(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8365,34 +8526,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_proxy_session(
-          AWS.Client.t(),
-          String.t(),
-          create_proxy_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_proxy_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proxy_session_errors()}
-  def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def create_proxy_session(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8405,29 +8572,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_room(AWS.Client.t(), String.t(), create_room_request(), Keyword.t()) ::
+
+  @spec create_room(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_room_errors()}
-  def create_room(%Client{} = client, account_id, input, options \\ []) do
+
+  def create_room(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8443,37 +8621,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_room_membership(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_room_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_room_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_room_membership_errors()}
-  def create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
+
+  def create_room_membership(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8485,33 +8667,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_sip_media_application(
-          AWS.Client.t(),
-          create_sip_media_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sip_media_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_errors()}
-  def create_sip_media_application(%Client{} = client, input, options \\ []) do
+
+  def create_sip_media_application(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8526,39 +8715,44 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_sip_media_application_call(
-          AWS.Client.t(),
-          String.t(),
-          create_sip_media_application_call_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sip_media_application_call(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_call_errors()}
+
   def create_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
-        input,
         options \\ []
       ) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8571,29 +8765,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_sip_rule(AWS.Client.t(), create_sip_rule_request(), Keyword.t()) ::
+
+  @spec create_sip_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_rule_errors()}
-  def create_sip_rule(%Client{} = client, input, options \\ []) do
+
+  def create_sip_rule(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8606,29 +8811,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_user(AWS.Client.t(), String.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, account_id, input, options \\ []) do
+
+  def create_user(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=create"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8645,29 +8861,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_voice_connector(AWS.Client.t(), create_voice_connector_request(), Keyword.t()) ::
+
+  @spec create_voice_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_errors()}
-  def create_voice_connector(%Client{} = client, input, options \\ []) do
+
+  def create_voice_connector(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8684,33 +8911,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec create_voice_connector_group(
-          AWS.Client.t(),
-          create_voice_connector_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_voice_connector_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_group_errors()}
-  def create_voice_connector_group(%Client{} = client, input, options \\ []) do
+
+  def create_voice_connector_group(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -8727,17 +8961,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_account(AWS.Client.t(), String.t(), delete_account_request(), Keyword.t()) ::
+
+  @spec delete_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_account_errors()}
-  def delete_account(%Client{} = client, account_id, input, options \\ []) do
+
+  def delete_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8746,7 +9001,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8762,22 +9017,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_app_instance(
-          AWS.Client.t(),
-          String.t(),
-          delete_app_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_errors()}
-  def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
+
+  def delete_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8786,7 +9057,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8800,36 +9071,49 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstance's
-    administrator.
+  administrator.
   * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
-  @spec delete_app_instance_admin(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_app_instance_admin_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_admin_errors()}
+
   def delete_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
         app_instance_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins/#{AWS.Util.encode_uri(app_instance_admin_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8838,7 +9122,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8851,31 +9135,46 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations being
-    deleted.
+  deleted.
 
   ## Optional parameters:
   """
-  @spec delete_app_instance_streaming_configurations(
-          AWS.Client.t(),
-          String.t(),
-          delete_app_instance_streaming_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_streaming_configurations_errors()}
+
   def delete_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
-        input,
         options \\ []
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8884,7 +9183,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8897,26 +9196,42 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user request being
-    deleted.
+  deleted.
 
   ## Optional parameters:
   """
-  @spec delete_app_instance_user(
-          AWS.Client.t(),
-          String.t(),
-          delete_app_instance_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_instance_user_errors()}
-  def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
+
+  def delete_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8925,7 +9240,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -8954,25 +9269,39 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_attendee(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_attendee_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attendee_errors()}
-  def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
+
+  def delete_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8981,7 +9310,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9000,15 +9329,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
+
+  @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_errors()}
-  def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def delete_channel(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -9017,13 +9349,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9033,6 +9373,8 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -9040,7 +9382,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9055,28 +9397,25 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel from which the
-    AppInstanceUser was banned.
+  AppInstanceUser was banned.
   * `:member_arn` (`t:string`) The ARN of the AppInstanceUser that you want to
-    reinstate.
+  reinstate.
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec delete_channel_ban(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_channel_ban_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_ban_errors()}
-  def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
+
+  def delete_channel_ban(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -9085,13 +9424,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9101,6 +9448,8 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -9108,7 +9457,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9123,28 +9472,25 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel from which you want to
-    remove the user.
+  remove the user.
   * `:member_arn` (`t:string`) The ARN of the member that you're removing from the
-    channel.
+  channel.
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec delete_channel_membership(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_channel_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_membership_errors()}
-  def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
+
+  def delete_channel_membership(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -9153,13 +9499,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9169,6 +9523,8 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -9176,7 +9532,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9197,22 +9553,19 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec delete_channel_message(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_channel_message_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_message_errors()}
-  def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
+
+  def delete_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -9221,13 +9574,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9237,6 +9598,8 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -9244,7 +9607,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9263,28 +9626,24 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec delete_channel_moderator(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_channel_moderator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_channel_moderator_errors()}
+
   def delete_channel_moderator(
         %Client{} = client,
         channel_arn,
         channel_moderator_arn,
-        input,
         options \\ []
       ) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators/#{AWS.Util.encode_uri(channel_moderator_arn)}"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -9293,13 +9652,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9309,6 +9676,8 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -9316,7 +9685,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9333,25 +9702,39 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_events_configuration(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_events_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_events_configuration_errors()}
-  def delete_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
+
+  def delete_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9360,7 +9743,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9373,26 +9756,42 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:media_pipeline_id` (`t:string`) The ID of the media capture pipeline being
-    deleted.
+  deleted.
 
   ## Optional parameters:
   """
-  @spec delete_media_capture_pipeline(
-          AWS.Client.t(),
-          String.t(),
-          delete_media_capture_pipeline_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_media_capture_pipeline_errors()}
-  def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
+
+  def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9401,7 +9800,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9429,17 +9828,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_meeting(AWS.Client.t(), String.t(), delete_meeting_request(), Keyword.t()) ::
+
+  @spec delete_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_meeting_errors()}
-  def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def delete_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9448,7 +9868,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9466,22 +9886,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          delete_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_phone_number_errors()}
-  def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def delete_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9490,7 +9926,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9508,31 +9944,44 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_proxy_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_proxy_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_proxy_session_errors()}
+
   def delete_proxy_session(
         %Client{} = client,
         proxy_session_id,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9541,7 +9990,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9558,19 +10007,39 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_room(AWS.Client.t(), String.t(), String.t(), delete_room_request(), Keyword.t()) ::
+
+  @spec delete_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_room_errors()}
-  def delete_room(%Client{} = client, account_id, room_id, input, options \\ []) do
+
+  def delete_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9579,7 +10048,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9597,33 +10066,39 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_room_membership(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_room_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_room_membership(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_room_membership_errors()}
-  def delete_room_membership(
-        %Client{} = client,
-        account_id,
-        member_id,
-        room_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_room_membership(%Client{} = client, account_id, member_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9632,7 +10107,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9648,27 +10123,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_sip_media_application(
-          AWS.Client.t(),
-          String.t(),
-          delete_sip_media_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_media_application_errors()}
-  def delete_sip_media_application(
-        %Client{} = client,
-        sip_media_application_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9677,7 +10163,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9693,17 +10179,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_sip_rule(AWS.Client.t(), String.t(), delete_sip_rule_request(), Keyword.t()) ::
+
+  @spec delete_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_rule_errors()}
-  def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
+
+  def delete_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9712,7 +10219,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9730,22 +10237,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_errors()}
-  def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def delete_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9754,7 +10277,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9771,29 +10294,47 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec delete_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
-          delete_voice_connector_emergency_calling_configuration_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_emergency_calling_configuration_errors()}
+
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9802,7 +10343,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9817,31 +10358,42 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-    group ID.
+  group ID.
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_group_errors()}
-  def delete_voice_connector_group(
-        %Client{} = client,
-        voice_connector_group_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9850,7 +10402,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9868,27 +10420,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_origination(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_origination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_origination_errors()}
-  def delete_voice_connector_origination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9897,7 +10460,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9913,24 +10476,39 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_proxy(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_proxy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_proxy_errors()}
-  def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9939,7 +10517,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -9956,29 +10534,43 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_streaming_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_streaming_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_streaming_configuration_errors()}
+
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -9987,7 +10579,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -10005,27 +10597,38 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_termination(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_termination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_errors()}
-  def delete_voice_connector_termination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -10034,7 +10637,7 @@ defmodule AWS.Chime do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -10051,41 +10654,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_termination_credentials(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_termination_credentials_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_credentials_errors()}
+
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=delete"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -10098,10 +10705,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec describe_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_errors()}
+
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
 
@@ -10141,10 +10750,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec describe_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_admin_errors()}
+
   def describe_app_instance_admin(
         %Client{} = client,
         app_instance_admin_arn,
@@ -10189,10 +10800,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec describe_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_app_instance_user_errors()}
+
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
 
@@ -10233,12 +10846,14 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_errors()}
+
   def describe_channel(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -10287,17 +10902,19 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel from which the user is
-    banned.
+  banned.
   * `:member_arn` (`t:string`) The ARN of the member being banned.
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_ban_errors()}
+
   def describe_channel_ban(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
@@ -10351,12 +10968,14 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec describe_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_membership_errors()}
+
   def describe_channel_membership(%Client{} = client, channel_arn, member_arn, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
@@ -10411,8 +11030,9 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec describe_channel_membership_for_app_instance_user(
           AWS.Client.t(),
           String.t(),
@@ -10422,12 +11042,14 @@ defmodule AWS.Chime do
           {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_membership_for_app_instance_user_errors()}
+
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
         channel_arn,
         app_instance_user_arn,
         options \\ []
-      ) do
+      )
+      when is_binary(app_instance_user_arn) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-membership"
 
     # Validate optional parameters
@@ -10477,12 +11099,13 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the moderated channel.
   * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser in the
-    moderated channel.
+  moderated channel.
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec describe_channel_moderated_by_app_instance_user(
           AWS.Client.t(),
           String.t(),
@@ -10492,12 +11115,14 @@ defmodule AWS.Chime do
           {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_moderated_by_app_instance_user_errors()}
+
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
         channel_arn,
         app_instance_user_arn,
         options \\ []
-      ) do
+      )
+      when is_binary(app_instance_user_arn) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-moderated-channel"
 
@@ -10550,12 +11175,14 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec describe_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_channel_moderator_errors()}
+
   def describe_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -10613,43 +11240,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec disassociate_phone_number_from_user(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_phone_number_from_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_phone_number_from_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_number_from_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_number_from_user_errors()}
-  def disassociate_phone_number_from_user(
-        %Client{} = client,
-        account_id,
-        user_id,
-        input,
-        options \\ []
-      ) do
+
+  def disassociate_phone_number_from_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=disassociate-phone-number"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -10663,41 +11288,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec disassociate_phone_numbers_from_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_phone_numbers_from_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_phone_numbers_from_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_errors()}
+
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=disassociate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -10708,45 +11337,53 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-    group ID.
+  group ID.
 
   ## Optional parameters:
   """
+
   @spec disassociate_phone_numbers_from_voice_connector_group(
           AWS.Client.t(),
           String.t(),
-          disassociate_phone_numbers_from_voice_connector_group_request(),
           Keyword.t()
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_group_errors()}
+
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=disassociate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -10760,41 +11397,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec disassociate_signin_delegate_groups_from_account(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_signin_delegate_groups_from_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_signin_delegate_groups_from_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_signin_delegate_groups_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_signin_delegate_groups_from_account_errors()}
+
   def disassociate_signin_delegate_groups_from_account(
         %Client{} = client,
         account_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}?operation=disassociate-signin-delegate-groups"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -10808,10 +11449,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_errors()}
+
   def get_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
 
@@ -10854,10 +11497,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_settings_errors()}
+
   def get_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
 
@@ -10896,10 +11541,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_instance_retention_settings_errors()}
+
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
 
@@ -10938,10 +11585,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_instance_streaming_configurations_errors()}
+
   def get_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -10996,10 +11645,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attendee_errors()}
+
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -11041,10 +11692,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bot_errors()}
+
   def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
 
@@ -11086,12 +11739,14 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec get_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channel_message_errors()}
+
   def get_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -11144,10 +11799,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_events_configuration_errors()}
+
   def get_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
@@ -11187,10 +11844,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
+
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
 
@@ -11229,10 +11888,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_media_capture_pipeline_errors()}
+
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
 
@@ -11282,10 +11943,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_meeting_errors()}
+
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
 
@@ -11323,10 +11986,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_messaging_session_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_messaging_session_endpoint_errors()}
+
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
 
@@ -11366,10 +12031,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_errors()}
+
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -11410,10 +12077,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_phone_number_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_order_errors()}
+
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
 
@@ -11452,10 +12121,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_settings_errors()}
+
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
 
@@ -11496,10 +12167,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proxy_session_errors()}
+
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
@@ -11542,10 +12215,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_retention_settings_errors()}
+
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
 
@@ -11586,10 +12261,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_room_errors()}
+
   def get_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
@@ -11630,10 +12307,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_errors()}
+
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -11672,10 +12351,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_logging_configuration_errors()}
+
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -11720,10 +12401,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_rule_errors()}
+
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -11764,10 +12447,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_errors()}
+
   def get_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -11809,10 +12494,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_settings_errors()}
+
   def get_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
@@ -11853,10 +12540,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_errors()}
+
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -11896,6 +12585,7 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -11904,6 +12594,7 @@ defmodule AWS.Chime do
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_emergency_calling_configuration_errors()}
+
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -11945,14 +12636,16 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-    group ID.
+  group ID.
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_group_errors()}
+
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -11993,10 +12686,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_logging_configuration_errors()}
+
   def get_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -12041,10 +12736,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_origination_errors()}
+
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -12084,10 +12781,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_proxy_errors()}
+
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -12130,10 +12829,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_streaming_configuration_errors()}
+
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -12178,10 +12879,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_errors()}
+
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -12227,10 +12930,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_termination_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_health_errors()}
+
   def get_voice_connector_termination_health(
         %Client{} = client,
         voice_connector_id,
@@ -12275,29 +12980,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec invite_users(AWS.Client.t(), String.t(), invite_users_request(), Keyword.t()) ::
+
+  @spec invite_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, invite_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, invite_users_errors()}
-  def invite_users(%Client{} = client, account_id, input, options \\ []) do
+
+  def invite_users(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=add"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -12312,17 +13028,19 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. Defaults to 100.
+  single call. Defaults to 100.
   * `:name` (`t:string`) Amazon Chime account name prefix with which to filter
-    results.
+  results.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   * `:user_email` (`t:string`) User email address with which to filter results.
   """
+
   @spec list_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_errors()}
+
   def list_accounts(%Client{} = client, options \\ []) do
     url_path = "/accounts"
 
@@ -12393,14 +13111,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of administrators that you
-    want to return.
+  want to return.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-    the number of administrators is reached.
+  the number of administrators is reached.
   """
+
   @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_admins_errors()}
+
   def list_app_instance_admins(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
 
@@ -12457,15 +13177,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of requests that you want
-    returned.
+  returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-    requested users are returned.
+  requested users are returned.
   """
+
   @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instance_users_errors()}
-  def list_app_instance_users(%Client{} = client, app_instance_arn, options \\ []) do
+
+  def list_app_instance_users(%Client{} = client, app_instance_arn, options \\ [])
+      when is_binary(app_instance_arn) do
     url_path = "/app-instance-users"
 
     # Validate optional parameters
@@ -12520,14 +13243,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of AppInstances that you want
-    to return.
+  to return.
   * `:next_token` (`t:string`) The token passed by previous API requests until you
-    reach the maximum number of AppInstances.
+  reach the maximum number of AppInstances.
   """
+
   @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_app_instances_errors()}
+
   def list_app_instances(%Client{} = client, options \\ []) do
     url_path = "/app-instances"
 
@@ -12585,10 +13310,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec list_attendee_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendee_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendee_tags_errors()}
+
   def list_attendee_tags(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags"
@@ -12638,14 +13365,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendees_errors()}
+
   def list_attendees(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
 
@@ -12703,14 +13432,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. The default is 10.
+  single call. The default is 10.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bots_errors()}
+
   def list_bots(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
 
@@ -12769,16 +13500,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of bans that you want
-    returned.
+  returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-    requested bans are returned.
+  requested bans are returned.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec list_channel_bans(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_bans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_bans_errors()}
+
   def list_channel_bans(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
@@ -12840,25 +13573,27 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string`) The maximum number of channel memberships that you
-    want returned.
+  want returned.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of channel memberships that
-    you want returned.
+  you want returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-    requested channel memberships are returned.
+  requested channel memberships are returned.
   * `:type` (`t:enum["DEFAULT|HIDDEN"]`) The membership type of a user, DEFAULT or
-    HIDDEN. Default members are always returned as part of
-    ListChannelMemberships. Hidden members are only returned if the type filter
-    in ListChannelMemberships equals HIDDEN. Otherwise hidden members are not
-    returned.
+  HIDDEN. Default members are always returned as part of
+  ListChannelMemberships. Hidden members are only returned if the type filter
+  in ListChannelMemberships equals HIDDEN. Otherwise hidden members are not
+  returned.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec list_channel_memberships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_memberships_errors()}
+
   def list_channel_memberships(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
@@ -12931,16 +13666,18 @@ defmodule AWS.Chime do
   ## Optional parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUsers
   * `:max_results` (`t:integer`) The maximum number of users that you want
-    returned.
+  returned.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-    the number of channel memberships is reached.
+  the number of channel memberships is reached.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_memberships_for_app_instance_user_errors()}
+
   def list_channel_memberships_for_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/channels?scope=app-instance-user-memberships"
 
@@ -13021,22 +13758,24 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of messages that you want
-    returned.
+  returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-    requested messages are returned.
+  requested messages are returned.
   * `:not_after` (`t:timestamp`) The final or ending time stamp for your requested
-    messages.
+  messages.
   * `:not_before` (`t:timestamp`) The initial or starting time stamp for your
-    requested messages.
+  requested messages.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order in which you want
-    messages sorted. Default is Descending, based on time created.
+  messages sorted. Default is Descending, based on time created.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec list_channel_messages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_messages_errors()}
+
   def list_channel_messages(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
@@ -13136,16 +13875,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of moderators that you want
-    returned.
+  returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-    requested moderators are returned.
+  requested moderators are returned.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec list_channel_moderators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_moderators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channel_moderators_errors()}
+
   def list_channel_moderators(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
@@ -13209,20 +13950,23 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want to
-    return.
+  return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-    requested channels are returned.
+  requested channels are returned.
   * `:privacy` (`t:enum["PRIVATE|PUBLIC"]`) The privacy setting. PUBLIC retrieves
-    all the public channels. PRIVATE retrieves private channels. Only an
-    AppInstanceAdmin can retrieve private channels.
+  all the public channels. PRIVATE retrieves private channels. Only an
+  AppInstanceAdmin can retrieve private channels.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec list_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_errors()}
-  def list_channels(%Client{} = client, app_instance_arn, options \\ []) do
+
+  def list_channels(%Client{} = client, app_instance_arn, options \\ [])
+      when is_binary(app_instance_arn) do
     url_path = "/channels"
 
     # Validate optional parameters
@@ -13292,17 +14036,19 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user in the moderated
-    channel.
+  channel.
   * `:max_results` (`t:integer`) The maximum number of channels in the request.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-    the number of channels moderated by the user is reached.
+  the number of channels moderated by the user is reached.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
+
   @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_channels_moderated_by_app_instance_user_errors()}
+
   def list_channels_moderated_by_app_instance_user(%Client{} = client, options \\ []) do
     url_path = "/channels?scope=app-instance-user-moderated-channels"
 
@@ -13376,14 +14122,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. Valid Range: 1 - 99.
+  single call. Valid Range: 1 - 99.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_media_capture_pipelines_errors()}
+
   def list_media_capture_pipelines(%Client{} = client, options \\ []) do
     url_path = "/media-capture-pipelines"
 
@@ -13440,10 +14188,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec list_meeting_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_meeting_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_meeting_tags_errors()}
+
   def list_meeting_tags(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags"
 
@@ -13483,14 +14233,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_meetings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_meetings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_meetings_errors()}
+
   def list_meetings(%Client{} = client, options \\ []) do
     url_path = "/meetings"
 
@@ -13546,14 +14298,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_number_orders_errors()}
+
   def list_phone_number_orders(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
 
@@ -13610,24 +14364,26 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:filter_name`
-    (`t:enum["AccountId|SipRuleId|UserId|VoiceConnectorGroupId|VoiceConnectorId"]`)
-    The filter to use to limit the number of results.
+  (`t:enum["AccountId|SipRuleId|UserId|VoiceConnectorGroupId|VoiceConnectorId"]`)
+  The filter to use to limit the number of results.
   * `:filter_value` (`t:string`) The value to use for the filter.
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   * `:product_type`
-    (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
-    phone number product type.
+  (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
+  phone number product type.
   * `:status`
-    (`t:enum["AcquireFailed|AcquireInProgress|Assigned|DeleteFailed|DeleteInProgress|ReleaseFailed|ReleaseInProgress|Unassigned"]`)
-    The phone number status.
+  (`t:enum["AcquireFailed|AcquireInProgress|Assigned|DeleteFailed|DeleteInProgress|ReleaseFailed|ReleaseInProgress|Unassigned"]`)
+  The phone number status.
   """
+
   @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
+
   def list_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers"
 
@@ -13726,15 +14482,17 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
+
   @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proxy_sessions_errors()}
+
   def list_proxy_sessions(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
 
@@ -13800,14 +14558,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_room_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_room_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_room_memberships_errors()}
+
   def list_room_memberships(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
@@ -13867,15 +14627,17 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:member_id` (`t:string`) The member ID (user ID or bot ID).
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_rooms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rooms_errors()}
+
   def list_rooms(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
 
@@ -13938,14 +14700,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. Defaults to 100.
+  single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_media_applications_errors()}
+
   def list_sip_media_applications(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
 
@@ -14001,15 +14765,17 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. Defaults to 100.
+  single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
+
   @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_rules_errors()}
+
   def list_sip_rules(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
 
@@ -14070,16 +14836,19 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:product_type`
-    (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
-    phone number product type.
+  (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
+  phone number product type.
 
   ## Optional parameters:
   """
+
   @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_phone_number_countries_errors()}
-  def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
+
+  def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ [])
+      when is_binary(product_type) do
     url_path = "/phone-number-countries"
 
     # Validate optional parameters
@@ -14117,11 +14886,14 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/tags"
 
     # Validate optional parameters
@@ -14161,17 +14933,19 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. Defaults to 100.
+  single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   * `:user_email` (`t:string`) Optional. The user email address used to filter
-    results. Maximum 1.
+  results. Maximum 1.
   * `:user_type` (`t:enum["PrivateUser|SharedDevice"]`) The user type.
   """
+
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
+
   def list_users(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
 
@@ -14242,14 +15016,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_groups_errors()}
+
   def list_voice_connector_groups(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
 
@@ -14306,10 +15082,12 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec list_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_termination_credentials_errors()}
+
   def list_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -14352,14 +15130,16 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connectors_errors()}
+
   def list_voice_connectors(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
 
@@ -14418,31 +15198,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec logout_user(AWS.Client.t(), String.t(), String.t(), logout_user_request(), Keyword.t()) ::
+
+  @spec logout_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, logout_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, logout_user_errors()}
-  def logout_user(%Client{} = client, account_id, user_id, input, options \\ []) do
+
+  def logout_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=logout"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -14455,29 +15245,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_app_instance_retention_settings(
-          AWS.Client.t(),
-          String.t(),
-          put_app_instance_retention_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_instance_retention_settings_errors()}
-  def put_app_instance_retention_settings(
-        %Client{} = client,
-        app_instance_arn,
-        input,
-        options \\ []
-      ) do
+
+  def put_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14490,29 +15291,44 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_app_instance_streaming_configurations(
-          AWS.Client.t(),
-          String.t(),
-          put_app_instance_streaming_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_instance_streaming_configurations_errors()}
+
   def put_app_instance_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
-        input,
         options \\ []
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14528,27 +15344,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_events_configuration(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          put_events_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_configuration_errors()}
-  def put_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
+
+  def put_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -14570,24 +15400,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_retention_settings(
-          AWS.Client.t(),
-          String.t(),
-          put_retention_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_retention_settings_errors()}
-  def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
+
+  def put_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -14600,31 +15446,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_sip_media_application_logging_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_sip_media_application_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sip_media_application_logging_configuration_errors()}
+
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14640,31 +15500,49 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec put_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
-          put_voice_connector_emergency_calling_configuration_request(),
           Keyword.t()
         ) ::
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_emergency_calling_configuration_errors()}
+
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14679,31 +15557,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_logging_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_logging_configuration_errors()}
+
   def put_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14718,29 +15610,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_origination(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_origination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_origination_errors()}
-  def put_voice_connector_origination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def put_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14754,26 +15657,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_proxy(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_proxy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_proxy_errors()}
-  def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def put_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14789,31 +15707,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_streaming_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_streaming_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_streaming_configuration_errors()}
+
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14828,29 +15760,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_termination(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_termination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_errors()}
-  def put_voice_connector_termination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def put_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14863,41 +15806,45 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_termination_credentials(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_termination_credentials_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_credentials_errors()}
+
   def put_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=put"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -14910,27 +15857,24 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel containing the messages
-    that you want to redact.
+  that you want to redact.
   * `:message_id` (`t:string`) The ID of the message being redacted.
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec redact_channel_message(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          redact_channel_message_request(),
-          Keyword.t()
-        ) ::
+
+  @spec redact_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, redact_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redact_channel_message_errors()}
-  def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
+
+  def redact_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -14939,13 +15883,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -14955,17 +15907,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -14980,45 +15924,53 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
+
   @spec redact_conversation_message(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
-          redact_conversation_message_request(),
           Keyword.t()
         ) ::
           {:ok, redact_conversation_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redact_conversation_message_errors()}
+
   def redact_conversation_message(
         %Client{} = client,
         account_id,
         conversation_id,
         message_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15033,45 +15985,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec redact_room_message(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          redact_room_message_request(),
-          Keyword.t()
-        ) ::
+
+  @spec redact_room_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, redact_room_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, redact_room_message_errors()}
-  def redact_room_message(
-        %Client{} = client,
-        account_id,
-        message_id,
-        room_id,
-        input,
-        options \\ []
-      ) do
+
+  def redact_room_message(%Client{} = client, account_id, message_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15085,37 +16033,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec regenerate_security_token(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          regenerate_security_token_request(),
-          Keyword.t()
-        ) ::
+
+  @spec regenerate_security_token(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, regenerate_security_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, regenerate_security_token_errors()}
-  def regenerate_security_token(%Client{} = client, account_id, bot_id, input, options \\ []) do
+
+  def regenerate_security_token(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}?operation=regenerate-security-token"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15130,37 +16082,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec reset_personal_pin(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          reset_personal_pin_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reset_personal_pin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reset_personal_pin_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_personal_pin_errors()}
-  def reset_personal_pin(%Client{} = client, account_id, user_id, input, options \\ []) do
+
+  def reset_personal_pin(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=reset-personal-pin"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15174,34 +16130,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec restore_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          restore_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_phone_number_errors()}
-  def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def restore_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15217,25 +16179,27 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:area_code` (`t:string`) The area code used to filter results. Only applies
-    to the US.
+  to the US.
   * `:city` (`t:string`) The city used to filter results. Only applies to the US.
   * `:country` (`t:string`) The country used to filter results. Defaults to the US
-    Format: ISO 3166-1 alpha-2.
+  Format: ISO 3166-1 alpha-2.
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-    results.
+  results.
   * `:phone_number_type` (`t:enum["Local|TollFree"]`) The phone number type used
-    to filter results. Required for non-US numbers.
+  to filter results. Required for non-US numbers.
   * `:state` (`t:string`) The state used to filter results. Required only if you
-    provide City. Only applies to the US.
+  provide City. Only applies to the US.
   * `:toll_free_prefix` (`t:string`) The toll-free prefix that you use to filter
-    results. Only applies to the US.
+  results. Only applies to the US.
   """
+
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
+
   def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/search?type=phone-numbers"
 
@@ -15356,20 +16320,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec send_channel_message(
-          AWS.Client.t(),
-          String.t(),
-          send_channel_message_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_channel_message(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_channel_message_errors()}
-  def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def send_channel_message(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -15378,13 +16340,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -15394,17 +16364,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -15425,34 +16387,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec start_meeting_transcription(
-          AWS.Client.t(),
-          String.t(),
-          start_meeting_transcription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_meeting_transcription_errors()}
-  def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def start_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15462,38 +16430,44 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string`) The unique ID of the meeting for which you stop
-    transcription.
+  transcription.
 
   ## Optional parameters:
   """
-  @spec stop_meeting_transcription(
-          AWS.Client.t(),
-          String.t(),
-          stop_meeting_transcription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_meeting_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_meeting_transcription_errors()}
-  def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def stop_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15507,31 +16481,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec tag_attendee(AWS.Client.t(), String.t(), String.t(), tag_attendee_request(), Keyword.t()) ::
+
+  @spec tag_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_attendee_errors()}
-  def tag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
+
+  def tag_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=add"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -15544,29 +16528,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec tag_meeting(AWS.Client.t(), String.t(), tag_meeting_request(), Keyword.t()) ::
+
+  @spec tag_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_meeting_errors()}
-  def tag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def tag_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=add"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -15578,29 +16573,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=tag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -15614,37 +16620,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec untag_attendee(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          untag_attendee_request(),
-          Keyword.t()
-        ) ::
+
+  @spec untag_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_attendee_errors()}
-  def untag_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
+
+  def untag_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=delete"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -15657,29 +16667,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec untag_meeting(AWS.Client.t(), String.t(), untag_meeting_request(), Keyword.t()) ::
+
+  @spec untag_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_meeting_errors()}
-  def untag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def untag_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=delete"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -15692,29 +16713,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=untag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -15728,29 +16760,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_account(AWS.Client.t(), String.t(), update_account_request(), Keyword.t()) ::
+
+  @spec update_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_errors()}
-  def update_account(%Client{} = client, account_id, input, options \\ []) do
+
+  def update_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15767,24 +16810,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_account_settings(
-          AWS.Client.t(),
-          String.t(),
-          update_account_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_settings_errors()}
-  def update_account_settings(%Client{} = client, account_id, input, options \\ []) do
+
+  def update_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -15797,24 +16856,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_app_instance(
-          AWS.Client.t(),
-          String.t(),
-          update_app_instance_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_errors()}
-  def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
+
+  def update_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15827,24 +16902,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_app_instance_user(
-          AWS.Client.t(),
-          String.t(),
-          update_app_instance_user_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_instance_user_errors()}
-  def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
+
+  def update_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15859,29 +16950,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_bot(AWS.Client.t(), String.t(), String.t(), update_bot_request(), Keyword.t()) ::
+
+  @spec update_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_bot_errors()}
-  def update_bot(%Client{} = client, account_id, bot_id, input, options \\ []) do
+
+  def update_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15895,15 +16997,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
+
+  @spec update_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_errors()}
-  def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def update_channel(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -15912,13 +17017,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -15928,7 +17041,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15944,22 +17059,19 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec update_channel_message(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_channel_message_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_message_errors()}
-  def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
+
+  def update_channel_message(%Client{} = client, channel_arn, message_id, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -15968,13 +17080,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -15984,7 +17104,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -15999,20 +17121,18 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-    API call.
+  API call.
   """
-  @spec update_channel_read_marker(
-          AWS.Client.t(),
-          String.t(),
-          update_channel_read_marker_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_channel_read_marker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_read_marker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_channel_read_marker_errors()}
-  def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
+
+  def update_channel_read_marker(%Client{} = client, channel_arn, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
 
+    # Validate optional parameters
     optional_params = [chime_bearer: nil]
 
     options =
@@ -16021,13 +17141,21 @@ defmodule AWS.Chime do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ChimeBearer", "x-amz-chime-bearer"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :chime_bearer) do
+        [{"x-amz-chime-bearer", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -16037,7 +17165,9 @@ defmodule AWS.Chime do
       options
       |> Keyword.drop([:chime_bearer])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16050,19 +17180,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_global_settings(AWS.Client.t(), update_global_settings_request(), Keyword.t()) ::
+
+  @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
-  def update_global_settings(%Client{} = client, input, options \\ []) do
+
+  def update_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -16080,34 +17231,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          update_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
-  def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def update_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16122,23 +17279,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_phone_number_settings(
-          AWS.Client.t(),
-          update_phone_number_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_settings_errors()}
-  def update_phone_number_settings(%Client{} = client, input, options \\ []) do
+
+  def update_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -16152,43 +17326,46 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_proxy_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_proxy_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_proxy_session_errors()}
+
   def update_proxy_session(
         %Client{} = client,
         proxy_session_id,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -16203,31 +17380,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_room(AWS.Client.t(), String.t(), String.t(), update_room_request(), Keyword.t()) ::
+
+  @spec update_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_room_errors()}
-  def update_room(%Client{} = client, account_id, room_id, input, options \\ []) do
+
+  def update_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16245,45 +17432,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_room_membership(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_room_membership_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_room_membership(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_room_membership_errors()}
-  def update_room_membership(
-        %Client{} = client,
-        account_id,
-        member_id,
-        room_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_room_membership(%Client{} = client, account_id, member_id, room_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16296,29 +17479,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_sip_media_application(
-          AWS.Client.t(),
-          String.t(),
-          update_sip_media_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_errors()}
-  def update_sip_media_application(
-        %Client{} = client,
-        sip_media_application_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16330,48 +17524,51 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string`) The ID of the SIP media application
-    handling the call.
+  handling the call.
   * `:transaction_id` (`t:string`) The ID of the call transaction.
 
   ## Optional parameters:
   """
-  @spec update_sip_media_application_call(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_sip_media_application_call_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sip_media_application_call(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_call_errors()}
+
   def update_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
         transaction_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls/#{AWS.Util.encode_uri(transaction_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -16384,19 +17581,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_sip_rule(AWS.Client.t(), String.t(), update_sip_rule_request(), Keyword.t()) ::
+
+  @spec update_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_rule_errors()}
-  def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
+
+  def update_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -16411,31 +17629,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_user(AWS.Client.t(), String.t(), String.t(), update_user_request(), Keyword.t()) ::
+
+  @spec update_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-  def update_user(%Client{} = client, account_id, user_id, input, options \\ []) do
+
+  def update_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16449,27 +17677,41 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_user_settings(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_user_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_settings_errors()}
-  def update_user_settings(%Client{} = client, account_id, user_id, input, options \\ []) do
+
+  def update_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -16482,24 +17724,40 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec update_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_errors()}
-  def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def update_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -16510,33 +17768,44 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Amazon Chime Voice Connector
-    group ID.
+  group ID.
 
   ## Optional parameters:
   """
-  @spec update_voice_connector_group(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_connector_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_group_errors()}
-  def update_voice_connector_group(
-        %Client{} = client,
-        voice_connector_group_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -16552,28 +17821,39 @@ defmodule AWS.Chime do
 
   ## Optional parameters:
   """
-  @spec validate_e911_address(AWS.Client.t(), validate_e911_address_request(), Keyword.t()) ::
+
+  @spec validate_e911_address(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_e911_address_errors()}
-  def validate_e911_address(%Client{} = client, input, options \\ []) do
+
+  def validate_e911_address(%Client{} = client, options \\ []) do
     url_path = "/emergency-calling/address"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 end

@@ -17,44 +17,44 @@ defmodule AWS.IoTTwinMaker do
   @typedoc """
 
   ## Example:
-
+      
       execute_query_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("queryStatement") => String.t(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type execute_query_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sync_job_request() :: %{
         optional("workspaceId") => String.t()
       }
-
+      
   """
   @type get_sync_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_scene_response() :: %{
         required("arn") => String.t(),
         required("creationDateTime") => non_neg_integer()
       }
-
+      
   """
   @type create_scene_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sync_job_response() :: %{
         required("arn") => String.t(),
         required("creationDateTime") => non_neg_integer(),
@@ -64,14 +64,14 @@ defmodule AWS.IoTTwinMaker do
         required("updateDateTime") => non_neg_integer(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type get_sync_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_update_request() :: %{
         "componentTypeId" => String.t(),
         "description" => String.t(),
@@ -79,14 +79,14 @@ defmodule AWS.IoTTwinMaker do
         "propertyUpdates" => map(),
         "updateType" => String.t()
       }
-
+      
   """
   @type component_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_metadata_transfer_job_response() :: %{
         "arn" => String.t(),
         "metadataTransferJobId" => String.t(),
@@ -94,142 +94,142 @@ defmodule AWS.IoTTwinMaker do
         "status" => metadata_transfer_job_status(),
         "updateDateTime" => non_neg_integer()
       }
-
+      
   """
   @type cancel_metadata_transfer_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_entities_request() :: %{
         optional("filters") => list(list()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_entities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_source_configuration() :: %{
         "location" => String.t()
       }
-
+      
   """
   @type s3_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_metadata_transfer_job_request() :: %{}
-
+      
   """
   @type cancel_metadata_transfer_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_entity_response() :: %{
         required("state") => String.t()
       }
-
+      
   """
   @type delete_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tabular_conditions() :: %{
         "orderBy" => list(order_by()()),
         "propertyFilters" => list(property_filter()())
       }
-
+      
   """
   @type tabular_conditions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("resourceARN") => String.t(),
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scenes_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_scenes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_failure_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type connector_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_properties_response() :: %{
         "nextToken" => String.t(),
         "propertySummaries" => list(property_summary()())
       }
-
+      
   """
   @type list_properties_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       iot_twin_maker_source_configuration() :: %{
         "filters" => list(list()()),
         "workspace" => String.t()
       }
-
+      
   """
   @type iot_twin_maker_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_request() :: %{
         "definition" => property_definition_request(),
         "updateType" => String.t(),
         "value" => data_value()
       }
-
+      
   """
   @type property_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_property_value_request() :: %{
         optional("componentName") => String.t(),
         optional("componentPath") => String.t(),
@@ -241,14 +241,14 @@ defmodule AWS.IoTTwinMaker do
         optional("tabularConditions") => tabular_conditions(),
         required("selectedProperties") => list(String.t()())
       }
-
+      
   """
   @type get_property_value_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_component_type_request() :: %{
         optional("componentTypeName") => String.t(),
         optional("compositeComponentTypes") => map(),
@@ -260,65 +260,65 @@ defmodule AWS.IoTTwinMaker do
         optional("propertyGroups") => map(),
         optional("tags") => map()
       }
-
+      
   """
   @type create_component_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composite_component_type_response() :: %{
         "componentTypeId" => String.t(),
         "isInherited" => boolean()
       }
-
+      
   """
   @type composite_component_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       column_description() :: %{
         "name" => String.t(),
         "type" => String.t()
       }
-
+      
   """
   @type column_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_pricing_plan_request() :: %{}
-
+      
   """
   @type get_pricing_plan_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_entity_request() :: %{}
-
+      
   """
   @type get_entity_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       pricing_plan() :: %{
         "billableEntityCount" => float(),
         "bundleInformation" => bundle_information(),
@@ -327,37 +327,37 @@ defmodule AWS.IoTTwinMaker do
         "updateDateTime" => non_neg_integer(),
         "updateReason" => String.t()
       }
-
+      
   """
   @type pricing_plan() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       relationship() :: %{
         "relationshipType" => String.t(),
         "targetComponentTypeId" => String.t()
       }
-
+      
   """
   @type relationship() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_function() :: %{
         "arn" => String.t()
       }
-
+      
   """
   @type lambda_function() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_summary() :: %{
         "arn" => String.t(),
         "creationDateTime" => non_neg_integer(),
@@ -369,14 +369,14 @@ defmodule AWS.IoTTwinMaker do
         "status" => status(),
         "updateDateTime" => non_neg_integer()
       }
-
+      
   """
   @type entity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       workspace_summary() :: %{
         "arn" => String.t(),
         "creationDateTime" => non_neg_integer(),
@@ -385,41 +385,41 @@ defmodule AWS.IoTTwinMaker do
         "updateDateTime" => non_neg_integer(),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type workspace_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_property_group_response() :: %{
         "groupType" => String.t(),
         "isInherited" => boolean(),
         "propertyNames" => list(String.t()())
       }
-
+      
   """
   @type component_property_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composite_component_update_request() :: %{
         "description" => String.t(),
         "propertyGroupUpdates" => map(),
         "propertyUpdates" => map(),
         "updateType" => String.t()
       }
-
+      
   """
   @type composite_component_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sync_job_summary() :: %{
         "arn" => String.t(),
         "creationDateTime" => non_neg_integer(),
@@ -428,25 +428,25 @@ defmodule AWS.IoTTwinMaker do
         "updateDateTime" => non_neg_integer(),
         "workspaceId" => String.t()
       }
-
+      
   """
   @type sync_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       iot_twin_maker_destination_configuration() :: %{
         "workspace" => String.t()
       }
-
+      
   """
   @type iot_twin_maker_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_entity_request() :: %{
         optional("componentUpdates") => map(),
         optional("compositeComponentUpdates") => map(),
@@ -454,38 +454,38 @@ defmodule AWS.IoTTwinMaker do
         optional("entityName") => String.t(),
         optional("parentEntityUpdate") => parent_entity_update_request()
       }
-
+      
   """
   @type update_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composite_component_request() :: %{
         "description" => String.t(),
         "properties" => map(),
         "propertyGroups" => map()
       }
-
+      
   """
   @type composite_component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_scene_response() :: %{
         required("updateDateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_scene_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scene_summary() :: %{
         "arn" => String.t(),
         "contentLocation" => String.t(),
@@ -494,14 +494,14 @@ defmodule AWS.IoTTwinMaker do
         "sceneId" => String.t(),
         "updateDateTime" => non_neg_integer()
       }
-
+      
   """
   @type scene_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_type() :: %{
         "allowedValues" => list(data_value()()),
         "nestedType" => data_type(),
@@ -509,27 +509,27 @@ defmodule AWS.IoTTwinMaker do
         "type" => String.t(),
         "unitOfMeasure" => String.t()
       }
-
+      
   """
   @type data_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_component_type_response() :: %{
         required("arn") => String.t(),
         required("creationDateTime") => non_neg_integer(),
         required("state") => String.t()
       }
-
+      
   """
   @type create_component_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_properties_request() :: %{
         optional("componentName") => String.t(),
         optional("componentPath") => String.t(),
@@ -537,38 +537,38 @@ defmodule AWS.IoTTwinMaker do
         optional("nextToken") => String.t(),
         required("entityId") => String.t()
       }
-
+      
   """
   @type list_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       order_by() :: %{
         "order" => String.t(),
         "propertyName" => String.t()
       }
-
+      
   """
   @type order_by() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_summary() :: %{
         "componentName" => String.t(),
         "componentPath" => String.t(),
@@ -579,61 +579,61 @@ defmodule AWS.IoTTwinMaker do
         "status" => status(),
         "syncSource" => String.t()
       }
-
+      
   """
   @type component_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_latest_value() :: %{
         "propertyReference" => entity_property_reference(),
         "propertyValue" => data_value()
       }
-
+      
   """
   @type property_latest_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_response() :: %{
         optional("message") => String.t()
       }
-
+      
   """
   @type delete_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sync_job_response() :: %{
         required("state") => String.t()
       }
-
+      
   """
   @type delete_sync_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_value() :: %{
         "time" => String.t(),
         "timestamp" => non_neg_integer(),
         "value" => data_value()
       }
-
+      
   """
   @type property_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_component_type_request() :: %{
         optional("componentTypeName") => String.t(),
         optional("compositeComponentTypes") => map(),
@@ -644,26 +644,26 @@ defmodule AWS.IoTTwinMaker do
         optional("propertyDefinitions") => map(),
         optional("propertyGroups") => map()
       }
-
+      
   """
   @type update_component_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_group_request() :: %{
         "groupType" => String.t(),
         "propertyNames" => list(String.t()())
       }
-
+      
   """
   @type property_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_property_reference() :: %{
         "componentName" => String.t(),
         "componentPath" => String.t(),
@@ -671,61 +671,61 @@ defmodule AWS.IoTTwinMaker do
         "externalIdProperty" => map(),
         "propertyName" => String.t()
       }
-
+      
   """
   @type entity_property_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_property_error() :: %{
         "entry" => property_value_entry(),
         "errorCode" => String.t(),
         "errorMessage" => String.t()
       }
-
+      
   """
   @type batch_put_property_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_metadata_transfer_job_request() :: %{}
-
+      
   """
   @type get_metadata_transfer_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       property_value_entry() :: %{
         "entityPropertyReference" => entity_property_reference(),
         "propertyValues" => list(property_value()())
       }
-
+      
   """
   @type property_value_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_property_group_request() :: %{
         "groupType" => String.t(),
         "propertyNames" => list(String.t()()),
         "updateType" => String.t()
       }
-
+      
   """
   @type component_property_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_metadata_transfer_job_response() :: %{
         "arn" => String.t(),
         "creationDateTime" => non_neg_integer(),
@@ -739,59 +739,59 @@ defmodule AWS.IoTTwinMaker do
         "status" => metadata_transfer_job_status(),
         "updateDateTime" => non_neg_integer()
       }
-
+      
   """
   @type get_metadata_transfer_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_property_value_history_response() :: %{
         optional("nextToken") => String.t(),
         required("propertyValues") => list(property_value_history()())
       }
-
+      
   """
   @type get_property_value_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_property_values_request() :: %{
         required("entries") => list(property_value_entry()())
       }
-
+      
   """
   @type batch_put_property_values_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_component_type_response() :: %{
         optional("componentTypeName") => String.t(),
         optional("compositeComponentTypes") => map(),
@@ -811,105 +811,105 @@ defmodule AWS.IoTTwinMaker do
         required("updateDateTime") => non_neg_integer(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type get_component_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sync_resource_status() :: %{
         "error" => error_details(),
         "state" => String.t()
       }
-
+      
   """
   @type sync_resource_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_components_request() :: %{
         optional("componentPath") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sync_jobs_response() :: %{
         optional("nextToken") => String.t(),
         optional("syncJobSummaries") => list(sync_job_summary()())
       }
-
+      
   """
   @type list_sync_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_entity_request() :: %{
         optional("isRecursive") => boolean()
       }
-
+      
   """
   @type delete_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workspace_request() :: %{}
-
+      
   """
   @type get_workspace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_property_values_response() :: %{
         required("errorEntries") => list(batch_put_property_error_entry()())
       }
-
+      
   """
   @type batch_put_property_values_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sync_job_request() :: %{
         optional("tags") => map(),
         required("syncRole") => String.t()
       }
-
+      
   """
   @type create_sync_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       row() :: %{
         "rowData" => list(any()())
       }
-
+      
   """
   @type row() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_definition_request() :: %{
         "configuration" => map(),
         "dataType" => data_type(),
@@ -920,80 +920,80 @@ defmodule AWS.IoTTwinMaker do
         "isStoredExternally" => boolean(),
         "isTimeSeries" => boolean()
       }
-
+      
   """
   @type property_definition_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       composite_component_type_request() :: %{
         "componentTypeId" => String.t()
       }
-
+      
   """
   @type composite_component_type_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sync_job_status() :: %{
         "error" => error_details(),
         "state" => String.t()
       }
-
+      
   """
   @type sync_job_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_destination_configuration() :: %{
         "location" => String.t()
       }
-
+      
   """
   @type s3_destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scene_error() :: %{
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type scene_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_scene_request() :: %{}
-
+      
   """
   @type get_scene_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_scene_response() :: %{
         optional("capabilities") => list(String.t()()),
         optional("description") => String.t(),
@@ -1007,159 +1007,159 @@ defmodule AWS.IoTTwinMaker do
         required("updateDateTime") => non_neg_integer(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type get_scene_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_request() :: %{
         "componentTypeId" => String.t(),
         "description" => String.t(),
         "properties" => map(),
         "propertyGroups" => map()
       }
-
+      
   """
   @type component_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sync_job_response() :: %{
         required("arn") => String.t(),
         required("creationDateTime") => non_neg_integer(),
         required("state") => String.t()
       }
-
+      
   """
   @type create_sync_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_details() :: %{
         "code" => String.t(),
         "message" => String.t()
       }
-
+      
   """
   @type error_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("nextToken") => String.t(),
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pricing_plan_response() :: %{
         optional("pendingPricingPlan") => pricing_plan(),
         required("currentPricingPlan") => pricing_plan()
       }
-
+      
   """
   @type update_pricing_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_configuration() :: %{
         "iotSiteWiseConfiguration" => iot_site_wise_source_configuration(),
         "iotTwinMakerConfiguration" => iot_twin_maker_source_configuration(),
         "s3Configuration" => s3_source_configuration(),
         "type" => String.t()
       }
-
+      
   """
   @type source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_property_error_entry() :: %{
         "errors" => list(batch_put_property_error()())
       }
-
+      
   """
   @type batch_put_property_error_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_response() :: %{
         required("updateDateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metadata_transfer_job_status() :: %{
         "error" => error_details(),
         "queuedPosition" => integer(),
         "state" => String.t()
       }
-
+      
   """
   @type metadata_transfer_job_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       parent_entity_update_request() :: %{
         "parentEntityId" => String.t(),
         "updateType" => String.t()
       }
-
+      
   """
   @type parent_entity_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_entity_response() :: %{
         required("state") => String.t(),
         required("updateDateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_workspace_request() :: %{}
-
+      
   """
   @type delete_workspace_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       component_response() :: %{
         "areAllCompositeComponentsReturned" => boolean(),
         "areAllPropertiesReturned" => boolean(),
@@ -1173,14 +1173,14 @@ defmodule AWS.IoTTwinMaker do
         "status" => status(),
         "syncSource" => String.t()
       }
-
+      
   """
   @type component_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_type_summary() :: %{
         "arn" => String.t(),
         "componentTypeId" => String.t(),
@@ -1190,67 +1190,67 @@ defmodule AWS.IoTTwinMaker do
         "status" => status(),
         "updateDateTime" => non_neg_integer()
       }
-
+      
   """
   @type component_type_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_request() :: %{
         "implementedBy" => data_connector(),
         "requiredProperties" => list(String.t()()),
         "scope" => String.t()
       }
-
+      
   """
   @type function_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_workspace_request() :: %{
         optional("description") => String.t(),
         optional("role") => String.t(),
         optional("s3Location") => String.t()
       }
-
+      
   """
   @type update_workspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_group_response() :: %{
         "groupType" => String.t(),
         "isInherited" => boolean(),
         "propertyNames" => list(String.t()())
       }
-
+      
   """
   @type property_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_by_asset() :: %{
         "assetExternalId" => String.t(),
         "assetId" => String.t(),
         "includeAssetModel" => boolean(),
         "includeOffspring" => boolean()
       }
-
+      
   """
   @type filter_by_asset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metadata_transfer_job_summary() :: %{
         "arn" => String.t(),
         "creationDateTime" => non_neg_integer(),
@@ -1259,54 +1259,54 @@ defmodule AWS.IoTTwinMaker do
         "status" => metadata_transfer_job_status(),
         "updateDateTime" => non_neg_integer()
       }
-
+      
   """
   @type metadata_transfer_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_connector() :: %{
         "isNative" => boolean(),
         "lambda" => lambda_function()
       }
-
+      
   """
   @type data_connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_summary() :: %{
         "areAllPropertyValuesReturned" => boolean(),
         "definition" => property_definition_response(),
         "propertyName" => String.t(),
         "value" => data_value()
       }
-
+      
   """
   @type property_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_component_types_response() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("componentTypeSummaries") => list(component_type_summary()()),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type list_component_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sync_resource_summary() :: %{
         "externalId" => String.t(),
         "resourceId" => String.t(),
@@ -1314,82 +1314,82 @@ defmodule AWS.IoTTwinMaker do
         "status" => sync_resource_status(),
         "updateDateTime" => non_neg_integer()
       }
-
+      
   """
   @type sync_resource_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_response() :: %{
         required("arn") => String.t(),
         required("creationDateTime") => non_neg_integer()
       }
-
+      
   """
   @type create_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sync_resources_response() :: %{
         optional("nextToken") => String.t(),
         optional("syncResources") => list(sync_resource_summary()())
       }
-
+      
   """
   @type list_sync_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspaces_response() :: %{
         optional("nextToken") => String.t(),
         optional("workspaceSummaries") => list(workspace_summary()())
       }
-
+      
   """
   @type list_workspaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sync_job_request() :: %{}
-
+      
   """
   @type delete_sync_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       relationship_value() :: %{
         "targetComponentName" => String.t(),
         "targetEntityId" => String.t()
       }
-
+      
   """
   @type relationship_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_metadata_transfer_jobs_request() :: %{
         optional("filters") => list(list()()),
         optional("maxResults") => integer(),
@@ -1397,46 +1397,46 @@ defmodule AWS.IoTTwinMaker do
         required("destinationType") => String.t(),
         required("sourceType") => String.t()
       }
-
+      
   """
   @type list_metadata_transfer_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_scene_response() :: %{}
-
+      
   """
   @type delete_scene_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_pricing_plan_response() :: %{
         optional("pendingPricingPlan") => pricing_plan(),
         required("currentPricingPlan") => pricing_plan()
       }
-
+      
   """
   @type get_pricing_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_entity_request() :: %{
         optional("components") => map(),
         optional("compositeComponents") => map(),
@@ -1446,96 +1446,96 @@ defmodule AWS.IoTTwinMaker do
         optional("tags") => map(),
         required("entityName") => String.t()
       }
-
+      
   """
   @type create_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_filter() :: %{
         "operator" => String.t(),
         "propertyName" => String.t(),
         "value" => data_value()
       }
-
+      
   """
   @type property_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sync_resources_request() :: %{
         optional("filters") => list(list()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_sync_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metadata_transfer_job_progress() :: %{
         "failedCount" => integer(),
         "skippedCount" => integer(),
         "succeededCount" => integer(),
         "totalCount" => integer()
       }
-
+      
   """
   @type metadata_transfer_job_progress() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_component_type_request() :: %{}
-
+      
   """
   @type delete_component_type_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       property_response() :: %{
         "areAllPropertyValuesReturned" => boolean(),
         "definition" => property_definition_response(),
         "value" => data_value()
       }
-
+      
   """
   @type property_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_by_component_type() :: %{
         "componentTypeId" => String.t()
       }
-
+      
   """
   @type filter_by_component_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_entity_response() :: %{
         optional("areAllComponentsReturned") => boolean(),
         optional("components") => map(),
@@ -1551,137 +1551,137 @@ defmodule AWS.IoTTwinMaker do
         required("updateDateTime") => non_neg_integer(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type get_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_by_asset_model() :: %{
         "assetModelExternalId" => String.t(),
         "assetModelId" => String.t(),
         "includeAssets" => boolean(),
         "includeOffspring" => boolean()
       }
-
+      
   """
   @type filter_by_asset_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sync_jobs_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_sync_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("resourceARN") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_workspaces_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_workspaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_pricing_plan_request() :: %{
         optional("bundleNames") => list(String.t()()),
         required("pricingMode") => String.t()
       }
-
+      
   """
   @type update_pricing_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_component_type_response() :: %{
         required("arn") => String.t(),
         required("componentTypeId") => String.t(),
         required("state") => String.t(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type update_component_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       execute_query_response() :: %{
         optional("columnDescriptions") => list(column_description()()),
         optional("nextToken") => String.t(),
         optional("rows") => list(row()())
       }
-
+      
   """
   @type execute_query_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       query_timeout_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type query_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_component_type_response() :: %{
         required("state") => String.t()
       }
-
+      
   """
   @type delete_component_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_property_value_history_request() :: %{
         optional("componentName") => String.t(),
         optional("componentPath") => String.t(),
@@ -1698,88 +1698,88 @@ defmodule AWS.IoTTwinMaker do
         optional("startTime") => String.t(),
         required("selectedProperties") => list(String.t()())
       }
-
+      
   """
   @type get_property_value_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_components_response() :: %{
         "componentSummaries" => list(component_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_entity_response() :: %{
         required("arn") => String.t(),
         required("creationDateTime") => non_neg_integer(),
         required("entityId") => String.t(),
         required("state") => String.t()
       }
-
+      
   """
   @type create_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_metadata_transfer_job_request() :: %{
         optional("description") => String.t(),
         optional("metadataTransferJobId") => String.t(),
         required("destination") => destination_configuration(),
         required("sources") => list(source_configuration()())
       }
-
+      
   """
   @type create_metadata_transfer_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bundle_information() :: %{
         "bundleNames" => list(String.t()()),
         "pricingTier" => String.t()
       }
-
+      
   """
   @type bundle_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connector_timeout_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type connector_timeout_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_scene_request() :: %{
         optional("capabilities") => list(String.t()()),
         optional("description") => String.t(),
@@ -1788,26 +1788,26 @@ defmodule AWS.IoTTwinMaker do
         required("contentLocation") => String.t(),
         required("sceneId") => String.t()
       }
-
+      
   """
   @type create_scene_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_metadata_transfer_jobs_response() :: %{
         "metadataTransferJobSummaries" => list(metadata_transfer_job_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_metadata_transfer_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_definition_response() :: %{
         "configuration" => map(),
         "dataType" => data_type(),
@@ -1821,129 +1821,129 @@ defmodule AWS.IoTTwinMaker do
         "isStoredExternally" => boolean(),
         "isTimeSeries" => boolean()
       }
-
+      
   """
   @type property_definition_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       property_value_history() :: %{
         "entityPropertyReference" => entity_property_reference(),
         "values" => list(property_value()())
       }
-
+      
   """
   @type property_value_history() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_scene_request() :: %{}
-
+      
   """
   @type delete_scene_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       status() :: %{
         "error" => error_details(),
         "state" => String.t()
       }
-
+      
   """
   @type status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       function_response() :: %{
         "implementedBy" => data_connector(),
         "isInherited" => boolean(),
         "requiredProperties" => list(String.t()()),
         "scope" => String.t()
       }
-
+      
   """
   @type function_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_entities_response() :: %{
         optional("entitySummaries") => list(entity_summary()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_entities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_by_entity() :: %{
         "entityId" => String.t()
       }
-
+      
   """
   @type filter_by_entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       iot_site_wise_source_configuration() :: %{
         "filters" => list(list()())
       }
-
+      
   """
   @type iot_site_wise_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_component_type_request() :: %{}
-
+      
   """
   @type get_component_type_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       interpolation_parameters() :: %{
         "interpolationType" => String.t(),
         "intervalInSeconds" => float()
       }
-
+      
   """
   @type interpolation_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_component_types_request() :: %{
         optional("filters") => list(list()()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_component_types_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_value() :: %{
         "booleanValue" => boolean(),
         "doubleValue" => float(),
@@ -1955,39 +1955,39 @@ defmodule AWS.IoTTwinMaker do
         "relationshipValue" => relationship_value(),
         "stringValue" => String.t()
       }
-
+      
   """
   @type data_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_metadata_transfer_job_response() :: %{
         "arn" => String.t(),
         "creationDateTime" => non_neg_integer(),
         "metadataTransferJobId" => String.t(),
         "status" => metadata_transfer_job_status()
       }
-
+      
   """
   @type create_metadata_transfer_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_workspace_response() :: %{
         optional("description") => String.t(),
         optional("linkedServices") => list(String.t()()),
@@ -1998,73 +1998,73 @@ defmodule AWS.IoTTwinMaker do
         required("updateDateTime") => non_neg_integer(),
         required("workspaceId") => String.t()
       }
-
+      
   """
   @type get_workspace_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_scenes_response() :: %{
         optional("nextToken") => String.t(),
         optional("sceneSummaries") => list(scene_summary()())
       }
-
+      
   """
   @type list_scenes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_configuration() :: %{
         "iotTwinMakerConfiguration" => iot_twin_maker_destination_configuration(),
         "s3Configuration" => s3_destination_configuration(),
         "type" => String.t()
       }
-
+      
   """
   @type destination_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_workspace_request() :: %{
         optional("description") => String.t(),
         optional("role") => String.t(),
         optional("s3Location") => String.t(),
         optional("tags") => map()
       }
-
+      
   """
   @type create_workspace_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_property_value_response() :: %{
         optional("nextToken") => String.t(),
         optional("propertyValues") => map(),
         optional("tabularPropertyValues") => list(list(map()())())
       }
-
+      
   """
   @type get_property_value_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_scene_request() :: %{
         optional("capabilities") => list(String.t()()),
         optional("contentLocation") => String.t(),
         optional("description") => String.t(),
         optional("sceneMetadata") => map()
       }
-
+      
   """
   @type update_scene_request() :: %{String.t() => any()}
 
@@ -2369,38 +2369,44 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace that contains the
-    properties to set.
+  properties to set.
 
   ## Optional parameters:
   """
-  @spec batch_put_property_values(
-          AWS.Client.t(),
-          String.t(),
-          batch_put_property_values_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_put_property_values(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_property_values_errors()}
-  def batch_put_property_values(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def batch_put_property_values(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2413,29 +2419,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec cancel_metadata_transfer_job(
-          AWS.Client.t(),
-          String.t(),
-          cancel_metadata_transfer_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_metadata_transfer_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_metadata_transfer_job_errors()}
-  def cancel_metadata_transfer_job(
-        %Client{} = client,
-        metadata_transfer_job_id,
-        input,
-        options \\ []
-      ) do
+
+  def cancel_metadata_transfer_job(%Client{} = client, metadata_transfer_job_id, options \\ []) do
     url_path = "/metadata-transfer-jobs/#{AWS.Util.encode_uri(metadata_transfer_job_id)}/cancel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2446,47 +2463,45 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:component_type_id` (`t:string`) The ID of the component type.
   * `:workspace_id` (`t:string`) The ID of the workspace that contains the
-    component type.
+  component type.
 
   ## Optional parameters:
   """
-  @spec create_component_type(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_component_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_component_type_errors()}
-  def create_component_type(
-        %Client{} = client,
-        component_type_id,
-        workspace_id,
-        input,
-        options \\ []
-      ) do
+
+  def create_component_type(%Client{} = client, component_type_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2499,29 +2514,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec create_entity(AWS.Client.t(), String.t(), create_entity_request(), Keyword.t()) ::
+
+  @spec create_entity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_entity_errors()}
-  def create_entity(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_entity(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2533,33 +2559,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec create_metadata_transfer_job(
-          AWS.Client.t(),
-          create_metadata_transfer_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_metadata_transfer_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_metadata_transfer_job_errors()}
-  def create_metadata_transfer_job(%Client{} = client, input, options \\ []) do
+
+  def create_metadata_transfer_job(%Client{} = client, options \\ []) do
     url_path = "/metadata-transfer-jobs"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2572,29 +2605,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec create_scene(AWS.Client.t(), String.t(), create_scene_request(), Keyword.t()) ::
+
+  @spec create_scene(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_scene_errors()}
-  def create_scene(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_scene(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2608,37 +2652,41 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec create_sync_job(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_sync_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sync_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sync_job_errors()}
-  def create_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+
+  def create_sync_job(%Client{} = client, sync_source, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2651,29 +2699,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec create_workspace(AWS.Client.t(), String.t(), create_workspace_request(), Keyword.t()) ::
+
+  @spec create_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workspace_errors()}
-  def create_workspace(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def create_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2684,35 +2743,43 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:component_type_id` (`t:string`) The ID of the component type to delete.
   * `:workspace_id` (`t:string`) The ID of the workspace that contains the
-    component type.
+  component type.
 
   ## Optional parameters:
   """
-  @spec delete_component_type(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_component_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_component_type_errors()}
-  def delete_component_type(
-        %Client{} = client,
-        component_type_id,
-        workspace_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_component_type(%Client{} = client, component_type_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2721,7 +2788,7 @@ defmodule AWS.IoTTwinMaker do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2735,33 +2802,46 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:entity_id` (`t:string`) The ID of the entity to delete.
   * `:workspace_id` (`t:string`) The ID of the workspace that contains the entity
-    to delete.
+  to delete.
 
   ## Optional parameters:
   * `:is_recursive` (`t:boolean`) A Boolean value that specifies whether the
-    operation deletes child entities.
+  operation deletes child entities.
   """
-  @spec delete_entity(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_entity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_entity_errors()}
-  def delete_entity(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
+
+  def delete_entity(%Client{} = client, entity_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
+    # Validate optional parameters
+    optional_params = [is_recursive: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"isRecursive", "isRecursive"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :is_recursive) do
+        [{"isRecursive", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2771,6 +2851,8 @@ defmodule AWS.IoTTwinMaker do
       options
       |> Keyword.drop([:is_recursive])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -2778,7 +2860,7 @@ defmodule AWS.IoTTwinMaker do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2795,19 +2877,39 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec delete_scene(AWS.Client.t(), String.t(), String.t(), delete_scene_request(), Keyword.t()) ::
+
+  @spec delete_scene(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scene_errors()}
-  def delete_scene(%Client{} = client, scene_id, workspace_id, input, options \\ []) do
+
+  def delete_scene(%Client{} = client, scene_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2816,7 +2918,7 @@ defmodule AWS.IoTTwinMaker do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2833,25 +2935,39 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec delete_sync_job(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_sync_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sync_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sync_job_errors()}
-  def delete_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+
+  def delete_sync_job(%Client{} = client, sync_source, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2860,7 +2976,7 @@ defmodule AWS.IoTTwinMaker do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2876,17 +2992,38 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
+
+  @spec delete_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workspace_errors()}
-  def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def delete_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2895,7 +3032,7 @@ defmodule AWS.IoTTwinMaker do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2911,29 +3048,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec execute_query(AWS.Client.t(), execute_query_request(), Keyword.t()) ::
+
+  @spec execute_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_query_errors()}
-  def execute_query(%Client{} = client, input, options \\ []) do
+
+  def execute_query(%Client{} = client, options \\ []) do
     url_path = "/queries/execution"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2944,14 +3092,16 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:component_type_id` (`t:string`) The ID of the component type.
   * `:workspace_id` (`t:string`) The ID of the workspace that contains the
-    component type.
+  component type.
 
   ## Optional parameters:
   """
+
   @spec get_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_type_errors()}
+
   def get_component_type(%Client{} = client, component_type_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
@@ -2992,10 +3142,12 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
+
   @spec get_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_entity_errors()}
+
   def get_entity(%Client{} = client, entity_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
@@ -3035,10 +3187,12 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
+
   @spec get_metadata_transfer_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_metadata_transfer_job_errors()}
+
   def get_metadata_transfer_job(%Client{} = client, metadata_transfer_job_id, options \\ []) do
     url_path = "/metadata-transfer-jobs/#{AWS.Util.encode_uri(metadata_transfer_job_id)}"
 
@@ -3076,10 +3230,12 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
+
   @spec get_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_pricing_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pricing_plan_errors()}
+
   def get_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/pricingplan"
 
@@ -3115,33 +3271,44 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace whose values the
-    operation returns.
+  operation returns.
 
   ## Optional parameters:
   """
-  @spec get_property_value(AWS.Client.t(), String.t(), get_property_value_request(), Keyword.t()) ::
+
+  @spec get_property_value(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_property_value_errors()}
-  def get_property_value(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def get_property_value(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/value"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3155,34 +3322,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec get_property_value_history(
-          AWS.Client.t(),
-          String.t(),
-          get_property_value_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_property_value_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_property_value_history_errors()}
-  def get_property_value_history(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def get_property_value_history(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/history"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "data.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3196,10 +3369,12 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
+
   @spec get_scene(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_scene_errors()}
+
   def get_scene(%Client{} = client, scene_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
@@ -3240,10 +3415,12 @@ defmodule AWS.IoTTwinMaker do
   ## Optional parameters:
   * `:workspace_id` (`t:string`) The workspace ID.
   """
+
   @spec get_sync_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sync_job_errors()}
+
   def get_sync_job(%Client{} = client, sync_source, options \\ []) do
     url_path = "/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
@@ -3293,10 +3470,12 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
+
   @spec get_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workspace_errors()}
+
   def get_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
 
@@ -3335,34 +3514,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec list_component_types(
-          AWS.Client.t(),
-          String.t(),
-          list_component_types_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_component_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_component_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_component_types_errors()}
-  def list_component_types(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def list_component_types(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3372,42 +3557,46 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:entity_id` (`t:string`) The ID for the entity whose metadata
-    (component/properties) is returned by the operation.
+  (component/properties) is returned by the operation.
   * `:workspace_id` (`t:string`) The workspace ID.
 
   ## Optional parameters:
   """
-  @spec list_components(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          list_components_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_components(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_components_errors()}
-  def list_components(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
+
+  def list_components(%Client{} = client, entity_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}/components-list"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3420,29 +3609,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec list_entities(AWS.Client.t(), String.t(), list_entities_request(), Keyword.t()) ::
+
+  @spec list_entities(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_errors()}
-  def list_entities(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def list_entities(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3454,33 +3654,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec list_metadata_transfer_jobs(
-          AWS.Client.t(),
-          list_metadata_transfer_jobs_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_metadata_transfer_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_metadata_transfer_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_metadata_transfer_jobs_errors()}
-  def list_metadata_transfer_jobs(%Client{} = client, input, options \\ []) do
+
+  def list_metadata_transfer_jobs(%Client{} = client, options \\ []) do
     url_path = "/metadata-transfer-jobs-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3493,29 +3700,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec list_properties(AWS.Client.t(), String.t(), list_properties_request(), Keyword.t()) ::
+
+  @spec list_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_properties_errors()}
-  def list_properties(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def list_properties(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/properties-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3528,29 +3746,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec list_scenes(AWS.Client.t(), String.t(), list_scenes_request(), Keyword.t()) ::
+
+  @spec list_scenes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scenes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_scenes_errors()}
-  def list_scenes(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def list_scenes(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3560,33 +3789,44 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace that contains the sync
-    job.
+  job.
 
   ## Optional parameters:
   """
-  @spec list_sync_jobs(AWS.Client.t(), String.t(), list_sync_jobs_request(), Keyword.t()) ::
+
+  @spec list_sync_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sync_jobs_errors()}
-  def list_sync_jobs(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def list_sync_jobs(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3597,41 +3837,45 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:sync_source` (`t:string`) The sync source.
   * `:workspace_id` (`t:string`) The ID of the workspace that contains the sync
-    job.
+  job.
 
   ## Optional parameters:
   """
-  @spec list_sync_resources(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          list_sync_resources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_sync_resources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sync_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sync_resources_errors()}
-  def list_sync_resources(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
+
+  def list_sync_resources(%Client{} = client, sync_source, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}/resources-list"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3643,29 +3887,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/tags-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3677,29 +3932,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec list_workspaces(AWS.Client.t(), list_workspaces_request(), Keyword.t()) ::
+
+  @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workspaces_errors()}
-  def list_workspaces(%Client{} = client, input, options \\ []) do
+
+  def list_workspaces(%Client{} = client, options \\ []) do
     url_path = "/workspaces-list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3711,29 +3977,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3744,28 +4021,44 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.iottwinmaker#TagKey]`) A list of tag key
-    names to remove from the resource. You don't specify the value. Both the key
-    and its associated value are removed.
+  names to remove from the resource. You don't specify the value. Both the key
+  and its associated value are removed.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(resource_arn) and is_binary(tag_keys) do
     url_path = "/tags"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"resourceARN", "resourceARN"},
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceARN", resource_arn}, {"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3774,7 +4067,7 @@ defmodule AWS.IoTTwinMaker do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3791,33 +4084,41 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec update_component_type(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_component_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_component_type_errors()}
-  def update_component_type(
-        %Client{} = client,
-        component_type_id,
-        workspace_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_component_type(%Client{} = client, component_type_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3831,27 +4132,41 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec update_entity(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_entity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_entity_errors()}
-  def update_entity(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
+
+  def update_entity(%Client{} = client, entity_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3863,29 +4178,40 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec update_pricing_plan(AWS.Client.t(), update_pricing_plan_request(), Keyword.t()) ::
+
+  @spec update_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_pricing_plan_errors()}
-  def update_pricing_plan(%Client{} = client, input, options \\ []) do
+
+  def update_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/pricingplan"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3899,21 +4225,41 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec update_scene(AWS.Client.t(), String.t(), String.t(), update_scene_request(), Keyword.t()) ::
+
+  @spec update_scene(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_scene_errors()}
-  def update_scene(%Client{} = client, scene_id, workspace_id, input, options \\ []) do
+
+  def update_scene(%Client{} = client, scene_id, workspace_id, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3926,18 +4272,39 @@ defmodule AWS.IoTTwinMaker do
 
   ## Optional parameters:
   """
-  @spec update_workspace(AWS.Client.t(), String.t(), update_workspace_request(), Keyword.t()) ::
+
+  @spec update_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_workspace_errors()}
-  def update_workspace(%Client{} = client, workspace_id, input, options \\ []) do
+
+  def update_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

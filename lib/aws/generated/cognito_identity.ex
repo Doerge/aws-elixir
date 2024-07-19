@@ -917,12 +917,30 @@ defmodule AWS.CognitoIdentity do
   Creates a new identity pool. The identity pool is a store of user identity
   information that is specific to your AWS account. The keys for
   `SupportedLoginProviders` are as follows:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20CreateIdentityPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_identity_pool_input`)
+    %{
+      optional("AllowClassicFlow") => boolean(),
+      optional("CognitoIdentityProviders") => list(cognito_identity_provider()()),
+      optional("DeveloperProviderName") => String.t(),
+      optional("IdentityPoolTags") => map(),
+      optional("OpenIdConnectProviderARNs") => list(String.t()()),
+      optional("SamlProviderARNs") => list(String.t()()),
+      optional("SupportedLoginProviders") => map(),
+      required("AllowUnauthenticatedIdentities") => boolean(),
+      required("IdentityPoolName") => String.t()
+    }
   """
-  @spec create_identity_pool(AWS.Client.t(), create_identity_pool_input(), Keyword.t()) ::
+
+  @spec create_identity_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, identity_pool(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_identity_pool_errors()}
-  def create_identity_pool(%Client{} = client, input, options \\ []) do
+
+  def create_identity_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -932,12 +950,22 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Deletes identities from an identity pool. You can specify a list of 1-60
   identities that you want to delete.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20DeleteIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_identities_input`)
+    %{
+      required("IdentityIdsToDelete") => list(String.t()())
+    }
   """
-  @spec delete_identities(AWS.Client.t(), delete_identities_input(), Keyword.t()) ::
+
+  @spec delete_identities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identities_errors()}
-  def delete_identities(%Client{} = client, input, options \\ []) do
+
+  def delete_identities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -947,12 +975,22 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Deletes an identity pool. Once a pool is deleted, users will not be able to
   authenticate with the pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20DeleteIdentityPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_identity_pool_input`)
+    %{
+      required("IdentityPoolId") => String.t()
+    }
   """
-  @spec delete_identity_pool(AWS.Client.t(), delete_identity_pool_input(), Keyword.t()) ::
+
+  @spec delete_identity_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_identity_pool_errors()}
-  def delete_identity_pool(%Client{} = client, input, options \\ []) do
+
+  def delete_identity_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -962,12 +1000,22 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Returns metadata related to the given identity, including when the identity was
   created and any associated linked logins.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20DescribeIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_identity_input`)
+    %{
+      required("IdentityId") => String.t()
+    }
   """
-  @spec describe_identity(AWS.Client.t(), describe_identity_input(), Keyword.t()) ::
+
+  @spec describe_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, identity_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_errors()}
-  def describe_identity(%Client{} = client, input, options \\ []) do
+
+  def describe_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -977,12 +1025,22 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Gets details about a particular identity pool, including the pool name, ID
   description, creation date, and current number of users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20DescribeIdentityPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_identity_pool_input`)
+    %{
+      required("IdentityPoolId") => String.t()
+    }
   """
-  @spec describe_identity_pool(AWS.Client.t(), describe_identity_pool_input(), Keyword.t()) ::
+
+  @spec describe_identity_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, identity_pool(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_pool_errors()}
-  def describe_identity_pool(%Client{} = client, input, options \\ []) do
+
+  def describe_identity_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -994,16 +1052,24 @@ defmodule AWS.CognitoIdentity do
   validated against supported login providers. If the token is for
   cognito-identity.amazonaws.com, it will be passed through to AWS Security
   Token Service with the appropriate role for the token.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20GetCredentialsForIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_credentials_for_identity_input`)
+    %{
+      optional("CustomRoleArn") => String.t(),
+      optional("Logins") => map(),
+      required("IdentityId") => String.t()
+    }
   """
-  @spec get_credentials_for_identity(
-          AWS.Client.t(),
-          get_credentials_for_identity_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_credentials_for_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_credentials_for_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_credentials_for_identity_errors()}
-  def get_credentials_for_identity(%Client{} = client, input, options \\ []) do
+
+  def get_credentials_for_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1013,12 +1079,24 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
   implicit linked account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20GetId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_id_input`)
+    %{
+      optional("AccountId") => String.t(),
+      optional("Logins") => map(),
+      required("IdentityPoolId") => String.t()
+    }
   """
-  @spec get_id(AWS.Client.t(), get_id_input(), Keyword.t()) ::
+
+  @spec get_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_id_errors()}
-  def get_id(%Client{} = client, input, options \\ []) do
+
+  def get_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1027,12 +1105,22 @@ defmodule AWS.CognitoIdentity do
 
   @doc """
   Gets the roles for an identity pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20GetIdentityPoolRoles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_identity_pool_roles_input`)
+    %{
+      required("IdentityPoolId") => String.t()
+    }
   """
-  @spec get_identity_pool_roles(AWS.Client.t(), get_identity_pool_roles_input(), Keyword.t()) ::
+
+  @spec get_identity_pool_roles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_identity_pool_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_pool_roles_errors()}
-  def get_identity_pool_roles(%Client{} = client, input, options \\ []) do
+
+  def get_identity_pool_roles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1044,12 +1132,23 @@ defmodule AWS.CognitoIdentity do
   returned by `GetId`. You can optionally add additional logins for the
   identity. Supplying multiple logins creates an implicit link. The OpenID token
   is valid for 10 minutes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20GetOpenIdToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_open_id_token_input`)
+    %{
+      optional("Logins") => map(),
+      required("IdentityId") => String.t()
+    }
   """
-  @spec get_open_id_token(AWS.Client.t(), get_open_id_token_input(), Keyword.t()) ::
+
+  @spec get_open_id_token(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_open_id_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_open_id_token_errors()}
-  def get_open_id_token(%Client{} = client, input, options \\ []) do
+
+  def get_open_id_token(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1069,16 +1168,27 @@ defmodule AWS.CognitoIdentity do
   to associate a new login with an existing authenticated/unauthenticated
   identity, you can do so by providing the existing `IdentityId`. This API will
   create the identity in the specified `IdentityPoolId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20GetOpenIdTokenForDeveloperIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_open_id_token_for_developer_identity_input`)
+    %{
+      optional("IdentityId") => String.t(),
+      optional("PrincipalTags") => map(),
+      optional("TokenDuration") => float(),
+      required("IdentityPoolId") => String.t(),
+      required("Logins") => map()
+    }
   """
-  @spec get_open_id_token_for_developer_identity(
-          AWS.Client.t(),
-          get_open_id_token_for_developer_identity_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_open_id_token_for_developer_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_open_id_token_for_developer_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_open_id_token_for_developer_identity_errors()}
-  def get_open_id_token_for_developer_identity(%Client{} = client, input, options \\ []) do
+
+  def get_open_id_token_for_developer_identity(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1088,16 +1198,24 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Use `GetPrincipalTagAttributeMap` to list all mappings between `PrincipalTags`
   and user attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20GetPrincipalTagAttributeMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_principal_tag_attribute_map_input`)
+    %{
+      required("IdentityPoolId") => String.t(),
+      required("IdentityProviderName") => String.t()
+    }
   """
-  @spec get_principal_tag_attribute_map(
-          AWS.Client.t(),
-          get_principal_tag_attribute_map_input(),
-          Keyword.t()
-        ) ::
+
+  @spec get_principal_tag_attribute_map(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_principal_tag_attribute_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_principal_tag_attribute_map_errors()}
-  def get_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
+
+  def get_principal_tag_attribute_map(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1106,12 +1224,25 @@ defmodule AWS.CognitoIdentity do
 
   @doc """
   Lists the identities in an identity pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20ListIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_identities_input`)
+    %{
+      optional("HideDisabled") => boolean(),
+      optional("NextToken") => String.t(),
+      required("IdentityPoolId") => String.t(),
+      required("MaxResults") => integer()
+    }
   """
-  @spec list_identities(AWS.Client.t(), list_identities_input(), Keyword.t()) ::
+
+  @spec list_identities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identities_errors()}
-  def list_identities(%Client{} = client, input, options \\ []) do
+
+  def list_identities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1120,12 +1251,23 @@ defmodule AWS.CognitoIdentity do
 
   @doc """
   Lists all of the Cognito identity pools registered for your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20ListIdentityPools&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_identity_pools_input`)
+    %{
+      optional("NextToken") => String.t(),
+      required("MaxResults") => integer()
+    }
   """
-  @spec list_identity_pools(AWS.Client.t(), list_identity_pools_input(), Keyword.t()) ::
+
+  @spec list_identity_pools(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_identity_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_pools_errors()}
-  def list_identity_pools(%Client{} = client, input, options \\ []) do
+
+  def list_identity_pools(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1136,12 +1278,22 @@ defmodule AWS.CognitoIdentity do
   Lists the tags that are assigned to an Amazon Cognito identity pool. A tag is a
   label that you can apply to identity pools to categorize and manage them in
   different ways, such as by purpose, owner, environment, or other criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_input`)
+    %{
+      required("ResourceArn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_input(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1163,12 +1315,26 @@ defmodule AWS.CognitoIdentity do
   authentication, your requests are likely to be throttled.
   `GetOpenIdTokenForDeveloperIdentity` is a better option for higher-volume
   operations for user authentication.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20LookupDeveloperIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:lookup_developer_identity_input`)
+    %{
+      optional("DeveloperUserIdentifier") => String.t(),
+      optional("IdentityId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("IdentityPoolId") => String.t()
+    }
   """
-  @spec lookup_developer_identity(AWS.Client.t(), lookup_developer_identity_input(), Keyword.t()) ::
+
+  @spec lookup_developer_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, lookup_developer_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, lookup_developer_identity_errors()}
-  def lookup_developer_identity(%Client{} = client, input, options \\ []) do
+
+  def lookup_developer_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1187,16 +1353,25 @@ defmodule AWS.CognitoIdentity do
   is limited to 20. So, the number of linked logins for the source user,
   `SourceUserIdentifier`, and the destination user, `DestinationUserIdentifier`,
   together should not be larger than 20. Otherwise, an exception will be thrown.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20MergeDeveloperIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:merge_developer_identities_input`)
+    %{
+      required("DestinationUserIdentifier") => String.t(),
+      required("DeveloperProviderName") => String.t(),
+      required("IdentityPoolId") => String.t(),
+      required("SourceUserIdentifier") => String.t()
+    }
   """
-  @spec merge_developer_identities(
-          AWS.Client.t(),
-          merge_developer_identities_input(),
-          Keyword.t()
-        ) ::
+
+  @spec merge_developer_identities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, merge_developer_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, merge_developer_identities_errors()}
-  def merge_developer_identities(%Client{} = client, input, options \\ []) do
+
+  def merge_developer_identities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1206,12 +1381,24 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Sets the roles for an identity pool. These roles are used when making calls to
   `GetCredentialsForIdentity` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20SetIdentityPoolRoles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_identity_pool_roles_input`)
+    %{
+      optional("RoleMappings") => map(),
+      required("IdentityPoolId") => String.t(),
+      required("Roles") => map()
+    }
   """
-  @spec set_identity_pool_roles(AWS.Client.t(), set_identity_pool_roles_input(), Keyword.t()) ::
+
+  @spec set_identity_pool_roles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_identity_pool_roles_errors()}
-  def set_identity_pool_roles(%Client{} = client, input, options \\ []) do
+
+  def set_identity_pool_roles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1221,16 +1408,26 @@ defmodule AWS.CognitoIdentity do
   @doc """
   You can use this operation to use default (username and clientID) attribute or
   custom attribute mappings.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20SetPrincipalTagAttributeMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_principal_tag_attribute_map_input`)
+    %{
+      optional("PrincipalTags") => map(),
+      optional("UseDefaults") => boolean(),
+      required("IdentityPoolId") => String.t(),
+      required("IdentityProviderName") => String.t()
+    }
   """
-  @spec set_principal_tag_attribute_map(
-          AWS.Client.t(),
-          set_principal_tag_attribute_map_input(),
-          Keyword.t()
-        ) ::
+
+  @spec set_principal_tag_attribute_map(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_principal_tag_attribute_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_principal_tag_attribute_map_errors()}
-  def set_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
+
+  def set_principal_tag_attribute_map(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1246,12 +1443,23 @@ defmodule AWS.CognitoIdentity do
   identity pool, one for testing and another for production, you might assign an
   `Environment` tag key to both identity pools. The value of this key might be
   `Test` for one identity pool and `Production` for the other.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("Tags") => map()
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1263,12 +1471,25 @@ defmodule AWS.CognitoIdentity do
   developer users will be considered new identities next time they are seen. If,
   for a given Cognito identity, you remove all federated identities as well as
   the developer user identifier, the Cognito identity becomes inaccessible.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20UnlinkDeveloperIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:unlink_developer_identity_input`)
+    %{
+      required("DeveloperProviderName") => String.t(),
+      required("DeveloperUserIdentifier") => String.t(),
+      required("IdentityId") => String.t(),
+      required("IdentityPoolId") => String.t()
+    }
   """
-  @spec unlink_developer_identity(AWS.Client.t(), unlink_developer_identity_input(), Keyword.t()) ::
+
+  @spec unlink_developer_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unlink_developer_identity_errors()}
-  def unlink_developer_identity(%Client{} = client, input, options \\ []) do
+
+  def unlink_developer_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1279,12 +1500,24 @@ defmodule AWS.CognitoIdentity do
   Unlinks a federated identity from an existing account. Unlinked logins will be
   considered new identities next time they are seen. Removing the last linked
   login will make this identity inaccessible.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20UnlinkIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:unlink_identity_input`)
+    %{
+      required("IdentityId") => String.t(),
+      required("Logins") => map(),
+      required("LoginsToRemove") => list(String.t()())
+    }
   """
-  @spec unlink_identity(AWS.Client.t(), unlink_identity_input(), Keyword.t()) ::
+
+  @spec unlink_identity(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unlink_identity_errors()}
-  def unlink_identity(%Client{} = client, input, options \\ []) do
+
+  def unlink_identity(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1294,12 +1527,23 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Removes the specified tags from the specified Amazon Cognito identity pool. You
   can use this action up to 5 times per second, per account
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_input`)
+    %{
+      required("ResourceArn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1308,12 +1552,31 @@ defmodule AWS.CognitoIdentity do
 
   @doc """
   Updates an identity pool.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitoidentity%20UpdateIdentityPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:identity_pool`)
+    %{
+      "AllowClassicFlow" => boolean(),
+      "AllowUnauthenticatedIdentities" => boolean(),
+      "CognitoIdentityProviders" => list(cognito_identity_provider()()),
+      "DeveloperProviderName" => String.t(),
+      "IdentityPoolId" => String.t(),
+      "IdentityPoolName" => String.t(),
+      "IdentityPoolTags" => map(),
+      "OpenIdConnectProviderARNs" => list(String.t()()),
+      "SamlProviderARNs" => list(String.t()()),
+      "SupportedLoginProviders" => map()
+    }
   """
-  @spec update_identity_pool(AWS.Client.t(), identity_pool(), Keyword.t()) ::
+
+  @spec update_identity_pool(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, identity_pool(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_identity_pool_errors()}
-  def update_identity_pool(%Client{} = client, input, options \\ []) do
+
+  def update_identity_pool(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

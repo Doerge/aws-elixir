@@ -20,18 +20,18 @@ defmodule AWS.CognitoSync do
   @typedoc """
 
   ## Example:
-
+      
       register_device_response() :: %{
         "DeviceId" => String.t()
       }
-
+      
   """
   @type register_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_records_response() :: %{
         "Count" => integer(),
         "DatasetDeletedAfterRequestedSyncCount" => boolean(),
@@ -43,23 +43,23 @@ defmodule AWS.CognitoSync do
         "Records" => list(record()()),
         "SyncSessionToken" => String.t()
       }
-
+      
   """
   @type list_records_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_identity_pool_usage_request() :: %{}
-
+      
   """
   @type describe_identity_pool_usage_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       record() :: %{
         "DeviceLastModifiedDate" => non_neg_integer(),
         "Key" => String.t(),
@@ -68,166 +68,166 @@ defmodule AWS.CognitoSync do
         "SyncCount" => float(),
         "Value" => String.t()
       }
-
+      
   """
   @type record() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dataset_response() :: %{
         "Dataset" => dataset()
       }
-
+      
   """
   @type delete_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_identity_pool_usage_response() :: %{
         "Count" => integer(),
         "IdentityPoolUsages" => list(identity_pool_usage()()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_identity_pool_usage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bulk_publish_details_request() :: %{}
-
+      
   """
   @type get_bulk_publish_details_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       push_sync() :: %{
         "ApplicationArns" => list(String.t()()),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type push_sync() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_identity_usage_response() :: %{
         "IdentityUsage" => identity_usage()
       }
-
+      
   """
   @type describe_identity_usage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bulk_publish_response() :: %{
         "IdentityPoolId" => String.t()
       }
-
+      
   """
   @type bulk_publish_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_identity_pool_usage_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_identity_pool_usage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_datasets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_datasets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       set_identity_pool_configuration_response() :: %{
         "CognitoStreams" => cognito_streams(),
         "IdentityPoolId" => String.t(),
         "PushSync" => push_sync()
       }
-
+      
   """
   @type set_identity_pool_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_records_request() :: %{
         optional("ClientContext") => String.t(),
         optional("DeviceId") => String.t(),
         optional("RecordPatches") => list(record_patch()()),
         required("SyncSessionToken") => String.t()
       }
-
+      
   """
   @type update_records_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cognito_events_request() :: %{}
-
+      
   """
   @type get_cognito_events_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cognito_streams() :: %{
         "RoleArn" => String.t(),
         "StreamName" => String.t(),
         "StreamingStatus" => list(any())
       }
-
+      
   """
   @type cognito_streams() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataset() :: %{
         "CreationDate" => non_neg_integer(),
         "DataStorage" => float(),
@@ -237,95 +237,95 @@ defmodule AWS.CognitoSync do
         "LastModifiedDate" => non_neg_integer(),
         "NumRecords" => float()
       }
-
+      
   """
   @type dataset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_lambda_function_output_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_lambda_function_output_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       already_streamed_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type already_streamed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bulk_publish_request() :: %{}
-
+      
   """
   @type bulk_publish_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_records_request() :: %{
         optional("LastSyncCount") => float(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SyncSessionToken") => String.t()
       }
-
+      
   """
   @type list_records_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       identity_pool_usage() :: %{
         "DataStorage" => float(),
         "IdentityPoolId" => String.t(),
         "LastModifiedDate" => non_neg_integer(),
         "SyncSessionsCount" => float()
       }
-
+      
   """
   @type identity_pool_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       duplicate_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type duplicate_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bulk_publish_details_response() :: %{
         "BulkPublishCompleteTime" => non_neg_integer(),
         "BulkPublishStartTime" => non_neg_integer(),
@@ -333,145 +333,145 @@ defmodule AWS.CognitoSync do
         "FailureMessage" => String.t(),
         "IdentityPoolId" => String.t()
       }
-
+      
   """
   @type get_bulk_publish_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsubscribe_from_dataset_request() :: %{}
-
+      
   """
   @type unsubscribe_from_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_identity_usage_request() :: %{}
-
+      
   """
   @type describe_identity_usage_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lambda_throttled_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type lambda_throttled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_authorized_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type not_authorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       set_cognito_events_request() :: %{
         required("Events") => map()
       }
-
+      
   """
   @type set_cognito_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_identity_pool_configuration_response() :: %{
         "CognitoStreams" => cognito_streams(),
         "IdentityPoolId" => String.t(),
         "PushSync" => push_sync()
       }
-
+      
   """
   @type get_identity_pool_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_configuration_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       concurrent_modification_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dataset_response() :: %{
         "Dataset" => dataset()
       }
-
+      
   """
   @type describe_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_records_response() :: %{
         "Records" => list(record()())
       }
-
+      
   """
   @type update_records_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_device_request() :: %{
         required("Platform") => list(any()),
         required("Token") => String.t()
       }
-
+      
   """
   @type register_device_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       record_patch() :: %{
         "DeviceLastModifiedDate" => non_neg_integer(),
         "Key" => String.t(),
@@ -479,79 +479,79 @@ defmodule AWS.CognitoSync do
         "SyncCount" => float(),
         "Value" => String.t()
       }
-
+      
   """
   @type record_patch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       set_identity_pool_configuration_request() :: %{
         optional("CognitoStreams") => cognito_streams(),
         optional("PushSync") => push_sync()
       }
-
+      
   """
   @type set_identity_pool_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_cognito_events_response() :: %{
         "Events" => map()
       }
-
+      
   """
   @type get_cognito_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_dataset_request() :: %{}
-
+      
   """
   @type describe_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dataset_request() :: %{}
-
+      
   """
   @type delete_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_datasets_response() :: %{
         "Count" => integer(),
         "Datasets" => list(dataset()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_datasets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       identity_usage() :: %{
         "DataStorage" => float(),
         "DatasetCount" => integer(),
@@ -559,76 +559,76 @@ defmodule AWS.CognitoSync do
         "IdentityPoolId" => String.t(),
         "LastModifiedDate" => non_neg_integer()
       }
-
+      
   """
   @type identity_usage() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subscribe_to_dataset_request() :: %{}
-
+      
   """
   @type subscribe_to_dataset_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       unsubscribe_from_dataset_response() :: %{}
-
+      
   """
   @type unsubscribe_from_dataset_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_identity_pool_configuration_request() :: %{}
-
+      
   """
   @type get_identity_pool_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_error_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subscribe_to_dataset_response() :: %{}
-
+      
   """
   @type subscribe_to_dataset_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_identity_pool_usage_response() :: %{
         "IdentityPoolUsage" => identity_pool_usage()
       }
-
+      
   """
   @type describe_identity_pool_usage_response() :: %{String.t() => any()}
 
@@ -786,29 +786,40 @@ defmodule AWS.CognitoSync do
 
   ## Optional parameters:
   """
-  @spec bulk_publish(AWS.Client.t(), String.t(), bulk_publish_request(), Keyword.t()) ::
+
+  @spec bulk_publish(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, bulk_publish_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, bulk_publish_errors()}
-  def bulk_publish(%Client{} = client, identity_pool_id, input, options \\ []) do
+
+  def bulk_publish(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/bulkpublish"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -826,33 +837,45 @@ defmodule AWS.CognitoSync do
 
   ## Optional parameters:
   """
-  @spec delete_dataset(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_dataset_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_dataset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataset_errors()}
+
   def delete_dataset(
         %Client{} = client,
         dataset_name,
         identity_id,
         identity_pool_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -861,7 +884,7 @@ defmodule AWS.CognitoSync do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -881,10 +904,12 @@ defmodule AWS.CognitoSync do
 
   ## Optional parameters:
   """
+
   @spec describe_dataset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_dataset_errors()}
+
   def describe_dataset(
         %Client{} = client,
         dataset_name,
@@ -932,10 +957,12 @@ defmodule AWS.CognitoSync do
 
   ## Optional parameters:
   """
+
   @spec describe_identity_pool_usage(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_pool_usage_errors()}
+
   def describe_identity_pool_usage(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}"
 
@@ -977,10 +1004,12 @@ defmodule AWS.CognitoSync do
 
   ## Optional parameters:
   """
+
   @spec describe_identity_usage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_identity_usage_errors()}
+
   def describe_identity_usage(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}"
@@ -1020,34 +1049,40 @@ defmodule AWS.CognitoSync do
 
   ## Optional parameters:
   """
-  @spec get_bulk_publish_details(
-          AWS.Client.t(),
-          String.t(),
-          get_bulk_publish_details_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_bulk_publish_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bulk_publish_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bulk_publish_details_errors()}
-  def get_bulk_publish_details(%Client{} = client, identity_pool_id, input, options \\ []) do
+
+  def get_bulk_publish_details(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/getBulkPublishDetails"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1061,10 +1096,12 @@ defmodule AWS.CognitoSync do
 
   ## Optional parameters:
   """
+
   @spec get_cognito_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cognito_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_cognito_events_errors()}
+
   def get_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
 
@@ -1102,15 +1139,17 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
-    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-    This is the ID of the pool for which to return a configuration.
+  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+  This is the ID of the pool for which to return a configuration.
 
   ## Optional parameters:
   """
+
   @spec get_identity_pool_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_identity_pool_configuration_errors()}
+
   def get_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
 
@@ -1157,10 +1196,12 @@ defmodule AWS.CognitoSync do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_datasets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasets_errors()}
+
   def list_datasets(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets"
@@ -1221,10 +1262,12 @@ defmodule AWS.CognitoSync do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_identity_pool_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_identity_pool_usage_errors()}
+
   def list_identity_pool_usage(%Client{} = client, options \\ []) do
     url_path = "/identitypools"
 
@@ -1292,10 +1335,12 @@ defmodule AWS.CognitoSync do
   * `:next_token` (`t:string`)
   * `:sync_session_token` (`t:string`)
   """
+
   @spec list_records(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_records_errors()}
+
   def list_records(%Client{} = client, dataset_name, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/records"
@@ -1372,42 +1417,46 @@ defmodule AWS.CognitoSync do
   ## Parameters:
   * `:identity_id` (`t:string`) The unique ID for this identity.
   * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
-    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-    Here, the ID of the pool that the identity belongs to.
+  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+  Here, the ID of the pool that the identity belongs to.
 
   ## Optional parameters:
   """
-  @spec register_device(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          register_device_request(),
-          Keyword.t()
-        ) ::
+
+  @spec register_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, register_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_device_errors()}
-  def register_device(%Client{} = client, identity_id, identity_pool_id, input, options \\ []) do
+
+  def register_device(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identity/#{AWS.Util.encode_uri(identity_id)}/device"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1420,33 +1469,44 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string`) The Cognito Identity Pool to use when
-    configuring Cognito Events
+  configuring Cognito Events
 
   ## Optional parameters:
   """
-  @spec set_cognito_events(AWS.Client.t(), String.t(), set_cognito_events_request(), Keyword.t()) ::
+
+  @spec set_cognito_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_cognito_events_errors()}
-  def set_cognito_events(%Client{} = client, identity_pool_id, input, options \\ []) do
+
+  def set_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1458,39 +1518,45 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
-    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-    This is the ID of the pool to modify.
+  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+  This is the ID of the pool to modify.
 
   ## Optional parameters:
   """
-  @spec set_identity_pool_configuration(
-          AWS.Client.t(),
-          String.t(),
-          set_identity_pool_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec set_identity_pool_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, set_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_identity_pool_configuration_errors()}
-  def set_identity_pool_configuration(%Client{} = client, identity_pool_id, input, options \\ []) do
+
+  def set_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1505,52 +1571,60 @@ defmodule AWS.CognitoSync do
   * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
   * `:identity_id` (`t:string`) Unique ID for this identity.
   * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
-    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-    The ID of the pool to which the identity belongs.
+  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+  The ID of the pool to which the identity belongs.
 
   ## Optional parameters:
   """
+
   @spec subscribe_to_dataset(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          subscribe_to_dataset_request(),
           Keyword.t()
         ) ::
           {:ok, subscribe_to_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, subscribe_to_dataset_errors()}
+
   def subscribe_to_dataset(
         %Client{} = client,
         dataset_name,
         device_id,
         identity_id,
         identity_pool_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/subscriptions/#{AWS.Util.encode_uri(device_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1565,40 +1639,58 @@ defmodule AWS.CognitoSync do
   * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
   * `:identity_id` (`t:string`) Unique ID for this identity.
   * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example,
-    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-    The ID of the pool to which this identity belongs.
+  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+  The ID of the pool to which this identity belongs.
 
   ## Optional parameters:
   """
+
   @spec unsubscribe_from_dataset(
           AWS.Client.t(),
           String.t(),
           String.t(),
           String.t(),
           String.t(),
-          unsubscribe_from_dataset_request(),
           Keyword.t()
         ) ::
           {:ok, unsubscribe_from_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, unsubscribe_from_dataset_errors()}
+
   def unsubscribe_from_dataset(
         %Client{} = client,
         dataset_name,
         device_id,
         identity_id,
         identity_pool_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/subscriptions/#{AWS.Util.encode_uri(device_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1607,7 +1699,7 @@ defmodule AWS.CognitoSync do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1630,28 +1722,23 @@ defmodule AWS.CognitoSync do
   ## Optional parameters:
   * `:client_context` (`t:string`)
   """
-  @spec update_records(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          update_records_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_records(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_records_errors()}
+
   def update_records(
         %Client{} = client,
         dataset_name,
         identity_id,
         identity_pool_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
+    # Validate optional parameters
     optional_params = [client_context: nil]
 
     options =
@@ -1660,13 +1747,21 @@ defmodule AWS.CognitoSync do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"ClientContext", "x-amz-Client-Context"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = []
 
+    # Optional headers
+    headers =
+      if opt_val = Keyword.get(options, :client_context) do
+        [{"x-amz-Client-Context", opt_val} | headers]
+      else
+        headers
+      end
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
@@ -1676,16 +1771,8 @@ defmodule AWS.CognitoSync do
       options
       |> Keyword.drop([:client_context])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

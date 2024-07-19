@@ -16,56 +16,56 @@ defmodule AWS.ChimeSDKVoice do
   @typedoc """
 
   ## Example:
-
+      
       streaming_configuration() :: %{
         "DataRetentionInHours" => integer(),
         "Disabled" => boolean(),
         "MediaInsightsConfiguration" => media_insights_configuration(),
         "StreamingNotificationTargets" => list(streaming_notification_target()())
       }
-
+      
   """
   @type streaming_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_phone_number_request() :: %{
         required("PhoneNumberIds") => list(String.t()())
       }
-
+      
   """
   @type batch_delete_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_termination_credentials_request() :: %{
         optional("Credentials") => list(credential()())
       }
-
+      
   """
   @type put_voice_connector_termination_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
         optional("TargetApplications") => list(sip_rule_target_application()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type update_sip_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_rule() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Disabled" => boolean(),
@@ -76,230 +76,230 @@ defmodule AWS.ChimeSDKVoice do
         "TriggerValue" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type sip_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       call_details() :: %{
         "IsCaller" => boolean(),
         "TransactionId" => String.t(),
         "VoiceConnectorId" => String.t()
       }
-
+      
   """
   @type call_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_phone_number_order_response() :: %{
         "PhoneNumberOrder" => phone_number_order()
       }
-
+      
   """
   @type create_phone_number_order_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_request() :: %{
         optional("Tags") => list(tag()()),
         required("AwsRegion") => String.t(),
         required("Endpoints") => list(sip_media_application_endpoint()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_sip_media_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_call_response() :: %{
         "SipMediaApplicationCall" => sip_media_application_call()
       }
-
+      
   """
   @type update_sip_media_application_call_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sip_media_application_logging_configuration_request() :: %{
         optional("SipMediaApplicationLoggingConfiguration") => sip_media_application_logging_configuration()
       }
-
+      
   """
   @type put_sip_media_application_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       proxy() :: %{
         "DefaultSessionExpiryMinutes" => integer(),
         "Disabled" => boolean(),
         "FallBackPhoneNumber" => String.t(),
         "PhoneNumberCountries" => list(String.t()())
       }
-
+      
   """
   @type proxy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_proxy_session_request() :: %{
         optional("ExpiryMinutes") => integer(),
         required("Capabilities") => list(list(any())())
       }
-
+      
   """
   @type update_proxy_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_phone_number_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type batch_update_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_health_request() :: %{}
-
+      
   """
   @type get_voice_connector_termination_health_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_e911_address_response() :: %{
         "Address" => address(),
         "AddressExternalId" => String.t(),
         "CandidateAddressList" => list(candidate_address()()),
         "ValidationResult" => integer()
       }
-
+      
   """
   @type validate_e911_address_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_response() :: %{
         "VoiceConnector" => voice_connector()
       }
-
+      
   """
   @type update_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_number_orders_response() :: %{
         "NextToken" => String.t(),
         "PhoneNumberOrders" => list(phone_number_order()())
       }
-
+      
   """
   @type list_phone_number_orders_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_voice_tone_analysis_task_request() :: %{
         optional("ClientRequestToken") => String.t(),
         required("LanguageCode") => list(any()),
         required("TransactionId") => String.t()
       }
-
+      
   """
   @type start_voice_tone_analysis_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       speaker_search_result() :: %{
         "ConfidenceScore" => float(),
         "VoiceProfileId" => String.t()
       }
-
+      
   """
   @type speaker_search_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       termination_health() :: %{
         "Source" => String.t(),
         "Timestamp" => non_neg_integer()
       }
-
+      
   """
   @type termination_health() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       participant() :: %{
         "PhoneNumber" => String.t(),
         "ProxyPhoneNumber" => String.t()
       }
-
+      
   """
   @type participant() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_request() :: %{
         optional("Endpoints") => list(sip_media_application_endpoint()()),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_sip_media_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_profile_domain_summary() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Description" => String.t(),
@@ -308,360 +308,360 @@ defmodule AWS.ChimeSDKVoice do
         "VoiceProfileDomainArn" => String.t(),
         "VoiceProfileDomainId" => String.t()
       }
-
+      
   """
   @type voice_profile_domain_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_group_request() :: %{}
-
+      
   """
   @type delete_voice_connector_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       origination() :: %{
         "Disabled" => boolean(),
         "Routes" => list(origination_route()())
       }
-
+      
   """
   @type origination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_speaker_search_task_response() :: %{
         "SpeakerSearchTask" => speaker_search_task()
       }
-
+      
   """
   @type start_speaker_search_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connectors_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_voice_connectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_country() :: %{
         "CountryCode" => String.t(),
         "SupportedPhoneNumberTypes" => list(list(any())())
       }
-
+      
   """
   @type phone_number_country() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geo_match_params() :: %{
         "AreaCode" => String.t(),
         "Country" => String.t()
       }
-
+      
   """
   @type geo_match_params() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_available_phone_numbers_response() :: %{
         "E164PhoneNumbers" => list(String.t()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type search_available_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_request() :: %{}
-
+      
   """
   @type get_voice_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_origination_response() :: %{
         "Origination" => origination()
       }
-
+      
   """
   @type put_voice_connector_origination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_rule_response() :: %{
         "SipRule" => sip_rule()
       }
-
+      
   """
   @type create_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_group_request() :: %{
         optional("ForceAssociate") => boolean(),
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_group_response() :: %{
         "VoiceConnectorGroup" => voice_connector_group()
       }
-
+      
   """
   @type create_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_profile_domains_response() :: %{
         "NextToken" => String.t(),
         "VoiceProfileDomains" => list(voice_profile_domain_summary()())
       }
-
+      
   """
   @type list_voice_profile_domains_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_termination_credentials_request() :: %{}
-
+      
   """
   @type list_voice_connector_termination_credentials_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_settings_request() :: %{
         required("CallingName") => String.t()
       }
-
+      
   """
   @type update_phone_number_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_proxy_response() :: %{
         "Proxy" => proxy()
       }
-
+      
   """
   @type get_voice_connector_proxy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_logging_configuration_request() :: %{}
-
+      
   """
   @type get_voice_connector_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_failure_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type service_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sip_rule_request() :: %{}
-
+      
   """
   @type delete_sip_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_emergency_calling_configuration_request() :: %{}
-
+      
   """
   @type get_voice_connector_emergency_calling_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_phone_number_request() :: %{}
-
+      
   """
   @type restore_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_emergency_calling_configuration_request() :: %{
         required("EmergencyCallingConfiguration") => emergency_calling_configuration()
       }
-
+      
   """
   @type put_voice_connector_emergency_calling_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_profile_response() :: %{
         "VoiceProfile" => voice_profile()
       }
-
+      
   """
   @type create_voice_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_response() :: %{
         "VoiceConnector" => voice_connector()
       }
-
+      
   """
   @type get_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_profile_response() :: %{
         "VoiceProfile" => voice_profile()
       }
-
+      
   """
   @type update_voice_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_proxy_session_response() :: %{
         "ProxySession" => proxy_session()
       }
-
+      
   """
   @type create_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_profile_domain_request() :: %{}
-
+      
   """
   @type get_voice_profile_domain_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_termination_request() :: %{
         required("Termination") => termination()
       }
-
+      
   """
   @type put_voice_connector_termination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_association() :: %{
         "AssociatedTimestamp" => non_neg_integer(),
         "Name" => list(any()),
         "Value" => String.t()
       }
-
+      
   """
   @type phone_number_association() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_client_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type unauthorized_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_streaming_configuration_request() :: %{}
-
+      
   """
   @type get_voice_connector_streaming_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number() :: %{
         "Associations" => list(phone_number_association()()),
         "CallingName" => String.t(),
@@ -679,14 +679,14 @@ defmodule AWS.ChimeSDKVoice do
         "Type" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type phone_number() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       termination() :: %{
         "CallingRegions" => list(String.t()()),
         "CidrAllowedList" => list(String.t()()),
@@ -694,34 +694,34 @@ defmodule AWS.ChimeSDKVoice do
         "DefaultPhoneNumber" => String.t(),
         "Disabled" => boolean()
       }
-
+      
   """
   @type termination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_order_request() :: %{}
-
+      
   """
   @type get_phone_number_order_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_profile_domain_response() :: %{
         "VoiceProfileDomain" => voice_profile_domain()
       }
-
+      
   """
   @type create_voice_profile_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       speaker_search_task() :: %{
         "CallDetails" => call_details(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -732,280 +732,280 @@ defmodule AWS.ChimeSDKVoice do
         "StatusMessage" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type speaker_search_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_response() :: %{
         "PhoneNumber" => phone_number()
       }
-
+      
   """
   @type update_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_speaker_search_task_response() :: %{
         "SpeakerSearchTask" => speaker_search_task()
       }
-
+      
   """
   @type get_speaker_search_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_speaker_search_task_request() :: %{}
-
+      
   """
   @type stop_speaker_search_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttled_client_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type throttled_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gone_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type gone_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_profile_request() :: %{
         required("SpeakerSearchTaskId") => String.t()
       }
-
+      
   """
   @type update_voice_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_insights_configuration() :: %{
         "ConfigurationArn" => String.t(),
         "Disabled" => boolean()
       }
-
+      
   """
   @type media_insights_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_health_response() :: %{
         "TerminationHealth" => termination_health()
       }
-
+      
   """
   @type get_voice_connector_termination_health_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_request() :: %{
         optional("ForceAssociate") => boolean(),
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_origination_request() :: %{}
-
+      
   """
   @type delete_voice_connector_origination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_media_applications_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_sip_media_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ordered_phone_number() :: %{
         "E164PhoneNumber" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type ordered_phone_number() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_logging_configuration_response() :: %{
         "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
       }
-
+      
   """
   @type get_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_proxy_session_response() :: %{
         "ProxySession" => proxy_session()
       }
-
+      
   """
   @type update_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_phone_number_order_request() :: %{
         optional("Name") => String.t(),
         required("E164PhoneNumbers") => list(String.t()()),
         required("ProductType") => list(any())
       }
-
+      
   """
   @type create_phone_number_order_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sip_media_application_request() :: %{}
-
+      
   """
   @type delete_sip_media_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_response() :: %{
         "SipMediaApplication" => sip_media_application()
       }
-
+      
   """
   @type get_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_rule_response() :: %{
         "SipRule" => sip_rule()
       }
-
+      
   """
   @type get_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_profile_domain_response() :: %{
         "VoiceProfileDomain" => voice_profile_domain()
       }
-
+      
   """
   @type update_voice_profile_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector_settings() :: %{
         "CdrBucket" => String.t()
       }
-
+      
   """
   @type voice_connector_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_tone_analysis_task_response() :: %{
         "VoiceToneAnalysisTask" => voice_tone_analysis_task()
       }
-
+      
   """
   @type get_voice_tone_analysis_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_proxy_session_request() :: %{}
-
+      
   """
   @type delete_proxy_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       logging_configuration() :: %{
         "EnableMediaMetricLogs" => boolean(),
         "EnableSIPLogs" => boolean()
       }
-
+      
   """
   @type logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_profile_domain() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Description" => String.t(),
@@ -1015,229 +1015,229 @@ defmodule AWS.ChimeSDKVoice do
         "VoiceProfileDomainArn" => String.t(),
         "VoiceProfileDomainId" => String.t()
       }
-
+      
   """
   @type voice_profile_domain() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       restore_phone_number_response() :: %{
         "PhoneNumber" => phone_number()
       }
-
+      
   """
   @type restore_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       speaker_search_details() :: %{
         "Results" => list(speaker_search_result()()),
         "VoiceprintGenerationStatus" => String.t()
       }
-
+      
   """
   @type speaker_search_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_number_orders_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_phone_number_orders_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_termination_response() :: %{
         "Termination" => termination()
       }
-
+      
   """
   @type put_voice_connector_termination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_group_request() :: %{
         required("Name") => String.t(),
         required("VoiceConnectorItems") => list(voice_connector_item()())
       }
-
+      
   """
   @type update_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_supported_phone_number_countries_response() :: %{
         "PhoneNumberCountries" => list(phone_number_country()())
       }
-
+      
   """
   @type list_supported_phone_number_countries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_voice_tone_analysis_task_response() :: %{
         "VoiceToneAnalysisTask" => voice_tone_analysis_task()
       }
-
+      
   """
   @type start_voice_tone_analysis_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_response() :: %{
         "SipMediaApplication" => sip_media_application()
       }
-
+      
   """
   @type update_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       d_n_i_s_emergency_calling_configuration() :: %{
         "CallingCountry" => String.t(),
         "EmergencyPhoneNumber" => String.t(),
         "TestPhoneNumber" => String.t()
       }
-
+      
   """
   @type d_n_i_s_emergency_calling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_logging_configuration_response() :: %{
         "LoggingConfiguration" => logging_configuration()
       }
-
+      
   """
   @type get_voice_connector_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_request() :: %{
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_proxy_request() :: %{}
-
+      
   """
   @type delete_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_groups_response() :: %{
         "NextToken" => String.t(),
         "VoiceConnectorGroups" => list(voice_connector_group()())
       }
-
+      
   """
   @type list_voice_connector_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_rules_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SipMediaApplicationId") => String.t()
       }
-
+      
   """
   @type list_sip_rules_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_profile_request() :: %{}
-
+      
   """
   @type get_voice_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_proxy_sessions_response() :: %{
         "NextToken" => String.t(),
         "ProxySessions" => list(proxy_session()())
       }
-
+      
   """
   @type list_proxy_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_alexa_skill_configuration_response() :: %{
         "SipMediaApplicationAlexaSkillConfiguration" => sip_media_application_alexa_skill_configuration()
       }
-
+      
   """
   @type get_sip_media_application_alexa_skill_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_streaming_configuration_response() :: %{
         "StreamingConfiguration" => streaming_configuration()
       }
-
+      
   """
   @type put_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validate_e911_address_request() :: %{
         required("AwsAccountId") => String.t(),
         required("City") => String.t(),
@@ -1247,81 +1247,81 @@ defmodule AWS.ChimeSDKVoice do
         required("StreetInfo") => String.t(),
         required("StreetNumber") => String.t()
       }
-
+      
   """
   @type validate_e911_address_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_voice_connector_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_request() :: %{}
-
+      
   """
   @type get_voice_connector_termination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_rules_response() :: %{
         "NextToken" => String.t(),
         "SipRules" => list(sip_rule()())
       }
-
+      
   """
   @type list_sip_rules_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_group_request() :: %{
         required("E164PhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
         optional("TargetApplications") => list(sip_rule_target_application()()),
@@ -1329,14 +1329,14 @@ defmodule AWS.ChimeSDKVoice do
         required("TriggerType") => list(any()),
         required("TriggerValue") => String.t()
       }
-
+      
   """
   @type create_sip_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_profile() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "ExpirationTimestamp" => non_neg_integer(),
@@ -1345,61 +1345,61 @@ defmodule AWS.ChimeSDKVoice do
         "VoiceProfileDomainId" => String.t(),
         "VoiceProfileId" => String.t()
       }
-
+      
   """
   @type voice_profile() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_streaming_configuration_request() :: %{
         required("StreamingConfiguration") => streaming_configuration()
       }
-
+      
   """
   @type put_voice_connector_streaming_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_speaker_search_task_request() :: %{
         optional("CallLeg") => list(any()),
         optional("ClientRequestToken") => String.t(),
         required("TransactionId") => String.t(),
         required("VoiceProfileDomainId") => String.t()
       }
-
+      
   """
   @type start_speaker_search_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_phone_number_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type batch_delete_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_streaming_configuration_response() :: %{
         "StreamingConfiguration" => streaming_configuration()
       }
-
+      
   """
   @type get_voice_connector_streaming_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       proxy_session() :: %{
         "Capabilities" => list(list(any())()),
         "CreatedTimestamp" => non_neg_integer(),
@@ -1415,25 +1415,25 @@ defmodule AWS.ChimeSDKVoice do
         "UpdatedTimestamp" => non_neg_integer(),
         "VoiceConnectorId" => String.t()
       }
-
+      
   """
   @type proxy_session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_order_response() :: %{
         "PhoneNumberOrder" => phone_number_order()
       }
-
+      
   """
   @type get_phone_number_order_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_request() :: %{
         optional("FilterName") => list(any()),
         optional("FilterValue") => String.t(),
@@ -1442,108 +1442,108 @@ defmodule AWS.ChimeSDKVoice do
         optional("ProductType") => list(any()),
         optional("Status") => String.t()
       }
-
+      
   """
   @type list_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_limit_exceeded_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type resource_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_request() :: %{
         optional("AwsRegion") => list(any()),
         optional("Tags") => list(tag()()),
         required("Name") => String.t(),
         required("RequireEncryption") => boolean()
       }
-
+      
   """
   @type create_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_request() :: %{}
-
+      
   """
   @type get_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_profile_request() :: %{
         required("SpeakerSearchTaskId") => String.t()
       }
-
+      
   """
   @type create_voice_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_proxy_request() :: %{
         optional("Disabled") => boolean(),
         optional("FallBackPhoneNumber") => String.t(),
         required("DefaultSessionExpiryMinutes") => integer(),
         required("PhoneNumberPoolCountries") => list(String.t()())
       }
-
+      
   """
   @type put_voice_connector_proxy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_logging_configuration_request() :: %{
         required("LoggingConfiguration") => logging_configuration()
       }
-
+      
   """
   @type put_voice_connector_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_order() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "OrderType" => list(any()),
@@ -1553,67 +1553,67 @@ defmodule AWS.ChimeSDKVoice do
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type phone_number_order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_phone_number_request() :: %{}
-
+      
   """
   @type delete_phone_number_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application_endpoint() :: %{
         "LambdaArn" => String.t()
       }
-
+      
   """
   @type sip_media_application_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_phone_numbers_from_voice_connector_group_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type disassociate_phone_numbers_from_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_global_settings_response() :: %{
         "VoiceConnector" => voice_connector_settings()
       }
-
+      
   """
   @type get_global_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector() :: %{
         "AwsRegion" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
@@ -1624,27 +1624,27 @@ defmodule AWS.ChimeSDKVoice do
         "VoiceConnectorArn" => String.t(),
         "VoiceConnectorId" => String.t()
       }
-
+      
   """
   @type voice_connector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_proxy_sessions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Status") => list(any())
       }
-
+      
   """
   @type list_proxy_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       origination_route() :: %{
         "Host" => String.t(),
         "Port" => integer(),
@@ -1652,38 +1652,38 @@ defmodule AWS.ChimeSDKVoice do
         "Protocol" => list(any()),
         "Weight" => integer()
       }
-
+      
   """
   @type origination_route() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_profile_domains_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_voice_profile_domains_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_tone_analysis_task() :: %{
         "CallDetails" => call_details(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -1693,25 +1693,25 @@ defmodule AWS.ChimeSDKVoice do
         "VoiceToneAnalysisTaskId" => String.t(),
         "VoiceToneAnalysisTaskStatus" => String.t()
       }
-
+      
   """
   @type voice_tone_analysis_task() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       streaming_notification_target() :: %{
         "NotificationTarget" => list(any())
       }
-
+      
   """
   @type streaming_notification_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_profile_domain_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("Description") => String.t(),
@@ -1719,128 +1719,128 @@ defmodule AWS.ChimeSDKVoice do
         required("Name") => String.t(),
         required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
       }
-
+      
   """
   @type create_voice_profile_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector_item() :: %{
         "Priority" => integer(),
         "VoiceConnectorId" => String.t()
       }
-
+      
   """
   @type voice_connector_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_available_voice_connector_regions_response() :: %{
         "VoiceConnectorRegions" => list(list(any())())
       }
-
+      
   """
   @type list_available_voice_connector_regions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sip_media_application_logging_configuration_response() :: %{
         "SipMediaApplicationLoggingConfiguration" => sip_media_application_logging_configuration()
       }
-
+      
   """
   @type put_sip_media_application_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_group_response() :: %{
         "VoiceConnectorGroup" => voice_connector_group()
       }
-
+      
   """
   @type update_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_response() :: %{
         "PhoneNumber" => phone_number()
       }
-
+      
   """
   @type get_phone_number_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("VoiceProfileDomainId") => String.t()
       }
-
+      
   """
   @type list_voice_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connector_termination_credentials_response() :: %{
         "Usernames" => list(String.t()())
       }
-
+      
   """
   @type list_voice_connector_termination_credentials_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_side_encryption_configuration() :: %{
         "KmsKeyArn" => String.t()
       }
-
+      
   """
   @type server_side_encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_global_settings_request() :: %{
         optional("VoiceConnector") => voice_connector_settings()
       }
-
+      
   """
   @type update_global_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application_alexa_skill_configuration() :: %{
         "AlexaSkillIds" => list(String.t()()),
         "AlexaSkillStatus" => list(any())
       }
-
+      
   """
   @type sip_media_application_alexa_skill_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_proxy_session_request() :: %{
         optional("ExpiryMinutes") => integer(),
         optional("GeoMatchLevel") => list(any()),
@@ -1850,14 +1850,14 @@ defmodule AWS.ChimeSDKVoice do
         required("Capabilities") => list(list(any())()),
         required("ParticipantPhoneNumbers") => list(String.t()())
       }
-
+      
   """
   @type create_proxy_session_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       candidate_address() :: %{
         "city" => String.t(),
         "country" => String.t(),
@@ -1867,107 +1867,107 @@ defmodule AWS.ChimeSDKVoice do
         "streetInfo" => String.t(),
         "streetNumber" => String.t()
       }
-
+      
   """
   @type candidate_address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_rule_request() :: %{}
-
+      
   """
   @type get_sip_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_proxy_request() :: %{}
-
+      
   """
   @type get_voice_connector_proxy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sip_media_applications_response() :: %{
         "NextToken" => String.t(),
         "SipMediaApplications" => list(sip_media_application()())
       }
-
+      
   """
   @type list_sip_media_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_logging_configuration_request() :: %{}
-
+      
   """
   @type get_sip_media_application_logging_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_voice_tone_analysis_task_request() :: %{}
-
+      
   """
   @type stop_voice_tone_analysis_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application_logging_configuration() :: %{
         "EnableSipMediaApplicationMessageLogs" => boolean()
       }
-
+      
   """
   @type sip_media_application_logging_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_proxy_session_response() :: %{
         "ProxySession" => proxy_session()
       }
-
+      
   """
   @type get_proxy_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_profiles_response() :: %{
         "NextToken" => String.t(),
         "VoiceProfiles" => list(voice_profile_summary()())
       }
-
+      
   """
   @type list_voice_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_rule_response() :: %{
         "SipRule" => sip_rule()
       }
-
+      
   """
   @type update_sip_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_profile_summary() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "ExpirationTimestamp" => non_neg_integer(),
@@ -1976,175 +1976,175 @@ defmodule AWS.ChimeSDKVoice do
         "VoiceProfileDomainId" => String.t(),
         "VoiceProfileId" => String.t()
       }
-
+      
   """
   @type voice_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessable_entity_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type unprocessable_entity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_group_request() :: %{
         optional("VoiceConnectorItems") => list(voice_connector_item()()),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_voice_connector_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_profile_response() :: %{
         "VoiceProfile" => voice_profile()
       }
-
+      
   """
   @type get_voice_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_call_response() :: %{
         "SipMediaApplicationCall" => sip_media_application_call()
       }
-
+      
   """
   @type create_sip_media_application_call_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t(),
         "PhoneNumberId" => String.t()
       }
-
+      
   """
   @type phone_number_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_request_item() :: %{
         "CallingName" => String.t(),
         "Name" => String.t(),
         "PhoneNumberId" => String.t(),
         "ProductType" => list(any())
       }
-
+      
   """
   @type update_phone_number_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_phone_numbers_with_voice_connector_group_response() :: %{
         "PhoneNumberErrors" => list(phone_number_error()())
       }
-
+      
   """
   @type associate_phone_numbers_with_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("ResourceARN") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_origination_request() :: %{
         required("Origination") => origination()
       }
-
+      
   """
   @type put_voice_connector_origination_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_termination_credentials_request() :: %{
         required("Usernames") => list(String.t()())
       }
-
+      
   """
   @type delete_voice_connector_termination_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_voice_connectors_response() :: %{
         "NextToken" => String.t(),
         "VoiceConnectors" => list(voice_connector()())
       }
-
+      
   """
   @type list_voice_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sip_media_application_alexa_skill_configuration_response() :: %{
         "SipMediaApplicationAlexaSkillConfiguration" => sip_media_application_alexa_skill_configuration()
       }
-
+      
   """
   @type put_sip_media_application_alexa_skill_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_group_request() :: %{}
-
+      
   """
   @type get_voice_connector_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_connector_group() :: %{
         "CreatedTimestamp" => non_neg_integer(),
         "Name" => String.t(),
@@ -2153,213 +2153,213 @@ defmodule AWS.ChimeSDKVoice do
         "VoiceConnectorGroupId" => String.t(),
         "VoiceConnectorItems" => list(voice_connector_item()())
       }
-
+      
   """
   @type voice_connector_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_origination_response() :: %{
         "Origination" => origination()
       }
-
+      
   """
   @type get_voice_connector_origination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_profile_request() :: %{}
-
+      
   """
   @type delete_voice_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_profile_domain_request() :: %{}
-
+      
   """
   @type delete_voice_profile_domain_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_phone_number_settings_response() :: %{
         "CallingName" => String.t(),
         "CallingNameUpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type get_phone_number_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_call_request() :: %{
         optional("ArgumentsMap") => map(),
         optional("SipHeaders") => map(),
         required("FromPhoneNumber") => String.t(),
         required("ToPhoneNumber") => String.t()
       }
-
+      
   """
   @type create_sip_media_application_call_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sip_media_application_call_request() :: %{
         required("Arguments") => map()
       }
-
+      
   """
   @type update_sip_media_application_call_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_termination_request() :: %{}
-
+      
   """
   @type delete_voice_connector_termination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_group_response() :: %{
         "VoiceConnectorGroup" => voice_connector_group()
       }
-
+      
   """
   @type get_voice_connector_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_logging_configuration_response() :: %{
         "LoggingConfiguration" => logging_configuration()
       }
-
+      
   """
   @type put_voice_connector_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_connector_response() :: %{
         "VoiceConnector" => voice_connector()
       }
-
+      
   """
   @type create_voice_connector_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_proxy_session_request() :: %{}
-
+      
   """
   @type get_proxy_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application_call() :: %{
         "TransactionId" => String.t()
       }
-
+      
   """
   @type sip_media_application_call() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Code" => list(any()),
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_phone_numbers_response() :: %{
         "NextToken" => String.t(),
         "PhoneNumbers" => list(phone_number()())
       }
-
+      
   """
   @type list_phone_numbers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_connector_request() :: %{
         required("Name") => String.t(),
         required("RequireEncryption") => boolean()
       }
-
+      
   """
   @type update_voice_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_tone_analysis_task_request() :: %{
         required("IsCaller") => boolean()
       }
-
+      
   """
   @type get_voice_tone_analysis_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_profile_domain_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t()
       }
-
+      
   """
   @type update_voice_profile_domain_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       credential() :: %{
         "Password" => String.t(),
         "Username" => String.t()
       }
-
+      
   """
   @type credential() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_capabilities() :: %{
         "InboundCall" => boolean(),
         "InboundMMS" => boolean(),
@@ -2368,63 +2368,63 @@ defmodule AWS.ChimeSDKVoice do
         "OutboundMMS" => boolean(),
         "OutboundSMS" => boolean()
       }
-
+      
   """
   @type phone_number_capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_streaming_configuration_request() :: %{}
-
+      
   """
   @type delete_voice_connector_streaming_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_emergency_calling_configuration_request() :: %{}
-
+      
   """
   @type delete_voice_connector_emergency_calling_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_request() :: %{}
-
+      
   """
   @type get_sip_media_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sip_media_application_response() :: %{
         "SipMediaApplication" => sip_media_application()
       }
-
+      
   """
   @type create_sip_media_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_proxy_response() :: %{
         "Proxy" => proxy()
       }
-
+      
   """
   @type put_voice_connector_proxy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       address() :: %{
         "city" => String.t(),
         "country" => String.t(),
@@ -2437,142 +2437,142 @@ defmodule AWS.ChimeSDKVoice do
         "streetNumber" => String.t(),
         "streetSuffix" => String.t()
       }
-
+      
   """
   @type address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_rule_target_application() :: %{
         "AwsRegion" => String.t(),
         "Priority" => integer(),
         "SipMediaApplicationId" => String.t()
       }
-
+      
   """
   @type sip_rule_target_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_emergency_calling_configuration_response() :: %{
         "EmergencyCallingConfiguration" => emergency_calling_configuration()
       }
-
+      
   """
   @type get_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_speaker_search_task_request() :: %{}
-
+      
   """
   @type get_speaker_search_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_connector_request() :: %{}
-
+      
   """
   @type delete_voice_connector_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_phone_number_request() :: %{
         optional("CallingName") => String.t(),
         optional("Name") => String.t(),
         optional("ProductType") => list(any())
       }
-
+      
   """
   @type update_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_profile_domain_response() :: %{
         "VoiceProfileDomain" => voice_profile_domain()
       }
-
+      
   """
   @type get_voice_profile_domain_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_origination_request() :: %{}
-
+      
   """
   @type get_voice_connector_origination_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       put_voice_connector_emergency_calling_configuration_response() :: %{
         "EmergencyCallingConfiguration" => emergency_calling_configuration()
       }
-
+      
   """
   @type put_voice_connector_emergency_calling_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_connector_termination_response() :: %{
         "Termination" => termination()
       }
-
+      
   """
   @type get_voice_connector_termination_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sip_media_application_alexa_skill_configuration_request() :: %{}
-
+      
   """
   @type get_sip_media_application_alexa_skill_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_phone_number_request() :: %{
         required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item()())
       }
-
+      
   """
   @type batch_update_phone_number_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_sip_media_application_alexa_skill_configuration_request() :: %{
         optional("SipMediaApplicationAlexaSkillConfiguration") => sip_media_application_alexa_skill_configuration()
       }
-
+      
   """
   @type put_sip_media_application_alexa_skill_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sip_media_application() :: %{
         "AwsRegion" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
@@ -2582,14 +2582,14 @@ defmodule AWS.ChimeSDKVoice do
         "SipMediaApplicationId" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
       }
-
+      
   """
   @type sip_media_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_available_phone_numbers_request() :: %{
         optional("AreaCode") => String.t(),
         optional("City") => String.t(),
@@ -2600,29 +2600,29 @@ defmodule AWS.ChimeSDKVoice do
         optional("State") => String.t(),
         optional("TollFreePrefix") => String.t()
       }
-
+      
   """
   @type search_available_phone_numbers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_supported_phone_number_countries_request() :: %{
         required("ProductType") => list(any())
       }
-
+      
   """
   @type list_supported_phone_number_countries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       emergency_calling_configuration() :: %{
         "DNIS" => list(d_n_i_s_emergency_calling_configuration()())
       }
-
+      
   """
   @type emergency_calling_configuration() :: %{String.t() => any()}
 
@@ -3536,41 +3536,45 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec associate_phone_numbers_with_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          associate_phone_numbers_with_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_phone_numbers_with_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_errors()}
+
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=associate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3581,45 +3585,53 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Amazon Chime SDK Voice Connector
-    group ID.
+  group ID.
 
   ## Optional parameters:
   """
+
   @spec associate_phone_numbers_with_voice_connector_group(
           AWS.Client.t(),
           String.t(),
-          associate_phone_numbers_with_voice_connector_group_request(),
           Keyword.t()
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_phone_numbers_with_voice_connector_group_errors()}
+
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=associate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3633,33 +3645,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec batch_delete_phone_number(
-          AWS.Client.t(),
-          batch_delete_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_phone_number_errors()}
-  def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
+
+  def batch_delete_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3673,33 +3692,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec batch_update_phone_number(
-          AWS.Client.t(),
-          batch_update_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_phone_number_errors()}
-  def batch_update_phone_number(%Client{} = client, input, options \\ []) do
+
+  def batch_update_phone_number(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3713,33 +3739,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_phone_number_order(
-          AWS.Client.t(),
-          create_phone_number_order_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_phone_number_order(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_phone_number_order_errors()}
-  def create_phone_number_order(%Client{} = client, input, options \\ []) do
+
+  def create_phone_number_order(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3753,34 +3786,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_proxy_session(
-          AWS.Client.t(),
-          String.t(),
-          create_proxy_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_proxy_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_proxy_session_errors()}
-  def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def create_proxy_session(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3795,33 +3834,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_sip_media_application(
-          AWS.Client.t(),
-          create_sip_media_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sip_media_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_errors()}
-  def create_sip_media_application(%Client{} = client, input, options \\ []) do
+
+  def create_sip_media_application(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3836,39 +3882,44 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_sip_media_application_call(
-          AWS.Client.t(),
-          String.t(),
-          create_sip_media_application_call_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sip_media_application_call(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_media_application_call_errors()}
+
   def create_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
-        input,
         options \\ []
       ) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3884,29 +3935,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_sip_rule(AWS.Client.t(), create_sip_rule_request(), Keyword.t()) ::
+
+  @spec create_sip_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sip_rule_errors()}
-  def create_sip_rule(%Client{} = client, input, options \\ []) do
+
+  def create_sip_rule(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3921,29 +3983,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_voice_connector(AWS.Client.t(), create_voice_connector_request(), Keyword.t()) ::
+
+  @spec create_voice_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_errors()}
-  def create_voice_connector(%Client{} = client, input, options \\ []) do
+
+  def create_voice_connector(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3957,33 +4030,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_voice_connector_group(
-          AWS.Client.t(),
-          create_voice_connector_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_voice_connector_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_connector_group_errors()}
-  def create_voice_connector_group(%Client{} = client, input, options \\ []) do
+
+  def create_voice_connector_group(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -3996,29 +4076,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_voice_profile(AWS.Client.t(), create_voice_profile_request(), Keyword.t()) ::
+
+  @spec create_voice_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_profile_errors()}
-  def create_voice_profile(%Client{} = client, input, options \\ []) do
+
+  def create_voice_profile(%Client{} = client, options \\ []) do
     url_path = "/voice-profiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -4031,33 +4122,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec create_voice_profile_domain(
-          AWS.Client.t(),
-          create_voice_profile_domain_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_voice_profile_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_profile_domain_errors()}
-  def create_voice_profile_domain(%Client{} = client, input, options \\ []) do
+
+  def create_voice_profile_domain(%Client{} = client, options \\ []) do
     url_path = "/voice-profile-domains"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -4072,22 +4170,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          delete_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_phone_number_errors()}
-  def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def delete_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4096,7 +4210,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4114,31 +4228,44 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_proxy_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_proxy_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_proxy_session_errors()}
+
   def delete_proxy_session(
         %Client{} = client,
         proxy_session_id,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4147,7 +4274,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4163,27 +4290,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_sip_media_application(
-          AWS.Client.t(),
-          String.t(),
-          delete_sip_media_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_media_application_errors()}
-  def delete_sip_media_application(
-        %Client{} = client,
-        sip_media_application_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4192,7 +4330,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4208,17 +4346,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_sip_rule(AWS.Client.t(), String.t(), delete_sip_rule_request(), Keyword.t()) ::
+
+  @spec delete_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sip_rule_errors()}
-  def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
+
+  def delete_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4227,7 +4386,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4245,22 +4404,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_errors()}
-  def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def delete_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4269,7 +4444,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4286,29 +4461,47 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec delete_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
-          delete_voice_connector_emergency_calling_configuration_request(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_emergency_calling_configuration_errors()}
+
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4317,7 +4510,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4335,27 +4528,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_group_errors()}
-  def delete_voice_connector_group(
-        %Client{} = client,
-        voice_connector_group_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4364,7 +4568,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4381,27 +4585,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_origination(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_origination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_origination_errors()}
-  def delete_voice_connector_origination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4410,7 +4625,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4427,24 +4642,39 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_proxy(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_proxy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_proxy_errors()}
-  def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4453,7 +4683,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4469,29 +4699,43 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_streaming_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_streaming_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_streaming_configuration_errors()}
+
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4500,7 +4744,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4517,27 +4761,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_termination(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_termination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_errors()}
-  def delete_voice_connector_termination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4546,7 +4801,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4563,41 +4818,45 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_connector_termination_credentials(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_connector_termination_credentials_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_connector_termination_credentials_errors()}
+
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=delete"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -4611,22 +4870,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_profile(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_profile_errors()}
-  def delete_voice_profile(%Client{} = client, voice_profile_id, input, options \\ []) do
+
+  def delete_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4635,7 +4910,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4652,27 +4927,38 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec delete_voice_profile_domain(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_profile_domain_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_profile_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_profile_domain_errors()}
-  def delete_voice_profile_domain(
-        %Client{} = client,
-        voice_profile_domain_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4681,7 +4967,7 @@ defmodule AWS.ChimeSDKVoice do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -4698,41 +4984,45 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec disassociate_phone_numbers_from_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          disassociate_phone_numbers_from_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_phone_numbers_from_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_errors()}
+
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=disassociate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4746,41 +5036,49 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec disassociate_phone_numbers_from_voice_connector_group(
           AWS.Client.t(),
           String.t(),
-          disassociate_phone_numbers_from_voice_connector_group_request(),
           Keyword.t()
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_phone_numbers_from_voice_connector_group_errors()}
+
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
         voice_connector_group_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=disassociate-phone-numbers"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4793,10 +5091,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_global_settings_errors()}
+
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
 
@@ -4836,10 +5136,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_errors()}
+
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
 
@@ -4880,10 +5182,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_phone_number_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_order_errors()}
+
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
 
@@ -4922,10 +5226,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_phone_number_settings_errors()}
+
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
 
@@ -4966,10 +5272,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_proxy_session_errors()}
+
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
@@ -5010,10 +5318,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_errors()}
+
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
 
@@ -5052,6 +5362,7 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_sip_media_application_alexa_skill_configuration(
           AWS.Client.t(),
           String.t(),
@@ -5060,6 +5371,7 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, get_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_alexa_skill_configuration_errors()}
+
   def get_sip_media_application_alexa_skill_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -5103,10 +5415,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_media_application_logging_configuration_errors()}
+
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
@@ -5151,10 +5465,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sip_rule_errors()}
+
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
 
@@ -5194,10 +5510,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_speaker_search_task_errors()}
+
   def get_speaker_search_task(
         %Client{} = client,
         speaker_search_task_id,
@@ -5243,10 +5561,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_errors()}
+
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
 
@@ -5286,6 +5606,7 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
@@ -5294,6 +5615,7 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_emergency_calling_configuration_errors()}
+
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5338,10 +5660,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_group_errors()}
+
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
 
@@ -5382,10 +5706,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_logging_configuration_errors()}
+
   def get_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5429,10 +5755,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_origination_errors()}
+
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
 
@@ -5472,10 +5800,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_proxy_errors()}
+
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
@@ -5518,10 +5848,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_streaming_configuration_errors()}
+
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
@@ -5565,10 +5897,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_errors()}
+
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
 
@@ -5608,10 +5942,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_connector_termination_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_connector_termination_health_errors()}
+
   def get_voice_connector_termination_health(
         %Client{} = client,
         voice_connector_id,
@@ -5654,10 +5990,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_profile_errors()}
+
   def get_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
 
@@ -5696,10 +6034,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec get_voice_profile_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_profile_domain_errors()}
+
   def get_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
 
@@ -5736,12 +6076,13 @@ defmodule AWS.ChimeSDKVoice do
   ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
   * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone anlysis
-    task.
+  task.
   * `:is_caller` (`t:boolean`) Specifies whether the voice being analyzed is the
-    caller (originator) or the callee (responder).
+  caller (originator) or the callee (responder).
 
   ## Optional parameters:
   """
+
   @spec get_voice_tone_analysis_task(
           AWS.Client.t(),
           String.t(),
@@ -5752,13 +6093,15 @@ defmodule AWS.ChimeSDKVoice do
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_tone_analysis_task_errors()}
+
   def get_voice_tone_analysis_task(
         %Client{} = client,
         voice_connector_id,
         voice_tone_analysis_task_id,
         is_caller,
         options \\ []
-      ) do
+      )
+      when is_boolean(is_caller) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}"
 
@@ -5797,10 +6140,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec list_available_voice_connector_regions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_available_voice_connector_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_available_voice_connector_regions_errors()}
+
   def list_available_voice_connector_regions(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-regions"
 
@@ -5838,14 +6183,16 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_number_orders_errors()}
+
   def list_phone_number_orders(%Client{} = client, options \\ []) do
     url_path = "/phone-number-orders"
 
@@ -5903,19 +6250,21 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:filter_name` (`t:enum["SipRuleId|VoiceConnectorGroupId|VoiceConnectorId"]`)
-    The filter to limit the number of results.
+  The filter to limit the number of results.
   * `:filter_value` (`t:string`) The filter value.
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The
-    phone number product types.
+  phone number product types.
   * `:status` (`t:string`) The status of your organization's phone numbers.
   """
+
   @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_phone_numbers_errors()}
+
   def list_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/phone-numbers"
 
@@ -6014,15 +6363,17 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-    results.
+  results.
   * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
+
   @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_proxy_sessions_errors()}
+
   def list_proxy_sessions(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
 
@@ -6085,13 +6436,15 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. Defaults to 100.
+  single call. Defaults to 100.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
+
   @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_media_applications_errors()}
+
   def list_sip_media_applications(%Client{} = client, options \\ []) do
     url_path = "/sip-media-applications"
 
@@ -6147,14 +6500,16 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call. Defaults to 100.
+  single call. Defaults to 100.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
+
   @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sip_rules_errors()}
+
   def list_sip_rules(%Client{} = client, options \\ []) do
     url_path = "/sip-rules"
 
@@ -6215,15 +6570,18 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Parameters:
   * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The
-    phone number product type.
+  phone number product type.
 
   ## Optional parameters:
   """
+
   @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_phone_number_countries_errors()}
-  def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
+
+  def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ [])
+      when is_binary(product_type) do
     url_path = "/phone-number-countries"
 
     # Validate optional parameters
@@ -6261,11 +6619,14 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/tags"
 
     # Validate optional parameters
@@ -6303,13 +6664,15 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
+
   @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_groups_errors()}
+
   def list_voice_connector_groups(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-groups"
 
@@ -6366,10 +6729,12 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec list_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connector_termination_credentials_errors()}
+
   def list_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
@@ -6412,13 +6777,15 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
+
   @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_connectors_errors()}
+
   def list_voice_connectors(%Client{} = client, options \\ []) do
     url_path = "/voice-connectors"
 
@@ -6474,13 +6841,15 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
+
   @spec list_voice_profile_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_profile_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_profile_domains_errors()}
+
   def list_voice_profile_domains(%Client{} = client, options \\ []) do
     url_path = "/voice-profile-domains"
 
@@ -6538,13 +6907,16 @@ defmodule AWS.ChimeSDKVoice do
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results in the request.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_voice_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_voice_profiles_errors()}
-  def list_voice_profiles(%Client{} = client, voice_profile_domain_id, options \\ []) do
+
+  def list_voice_profiles(%Client{} = client, voice_profile_domain_id, options \\ [])
+      when is_binary(voice_profile_domain_id) do
     url_path = "/voice-profiles"
 
     # Validate optional parameters
@@ -6600,31 +6972,49 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec put_sip_media_application_alexa_skill_configuration(
           AWS.Client.t(),
           String.t(),
-          put_sip_media_application_alexa_skill_configuration_request(),
           Keyword.t()
         ) ::
           {:ok, put_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sip_media_application_alexa_skill_configuration_errors()}
+
   def put_sip_media_application_alexa_skill_configuration(
         %Client{} = client,
         sip_media_application_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/alexa-skill-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6637,31 +7027,45 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec put_sip_media_application_logging_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_sip_media_application_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_sip_media_application_logging_configuration_errors()}
+
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
         sip_media_application_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6674,31 +7078,49 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
+
   @spec put_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
           String.t(),
-          put_voice_connector_emergency_calling_configuration_request(),
           Keyword.t()
         ) ::
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_emergency_calling_configuration_errors()}
+
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6711,31 +7133,45 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_logging_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_logging_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_logging_configuration_errors()}
+
   def put_voice_connector_logging_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/logging-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6748,29 +7184,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_origination(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_origination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_origination_errors()}
-  def put_voice_connector_origination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def put_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6784,26 +7231,41 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_proxy(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_proxy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_proxy_errors()}
-  def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def put_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6816,31 +7278,45 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_streaming_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_streaming_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_streaming_configuration_errors()}
+
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6853,29 +7329,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_termination(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_termination_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_errors()}
-  def put_voice_connector_termination(
-        %Client{} = client,
-        voice_connector_id,
-        input,
-        options \\ []
-      ) do
+
+  def put_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6888,41 +7375,45 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec put_voice_connector_termination_credentials(
-          AWS.Client.t(),
-          String.t(),
-          put_voice_connector_termination_credentials_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_voice_connector_termination_credentials_errors()}
+
   def put_voice_connector_termination_credentials(
         %Client{} = client,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=put"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -6935,34 +7426,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec restore_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          restore_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec restore_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_phone_number_errors()}
-  def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def restore_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -6974,25 +7471,27 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   * `:area_code` (`t:string`) Confines a search to just the phone numbers
-    associated with the specified area code.
+  associated with the specified area code.
   * `:city` (`t:string`) Confines a search to just the phone numbers associated
-    with the specified city.
+  with the specified city.
   * `:country` (`t:string`) Confines a search to just the phone numbers associated
-    with the specified country.
+  with the specified country.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   * `:phone_number_type` (`t:enum["Local|TollFree"]`) Confines a search to just
-    the phone numbers associated with the specified phone number type, either
-    local or toll-free.
+  the phone numbers associated with the specified phone number type, either
+  local or toll-free.
   * `:state` (`t:string`) Confines a search to just the phone numbers associated
-    with the specified state.
+  with the specified state.
   * `:toll_free_prefix` (`t:string`) Confines a search to just the phone numbers
-    associated with the specified toll-free prefix.
+  associated with the specified toll-free prefix.
   """
+
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_available_phone_numbers_errors()}
+
   def search_available_phone_numbers(%Client{} = client, options \\ []) do
     url_path = "/search?type=phone-numbers"
 
@@ -7109,34 +7608,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec start_speaker_search_task(
-          AWS.Client.t(),
-          String.t(),
-          start_speaker_search_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_speaker_search_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_speaker_search_task_errors()}
-  def start_speaker_search_task(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def start_speaker_search_task(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7156,36 +7661,41 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec start_voice_tone_analysis_task(
-          AWS.Client.t(),
-          String.t(),
-          start_voice_tone_analysis_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_voice_tone_analysis_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_voice_tone_analysis_task_errors()}
-  def start_voice_tone_analysis_task(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def start_voice_tone_analysis_task(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7199,43 +7709,46 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec stop_speaker_search_task(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          stop_speaker_search_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_speaker_search_task_errors()}
+
   def stop_speaker_search_task(
         %Client{} = client,
         speaker_search_task_id,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}?operation=stop"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -7246,47 +7759,50 @@ defmodule AWS.ChimeSDKVoice do
   ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
   * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
-    task.
+  task.
 
   ## Optional parameters:
   """
-  @spec stop_voice_tone_analysis_task(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          stop_voice_tone_analysis_task_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_voice_tone_analysis_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_voice_tone_analysis_task_errors()}
+
   def stop_voice_tone_analysis_task(
         %Client{} = client,
         voice_connector_id,
         voice_tone_analysis_task_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}?operation=stop"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -7298,29 +7814,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=tag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -7332,29 +7859,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=untag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -7367,19 +7905,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_global_settings(AWS.Client.t(), update_global_settings_request(), Keyword.t()) ::
+
+  @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_global_settings_errors()}
-  def update_global_settings(%Client{} = client, input, options \\ []) do
+
+  def update_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -7396,34 +7955,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_phone_number(
-          AWS.Client.t(),
-          String.t(),
-          update_phone_number_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_errors()}
-  def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
+
+  def update_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7438,23 +8003,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_phone_number_settings(
-          AWS.Client.t(),
-          update_phone_number_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_phone_number_settings_errors()}
-  def update_phone_number_settings(%Client{} = client, input, options \\ []) do
+
+  def update_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -7468,43 +8050,46 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_proxy_session(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_proxy_session_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_proxy_session_errors()}
+
   def update_proxy_session(
         %Client{} = client,
         proxy_session_id,
         voice_connector_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7517,29 +8102,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_sip_media_application(
-          AWS.Client.t(),
-          String.t(),
-          update_sip_media_application_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_errors()}
-  def update_sip_media_application(
-        %Client{} = client,
-        sip_media_application_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7551,48 +8147,51 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string`) The ID of the SIP media application
-    handling the call.
+  handling the call.
   * `:transaction_id` (`t:string`) The ID of the call transaction.
 
   ## Optional parameters:
   """
-  @spec update_sip_media_application_call(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_sip_media_application_call_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sip_media_application_call(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_media_application_call_errors()}
+
   def update_sip_media_application_call(
         %Client{} = client,
         sip_media_application_id,
         transaction_id,
-        input,
         options \\ []
       ) do
     url_path =
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls/#{AWS.Util.encode_uri(transaction_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -7605,19 +8204,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_sip_rule(AWS.Client.t(), String.t(), update_sip_rule_request(), Keyword.t()) ::
+
+  @spec update_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sip_rule_errors()}
-  def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
+
+  def update_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -7630,24 +8250,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_voice_connector(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_connector_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_errors()}
-  def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
+
+  def update_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7660,29 +8296,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_voice_connector_group(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_connector_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_connector_group_errors()}
-  def update_voice_connector_group(
-        %Client{} = client,
-        voice_connector_group_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -7696,24 +8343,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_voice_profile(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_profile_errors()}
-  def update_voice_profile(%Client{} = client, voice_profile_id, input, options \\ []) do
+
+  def update_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7726,29 +8389,40 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec update_voice_profile_domain(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_profile_domain_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_profile_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_profile_domain_errors()}
-  def update_voice_profile_domain(
-        %Client{} = client,
-        voice_profile_domain_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -7764,28 +8438,39 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Optional parameters:
   """
-  @spec validate_e911_address(AWS.Client.t(), validate_e911_address_request(), Keyword.t()) ::
+
+  @spec validate_e911_address(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_e911_address_errors()}
-  def validate_e911_address(%Client{} = client, input, options \\ []) do
+
+  def validate_e911_address(%Client{} = client, options \\ []) do
     url_path = "/emergency-calling/address"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 end

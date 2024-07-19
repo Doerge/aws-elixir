@@ -874,12 +874,26 @@ defmodule AWS.CodeStar do
 
   @doc """
   Adds an IAM user to the team for an AWS CodeStar project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20AssociateTeamMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_team_member_request`)
+    %{
+      optional("clientRequestToken") => String.t(),
+      optional("remoteAccessAllowed") => boolean(),
+      required("projectId") => String.t(),
+      required("projectRole") => String.t(),
+      required("userArn") => String.t()
+    }
   """
-  @spec associate_team_member(AWS.Client.t(), associate_team_member_request(), Keyword.t()) ::
+
+  @spec associate_team_member(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_team_member_errors()}
-  def associate_team_member(%Client{} = client, input, options \\ []) do
+
+  def associate_team_member(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -891,12 +905,28 @@ defmodule AWS.CodeStar do
   based on a submitted project request. A set of source code files and a
   toolchain template file can be included with the project request. If these are
   not provided, an empty project is created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_project_request`)
+    %{
+      optional("clientRequestToken") => String.t(),
+      optional("description") => String.t(),
+      optional("sourceCode") => list(code()()),
+      optional("tags") => map(),
+      optional("toolchain") => toolchain(),
+      required("id") => String.t(),
+      required("name") => String.t()
+    }
   """
-  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+
+  @spec create_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_project_errors()}
-  def create_project(%Client{} = client, input, options \\ []) do
+
+  def create_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -908,12 +938,25 @@ defmodule AWS.CodeStar do
   name and email address assocciated with the user, in AWS CodeStar. The user
   profile is not project-specific. Information in the user profile is displayed
   wherever the user's information appears to other users in AWS CodeStar.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20CreateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_profile_request`)
+    %{
+      optional("sshPublicKey") => String.t(),
+      required("displayName") => String.t(),
+      required("emailAddress") => String.t(),
+      required("userArn") => String.t()
+    }
   """
-  @spec create_user_profile(AWS.Client.t(), create_user_profile_request(), Keyword.t()) ::
+
+  @spec create_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_profile_errors()}
-  def create_user_profile(%Client{} = client, input, options \\ []) do
+
+  def create_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -924,12 +967,24 @@ defmodule AWS.CodeStar do
   Deletes a project, including project resources. Does not delete users associated
   with the project, but does delete the IAM roles that allowed access to the
   project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_project_request`)
+    %{
+      optional("clientRequestToken") => String.t(),
+      optional("deleteStack") => boolean(),
+      required("id") => String.t()
+    }
   """
-  @spec delete_project(AWS.Client.t(), delete_project_request(), Keyword.t()) ::
+
+  @spec delete_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_project_errors()}
-  def delete_project(%Client{} = client, input, options \\ []) do
+
+  def delete_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -941,12 +996,22 @@ defmodule AWS.CodeStar do
   associated with that profile, such as display name and email address. It does
   not delete the history of that user, for example the history of commits made
   by that user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20DeleteUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_profile_request`)
+    %{
+      required("userArn") => String.t()
+    }
   """
-  @spec delete_user_profile(AWS.Client.t(), delete_user_profile_request(), Keyword.t()) ::
+
+  @spec delete_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_profile_errors()}
-  def delete_user_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -955,12 +1020,22 @@ defmodule AWS.CodeStar do
 
   @doc """
   Describes a project and its resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_project_request`)
+    %{
+      required("id") => String.t()
+    }
   """
-  @spec describe_project(AWS.Client.t(), describe_project_request(), Keyword.t()) ::
+
+  @spec describe_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_project_errors()}
-  def describe_project(%Client{} = client, input, options \\ []) do
+
+  def describe_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -969,12 +1044,22 @@ defmodule AWS.CodeStar do
 
   @doc """
   Describes a user in AWS CodeStar and the user attributes across all projects.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20DescribeUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_user_profile_request`)
+    %{
+      required("userArn") => String.t()
+    }
   """
-  @spec describe_user_profile(AWS.Client.t(), describe_user_profile_request(), Keyword.t()) ::
+
+  @spec describe_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_profile_errors()}
-  def describe_user_profile(%Client{} = client, input, options \\ []) do
+
+  def describe_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -986,12 +1071,23 @@ defmodule AWS.CodeStar do
   IAM policies from that user that allowed access to the project and its
   resources. Disassociating a team member does not remove that user's profile
   from AWS CodeStar. It does not remove the user from IAM.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20DisassociateTeamMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_team_member_request`)
+    %{
+      required("projectId") => String.t(),
+      required("userArn") => String.t()
+    }
   """
-  @spec disassociate_team_member(AWS.Client.t(), disassociate_team_member_request(), Keyword.t()) ::
+
+  @spec disassociate_team_member(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_team_member_errors()}
-  def disassociate_team_member(%Client{} = client, input, options \\ []) do
+
+  def disassociate_team_member(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1000,12 +1096,23 @@ defmodule AWS.CodeStar do
 
   @doc """
   Lists all projects in AWS CodeStar associated with your AWS account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_projects_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_projects(AWS.Client.t(), list_projects_request(), Keyword.t()) ::
+
+  @spec list_projects(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_projects_errors()}
-  def list_projects(%Client{} = client, input, options \\ []) do
+
+  def list_projects(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1014,12 +1121,24 @@ defmodule AWS.CodeStar do
 
   @doc """
   Lists resources associated with a project in AWS CodeStar.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20ListResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resources_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("projectId") => String.t()
+    }
   """
-  @spec list_resources(AWS.Client.t(), list_resources_request(), Keyword.t()) ::
+
+  @spec list_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resources_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resources_errors()}
-  def list_resources(%Client{} = client, input, options \\ []) do
+
+  def list_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1028,12 +1147,24 @@ defmodule AWS.CodeStar do
 
   @doc """
   Gets the tags for a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20ListTagsForProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_project_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("id") => String.t()
+    }
   """
-  @spec list_tags_for_project(AWS.Client.t(), list_tags_for_project_request(), Keyword.t()) ::
+
+  @spec list_tags_for_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_project_errors()}
-  def list_tags_for_project(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1042,12 +1173,24 @@ defmodule AWS.CodeStar do
 
   @doc """
   Lists all team members associated with a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20ListTeamMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_team_members_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("projectId") => String.t()
+    }
   """
-  @spec list_team_members(AWS.Client.t(), list_team_members_request(), Keyword.t()) ::
+
+  @spec list_team_members(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_team_members_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_team_members_errors()}
-  def list_team_members(%Client{} = client, input, options \\ []) do
+
+  def list_team_members(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1056,12 +1199,23 @@ defmodule AWS.CodeStar do
 
   @doc """
   Lists all the user profiles configured for your AWS account in AWS CodeStar.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20ListUserProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_user_profiles_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_user_profiles(AWS.Client.t(), list_user_profiles_request(), Keyword.t()) ::
+
+  @spec list_user_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_user_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_user_profiles_errors()}
-  def list_user_profiles(%Client{} = client, input, options \\ []) do
+
+  def list_user_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1070,12 +1224,23 @@ defmodule AWS.CodeStar do
 
   @doc """
   Adds tags to a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20TagProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_project_request`)
+    %{
+      required("id") => String.t(),
+      required("tags") => map()
+    }
   """
-  @spec tag_project(AWS.Client.t(), tag_project_request(), Keyword.t()) ::
+
+  @spec tag_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_project_errors()}
-  def tag_project(%Client{} = client, input, options \\ []) do
+
+  def tag_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1084,12 +1249,23 @@ defmodule AWS.CodeStar do
 
   @doc """
   Removes tags from a project.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20UntagProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_project_request`)
+    %{
+      required("id") => String.t(),
+      required("tags") => list(String.t()())
+    }
   """
-  @spec untag_project(AWS.Client.t(), untag_project_request(), Keyword.t()) ::
+
+  @spec untag_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_project_errors()}
-  def untag_project(%Client{} = client, input, options \\ []) do
+
+  def untag_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1098,12 +1274,24 @@ defmodule AWS.CodeStar do
 
   @doc """
   Updates a project in AWS CodeStar.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_project_request`)
+    %{
+      optional("description") => String.t(),
+      optional("name") => String.t(),
+      required("id") => String.t()
+    }
   """
-  @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
+
+  @spec update_project(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_project_errors()}
-  def update_project(%Client{} = client, input, options \\ []) do
+
+  def update_project(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1114,12 +1302,25 @@ defmodule AWS.CodeStar do
   Updates a team member's attributes in an AWS CodeStar project. For example, you
   can change a team member's role in the project, or change whether they have
   remote access to project resources.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20UpdateTeamMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_team_member_request`)
+    %{
+      optional("projectRole") => String.t(),
+      optional("remoteAccessAllowed") => boolean(),
+      required("projectId") => String.t(),
+      required("userArn") => String.t()
+    }
   """
-  @spec update_team_member(AWS.Client.t(), update_team_member_request(), Keyword.t()) ::
+
+  @spec update_team_member(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_team_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_team_member_errors()}
-  def update_team_member(%Client{} = client, input, options \\ []) do
+
+  def update_team_member(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1130,12 +1331,25 @@ defmodule AWS.CodeStar do
   Updates a user's profile in AWS CodeStar. The user profile is not
   project-specific. Information in the user profile is displayed wherever the
   user's information appears to other users in AWS CodeStar.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestar%20UpdateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_user_profile_request`)
+    %{
+      optional("displayName") => String.t(),
+      optional("emailAddress") => String.t(),
+      optional("sshPublicKey") => String.t(),
+      required("userArn") => String.t()
+    }
   """
-  @spec update_user_profile(AWS.Client.t(), update_user_profile_request(), Keyword.t()) ::
+
+  @spec update_user_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_profile_errors()}
-  def update_user_profile(%Client{} = client, input, options \\ []) do
+
+  def update_user_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -18,203 +18,203 @@ defmodule AWS.Outposts do
   @typedoc """
 
   ## Example:
-
+      
       get_connection_request() :: %{}
-
+      
   """
   @type get_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_outpost_supported_instance_types_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("OrderId") => String.t()
       }
-
+      
   """
   @type get_outpost_supported_instance_types_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_outpost_instance_types_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type get_outpost_instance_types_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_type_item() :: %{
         "InstanceType" => String.t()
       }
-
+      
   """
   @type instance_type_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_connection_response() :: %{
         "ConnectionId" => String.t(),
         "UnderlayIpAddress" => String.t()
       }
-
+      
   """
   @type start_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_assets_input() :: %{
         optional("HostIdFilter") => list(String.t()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StatusFilter") => list(list(any())())
       }
-
+      
   """
   @type list_assets_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_location() :: %{
         "RackElevation" => float()
       }
-
+      
   """
   @type asset_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_order_input() :: %{}
-
+      
   """
   @type get_order_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_capacity_tasks_output() :: %{
         "CapacityTasks" => list(capacity_task_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_capacity_tasks_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_connection_response() :: %{
         "ConnectionDetails" => connection_details(),
         "ConnectionId" => String.t()
       }
-
+      
   """
   @type get_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_outpost_supported_instance_types_output() :: %{
         "InstanceTypes" => list(instance_type_item()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type get_outpost_supported_instance_types_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_item_asset_information() :: %{
         "AssetId" => String.t(),
         "MacAddressList" => list(String.t()())
       }
-
+      
   """
   @type line_item_asset_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_orders_output() :: %{
         "NextToken" => String.t(),
         "Orders" => list(order_summary()())
       }
-
+      
   """
   @type list_orders_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_connection_request() :: %{
         optional("DeviceSerialNumber") => String.t(),
         required("AssetId") => String.t(),
         required("ClientPublicKey") => String.t(),
         required("NetworkInterfaceDeviceIndex") => integer()
       }
-
+      
   """
   @type start_connection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_site_output() :: %{
         "Site" => site()
       }
-
+      
   """
   @type get_site_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_site_input() :: %{
         optional("Description") => String.t(),
         optional("Notes") => String.t(),
@@ -224,14 +224,14 @@ defmodule AWS.Outposts do
         optional("Tags") => map(),
         required("Name") => String.t()
       }
-
+      
   """
   @type create_site_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_outposts_input() :: %{
         optional("AvailabilityZoneFilter") => list(String.t()()),
         optional("AvailabilityZoneIdFilter") => list(String.t()()),
@@ -239,25 +239,25 @@ defmodule AWS.Outposts do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_outposts_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       catalog_item() :: %{
         "CatalogItemId" => String.t(),
         "EC2Capacities" => list(ec2_capacity()()),
@@ -267,61 +267,61 @@ defmodule AWS.Outposts do
         "SupportedUplinkGbps" => list(integer()()),
         "WeightLbs" => integer()
       }
-
+      
   """
   @type catalog_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_site_address_input() :: %{
         required("AddressType") => list(any())
       }
-
+      
   """
   @type get_site_address_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_site_output() :: %{
         "Site" => site()
       }
-
+      
   """
   @type create_site_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_site_address_input() :: %{
         required("Address") => address(),
         required("AddressType") => list(any())
       }
-
+      
   """
   @type update_site_address_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_outpost_input() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("SupportedHardwareType") => list(any())
       }
-
+      
   """
   @type update_outpost_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       rack_physical_properties() :: %{
         "FiberOpticCableType" => list(any()),
         "MaximumSupportedWeightLbs" => list(any()),
@@ -333,14 +333,14 @@ defmodule AWS.Outposts do
         "UplinkCount" => list(any()),
         "UplinkGbps" => list(any())
       }
-
+      
   """
   @type rack_physical_properties() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_site_rack_physical_properties_input() :: %{
         optional("FiberOpticCableType") => list(any()),
         optional("MaximumSupportedWeightLbs") => list(any()),
@@ -352,123 +352,123 @@ defmodule AWS.Outposts do
         optional("UplinkCount") => list(any()),
         optional("UplinkGbps") => list(any())
       }
-
+      
   """
   @type update_site_rack_physical_properties_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_site_address_output() :: %{
         "Address" => address(),
         "AddressType" => list(any())
       }
-
+      
   """
   @type update_site_address_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_orders_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("OutpostIdentifierFilter") => String.t()
       }
-
+      
   """
   @type list_orders_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_capacity_task_input() :: %{}
-
+      
   """
   @type get_capacity_task_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => list(any())
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_catalog_item_input() :: %{}
-
+      
   """
   @type get_catalog_item_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_order_output() :: %{
         "Order" => order()
       }
-
+      
   """
   @type create_order_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_outpost_input() :: %{}
-
+      
   """
   @type get_outpost_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_site_output() :: %{
         "Site" => site()
       }
-
+      
   """
   @type update_site_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       site() :: %{
         "AccountId" => String.t(),
         "Description" => String.t(),
@@ -482,14 +482,14 @@ defmodule AWS.Outposts do
         "SiteId" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type site() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sites_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -497,106 +497,106 @@ defmodule AWS.Outposts do
         optional("OperatingAddressCountryCodeFilter") => list(String.t()()),
         optional("OperatingAddressStateOrRegionFilter") => list(String.t()())
       }
-
+      
   """
   @type list_sites_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_type_capacity() :: %{
         "Count" => integer(),
         "InstanceType" => String.t()
       }
-
+      
   """
   @type instance_type_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_outpost_output() :: %{
         "Outpost" => outpost()
       }
-
+      
   """
   @type get_outpost_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_order_output() :: %{
         "Order" => order()
       }
-
+      
   """
   @type get_order_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_order_input() :: %{
         optional("PaymentTerm") => list(any()),
         required("LineItems") => list(line_item_request()()),
         required("OutpostIdentifier") => String.t(),
         required("PaymentOption") => list(any())
       }
-
+      
   """
   @type create_order_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_catalog_item_output() :: %{
         "CatalogItem" => catalog_item()
       }
-
+      
   """
   @type get_catalog_item_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_capacity_task_output() :: %{}
-
+      
   """
   @type cancel_capacity_task_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       ec2_capacity() :: %{
         "Family" => String.t(),
         "MaxSize" => String.t(),
         "Quantity" => String.t()
       }
-
+      
   """
   @type ec2_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_capacity_task_output() :: %{
         "CapacityTaskId" => String.t(),
         "CapacityTaskStatus" => list(any()),
@@ -609,39 +609,39 @@ defmodule AWS.Outposts do
         "OutpostId" => String.t(),
         "RequestedInstancePools" => list(instance_type_capacity()())
       }
-
+      
   """
   @type start_capacity_task_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_sites_output() :: %{
         "NextToken" => String.t(),
         "Sites" => list(site()())
       }
-
+      
   """
   @type list_sites_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_capacity_task_input() :: %{
         optional("DryRun") => boolean(),
         required("InstancePools") => list(instance_type_capacity()()),
         required("OrderId") => String.t()
       }
-
+      
   """
   @type start_capacity_task_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       order() :: %{
         "LineItems" => list(line_item()()),
         "OrderFulfilledDate" => non_neg_integer(),
@@ -653,204 +653,204 @@ defmodule AWS.Outposts do
         "PaymentTerm" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type order() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_order_input() :: %{}
-
+      
   """
   @type cancel_order_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       capacity_task_failure() :: %{
         "Reason" => String.t(),
         "Type" => list(any())
       }
-
+      
   """
   @type capacity_task_failure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       compute_attributes() :: %{
         "HostId" => String.t(),
         "InstanceFamilies" => list(String.t()()),
         "State" => list(any())
       }
-
+      
   """
   @type compute_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_assets_output() :: %{
         "Assets" => list(asset_info()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_assets_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_site_output() :: %{}
-
+      
   """
   @type delete_site_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_outpost_output() :: %{}
-
+      
   """
   @type delete_outpost_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_order_output() :: %{}
-
+      
   """
   @type cancel_order_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_outpost_instance_types_output() :: %{
         "InstanceTypes" => list(instance_type_item()()),
         "NextToken" => String.t(),
         "OutpostArn" => String.t(),
         "OutpostId" => String.t()
       }
-
+      
   """
   @type get_outpost_instance_types_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_site_input() :: %{}
-
+      
   """
   @type delete_site_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_site_input() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("Notes") => String.t()
       }
-
+      
   """
   @type update_site_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_site_input() :: %{}
-
+      
   """
   @type get_site_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_outposts_output() :: %{
         "NextToken" => String.t(),
         "Outposts" => list(outpost()())
       }
-
+      
   """
   @type list_outposts_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_outpost_input() :: %{}
-
+      
   """
   @type delete_outpost_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       order_summary() :: %{
         "LineItemCountsByStatus" => map(),
         "OrderFulfilledDate" => non_neg_integer(),
@@ -860,52 +860,52 @@ defmodule AWS.Outposts do
         "OutpostId" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type order_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_capacity_tasks_input() :: %{
         optional("CapacityTaskStatusFilter") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("OutpostIdentifierFilter") => String.t()
       }
-
+      
   """
   @type list_capacity_tasks_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_outpost_output() :: %{
         "Outpost" => outpost()
       }
-
+      
   """
   @type create_outpost_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_site_address_output() :: %{
         "Address" => address(),
         "AddressType" => list(any()),
         "SiteId" => String.t()
       }
-
+      
   """
   @type get_site_address_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asset_info() :: %{
         "AssetId" => String.t(),
         "AssetLocation" => asset_location(),
@@ -913,14 +913,14 @@ defmodule AWS.Outposts do
         "ComputeAttributes" => compute_attributes(),
         "RackId" => String.t()
       }
-
+      
   """
   @type asset_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_catalog_items_input() :: %{
         optional("EC2FamilyFilter") => list(String.t()()),
         optional("ItemClassFilter") => list(list(any())()),
@@ -928,37 +928,37 @@ defmodule AWS.Outposts do
         optional("NextToken") => String.t(),
         optional("SupportedStorageFilter") => list(list(any())())
       }
-
+      
   """
   @type list_catalog_items_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_outpost_output() :: %{
         "Outpost" => outpost()
       }
-
+      
   """
   @type update_outpost_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_item_request() :: %{
         "CatalogItemId" => String.t(),
         "Quantity" => integer()
       }
-
+      
   """
   @type line_item_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connection_details() :: %{
         "AllowedIps" => list(String.t()()),
         "ClientPublicKey" => String.t(),
@@ -967,14 +967,14 @@ defmodule AWS.Outposts do
         "ServerPublicKey" => String.t(),
         "ServerTunnelAddress" => String.t()
       }
-
+      
   """
   @type connection_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       outpost() :: %{
         "AvailabilityZone" => String.t(),
         "AvailabilityZoneId" => String.t(),
@@ -989,14 +989,14 @@ defmodule AWS.Outposts do
         "SupportedHardwareType" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type outpost() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       address() :: %{
         "AddressLine1" => String.t(),
         "AddressLine2" => String.t(),
@@ -1010,14 +1010,14 @@ defmodule AWS.Outposts do
         "PostalCode" => String.t(),
         "StateOrRegion" => String.t()
       }
-
+      
   """
   @type address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       capacity_task_summary() :: %{
         "CapacityTaskId" => String.t(),
         "CapacityTaskStatus" => list(any()),
@@ -1027,37 +1027,37 @@ defmodule AWS.Outposts do
         "OrderId" => String.t(),
         "OutpostId" => String.t()
       }
-
+      
   """
   @type capacity_task_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_catalog_items_output() :: %{
         "CatalogItems" => list(catalog_item()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_catalog_items_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_site_rack_physical_properties_output() :: %{
         "Site" => site()
       }
-
+      
   """
   @type update_site_rack_physical_properties_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       line_item() :: %{
         "AssetInformationList" => list(line_item_asset_information()()),
         "CatalogItemId" => String.t(),
@@ -1068,35 +1068,35 @@ defmodule AWS.Outposts do
         "ShipmentInformation" => shipment_information(),
         "Status" => list(any())
       }
-
+      
   """
   @type line_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_capacity_task_input() :: %{}
-
+      
   """
   @type cancel_capacity_task_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       shipment_information() :: %{
         "ShipmentCarrier" => list(any()),
         "ShipmentTrackingNumber" => String.t()
       }
-
+      
   """
   @type shipment_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_capacity_task_output() :: %{
         "CapacityTaskId" => String.t(),
         "CapacityTaskStatus" => list(any()),
@@ -1109,14 +1109,14 @@ defmodule AWS.Outposts do
         "OutpostId" => String.t(),
         "RequestedInstancePools" => list(instance_type_capacity()())
       }
-
+      
   """
   @type get_capacity_task_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_outpost_input() :: %{
         optional("AvailabilityZone") => String.t(),
         optional("AvailabilityZoneId") => String.t(),
@@ -1126,7 +1126,7 @@ defmodule AWS.Outposts do
         required("Name") => String.t(),
         required("SiteId") => String.t()
       }
-
+      
   """
   @type create_outpost_input() :: %{String.t() => any()}
 
@@ -1329,49 +1329,52 @@ defmodule AWS.Outposts do
 
   ## Parameters:
   * `:capacity_task_id` (`t:string`) ID of the capacity task that you want to
-    cancel.
+  cancel.
   * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
-    the capacity task that you want to cancel.
+  the capacity task that you want to cancel.
 
   ## Optional parameters:
   """
-  @spec cancel_capacity_task(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          cancel_capacity_task_input(),
-          Keyword.t()
-        ) ::
+
+  @spec cancel_capacity_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_capacity_task_errors()}
+
   def cancel_capacity_task(
         %Client{} = client,
         capacity_task_id,
         outpost_identifier,
-        input,
         options \\ []
       ) do
     url_path =
       "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1384,29 +1387,40 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec cancel_order(AWS.Client.t(), String.t(), cancel_order_input(), Keyword.t()) ::
+
+  @spec cancel_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_order_errors()}
-  def cancel_order(%Client{} = client, order_id, input, options \\ []) do
+
+  def cancel_order(%Client{} = client, order_id, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}/cancel"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1418,29 +1432,40 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec create_order(AWS.Client.t(), create_order_input(), Keyword.t()) ::
+
+  @spec create_order(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_order_errors()}
-  def create_order(%Client{} = client, input, options \\ []) do
+
+  def create_order(%Client{} = client, options \\ []) do
     url_path = "/orders"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1452,29 +1477,40 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec create_outpost(AWS.Client.t(), create_outpost_input(), Keyword.t()) ::
+
+  @spec create_outpost(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_outpost_errors()}
-  def create_outpost(%Client{} = client, input, options \\ []) do
+
+  def create_outpost(%Client{} = client, options \\ []) do
     url_path = "/outposts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1486,29 +1522,40 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec create_site(AWS.Client.t(), create_site_input(), Keyword.t()) ::
+
+  @spec create_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_site_errors()}
-  def create_site(%Client{} = client, input, options \\ []) do
+
+  def create_site(%Client{} = client, options \\ []) do
     url_path = "/sites"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1521,17 +1568,38 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec delete_outpost(AWS.Client.t(), String.t(), delete_outpost_input(), Keyword.t()) ::
+
+  @spec delete_outpost(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_outpost_errors()}
-  def delete_outpost(%Client{} = client, outpost_id, input, options \\ []) do
+
+  def delete_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1540,7 +1608,7 @@ defmodule AWS.Outposts do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1556,17 +1624,38 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec delete_site(AWS.Client.t(), String.t(), delete_site_input(), Keyword.t()) ::
+
+  @spec delete_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_site_errors()}
-  def delete_site(%Client{} = client, site_id, input, options \\ []) do
+
+  def delete_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1575,7 +1664,7 @@ defmodule AWS.Outposts do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1589,14 +1678,16 @@ defmodule AWS.Outposts do
   ## Parameters:
   * `:capacity_task_id` (`t:string`) ID of the capacity task.
   * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
-    the specified capacity task.
+  the specified capacity task.
 
   ## Optional parameters:
   """
+
   @spec get_capacity_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_capacity_task_errors()}
+
   def get_capacity_task(%Client{} = client, capacity_task_id, outpost_identifier, options \\ []) do
     url_path =
       "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}"
@@ -1636,10 +1727,12 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
+
   @spec get_catalog_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_catalog_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_catalog_item_errors()}
+
   def get_catalog_item(%Client{} = client, catalog_item_id, options \\ []) do
     url_path = "/catalog/item/#{AWS.Util.encode_uri(catalog_item_id)}"
 
@@ -1679,10 +1772,12 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
+
   @spec get_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connection_errors()}
+
   def get_connection(%Client{} = client, connection_id, options \\ []) do
     url_path = "/connections/#{AWS.Util.encode_uri(connection_id)}"
 
@@ -1721,10 +1816,12 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
+
   @spec get_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_order_errors()}
+
   def get_order(%Client{} = client, order_id, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}"
 
@@ -1763,10 +1860,12 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
+
   @spec get_outpost(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_errors()}
+
   def get_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
 
@@ -1807,10 +1906,12 @@ defmodule AWS.Outposts do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec get_outpost_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_instance_types_errors()}
+
   def get_outpost_instance_types(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}/instanceTypes"
 
@@ -1873,16 +1974,19 @@ defmodule AWS.Outposts do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec get_outpost_supported_instance_types(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_outpost_supported_instance_types_errors()}
+
   def get_outpost_supported_instance_types(
         %Client{} = client,
         outpost_identifier,
         order_id,
         options \\ []
-      ) do
+      )
+      when is_binary(order_id) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/supportedInstanceTypes"
 
     # Validate optional parameters
@@ -1938,10 +2042,12 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
+
   @spec get_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_errors()}
+
   def get_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
 
@@ -1978,15 +2084,18 @@ defmodule AWS.Outposts do
   ## Parameters:
   * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
   * `:address_type` (`t:enum["OPERATING_ADDRESS|SHIPPING_ADDRESS"]`) The type of
-    the address you request.
+  the address you request.
 
   ## Optional parameters:
   """
+
   @spec get_site_address(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_site_address_errors()}
-  def get_site_address(%Client{} = client, site_id, address_type, options \\ []) do
+
+  def get_site_address(%Client{} = client, site_id, address_type, options \\ [])
+      when is_binary(address_type) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
 
     # Validate optional parameters
@@ -2021,20 +2130,22 @@ defmodule AWS.Outposts do
 
   ## Parameters:
   * `:outpost_identifier` (`t:string`) The ID or the Amazon Resource Name (ARN) of
-    the Outpost.
+  the Outpost.
 
   ## Optional parameters:
   * `:host_id_filter` (`t:list[com.amazonaws.outposts#HostId]`) Filters the
-    results by the host ID of a Dedicated Host.
+  results by the host ID of a Dedicated Host.
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:status_filter` (`t:list[com.amazonaws.outposts#AssetState]`) Filters the
-    results by state.
+  results by state.
   """
+
   @spec list_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assets_errors()}
+
   def list_assets(%Client{} = client, outpost_identifier, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/assets"
 
@@ -2104,17 +2215,19 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   * `:capacity_task_status_filter`
-    (`t:list[com.amazonaws.outposts#CapacityTaskStatus]`) A list of statuses.
-    For example, REQUESTED or WAITING_FOR_EVACUATION.
+  (`t:list[com.amazonaws.outposts#CapacityTaskStatus]`) A list of statuses.
+  For example, REQUESTED or WAITING_FOR_EVACUATION.
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:outpost_identifier_filter` (`t:string`) Filters the results by an Outpost ID
-    or an Outpost ARN.
+  or an Outpost ARN.
   """
+
   @spec list_capacity_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_capacity_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_capacity_tasks_errors()}
+
   def list_capacity_tasks(%Client{} = client, options \\ []) do
     url_path = "/capacity/tasks"
 
@@ -2194,19 +2307,21 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   * `:ec2_family_filter` (`t:list[com.amazonaws.outposts#Family]`) Filters the
-    results by EC2 family (for example, M5).
+  results by EC2 family (for example, M5).
   * `:item_class_filter` (`t:list[com.amazonaws.outposts#CatalogItemClass]`)
-    Filters the results by item class.
+  Filters the results by item class.
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:supported_storage_filter`
-    (`t:list[com.amazonaws.outposts#SupportedStorageEnum]`) Filters the results
-    by storage option.
+  (`t:list[com.amazonaws.outposts#SupportedStorageEnum]`) Filters the results
+  by storage option.
   """
+
   @spec list_catalog_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_catalog_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_catalog_items_errors()}
+
   def list_catalog_items(%Client{} = client, options \\ []) do
     url_path = "/catalog/items"
 
@@ -2297,12 +2412,14 @@ defmodule AWS.Outposts do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:outpost_identifier_filter` (`t:string`) The ID or the Amazon Resource Name
-    (ARN) of the Outpost.
+  (ARN) of the Outpost.
   """
+
   @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_orders_errors()}
+
   def list_orders(%Client{} = client, options \\ []) do
     url_path = "/list-orders"
 
@@ -2365,20 +2482,22 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   * `:availability_zone_filter`
-    (`t:list[com.amazonaws.outposts#AvailabilityZone]`) Filters the results by
-    Availability Zone (for example, us-east-1a).
+  (`t:list[com.amazonaws.outposts#AvailabilityZone]`) Filters the results by
+  Availability Zone (for example, us-east-1a).
   * `:availability_zone_id_filter`
-    (`t:list[com.amazonaws.outposts#AvailabilityZoneId]`) Filters the results by
-    AZ ID (for example, use1-az1).
+  (`t:list[com.amazonaws.outposts#AvailabilityZoneId]`) Filters the results by
+  AZ ID (for example, use1-az1).
   * `:life_cycle_status_filter` (`t:list[com.amazonaws.outposts#LifeCycleStatus]`)
-    Filters the results by the lifecycle status.
+  Filters the results by the lifecycle status.
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
+
   @spec list_outposts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_outposts_errors()}
+
   def list_outposts(%Client{} = client, options \\ []) do
     url_path = "/outposts"
 
@@ -2470,18 +2589,20 @@ defmodule AWS.Outposts do
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:operating_address_city_filter` (`t:list[com.amazonaws.outposts#City]`)
-    Filters the results by city.
+  Filters the results by city.
   * `:operating_address_country_code_filter`
-    (`t:list[com.amazonaws.outposts#CountryCode]`) Filters the results by
-    country code.
+  (`t:list[com.amazonaws.outposts#CountryCode]`) Filters the results by
+  country code.
   * `:operating_address_state_or_region_filter`
-    (`t:list[com.amazonaws.outposts#StateOrRegion]`) Filters the results by
-    state or region.
+  (`t:list[com.amazonaws.outposts#StateOrRegion]`) Filters the results by
+  state or region.
   """
+
   @spec list_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sites_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sites_errors()}
+
   def list_sites(%Client{} = client, options \\ []) do
     url_path = "/sites"
 
@@ -2571,10 +2692,12 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2611,33 +2734,44 @@ defmodule AWS.Outposts do
 
   ## Parameters:
   * `:outpost_identifier` (`t:string`) The ID or ARN of the Outposts associated
-    with the specified capacity task.
+  with the specified capacity task.
 
   ## Optional parameters:
   """
-  @spec start_capacity_task(AWS.Client.t(), String.t(), start_capacity_task_input(), Keyword.t()) ::
+
+  @spec start_capacity_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_capacity_task_errors()}
-  def start_capacity_task(%Client{} = client, outpost_identifier, input, options \\ []) do
+
+  def start_capacity_task(%Client{} = client, outpost_identifier, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2650,29 +2784,40 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec start_connection(AWS.Client.t(), start_connection_request(), Keyword.t()) ::
+
+  @spec start_connection(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_connection_errors()}
-  def start_connection(%Client{} = client, input, options \\ []) do
+
+  def start_connection(%Client{} = client, options \\ []) do
     url_path = "/connections"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2685,29 +2830,40 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2721,22 +2877,39 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2745,7 +2918,7 @@ defmodule AWS.Outposts do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2761,17 +2934,38 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec update_outpost(AWS.Client.t(), String.t(), update_outpost_input(), Keyword.t()) ::
+
+  @spec update_outpost(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_outpost_errors()}
-  def update_outpost(%Client{} = client, outpost_id, input, options \\ []) do
+
+  def update_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2780,7 +2974,7 @@ defmodule AWS.Outposts do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2796,17 +2990,38 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec update_site(AWS.Client.t(), String.t(), update_site_input(), Keyword.t()) ::
+
+  @spec update_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_errors()}
-  def update_site(%Client{} = client, site_id, input, options \\ []) do
+
+  def update_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2815,7 +3030,7 @@ defmodule AWS.Outposts do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2833,19 +3048,40 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec update_site_address(AWS.Client.t(), String.t(), update_site_address_input(), Keyword.t()) ::
+
+  @spec update_site_address(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_address_errors()}
-  def update_site_address(%Client{} = client, site_id, input, options \\ []) do
+
+  def update_site_address(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2861,22 +3097,38 @@ defmodule AWS.Outposts do
 
   ## Optional parameters:
   """
-  @spec update_site_rack_physical_properties(
-          AWS.Client.t(),
-          String.t(),
-          update_site_rack_physical_properties_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_site_rack_physical_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_rack_physical_properties_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_site_rack_physical_properties_errors()}
-  def update_site_rack_physical_properties(%Client{} = client, site_id, input, options \\ []) do
+
+  def update_site_rack_physical_properties(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/rackPhysicalProperties"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2885,7 +3137,7 @@ defmodule AWS.Outposts do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

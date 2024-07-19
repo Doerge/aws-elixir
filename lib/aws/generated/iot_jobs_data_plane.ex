@@ -19,84 +19,84 @@ defmodule AWS.IoTJobsDataPlane do
   @typedoc """
 
   ## Example:
-
+      
       certificate_validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type certificate_validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_execution_request() :: %{
         optional("executionNumber") => float(),
         optional("includeJobDocument") => boolean()
       }
-
+      
   """
   @type describe_job_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_job_execution_response() :: %{
         "execution" => job_execution()
       }
-
+      
   """
   @type describe_job_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_pending_job_executions_request() :: %{}
-
+      
   """
   @type get_pending_job_executions_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_pending_job_executions_response() :: %{
         "inProgressJobs" => list(job_execution_summary()()),
         "queuedJobs" => list(job_execution_summary()())
       }
-
+      
   """
   @type get_pending_job_executions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_state_transition_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_state_transition_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_execution() :: %{
         "approximateSecondsBeforeTimedOut" => float(),
         "executionNumber" => float(),
@@ -110,27 +110,27 @@ defmodule AWS.IoTJobsDataPlane do
         "thingName" => String.t(),
         "versionNumber" => float()
       }
-
+      
   """
   @type job_execution() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_execution_state() :: %{
         "status" => list(any()),
         "statusDetails" => map(),
         "versionNumber" => float()
       }
-
+      
   """
   @type job_execution_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       job_execution_summary() :: %{
         "executionNumber" => float(),
         "jobId" => String.t(),
@@ -139,82 +139,82 @@ defmodule AWS.IoTJobsDataPlane do
         "startedAt" => float(),
         "versionNumber" => float()
       }
-
+      
   """
   @type job_execution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_next_pending_job_execution_request() :: %{
         optional("statusDetails") => map(),
         optional("stepTimeoutInMinutes") => float()
       }
-
+      
   """
   @type start_next_pending_job_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_next_pending_job_execution_response() :: %{
         "execution" => job_execution()
       }
-
+      
   """
   @type start_next_pending_job_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       terminal_state_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type terminal_state_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "payload" => binary()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_execution_request() :: %{
         optional("executionNumber") => float(),
         optional("expectedVersion") => float(),
@@ -224,19 +224,19 @@ defmodule AWS.IoTJobsDataPlane do
         optional("stepTimeoutInMinutes") => float(),
         required("status") => list(any())
       }
-
+      
   """
   @type update_job_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_job_execution_response() :: %{
         "executionState" => job_execution_state(),
         "jobDocument" => String.t()
       }
-
+      
   """
   @type update_job_execution_response() :: %{String.t() => any()}
 
@@ -293,21 +293,23 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Parameters:
   * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
-    created.
+  created.
   * `:thing_name` (`t:string`) The thing name associated with the device the job
-    execution is running on.
+  execution is running on.
 
   ## Optional parameters:
   * `:execution_number` (`t:long`) Optional. A number that identifies a particular
-    job execution on a particular device. If not specified, the latest job
-    execution is returned.
+  job execution on a particular device. If not specified, the latest job
+  execution is returned.
   * `:include_job_document` (`t:boolean`) Optional. When set to true, the response
-    contains the job document. The default is false.
+  contains the job document. The default is false.
   """
+
   @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_execution_errors()}
+
   def describe_job_execution(%Client{} = client, job_id, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
@@ -364,10 +366,12 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Optional parameters:
   """
+
   @spec get_pending_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pending_job_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pending_job_executions_errors()}
+
   def get_pending_job_executions(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
 
@@ -407,24 +411,40 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Optional parameters:
   """
-  @spec start_next_pending_job_execution(
-          AWS.Client.t(),
-          String.t(),
-          start_next_pending_job_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_next_pending_job_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_next_pending_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_next_pending_job_execution_errors()}
-  def start_next_pending_job_execution(%Client{} = client, thing_name, input, options \\ []) do
+
+  def start_next_pending_job_execution(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/$next"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -434,39 +454,44 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Parameters:
   * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
-    created.
+  created.
   * `:thing_name` (`t:string`) The name of the thing associated with the device.
 
   ## Optional parameters:
   """
-  @spec update_job_execution(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_job_execution_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_job_execution_errors()}
-  def update_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
+
+  def update_job_execution(%Client{} = client, job_id, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

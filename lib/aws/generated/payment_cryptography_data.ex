@@ -22,91 +22,91 @@ defmodule AWS.PaymentCryptographyData do
   @typedoc """
 
   ## Example:
-
+      
       session_key_amex() :: %{
         "PanSequenceNumber" => String.t(),
         "PrimaryAccountNumber" => String.t()
       }
-
+      
   """
   @type session_key_amex() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amex_card_security_code_version1() :: %{
         "CardExpiryDate" => String.t()
       }
-
+      
   """
   @type amex_card_security_code_version1() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       asymmetric_encryption_attributes() :: %{
         "PaddingType" => String.t()
       }
-
+      
   """
   @type asymmetric_encryption_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       discover_dynamic_card_verification_code() :: %{
         "ApplicationTransactionCounter" => String.t(),
         "CardExpiryDate" => String.t(),
         "UnpredictableNumber" => String.t()
       }
-
+      
   """
   @type discover_dynamic_card_verification_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visa_pin_verification_value() :: %{
         "EncryptedPinBlock" => String.t(),
         "PinVerificationKeyIndex" => integer()
       }
-
+      
   """
   @type visa_pin_verification_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ibm3624_pin_offset() :: %{
         "DecimalizationTable" => String.t(),
         "EncryptedPinBlock" => String.t(),
         "PinValidationData" => String.t(),
         "PinValidationDataPadCharacter" => String.t()
       }
-
+      
   """
   @type ibm3624_pin_offset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       translation_pin_data_iso_format034() :: %{
         "PrimaryAccountNumber" => String.t()
       }
-
+      
   """
   @type translation_pin_data_iso_format034() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       translate_pin_data_input() :: %{
         optional("IncomingDukptAttributes") => dukpt_derivation_attributes(),
         optional("IncomingWrappedKey") => wrapped_key(),
@@ -118,190 +118,190 @@ defmodule AWS.PaymentCryptographyData do
         required("OutgoingKeyIdentifier") => String.t(),
         required("OutgoingTranslationAttributes") => list()
       }
-
+      
   """
   @type translate_pin_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encrypt_data_output() :: %{
         "CipherText" => String.t(),
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t()
       }
-
+      
   """
   @type encrypt_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_mac_output() :: %{
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t()
       }
-
+      
   """
   @type verify_mac_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cryptogram_verification_arpc_method1() :: %{
         "AuthResponseCode" => String.t()
       }
-
+      
   """
   @type cryptogram_verification_arpc_method1() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dynamic_card_verification_value() :: %{
         "ApplicationTransactionCounter" => String.t(),
         "CardExpiryDate" => String.t(),
         "PanSequenceNumber" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type dynamic_card_verification_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       wrapped_key() :: %{
         "KeyCheckValueAlgorithm" => String.t(),
         "WrappedKeyMaterial" => list()
       }
-
+      
   """
   @type wrapped_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       card_holder_verification_value() :: %{
         "ApplicationTransactionCounter" => String.t(),
         "PanSequenceNumber" => String.t(),
         "UnpredictableNumber" => String.t()
       }
-
+      
   """
   @type card_holder_verification_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mac_algorithm_dukpt() :: %{
         "DukptDerivationType" => String.t(),
         "DukptKeyVariant" => String.t(),
         "KeySerialNumber" => String.t()
       }
-
+      
   """
   @type mac_algorithm_dukpt() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cryptogram_verification_arpc_method2() :: %{
         "CardStatusUpdate" => String.t(),
         "ProprietaryAuthenticationData" => String.t()
       }
-
+      
   """
   @type cryptogram_verification_arpc_method2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_card_validation_data_input() :: %{
         required("KeyIdentifier") => String.t(),
         required("PrimaryAccountNumber") => String.t(),
         required("ValidationData") => String.t(),
         required("VerificationAttributes") => list()
       }
-
+      
   """
   @type verify_card_validation_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       amex_card_security_code_version2() :: %{
         "CardExpiryDate" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type amex_card_security_code_version2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "ResourceId" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       encrypt_data_input() :: %{
         optional("WrappedKey") => wrapped_key(),
         required("EncryptionAttributes") => list(),
         required("PlainText") => String.t()
       }
-
+      
   """
   @type encrypt_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dynamic_card_verification_code() :: %{
         "ApplicationTransactionCounter" => String.t(),
         "PanSequenceNumber" => String.t(),
         "TrackData" => String.t(),
         "UnpredictableNumber" => String.t()
       }
-
+      
   """
   @type dynamic_card_verification_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dukpt_attributes() :: %{
         "DukptDerivationType" => String.t(),
         "KeySerialNumber" => String.t()
       }
-
+      
   """
   @type dukpt_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       emv_encryption_attributes() :: %{
         "InitializationVector" => String.t(),
         "MajorKeyDerivationMode" => String.t(),
@@ -310,14 +310,14 @@ defmodule AWS.PaymentCryptographyData do
         "PrimaryAccountNumber" => String.t(),
         "SessionDerivationData" => String.t()
       }
-
+      
   """
   @type emv_encryption_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_mac_input() :: %{
         optional("MacLength") => integer(),
         required("KeyIdentifier") => String.t(),
@@ -325,14 +325,14 @@ defmodule AWS.PaymentCryptographyData do
         required("MessageData") => String.t(),
         required("VerificationAttributes") => list()
       }
-
+      
   """
   @type verify_mac_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_pin_data_input() :: %{
         optional("PinDataLength") => integer(),
         required("EncryptionKeyIdentifier") => String.t(),
@@ -341,63 +341,63 @@ defmodule AWS.PaymentCryptographyData do
         required("PinBlockFormat") => String.t(),
         required("PrimaryAccountNumber") => String.t()
       }
-
+      
   """
   @type generate_pin_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_mac_input() :: %{
         optional("MacLength") => integer(),
         required("GenerationAttributes") => list(),
         required("KeyIdentifier") => String.t(),
         required("MessageData") => String.t()
       }
-
+      
   """
   @type generate_mac_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       card_verification_value2() :: %{
         "CardExpiryDate" => String.t()
       }
-
+      
   """
   @type card_verification_value2() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_auth_request_cryptogram_output() :: %{
         "AuthResponseValue" => String.t(),
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t()
       }
-
+      
   """
   @type verify_auth_request_cryptogram_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visa_pin() :: %{
         "PinVerificationKeyIndex" => integer()
       }
-
+      
   """
   @type visa_pin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mac_algorithm_emv() :: %{
         "MajorKeyDerivationMode" => String.t(),
         "PanSequenceNumber" => String.t(),
@@ -405,150 +405,150 @@ defmodule AWS.PaymentCryptographyData do
         "SessionKeyDerivationMode" => String.t(),
         "SessionKeyDerivationValue" => list()
       }
-
+      
   """
   @type mac_algorithm_emv() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "path" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ibm3624_pin_verification() :: %{
         "DecimalizationTable" => String.t(),
         "PinOffset" => String.t(),
         "PinValidationData" => String.t(),
         "PinValidationDataPadCharacter" => String.t()
       }
-
+      
   """
   @type ibm3624_pin_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       visa_pin_verification() :: %{
         "PinVerificationKeyIndex" => integer(),
         "VerificationValue" => String.t()
       }
-
+      
   """
   @type visa_pin_verification() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_key_emv_common() :: %{
         "ApplicationTransactionCounter" => String.t(),
         "PanSequenceNumber" => String.t(),
         "PrimaryAccountNumber" => String.t()
       }
-
+      
   """
   @type session_key_emv_common() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ibm3624_natural_pin() :: %{
         "DecimalizationTable" => String.t(),
         "PinValidationData" => String.t(),
         "PinValidationDataPadCharacter" => String.t()
       }
-
+      
   """
   @type ibm3624_natural_pin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_key_emv2000() :: %{
         "ApplicationTransactionCounter" => String.t(),
         "PanSequenceNumber" => String.t(),
         "PrimaryAccountNumber" => String.t()
       }
-
+      
   """
   @type session_key_emv2000() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       symmetric_encryption_attributes() :: %{
         "InitializationVector" => String.t(),
         "Mode" => String.t(),
         "PaddingType" => String.t()
       }
-
+      
   """
   @type symmetric_encryption_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_card_validation_data_output() :: %{
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t()
       }
-
+      
   """
   @type verify_card_validation_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verification_failed_exception() :: %{
         "Message" => [String.t()],
         "Reason" => String.t()
       }
-
+      
   """
   @type verification_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_pin_data_input() :: %{
         optional("DukptAttributes") => dukpt_attributes(),
         optional("PinDataLength") => integer(),
@@ -559,41 +559,41 @@ defmodule AWS.PaymentCryptographyData do
         required("VerificationAttributes") => list(),
         required("VerificationKeyIdentifier") => String.t()
       }
-
+      
   """
   @type verify_pin_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_key_mastercard() :: %{
         "ApplicationTransactionCounter" => String.t(),
         "PanSequenceNumber" => String.t(),
         "PrimaryAccountNumber" => String.t(),
         "UnpredictableNumber" => String.t()
       }
-
+      
   """
   @type session_key_mastercard() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decrypt_data_output() :: %{
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t(),
         "PlainText" => String.t()
       }
-
+      
   """
   @type decrypt_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       re_encrypt_data_input() :: %{
         optional("IncomingWrappedKey") => wrapped_key(),
         optional("OutgoingWrappedKey") => wrapped_key(),
@@ -602,40 +602,40 @@ defmodule AWS.PaymentCryptographyData do
         required("OutgoingEncryptionAttributes") => list(),
         required("OutgoingKeyIdentifier") => String.t()
       }
-
+      
   """
   @type re_encrypt_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_card_validation_data_output() :: %{
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t(),
         "ValidationData" => String.t()
       }
-
+      
   """
   @type generate_card_validation_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       re_encrypt_data_output() :: %{
         "CipherText" => String.t(),
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t()
       }
-
+      
   """
   @type re_encrypt_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_pin_data_output() :: %{
         "EncryptedPinBlock" => String.t(),
         "EncryptionKeyArn" => String.t(),
@@ -644,51 +644,51 @@ defmodule AWS.PaymentCryptographyData do
         "GenerationKeyCheckValue" => String.t(),
         "PinData" => list()
       }
-
+      
   """
   @type generate_pin_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       card_verification_value1() :: %{
         "CardExpiryDate" => String.t(),
         "ServiceCode" => String.t()
       }
-
+      
   """
   @type card_verification_value1() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decrypt_data_input() :: %{
         optional("WrappedKey") => wrapped_key(),
         required("CipherText") => String.t(),
         required("DecryptionAttributes") => list()
       }
-
+      
   """
   @type decrypt_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_auth_request_cryptogram_input() :: %{
         optional("AuthResponseAttributes") => list(),
         required("AuthRequestCryptogram") => String.t(),
@@ -697,140 +697,140 @@ defmodule AWS.PaymentCryptographyData do
         required("SessionKeyDerivationAttributes") => list(),
         required("TransactionData") => String.t()
       }
-
+      
   """
   @type verify_auth_request_cryptogram_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_card_validation_data_input() :: %{
         optional("ValidationDataLength") => integer(),
         required("GenerationAttributes") => list(),
         required("KeyIdentifier") => String.t(),
         required("PrimaryAccountNumber") => String.t()
       }
-
+      
   """
   @type generate_card_validation_data_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ibm3624_random_pin() :: %{
         "DecimalizationTable" => String.t(),
         "PinValidationData" => String.t(),
         "PinValidationDataPadCharacter" => String.t()
       }
-
+      
   """
   @type ibm3624_random_pin() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       translate_pin_data_output() :: %{
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t(),
         "PinBlock" => String.t()
       }
-
+      
   """
   @type translate_pin_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session_key_visa() :: %{
         "PanSequenceNumber" => String.t(),
         "PrimaryAccountNumber" => String.t()
       }
-
+      
   """
   @type session_key_visa() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_pin_data_output() :: %{
         "EncryptionKeyArn" => String.t(),
         "EncryptionKeyCheckValue" => String.t(),
         "VerificationKeyArn" => String.t(),
         "VerificationKeyCheckValue" => String.t()
       }
-
+      
   """
   @type verify_pin_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ibm3624_pin_from_offset() :: %{
         "DecimalizationTable" => String.t(),
         "PinOffset" => String.t(),
         "PinValidationData" => String.t(),
         "PinValidationDataPadCharacter" => String.t()
       }
-
+      
   """
   @type ibm3624_pin_from_offset() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       translation_pin_data_iso_format1() :: %{}
-
+      
   """
   @type translation_pin_data_iso_format1() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       generate_mac_output() :: %{
         "KeyArn" => String.t(),
         "KeyCheckValue" => String.t(),
         "Mac" => String.t()
       }
-
+      
   """
   @type generate_mac_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dukpt_derivation_attributes() :: %{
         "DukptKeyDerivationType" => String.t(),
         "DukptKeyVariant" => String.t(),
         "KeySerialNumber" => String.t()
       }
-
+      
   """
   @type dukpt_derivation_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dukpt_encryption_attributes() :: %{
         "DukptKeyDerivationType" => String.t(),
         "DukptKeyVariant" => String.t(),
@@ -838,7 +838,7 @@ defmodule AWS.PaymentCryptographyData do
         "KeySerialNumber" => String.t(),
         "Mode" => String.t()
       }
-
+      
   """
   @type dukpt_encryption_attributes() :: %{String.t() => any()}
 
@@ -966,33 +966,44 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Parameters:
   * `:key_identifier` (`t:string`) The keyARN of the encryption key that Amazon
-    Web Services Payment Cryptography uses for ciphertext decryption.
+  Web Services Payment Cryptography uses for ciphertext decryption.
 
   ## Optional parameters:
   """
-  @spec decrypt_data(AWS.Client.t(), String.t(), decrypt_data_input(), Keyword.t()) ::
+
+  @spec decrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, decrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, decrypt_data_errors()}
-  def decrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
+
+  def decrypt_data(%Client{} = client, key_identifier, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/decrypt"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1022,33 +1033,44 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Parameters:
   * `:key_identifier` (`t:string`) The keyARN of the encryption key that Amazon
-    Web Services Payment Cryptography uses for plaintext encryption.
+  Web Services Payment Cryptography uses for plaintext encryption.
 
   ## Optional parameters:
   """
-  @spec encrypt_data(AWS.Client.t(), String.t(), encrypt_data_input(), Keyword.t()) ::
+
+  @spec encrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, encrypt_data_errors()}
-  def encrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
+
+  def encrypt_data(%Client{} = client, key_identifier, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/encrypt"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1082,33 +1104,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec generate_card_validation_data(
-          AWS.Client.t(),
-          generate_card_validation_data_input(),
-          Keyword.t()
-        ) ::
+
+  @spec generate_card_validation_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_card_validation_data_errors()}
-  def generate_card_validation_data(%Client{} = client, input, options \\ []) do
+
+  def generate_card_validation_data(%Client{} = client, options \\ []) do
     url_path = "/cardvalidationdata/generate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1127,29 +1156,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec generate_mac(AWS.Client.t(), generate_mac_input(), Keyword.t()) ::
+
+  @spec generate_mac(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_mac_errors()}
-  def generate_mac(%Client{} = client, input, options \\ []) do
+
+  def generate_mac(%Client{} = client, options \\ []) do
     url_path = "/mac/generate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1175,29 +1215,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec generate_pin_data(AWS.Client.t(), generate_pin_data_input(), Keyword.t()) ::
+
+  @spec generate_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_pin_data_errors()}
-  def generate_pin_data(%Client{} = client, input, options \\ []) do
+
+  def generate_pin_data(%Client{} = client, options \\ []) do
     url_path = "/pindata/generate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1219,33 +1270,44 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Parameters:
   * `:incoming_key_identifier` (`t:string`) The keyARN of the encryption key of
-    incoming ciphertext data.
+  incoming ciphertext data.
 
   ## Optional parameters:
   """
-  @spec re_encrypt_data(AWS.Client.t(), String.t(), re_encrypt_data_input(), Keyword.t()) ::
+
+  @spec re_encrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, re_encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, re_encrypt_data_errors()}
-  def re_encrypt_data(%Client{} = client, incoming_key_identifier, input, options \\ []) do
+
+  def re_encrypt_data(%Client{} = client, incoming_key_identifier, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(incoming_key_identifier)}/reencrypt"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1272,29 +1334,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec translate_pin_data(AWS.Client.t(), translate_pin_data_input(), Keyword.t()) ::
+
+  @spec translate_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, translate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, translate_pin_data_errors()}
-  def translate_pin_data(%Client{} = client, input, options \\ []) do
+
+  def translate_pin_data(%Client{} = client, options \\ []) do
     url_path = "/pindata/translate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1329,33 +1402,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec verify_auth_request_cryptogram(
-          AWS.Client.t(),
-          verify_auth_request_cryptogram_input(),
-          Keyword.t()
-        ) ::
+
+  @spec verify_auth_request_cryptogram(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_auth_request_cryptogram_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_auth_request_cryptogram_errors()}
-  def verify_auth_request_cryptogram(%Client{} = client, input, options \\ []) do
+
+  def verify_auth_request_cryptogram(%Client{} = client, options \\ []) do
     url_path = "/cryptogram/verify"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1384,33 +1464,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec verify_card_validation_data(
-          AWS.Client.t(),
-          verify_card_validation_data_input(),
-          Keyword.t()
-        ) ::
+
+  @spec verify_card_validation_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_card_validation_data_errors()}
-  def verify_card_validation_data(%Client{} = client, input, options \\ []) do
+
+  def verify_card_validation_data(%Client{} = client, options \\ []) do
     url_path = "/cardvalidationdata/verify"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1427,29 +1514,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec verify_mac(AWS.Client.t(), verify_mac_input(), Keyword.t()) ::
+
+  @spec verify_mac(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_mac_errors()}
-  def verify_mac(%Client{} = client, input, options \\ []) do
+
+  def verify_mac(%Client{} = client, options \\ []) do
     url_path = "/mac/verify"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1475,28 +1573,39 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Optional parameters:
   """
-  @spec verify_pin_data(AWS.Client.t(), verify_pin_data_input(), Keyword.t()) ::
+
+  @spec verify_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_pin_data_errors()}
-  def verify_pin_data(%Client{} = client, input, options \\ []) do
+
+  def verify_pin_data(%Client{} = client, options \\ []) do
     url_path = "/pindata/verify"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

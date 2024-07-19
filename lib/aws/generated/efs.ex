@@ -12,18 +12,18 @@ defmodule AWS.EFS do
   @typedoc """
 
   ## Example:
-
+      
       update_file_system_protection_request() :: %{
         optional("ReplicationOverwriteProtection") => list(any())
       }
-
+      
   """
   @type update_file_system_protection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_size() :: %{
         "Timestamp" => non_neg_integer(),
         "Value" => float(),
@@ -31,48 +31,48 @@ defmodule AWS.EFS do
         "ValueInIA" => float(),
         "ValueInStandard" => float()
       }
-
+      
   """
   @type file_system_size() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_preferences_response() :: %{
         "NextToken" => String.t(),
         "ResourceIdPreference" => resource_id_preference()
       }
-
+      
   """
   @type describe_account_preferences_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_tags_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type delete_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mount_target_description() :: %{
         "AvailabilityZoneId" => String.t(),
         "AvailabilityZoneName" => String.t(),
@@ -85,244 +85,244 @@ defmodule AWS.EFS do
         "SubnetId" => String.t(),
         "VpcId" => String.t()
       }
-
+      
   """
   @type mount_target_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       backup_policy_description() :: %{
         optional("BackupPolicy") => backup_policy()
       }
-
+      
   """
   @type backup_policy_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_account_preferences_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_account_preferences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_limit_exceeded() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type file_system_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       root_directory() :: %{
         "CreationInfo" => creation_info(),
         "Path" => String.t()
       }
-
+      
   """
   @type root_directory() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unsupported_availability_zone() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type unsupported_availability_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_backup_policy_request() :: %{
         required("BackupPolicy") => backup_policy()
       }
-
+      
   """
   @type put_backup_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replication_configurations_response() :: %{
         "NextToken" => String.t(),
         "Replications" => list(replication_configuration_description()())
       }
-
+      
   """
   @type describe_replication_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_already_exists() :: %{
         "ErrorCode" => String.t(),
         "FileSystemId" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type file_system_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incorrect_file_system_life_cycle_state() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type incorrect_file_system_life_cycle_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_mount_target_request() :: %{
         optional("IpAddress") => String.t(),
         optional("SecurityGroups") => list(String.t()()),
         required("FileSystemId") => String.t(),
         required("SubnetId") => String.t()
       }
-
+      
   """
   @type create_mount_target_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_lifecycle_configuration_request() :: %{
         required("LifecyclePolicies") => list(lifecycle_policy()())
       }
-
+      
   """
   @type put_lifecycle_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_preferences_response() :: %{
         "ResourceIdPreference" => resource_id_preference()
       }
-
+      
   """
   @type put_account_preferences_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_in_use() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type file_system_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_tags_response() :: %{
         "Marker" => String.t(),
         "NextMarker" => String.t(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type describe_tags_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mount_target_conflict() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type mount_target_conflict() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination_to_create() :: %{
         "AvailabilityZoneName" => String.t(),
         "FileSystemId" => String.t(),
         "KmsKeyId" => String.t(),
         "Region" => String.t()
       }
-
+      
   """
   @type destination_to_create() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_group_limit_exceeded() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type security_group_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_mount_targets_response() :: %{
         "Marker" => String.t(),
         "MountTargets" => list(mount_target_description()()),
         "NextMarker" => String.t()
       }
-
+      
   """
   @type describe_mount_targets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_access_point_request() :: %{
         optional("PosixUser") => posix_user(),
         optional("RootDirectory") => root_directory(),
@@ -330,174 +330,174 @@ defmodule AWS.EFS do
         required("ClientToken") => String.t(),
         required("FileSystemId") => String.t()
       }
-
+      
   """
   @type create_access_point_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_replication_configuration_request() :: %{}
-
+      
   """
   @type delete_replication_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_policy_description() :: %{
         optional("FileSystemId") => String.t(),
         optional("Policy") => String.t()
       }
-
+      
   """
   @type file_system_policy_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_tags_request() :: %{
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type create_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_policy_exception() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type invalid_policy_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_account_preferences_request() :: %{
         required("ResourceIdType") => list(any())
       }
-
+      
   """
   @type put_account_preferences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_mount_target_request() :: %{}
-
+      
   """
   @type delete_mount_target_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       posix_user() :: %{
         "Gid" => float(),
         "SecondaryGids" => list(float()()),
         "Uid" => float()
       }
-
+      
   """
   @type posix_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       availability_zones_mismatch() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type availability_zones_mismatch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_file_system_request() :: %{
         optional("ProvisionedThroughputInMibps") => float(),
         optional("ThroughputMode") => list(any())
       }
-
+      
   """
   @type update_file_system_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_already_exists() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type replication_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       incorrect_mount_target_state() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type incorrect_mount_target_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       backup_policy() :: %{
         "Status" => list(any())
       }
-
+      
   """
   @type backup_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_file_system_request() :: %{
         optional("AvailabilityZoneName") => String.t(),
         optional("Backup") => boolean(),
@@ -509,37 +509,37 @@ defmodule AWS.EFS do
         optional("ThroughputMode") => list(any()),
         required("CreationToken") => String.t()
       }
-
+      
   """
   @type create_file_system_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_mount_target_security_groups_response() :: %{
         "SecurityGroups" => list(String.t()())
       }
-
+      
   """
   @type describe_mount_target_security_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mount_target_not_found() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type mount_target_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_description() :: %{
         "AvailabilityZoneId" => String.t(),
         "AvailabilityZoneName" => String.t(),
@@ -560,166 +560,166 @@ defmodule AWS.EFS do
         "Tags" => list(tag()()),
         "ThroughputMode" => list(any())
       }
-
+      
   """
   @type file_system_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_id_preference() :: %{
         "ResourceIdType" => list(any()),
         "Resources" => list(list(any())())
       }
-
+      
   """
   @type resource_id_preference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_protection_description() :: %{
         "ReplicationOverwriteProtection" => list(any())
       }
-
+      
   """
   @type file_system_protection_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dependency_timeout() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type dependency_timeout() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_point_limit_exceeded() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type access_point_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_interface_limit_exceeded() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type network_interface_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       modify_mount_target_security_groups_request() :: %{
         optional("SecurityGroups") => list(String.t()())
       }
-
+      
   """
   @type modify_mount_target_security_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       file_system_not_found() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type file_system_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_file_system_policy_request() :: %{
         optional("BypassPolicyLockoutSafetyCheck") => boolean(),
         required("Policy") => String.t()
       }
-
+      
   """
   @type put_file_system_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       insufficient_throughput_capacity() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type insufficient_throughput_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_point_not_found() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type access_point_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_file_system_policy_request() :: %{}
-
+      
   """
   @type delete_file_system_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       access_point_already_exists() :: %{
         "AccessPointId" => String.t(),
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type access_point_already_exists() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_configuration_description() :: %{
         "CreationTime" => non_neg_integer(),
         "Destinations" => list(destination()()),
@@ -728,85 +728,85 @@ defmodule AWS.EFS do
         "SourceFileSystemId" => String.t(),
         "SourceFileSystemRegion" => String.t()
       }
-
+      
   """
   @type replication_configuration_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_access_point_request() :: %{}
-
+      
   """
   @type delete_access_point_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_policy() :: %{
         "TransitionToArchive" => list(any()),
         "TransitionToIA" => list(any()),
         "TransitionToPrimaryStorageClass" => list(any())
       }
-
+      
   """
   @type lifecycle_policy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_group_not_found() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type security_group_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_replication_configuration_request() :: %{
         required("Destinations") => list(destination_to_create()())
       }
-
+      
   """
   @type create_replication_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_file_systems_request() :: %{
         optional("CreationToken") => String.t(),
         optional("FileSystemId") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type describe_file_systems_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_mount_targets_request() :: %{
         optional("AccessPointId") => String.t(),
         optional("FileSystemId") => String.t(),
@@ -814,272 +814,272 @@ defmodule AWS.EFS do
         optional("MaxItems") => integer(),
         optional("MountTargetId") => String.t()
       }
-
+      
   """
   @type describe_mount_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_backup_policy_request() :: %{}
-
+      
   """
   @type describe_backup_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_access_points_request() :: %{
         optional("AccessPointId") => String.t(),
         optional("FileSystemId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_access_points_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_mount_target_security_groups_request() :: %{}
-
+      
   """
   @type describe_mount_target_security_groups_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ip_address_in_use() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type ip_address_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       policy_not_found() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type policy_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       destination() :: %{
         "FileSystemId" => String.t(),
         "LastReplicatedTimestamp" => non_neg_integer(),
         "Region" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_file_systems_response() :: %{
         "FileSystems" => list(file_system_description()()),
         "Marker" => String.t(),
         "NextMarker" => String.t()
       }
-
+      
   """
   @type describe_file_systems_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       replication_not_found() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type replication_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       creation_info() :: %{
         "OwnerGid" => float(),
         "OwnerUid" => float(),
         "Permissions" => String.t()
       }
-
+      
   """
   @type creation_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throughput_limit_exceeded() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type throughput_limit_exceeded() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_tags_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
       }
-
+      
   """
   @type describe_tags_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_free_addresses_in_subnet() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type no_free_addresses_in_subnet() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_access_points_response() :: %{
         "AccessPoints" => list(access_point_description()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type describe_access_points_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_lifecycle_configuration_request() :: %{}
-
+      
   """
   @type describe_lifecycle_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_replication_configurations_request() :: %{
         optional("FileSystemId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_replication_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_file_system_policy_request() :: %{}
-
+      
   """
   @type describe_file_system_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       lifecycle_configuration_description() :: %{
         optional("LifecyclePolicies") => list(lifecycle_policy()())
       }
-
+      
   """
   @type lifecycle_configuration_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_point_description() :: %{
         "AccessPointArn" => String.t(),
         "AccessPointId" => String.t(),
@@ -1092,28 +1092,28 @@ defmodule AWS.EFS do
         "RootDirectory" => root_directory(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type access_point_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subnet_not_found() :: %{
         "ErrorCode" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type subnet_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_file_system_request() :: %{}
-
+      
   """
   @type delete_file_system_request() :: %{}
 
@@ -1344,29 +1344,40 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
-  @spec create_access_point(AWS.Client.t(), create_access_point_request(), Keyword.t()) ::
+
+  @spec create_access_point(AWS.Client.t(), Keyword.t()) ::
           {:ok, access_point_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_point_errors()}
-  def create_access_point(%Client{} = client, input, options \\ []) do
+
+  def create_access_point(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/access-points"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1382,29 +1393,40 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
-  @spec create_file_system(AWS.Client.t(), create_file_system_request(), Keyword.t()) ::
+
+  @spec create_file_system(AWS.Client.t(), Keyword.t()) ::
           {:ok, file_system_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_file_system_errors()}
-  def create_file_system(%Client{} = client, input, options \\ []) do
+
+  def create_file_system(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1422,29 +1444,40 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
-  @spec create_mount_target(AWS.Client.t(), create_mount_target_request(), Keyword.t()) ::
+
+  @spec create_mount_target(AWS.Client.t(), Keyword.t()) ::
           {:ok, mount_target_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mount_target_errors()}
-  def create_mount_target(%Client{} = client, input, options \\ []) do
+
+  def create_mount_target(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1458,46 +1491,46 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:source_file_system_id` (`t:string`) Specifies the Amazon EFS file system
-    that you want to replicate. This file system cannot already be a source or
-    destination file system in another replication configuration.
+  that you want to replicate. This file system cannot already be a source or
+  destination file system in another replication configuration.
 
   ## Optional parameters:
   """
-  @spec create_replication_configuration(
-          AWS.Client.t(),
-          String.t(),
-          create_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_replication_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, replication_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_configuration_errors()}
-  def create_replication_configuration(
-        %Client{} = client,
-        source_file_system_id,
-        input,
-        options \\ []
-      ) do
+
+  def create_replication_configuration(%Client{} = client, source_file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1513,34 +1546,45 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) The ID of the file system whose tags you want
-    to modify (String). This operation modifies the tags only, not the file
-    system.
+  to modify (String). This operation modifies the tags only, not the file
+  system.
 
   ## Optional parameters:
   """
-  @spec create_tags(AWS.Client.t(), String.t(), create_tags_request(), Keyword.t()) ::
+
+  @spec create_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tags_errors()}
-  def create_tags(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def create_tags(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/create-tags/#{AWS.Util.encode_uri(file_system_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1553,26 +1597,42 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:access_point_id` (`t:string`) The ID of the access point that you want to
-    delete.
+  delete.
 
   ## Optional parameters:
   """
-  @spec delete_access_point(
-          AWS.Client.t(),
-          String.t(),
-          delete_access_point_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_access_point(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_point_errors()}
-  def delete_access_point(%Client{} = client, access_point_id, input, options \\ []) do
+
+  def delete_access_point(%Client{} = client, access_point_id, options \\ []) do
     url_path = "/2015-02-01/access-points/#{AWS.Util.encode_uri(access_point_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1581,7 +1641,7 @@ defmodule AWS.EFS do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1601,17 +1661,38 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
-  @spec delete_file_system(AWS.Client.t(), String.t(), delete_file_system_request(), Keyword.t()) ::
+
+  @spec delete_file_system(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_system_errors()}
-  def delete_file_system(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def delete_file_system(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1620,7 +1701,7 @@ defmodule AWS.EFS do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1637,26 +1718,42 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) Specifies the EFS file system for which to
-    delete the FileSystemPolicy.
+  delete the FileSystemPolicy.
 
   ## Optional parameters:
   """
-  @spec delete_file_system_policy(
-          AWS.Client.t(),
-          String.t(),
-          delete_file_system_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_file_system_policy_errors()}
-  def delete_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def delete_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1665,7 +1762,7 @@ defmodule AWS.EFS do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1689,22 +1786,38 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
-  @spec delete_mount_target(
-          AWS.Client.t(),
-          String.t(),
-          delete_mount_target_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_mount_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mount_target_errors()}
-  def delete_mount_target(%Client{} = client, mount_target_id, input, options \\ []) do
+
+  def delete_mount_target(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1713,7 +1826,7 @@ defmodule AWS.EFS do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1730,33 +1843,43 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:source_file_system_id` (`t:string`) The ID of the source file system in the
-    replication configuration.
+  replication configuration.
 
   ## Optional parameters:
   """
-  @spec delete_replication_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_replication_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_configuration_errors()}
-  def delete_replication_configuration(
-        %Client{} = client,
-        source_file_system_id,
-        input,
-        options \\ []
-      ) do
+
+  def delete_replication_configuration(%Client{} = client, source_file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1765,7 +1888,7 @@ defmodule AWS.EFS do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1784,33 +1907,44 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) The ID of the file system whose tags you want
-    to delete (String).
+  to delete (String).
 
   ## Optional parameters:
   """
-  @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
+
+  @spec delete_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tags_errors()}
-  def delete_tags(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def delete_tags(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/delete-tags/#{AWS.Util.encode_uri(file_system_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1825,21 +1959,23 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   * `:access_point_id` (`t:string`) (Optional) Specifies an EFS access point to
-    describe in the response; mutually exclusive with FileSystemId.
+  describe in the response; mutually exclusive with FileSystemId.
   * `:file_system_id` (`t:string`) (Optional) If you provide a FileSystemId, EFS
-    returns all access points for that file system; mutually exclusive with
-    AccessPointId.
+  returns all access points for that file system; mutually exclusive with
+  AccessPointId.
   * `:max_results` (`t:integer`) (Optional) When retrieving all access points for
-    a file system, you can optionally specify the MaxItems parameter to limit
-    the number of objects returned in a response. The default value is 100.
+  a file system, you can optionally specify the MaxItems parameter to limit
+  the number of objects returned in a response. The default value is 100.
   * `:next_token` (`t:string`) NextToken is present if the response is paginated.
-    You can use NextMarker in the subsequent request to fetch the next page of
-    access point descriptions.
+  You can use NextMarker in the subsequent request to fetch the next page of
+  access point descriptions.
   """
+
   @spec describe_access_points(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_access_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_points_errors()}
+
   def describe_access_points(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/access-points"
 
@@ -1916,10 +2052,12 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
+
   @spec describe_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_account_preferences_errors()}
+
   def describe_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
 
@@ -1955,14 +2093,16 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) Specifies which EFS file system for which to
-    retrieve the BackupPolicy.
+  retrieve the BackupPolicy.
 
   ## Optional parameters:
   """
+
   @spec describe_backup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_backup_policy_errors()}
+
   def describe_backup_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
 
@@ -1998,14 +2138,16 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) Specifies which EFS file system to retrieve the
-    FileSystemPolicy for.
+  FileSystemPolicy for.
 
   ## Optional parameters:
   """
+
   @spec describe_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_system_policy_errors()}
+
   def describe_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
 
@@ -2052,22 +2194,24 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   * `:creation_token` (`t:string`) (Optional) Restricts the list to the file
-    system with this creation token (String). You specify a creation token when
-    you create an Amazon EFS file system.
+  system with this creation token (String). You specify a creation token when
+  you create an Amazon EFS file system.
   * `:file_system_id` (`t:string`) (Optional) ID of the file system whose
-    description you want to retrieve (String).
+  description you want to retrieve (String).
   * `:marker` (`t:string`) (Optional) Opaque pagination token returned from a
-    previous DescribeFileSystems operation (String). If present, specifies to
-    continue the list from where the returning call had left off.
+  previous DescribeFileSystems operation (String). If present, specifies to
+  continue the list from where the returning call had left off.
   * `:max_items` (`t:integer`) (Optional) Specifies the maximum number of file
-    systems to return in the response (integer). This number is automatically
-    set to 100. The response is paginated at 100 per page if you have more than
-    100 file systems.
+  systems to return in the response (integer). This number is automatically
+  set to 100. The response is paginated at 100 per page if you have more than
+  100 file systems.
   """
+
   @spec describe_file_systems(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_file_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_file_systems_errors()}
+
   def describe_file_systems(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems"
 
@@ -2139,14 +2283,16 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) The ID of the file system whose
-    LifecycleConfiguration object you want to retrieve (String).
+  LifecycleConfiguration object you want to retrieve (String).
 
   ## Optional parameters:
   """
+
   @spec describe_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lifecycle_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_lifecycle_configuration_errors()}
+
   def describe_lifecycle_configuration(%Client{} = client, file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
@@ -2186,14 +2332,16 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:mount_target_id` (`t:string`) The ID of the mount target whose security
-    groups you want to retrieve.
+  groups you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec describe_mount_target_security_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_mount_target_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mount_target_security_groups_errors()}
+
   def describe_mount_target_security_groups(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
 
@@ -2233,29 +2381,31 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   * `:access_point_id` (`t:string`) (Optional) The ID of the access point whose
-    mount targets that you want to list. It must be included in your request if
-    a FileSystemId or MountTargetId is not included in your request. Accepts
-    either an access point ID or ARN as input.
+  mount targets that you want to list. It must be included in your request if
+  a FileSystemId or MountTargetId is not included in your request. Accepts
+  either an access point ID or ARN as input.
   * `:file_system_id` (`t:string`) (Optional) ID of the file system whose mount
-    targets you want to list (String). It must be included in your request if an
-    AccessPointId or MountTargetId is not included. Accepts either a file system
-    ID or ARN as input.
+  targets you want to list (String). It must be included in your request if an
+  AccessPointId or MountTargetId is not included. Accepts either a file system
+  ID or ARN as input.
   * `:marker` (`t:string`) (Optional) Opaque pagination token returned from a
-    previous DescribeMountTargets operation (String). If present, it specifies
-    to continue the list from where the previous returning call left off.
+  previous DescribeMountTargets operation (String). If present, it specifies
+  to continue the list from where the previous returning call left off.
   * `:max_items` (`t:integer`) (Optional) Maximum number of mount targets to
-    return in the response. Currently, this number is automatically set to 10,
-    and other values are ignored. The response is paginated at 100 per page if
-    you have more than 100 mount targets.
+  return in the response. Currently, this number is automatically set to 10,
+  and other values are ignored. The response is paginated at 100 per page if
+  you have more than 100 mount targets.
   * `:mount_target_id` (`t:string`) (Optional) ID of the mount target that you
-    want to have described (String). It must be included in your request if
-    FileSystemId is not included. Accepts either a mount target ID or ARN as
-    input.
+  want to have described (String). It must be included in your request if
+  FileSystemId is not included. Accepts either a mount target ID or ARN as
+  input.
   """
+
   @spec describe_mount_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_mount_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_mount_targets_errors()}
+
   def describe_mount_targets(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
 
@@ -2340,18 +2490,20 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   * `:file_system_id` (`t:string`) You can retrieve the replication configuration
-    for a specific file system by providing its file system ID.
+  for a specific file system by providing its file system ID.
   * `:max_results` (`t:integer`) (Optional) To limit the number of objects
-    returned in a response, you can specify the MaxItems parameter. The default
-    value is 100.
+  returned in a response, you can specify the MaxItems parameter. The default
+  value is 100.
   * `:next_token` (`t:string`) NextToken is present if the response is paginated.
-    You can use NextToken in a subsequent request to fetch the next page of
-    output.
+  You can use NextToken in a subsequent request to fetch the next page of
+  output.
   """
+
   @spec describe_replication_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replication_configurations_errors()}
+
   def describe_replication_configurations(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems/replication-configurations"
 
@@ -2417,21 +2569,23 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) The ID of the file system whose tag set you
-    want to retrieve.
+  want to retrieve.
 
   ## Optional parameters:
   * `:marker` (`t:string`) (Optional) An opaque pagination token returned from a
-    previous DescribeTags operation (String). If present, it specifies to
-    continue the list from where the previous call left off.
+  previous DescribeTags operation (String). If present, it specifies to
+  continue the list from where the previous call left off.
   * `:max_items` (`t:integer`) (Optional) The maximum number of file system tags
-    to return in the response. Currently, this number is automatically set to
-    100, and other values are ignored. The response is paginated at 100 per page
-    if you have more than 100 tags.
+  to return in the response. Currently, this number is automatically set to
+  100, and other values are ignored. The response is paginated at 100 per page
+  if you have more than 100 tags.
   """
+
   @spec describe_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tags_errors()}
+
   def describe_tags(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/tags/#{AWS.Util.encode_uri(file_system_id)}"
 
@@ -2486,20 +2640,22 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:resource_id` (`t:string`) Specifies the EFS resource you want to retrieve
-    tags for. You can retrieve tags for EFS file systems and access points using
-    this API endpoint.
+  tags for. You can retrieve tags for EFS file systems and access points using
+  this API endpoint.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) (Optional) Specifies the maximum number of tag
-    objects to return in the response. The default value is 100.
+  objects to return in the response. The default value is 100.
   * `:next_token` (`t:string`) (Optional) You can use NextToken in a subsequent
-    request to fetch the next page of access point descriptions if the response
-    payload was paginated.
+  request to fetch the next page of access point descriptions if the response
+  payload was paginated.
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_id, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
 
@@ -2559,33 +2715,44 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:mount_target_id` (`t:string`) The ID of the mount target whose security
-    groups you want to modify.
+  groups you want to modify.
 
   ## Optional parameters:
   """
-  @spec modify_mount_target_security_groups(
-          AWS.Client.t(),
-          String.t(),
-          modify_mount_target_security_groups_request(),
-          Keyword.t()
-        ) ::
+
+  @spec modify_mount_target_security_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, modify_mount_target_security_groups_errors()}
-  def modify_mount_target_security_groups(
-        %Client{} = client,
-        mount_target_id,
-        input,
-        options \\ []
-      ) do
+
+  def modify_mount_target_security_groups(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2603,19 +2770,40 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
-  @spec put_account_preferences(AWS.Client.t(), put_account_preferences_request(), Keyword.t()) ::
+
+  @spec put_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_account_preferences_errors()}
-  def put_account_preferences(%Client{} = client, input, options \\ []) do
+
+  def put_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2626,23 +2814,44 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) Specifies which EFS file system to update the
-    backup policy for.
+  backup policy for.
 
   ## Optional parameters:
   """
-  @spec put_backup_policy(AWS.Client.t(), String.t(), put_backup_policy_request(), Keyword.t()) ::
+
+  @spec put_backup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_backup_policy_errors()}
-  def put_backup_policy(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def put_backup_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2660,28 +2869,44 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) The ID of the EFS file system that you want to
-    create or update the FileSystemPolicy for.
+  create or update the FileSystemPolicy for.
 
   ## Optional parameters:
   """
-  @spec put_file_system_policy(
-          AWS.Client.t(),
-          String.t(),
-          put_file_system_policy_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_file_system_policy_errors()}
-  def put_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def put_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2693,30 +2918,45 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) The ID of the file system for which you are
-    creating the LifecycleConfiguration object (String).
+  creating the LifecycleConfiguration object (String).
 
   ## Optional parameters:
   """
-  @spec put_lifecycle_configuration(
-          AWS.Client.t(),
-          String.t(),
-          put_lifecycle_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lifecycle_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_lifecycle_configuration_errors()}
-  def put_lifecycle_configuration(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def put_lifecycle_configuration(%Client{} = client, file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2727,33 +2967,44 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:resource_id` (`t:string`) The ID specifying the EFS resource that you want
-    to create a tag for.
+  to create a tag for.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_id, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_id, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2764,28 +3015,45 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:resource_id` (`t:string`) Specifies the EFS resource that you want to remove
-    tags from.
+  tags from.
   * `:tag_keys` (`t:list[com.amazonaws.efs#TagKey]`) The keys of the key-value tag
-    pairs that you want to remove from the specified EFS resource.
+  pairs that you want to remove from the specified EFS resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_id, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_id, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2794,7 +3062,7 @@ defmodule AWS.EFS do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2808,23 +3076,44 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string`) The ID of the file system that you want to
-    update.
+  update.
 
   ## Optional parameters:
   """
-  @spec update_file_system(AWS.Client.t(), String.t(), update_file_system_request(), Keyword.t()) ::
+
+  @spec update_file_system(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_system_errors()}
-  def update_file_system(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def update_file_system(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2837,23 +3126,39 @@ defmodule AWS.EFS do
 
   ## Optional parameters:
   """
-  @spec update_file_system_protection(
-          AWS.Client.t(),
-          String.t(),
-          update_file_system_protection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_file_system_protection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_protection_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_file_system_protection_errors()}
-  def update_file_system_protection(%Client{} = client, file_system_id, input, options \\ []) do
+
+  def update_file_system_protection(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/protection"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

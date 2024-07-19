@@ -12,7 +12,7 @@ defmodule AWS.Chatbot do
   @typedoc """
 
   ## Example:
-
+      
       create_teams_channel_configuration_request() :: %{
         optional("ChannelName") => String.t(),
         optional("GuardrailPolicyArns") => list(String.t()()),
@@ -27,170 +27,170 @@ defmodule AWS.Chatbot do
         required("TeamId") => String.t(),
         required("TenantId") => String.t()
       }
-
+      
   """
   @type create_teams_channel_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_workspace_authorization_fault() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type delete_slack_workspace_authorization_fault() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_teams_channel_configurations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("TeamId") => String.t()
       }
-
+      
   """
   @type list_teams_channel_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_teams_configured_team_request() :: %{
         required("TeamId") => String.t()
       }
-
+      
   """
   @type delete_teams_configured_team_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_channel_configuration_result() :: %{}
-
+      
   """
   @type delete_slack_channel_configuration_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_channel_configurations_request() :: %{
         optional("ChatConfigurationArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_slack_channel_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_workspace_authorization_result() :: %{}
-
+      
   """
   @type delete_slack_workspace_authorization_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_workspaces_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type describe_slack_workspaces_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_preferences_request() :: %{
         optional("TrainingDataCollectionEnabled") => boolean(),
         optional("UserAuthorizationRequired") => boolean()
       }
-
+      
   """
   @type update_account_preferences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_slack_channel_configuration_result() :: %{
         "ChannelConfiguration" => slack_channel_configuration()
       }
-
+      
   """
   @type create_slack_channel_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_teams_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type delete_teams_channel_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_microsoft_teams_configured_teams_result() :: %{
         "ConfiguredTeams" => list(configured_team()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_microsoft_teams_configured_teams_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_microsoft_teams_configured_teams_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_microsoft_teams_configured_teams_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_slack_channel_configuration_request() :: %{
         optional("GuardrailPolicyArns") => list(String.t()()),
         optional("IamRoleArn") => String.t(),
@@ -201,99 +201,99 @@ defmodule AWS.Chatbot do
         required("ChatConfigurationArn") => String.t(),
         required("SlackChannelId") => String.t()
       }
-
+      
   """
   @type update_slack_channel_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_teams_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type update_teams_channel_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_microsoft_teams_configured_teams_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type list_microsoft_teams_configured_teams_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_teams_configured_team_result() :: %{}
-
+      
   """
   @type delete_teams_configured_team_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_channel_configuration_request() :: %{
         required("ChatConfigurationArn") => String.t()
       }
-
+      
   """
   @type delete_slack_channel_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_preferences_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type get_account_preferences_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_microsoft_teams_user_identity_result() :: %{}
-
+      
   """
   @type delete_microsoft_teams_user_identity_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_chime_webhook_configuration_result() :: %{
         "WebhookConfiguration" => chime_webhook_configuration()
       }
-
+      
   """
   @type create_chime_webhook_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_teams_channel_configuration_request() :: %{
         optional("ChannelName") => String.t(),
         optional("GuardrailPolicyArns") => list(String.t()()),
@@ -304,70 +304,70 @@ defmodule AWS.Chatbot do
         required("ChannelId") => String.t(),
         required("ChatConfigurationArn") => String.t()
       }
-
+      
   """
   @type update_teams_channel_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_chime_webhook_configurations_result() :: %{
         "NextToken" => String.t(),
         "WebhookConfigurations" => list(chime_webhook_configuration()())
       }
-
+      
   """
   @type describe_chime_webhook_configurations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_microsoft_teams_user_identities_request() :: %{
         optional("ChatConfigurationArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_microsoft_teams_user_identities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_user_identity_result() :: %{}
-
+      
   """
   @type delete_slack_user_identity_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       teams_user_identity() :: %{
         "AwsUserIdentity" => String.t(),
         "ChatConfigurationArn" => String.t(),
@@ -377,260 +377,260 @@ defmodule AWS.Chatbot do
         "TeamsTenantId" => String.t(),
         "UserId" => String.t()
       }
-
+      
   """
   @type teams_user_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_preferences_result() :: %{
         "AccountPreferences" => account_preferences()
       }
-
+      
   """
   @type get_account_preferences_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_preferences_result() :: %{
         "AccountPreferences" => account_preferences()
       }
-
+      
   """
   @type update_account_preferences_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_teams_configured_team_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type delete_teams_configured_team_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "TagKey" => String.t(),
         "TagValue" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_preferences_request() :: %{}
-
+      
   """
   @type get_account_preferences_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_slack_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type create_slack_channel_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_workspaces_result() :: %{
         "NextToken" => String.t(),
         "SlackWorkspaces" => list(slack_workspace()())
       }
-
+      
   """
   @type describe_slack_workspaces_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_teams_channel_configuration_request() :: %{
         required("ChatConfigurationArn") => String.t()
       }
-
+      
   """
   @type delete_teams_channel_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_teams_channel_configurations_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type list_teams_channel_configurations_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_chime_webhook_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type update_chime_webhook_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_teams_channel_configuration_result() :: %{
         "ChannelConfiguration" => teams_channel_configuration()
       }
-
+      
   """
   @type create_teams_channel_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_microsoft_teams_user_identity_request() :: %{
         required("ChatConfigurationArn") => String.t(),
         required("UserId") => String.t()
       }
-
+      
   """
   @type delete_microsoft_teams_user_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_teams_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type create_teams_channel_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_teams_channel_configurations_result() :: %{
         "NextToken" => String.t(),
         "TeamChannelConfigurations" => list(teams_channel_configuration()())
       }
-
+      
   """
   @type list_teams_channel_configurations_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_chime_webhook_configuration_result() :: %{
         "WebhookConfiguration" => chime_webhook_configuration()
       }
-
+      
   """
   @type update_chime_webhook_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account_preferences() :: %{
         "TrainingDataCollectionEnabled" => boolean(),
         "UserAuthorizationRequired" => boolean()
       }
-
+      
   """
   @type account_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_account_preferences_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type update_account_preferences_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_microsoft_teams_user_identity_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type delete_microsoft_teams_user_identity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slack_workspace() :: %{
         "SlackTeamId" => String.t(),
         "SlackTeamName" => String.t()
       }
-
+      
   """
   @type slack_workspace() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_chime_webhook_configuration_request() :: %{
         optional("LoggingLevel") => String.t(),
         optional("Tags") => list(tag()()),
@@ -640,37 +640,37 @@ defmodule AWS.Chatbot do
         required("WebhookDescription") => String.t(),
         required("WebhookUrl") => String.t()
       }
-
+      
   """
   @type create_chime_webhook_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_workspaces_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_slack_workspaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_teams_channel_configuration_request() :: %{
         required("ChatConfigurationArn") => String.t()
       }
-
+      
   """
   @type get_teams_channel_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_slack_channel_configuration_request() :: %{
         optional("GuardrailPolicyArns") => list(String.t()()),
         optional("LoggingLevel") => String.t(),
@@ -683,14 +683,14 @@ defmodule AWS.Chatbot do
         required("SlackChannelId") => String.t(),
         required("SlackTeamId") => String.t()
       }
-
+      
   """
   @type create_slack_channel_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_chime_webhook_configuration_request() :: %{
         optional("IamRoleArn") => String.t(),
         optional("LoggingLevel") => String.t(),
@@ -699,148 +699,148 @@ defmodule AWS.Chatbot do
         optional("WebhookUrl") => String.t(),
         required("ChatConfigurationArn") => String.t()
       }
-
+      
   """
   @type update_chime_webhook_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configured_team() :: %{
         "TeamId" => String.t(),
         "TeamName" => String.t(),
         "TenantId" => String.t()
       }
-
+      
   """
   @type configured_team() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_user_identity_request() :: %{
         required("ChatConfigurationArn") => String.t(),
         required("SlackTeamId") => String.t(),
         required("SlackUserId") => String.t()
       }
-
+      
   """
   @type delete_slack_user_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_slack_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type update_slack_channel_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_user_identity_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type delete_slack_user_identity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_chime_webhook_configurations_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type describe_chime_webhook_configurations_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_microsoft_teams_user_identities_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type list_microsoft_teams_user_identities_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_chime_webhook_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type delete_chime_webhook_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_workspace_authorization_request() :: %{
         required("SlackTeamId") => String.t()
       }
-
+      
   """
   @type delete_slack_workspace_authorization_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_error() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_service_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_user_identities_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type describe_slack_user_identities_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slack_channel_configuration() :: %{
         "ChatConfigurationArn" => String.t(),
         "ConfigurationName" => String.t(),
@@ -855,48 +855,48 @@ defmodule AWS.Chatbot do
         "Tags" => list(tag()()),
         "UserAuthorizationRequired" => boolean()
       }
-
+      
   """
   @type slack_channel_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("ResourceARN") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_microsoft_teams_user_identities_result() :: %{
         "NextToken" => String.t(),
         "TeamsUserIdentities" => list(teams_user_identity()())
       }
-
+      
   """
   @type list_microsoft_teams_user_identities_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_teams_channel_configuration_result() :: %{
         "ChannelConfiguration" => teams_channel_configuration()
       }
-
+      
   """
   @type get_teams_channel_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       chime_webhook_configuration() :: %{
         "ChatConfigurationArn" => String.t(),
         "ConfigurationName" => String.t(),
@@ -906,14 +906,14 @@ defmodule AWS.Chatbot do
         "Tags" => list(tag()()),
         "WebhookDescription" => String.t()
       }
-
+      
   """
   @type chime_webhook_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       slack_user_identity() :: %{
         "AwsUserIdentity" => String.t(),
         "ChatConfigurationArn" => String.t(),
@@ -921,89 +921,89 @@ defmodule AWS.Chatbot do
         "SlackTeamId" => String.t(),
         "SlackUserId" => String.t()
       }
-
+      
   """
   @type slack_user_identity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_chime_webhook_configuration_result() :: %{}
-
+      
   """
   @type delete_chime_webhook_configuration_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_chime_webhook_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type create_chime_webhook_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_teams_channel_configuration_result() :: %{}
-
+      
   """
   @type delete_teams_channel_configuration_result() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_chime_webhook_configurations_request() :: %{
         optional("ChatConfigurationArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_chime_webhook_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_slack_channel_configuration_result() :: %{
         "ChannelConfiguration" => slack_channel_configuration()
       }
-
+      
   """
   @type update_slack_channel_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_teams_channel_configuration_result() :: %{
         "ChannelConfiguration" => teams_channel_configuration()
       }
-
+      
   """
   @type update_teams_channel_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       teams_channel_configuration() :: %{
         "ChannelId" => String.t(),
         "ChannelName" => String.t(),
@@ -1019,99 +1019,99 @@ defmodule AWS.Chatbot do
         "TenantId" => String.t(),
         "UserAuthorizationRequired" => boolean()
       }
-
+      
   """
   @type teams_channel_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_user_identities_result() :: %{
         "NextToken" => String.t(),
         "SlackUserIdentities" => list(slack_user_identity()())
       }
-
+      
   """
   @type describe_slack_user_identities_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_slack_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type delete_slack_channel_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_chime_webhook_configuration_request() :: %{
         required("ChatConfigurationArn") => String.t()
       }
-
+      
   """
   @type delete_chime_webhook_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_teams_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type get_teams_channel_configuration_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_user_identities_request() :: %{
         optional("ChatConfigurationArn") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type describe_slack_user_identities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_channel_configurations_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type describe_slack_channel_configurations_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_slack_channel_configurations_result() :: %{
         "NextToken" => String.t(),
         "SlackChannelConfigurations" => list(slack_channel_configuration()())
       }
-
+      
   """
   @type describe_slack_channel_configurations_result() :: %{String.t() => any()}
 
@@ -1277,33 +1277,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec create_chime_webhook_configuration(
-          AWS.Client.t(),
-          create_chime_webhook_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_chime_webhook_configuration_errors()}
-  def create_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_chime_webhook_configuration(%Client{} = client, options \\ []) do
     url_path = "/create-chime-webhook-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1315,33 +1322,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec create_microsoft_teams_channel_configuration(
-          AWS.Client.t(),
-          create_teams_channel_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_microsoft_teams_channel_configuration_errors()}
-  def create_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/create-ms-teams-channel-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1353,33 +1367,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec create_slack_channel_configuration(
-          AWS.Client.t(),
-          create_slack_channel_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_slack_channel_configuration_errors()}
-  def create_slack_channel_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/create-slack-channel-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1391,33 +1412,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec delete_chime_webhook_configuration(
-          AWS.Client.t(),
-          delete_chime_webhook_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_chime_webhook_configuration_errors()}
-  def delete_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_chime_webhook_configuration(%Client{} = client, options \\ []) do
     url_path = "/delete-chime-webhook-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1429,33 +1457,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec delete_microsoft_teams_channel_configuration(
-          AWS.Client.t(),
-          delete_teams_channel_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_microsoft_teams_channel_configuration_errors()}
-  def delete_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/delete-ms-teams-channel-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1469,33 +1504,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec delete_microsoft_teams_configured_team(
-          AWS.Client.t(),
-          delete_teams_configured_team_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_microsoft_teams_configured_team(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_teams_configured_team_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_microsoft_teams_configured_team_errors()}
-  def delete_microsoft_teams_configured_team(%Client{} = client, input, options \\ []) do
+
+  def delete_microsoft_teams_configured_team(%Client{} = client, options \\ []) do
     url_path = "/delete-ms-teams-configured-teams"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1507,33 +1549,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec delete_microsoft_teams_user_identity(
-          AWS.Client.t(),
-          delete_microsoft_teams_user_identity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_microsoft_teams_user_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_microsoft_teams_user_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_microsoft_teams_user_identity_errors()}
-  def delete_microsoft_teams_user_identity(%Client{} = client, input, options \\ []) do
+
+  def delete_microsoft_teams_user_identity(%Client{} = client, options \\ []) do
     url_path = "/delete-ms-teams-user-identity"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1545,33 +1594,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec delete_slack_channel_configuration(
-          AWS.Client.t(),
-          delete_slack_channel_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_channel_configuration_errors()}
-  def delete_slack_channel_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/delete-slack-channel-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1583,33 +1639,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec delete_slack_user_identity(
-          AWS.Client.t(),
-          delete_slack_user_identity_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_slack_user_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_user_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_user_identity_errors()}
-  def delete_slack_user_identity(%Client{} = client, input, options \\ []) do
+
+  def delete_slack_user_identity(%Client{} = client, options \\ []) do
     url_path = "/delete-slack-user-identity"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1623,33 +1686,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec delete_slack_workspace_authorization(
-          AWS.Client.t(),
-          delete_slack_workspace_authorization_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_slack_workspace_authorization(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_workspace_authorization_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_slack_workspace_authorization_errors()}
-  def delete_slack_workspace_authorization(%Client{} = client, input, options \\ []) do
+
+  def delete_slack_workspace_authorization(%Client{} = client, options \\ []) do
     url_path = "/delete-slack-workspace-authorization"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1661,33 +1731,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec describe_chime_webhook_configurations(
-          AWS.Client.t(),
-          describe_chime_webhook_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_chime_webhook_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_chime_webhook_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_chime_webhook_configurations_errors()}
-  def describe_chime_webhook_configurations(%Client{} = client, input, options \\ []) do
+
+  def describe_chime_webhook_configurations(%Client{} = client, options \\ []) do
     url_path = "/describe-chime-webhook-configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1699,33 +1776,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec describe_slack_channel_configurations(
-          AWS.Client.t(),
-          describe_slack_channel_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_slack_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slack_channel_configurations_errors()}
-  def describe_slack_channel_configurations(%Client{} = client, input, options \\ []) do
+
+  def describe_slack_channel_configurations(%Client{} = client, options \\ []) do
     url_path = "/describe-slack-channel-configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1737,33 +1821,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec describe_slack_user_identities(
-          AWS.Client.t(),
-          describe_slack_user_identities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_slack_user_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_user_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slack_user_identities_errors()}
-  def describe_slack_user_identities(%Client{} = client, input, options \\ []) do
+
+  def describe_slack_user_identities(%Client{} = client, options \\ []) do
     url_path = "/describe-slack-user-identities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1775,33 +1866,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec describe_slack_workspaces(
-          AWS.Client.t(),
-          describe_slack_workspaces_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_slack_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_slack_workspaces_errors()}
-  def describe_slack_workspaces(%Client{} = client, input, options \\ []) do
+
+  def describe_slack_workspaces(%Client{} = client, options \\ []) do
     url_path = "/describe-slack-workspaces"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1813,29 +1911,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec get_account_preferences(AWS.Client.t(), get_account_preferences_request(), Keyword.t()) ::
+
+  @spec get_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_preferences_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_preferences_errors()}
-  def get_account_preferences(%Client{} = client, input, options \\ []) do
+
+  def get_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/get-account-preferences"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1847,33 +1956,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec get_microsoft_teams_channel_configuration(
-          AWS.Client.t(),
-          get_teams_channel_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_microsoft_teams_channel_configuration_errors()}
-  def get_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/get-ms-teams-channel-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1885,33 +2001,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec list_microsoft_teams_channel_configurations(
-          AWS.Client.t(),
-          list_teams_channel_configurations_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_microsoft_teams_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_teams_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_microsoft_teams_channel_configurations_errors()}
-  def list_microsoft_teams_channel_configurations(%Client{} = client, input, options \\ []) do
+
+  def list_microsoft_teams_channel_configurations(%Client{} = client, options \\ []) do
     url_path = "/list-ms-teams-channel-configurations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1923,33 +2046,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec list_microsoft_teams_configured_teams(
-          AWS.Client.t(),
-          list_microsoft_teams_configured_teams_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_microsoft_teams_configured_teams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_microsoft_teams_configured_teams_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_microsoft_teams_configured_teams_errors()}
-  def list_microsoft_teams_configured_teams(%Client{} = client, input, options \\ []) do
+
+  def list_microsoft_teams_configured_teams(%Client{} = client, options \\ []) do
     url_path = "/list-ms-teams-configured-teams"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1961,33 +2091,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec list_microsoft_teams_user_identities(
-          AWS.Client.t(),
-          list_microsoft_teams_user_identities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_microsoft_teams_user_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_microsoft_teams_user_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_microsoft_teams_user_identities_errors()}
-  def list_microsoft_teams_user_identities(%Client{} = client, input, options \\ []) do
+
+  def list_microsoft_teams_user_identities(%Client{} = client, options \\ []) do
     url_path = "/list-ms-teams-user-identities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1999,29 +2136,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/list-tags-for-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2033,29 +2181,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2067,29 +2226,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/untag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2101,33 +2271,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec update_account_preferences(
-          AWS.Client.t(),
-          update_account_preferences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_preferences_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_account_preferences_errors()}
-  def update_account_preferences(%Client{} = client, input, options \\ []) do
+
+  def update_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/update-account-preferences"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2139,33 +2316,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec update_chime_webhook_configuration(
-          AWS.Client.t(),
-          update_chime_webhook_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_chime_webhook_configuration_errors()}
-  def update_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_chime_webhook_configuration(%Client{} = client, options \\ []) do
     url_path = "/update-chime-webhook-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2177,33 +2361,40 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec update_microsoft_teams_channel_configuration(
-          AWS.Client.t(),
-          update_teams_channel_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_microsoft_teams_channel_configuration_errors()}
-  def update_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_microsoft_teams_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/update-ms-teams-channel-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2215,32 +2406,39 @@ defmodule AWS.Chatbot do
 
   ## Optional parameters:
   """
-  @spec update_slack_channel_configuration(
-          AWS.Client.t(),
-          update_slack_channel_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_slack_channel_configuration_errors()}
-  def update_slack_channel_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_slack_channel_configuration(%Client{} = client, options \\ []) do
     url_path = "/update-slack-channel-configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

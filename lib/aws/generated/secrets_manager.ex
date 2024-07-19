@@ -1060,12 +1060,25 @@ defmodule AWS.SecretsManager do
   ARN, or you can use filters. If Secrets Manager encounters errors such as
   `AccessDeniedException` while attempting to retrieve any of the secrets, you
   can see the errors in `Errors` in the response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20BatchGetSecretValue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_get_secret_value_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SecretIdList") => list(String.t()())
+    }
   """
-  @spec batch_get_secret_value(AWS.Client.t(), batch_get_secret_value_request(), Keyword.t()) ::
+
+  @spec batch_get_secret_value(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_get_secret_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_secret_value_errors()}
-  def batch_get_secret_value(%Client{} = client, input, options \\ []) do
+
+  def batch_get_secret_value(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1084,12 +1097,22 @@ defmodule AWS.SecretsManager do
   labels. For more information, see [How rotation
   works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html).
   To turn on automatic rotation again, call `RotateSecret`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20CancelRotateSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_rotate_secret_request`)
+    %{
+      required("SecretId") => String.t()
+    }
   """
-  @spec cancel_rotate_secret(AWS.Client.t(), cancel_rotate_secret_request(), Keyword.t()) ::
+
+  @spec cancel_rotate_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_rotate_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_rotate_secret_errors()}
-  def cancel_rotate_secret(%Client{} = client, input, options \\ []) do
+
+  def cancel_rotate_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1109,12 +1132,30 @@ defmodule AWS.SecretsManager do
   services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
   For information about creating a secret in the console, see [Create a
   secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20CreateSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_secret_request`)
+    %{
+      optional("AddReplicaRegions") => list(replica_region_type()()),
+      optional("ClientRequestToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("ForceOverwriteReplicaSecret") => boolean(),
+      optional("KmsKeyId") => String.t(),
+      optional("SecretBinary") => binary(),
+      optional("SecretString") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_secret(AWS.Client.t(), create_secret_request(), Keyword.t()) ::
+
+  @spec create_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_secret_errors()}
-  def create_secret(%Client{} = client, input, options \\ []) do
+
+  def create_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1124,12 +1165,22 @@ defmodule AWS.SecretsManager do
   @doc """
   Deletes the resource-based permission policy attached to the secret. To attach a
   policy to a secret, use `PutResourcePolicy`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_resource_policy_request`)
+    %{
+      required("SecretId") => String.t()
+    }
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1146,12 +1197,24 @@ defmodule AWS.SecretsManager do
   Regions. You must first delete the replicas using
   `RemoveRegionsFromReplication`, and then delete the primary secret. When you
   delete a replica, it is deleted immediately.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20DeleteSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_secret_request`)
+    %{
+      optional("ForceDeleteWithoutRecovery") => boolean(),
+      optional("RecoveryWindowInDays") => float(),
+      required("SecretId") => String.t()
+    }
   """
-  @spec delete_secret(AWS.Client.t(), delete_secret_request(), Keyword.t()) ::
+
+  @spec delete_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_secret_errors()}
-  def delete_secret(%Client{} = client, input, options \\ []) do
+
+  def delete_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1161,12 +1224,22 @@ defmodule AWS.SecretsManager do
   @doc """
   Retrieves the details of a secret. It does not include the encrypted secret
   value. Secrets Manager only returns fields that have a value in the response.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20DescribeSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_secret_request`)
+    %{
+      required("SecretId") => String.t()
+    }
   """
-  @spec describe_secret(AWS.Client.t(), describe_secret_request(), Keyword.t()) ::
+
+  @spec describe_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_secret_errors()}
-  def describe_secret(%Client{} = client, input, options \\ []) do
+
+  def describe_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1180,12 +1253,29 @@ defmodule AWS.SecretsManager do
   letters, numbers, and the following characters in passwords:
   `!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~` Secrets Manager generates a CloudTrail
   log entry when you call this action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20GetRandomPassword&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_random_password_request`)
+    %{
+      optional("ExcludeCharacters") => String.t(),
+      optional("ExcludeLowercase") => boolean(),
+      optional("ExcludeNumbers") => boolean(),
+      optional("ExcludePunctuation") => boolean(),
+      optional("ExcludeUppercase") => boolean(),
+      optional("IncludeSpace") => boolean(),
+      optional("PasswordLength") => float(),
+      optional("RequireEachIncludedType") => boolean()
+    }
   """
-  @spec get_random_password(AWS.Client.t(), get_random_password_request(), Keyword.t()) ::
+
+  @spec get_random_password(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_random_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_random_password_errors()}
-  def get_random_password(%Client{} = client, input, options \\ []) do
+
+  def get_random_password(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1201,12 +1291,22 @@ defmodule AWS.SecretsManager do
   not include sensitive information in request parameters because it might be
   logged. For more information, see [Logging Secrets Manager events with
   CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_resource_policy_request`)
+    %{
+      required("SecretId") => String.t()
+    }
   """
-  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_request(), Keyword.t()) ::
+
+  @spec get_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-  def get_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def get_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1217,12 +1317,24 @@ defmodule AWS.SecretsManager do
   Retrieves the contents of the encrypted fields `SecretString` or `SecretBinary`
   from the specified version of a secret, whichever contains content. To
   retrieve the values for a group of secrets, call `BatchGetSecretValue`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20GetSecretValue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_secret_value_request`)
+    %{
+      optional("VersionId") => String.t(),
+      optional("VersionStage") => String.t(),
+      required("SecretId") => String.t()
+    }
   """
-  @spec get_secret_value(AWS.Client.t(), get_secret_value_request(), Keyword.t()) ::
+
+  @spec get_secret_value(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_secret_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_secret_value_errors()}
-  def get_secret_value(%Client{} = client, input, options \\ []) do
+
+  def get_secret_value(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1239,12 +1351,25 @@ defmodule AWS.SecretsManager do
   sensitive information in request parameters because it might be logged. For
   more information, see [Logging Secrets Manager events with
   CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20ListSecretVersionIds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_secret_version_ids_request`)
+    %{
+      optional("IncludeDeprecated") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("SecretId") => String.t()
+    }
   """
-  @spec list_secret_version_ids(AWS.Client.t(), list_secret_version_ids_request(), Keyword.t()) ::
+
+  @spec list_secret_version_ids(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_secret_version_ids_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_secret_version_ids_errors()}
-  def list_secret_version_ids(%Client{} = client, input, options \\ []) do
+
+  def list_secret_version_ids(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1258,12 +1383,26 @@ defmodule AWS.SecretsManager do
   operations are eventually consistent. ListSecrets might not reflect changes
   from the last five minutes. You can get more recent information for a specific
   secret by calling `DescribeSecret`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20ListSecrets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_secrets_request`)
+    %{
+      optional("Filters") => list(filter()()),
+      optional("IncludePlannedDeletion") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("SortOrder") => list(any())
+    }
   """
-  @spec list_secrets(AWS.Client.t(), list_secrets_request(), Keyword.t()) ::
+
+  @spec list_secrets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_secrets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_secrets_errors()}
-  def list_secrets(%Client{} = client, input, options \\ []) do
+
+  def list_secrets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1278,12 +1417,24 @@ defmodule AWS.SecretsManager do
   For information about attaching a policy in the console, see [Attach a
   permissions policy to a
   secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_resource_policy_request`)
+    %{
+      optional("BlockPublicPolicy") => boolean(),
+      required("ResourcePolicy") => String.t(),
+      required("SecretId") => String.t()
+    }
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1300,12 +1451,27 @@ defmodule AWS.SecretsManager do
   versions created less than 24 hours ago. If you call `PutSecretValue` more
   than once every 10 minutes, you create more versions than Secrets Manager
   removes, and you will reach the quota for secret versions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20PutSecretValue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_secret_value_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("RotationToken") => String.t(),
+      optional("SecretBinary") => binary(),
+      optional("SecretString") => String.t(),
+      optional("VersionStages") => list(String.t()()),
+      required("SecretId") => String.t()
+    }
   """
-  @spec put_secret_value(AWS.Client.t(), put_secret_value_request(), Keyword.t()) ::
+
+  @spec put_secret_value(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_secret_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_secret_value_errors()}
-  def put_secret_value(%Client{} = client, input, options \\ []) do
+
+  def put_secret_value(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1315,16 +1481,24 @@ defmodule AWS.SecretsManager do
   @doc """
   For a secret that is replicated to other Regions, deletes the secret replicas
   from the Regions you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20RemoveRegionsFromReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_regions_from_replication_request`)
+    %{
+      required("RemoveReplicaRegions") => list(String.t()()),
+      required("SecretId") => String.t()
+    }
   """
-  @spec remove_regions_from_replication(
-          AWS.Client.t(),
-          remove_regions_from_replication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_regions_from_replication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_regions_from_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_regions_from_replication_errors()}
-  def remove_regions_from_replication(%Client{} = client, input, options \\ []) do
+
+  def remove_regions_from_replication(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1338,16 +1512,24 @@ defmodule AWS.SecretsManager do
   not include sensitive information in request parameters because it might be
   logged. For more information, see [Logging Secrets Manager events with
   CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20ReplicateSecretToRegions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:replicate_secret_to_regions_request`)
+    %{
+      optional("ForceOverwriteReplicaSecret") => boolean(),
+      required("AddReplicaRegions") => list(replica_region_type()()),
+      required("SecretId") => String.t()
+    }
   """
-  @spec replicate_secret_to_regions(
-          AWS.Client.t(),
-          replicate_secret_to_regions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec replicate_secret_to_regions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, replicate_secret_to_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, replicate_secret_to_regions_errors()}
-  def replicate_secret_to_regions(%Client{} = client, input, options \\ []) do
+
+  def replicate_secret_to_regions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1357,12 +1539,22 @@ defmodule AWS.SecretsManager do
   @doc """
   Cancels the scheduled deletion of a secret by removing the `DeletedDate` time
   stamp. You can access a secret again after it has been restored.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20RestoreSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:restore_secret_request`)
+    %{
+      required("SecretId") => String.t()
+    }
   """
-  @spec restore_secret(AWS.Client.t(), restore_secret_request(), Keyword.t()) ::
+
+  @spec restore_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, restore_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_secret_errors()}
-  def restore_secret(%Client{} = client, input, options \\ []) do
+
+  def restore_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1386,12 +1578,26 @@ defmodule AWS.SecretsManager do
   attached to an empty secret version. For more information, see [Troubleshoot
   rotation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html)
   in the *Secrets Manager User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20RotateSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:rotate_secret_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("RotateImmediately") => boolean(),
+      optional("RotationLambdaARN") => String.t(),
+      optional("RotationRules") => rotation_rules_type(),
+      required("SecretId") => String.t()
+    }
   """
-  @spec rotate_secret(AWS.Client.t(), rotate_secret_request(), Keyword.t()) ::
+
+  @spec rotate_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rotate_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rotate_secret_errors()}
-  def rotate_secret(%Client{} = client, input, options \\ []) do
+
+  def rotate_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1403,16 +1609,22 @@ defmodule AWS.SecretsManager do
   the replica to a primary secret in the replica Region. You must call this
   operation from the Region in which you want to promote the replica to a
   primary secret.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20StopReplicationToReplica&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_replication_to_replica_request`)
+    %{
+      required("SecretId") => String.t()
+    }
   """
-  @spec stop_replication_to_replica(
-          AWS.Client.t(),
-          stop_replication_to_replica_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_replication_to_replica(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_replication_to_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_replication_to_replica_errors()}
-  def stop_replication_to_replica(%Client{} = client, input, options \\ []) do
+
+  def stop_replication_to_replica(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1430,12 +1642,23 @@ defmodule AWS.SecretsManager do
   permissions. If successfully completing this operation would result in you
   losing your permissions for this secret, then the operation is blocked and
   returns an Access Denied error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("SecretId") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1446,12 +1669,23 @@ defmodule AWS.SecretsManager do
   Removes specific tags from a secret. This operation is idempotent. If a
   requested tag is not attached to the secret, no error is returned and the
   secret metadata is unchanged.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("SecretId") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1462,12 +1696,27 @@ defmodule AWS.SecretsManager do
   Modifies the details of a secret, including metadata and the secret value. To
   change the secret value, you can also use `PutSecretValue`. To change the
   rotation configuration of a secret, use `RotateSecret` instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20UpdateSecret&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_secret_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("KmsKeyId") => String.t(),
+      optional("SecretBinary") => binary(),
+      optional("SecretString") => String.t(),
+      required("SecretId") => String.t()
+    }
   """
-  @spec update_secret(AWS.Client.t(), update_secret_request(), Keyword.t()) ::
+
+  @spec update_secret(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_secret_errors()}
-  def update_secret(%Client{} = client, input, options \\ []) do
+
+  def update_secret(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1486,16 +1735,25 @@ defmodule AWS.SecretsManager do
   The staging labels that you specify in the `VersionStage` parameter are added
   to the existing list of staging labels for the version. You can move the
   `AWSCURRENT` staging label to this version by including it in this call.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20UpdateSecretVersionStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_secret_version_stage_request`)
+    %{
+      optional("MoveToVersionId") => String.t(),
+      optional("RemoveFromVersionId") => String.t(),
+      required("SecretId") => String.t(),
+      required("VersionStage") => String.t()
+    }
   """
-  @spec update_secret_version_stage(
-          AWS.Client.t(),
-          update_secret_version_stage_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_secret_version_stage(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_secret_version_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_secret_version_stage_errors()}
-  def update_secret_version_stage(%Client{} = client, input, options \\ []) do
+
+  def update_secret_version_stage(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1506,12 +1764,23 @@ defmodule AWS.SecretsManager do
   Validates that a resource policy does not grant a wide range of principals
   access to your secret. A resource-based policy is optional for secrets. The
   API performs three checks when validating the policy:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=secretsmanager%20ValidateResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:validate_resource_policy_request`)
+    %{
+      optional("SecretId") => String.t(),
+      required("ResourcePolicy") => String.t()
+    }
   """
-  @spec validate_resource_policy(AWS.Client.t(), validate_resource_policy_request(), Keyword.t()) ::
+
+  @spec validate_resource_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, validate_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, validate_resource_policy_errors()}
-  def validate_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def validate_resource_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

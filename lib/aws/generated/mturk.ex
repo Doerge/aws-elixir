@@ -1365,16 +1365,23 @@ defmodule AWS.MTurk do
   The `AcceptQualificationRequest` operation approves a Worker's request for a
   Qualification. Only the owner of the Qualification type can grant a
   Qualification request for that type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20AcceptQualificationRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:accept_qualification_request_request`)
+    %{
+      optional("IntegerValue") => integer(),
+      required("QualificationRequestId") => String.t()
+    }
   """
-  @spec accept_qualification_request(
-          AWS.Client.t(),
-          accept_qualification_request_request(),
-          Keyword.t()
-        ) ::
+
+  @spec accept_qualification_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_qualification_request_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_qualification_request_errors()}
-  def accept_qualification_request(%Client{} = client, input, options \\ []) do
+
+  def accept_qualification_request(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1385,12 +1392,24 @@ defmodule AWS.MTurk do
   The `ApproveAssignment` operation approves the results of a completed
   assignment. Approving an assignment initiates two payments from the
   Requester's Amazon.com account
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ApproveAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:approve_assignment_request`)
+    %{
+      optional("OverrideRejection") => boolean(),
+      optional("RequesterFeedback") => String.t(),
+      required("AssignmentId") => String.t()
+    }
   """
-  @spec approve_assignment(AWS.Client.t(), approve_assignment_request(), Keyword.t()) ::
+
+  @spec approve_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, approve_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, approve_assignment_errors()}
-  def approve_assignment(%Client{} = client, input, options \\ []) do
+
+  def approve_assignment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1403,16 +1422,26 @@ defmodule AWS.MTurk do
   Qualification request. It gives the Qualification directly to the Worker. You
   can only assign a Qualification of a Qualification type that you created
   (using the `CreateQualificationType` operation).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20AssociateQualificationWithWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:associate_qualification_with_worker_request`)
+    %{
+      optional("IntegerValue") => integer(),
+      optional("SendNotification") => boolean(),
+      required("QualificationTypeId") => String.t(),
+      required("WorkerId") => String.t()
+    }
   """
-  @spec associate_qualification_with_worker(
-          AWS.Client.t(),
-          associate_qualification_with_worker_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_qualification_with_worker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_qualification_with_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_qualification_with_worker_errors()}
-  def associate_qualification_with_worker(%Client{} = client, input, options \\ []) do
+
+  def associate_qualification_with_worker(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1423,16 +1452,25 @@ defmodule AWS.MTurk do
   The `CreateAdditionalAssignmentsForHIT` operation increases the maximum number
   of assignments of an existing HIT. To extend the maximum number of
   assignments, specify the number of additional assignments.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20CreateAdditionalAssignmentsForHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_additional_assignments_for_hit_request`)
+    %{
+      optional("UniqueRequestToken") => String.t(),
+      required("HITId") => String.t(),
+      required("NumberOfAdditionalAssignments") => integer()
+    }
   """
-  @spec create_additional_assignments_for_hit(
-          AWS.Client.t(),
-          create_additional_assignments_for_hit_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_additional_assignments_for_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_additional_assignments_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_additional_assignments_for_hit_errors()}
-  def create_additional_assignments_for_hit(%Client{} = client, input, options \\ []) do
+
+  def create_additional_assignments_for_hit(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1448,12 +1486,37 @@ defmodule AWS.MTurk do
   created for you, with a new `HITTypeID`. The HITTypeID can be used to create
   additional HITs in the future without needing to specify common parameters
   such as the title, description and reward amount each time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20CreateHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hit_request`)
+    %{
+      optional("AssignmentReviewPolicy") => review_policy(),
+      optional("AutoApprovalDelayInSeconds") => float(),
+      optional("HITLayoutId") => String.t(),
+      optional("HITLayoutParameters") => list(hit_layout_parameter()()),
+      optional("HITReviewPolicy") => review_policy(),
+      optional("Keywords") => String.t(),
+      optional("MaxAssignments") => integer(),
+      optional("QualificationRequirements") => list(qualification_requirement()()),
+      optional("Question") => String.t(),
+      optional("RequesterAnnotation") => String.t(),
+      optional("UniqueRequestToken") => String.t(),
+      required("AssignmentDurationInSeconds") => float(),
+      required("Description") => String.t(),
+      required("LifetimeInSeconds") => float(),
+      required("Reward") => String.t(),
+      required("Title") => String.t()
+    }
   """
-  @spec create_hit(AWS.Client.t(), create_hit_request(), Keyword.t()) ::
+
+  @spec create_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hit_errors()}
-  def create_hit(%Client{} = client, input, options \\ []) do
+
+  def create_hit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1465,12 +1528,28 @@ defmodule AWS.MTurk do
   to define a standard set of HIT properties to use when creating HITs. If you
   register a HIT type with values that match an existing HIT type, the HIT type
   ID of the existing type will be returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20CreateHITType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hit_type_request`)
+    %{
+      optional("AutoApprovalDelayInSeconds") => float(),
+      optional("Keywords") => String.t(),
+      optional("QualificationRequirements") => list(qualification_requirement()()),
+      required("AssignmentDurationInSeconds") => float(),
+      required("Description") => String.t(),
+      required("Reward") => String.t(),
+      required("Title") => String.t()
+    }
   """
-  @spec create_hit_type(AWS.Client.t(), create_hit_type_request(), Keyword.t()) ::
+
+  @spec create_hit_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hit_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hit_type_errors()}
-  def create_hit_type(%Client{} = client, input, options \\ []) do
+
+  def create_hit_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1483,12 +1562,31 @@ defmodule AWS.MTurk do
   is an alternative way to create HITs from the `CreateHIT` operation. This is
   the recommended best practice for Requesters who are creating large numbers of
   HITs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20CreateHITWithHITType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_hit_with_hit_type_request`)
+    %{
+      optional("AssignmentReviewPolicy") => review_policy(),
+      optional("HITLayoutId") => String.t(),
+      optional("HITLayoutParameters") => list(hit_layout_parameter()()),
+      optional("HITReviewPolicy") => review_policy(),
+      optional("MaxAssignments") => integer(),
+      optional("Question") => String.t(),
+      optional("RequesterAnnotation") => String.t(),
+      optional("UniqueRequestToken") => String.t(),
+      required("HITTypeId") => String.t(),
+      required("LifetimeInSeconds") => float()
+    }
   """
-  @spec create_hit_with_hit_type(AWS.Client.t(), create_hit_with_hit_type_request(), Keyword.t()) ::
+
+  @spec create_hit_with_hit_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_hit_with_hit_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_hit_with_hit_type_errors()}
-  def create_hit_with_hit_type(%Client{} = client, input, options \\ []) do
+
+  def create_hit_with_hit_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1498,16 +1596,31 @@ defmodule AWS.MTurk do
   @doc """
   The `CreateQualificationType` operation creates a new Qualification type, which
   is represented by a `QualificationType` data structure.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20CreateQualificationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_qualification_type_request`)
+    %{
+      optional("AnswerKey") => String.t(),
+      optional("AutoGranted") => boolean(),
+      optional("AutoGrantedValue") => integer(),
+      optional("Keywords") => String.t(),
+      optional("RetryDelayInSeconds") => float(),
+      optional("Test") => String.t(),
+      optional("TestDurationInSeconds") => float(),
+      required("Description") => String.t(),
+      required("Name") => String.t(),
+      required("QualificationTypeStatus") => list(any())
+    }
   """
-  @spec create_qualification_type(
-          AWS.Client.t(),
-          create_qualification_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_qualification_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_qualification_type_errors()}
-  def create_qualification_type(%Client{} = client, input, options \\ []) do
+
+  def create_qualification_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1518,12 +1631,23 @@ defmodule AWS.MTurk do
   The `CreateWorkerBlock` operation allows you to prevent a Worker from working on
   your HITs. For example, you can block a Worker who is producing poor quality
   work. You can block up to 100,000 Workers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20CreateWorkerBlock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_worker_block_request`)
+    %{
+      required("Reason") => String.t(),
+      required("WorkerId") => String.t()
+    }
   """
-  @spec create_worker_block(AWS.Client.t(), create_worker_block_request(), Keyword.t()) ::
+
+  @spec create_worker_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_worker_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_worker_block_errors()}
-  def create_worker_block(%Client{} = client, input, options \\ []) do
+
+  def create_worker_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1539,12 +1663,22 @@ defmodule AWS.MTurk do
   or still has active assignments), or on a HIT that is Reviewable but without
   all of its submitted assignments already approved or rejected, the service
   will return an error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20DeleteHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_hit_request`)
+    %{
+      required("HITId") => String.t()
+    }
   """
-  @spec delete_hit(AWS.Client.t(), delete_hit_request(), Keyword.t()) ::
+
+  @spec delete_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_hit_errors()}
-  def delete_hit(%Client{} = client, input, options \\ []) do
+
+  def delete_hit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1559,16 +1693,22 @@ defmodule AWS.MTurk do
   Qualification type, Amazon Mechanical Turk rejects those requests. After you
   delete a Qualification type, you can no longer use it to create HITs or HIT
   types.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20DeleteQualificationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_qualification_type_request`)
+    %{
+      required("QualificationTypeId") => String.t()
+    }
   """
-  @spec delete_qualification_type(
-          AWS.Client.t(),
-          delete_qualification_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_qualification_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_qualification_type_errors()}
-  def delete_qualification_type(%Client{} = client, input, options \\ []) do
+
+  def delete_qualification_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1582,12 +1722,23 @@ defmodule AWS.MTurk do
   the Worker ID is missing or invalid, this operation fails and returns the
   message “WorkerId is invalid.” If the specified Worker is not blocked, this
   operation returns successfully.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20DeleteWorkerBlock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_worker_block_request`)
+    %{
+      optional("Reason") => String.t(),
+      required("WorkerId") => String.t()
+    }
   """
-  @spec delete_worker_block(AWS.Client.t(), delete_worker_block_request(), Keyword.t()) ::
+
+  @spec delete_worker_block(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_worker_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_worker_block_errors()}
-  def delete_worker_block(%Client{} = client, input, options \\ []) do
+
+  def delete_worker_block(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1597,16 +1748,25 @@ defmodule AWS.MTurk do
   @doc """
   The `DisassociateQualificationFromWorker` revokes a previously granted
   Qualification from a user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20DisassociateQualificationFromWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_qualification_from_worker_request`)
+    %{
+      optional("Reason") => String.t(),
+      required("QualificationTypeId") => String.t(),
+      required("WorkerId") => String.t()
+    }
   """
-  @spec disassociate_qualification_from_worker(
-          AWS.Client.t(),
-          disassociate_qualification_from_worker_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_qualification_from_worker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_qualification_from_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_qualification_from_worker_errors()}
-  def disassociate_qualification_from_worker(%Client{} = client, input, options \\ []) do
+
+  def disassociate_qualification_from_worker(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1620,12 +1780,22 @@ defmodule AWS.MTurk do
   have enabled AWS Billing. Note: If you have enabled AWS Billing and still have
   a remaining Prepaid HITs balance, this balance can be viewed on the My Account
   page in the Requester console.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20GetAccountBalance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_account_balance_request`)
+    %{
+      
+    }
   """
-  @spec get_account_balance(AWS.Client.t(), get_account_balance_request(), Keyword.t()) ::
+
+  @spec get_account_balance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_account_balance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_balance_errors()}
-  def get_account_balance(%Client{} = client, input, options \\ []) do
+
+  def get_account_balance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1634,12 +1804,22 @@ defmodule AWS.MTurk do
 
   @doc """
   The `GetAssignment` operation retrieves the details of the specified Assignment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20GetAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_assignment_request`)
+    %{
+      required("AssignmentId") => String.t()
+    }
   """
-  @spec get_assignment(AWS.Client.t(), get_assignment_request(), Keyword.t()) ::
+
+  @spec get_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assignment_errors()}
-  def get_assignment(%Client{} = client, input, options \\ []) do
+
+  def get_assignment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1657,12 +1837,23 @@ defmodule AWS.MTurk do
   structure will no longer support the `FileUploadAnswer` element to be used for
   the QuestionForm data structure. Instead, we recommend that Requesters who
   want to create HITs asking Workers to upload files to use Amazon S3.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20GetFileUploadURL&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_file_upload_url_request`)
+    %{
+      required("AssignmentId") => String.t(),
+      required("QuestionIdentifier") => String.t()
+    }
   """
-  @spec get_file_upload_url(AWS.Client.t(), get_file_upload_url_request(), Keyword.t()) ::
+
+  @spec get_file_upload_url(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_file_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_file_upload_url_errors()}
-  def get_file_upload_url(%Client{} = client, input, options \\ []) do
+
+  def get_file_upload_url(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1671,12 +1862,22 @@ defmodule AWS.MTurk do
 
   @doc """
   The `GetHIT` operation retrieves the details of the specified HIT.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20GetHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_hit_request`)
+    %{
+      required("HITId") => String.t()
+    }
   """
-  @spec get_hit(AWS.Client.t(), get_hit_request(), Keyword.t()) ::
+
+  @spec get_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_hit_errors()}
-  def get_hit(%Client{} = client, input, options \\ []) do
+
+  def get_hit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1688,12 +1889,23 @@ defmodule AWS.MTurk do
   Qualification for a given Qualification type. To get a Worker's Qualification,
   you must know the Worker's ID. The Worker's ID is included in the assignment
   data returned by the `ListAssignmentsForHIT` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20GetQualificationScore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_qualification_score_request`)
+    %{
+      required("QualificationTypeId") => String.t(),
+      required("WorkerId") => String.t()
+    }
   """
-  @spec get_qualification_score(AWS.Client.t(), get_qualification_score_request(), Keyword.t()) ::
+
+  @spec get_qualification_score(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_qualification_score_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_qualification_score_errors()}
-  def get_qualification_score(%Client{} = client, input, options \\ []) do
+
+  def get_qualification_score(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1703,12 +1915,22 @@ defmodule AWS.MTurk do
   @doc """
   The `GetQualificationType`operation retrieves information about a Qualification
   type using its ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20GetQualificationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_qualification_type_request`)
+    %{
+      required("QualificationTypeId") => String.t()
+    }
   """
-  @spec get_qualification_type(AWS.Client.t(), get_qualification_type_request(), Keyword.t()) ::
+
+  @spec get_qualification_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_qualification_type_errors()}
-  def get_qualification_type(%Client{} = client, input, options \\ []) do
+
+  def get_qualification_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1722,12 +1944,25 @@ defmodule AWS.MTurk do
   HIT requested multiple assignments, and has received some results but has not
   yet become Reviewable, you can still retrieve the partial results with this
   operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListAssignmentsForHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_assignments_for_hit_request`)
+    %{
+      optional("AssignmentStatuses") => list(list(any())()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("HITId") => String.t()
+    }
   """
-  @spec list_assignments_for_hit(AWS.Client.t(), list_assignments_for_hit_request(), Keyword.t()) ::
+
+  @spec list_assignments_for_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_assignments_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_assignments_for_hit_errors()}
-  def list_assignments_for_hit(%Client{} = client, input, options \\ []) do
+
+  def list_assignments_for_hit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1737,12 +1972,25 @@ defmodule AWS.MTurk do
   @doc """
   The `ListBonusPayments` operation retrieves the amounts of bonuses you have paid
   to Workers for a given HIT or assignment.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListBonusPayments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_bonus_payments_request`)
+    %{
+      optional("AssignmentId") => String.t(),
+      optional("HITId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_bonus_payments(AWS.Client.t(), list_bonus_payments_request(), Keyword.t()) ::
+
+  @spec list_bonus_payments(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_bonus_payments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_bonus_payments_errors()}
-  def list_bonus_payments(%Client{} = client, input, options \\ []) do
+
+  def list_bonus_payments(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1753,12 +2001,23 @@ defmodule AWS.MTurk do
   The `ListHITs` operation returns all of a Requester's HITs. The operation
   returns HITs of any status, except for HITs that have been deleted of with the
   DeleteHIT operation or that have been auto-deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListHITs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hits_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_hits(AWS.Client.t(), list_hits_request(), Keyword.t()) ::
+
+  @spec list_hits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hits_errors()}
-  def list_hits(%Client{} = client, input, options \\ []) do
+
+  def list_hits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1770,16 +2029,25 @@ defmodule AWS.MTurk do
   Qualification type for a Qualification requirement. The operation returns HITs
   of any status, except for HITs that have been deleted with the `DeleteHIT`
   operation or that have been auto-deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListHITsForQualificationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_hits_for_qualification_type_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("QualificationTypeId") => String.t()
+    }
   """
-  @spec list_hits_for_qualification_type(
-          AWS.Client.t(),
-          list_hits_for_qualification_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_hits_for_qualification_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_hits_for_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_hits_for_qualification_type_errors()}
-  def list_hits_for_qualification_type(%Client{} = client, input, options \\ []) do
+
+  def list_hits_for_qualification_type(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1791,16 +2059,24 @@ defmodule AWS.MTurk do
   of a particular Qualification type. The owner of the Qualification type calls
   this operation to poll for pending requests, and accepts them using the
   AcceptQualification operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListQualificationRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_qualification_requests_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("QualificationTypeId") => String.t()
+    }
   """
-  @spec list_qualification_requests(
-          AWS.Client.t(),
-          list_qualification_requests_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_qualification_requests(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_qualification_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_qualification_requests_errors()}
-  def list_qualification_requests(%Client{} = client, input, options \\ []) do
+
+  def list_qualification_requests(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1810,12 +2086,26 @@ defmodule AWS.MTurk do
   @doc """
   The `ListQualificationTypes` operation returns a list of Qualification types,
   filtered by an optional search term.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListQualificationTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_qualification_types_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("MustBeOwnedByCaller") => boolean(),
+      optional("NextToken") => String.t(),
+      optional("Query") => String.t(),
+      required("MustBeRequestable") => boolean()
+    }
   """
-  @spec list_qualification_types(AWS.Client.t(), list_qualification_types_request(), Keyword.t()) ::
+
+  @spec list_qualification_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_qualification_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_qualification_types_errors()}
-  def list_qualification_types(%Client{} = client, input, options \\ []) do
+
+  def list_qualification_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1828,16 +2118,28 @@ defmodule AWS.MTurk do
   HIT. For information about how to specify Review Policies when you call
   CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation
   can return results for both Assignment-level and HIT-level review results.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListReviewPolicyResultsForHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_review_policy_results_for_hit_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PolicyLevels") => list(list(any())()),
+      optional("RetrieveActions") => boolean(),
+      optional("RetrieveResults") => boolean(),
+      required("HITId") => String.t()
+    }
   """
-  @spec list_review_policy_results_for_hit(
-          AWS.Client.t(),
-          list_review_policy_results_for_hit_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_review_policy_results_for_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_review_policy_results_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_review_policy_results_for_hit_errors()}
-  def list_review_policy_results_for_hit(%Client{} = client, input, options \\ []) do
+
+  def list_review_policy_results_for_hit(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1848,12 +2150,25 @@ defmodule AWS.MTurk do
   The `ListReviewableHITs` operation retrieves the HITs with Status equal to
   Reviewable or Status equal to Reviewing that belong to the Requester calling
   the operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListReviewableHITs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_reviewable_hits_request`)
+    %{
+      optional("HITTypeId") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_reviewable_hits(AWS.Client.t(), list_reviewable_hits_request(), Keyword.t()) ::
+
+  @spec list_reviewable_hits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_reviewable_hits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_reviewable_hits_errors()}
-  def list_reviewable_hits(%Client{} = client, input, options \\ []) do
+
+  def list_reviewable_hits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1863,12 +2178,23 @@ defmodule AWS.MTurk do
   @doc """
   The `ListWorkersBlocks` operation retrieves a list of Workers who are blocked
   from working on your HITs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListWorkerBlocks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_worker_blocks_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_worker_blocks(AWS.Client.t(), list_worker_blocks_request(), Keyword.t()) ::
+
+  @spec list_worker_blocks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_worker_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_worker_blocks_errors()}
-  def list_worker_blocks(%Client{} = client, input, options \\ []) do
+
+  def list_worker_blocks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1878,16 +2204,26 @@ defmodule AWS.MTurk do
   @doc """
   The `ListWorkersWithQualificationType` operation returns all of the Workers that
   have been associated with a given Qualification type.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20ListWorkersWithQualificationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_workers_with_qualification_type_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any()),
+      required("QualificationTypeId") => String.t()
+    }
   """
-  @spec list_workers_with_qualification_type(
-          AWS.Client.t(),
-          list_workers_with_qualification_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_workers_with_qualification_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_workers_with_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workers_with_qualification_type_errors()}
-  def list_workers_with_qualification_type(%Client{} = client, input, options \\ []) do
+
+  def list_workers_with_qualification_type(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1900,12 +2236,24 @@ defmodule AWS.MTurk do
   same message with a single call to the NotifyWorkers operation. The
   NotifyWorkers operation will send a notification email to a Worker only if you
   have previously approved or rejected work from the Worker.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20NotifyWorkers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:notify_workers_request`)
+    %{
+      required("MessageText") => String.t(),
+      required("Subject") => String.t(),
+      required("WorkerIds") => list(String.t()())
+    }
   """
-  @spec notify_workers(AWS.Client.t(), notify_workers_request(), Keyword.t()) ::
+
+  @spec notify_workers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, notify_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_workers_errors()}
-  def notify_workers(%Client{} = client, input, options \\ []) do
+
+  def notify_workers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1919,12 +2267,23 @@ defmodule AWS.MTurk do
   feedback message with the rejection, it helps the Worker understand why the
   assignment was rejected, and can improve the quality of the results the Worker
   submits in the future.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20RejectAssignment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reject_assignment_request`)
+    %{
+      required("AssignmentId") => String.t(),
+      required("RequesterFeedback") => String.t()
+    }
   """
-  @spec reject_assignment(AWS.Client.t(), reject_assignment_request(), Keyword.t()) ::
+
+  @spec reject_assignment(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_assignment_errors()}
-  def reject_assignment(%Client{} = client, input, options \\ []) do
+
+  def reject_assignment(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1934,16 +2293,23 @@ defmodule AWS.MTurk do
   @doc """
   The `RejectQualificationRequest` operation rejects a user's request for a
   Qualification.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20RejectQualificationRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:reject_qualification_request_request`)
+    %{
+      optional("Reason") => String.t(),
+      required("QualificationRequestId") => String.t()
+    }
   """
-  @spec reject_qualification_request(
-          AWS.Client.t(),
-          reject_qualification_request_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reject_qualification_request(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_qualification_request_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_qualification_request_errors()}
-  def reject_qualification_request(%Client{} = client, input, options \\ []) do
+
+  def reject_qualification_request(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1960,12 +2326,26 @@ defmodule AWS.MTurk do
   Turk collects a fee for bonus payments, similar to the HIT listing fee. This
   operation fails if your account does not have enough funds to pay for both the
   bonus and the fees.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20SendBonus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_bonus_request`)
+    %{
+      optional("UniqueRequestToken") => String.t(),
+      required("AssignmentId") => String.t(),
+      required("BonusAmount") => String.t(),
+      required("Reason") => String.t(),
+      required("WorkerId") => String.t()
+    }
   """
-  @spec send_bonus(AWS.Client.t(), send_bonus_request(), Keyword.t()) ::
+
+  @spec send_bonus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_bonus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_bonus_errors()}
-  def send_bonus(%Client{} = client, input, options \\ []) do
+
+  def send_bonus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1979,16 +2359,23 @@ defmodule AWS.MTurk do
   setting up notifications for a real HIT type and trying to trigger them using
   the website. When you call this operation, the service attempts to send the
   test notification immediately.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20SendTestEventNotification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_test_event_notification_request`)
+    %{
+      required("Notification") => notification_specification(),
+      required("TestEventType") => list(any())
+    }
   """
-  @spec send_test_event_notification(
-          AWS.Client.t(),
-          send_test_event_notification_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_test_event_notification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_test_event_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_test_event_notification_errors()}
-  def send_test_event_notification(%Client{} = client, input, options \\ []) do
+
+  def send_test_event_notification(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1999,16 +2386,23 @@ defmodule AWS.MTurk do
   The `UpdateExpirationForHIT` operation allows you update the expiration time of
   a HIT. If you update it to a time in the past, the HIT will be immediately
   expired.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20UpdateExpirationForHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_expiration_for_hit_request`)
+    %{
+      required("ExpireAt") => non_neg_integer(),
+      required("HITId") => String.t()
+    }
   """
-  @spec update_expiration_for_hit(
-          AWS.Client.t(),
-          update_expiration_for_hit_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_expiration_for_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_expiration_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_expiration_for_hit_errors()}
-  def update_expiration_for_hit(%Client{} = client, input, options \\ []) do
+
+  def update_expiration_for_hit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2019,12 +2413,23 @@ defmodule AWS.MTurk do
   The `UpdateHITReviewStatus` operation updates the status of a HIT. If the status
   is Reviewable, this operation can update the status to Reviewing, or it can
   revert a Reviewing HIT back to the Reviewable status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20UpdateHITReviewStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_hit_review_status_request`)
+    %{
+      optional("Revert") => boolean(),
+      required("HITId") => String.t()
+    }
   """
-  @spec update_hit_review_status(AWS.Client.t(), update_hit_review_status_request(), Keyword.t()) ::
+
+  @spec update_hit_review_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_hit_review_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hit_review_status_errors()}
-  def update_hit_review_status(%Client{} = client, input, options \\ []) do
+
+  def update_hit_review_status(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2036,12 +2441,23 @@ defmodule AWS.MTurk do
   of a HIT. This operation disassociates the HIT from its old HITType properties
   and associates it with the new HITType properties. The HIT takes on the
   properties of the new HITType in place of the old ones.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20UpdateHITTypeOfHIT&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_hit_type_of_hit_request`)
+    %{
+      required("HITId") => String.t(),
+      required("HITTypeId") => String.t()
+    }
   """
-  @spec update_hit_type_of_hit(AWS.Client.t(), update_hit_type_of_hit_request(), Keyword.t()) ::
+
+  @spec update_hit_type_of_hit(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_hit_type_of_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_hit_type_of_hit_errors()}
-  def update_hit_type_of_hit(%Client{} = client, input, options \\ []) do
+
+  def update_hit_type_of_hit(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2060,16 +2476,24 @@ defmodule AWS.MTurk do
   status of a HIT type's notifications, the HIT type must already have a
   notification specification, or one must be provided in the same call to
   `UpdateNotificationSettings`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20UpdateNotificationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_notification_settings_request`)
+    %{
+      optional("Active") => boolean(),
+      optional("Notification") => notification_specification(),
+      required("HITTypeId") => String.t()
+    }
   """
-  @spec update_notification_settings(
-          AWS.Client.t(),
-          update_notification_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_notification_settings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notification_settings_errors()}
-  def update_notification_settings(%Client{} = client, input, options \\ []) do
+
+  def update_notification_settings(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2084,16 +2508,30 @@ defmodule AWS.MTurk do
   created. However, the Name and Keywords fields cannot be modified. The
   RetryDelayInSeconds parameter can be modified or added to change the delay or
   to enable retries, but RetryDelayInSeconds cannot be used to disable retries.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mturk%20UpdateQualificationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_qualification_type_request`)
+    %{
+      optional("AnswerKey") => String.t(),
+      optional("AutoGranted") => boolean(),
+      optional("AutoGrantedValue") => integer(),
+      optional("Description") => String.t(),
+      optional("QualificationTypeStatus") => list(any()),
+      optional("RetryDelayInSeconds") => float(),
+      optional("Test") => String.t(),
+      optional("TestDurationInSeconds") => float(),
+      required("QualificationTypeId") => String.t()
+    }
   """
-  @spec update_qualification_type(
-          AWS.Client.t(),
-          update_qualification_type_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_qualification_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_qualification_type_errors()}
-  def update_qualification_type(%Client{} = client, input, options \\ []) do
+
+  def update_qualification_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

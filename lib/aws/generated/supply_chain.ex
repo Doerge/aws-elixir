@@ -16,18 +16,18 @@ defmodule AWS.SupplyChain do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bill_of_materials_import_job() :: %{
         "instanceId" => String.t(),
         "jobId" => String.t(),
@@ -35,90 +35,90 @@ defmodule AWS.SupplyChain do
         "s3uri" => String.t(),
         "status" => list(any())
       }
-
+      
   """
   @type bill_of_materials_import_job() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bill_of_materials_import_job_request() :: %{
         optional("clientToken") => String.t(),
         required("s3uri") => String.t()
       }
-
+      
   """
   @type create_bill_of_materials_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_bill_of_materials_import_job_response() :: %{
         "jobId" => String.t()
       }
-
+      
   """
   @type create_bill_of_materials_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bill_of_materials_import_job_request() :: %{}
-
+      
   """
   @type get_bill_of_materials_import_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_bill_of_materials_import_job_response() :: %{
         "job" => bill_of_materials_import_job()
       }
-
+      
   """
   @type get_bill_of_materials_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_data_integration_event_request() :: %{
         optional("clientToken") => String.t(),
         optional("eventTimestamp") => [non_neg_integer()],
@@ -126,51 +126,51 @@ defmodule AWS.SupplyChain do
         required("eventGroupId") => String.t(),
         required("eventType") => list(any())
       }
-
+      
   """
   @type send_data_integration_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_data_integration_event_response() :: %{
         "eventId" => String.t()
       }
-
+      
   """
   @type send_data_integration_event_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
@@ -226,36 +226,41 @@ defmodule AWS.SupplyChain do
 
   ## Optional parameters:
   """
-  @spec create_bill_of_materials_import_job(
-          AWS.Client.t(),
-          String.t(),
-          create_bill_of_materials_import_job_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_bill_of_materials_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bill_of_materials_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_bill_of_materials_import_job_errors()}
-  def create_bill_of_materials_import_job(%Client{} = client, instance_id, input, options \\ []) do
+
+  def create_bill_of_materials_import_job(%Client{} = client, instance_id, options \\ []) do
     url_path =
       "/api/configuration/instances/#{AWS.Util.encode_uri(instance_id)}/bill-of-materials-import-jobs"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -269,10 +274,12 @@ defmodule AWS.SupplyChain do
 
   ## Optional parameters:
   """
+
   @spec get_bill_of_materials_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bill_of_materials_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_bill_of_materials_import_job_errors()}
+
   def get_bill_of_materials_import_job(%Client{} = client, instance_id, job_id, options \\ []) do
     url_path =
       "/api/configuration/instances/#{AWS.Util.encode_uri(instance_id)}/bill-of-materials-import-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -312,35 +319,40 @@ defmodule AWS.SupplyChain do
 
   ## Optional parameters:
   """
-  @spec send_data_integration_event(
-          AWS.Client.t(),
-          String.t(),
-          send_data_integration_event_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_data_integration_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_data_integration_event_errors()}
-  def send_data_integration_event(%Client{} = client, instance_id, input, options \\ []) do
+
+  def send_data_integration_event(%Client{} = client, instance_id, options \\ []) do
     url_path =
       "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-events"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

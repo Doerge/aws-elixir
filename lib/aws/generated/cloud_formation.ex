@@ -3783,16 +3783,23 @@ defmodule AWS.CloudFormation do
   Activate trusted access with Organizations. With trusted access between
   StackSets and Organizations activated, the management account has permissions
   to create and manage StackSets for your organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ActivateOrganizationsAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:activate_organizations_access_input`)
+    %{
+      
+    }
   """
-  @spec activate_organizations_access(
-          AWS.Client.t(),
-          activate_organizations_access_input(),
-          Keyword.t()
-        ) ::
+
+  @spec activate_organizations_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activate_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_organizations_access_errors()}
-  def activate_organizations_access(%Client{} = client, input, options \\ []) do
+
+  def activate_organizations_access(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3810,12 +3817,31 @@ defmodule AWS.CloudFormation do
   see [Configuring extensions at the account
   level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ActivateType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:activate_type_input`)
+    %{
+      optional("AutoUpdate") => boolean(),
+      optional("ExecutionRoleArn") => String.t(),
+      optional("LoggingConfig") => logging_config(),
+      optional("MajorVersion") => float(),
+      optional("PublicTypeArn") => String.t(),
+      optional("PublisherId") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t(),
+      optional("TypeNameAlias") => String.t(),
+      optional("VersionBump") => list(any())
+    }
   """
-  @spec activate_type(AWS.Client.t(), activate_type_input(), Keyword.t()) ::
+
+  @spec activate_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, activate_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_type_errors()}
-  def activate_type(%Client{} = client, input, options \\ []) do
+
+  def activate_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3825,16 +3851,23 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns configuration data for the specified CloudFormation extensions, from the
   CloudFormation registry for the account and Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20BatchDescribeTypeConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:batch_describe_type_configurations_input`)
+    %{
+      required("TypeConfigurationIdentifiers") => list(type_configuration_identifier()())
+    }
   """
-  @spec batch_describe_type_configurations(
-          AWS.Client.t(),
-          batch_describe_type_configurations_input(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_describe_type_configurations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_describe_type_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_describe_type_configurations_errors()}
-  def batch_describe_type_configurations(%Client{} = client, input, options \\ []) do
+
+  def batch_describe_type_configurations(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3845,12 +3878,23 @@ defmodule AWS.CloudFormation do
   Cancels an update on the specified stack. If the call completes successfully,
   the stack rolls back the update and reverts to the previous stack
   configuration.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20CancelUpdateStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_update_stack_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec cancel_update_stack(AWS.Client.t(), cancel_update_stack_input(), Keyword.t()) ::
+
+  @spec cancel_update_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_update_stack_errors()}
-  def cancel_update_stack(%Client{} = client, input, options \\ []) do
+
+  def cancel_update_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3865,12 +3909,25 @@ defmodule AWS.CloudFormation do
   and continue the rollback. By continuing the rollback, you can return your
   stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state), and then try
   to update the stack again.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ContinueUpdateRollback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:continue_update_rollback_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("ResourcesToSkip") => list(String.t()()),
+      optional("RoleARN") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec continue_update_rollback(AWS.Client.t(), continue_update_rollback_input(), Keyword.t()) ::
+
+  @spec continue_update_rollback(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, continue_update_rollback_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, continue_update_rollback_errors()}
-  def continue_update_rollback(%Client{} = client, input, options \\ []) do
+
+  def continue_update_rollback(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3894,12 +3951,40 @@ defmodule AWS.CloudFormation do
   parameter. After the `CreateChangeSet` call successfully completes,
   CloudFormation starts creating the change set. To check the status of the
   change set or to review it, use the `DescribeChangeSet` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20CreateChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_change_set_input`)
+    %{
+      optional("Capabilities") => list(list(any())()),
+      optional("ChangeSetType") => list(any()),
+      optional("ClientToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("ImportExistingResources") => boolean(),
+      optional("IncludeNestedStacks") => boolean(),
+      optional("NotificationARNs") => list(String.t()()),
+      optional("OnStackFailure") => list(any()),
+      optional("Parameters") => list(parameter()()),
+      optional("ResourceTypes") => list(String.t()()),
+      optional("ResourcesToImport") => list(resource_to_import()()),
+      optional("RoleARN") => String.t(),
+      optional("RollbackConfiguration") => rollback_configuration(),
+      optional("Tags") => list(tag()()),
+      optional("TemplateBody") => String.t(),
+      optional("TemplateURL") => String.t(),
+      optional("UsePreviousTemplate") => boolean(),
+      required("ChangeSetName") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec create_change_set(AWS.Client.t(), create_change_set_input(), Keyword.t()) ::
+
+  @spec create_change_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_change_set_errors()}
-  def create_change_set(%Client{} = client, input, options \\ []) do
+
+  def create_change_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3910,12 +3995,25 @@ defmodule AWS.CloudFormation do
   Creates a template from existing resources that are not already managed with
   CloudFormation. You can check the status of the template generation using the
   `DescribeGeneratedTemplate` API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20CreateGeneratedTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_generated_template_input`)
+    %{
+      optional("Resources") => list(resource_definition()()),
+      optional("StackName") => String.t(),
+      optional("TemplateConfiguration") => template_configuration(),
+      required("GeneratedTemplateName") => String.t()
+    }
   """
-  @spec create_generated_template(AWS.Client.t(), create_generated_template_input(), Keyword.t()) ::
+
+  @spec create_generated_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_generated_template_errors()}
-  def create_generated_template(%Client{} = client, input, options \\ []) do
+
+  def create_generated_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3926,12 +4024,39 @@ defmodule AWS.CloudFormation do
   Creates a stack as specified in the template. After the call completes
   successfully, the stack creation starts. You can check the status of the stack
   through the `DescribeStacks` operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20CreateStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_stack_input`)
+    %{
+      optional("Capabilities") => list(list(any())()),
+      optional("ClientRequestToken") => String.t(),
+      optional("DisableRollback") => boolean(),
+      optional("EnableTerminationProtection") => boolean(),
+      optional("NotificationARNs") => list(String.t()()),
+      optional("OnFailure") => list(any()),
+      optional("Parameters") => list(parameter()()),
+      optional("ResourceTypes") => list(String.t()()),
+      optional("RetainExceptOnCreate") => boolean(),
+      optional("RoleARN") => String.t(),
+      optional("RollbackConfiguration") => rollback_configuration(),
+      optional("StackPolicyBody") => String.t(),
+      optional("StackPolicyURL") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TemplateBody") => String.t(),
+      optional("TemplateURL") => String.t(),
+      optional("TimeoutInMinutes") => integer(),
+      required("StackName") => String.t()
+    }
   """
-  @spec create_stack(AWS.Client.t(), create_stack_input(), Keyword.t()) ::
+
+  @spec create_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stack_errors()}
-  def create_stack(%Client{} = client, input, options \\ []) do
+
+  def create_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3943,12 +4068,29 @@ defmodule AWS.CloudFormation do
   Web Services Regions. A stack instance refers to a stack in a specific account
   and Region. You must specify at least one value for either `Accounts` or
   `DeploymentTargets`, and you must specify at least one value for `Regions`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20CreateStackInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_stack_instances_input`)
+    %{
+      optional("Accounts") => list(String.t()()),
+      optional("CallAs") => list(any()),
+      optional("DeploymentTargets") => deployment_targets(),
+      optional("OperationId") => String.t(),
+      optional("OperationPreferences") => stack_set_operation_preferences(),
+      optional("ParameterOverrides") => list(parameter()()),
+      required("Regions") => list(String.t()()),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec create_stack_instances(AWS.Client.t(), create_stack_instances_input(), Keyword.t()) ::
+
+  @spec create_stack_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stack_instances_errors()}
-  def create_stack_instances(%Client{} = client, input, options \\ []) do
+
+  def create_stack_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3957,12 +4099,36 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Creates a stack set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20CreateStackSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_stack_set_input`)
+    %{
+      optional("AdministrationRoleARN") => String.t(),
+      optional("AutoDeployment") => auto_deployment(),
+      optional("CallAs") => list(any()),
+      optional("Capabilities") => list(list(any())()),
+      optional("ClientRequestToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("ExecutionRoleName") => String.t(),
+      optional("ManagedExecution") => managed_execution(),
+      optional("Parameters") => list(parameter()()),
+      optional("PermissionModel") => list(any()),
+      optional("StackId") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TemplateBody") => String.t(),
+      optional("TemplateURL") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec create_stack_set(AWS.Client.t(), create_stack_set_input(), Keyword.t()) ::
+
+  @spec create_stack_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_stack_set_errors()}
-  def create_stack_set(%Client{} = client, input, options \\ []) do
+
+  def create_stack_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3973,16 +4139,23 @@ defmodule AWS.CloudFormation do
   Deactivates trusted access with Organizations. If trusted access is deactivated,
   the management account does not have permissions to create and manage
   service-managed StackSets for your organization.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeactivateOrganizationsAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deactivate_organizations_access_input`)
+    %{
+      
+    }
   """
-  @spec deactivate_organizations_access(
-          AWS.Client.t(),
-          deactivate_organizations_access_input(),
-          Keyword.t()
-        ) ::
+
+  @spec deactivate_organizations_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deactivate_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_organizations_access_errors()}
-  def deactivate_organizations_access(%Client{} = client, input, options \\ []) do
+
+  def deactivate_organizations_access(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3992,12 +4165,24 @@ defmodule AWS.CloudFormation do
   @doc """
   Deactivates a public extension that was previously activated in this account and
   Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeactivateType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deactivate_type_input`)
+    %{
+      optional("Arn") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t()
+    }
   """
-  @spec deactivate_type(AWS.Client.t(), deactivate_type_input(), Keyword.t()) ::
+
+  @spec deactivate_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deactivate_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_type_errors()}
-  def deactivate_type(%Client{} = client, input, options \\ []) do
+
+  def deactivate_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4008,12 +4193,23 @@ defmodule AWS.CloudFormation do
   Deletes the specified change set. Deleting change sets ensures that no one
   executes the wrong change set. If the call successfully completes,
   CloudFormation successfully deleted the change set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeleteChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_change_set_input`)
+    %{
+      optional("StackName") => String.t(),
+      required("ChangeSetName") => String.t()
+    }
   """
-  @spec delete_change_set(AWS.Client.t(), delete_change_set_input(), Keyword.t()) ::
+
+  @spec delete_change_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_change_set_errors()}
-  def delete_change_set(%Client{} = client, input, options \\ []) do
+
+  def delete_change_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4022,12 +4218,22 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Deleted a generated template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeleteGeneratedTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_generated_template_input`)
+    %{
+      required("GeneratedTemplateName") => String.t()
+    }
   """
-  @spec delete_generated_template(AWS.Client.t(), delete_generated_template_input(), Keyword.t()) ::
+
+  @spec delete_generated_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_generated_template_errors()}
-  def delete_generated_template(%Client{} = client, input, options \\ []) do
+
+  def delete_generated_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4038,12 +4244,26 @@ defmodule AWS.CloudFormation do
   Deletes a specified stack. Once the call completes successfully, stack deletion
   starts. Deleted stacks don't show up in the `DescribeStacks` operation if the
   deletion has been completed successfully.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeleteStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_stack_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("DeletionMode") => list(any()),
+      optional("RetainResources") => list(String.t()()),
+      optional("RoleARN") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec delete_stack(AWS.Client.t(), delete_stack_input(), Keyword.t()) ::
+
+  @spec delete_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stack_errors()}
-  def delete_stack(%Client{} = client, input, options \\ []) do
+
+  def delete_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4053,12 +4273,29 @@ defmodule AWS.CloudFormation do
   @doc """
   Deletes stack instances for the specified accounts, in the specified Amazon Web
   Services Regions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeleteStackInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_stack_instances_input`)
+    %{
+      optional("Accounts") => list(String.t()()),
+      optional("CallAs") => list(any()),
+      optional("DeploymentTargets") => deployment_targets(),
+      optional("OperationId") => String.t(),
+      optional("OperationPreferences") => stack_set_operation_preferences(),
+      required("Regions") => list(String.t()()),
+      required("RetainStacks") => boolean(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec delete_stack_instances(AWS.Client.t(), delete_stack_instances_input(), Keyword.t()) ::
+
+  @spec delete_stack_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stack_instances_errors()}
-  def delete_stack_instances(%Client{} = client, input, options \\ []) do
+
+  def delete_stack_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4069,12 +4306,23 @@ defmodule AWS.CloudFormation do
   Deletes a stack set. Before you can delete a stack set, all its member stack
   instances must be deleted. For more information about how to complete this,
   see `DeleteStackInstances`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeleteStackSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_stack_set_input`)
+    %{
+      optional("CallAs") => list(any()),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec delete_stack_set(AWS.Client.t(), delete_stack_set_input(), Keyword.t()) ::
+
+  @spec delete_stack_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_stack_set_errors()}
-  def delete_stack_set(%Client{} = client, input, options \\ []) do
+
+  def delete_stack_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4089,12 +4337,25 @@ defmodule AWS.CloudFormation do
   extension. If an extension has only a single active version, deregistering
   that version results in the extension itself being deregistered and marked as
   deprecated in the registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DeregisterType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_type_input`)
+    %{
+      optional("Arn") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t(),
+      optional("VersionId") => String.t()
+    }
   """
-  @spec deregister_type(AWS.Client.t(), deregister_type_input(), Keyword.t()) ::
+
+  @spec deregister_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_type_errors()}
-  def deregister_type(%Client{} = client, input, options \\ []) do
+
+  def deregister_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4107,11 +4368,21 @@ defmodule AWS.CloudFormation do
   limits, see [CloudFormation
   Quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html)
   in the *CloudFormation User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeAccountLimits&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_account_limits_input`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec describe_account_limits(AWS.Client.t(), describe_account_limits_input(), Keyword.t()) ::
+
+  @spec describe_account_limits(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_account_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_account_limits(%Client{} = client, input, options \\ []) do
+
+  def describe_account_limits(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4124,12 +4395,25 @@ defmodule AWS.CloudFormation do
   Stacks Using Change
   Sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html)
   in the *CloudFormation User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_change_set_input`)
+    %{
+      optional("IncludePropertyValues") => boolean(),
+      optional("NextToken") => String.t(),
+      optional("StackName") => String.t(),
+      required("ChangeSetName") => String.t()
+    }
   """
-  @spec describe_change_set(AWS.Client.t(), describe_change_set_input(), Keyword.t()) ::
+
+  @spec describe_change_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_change_set_errors()}
-  def describe_change_set(%Client{} = client, input, options \\ []) do
+
+  def describe_change_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4139,12 +4423,25 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns hook-related information for the change set and a list of changes that
   CloudFormation makes when you run the change set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeChangeSetHooks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_change_set_hooks_input`)
+    %{
+      optional("LogicalResourceId") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("StackName") => String.t(),
+      required("ChangeSetName") => String.t()
+    }
   """
-  @spec describe_change_set_hooks(AWS.Client.t(), describe_change_set_hooks_input(), Keyword.t()) ::
+
+  @spec describe_change_set_hooks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_change_set_hooks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_change_set_hooks_errors()}
-  def describe_change_set_hooks(%Client{} = client, input, options \\ []) do
+
+  def describe_change_set_hooks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4156,16 +4453,22 @@ defmodule AWS.CloudFormation do
   of the creation of a generated template started by a `CreateGeneratedTemplate`
   API action or the update of a generated template started with an
   `UpdateGeneratedTemplate` API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeGeneratedTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_generated_template_input`)
+    %{
+      required("GeneratedTemplateName") => String.t()
+    }
   """
-  @spec describe_generated_template(
-          AWS.Client.t(),
-          describe_generated_template_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_generated_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_generated_template_errors()}
-  def describe_generated_template(%Client{} = client, input, options \\ []) do
+
+  def describe_generated_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4177,16 +4480,23 @@ defmodule AWS.CloudFormation do
   can be called either by the management account or the delegated administrator
   by using the `CallAs` parameter. This API can also be called without the
   `CallAs` parameter by the management account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeOrganizationsAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_organizations_access_input`)
+    %{
+      optional("CallAs") => list(any())
+    }
   """
-  @spec describe_organizations_access(
-          AWS.Client.t(),
-          describe_organizations_access_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_organizations_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organizations_access_errors()}
-  def describe_organizations_access(%Client{} = client, input, options \\ []) do
+
+  def describe_organizations_access(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4197,12 +4507,22 @@ defmodule AWS.CloudFormation do
   Returns information about a CloudFormation extension publisher. If you don't
   supply a `PublisherId`, and you have registered as an extension publisher,
   `DescribePublisher` returns information about your own publisher account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribePublisher&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_publisher_input`)
+    %{
+      optional("PublisherId") => String.t()
+    }
   """
-  @spec describe_publisher(AWS.Client.t(), describe_publisher_input(), Keyword.t()) ::
+
+  @spec describe_publisher(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_publisher_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_publisher_errors()}
-  def describe_publisher(%Client{} = client, input, options \\ []) do
+
+  def describe_publisher(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4211,12 +4531,22 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Describes details of a resource scan.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeResourceScan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_resource_scan_input`)
+    %{
+      required("ResourceScanId") => String.t()
+    }
   """
-  @spec describe_resource_scan(AWS.Client.t(), describe_resource_scan_input(), Keyword.t()) ::
+
+  @spec describe_resource_scan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_resource_scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_resource_scan_errors()}
-  def describe_resource_scan(%Client{} = client, input, options \\ []) do
+
+  def describe_resource_scan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4232,15 +4562,22 @@ defmodule AWS.CloudFormation do
   more information about stack and resource drift, see [Detecting Unregulated
   Configuration Changes to Stacks and
   Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackDriftDetectionStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_drift_detection_status_input`)
+    %{
+      required("StackDriftDetectionId") => String.t()
+    }
   """
-  @spec describe_stack_drift_detection_status(
-          AWS.Client.t(),
-          describe_stack_drift_detection_status_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_stack_drift_detection_status(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_drift_detection_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_stack_drift_detection_status(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_drift_detection_status(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4253,11 +4590,22 @@ defmodule AWS.CloudFormation do
   stack creation
   events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html)
   in the *CloudFormation User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_events_input`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("StackName") => String.t()
+    }
   """
-  @spec describe_stack_events(AWS.Client.t(), describe_stack_events_input(), Keyword.t()) ::
+
+  @spec describe_stack_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_stack_events(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4267,12 +4615,25 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns the stack instance that's associated with the specified StackSet, Amazon
   Web Services account, and Amazon Web Services Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_instance_input`)
+    %{
+      optional("CallAs") => list(any()),
+      required("StackInstanceAccount") => String.t(),
+      required("StackInstanceRegion") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec describe_stack_instance(AWS.Client.t(), describe_stack_instance_input(), Keyword.t()) ::
+
+  @spec describe_stack_instance(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stack_instance_errors()}
-  def describe_stack_instance(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_instance(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4281,11 +4642,22 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns a description of the specified resource in the specified stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_resource_input`)
+    %{
+      required("LogicalResourceId") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec describe_stack_resource(AWS.Client.t(), describe_stack_resource_input(), Keyword.t()) ::
+
+  @spec describe_stack_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_stack_resource(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4302,15 +4674,25 @@ defmodule AWS.CloudFormation do
   checked, and so not included. For a list of resources that support drift
   detection, see [Resources that Support Drift
   Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackResourceDrifts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_resource_drifts_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StackResourceDriftStatusFilters") => list(list(any())()),
+      required("StackName") => String.t()
+    }
   """
-  @spec describe_stack_resource_drifts(
-          AWS.Client.t(),
-          describe_stack_resource_drifts_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_stack_resource_drifts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_resource_drifts_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_stack_resource_drifts(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_resource_drifts(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4324,11 +4706,23 @@ defmodule AWS.CloudFormation do
   associated resources of the stack that the resource belongs to are returned.
   Only the first 100 resources will be returned. If your stack has more
   resources than this, you should use `ListStackResources` instead.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_resources_input`)
+    %{
+      optional("LogicalResourceId") => String.t(),
+      optional("PhysicalResourceId") => String.t(),
+      optional("StackName") => String.t()
+    }
   """
-  @spec describe_stack_resources(AWS.Client.t(), describe_stack_resources_input(), Keyword.t()) ::
+
+  @spec describe_stack_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_stack_resources(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4337,12 +4731,23 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the description of the specified StackSet.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_set_input`)
+    %{
+      optional("CallAs") => list(any()),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec describe_stack_set(AWS.Client.t(), describe_stack_set_input(), Keyword.t()) ::
+
+  @spec describe_stack_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stack_set_errors()}
-  def describe_stack_set(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4351,16 +4756,24 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the description of the specified StackSet operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStackSetOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stack_set_operation_input`)
+    %{
+      optional("CallAs") => list(any()),
+      required("OperationId") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec describe_stack_set_operation(
-          AWS.Client.t(),
-          describe_stack_set_operation_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_stack_set_operation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stack_set_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_stack_set_operation_errors()}
-  def describe_stack_set_operation(%Client{} = client, input, options \\ []) do
+
+  def describe_stack_set_operation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4373,11 +4786,22 @@ defmodule AWS.CloudFormation do
   information about a stack's event history, see [CloudFormation stack creation
   events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html)
   in the *CloudFormation User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeStacks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_stacks_input`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("StackName") => String.t()
+    }
   """
-  @spec describe_stacks(AWS.Client.t(), describe_stacks_input(), Keyword.t()) ::
+
+  @spec describe_stacks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_stacks_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def describe_stacks(%Client{} = client, input, options \\ []) do
+
+  def describe_stacks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4386,12 +4810,27 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns detailed information about an extension that has been registered.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_type_input`)
+    %{
+      optional("Arn") => String.t(),
+      optional("PublicVersionNumber") => String.t(),
+      optional("PublisherId") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t(),
+      optional("VersionId") => String.t()
+    }
   """
-  @spec describe_type(AWS.Client.t(), describe_type_input(), Keyword.t()) ::
+
+  @spec describe_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_type_errors()}
-  def describe_type(%Client{} = client, input, options \\ []) do
+
+  def describe_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4403,16 +4842,22 @@ defmodule AWS.CloudFormation do
   status and type and version identifiers. When you initiate a registration
   request using `RegisterType`, you can then use `DescribeTypeRegistration` to
   monitor the progress of that registration request.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DescribeTypeRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_type_registration_input`)
+    %{
+      required("RegistrationToken") => String.t()
+    }
   """
-  @spec describe_type_registration(
-          AWS.Client.t(),
-          describe_type_registration_input(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_type_registration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_type_registration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_type_registration_errors()}
-  def describe_type_registration(%Client{} = client, input, options \\ []) do
+
+  def describe_type_registration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4435,11 +4880,22 @@ defmodule AWS.CloudFormation do
   For a list of stack resources that currently support drift detection, see
   [Resources that Support Drift
   Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DetectStackDrift&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detect_stack_drift_input`)
+    %{
+      optional("LogicalResourceIds") => list(String.t()()),
+      required("StackName") => String.t()
+    }
   """
-  @spec detect_stack_drift(AWS.Client.t(), detect_stack_drift_input(), Keyword.t()) ::
+
+  @spec detect_stack_drift(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_stack_drift_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def detect_stack_drift(%Client{} = client, input, options \\ []) do
+
+  def detect_stack_drift(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4458,15 +4914,22 @@ defmodule AWS.CloudFormation do
   Use `DetectStackResourceDrift` to detect drift on individual resources, or
   `DetectStackDrift` to detect drift on all resources in a given stack that
   support drift detection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DetectStackResourceDrift&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detect_stack_resource_drift_input`)
+    %{
+      required("LogicalResourceId") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec detect_stack_resource_drift(
-          AWS.Client.t(),
-          detect_stack_resource_drift_input(),
-          Keyword.t()
-        ) ::
+
+  @spec detect_stack_resource_drift(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_stack_resource_drift_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def detect_stack_resource_drift(%Client{} = client, input, options \\ []) do
+
+  def detect_stack_resource_drift(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4486,12 +4949,25 @@ defmodule AWS.CloudFormation do
   included in the stack set, in addition to the number of resources included in
   each stack. Once the operation has completed, use the following actions to
   return drift information:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20DetectStackSetDrift&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detect_stack_set_drift_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("OperationId") => String.t(),
+      optional("OperationPreferences") => stack_set_operation_preferences(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec detect_stack_set_drift(AWS.Client.t(), detect_stack_set_drift_input(), Keyword.t()) ::
+
+  @spec detect_stack_set_drift(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_stack_set_drift_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_stack_set_drift_errors()}
-  def detect_stack_set_drift(%Client{} = client, input, options \\ []) do
+
+  def detect_stack_set_drift(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4502,11 +4978,23 @@ defmodule AWS.CloudFormation do
   Returns the estimated monthly cost of a template. The return value is an Amazon
   Web Services Simple Monthly Calculator URL with a query string that describes
   the resources required to run the template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20EstimateTemplateCost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:estimate_template_cost_input`)
+    %{
+      optional("Parameters") => list(parameter()()),
+      optional("TemplateBody") => String.t(),
+      optional("TemplateURL") => String.t()
+    }
   """
-  @spec estimate_template_cost(AWS.Client.t(), estimate_template_cost_input(), Keyword.t()) ::
+
+  @spec estimate_template_cost(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, estimate_template_cost_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def estimate_template_cost(%Client{} = client, input, options \\ []) do
+
+  def estimate_template_cost(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4520,12 +5008,26 @@ defmodule AWS.CloudFormation do
   of the update. When you execute a change set, CloudFormation deletes all other
   change sets associated with the stack because they aren't valid for the
   updated stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ExecuteChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:execute_change_set_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("DisableRollback") => boolean(),
+      optional("RetainExceptOnCreate") => boolean(),
+      optional("StackName") => String.t(),
+      required("ChangeSetName") => String.t()
+    }
   """
-  @spec execute_change_set(AWS.Client.t(), execute_change_set_input(), Keyword.t()) ::
+
+  @spec execute_change_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_change_set_errors()}
-  def execute_change_set(%Client{} = client, input, options \\ []) do
+
+  def execute_change_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4537,12 +5039,23 @@ defmodule AWS.CloudFormation do
   `Pending` status then the template returned will be the template when the
   template was last in a `Complete` status. If the template has not yet been in
   a `Complete` status then an empty template will be returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20GetGeneratedTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_generated_template_input`)
+    %{
+      optional("Format") => list(any()),
+      required("GeneratedTemplateName") => String.t()
+    }
   """
-  @spec get_generated_template(AWS.Client.t(), get_generated_template_input(), Keyword.t()) ::
+
+  @spec get_generated_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_generated_template_errors()}
-  def get_generated_template(%Client{} = client, input, options \\ []) do
+
+  def get_generated_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4552,11 +5065,21 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns the stack policy for a specified stack. If a stack doesn't have a
   policy, a null value is returned.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20GetStackPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_stack_policy_input`)
+    %{
+      required("StackName") => String.t()
+    }
   """
-  @spec get_stack_policy(AWS.Client.t(), get_stack_policy_input(), Keyword.t()) ::
+
+  @spec get_stack_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_stack_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def get_stack_policy(%Client{} = client, input, options \\ []) do
+
+  def get_stack_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4567,12 +5090,24 @@ defmodule AWS.CloudFormation do
   Returns the template body for a specified stack. You can get the template for
   running or deleted stacks. For deleted stacks, `GetTemplate` returns the
   template for up to 90 days after the stack has been deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20GetTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_template_input`)
+    %{
+      optional("ChangeSetName") => String.t(),
+      optional("StackName") => String.t(),
+      optional("TemplateStage") => list(any())
+    }
   """
-  @spec get_template(AWS.Client.t(), get_template_input(), Keyword.t()) ::
+
+  @spec get_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_errors()}
-  def get_template(%Client{} = client, input, options \\ []) do
+
+  def get_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4585,12 +5120,27 @@ defmodule AWS.CloudFormation do
   values and parameter types, before you create or update a stack or stack set.
   You can use the `GetTemplateSummary` action when you submit a template, or you
   can get template information for a stack set, or a running or deleted stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20GetTemplateSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_template_summary_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("StackName") => String.t(),
+      optional("StackSetName") => String.t(),
+      optional("TemplateBody") => String.t(),
+      optional("TemplateSummaryConfig") => template_summary_config(),
+      optional("TemplateURL") => String.t()
+    }
   """
-  @spec get_template_summary(AWS.Client.t(), get_template_summary_input(), Keyword.t()) ::
+
+  @spec get_template_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_template_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_template_summary_errors()}
-  def get_template_summary(%Client{} = client, input, options \\ []) do
+
+  def get_template_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4602,16 +5152,28 @@ defmodule AWS.CloudFormation do
   import up to 10 stacks into a new stack set in the same account as the source
   stack or in a different administrator account and Region, by specifying the
   stack ID of the stack you intend to import.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ImportStacksToStackSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_stacks_to_stack_set_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("OperationId") => String.t(),
+      optional("OperationPreferences") => stack_set_operation_preferences(),
+      optional("OrganizationalUnitIds") => list(String.t()()),
+      optional("StackIds") => list(String.t()()),
+      optional("StackIdsUrl") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec import_stacks_to_stack_set(
-          AWS.Client.t(),
-          import_stacks_to_stack_set_input(),
-          Keyword.t()
-        ) ::
+
+  @spec import_stacks_to_stack_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_stacks_to_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_stacks_to_stack_set_errors()}
-  def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) do
+
+  def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4622,11 +5184,22 @@ defmodule AWS.CloudFormation do
   Returns the ID and status of each active change set for a stack. For example,
   CloudFormation lists change sets that are in the `CREATE_IN_PROGRESS` or
   `CREATE_PENDING` state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListChangeSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_change_sets_input`)
+    %{
+      optional("NextToken") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec list_change_sets(AWS.Client.t(), list_change_sets_input(), Keyword.t()) ::
+
+  @spec list_change_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_change_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_change_sets(%Client{} = client, input, options \\ []) do
+
+  def list_change_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4640,11 +5213,21 @@ defmodule AWS.CloudFormation do
   Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
   function. For more information, see [ CloudFormation export stack output
   values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListExports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_exports_input`)
+    %{
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_exports(AWS.Client.t(), list_exports_input(), Keyword.t()) ::
+
+  @spec list_exports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_exports_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_exports(%Client{} = client, input, options \\ []) do
+
+  def list_exports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4653,11 +5236,22 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Lists your generated templates in this Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListGeneratedTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_generated_templates_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_generated_templates(AWS.Client.t(), list_generated_templates_input(), Keyword.t()) ::
+
+  @spec list_generated_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_generated_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_generated_templates(%Client{} = client, input, options \\ []) do
+
+  def list_generated_templates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4669,11 +5263,22 @@ defmodule AWS.CloudFormation do
   remove an exported output value, first use this action to see which stacks are
   using it. To see the exported output values in your account, see
   `ListExports`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListImports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_imports_input`)
+    %{
+      optional("NextToken") => String.t(),
+      required("ExportName") => String.t()
+    }
   """
-  @spec list_imports(AWS.Client.t(), list_imports_input(), Keyword.t()) ::
+
+  @spec list_imports(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_imports_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_imports(%Client{} = client, input, options \\ []) do
+
+  def list_imports(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4684,16 +5289,26 @@ defmodule AWS.CloudFormation do
   Lists the related resources for a list of resources from a resource scan. The
   response indicates whether each returned resource is already managed by
   CloudFormation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListResourceScanRelatedResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_scan_related_resources_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ResourceScanId") => String.t(),
+      required("Resources") => list(scanned_resource_identifier()())
+    }
   """
-  @spec list_resource_scan_related_resources(
-          AWS.Client.t(),
-          list_resource_scan_related_resources_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_resource_scan_related_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_scan_related_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_scan_related_resources_errors()}
-  def list_resource_scan_related_resources(%Client{} = client, input, options \\ []) do
+
+  def list_resource_scan_related_resources(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4705,16 +5320,28 @@ defmodule AWS.CloudFormation do
   resource identifier, resource type prefix, tag key, and tag value. Only
   resources that match all specified filters are returned. The response
   indicates whether each returned resource is already managed by CloudFormation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListResourceScanResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_scan_resources_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceIdentifier") => String.t(),
+      optional("ResourceTypePrefix") => String.t(),
+      optional("TagKey") => String.t(),
+      optional("TagValue") => String.t(),
+      required("ResourceScanId") => String.t()
+    }
   """
-  @spec list_resource_scan_resources(
-          AWS.Client.t(),
-          list_resource_scan_resources_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_resource_scan_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_scan_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_resource_scan_resources_errors()}
-  def list_resource_scan_resources(%Client{} = client, input, options \\ []) do
+
+  def list_resource_scan_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4724,11 +5351,22 @@ defmodule AWS.CloudFormation do
   @doc """
   List the resource scans from newest to oldest. By default it will return up to
   10 resource scans.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListResourceScans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_resource_scans_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_resource_scans(AWS.Client.t(), list_resource_scans_input(), Keyword.t()) ::
+
+  @spec list_resource_scans(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_resource_scans_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_resource_scans(%Client{} = client, input, options \\ []) do
+
+  def list_resource_scans(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4737,16 +5375,30 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns drift information for resources in a stack instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStackInstanceResourceDrifts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stack_instance_resource_drifts_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StackInstanceResourceDriftStatuses") => list(list(any())()),
+      required("OperationId") => String.t(),
+      required("StackInstanceAccount") => String.t(),
+      required("StackInstanceRegion") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec list_stack_instance_resource_drifts(
-          AWS.Client.t(),
-          list_stack_instance_resource_drifts_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_stack_instance_resource_drifts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_instance_resource_drifts_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stack_instance_resource_drifts_errors()}
-  def list_stack_instance_resource_drifts(%Client{} = client, input, options \\ []) do
+
+  def list_stack_instance_resource_drifts(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4758,12 +5410,28 @@ defmodule AWS.CloudFormation do
   specified stack set. You can filter for stack instances that are associated
   with a specific Amazon Web Services account name or Region, or that have a
   specific status.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStackInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stack_instances_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("Filters") => list(stack_instance_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("StackInstanceAccount") => String.t(),
+      optional("StackInstanceRegion") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec list_stack_instances(AWS.Client.t(), list_stack_instances_input(), Keyword.t()) ::
+
+  @spec list_stack_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stack_instances_errors()}
-  def list_stack_instances(%Client{} = client, input, options \\ []) do
+
+  def list_stack_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4772,11 +5440,22 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns descriptions of all resources of the specified stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStackResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stack_resources_input`)
+    %{
+      optional("NextToken") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec list_stack_resources(AWS.Client.t(), list_stack_resources_input(), Keyword.t()) ::
+
+  @spec list_stack_resources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_stack_resources(%Client{} = client, input, options \\ []) do
+
+  def list_stack_resources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4785,16 +5464,26 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about deployment targets for a stack set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStackSetAutoDeploymentTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stack_set_auto_deployment_targets_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec list_stack_set_auto_deployment_targets(
-          AWS.Client.t(),
-          list_stack_set_auto_deployment_targets_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_stack_set_auto_deployment_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_set_auto_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stack_set_auto_deployment_targets_errors()}
-  def list_stack_set_auto_deployment_targets(%Client{} = client, input, options \\ []) do
+
+  def list_stack_set_auto_deployment_targets(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4803,16 +5492,28 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about the results of a stack set operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStackSetOperationResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stack_set_operation_results_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("Filters") => list(operation_result_filter()()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("OperationId") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec list_stack_set_operation_results(
-          AWS.Client.t(),
-          list_stack_set_operation_results_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_stack_set_operation_results(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_set_operation_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stack_set_operation_results_errors()}
-  def list_stack_set_operation_results(%Client{} = client, input, options \\ []) do
+
+  def list_stack_set_operation_results(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -4821,12 +5522,25 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about operations performed on a stack set.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStackSetOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stack_set_operations_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec list_stack_set_operations(AWS.Client.t(), list_stack_set_operations_input(), Keyword.t()) ::
+
+  @spec list_stack_set_operations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_set_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_stack_set_operations_errors()}
-  def list_stack_set_operations(%Client{} = client, input, options \\ []) do
+
+  def list_stack_set_operations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4835,11 +5549,24 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about stack sets that are associated with the user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStackSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stack_sets_input`)
+    %{
+      optional("CallAs") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("Status") => list(any())
+    }
   """
-  @spec list_stack_sets(AWS.Client.t(), list_stack_sets_input(), Keyword.t()) ::
+
+  @spec list_stack_sets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stack_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_stack_sets(%Client{} = client, input, options \\ []) do
+
+  def list_stack_sets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4852,11 +5579,22 @@ defmodule AWS.CloudFormation do
   kept for 90 days after the stack is deleted. If no StackStatusFilter is
   specified, summary information for all stacks is returned (including existing
   stacks and stacks that have been deleted).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListStacks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_stacks_input`)
+    %{
+      optional("NextToken") => String.t(),
+      optional("StackStatusFilter") => list(list(any())())
+    }
   """
-  @spec list_stacks(AWS.Client.t(), list_stacks_input(), Keyword.t()) ::
+
+  @spec list_stacks(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_stacks_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_stacks(%Client{} = client, input, options \\ []) do
+
+  def list_stacks(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4865,12 +5603,27 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns a list of registration tokens for the specified extension(s).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListTypeRegistrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_type_registrations_input`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("RegistrationStatusFilter") => list(any()),
+      optional("Type") => list(any()),
+      optional("TypeArn") => String.t(),
+      optional("TypeName") => String.t()
+    }
   """
-  @spec list_type_registrations(AWS.Client.t(), list_type_registrations_input(), Keyword.t()) ::
+
+  @spec list_type_registrations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_type_registrations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_type_registrations_errors()}
-  def list_type_registrations(%Client{} = client, input, options \\ []) do
+
+  def list_type_registrations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4879,12 +5632,28 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about the versions of an extension.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListTypeVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_type_versions_input`)
+    %{
+      optional("Arn") => String.t(),
+      optional("DeprecatedStatus") => list(any()),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PublisherId") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t()
+    }
   """
-  @spec list_type_versions(AWS.Client.t(), list_type_versions_input(), Keyword.t()) ::
+
+  @spec list_type_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_type_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_type_versions_errors()}
-  def list_type_versions(%Client{} = client, input, options \\ []) do
+
+  def list_type_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4894,12 +5663,28 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns summary information about extension that have been registered with
   CloudFormation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ListTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_types_input`)
+    %{
+      optional("DeprecatedStatus") => list(any()),
+      optional("Filters") => type_filters(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ProvisioningType") => list(any()),
+      optional("Type") => list(any()),
+      optional("Visibility") => list(any())
+    }
   """
-  @spec list_types(AWS.Client.t(), list_types_input(), Keyword.t()) ::
+
+  @spec list_types(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_types_errors()}
-  def list_types(%Client{} = client, input, options \\ []) do
+
+  def list_types(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4915,12 +5700,25 @@ defmodule AWS.CloudFormation do
   in the *CloudFormation CLI User Guide*. To publish an extension, you must be
   registered as a publisher with CloudFormation. For more information, see
   [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20PublishType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:publish_type_input`)
+    %{
+      optional("Arn") => String.t(),
+      optional("PublicVersionNumber") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t()
+    }
   """
-  @spec publish_type(AWS.Client.t(), publish_type_input(), Keyword.t()) ::
+
+  @spec publish_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, publish_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, publish_type_errors()}
-  def publish_type(%Client{} = client, input, options \\ []) do
+
+  def publish_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4929,12 +5727,28 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Reports progress of a resource handler to CloudFormation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20RecordHandlerProgress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:record_handler_progress_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("CurrentOperationStatus") => list(any()),
+      optional("ErrorCode") => list(any()),
+      optional("ResourceModel") => String.t(),
+      optional("StatusMessage") => String.t(),
+      required("BearerToken") => String.t(),
+      required("OperationStatus") => list(any())
+    }
   """
-  @spec record_handler_progress(AWS.Client.t(), record_handler_progress_input(), Keyword.t()) ::
+
+  @spec record_handler_progress(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, record_handler_progress_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, record_handler_progress_errors()}
-  def record_handler_progress(%Client{} = client, input, options \\ []) do
+
+  def record_handler_progress(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4945,12 +5759,23 @@ defmodule AWS.CloudFormation do
   Registers your account as a publisher of public extensions in the CloudFormation
   registry. Public extensions are available for use by all CloudFormation users.
   This publisher ID applies to your account in all Amazon Web Services Regions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20RegisterPublisher&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_publisher_input`)
+    %{
+      optional("AcceptTermsAndConditions") => boolean(),
+      optional("ConnectionArn") => String.t()
+    }
   """
-  @spec register_publisher(AWS.Client.t(), register_publisher_input(), Keyword.t()) ::
+
+  @spec register_publisher(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_publisher_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_publisher_errors()}
-  def register_publisher(%Client{} = client, input, options \\ []) do
+
+  def register_publisher(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4961,12 +5786,27 @@ defmodule AWS.CloudFormation do
   Registers an extension with the CloudFormation service. Registering an extension
   makes it available for use in CloudFormation templates in your Amazon Web
   Services account, and includes:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20RegisterType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_type_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("ExecutionRoleArn") => String.t(),
+      optional("LoggingConfig") => logging_config(),
+      optional("Type") => list(any()),
+      required("SchemaHandlerPackage") => String.t(),
+      required("TypeName") => String.t()
+    }
   """
-  @spec register_type(AWS.Client.t(), register_type_input(), Keyword.t()) ::
+
+  @spec register_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_type_errors()}
-  def register_type(%Client{} = client, input, options \\ []) do
+
+  def register_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4979,12 +5819,25 @@ defmodule AWS.CloudFormation do
   stack through the `DescribeStacks` operation. Rolls back the specified stack
   to the last known stable state from `CREATE_FAILED` or `UPDATE_FAILED` stack
   statuses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20RollbackStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:rollback_stack_input`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("RetainExceptOnCreate") => boolean(),
+      optional("RoleARN") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec rollback_stack(AWS.Client.t(), rollback_stack_input(), Keyword.t()) ::
+
+  @spec rollback_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rollback_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, rollback_stack_errors()}
-  def rollback_stack(%Client{} = client, input, options \\ []) do
+
+  def rollback_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -4993,11 +5846,23 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Sets a stack policy for a specified stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20SetStackPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_stack_policy_input`)
+    %{
+      optional("StackPolicyBody") => String.t(),
+      optional("StackPolicyURL") => String.t(),
+      required("StackName") => String.t()
+    }
   """
-  @spec set_stack_policy(AWS.Client.t(), set_stack_policy_input(), Keyword.t()) ::
+
+  @spec set_stack_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def set_stack_policy(%Client{} = client, input, options \\ []) do
+
+  def set_stack_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5007,12 +5872,26 @@ defmodule AWS.CloudFormation do
   @doc """
   Specifies the configuration data for a registered CloudFormation extension, in
   the given account and Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20SetTypeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_type_configuration_input`)
+    %{
+      optional("ConfigurationAlias") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeArn") => String.t(),
+      optional("TypeName") => String.t(),
+      required("Configuration") => String.t()
+    }
   """
-  @spec set_type_configuration(AWS.Client.t(), set_type_configuration_input(), Keyword.t()) ::
+
+  @spec set_type_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_type_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_type_configuration_errors()}
-  def set_type_configuration(%Client{} = client, input, options \\ []) do
+
+  def set_type_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5022,12 +5901,25 @@ defmodule AWS.CloudFormation do
   @doc """
   Specify the default version of an extension. The default version of an extension
   will be used in CloudFormation operations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20SetTypeDefaultVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:set_type_default_version_input`)
+    %{
+      optional("Arn") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t(),
+      optional("VersionId") => String.t()
+    }
   """
-  @spec set_type_default_version(AWS.Client.t(), set_type_default_version_input(), Keyword.t()) ::
+
+  @spec set_type_default_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, set_type_default_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, set_type_default_version_errors()}
-  def set_type_default_version(%Client{} = client, input, options \\ []) do
+
+  def set_type_default_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5041,11 +5933,24 @@ defmodule AWS.CloudFormation do
   update until resources receive the required number of signals or the timeout
   period is exceeded. The `SignalResource` operation is useful in cases where
   you want to send signals from anywhere other than an Amazon EC2 instance.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20SignalResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:signal_resource_input`)
+    %{
+      required("LogicalResourceId") => String.t(),
+      required("StackName") => String.t(),
+      required("Status") => list(any()),
+      required("UniqueId") => String.t()
+    }
   """
-  @spec signal_resource(AWS.Client.t(), signal_resource_input(), Keyword.t()) ::
+
+  @spec signal_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def signal_resource(%Client{} = client, input, options \\ []) do
+
+  def signal_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5055,12 +5960,22 @@ defmodule AWS.CloudFormation do
   @doc """
   Starts a scan of the resources in this account in this Region. You can the
   status of a scan using the `ListResourceScans` API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20StartResourceScan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_resource_scan_input`)
+    %{
+      optional("ClientRequestToken") => String.t()
+    }
   """
-  @spec start_resource_scan(AWS.Client.t(), start_resource_scan_input(), Keyword.t()) ::
+
+  @spec start_resource_scan(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_resource_scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_resource_scan_errors()}
-  def start_resource_scan(%Client{} = client, input, options \\ []) do
+
+  def start_resource_scan(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5071,12 +5986,24 @@ defmodule AWS.CloudFormation do
   Stops an in-progress operation on a stack set and its associated stack
   instances. StackSets will cancel all the unstarted stack instance deployments
   and wait for those are in-progress to complete.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20StopStackSetOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_stack_set_operation_input`)
+    %{
+      optional("CallAs") => list(any()),
+      required("OperationId") => String.t(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec stop_stack_set_operation(AWS.Client.t(), stop_stack_set_operation_input(), Keyword.t()) ::
+
+  @spec stop_stack_set_operation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_stack_set_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_stack_set_operation_errors()}
-  def stop_stack_set_operation(%Client{} = client, input, options \\ []) do
+
+  def stop_stack_set_operation(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5086,12 +6013,26 @@ defmodule AWS.CloudFormation do
   @doc """
   Tests a registered extension to make sure it meets all necessary requirements
   for being published in the CloudFormation registry.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20TestType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_type_input`)
+    %{
+      optional("Arn") => String.t(),
+      optional("LogDeliveryBucket") => String.t(),
+      optional("Type") => list(any()),
+      optional("TypeName") => String.t(),
+      optional("VersionId") => String.t()
+    }
   """
-  @spec test_type(AWS.Client.t(), test_type_input(), Keyword.t()) ::
+
+  @spec test_type(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_type_errors()}
-  def test_type(%Client{} = client, input, options \\ []) do
+
+  def test_type(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5103,12 +6044,27 @@ defmodule AWS.CloudFormation do
   remove resources, refresh resources, and change the `DeletionPolicy` and
   `UpdateReplacePolicy` settings. You can check the status of the update to the
   generated template using the `DescribeGeneratedTemplate` API action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20UpdateGeneratedTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_generated_template_input`)
+    %{
+      optional("AddResources") => list(resource_definition()()),
+      optional("NewGeneratedTemplateName") => String.t(),
+      optional("RefreshAllResources") => boolean(),
+      optional("RemoveResources") => list(String.t()()),
+      optional("TemplateConfiguration") => template_configuration(),
+      required("GeneratedTemplateName") => String.t()
+    }
   """
-  @spec update_generated_template(AWS.Client.t(), update_generated_template_input(), Keyword.t()) ::
+
+  @spec update_generated_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_generated_template_errors()}
-  def update_generated_template(%Client{} = client, input, options \\ []) do
+
+  def update_generated_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5120,12 +6076,39 @@ defmodule AWS.CloudFormation do
   successfully, the stack update starts. You can check the status of the stack
   through the `DescribeStacks` action. To get a copy of the template for an
   existing stack, you can use the `GetTemplate` action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20UpdateStack&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_stack_input`)
+    %{
+      optional("Capabilities") => list(list(any())()),
+      optional("ClientRequestToken") => String.t(),
+      optional("DisableRollback") => boolean(),
+      optional("NotificationARNs") => list(String.t()()),
+      optional("Parameters") => list(parameter()()),
+      optional("ResourceTypes") => list(String.t()()),
+      optional("RetainExceptOnCreate") => boolean(),
+      optional("RoleARN") => String.t(),
+      optional("RollbackConfiguration") => rollback_configuration(),
+      optional("StackPolicyBody") => String.t(),
+      optional("StackPolicyDuringUpdateBody") => String.t(),
+      optional("StackPolicyDuringUpdateURL") => String.t(),
+      optional("StackPolicyURL") => String.t(),
+      optional("Tags") => list(tag()()),
+      optional("TemplateBody") => String.t(),
+      optional("TemplateURL") => String.t(),
+      optional("UsePreviousTemplate") => boolean(),
+      required("StackName") => String.t()
+    }
   """
-  @spec update_stack(AWS.Client.t(), update_stack_input(), Keyword.t()) ::
+
+  @spec update_stack(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stack_errors()}
-  def update_stack(%Client{} = client, input, options \\ []) do
+
+  def update_stack(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5141,12 +6124,29 @@ defmodule AWS.CloudFormation do
   [CreateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html).
   During stack set updates, any parameters overridden for a stack instance
   aren't updated, but retain their overridden value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20UpdateStackInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_stack_instances_input`)
+    %{
+      optional("Accounts") => list(String.t()()),
+      optional("CallAs") => list(any()),
+      optional("DeploymentTargets") => deployment_targets(),
+      optional("OperationId") => String.t(),
+      optional("OperationPreferences") => stack_set_operation_preferences(),
+      optional("ParameterOverrides") => list(parameter()()),
+      required("Regions") => list(String.t()()),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec update_stack_instances(AWS.Client.t(), update_stack_instances_input(), Keyword.t()) ::
+
+  @spec update_stack_instances(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stack_instances_errors()}
-  def update_stack_instances(%Client{} = client, input, options \\ []) do
+
+  def update_stack_instances(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5156,12 +6156,40 @@ defmodule AWS.CloudFormation do
   @doc """
   Updates the stack set, and associated stack instances in the specified accounts
   and Amazon Web Services Regions.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20UpdateStackSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_stack_set_input`)
+    %{
+      optional("Accounts") => list(String.t()()),
+      optional("AdministrationRoleARN") => String.t(),
+      optional("AutoDeployment") => auto_deployment(),
+      optional("CallAs") => list(any()),
+      optional("Capabilities") => list(list(any())()),
+      optional("DeploymentTargets") => deployment_targets(),
+      optional("Description") => String.t(),
+      optional("ExecutionRoleName") => String.t(),
+      optional("ManagedExecution") => managed_execution(),
+      optional("OperationId") => String.t(),
+      optional("OperationPreferences") => stack_set_operation_preferences(),
+      optional("Parameters") => list(parameter()()),
+      optional("PermissionModel") => list(any()),
+      optional("Regions") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("TemplateBody") => String.t(),
+      optional("TemplateURL") => String.t(),
+      optional("UsePreviousTemplate") => boolean(),
+      required("StackSetName") => String.t()
+    }
   """
-  @spec update_stack_set(AWS.Client.t(), update_stack_set_input(), Keyword.t()) ::
+
+  @spec update_stack_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_stack_set_errors()}
-  def update_stack_set(%Client{} = client, input, options \\ []) do
+
+  def update_stack_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -5178,15 +6206,23 @@ defmodule AWS.CloudFormation do
   stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html),
   termination protection is set on the root stack and can't be changed directly
   on the nested stack.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20UpdateTerminationProtection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_termination_protection_input`)
+    %{
+      required("EnableTerminationProtection") => boolean(),
+      required("StackName") => String.t()
+    }
   """
-  @spec update_termination_protection(
-          AWS.Client.t(),
-          update_termination_protection_input(),
-          Keyword.t()
-        ) ::
+
+  @spec update_termination_protection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_termination_protection_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def update_termination_protection(%Client{} = client, input, options \\ []) do
+
+  def update_termination_protection(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -5197,11 +6233,22 @@ defmodule AWS.CloudFormation do
   Validates a specified template. CloudFormation first checks if the template is
   valid JSON. If it isn't, CloudFormation checks if the template is valid YAML.
   If both these checks fail, CloudFormation returns a template validation error.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudformation%20ValidateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:validate_template_input`)
+    %{
+      optional("TemplateBody") => String.t(),
+      optional("TemplateURL") => String.t()
+    }
   """
-  @spec validate_template(AWS.Client.t(), validate_template_input(), Keyword.t()) ::
+
+  @spec validate_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, validate_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def validate_template(%Client{} = client, input, options \\ []) do
+
+  def validate_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -175,12 +175,26 @@ defmodule AWS.Forecastquery do
   non-timestamp, non-target field) from the `TARGET_TIME_SERIES` dataset, or one
   of the forecast dimensions specified as part of the `FeaturizationConfig`
   object.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecastquery%20QueryForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:query_forecast_request`)
+    %{
+      optional("EndDate") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("StartDate") => String.t(),
+      required("Filters") => map(),
+      required("ForecastArn") => String.t()
+    }
   """
-  @spec query_forecast(AWS.Client.t(), query_forecast_request(), Keyword.t()) ::
+
+  @spec query_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_forecast_errors()}
-  def query_forecast(%Client{} = client, input, options \\ []) do
+
+  def query_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -189,12 +203,26 @@ defmodule AWS.Forecastquery do
 
   @doc """
   Retrieves a what-if forecast.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=forecastquery%20QueryWhatIfForecast&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:query_what_if_forecast_request`)
+    %{
+      optional("EndDate") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("StartDate") => String.t(),
+      required("Filters") => map(),
+      required("WhatIfForecastArn") => String.t()
+    }
   """
-  @spec query_what_if_forecast(AWS.Client.t(), query_what_if_forecast_request(), Keyword.t()) ::
+
+  @spec query_what_if_forecast(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, query_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, query_what_if_forecast_errors()}
-  def query_what_if_forecast(%Client{} = client, input, options \\ []) do
+
+  def query_what_if_forecast(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

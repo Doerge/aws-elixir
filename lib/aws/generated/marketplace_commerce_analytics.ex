@@ -100,12 +100,28 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   Given a data set type and data set publication date, asynchronously publishes
   the requested data set to the specified S3 bucket and notifies the specified
   SNS topic once the data is available. Returns a unique request identifier that
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecommerceanalytics%20GenerateDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_data_set_request`)
+    %{
+      optional("customerDefinedValues") => map(),
+      optional("destinationS3Prefix") => String.t(),
+      required("dataSetPublicationDate") => non_neg_integer(),
+      required("dataSetType") => list(any()),
+      required("destinationS3BucketName") => String.t(),
+      required("roleNameArn") => String.t(),
+      required("snsTopicArn") => String.t()
+    }
   """
-  @spec generate_data_set(AWS.Client.t(), generate_data_set_request(), Keyword.t()) ::
+
+  @spec generate_data_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_data_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_data_set_errors()}
-  def generate_data_set(%Client{} = client, input, options \\ []) do
+
+  def generate_data_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -117,16 +133,28 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   asynchronously publishes the requested customer support data to the specified
   S3 bucket and notifies the specified SNS topic once the data is available.
   Returns a unique request
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecommerceanalytics%20StartSupportDataExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_support_data_export_request`)
+    %{
+      optional("customerDefinedValues") => map(),
+      optional("destinationS3Prefix") => String.t(),
+      required("dataSetType") => list(any()),
+      required("destinationS3BucketName") => String.t(),
+      required("fromDate") => non_neg_integer(),
+      required("roleNameArn") => String.t(),
+      required("snsTopicArn") => String.t()
+    }
   """
-  @spec start_support_data_export(
-          AWS.Client.t(),
-          start_support_data_export_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_support_data_export(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_support_data_export_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_support_data_export_errors()}
-  def start_support_data_export(%Client{} = client, input, options \\ []) do
+
+  def start_support_data_export(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

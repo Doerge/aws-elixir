@@ -1805,12 +1805,26 @@ defmodule AWS.Textract do
   @doc """
   Analyzes an input document for relationships between detected items. The types
   of information returned are as follows:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20AnalyzeDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:analyze_document_request`)
+    %{
+      optional("AdaptersConfig") => adapters_config(),
+      optional("HumanLoopConfig") => human_loop_config(),
+      optional("QueriesConfig") => queries_config(),
+      required("Document") => document(),
+      required("FeatureTypes") => list(list(any())())
+    }
   """
-  @spec analyze_document(AWS.Client.t(), analyze_document_request(), Keyword.t()) ::
+
+  @spec analyze_document(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, analyze_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_document_errors()}
-  def analyze_document(%Client{} = client, input, options \\ []) do
+
+  def analyze_document(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1821,12 +1835,22 @@ defmodule AWS.Textract do
   `AnalyzeExpense` synchronously analyzes an input document for financially
   related relationships between text. Information is returned as
   `ExpenseDocuments` and seperated as follows:
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20AnalyzeExpense&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:analyze_expense_request`)
+    %{
+      required("Document") => document()
+    }
   """
-  @spec analyze_expense(AWS.Client.t(), analyze_expense_request(), Keyword.t()) ::
+
+  @spec analyze_expense(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, analyze_expense_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_expense_errors()}
-  def analyze_expense(%Client{} = client, input, options \\ []) do
+
+  def analyze_expense(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1838,12 +1862,22 @@ defmodule AWS.Textract do
   extracted and returned as `IdentityDocumentFields`, which records both the
   normalized field and value of the extracted text. Unlike other Amazon Textract
   operations, `AnalyzeID` doesn't return any Geometry data.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20AnalyzeID&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:analyze_id_request`)
+    %{
+      required("DocumentPages") => list(document()())
+    }
   """
-  @spec analyze_id(AWS.Client.t(), analyze_id_request(), Keyword.t()) ::
+
+  @spec analyze_id(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, analyze_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, analyze_id_errors()}
-  def analyze_id(%Client{} = client, input, options \\ []) do
+
+  def analyze_id(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1857,12 +1891,27 @@ defmodule AWS.Textract do
   and a ClientRequestToken. You can choose whether or not the adapter should be
   AutoUpdated with the AutoUpdate argument. By default, AutoUpdate is set to
   DISABLED.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20CreateAdapter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_adapter_request`)
+    %{
+      optional("AutoUpdate") => list(any()),
+      optional("ClientRequestToken") => String.t(),
+      optional("Description") => String.t(),
+      optional("Tags") => map(),
+      required("AdapterName") => String.t(),
+      required("FeatureTypes") => list(list(any())())
+    }
   """
-  @spec create_adapter(AWS.Client.t(), create_adapter_request(), Keyword.t()) ::
+
+  @spec create_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_adapter_errors()}
-  def create_adapter(%Client{} = client, input, options \\ []) do
+
+  def create_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1874,12 +1923,27 @@ defmodule AWS.Textract do
   specified dataset provided via the DatasetConfig argument. Requires that you
   specify an Amazon S3 bucket with the OutputConfig argument. You can provide an
   optional KMSKeyId, an optional ClientRequestToken, and optional tags.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20CreateAdapterVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_adapter_version_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("KMSKeyId") => String.t(),
+      optional("Tags") => map(),
+      required("AdapterId") => String.t(),
+      required("DatasetConfig") => adapter_version_dataset_config(),
+      required("OutputConfig") => output_config()
+    }
   """
-  @spec create_adapter_version(AWS.Client.t(), create_adapter_version_request(), Keyword.t()) ::
+
+  @spec create_adapter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_adapter_version_errors()}
-  def create_adapter_version(%Client{} = client, input, options \\ []) do
+
+  def create_adapter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1889,12 +1953,22 @@ defmodule AWS.Textract do
   @doc """
   Deletes an Amazon Textract adapter. Takes an AdapterId and deletes the adapter
   specified by the ID.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20DeleteAdapter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_adapter_request`)
+    %{
+      required("AdapterId") => String.t()
+    }
   """
-  @spec delete_adapter(AWS.Client.t(), delete_adapter_request(), Keyword.t()) ::
+
+  @spec delete_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adapter_errors()}
-  def delete_adapter(%Client{} = client, input, options \\ []) do
+
+  def delete_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1905,12 +1979,23 @@ defmodule AWS.Textract do
   Deletes an Amazon Textract adapter version. Requires that you specify both an
   AdapterId and a AdapterVersion. Deletes the adapter version specified by the
   AdapterId and the AdapterVersion.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20DeleteAdapterVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_adapter_version_request`)
+    %{
+      required("AdapterId") => String.t(),
+      required("AdapterVersion") => String.t()
+    }
   """
-  @spec delete_adapter_version(AWS.Client.t(), delete_adapter_version_request(), Keyword.t()) ::
+
+  @spec delete_adapter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adapter_version_errors()}
-  def delete_adapter_version(%Client{} = client, input, options \\ []) do
+
+  def delete_adapter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1926,12 +2011,22 @@ defmodule AWS.Textract do
   parent of LINE `Block` objects that represent the lines of detected text on a
   page. A LINE `Block` object is a parent for each word that makes up the line.
   Words are represented by `Block` objects of type WORD.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20DetectDocumentText&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:detect_document_text_request`)
+    %{
+      required("Document") => document()
+    }
   """
-  @spec detect_document_text(AWS.Client.t(), detect_document_text_request(), Keyword.t()) ::
+
+  @spec detect_document_text(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, detect_document_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, detect_document_text_errors()}
-  def detect_document_text(%Client{} = client, input, options \\ []) do
+
+  def detect_document_text(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1942,12 +2037,22 @@ defmodule AWS.Textract do
   Gets configuration information for an adapter specified by an AdapterId,
   returning information on AdapterName, Description, CreationTime, AutoUpdate
   status, and FeatureTypes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20GetAdapter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_adapter_request`)
+    %{
+      required("AdapterId") => String.t()
+    }
   """
-  @spec get_adapter(AWS.Client.t(), get_adapter_request(), Keyword.t()) ::
+
+  @spec get_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adapter_errors()}
-  def get_adapter(%Client{} = client, input, options \\ []) do
+
+  def get_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1958,12 +2063,23 @@ defmodule AWS.Textract do
   Gets configuration information for the specified adapter version, including:
   AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig,
   KMSKeyId, OutputConfig, Tags and EvaluationMetrics.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20GetAdapterVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_adapter_version_request`)
+    %{
+      required("AdapterId") => String.t(),
+      required("AdapterVersion") => String.t()
+    }
   """
-  @spec get_adapter_version(AWS.Client.t(), get_adapter_version_request(), Keyword.t()) ::
+
+  @spec get_adapter_version(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adapter_version_errors()}
-  def get_adapter_version(%Client{} = client, input, options \\ []) do
+
+  def get_adapter_version(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1981,12 +2097,24 @@ defmodule AWS.Textract do
   to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetDocumentAnalysis`, and
   pass the job identifier (`JobId`) from the initial call to
   `StartDocumentAnalysis`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20GetDocumentAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_document_analysis_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("JobId") => String.t()
+    }
   """
-  @spec get_document_analysis(AWS.Client.t(), get_document_analysis_request(), Keyword.t()) ::
+
+  @spec get_document_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_analysis_errors()}
-  def get_document_analysis(%Client{} = client, input, options \\ []) do
+
+  def get_document_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2005,16 +2133,24 @@ defmodule AWS.Textract do
   published to the Amazon SNS topic is `SUCCEEDED`. If so, call
   `GetDocumentTextDetection`, and pass the job identifier (`JobId`) from the
   initial call to `StartDocumentTextDetection`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20GetDocumentTextDetection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_document_text_detection_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("JobId") => String.t()
+    }
   """
-  @spec get_document_text_detection(
-          AWS.Client.t(),
-          get_document_text_detection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_document_text_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_document_text_detection_errors()}
-  def get_document_text_detection(%Client{} = client, input, options \\ []) do
+
+  def get_document_text_detection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2034,12 +2170,24 @@ defmodule AWS.Textract do
   published to the Amazon SNS topic is `SUCCEEDED`. If so, call
   `GetExpenseAnalysis`, and pass the job identifier (`JobId`) from the initial
   call to `StartExpenseAnalysis`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20GetExpenseAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_expense_analysis_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("JobId") => String.t()
+    }
   """
-  @spec get_expense_analysis(AWS.Client.t(), get_expense_analysis_request(), Keyword.t()) ::
+
+  @spec get_expense_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_expense_analysis_errors()}
-  def get_expense_analysis(%Client{} = client, input, options \\ []) do
+
+  def get_expense_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2053,12 +2201,24 @@ defmodule AWS.Textract do
   text analysis operation finishes, Amazon Textract publishes a completion
   status to the Amazon Simple Notification Service (Amazon SNS) topic that's
   registered in the initial call to `StartLendingAnalysis`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20GetLendingAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_lending_analysis_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("JobId") => String.t()
+    }
   """
-  @spec get_lending_analysis(AWS.Client.t(), get_lending_analysis_request(), Keyword.t()) ::
+
+  @spec get_lending_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lending_analysis_errors()}
-  def get_lending_analysis(%Client{} = client, input, options \\ []) do
+
+  def get_lending_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2075,16 +2235,22 @@ defmodule AWS.Textract do
   When the text analysis operation finishes, Amazon Textract publishes a
   completion status to the Amazon Simple Notification Service (Amazon SNS) topic
   that's registered in the initial call to `StartLendingAnalysis`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20GetLendingAnalysisSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_lending_analysis_summary_request`)
+    %{
+      required("JobId") => String.t()
+    }
   """
-  @spec get_lending_analysis_summary(
-          AWS.Client.t(),
-          get_lending_analysis_summary_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_lending_analysis_summary(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_lending_analysis_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_lending_analysis_summary_errors()}
-  def get_lending_analysis_summary(%Client{} = client, input, options \\ []) do
+
+  def get_lending_analysis_summary(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2093,12 +2259,26 @@ defmodule AWS.Textract do
 
   @doc """
   List all version of an adapter that meet the specified filtration criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20ListAdapterVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_adapter_versions_request`)
+    %{
+      optional("AdapterId") => String.t(),
+      optional("AfterCreationTime") => non_neg_integer(),
+      optional("BeforeCreationTime") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_adapter_versions(AWS.Client.t(), list_adapter_versions_request(), Keyword.t()) ::
+
+  @spec list_adapter_versions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_adapter_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_adapter_versions_errors()}
-  def list_adapter_versions(%Client{} = client, input, options \\ []) do
+
+  def list_adapter_versions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2107,12 +2287,25 @@ defmodule AWS.Textract do
 
   @doc """
   Lists all adapters that match the specified filtration criteria.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20ListAdapters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_adapters_request`)
+    %{
+      optional("AfterCreationTime") => non_neg_integer(),
+      optional("BeforeCreationTime") => non_neg_integer(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_adapters(AWS.Client.t(), list_adapters_request(), Keyword.t()) ::
+
+  @spec list_adapters(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_adapters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_adapters_errors()}
-  def list_adapters(%Client{} = client, input, options \\ []) do
+
+  def list_adapters(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2121,12 +2314,22 @@ defmodule AWS.Textract do
 
   @doc """
   Lists all tags for an Amazon Textract resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2139,12 +2342,30 @@ defmodule AWS.Textract do
   `StartDocumentAnalysis` can analyze text in documents that are in JPEG, PNG,
   TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use
   `DocumentLocation` to specify the bucket name and file name of the document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20StartDocumentAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_document_analysis_request`)
+    %{
+      optional("AdaptersConfig") => adapters_config(),
+      optional("ClientRequestToken") => String.t(),
+      optional("JobTag") => String.t(),
+      optional("KMSKeyId") => String.t(),
+      optional("NotificationChannel") => notification_channel(),
+      optional("OutputConfig") => output_config(),
+      optional("QueriesConfig") => queries_config(),
+      required("DocumentLocation") => document_location(),
+      required("FeatureTypes") => list(list(any())())
+    }
   """
-  @spec start_document_analysis(AWS.Client.t(), start_document_analysis_request(), Keyword.t()) ::
+
+  @spec start_document_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_document_analysis_errors()}
-  def start_document_analysis(%Client{} = client, input, options \\ []) do
+
+  def start_document_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2158,16 +2379,28 @@ defmodule AWS.Textract do
   PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket.
   Use `DocumentLocation` to specify the bucket name and file name of the
   document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20StartDocumentTextDetection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_document_text_detection_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobTag") => String.t(),
+      optional("KMSKeyId") => String.t(),
+      optional("NotificationChannel") => notification_channel(),
+      optional("OutputConfig") => output_config(),
+      required("DocumentLocation") => document_location()
+    }
   """
-  @spec start_document_text_detection(
-          AWS.Client.t(),
-          start_document_text_detection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_document_text_detection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_document_text_detection_errors()}
-  def start_document_text_detection(%Client{} = client, input, options \\ []) do
+
+  def start_document_text_detection(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2181,12 +2414,27 @@ defmodule AWS.Textract do
   must be stored in an Amazon S3 bucket. Use the `DocumentLocation` parameter to
   specify the name of your S3 bucket and the name of the document in that
   bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20StartExpenseAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_expense_analysis_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobTag") => String.t(),
+      optional("KMSKeyId") => String.t(),
+      optional("NotificationChannel") => notification_channel(),
+      optional("OutputConfig") => output_config(),
+      required("DocumentLocation") => document_location()
+    }
   """
-  @spec start_expense_analysis(AWS.Client.t(), start_expense_analysis_request(), Keyword.t()) ::
+
+  @spec start_expense_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_expense_analysis_errors()}
-  def start_expense_analysis(%Client{} = client, input, options \\ []) do
+
+  def start_expense_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2201,12 +2449,27 @@ defmodule AWS.Textract do
   documents that are in one of the following formats: JPEG, PNG, TIFF, PDF. Use
   `DocumentLocation` to specify the bucket name and the file name of the
   document.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20StartLendingAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_lending_analysis_request`)
+    %{
+      optional("ClientRequestToken") => String.t(),
+      optional("JobTag") => String.t(),
+      optional("KMSKeyId") => String.t(),
+      optional("NotificationChannel") => notification_channel(),
+      optional("OutputConfig") => output_config(),
+      required("DocumentLocation") => document_location()
+    }
   """
-  @spec start_lending_analysis(AWS.Client.t(), start_lending_analysis_request(), Keyword.t()) ::
+
+  @spec start_lending_analysis(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_lending_analysis_errors()}
-  def start_lending_analysis(%Client{} = client, input, options \\ []) do
+
+  def start_lending_analysis(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2215,12 +2478,23 @@ defmodule AWS.Textract do
 
   @doc """
   Adds one or more tags to the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => map()
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2229,12 +2503,23 @@ defmodule AWS.Textract do
 
   @doc """
   Removes any tags with the specified keys from the specified resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2244,12 +2529,25 @@ defmodule AWS.Textract do
   @doc """
   Update the configuration for an adapter. FeatureTypes configurations cannot be
   updated. At least one new parameter must be specified as an argument.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=textract%20UpdateAdapter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_adapter_request`)
+    %{
+      optional("AdapterName") => String.t(),
+      optional("AutoUpdate") => list(any()),
+      optional("Description") => String.t(),
+      required("AdapterId") => String.t()
+    }
   """
-  @spec update_adapter(AWS.Client.t(), update_adapter_request(), Keyword.t()) ::
+
+  @spec update_adapter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_adapter_errors()}
-  def update_adapter(%Client{} = client, input, options \\ []) do
+
+  def update_adapter(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

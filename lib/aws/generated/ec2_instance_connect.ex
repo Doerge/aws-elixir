@@ -241,16 +241,25 @@ defmodule AWS.EC2InstanceConnect do
   to the instance using SSH. For more information, see [EC2 Serial
   Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html)
   in the *Amazon EC2 User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2instanceconnect%20SendSerialConsoleSSHPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_serial_console_ssh_public_key_request`)
+    %{
+      optional("SerialPort") => integer(),
+      required("InstanceId") => String.t(),
+      required("SSHPublicKey") => String.t()
+    }
   """
-  @spec send_serial_console_ssh_public_key(
-          AWS.Client.t(),
-          send_serial_console_ssh_public_key_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_serial_console_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_serial_console_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_serial_console_ssh_public_key_errors()}
-  def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -263,12 +272,25 @@ defmodule AWS.EC2InstanceConnect do
   your Linux instance using EC2 Instance
   Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html)
   in the *Amazon EC2 User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ec2instanceconnect%20SendSSHPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_ssh_public_key_request`)
+    %{
+      optional("AvailabilityZone") => String.t(),
+      required("InstanceId") => String.t(),
+      required("InstanceOSUser") => String.t(),
+      required("SSHPublicKey") => String.t()
+    }
   """
-  @spec send_ssh_public_key(AWS.Client.t(), send_ssh_public_key_request(), Keyword.t()) ::
+
+  @spec send_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_ssh_public_key_errors()}
-  def send_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def send_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

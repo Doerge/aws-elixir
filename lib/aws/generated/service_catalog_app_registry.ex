@@ -15,239 +15,239 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @typedoc """
 
   ## Example:
-
+      
       delete_attribute_group_request() :: %{}
-
+      
   """
   @type delete_attribute_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resources_list_item() :: %{
         "errorMessage" => String.t(),
         "resourceArn" => String.t(),
         "resourceType" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type resources_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attribute_group_response() :: %{
         "attributeGroup" => attribute_group()
       }
-
+      
   """
   @type create_attribute_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_resources_response() :: %{
         "nextToken" => String.t(),
         "resources" => list(resource_info()())
       }
-
+      
   """
   @type list_associated_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_tag_result() :: %{
         "applicationTagStatus" => list(any()),
         "errorMessage" => String.t(),
         "nextToken" => String.t(),
         "resources" => list(resources_list_item()())
       }
-
+      
   """
   @type application_tag_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attribute_groups_for_application_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_attribute_groups_for_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_attribute_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_associated_attribute_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_query_configuration() :: %{
         "tagKey" => String.t()
       }
-
+      
   """
   @type tag_query_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_attribute_groups_response() :: %{
         "attributeGroups" => list(String.t()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_associated_attribute_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_attribute_group_request() :: %{
         optional("attributes") => String.t(),
         optional("description") => String.t(),
         optional("name") => String.t()
       }
-
+      
   """
   @type update_attribute_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attribute_groups_response() :: %{
         "attributeGroups" => list(attribute_group_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_attribute_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_response() :: %{
         "applicationArn" => String.t(),
         "options" => list(list(any())()),
         "resourceArn" => String.t()
       }
-
+      
   """
   @type associate_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_configuration_response() :: %{
         "configuration" => app_registry_configuration()
       }
-
+      
   """
   @type get_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_associated_resources_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_associated_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attribute_group_response() :: %{
         "arn" => String.t(),
         "attributes" => String.t(),
@@ -259,14 +259,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type get_attribute_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application() :: %{
         "applicationTag" => map(),
         "arn" => String.t(),
@@ -277,34 +277,34 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attribute_group_request() :: %{}
-
+      
   """
   @type get_attribute_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_integrations() :: %{
         "resourceGroup" => resource_group()
       }
-
+      
   """
   @type resource_integrations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_group_summary() :: %{
         "arn" => String.t(),
         "createdBy" => String.t(),
@@ -314,171 +314,171 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "lastUpdateTime" => non_neg_integer(),
         "name" => String.t()
       }
-
+      
   """
   @type attribute_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_request() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
         required("clientToken") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_resource_response() :: %{
         "applicationArn" => String.t(),
         "resourceArn" => String.t()
       }
-
+      
   """
   @type disassociate_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_response() :: %{
         "application" => application()
       }
-
+      
   """
   @type create_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_resource_request() :: %{
         optional("options") => list(list(any())())
       }
-
+      
   """
   @type associate_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sync_resource_request() :: %{}
-
+      
   """
   @type sync_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_attribute_group_request() :: %{}
-
+      
   """
   @type associate_attribute_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_resource_request() :: %{}
-
+      
   """
   @type disassociate_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_group() :: %{
         "arn" => String.t(),
         "errorMessage" => String.t(),
         "state" => list(any())
       }
-
+      
   """
   @type resource_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_response() :: %{
         "application" => application_summary()
       }
-
+      
   """
   @type delete_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sync_resource_response() :: %{
         "actionTaken" => list(any()),
         "applicationArn" => String.t(),
         "resourceArn" => String.t()
       }
-
+      
   """
   @type sync_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_request() :: %{
         optional("description") => String.t(),
         optional("name") => String.t()
       }
-
+      
   """
   @type update_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_response() :: %{
         "application" => application()
       }
-
+      
   """
   @type update_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_response() :: %{
         "applicationTag" => map(),
         "arn" => String.t(),
@@ -491,14 +491,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type get_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_group() :: %{
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -508,139 +508,139 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type attribute_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_applications_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_registry_configuration() :: %{
         "tagQueryConfiguration" => tag_query_configuration()
       }
-
+      
   """
   @type app_registry_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integrations() :: %{
         "applicationTagResourceGroup" => resource_group(),
         "resourceGroup" => resource_group()
       }
-
+      
   """
   @type integrations() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attribute_groups_for_application_response() :: %{
         "attributeGroupsDetails" => list(attribute_group_details()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_attribute_groups_for_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attribute_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_attribute_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t(),
         "serviceCode" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_associated_resource_response() :: %{
         "applicationTagResult" => application_tag_result(),
         "options" => list(list(any())()),
         "resource" => resource()
       }
-
+      
   """
   @type get_associated_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_attribute_group_response() :: %{
         "applicationArn" => String.t(),
         "attributeGroupArn" => String.t()
       }
-
+      
   """
   @type disassociate_attribute_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_info() :: %{
         "arn" => String.t(),
         "name" => String.t(),
@@ -648,14 +648,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "resourceDetails" => resource_details(),
         "resourceType" => list(any())
       }
-
+      
   """
   @type resource_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_summary() :: %{
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -664,82 +664,82 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "lastUpdateTime" => non_neg_integer(),
         "name" => String.t()
       }
-
+      
   """
   @type application_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_attribute_group_response() :: %{
         "applicationArn" => String.t(),
         "attributeGroupArn" => String.t()
       }
-
+      
   """
   @type associate_attribute_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_applications_response() :: %{
         "applications" => list(application_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_configuration_request() :: %{
         required("configuration") => app_registry_configuration()
       }
-
+      
   """
   @type put_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_attribute_group_response() :: %{
         "attributeGroup" => attribute_group()
       }
-
+      
   """
   @type update_attribute_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_details() :: %{
         "tagValue" => String.t()
       }
-
+      
   """
   @type resource_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_attribute_group_response() :: %{
         "attributeGroup" => attribute_group_summary()
       }
-
+      
   """
   @type delete_attribute_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attribute_group_request() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
@@ -747,75 +747,75 @@ defmodule AWS.ServiceCatalogAppRegistry do
         required("clientToken") => String.t(),
         required("name") => String.t()
       }
-
+      
   """
   @type create_attribute_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_request() :: %{}
-
+      
   """
   @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_group_details() :: %{
         "arn" => String.t(),
         "createdBy" => String.t(),
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type attribute_group_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_associated_resource_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("resourceTagStatus") => list(list(any())())
       }
-
+      
   """
   @type get_associated_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_application_request() :: %{}
-
+      
   """
   @type delete_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "arn" => String.t(),
         "associationTime" => non_neg_integer(),
         "integrations" => resource_integrations(),
         "name" => String.t()
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_attribute_group_request() :: %{}
-
+      
   """
   @type disassociate_attribute_group_request() :: %{}
 
@@ -951,37 +951,45 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string`) The name, ID, or ARN of the application.
   * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-    that holds the attributes to describe the application.
+  that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
-  @spec associate_attribute_group(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          associate_attribute_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_attribute_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_attribute_group_errors()}
-  def associate_attribute_group(
-        %Client{} = client,
-        application,
-        attribute_group,
-        input,
-        options \\ []
-      ) do
+
+  def associate_attribute_group(%Client{} = client, application, attribute_group, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -994,41 +1002,47 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string`) The name, ID, or ARN of the application.
   * `:resource` (`t:string`) The name or ID of the resource of which the
-    application will be associated.
+  application will be associated.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
-    resource of which the application will be associated.
+  resource of which the application will be associated.
 
   ## Optional parameters:
   """
-  @spec associate_resource(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          associate_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_resource_errors()}
-  def associate_resource(
-        %Client{} = client,
-        application,
-        resource,
-        resource_type,
-        input,
-        options \\ []
-      ) do
+
+  def associate_resource(%Client{} = client, application, resource, resource_type, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1041,29 +1055,40 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   """
-  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+
+  @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_application_errors()}
-  def create_application(%Client{} = client, input, options \\ []) do
+
+  def create_application(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1078,29 +1103,40 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   """
-  @spec create_attribute_group(AWS.Client.t(), create_attribute_group_request(), Keyword.t()) ::
+
+  @spec create_attribute_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attribute_group_errors()}
-  def create_attribute_group(%Client{} = client, input, options \\ []) do
+
+  def create_attribute_group(%Client{} = client, options \\ []) do
     url_path = "/attribute-groups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1115,17 +1151,38 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   """
-  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
+
+  @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_application_errors()}
-  def delete_application(%Client{} = client, application, input, options \\ []) do
+
+  def delete_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1134,7 +1191,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1148,26 +1205,42 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-    that holds the attributes to describe the application.
+  that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
-  @spec delete_attribute_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_attribute_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attribute_group_errors()}
-  def delete_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
+
+  def delete_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1176,7 +1249,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1192,35 +1265,48 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string`) The name, ID, or ARN of the application.
   * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-    that holds the attributes to describe the application.
+  that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
-  @spec disassociate_attribute_group(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_attribute_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_attribute_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_attribute_group_errors()}
+
   def disassociate_attribute_group(
         %Client{} = client,
         application,
         attribute_group,
-        input,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1229,7 +1315,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1245,37 +1331,49 @@ defmodule AWS.ServiceCatalogAppRegistry do
   * `:application` (`t:string`) The name or ID of the application.
   * `:resource` (`t:string`) The name or ID of the resource.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of the
-    resource that is being disassociated.
+  resource that is being disassociated.
 
   ## Optional parameters:
   """
-  @spec disassociate_resource(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          disassociate_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_resource_errors()}
+
   def disassociate_resource(
         %Client{} = client,
         application,
         resource,
         resource_type,
-        input,
         options \\ []
       ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1284,7 +1382,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1305,10 +1403,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   """
+
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_errors()}
+
   def get_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
 
@@ -1345,25 +1445,27 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string`) The name, ID, or ARN of the application.
   * `:resource` (`t:string`) The name or ID of the resource associated with the
-    application.
+  application.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
-    resource associated with the application.
+  resource associated with the application.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. If the
-    parameter is omitted, it defaults to 25. The value is optional.
+  parameter is omitted, it defaults to 25. The value is optional.
   * `:next_token` (`t:string`) A unique pagination token for each page of results.
-    Make the call again with the returned token to retrieve the next page of
-    results.
+  Make the call again with the returned token to retrieve the next page of
+  results.
   * `:resource_tag_status`
-    (`t:list[com.amazonaws.servicecatalogappregistry#ResourceItemStatus]`)
-    States whether an application tag is applied, not applied, in the process of
-    being applied, or skipped.
+  (`t:list[com.amazonaws.servicecatalogappregistry#ResourceItemStatus]`)
+  States whether an application tag is applied, not applied, in the process of
+  being applied, or skipped.
   """
+
   @spec get_associated_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_associated_resource_errors()}
+
   def get_associated_resource(
         %Client{} = client,
         application,
@@ -1432,14 +1534,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-    that holds the attributes to describe the application.
+  that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
+
   @spec get_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attribute_group_errors()}
+
   def get_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
@@ -1477,10 +1581,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   """
+
   @spec get_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_configuration_errors()}
+
   def get_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
 
@@ -1518,15 +1624,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-    This value is optional.
+  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+  This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-    after a previous API call.
+  after a previous API call.
   """
+
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_applications_errors()}
+
   def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
 
@@ -1584,15 +1692,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-    This value is optional.
+  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+  This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-    after a previous API call.
+  after a previous API call.
   """
+
   @spec list_associated_attribute_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_attribute_groups_errors()}
+
   def list_associated_attribute_groups(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups"
 
@@ -1650,15 +1760,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-    This value is optional.
+  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+  This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-    after a previous API call.
+  after a previous API call.
   """
+
   @spec list_associated_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_associated_resources_errors()}
+
   def list_associated_resources(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/resources"
 
@@ -1714,15 +1826,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-    This value is optional.
+  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+  This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-    after a previous API call.
+  after a previous API call.
   """
+
   @spec list_attribute_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attribute_groups_errors()}
+
   def list_attribute_groups(%Client{} = client, options \\ []) do
     url_path = "/attribute-groups"
 
@@ -1780,15 +1894,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-    return. The value cannot exceed 25. If you omit this parameter, it defaults
-    to 25. This value is optional.
+  return. The value cannot exceed 25. If you omit this parameter, it defaults
+  to 25. This value is optional.
   * `:next_token` (`t:string`) This token retrieves the next page of results after
-    a previous API call.
+  a previous API call.
   """
+
   @spec list_attribute_groups_for_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_for_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attribute_groups_for_application_errors()}
+
   def list_attribute_groups_for_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}/attribute-group-details"
 
@@ -1842,14 +1958,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
-    resource.
+  resource.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1887,19 +2005,40 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Optional parameters:
   """
-  @spec put_configuration(AWS.Client.t(), put_configuration_request(), Keyword.t()) ::
+
+  @spec put_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_configuration_errors()}
-  def put_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1909,42 +2048,47 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource` (`t:string`) An entity you can work with and specify with a name
-    or ID. Examples include an Amazon EC2 instance, an Amazon Web Services
-    CloudFormation stack, or an Amazon S3 bucket.
+  or ID. Examples include an Amazon EC2 instance, an Amazon Web Services
+  CloudFormation stack, or an Amazon S3 bucket.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
-    resource of which the application will be associated.
+  resource of which the application will be associated.
 
   ## Optional parameters:
   """
-  @spec sync_resource(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          sync_resource_request(),
-          Keyword.t()
-        ) ::
+
+  @spec sync_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, sync_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, sync_resource_errors()}
-  def sync_resource(%Client{} = client, resource, resource_type, input, options \\ []) do
+
+  def sync_resource(%Client{} = client, resource, resource_type, options \\ []) do
     url_path = "/sync/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1956,33 +2100,44 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
-    resource.
+  resource.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1992,28 +2147,45 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
-    resource.
+  resource.
   * `:tag_keys` (`t:list[com.amazonaws.servicecatalogappregistry#TagKey]`) A list
-    of the tag keys to remove from the specified resource.
+  of the tag keys to remove from the specified resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2022,7 +2194,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2035,21 +2207,42 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:application` (`t:string`) The name, ID, or ARN of the application that will
-    be updated.
+  be updated.
 
   ## Optional parameters:
   """
-  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
+
+  @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_errors()}
-  def update_application(%Client{} = client, application, input, options \\ []) do
+
+  def update_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2058,7 +2251,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2071,26 +2264,42 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
-    that holds the attributes to describe the application.
+  that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
-  @spec update_attribute_group(
-          AWS.Client.t(),
-          String.t(),
-          update_attribute_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_attribute_group_errors()}
-  def update_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
+
+  def update_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2099,7 +2308,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

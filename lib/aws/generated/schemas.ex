@@ -12,169 +12,169 @@ defmodule AWS.Schemas do
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_schema_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("Content") => String.t(),
         required("Type") => list(any())
       }
-
+      
   """
   @type create_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_code_binding_source_request() :: %{
         optional("SchemaVersion") => String.t()
       }
-
+      
   """
   @type get_code_binding_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_code_binding_request() :: %{
         optional("SchemaVersion") => String.t()
       }
-
+      
   """
   @type describe_code_binding_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_schemas_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         required("Keywords") => String.t()
       }
-
+      
   """
   @type search_schemas_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_schema_request() :: %{
         optional("SchemaVersion") => String.t()
       }
-
+      
   """
   @type describe_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_schema_request() :: %{}
-
+      
   """
   @type delete_schema_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_registry_request() :: %{}
-
+      
   """
   @type delete_registry_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_schema_versions_response() :: %{
         "NextToken" => String.t(),
         "SchemaVersions" => list(schema_version_summary()())
       }
-
+      
   """
   @type list_schema_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_registry_response() :: %{
         "Description" => String.t(),
         "RegistryArn" => String.t(),
         "RegistryName" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type create_registry_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_discoverers_request() :: %{
         optional("DiscovererIdPrefix") => String.t(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         optional("SourceArnPrefix") => String.t()
       }
-
+      
   """
   @type list_discoverers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_discoverer_request() :: %{}
-
+      
   """
   @type delete_discoverer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_discoverer_response() :: %{
         "CrossAccount" => boolean(),
         "Description" => String.t(),
@@ -184,38 +184,38 @@ defmodule AWS.Schemas do
         "State" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type create_discoverer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_discovered_schema_request() :: %{
         required("Events") => list(String.t()()),
         required("Type") => list(any())
       }
-
+      
   """
   @type get_discovered_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_response() :: %{
         "Policy" => String.t(),
         "RevisionId" => String.t()
       }
-
+      
   """
   @type get_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_schema_response() :: %{
         "Content" => String.t(),
         "Description" => String.t(),
@@ -227,37 +227,37 @@ defmodule AWS.Schemas do
         "Type" => String.t(),
         "VersionCreatedDate" => non_neg_integer()
       }
-
+      
   """
   @type describe_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       gone_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type gone_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_registry_request() :: %{
         optional("Description") => String.t()
       }
-
+      
   """
   @type update_registry_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_schema_response() :: %{
         "Description" => String.t(),
         "LastModified" => non_neg_integer(),
@@ -268,14 +268,14 @@ defmodule AWS.Schemas do
         "Type" => String.t(),
         "VersionCreatedDate" => non_neg_integer()
       }
-
+      
   """
   @type update_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_discoverer_response() :: %{
         "CrossAccount" => boolean(),
         "Description" => String.t(),
@@ -285,14 +285,14 @@ defmodule AWS.Schemas do
         "State" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type update_discoverer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_schema_response() :: %{
         "Description" => String.t(),
         "LastModified" => non_neg_integer(),
@@ -303,37 +303,37 @@ defmodule AWS.Schemas do
         "Type" => String.t(),
         "VersionCreatedDate" => non_neg_integer()
       }
-
+      
   """
   @type create_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_discoverer_response() :: %{
         "CrossAccount" => boolean(),
         "Description" => String.t(),
@@ -343,134 +343,134 @@ defmodule AWS.Schemas do
         "State" => list(any()),
         "Tags" => map()
       }
-
+      
   """
   @type describe_discoverer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_code_binding_request() :: %{
         optional("SchemaVersion") => String.t()
       }
-
+      
   """
   @type put_code_binding_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_schemas_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         optional("SchemaNamePrefix") => String.t()
       }
-
+      
   """
   @type list_schemas_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_code_binding_response() :: %{
         "CreationDate" => non_neg_integer(),
         "LastModified" => non_neg_integer(),
         "SchemaVersion" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type put_code_binding_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_schema_request() :: %{
         optional("SchemaVersion") => String.t(),
         required("Type") => String.t()
       }
-
+      
   """
   @type export_schema_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_discoverer_request() :: %{
         optional("CrossAccount") => boolean(),
         optional("Description") => String.t()
       }
-
+      
   """
   @type update_discoverer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_discoverer_request() :: %{
         optional("CrossAccount") => boolean(),
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("SourceArn") => String.t()
       }
-
+      
   """
   @type create_discoverer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_discoverers_response() :: %{
         "Discoverers" => list(discoverer_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_discoverers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_code_binding_source_response() :: %{
         "Body" => binary()
       }
-
+      
   """
   @type get_code_binding_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_schema_version_request() :: %{}
-
+      
   """
   @type delete_schema_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       schema_summary() :: %{
         "LastModified" => non_neg_integer(),
         "SchemaArn" => String.t(),
@@ -478,228 +478,228 @@ defmodule AWS.Schemas do
         "Tags" => map(),
         "VersionCount" => float()
       }
-
+      
   """
   @type schema_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_schema_summary() :: %{
         optional("RegistryName") => String.t(),
         optional("SchemaArn") => String.t(),
         optional("SchemaName") => String.t(),
         optional("SchemaVersions") => list(search_schema_version_summary()())
       }
-
+      
   """
   @type search_schema_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_discoverer_response() :: %{
         "DiscovererId" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type stop_discoverer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_request() :: %{
         optional("RegistryName") => String.t()
       }
-
+      
   """
   @type get_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_registry_response() :: %{
         "Description" => String.t(),
         "RegistryArn" => String.t(),
         "RegistryName" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type describe_registry_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_discoverer_request() :: %{}
-
+      
   """
   @type stop_discoverer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_schema_version_summary() :: %{
         optional("CreatedDate") => non_neg_integer(),
         optional("SchemaVersion") => String.t(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type search_schema_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_registry_response() :: %{
         "Description" => String.t(),
         "RegistryArn" => String.t(),
         "RegistryName" => String.t(),
         "Tags" => map()
       }
-
+      
   """
   @type update_registry_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_schema_versions_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_schema_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_discoverer_request() :: %{}
-
+      
   """
   @type describe_discoverer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_registries_response() :: %{
         "NextToken" => String.t(),
         "Registries" => list(registry_summary()())
       }
-
+      
   """
   @type list_registries_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_request() :: %{
         optional("RegistryName") => String.t(),
         optional("RevisionId") => String.t(),
         required("Policy") => String.t()
       }
-
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_schemas_response() :: %{
         "NextToken" => String.t(),
         "Schemas" => list(search_schema_summary()())
       }
-
+      
   """
   @type search_schemas_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_discovered_schema_response() :: %{
         "Content" => String.t()
       }
-
+      
   """
   @type get_discovered_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_registries_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         optional("RegistryNamePrefix") => String.t(),
         optional("Scope") => String.t()
       }
-
+      
   """
   @type list_registries_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_registry_request() :: %{}
-
+      
   """
   @type describe_registry_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       export_schema_response() :: %{
         "Content" => String.t(),
         "SchemaArn" => String.t(),
@@ -707,94 +707,94 @@ defmodule AWS.Schemas do
         "SchemaVersion" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type export_schema_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_registry_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map()
       }
-
+      
   """
   @type create_registry_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_response() :: %{
         "Policy" => String.t(),
         "RevisionId" => String.t()
       }
-
+      
   """
   @type put_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_request() :: %{
         optional("RegistryName") => String.t()
       }
-
+      
   """
   @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_discoverer_response() :: %{
         "DiscovererId" => String.t(),
         "State" => list(any())
       }
-
+      
   """
   @type start_discoverer_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       discoverer_summary() :: %{
         optional("CrossAccount") => boolean(),
         optional("DiscovererArn") => String.t(),
@@ -803,95 +803,95 @@ defmodule AWS.Schemas do
         optional("State") => list(any()),
         optional("Tags") => map()
       }
-
+      
   """
   @type discoverer_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_schemas_response() :: %{
         "NextToken" => String.t(),
         "Schemas" => list(schema_summary()())
       }
-
+      
   """
   @type list_schemas_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       precondition_failed_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type precondition_failed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       schema_version_summary() :: %{
         optional("SchemaArn") => String.t(),
         optional("SchemaName") => String.t(),
         optional("SchemaVersion") => String.t(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type schema_version_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_code_binding_response() :: %{
         "CreationDate" => non_neg_integer(),
         "LastModified" => non_neg_integer(),
         "SchemaVersion" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type describe_code_binding_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       registry_summary() :: %{
         optional("RegistryArn") => String.t(),
         optional("RegistryName") => String.t(),
         optional("Tags") => map()
       }
-
+      
   """
   @type registry_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_discoverer_request() :: %{}
-
+      
   """
   @type start_discoverer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_schema_request() :: %{
         optional("ClientTokenId") => String.t(),
         optional("Content") => String.t(),
         optional("Description") => String.t(),
         optional("Type") => list(any())
       }
-
+      
   """
   @type update_schema_request() :: %{String.t() => any()}
 
@@ -1154,32 +1154,46 @@ defmodule AWS.Schemas do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateDiscoverer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map | nil`):
+    * `:tags` (`t:map`) Tags associated with the resource.
 
   ## Optional parameters:
   """
-  @spec create_discoverer(AWS.Client.t(), create_discoverer_request(), Keyword.t()) ::
+
+  @spec create_discoverer(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_discoverer_errors()}
-  def create_discoverer(%Client{} = client, input, options \\ []) do
+
+  def create_discoverer(%Client{} = client, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v1/discoverers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1189,32 +1203,46 @@ defmodule AWS.Schemas do
 
   ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
+  * `:input` (`t:map | nil`):
+    * `:tags` (`t:map`) Tags to associate with the registry.
 
   ## Optional parameters:
   """
-  @spec create_registry(AWS.Client.t(), String.t(), create_registry_request(), Keyword.t()) ::
+
+  @spec create_registry(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_registry_errors()}
-  def create_registry(%Client{} = client, registry_name, input, options \\ []) do
+
+  def create_registry(%Client{} = client, registry_name, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1225,40 +1253,47 @@ defmodule AWS.Schemas do
   ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
+  * `:input` (`t:map | nil`):
+    * `:tags` (`t:map`) Tags associated with the schema.
 
   ## Optional parameters:
   """
-  @spec create_schema(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          create_schema_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_schema(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_schema_errors()}
-  def create_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
+
+  def create_schema(%Client{} = client, registry_name, schema_name, input, options \\ [])
+      when is_map(input) or is_nil(input) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1271,17 +1306,38 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec delete_discoverer(AWS.Client.t(), String.t(), delete_discoverer_request(), Keyword.t()) ::
+
+  @spec delete_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_discoverer_errors()}
-  def delete_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
+
+  def delete_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1290,7 +1346,7 @@ defmodule AWS.Schemas do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1306,17 +1362,38 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec delete_registry(AWS.Client.t(), String.t(), delete_registry_request(), Keyword.t()) ::
+
+  @spec delete_registry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_registry_errors()}
-  def delete_registry(%Client{} = client, registry_name, input, options \\ []) do
+
+  def delete_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1325,7 +1402,7 @@ defmodule AWS.Schemas do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1341,19 +1418,39 @@ defmodule AWS.Schemas do
   ## Optional parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/policy"
+
+    # Validate optional parameters
+    optional_params = [registry_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"RegistryName", "registryName"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :registry_name) do
+        [{"registryName", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1363,6 +1460,8 @@ defmodule AWS.Schemas do
       options
       |> Keyword.drop([:registry_name])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -1370,7 +1469,7 @@ defmodule AWS.Schemas do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1387,25 +1486,39 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec delete_schema(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_schema_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_errors()}
-  def delete_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
+
+  def delete_schema(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1414,7 +1527,7 @@ defmodule AWS.Schemas do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1432,33 +1545,45 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec delete_schema_version(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          delete_schema_version_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_schema_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_schema_version_errors()}
+
   def delete_schema_version(
         %Client{} = client,
         registry_name,
         schema_name,
         schema_version,
-        input,
         options \\ []
       ) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/version/#{AWS.Util.encode_uri(schema_version)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1467,7 +1592,7 @@ defmodule AWS.Schemas do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1485,12 +1610,14 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
-    schema version.
+  schema version.
   """
+
   @spec describe_code_binding(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_code_binding_errors()}
+
   def describe_code_binding(
         %Client{} = client,
         language,
@@ -1547,10 +1674,12 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
+
   @spec describe_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_discoverer_errors()}
+
   def describe_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
 
@@ -1589,10 +1718,12 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
+
   @spec describe_registry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_registry_errors()}
+
   def describe_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
 
@@ -1632,12 +1763,14 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
-    schema version.
+  schema version.
   """
+
   @spec describe_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_schema_errors()}
+
   def describe_schema(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
@@ -1682,7 +1815,9 @@ defmodule AWS.Schemas do
           {:ok, export_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, export_schema_errors()}
-  def export_schema(%Client{} = client, registry_name, schema_name, type, options \\ []) do
+
+  def export_schema(%Client{} = client, registry_name, schema_name, type, options \\ [])
+      when is_binary(type) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/export"
 
@@ -1734,12 +1869,14 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
-    schema version.
+  schema version.
   """
+
   @spec get_code_binding_source(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_code_binding_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_code_binding_source_errors()}
+
   def get_code_binding_source(
         %Client{} = client,
         language,
@@ -1795,29 +1932,40 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec get_discovered_schema(AWS.Client.t(), get_discovered_schema_request(), Keyword.t()) ::
+
+  @spec get_discovered_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_discovered_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_discovered_schema_errors()}
-  def get_discovered_schema(%Client{} = client, input, options \\ []) do
+
+  def get_discovered_schema(%Client{} = client, options \\ []) do
     url_path = "/v1/discover"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1830,10 +1978,12 @@ defmodule AWS.Schemas do
   ## Optional parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   """
+
   @spec get_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
+
   def get_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/policy"
 
@@ -1882,18 +2032,20 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   * `:discoverer_id_prefix` (`t:string`) Specifying this limits the results to
-    only those discoverer IDs that start with the specified prefix.
+  only those discoverer IDs that start with the specified prefix.
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    to return. To request the first page, leave NextToken empty. The token will
-    expire in 24 hours, and cannot be shared with other accounts.
+  to return. To request the first page, leave NextToken empty. The token will
+  expire in 24 hours, and cannot be shared with other accounts.
   * `:source_arn_prefix` (`t:string`) Specifying this limits the results to only
-    those ARNs that start with the specified prefix.
+  those ARNs that start with the specified prefix.
   """
+
   @spec list_discoverers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_discoverers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_discoverers_errors()}
+
   def list_discoverers(%Client{} = client, options \\ []) do
     url_path = "/v1/discoverers"
 
@@ -1969,17 +2121,19 @@ defmodule AWS.Schemas do
   ## Optional parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    to return. To request the first page, leave NextToken empty. The token will
-    expire in 24 hours, and cannot be shared with other accounts.
+  to return. To request the first page, leave NextToken empty. The token will
+  expire in 24 hours, and cannot be shared with other accounts.
   * `:registry_name_prefix` (`t:string`) Specifying this limits the results to
-    only those registry names that start with the specified prefix.
+  only those registry names that start with the specified prefix.
   * `:scope` (`t:string`) Can be set to Local or AWS to limit responses to your
-    custom registries, or the ones provided by AWS.
+  custom registries, or the ones provided by AWS.
   """
+
   @spec list_registries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_registries_errors()}
+
   def list_registries(%Client{} = client, options \\ []) do
     url_path = "/v1/registries"
 
@@ -2052,13 +2206,15 @@ defmodule AWS.Schemas do
   ## Optional parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    to return. To request the first page, leave NextToken empty. The token will
-    expire in 24 hours, and cannot be shared with other accounts.
+  to return. To request the first page, leave NextToken empty. The token will
+  expire in 24 hours, and cannot be shared with other accounts.
   """
+
   @spec list_schema_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schema_versions_errors()}
+
   def list_schema_versions(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/versions"
@@ -2117,15 +2273,17 @@ defmodule AWS.Schemas do
   ## Optional parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    to return. To request the first page, leave NextToken empty. The token will
-    expire in 24 hours, and cannot be shared with other accounts.
+  to return. To request the first page, leave NextToken empty. The token will
+  expire in 24 hours, and cannot be shared with other accounts.
   * `:schema_name_prefix` (`t:string`) Specifying this limits the results to only
-    those schema names that start with the specified prefix.
+  those schema names that start with the specified prefix.
   """
+
   @spec list_schemas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_schemas_errors()}
+
   def list_schemas(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas"
 
@@ -2189,10 +2347,12 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2233,37 +2393,42 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   * `:schema_version` (`t:string`) Specifying this limits the results to only this
-    schema version.
+  schema version.
   """
-  @spec put_code_binding(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          String.t(),
-          put_code_binding_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_code_binding(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_code_binding_errors()}
-  def put_code_binding(
-        %Client{} = client,
-        language,
-        registry_name,
-        schema_name,
-        input,
-        options \\ []
-      ) do
+
+  def put_code_binding(%Client{} = client, language, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}"
 
+    # Validate optional parameters
+    optional_params = [schema_version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"SchemaVersion", "schemaVersion"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :schema_version) do
+        [{"schemaVersion", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2273,17 +2438,9 @@ defmodule AWS.Schemas do
       options
       |> Keyword.drop([:schema_version])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -2296,19 +2453,39 @@ defmodule AWS.Schemas do
   ## Optional parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/v1/policy"
+
+    # Validate optional parameters
+    optional_params = [registry_name: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"RegistryName", "registryName"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :registry_name) do
+        [{"registryName", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2318,7 +2495,9 @@ defmodule AWS.Schemas do
       options
       |> Keyword.drop([:registry_name])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2329,19 +2508,22 @@ defmodule AWS.Schemas do
   ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:keywords` (`t:string`) Specifying this limits the results to only schemas
-    that include the provided keywords.
+  that include the provided keywords.
 
   ## Optional parameters:
   * `:limit` (`t:integer`)
   * `:next_token` (`t:string`) The token that specifies the next page of results
-    to return. To request the first page, leave NextToken empty. The token will
-    expire in 24 hours, and cannot be shared with other accounts.
+  to return. To request the first page, leave NextToken empty. The token will
+  expire in 24 hours, and cannot be shared with other accounts.
   """
+
   @spec search_schemas(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_schemas_errors()}
-  def search_schemas(%Client{} = client, registry_name, keywords, options \\ []) do
+
+  def search_schemas(%Client{} = client, registry_name, keywords, options \\ [])
+      when is_binary(keywords) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/search"
 
     # Validate optional parameters
@@ -2397,29 +2579,40 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec start_discoverer(AWS.Client.t(), String.t(), start_discoverer_request(), Keyword.t()) ::
+
+  @spec start_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_discoverer_errors()}
-  def start_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
+
+  def start_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/start"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2432,29 +2625,40 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec stop_discoverer(AWS.Client.t(), String.t(), stop_discoverer_request(), Keyword.t()) ::
+
+  @spec stop_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_discoverer_errors()}
-  def stop_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
+
+  def stop_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2464,32 +2668,45 @@ defmodule AWS.Schemas do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:input` (`t:map`):
+    * `:tags` (`t:map`) Tags associated with the resource.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2500,26 +2717,43 @@ defmodule AWS.Schemas do
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.schemas#__string]`) Keys of key-value
-    pairs.
+  pairs.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2528,7 +2762,7 @@ defmodule AWS.Schemas do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2544,19 +2778,40 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec update_discoverer(AWS.Client.t(), String.t(), update_discoverer_request(), Keyword.t()) ::
+
+  @spec update_discoverer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_discoverer_errors()}
-  def update_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
+
+  def update_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2569,19 +2824,40 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec update_registry(AWS.Client.t(), String.t(), update_registry_request(), Keyword.t()) ::
+
+  @spec update_registry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_registry_errors()}
-  def update_registry(%Client{} = client, registry_name, input, options \\ []) do
+
+  def update_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2595,26 +2871,40 @@ defmodule AWS.Schemas do
 
   ## Optional parameters:
   """
-  @spec update_schema(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_schema_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_schema_errors()}
-  def update_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
+
+  def update_schema(%Client{} = client, registry_name, schema_name, options \\ []) do
     url_path =
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

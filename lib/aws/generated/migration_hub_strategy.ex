@@ -12,29 +12,29 @@ defmodule AWS.MigrationHubStrategy do
   @typedoc """
 
   ## Example:
-
+      
       ip_address_based_remote_info() :: %{
         "authType" => String.t(),
         "ipAddressConfigurationTimeStamp" => String.t(),
         "osType" => String.t()
       }
-
+      
   """
   @type ip_address_based_remote_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_latest_assessment_id_request() :: %{}
-
+      
   """
   @type get_latest_assessment_id_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       start_import_file_task_request() :: %{
         optional("dataSourceType") => String.t(),
         optional("groupId") => list(group()()),
@@ -43,142 +43,142 @@ defmodule AWS.MigrationHubStrategy do
         required("name") => String.t(),
         required("s3key") => String.t()
       }
-
+      
   """
   @type start_import_file_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_latest_assessment_id_response() :: %{
         optional("id") => String.t()
       }
-
+      
   """
   @type get_latest_assessment_id_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       no_database_migration_preference() :: %{
         "targetDatabaseEngine" => list(String.t()())
       }
-
+      
   """
   @type no_database_migration_preference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       heterogeneous() :: %{
         "targetDatabaseEngine" => list(String.t()())
       }
-
+      
   """
   @type heterogeneous() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dependency_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type dependency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_collectors_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_collectors_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_import_file_task_response() :: %{
         optional("id") => String.t()
       }
-
+      
   """
   @type start_import_file_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_component_details_response() :: %{
         optional("applicationComponentDetail") => application_component_detail(),
         optional("associatedApplications") => list(associated_application()()),
         optional("associatedServerIds") => list(String.t()()),
         optional("moreApplicationResource") => boolean()
       }
-
+      
   """
   @type get_application_component_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_status_summary() :: %{
         "count" => integer(),
         "runTimeAssessmentStatus" => String.t()
       }
-
+      
   """
   @type server_status_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_s_info() :: %{
         "type" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type o_s_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       app_unit_error() :: %{
         "appUnitErrorCategory" => String.t()
       }
-
+      
   """
   @type app_unit_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       strategy_summary() :: %{
         "count" => integer(),
         "strategy" => String.t()
       }
-
+      
   """
   @type strategy_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       collector() :: %{
         "collectorHealth" => String.t(),
         "collectorId" => String.t(),
@@ -189,87 +189,87 @@ defmodule AWS.MigrationHubStrategy do
         "lastActivityTimeStamp" => String.t(),
         "registeredTimeStamp" => String.t()
       }
-
+      
   """
   @type collector() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_collectors_response() :: %{
         optional("Collectors") => list(collector()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_collectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       system_info() :: %{
         "cpuArchitecture" => String.t(),
         "fileSystemType" => String.t(),
         "networkInfoList" => list(network_info()()),
         "osInfo" => o_s_info()
       }
-
+      
   """
   @type system_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       homogeneous() :: %{
         "targetDatabaseEngine" => list(String.t()())
       }
-
+      
   """
   @type homogeneous() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_server_details_response() :: %{
         optional("associatedApplications") => list(associated_application()()),
         optional("nextToken") => String.t(),
         optional("serverDetail") => server_detail()
       }
-
+      
   """
   @type get_server_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_server_config_request() :: %{
         optional("strategyOption") => strategy_option(),
         required("serverId") => String.t()
       }
-
+      
   """
   @type update_server_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_assessment_request() :: %{
         required("assessmentId") => String.t()
       }
-
+      
   """
   @type stop_assessment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_servers_request() :: %{
         optional("filterValue") => String.t(),
         optional("groupIdFilter") => list(group()()),
@@ -278,37 +278,37 @@ defmodule AWS.MigrationHubStrategy do
         optional("serverCriteria") => String.t(),
         optional("sort") => String.t()
       }
-
+      
   """
   @type list_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       antipattern_severity_summary() :: %{
         "count" => integer(),
         "severity" => String.t()
       }
-
+      
   """
   @type antipattern_severity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       prioritize_business_goals() :: %{
         "businessGoals" => business_goals()
       }
-
+      
   """
   @type prioritize_business_goals() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_import_file_task_response() :: %{
         optional("completionTime") => non_neg_integer(),
         optional("id") => String.t(),
@@ -322,47 +322,47 @@ defmodule AWS.MigrationHubStrategy do
         optional("statusReportS3Bucket") => String.t(),
         optional("statusReportS3Key") => String.t()
       }
-
+      
   """
   @type get_import_file_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_object() :: %{
         "s3Bucket" => String.t(),
         "s3key" => String.t()
       }
-
+      
   """
   @type s3_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associated_application() :: %{
         "id" => String.t(),
         "name" => String.t()
       }
-
+      
   """
   @type associated_application() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_portfolio_summary_request() :: %{}
-
+      
   """
   @type get_portfolio_summary_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_application_components_request() :: %{
         optional("applicationComponentCriteria") => String.t(),
         optional("filterValue") => String.t(),
@@ -371,34 +371,34 @@ defmodule AWS.MigrationHubStrategy do
         optional("nextToken") => String.t(),
         optional("sort") => String.t()
       }
-
+      
   """
   @type list_application_components_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_component_strategies_request() :: %{}
-
+      
   """
   @type get_application_component_strategies_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       no_management_preference() :: %{
         "targetDestination" => list(String.t()())
       }
-
+      
   """
   @type no_management_preference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configuration_summary() :: %{
         "ipAddressBasedRemoteInfoList" => list(ip_address_based_remote_info()()),
         "pipelineInfoList" => list(pipeline_info()()),
@@ -406,179 +406,179 @@ defmodule AWS.MigrationHubStrategy do
         "vcenterBasedRemoteInfoList" => list(vcenter_based_remote_info()()),
         "versionControlInfoList" => list(version_control_info()())
       }
-
+      
   """
   @type configuration_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_assessment_response() :: %{}
-
+      
   """
   @type stop_assessment_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       application_component_status_summary() :: %{
         "count" => integer(),
         "srcCodeOrDbAnalysisStatus" => String.t()
       }
-
+      
   """
   @type application_component_status_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       pipeline_info() :: %{
         "pipelineConfigurationTimeStamp" => String.t(),
         "pipelineType" => String.t()
       }
-
+      
   """
   @type pipeline_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_analyzable_servers_response() :: %{
         "analyzableServers" => list(analyzable_server_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_analyzable_servers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_error() :: %{
         "serverErrorCategory" => String.t()
       }
-
+      
   """
   @type server_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       version_control_info() :: %{
         "versionControlConfigurationTimeStamp" => String.t(),
         "versionControlType" => String.t()
       }
-
+      
   """
   @type version_control_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_import_file_task_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_import_file_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database_preferences() :: %{
         "databaseManagementPreference" => String.t(),
         "databaseMigrationPreference" => list()
       }
-
+      
   """
   @type database_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       strategy_option() :: %{
         "isPreferred" => boolean(),
         "strategy" => String.t(),
         "targetDestination" => String.t(),
         "toolName" => String.t()
       }
-
+      
   """
   @type strategy_option() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommendation_set() :: %{
         "strategy" => String.t(),
         "targetDestination" => String.t(),
         "transformationTool" => transformation_tool()
       }
-
+      
   """
   @type recommendation_set() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_managed_resources() :: %{
         "targetDestination" => list(String.t()())
       }
-
+      
   """
   @type aws_managed_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_component_strategy() :: %{
         "isPreferred" => boolean(),
         "recommendation" => recommendation_set(),
         "status" => String.t()
       }
-
+      
   """
   @type application_component_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_component_detail() :: %{
         "analysisStatus" => String.t(),
         "antipatternReportS3Object" => s3_object(),
@@ -604,14 +604,14 @@ defmodule AWS.MigrationHubStrategy do
         "sourceCodeRepositories" => list(source_code_repository()()),
         "statusMessage" => String.t()
       }
-
+      
   """
   @type application_component_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_detail() :: %{
         "antipatternReportS3Object" => s3_object(),
         "antipatternReportStatus" => String.t(),
@@ -628,36 +628,36 @@ defmodule AWS.MigrationHubStrategy do
         "statusMessage" => String.t(),
         "systemInfo" => system_info()
       }
-
+      
   """
   @type server_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_server_strategies_response() :: %{
         optional("serverStrategies") => list(server_strategy()())
       }
-
+      
   """
   @type get_server_strategies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommendation_report_details() :: %{
         "completionTime" => non_neg_integer(),
         "s3Bucket" => String.t(),
@@ -666,229 +666,229 @@ defmodule AWS.MigrationHubStrategy do
         "status" => String.t(),
         "statusMessage" => String.t()
       }
-
+      
   """
   @type recommendation_report_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_server_strategies_request() :: %{}
-
+      
   """
   @type get_server_strategies_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       result() :: %{
         "analysisStatus" => list(),
         "analysisType" => String.t(),
         "antipatternReportResultList" => list(antipattern_report_result()()),
         "statusMessage" => String.t()
       }
-
+      
   """
   @type result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       business_goals() :: %{
         "licenseCostReduction" => integer(),
         "modernizeInfrastructureWithCloudNativeTechnologies" => integer(),
         "reduceOperationalOverheadWithManagedServices" => integer(),
         "speedOfMigration" => integer()
       }
-
+      
   """
   @type business_goals() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_strategy() :: %{
         "isPreferred" => boolean(),
         "numberOfApplicationComponents" => integer(),
         "recommendation" => recommendation_set(),
         "status" => String.t()
       }
-
+      
   """
   @type server_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_assessment_request() :: %{
         optional("assessmentDataSourceType") => String.t(),
         optional("assessmentTargets") => list(assessment_target()()),
         optional("s3bucketForAnalysisData") => String.t(),
         optional("s3bucketForReportData") => String.t()
       }
-
+      
   """
   @type start_assessment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_component_strategies_response() :: %{
         optional("applicationComponentStrategies") => list(application_component_strategy()())
       }
-
+      
   """
   @type get_application_component_strategies_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommendation_report_details_request() :: %{}
-
+      
   """
   @type get_recommendation_report_details_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_import_file_task_response() :: %{
         optional("nextToken") => String.t(),
         optional("taskInfos") => list(import_file_task_information()())
       }
-
+      
   """
   @type list_import_file_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_recommendation_report_generation_request() :: %{
         optional("groupIdFilter") => list(group()()),
         optional("outputFormat") => String.t()
       }
-
+      
   """
   @type start_recommendation_report_generation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       network_info() :: %{
         "interfaceName" => String.t(),
         "ipAddress" => String.t(),
         "macAddress" => String.t(),
         "netMask" => String.t()
       }
-
+      
   """
   @type network_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_portfolio_preferences_response() :: %{}
-
+      
   """
   @type put_portfolio_preferences_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       source_code_repository() :: %{
         "branch" => String.t(),
         "projectName" => String.t(),
         "repository" => String.t(),
         "versionControlType" => String.t()
       }
-
+      
   """
   @type source_code_repository() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_assessment_request() :: %{}
-
+      
   """
   @type get_assessment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_preferences() :: %{
         "managementPreference" => list()
       }
-
+      
   """
   @type application_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_component_summary() :: %{
         "appType" => String.t(),
         "count" => integer()
       }
-
+      
   """
   @type application_component_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       server_summary() :: %{
         "ServerOsType" => String.t(),
         "count" => integer()
       }
-
+      
   """
   @type server_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       analyzable_server_summary() :: %{
         "hostname" => String.t(),
         "ipAddress" => String.t(),
         "source" => String.t(),
         "vmId" => String.t()
       }
-
+      
   """
   @type analyzable_server_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_component_config_request() :: %{
         optional("appType") => String.t(),
         optional("configureOnly") => boolean(),
@@ -898,81 +898,81 @@ defmodule AWS.MigrationHubStrategy do
         optional("strategyOption") => strategy_option(),
         required("applicationComponentId") => String.t()
       }
-
+      
   """
   @type update_application_component_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_import_file_task_request() :: %{}
-
+      
   """
   @type get_import_file_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       transformation_tool() :: %{
         "description" => String.t(),
         "name" => String.t(),
         "tranformationToolInstallationLink" => String.t()
       }
-
+      
   """
   @type transformation_tool() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_assessment_response() :: %{
         optional("assessmentTargets") => list(assessment_target()()),
         optional("dataCollectionDetails") => data_collection_details(),
         optional("id") => String.t()
       }
-
+      
   """
   @type get_assessment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_component_details_request() :: %{}
-
+      
   """
   @type get_application_component_details_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_server_details_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type get_server_details_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_collection_details() :: %{
         "completionTime" => non_neg_integer(),
         "failed" => integer(),
@@ -983,257 +983,257 @@ defmodule AWS.MigrationHubStrategy do
         "statusMessage" => String.t(),
         "success" => integer()
       }
-
+      
   """
   @type data_collection_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_application_components_response() :: %{
         optional("applicationComponentInfos") => list(application_component_detail()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_application_components_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_portfolio_preferences_response() :: %{
         optional("applicationMode") => String.t(),
         optional("applicationPreferences") => application_preferences(),
         optional("databasePreferences") => database_preferences(),
         optional("prioritizeBusinessGoals") => prioritize_business_goals()
       }
-
+      
   """
   @type get_portfolio_preferences_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_portfolio_preferences_request() :: %{}
-
+      
   """
   @type get_portfolio_preferences_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommendation_report_details_response() :: %{
         optional("id") => String.t(),
         optional("recommendationReportDetails") => recommendation_report_details()
       }
-
+      
   """
   @type get_recommendation_report_details_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       database_config_detail() :: %{
         "secretName" => String.t()
       }
-
+      
   """
   @type database_config_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_linked_role_lock_client_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type service_linked_role_lock_client_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       group() :: %{
         "name" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source_code() :: %{
         "location" => String.t(),
         "projectName" => String.t(),
         "sourceVersion" => String.t(),
         "versionControl" => String.t()
       }
-
+      
   """
   @type source_code() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_server_config_response() :: %{}
-
+      
   """
   @type update_server_config_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_servers_response() :: %{
         optional("nextToken") => String.t(),
         optional("serverInfos") => list(server_detail()())
       }
-
+      
   """
   @type list_servers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_recommendation_report_generation_response() :: %{
         optional("id") => String.t()
       }
-
+      
   """
   @type start_recommendation_report_generation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_portfolio_preferences_request() :: %{
         optional("applicationMode") => String.t(),
         optional("applicationPreferences") => application_preferences(),
         optional("databasePreferences") => database_preferences(),
         optional("prioritizeBusinessGoals") => prioritize_business_goals()
       }
-
+      
   """
   @type put_portfolio_preferences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_assessment_response() :: %{
         optional("assessmentId") => String.t()
       }
-
+      
   """
   @type start_assessment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_analyzable_servers_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sort") => String.t()
       }
-
+      
   """
   @type list_analyzable_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remote_source_code_analysis_server_info() :: %{
         "remoteSourceCodeAnalysisServerConfigurationTimestamp" => String.t()
       }
-
+      
   """
   @type remote_source_code_analysis_server_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_component_config_response() :: %{}
-
+      
   """
   @type update_application_component_config_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       vcenter_based_remote_info() :: %{
         "osType" => String.t(),
         "vcenterConfigurationTimeStamp" => String.t()
       }
-
+      
   """
   @type vcenter_based_remote_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       self_manage_resources() :: %{
         "targetDestination" => list(String.t()())
       }
-
+      
   """
   @type self_manage_resources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       assessment_target() :: %{
         "condition" => String.t(),
         "name" => String.t(),
         "values" => list(String.t()())
       }
-
+      
   """
   @type assessment_target() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       assessment_summary() :: %{
         "antipatternReportS3Object" => s3_object(),
         "antipatternReportStatus" => String.t(),
@@ -1247,28 +1247,28 @@ defmodule AWS.MigrationHubStrategy do
         "listServerStrategySummary" => list(strategy_summary()()),
         "listServerSummary" => list(server_summary()())
       }
-
+      
   """
   @type assessment_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       antipattern_report_result() :: %{
         "analyzerName" => list(),
         "antiPatternReportS3Object" => s3_object(),
         "antipatternReportStatus" => String.t(),
         "antipatternReportStatusMessage" => String.t()
       }
-
+      
   """
   @type antipattern_report_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_file_task_information() :: %{
         "completionTime" => non_neg_integer(),
         "id" => String.t(),
@@ -1282,18 +1282,18 @@ defmodule AWS.MigrationHubStrategy do
         "statusReportS3Bucket" => String.t(),
         "statusReportS3Key" => String.t()
       }
-
+      
   """
   @type import_file_task_information() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_portfolio_summary_response() :: %{
         optional("assessmentSummary") => assessment_summary()
       }
-
+      
   """
   @type get_portfolio_summary_response() :: %{String.t() => any()}
 
@@ -1450,14 +1450,16 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:application_component_id` (`t:string`) The ID of the application component.
-    The ID is unique within an AWS account.
+  The ID is unique within an AWS account.
 
   ## Optional parameters:
   """
+
   @spec get_application_component_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_component_details_errors()}
+
   def get_application_component_details(
         %Client{} = client,
         application_component_id,
@@ -1499,14 +1501,16 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:application_component_id` (`t:string`) The ID of the application component.
-    The ID is unique within an AWS account.
+  The ID is unique within an AWS account.
 
   ## Optional parameters:
   """
+
   @spec get_application_component_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_component_strategies_errors()}
+
   def get_application_component_strategies(
         %Client{} = client,
         application_component_id,
@@ -1550,10 +1554,12 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
+
   @spec get_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_assessment_errors()}
+
   def get_assessment(%Client{} = client, id, options \\ []) do
     url_path = "/get-assessment/#{AWS.Util.encode_uri(id)}"
 
@@ -1589,14 +1595,16 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:id` (`t:string`) The ID of the import file task. This ID is returned in the
-    response of StartImportFileTask.
+  response of StartImportFileTask.
 
   ## Optional parameters:
   """
+
   @spec get_import_file_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_file_task_errors()}
+
   def get_import_file_task(%Client{} = client, id, options \\ []) do
     url_path = "/get-import-file-task/#{AWS.Util.encode_uri(id)}"
 
@@ -1634,10 +1642,12 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
+
   @spec get_latest_assessment_id(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_latest_assessment_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_latest_assessment_id_errors()}
+
   def get_latest_assessment_id(%Client{} = client, options \\ []) do
     url_path = "/get-latest-assessment-id"
 
@@ -1675,10 +1685,12 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
+
   @spec get_portfolio_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portfolio_preferences_errors()}
+
   def get_portfolio_preferences(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-preferences"
 
@@ -1717,10 +1729,12 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
+
   @spec get_portfolio_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_portfolio_summary_errors()}
+
   def get_portfolio_summary(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-summary"
 
@@ -1756,14 +1770,16 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:id` (`t:string`) The recommendation report generation task id returned by
-    StartRecommendationReportGeneration.
+  StartRecommendationReportGeneration.
 
   ## Optional parameters:
   """
+
   @spec get_recommendation_report_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendation_report_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendation_report_details_errors()}
+
   def get_recommendation_report_details(%Client{} = client, id, options \\ []) do
     url_path = "/get-recommendation-report-details/#{AWS.Util.encode_uri(id)}"
 
@@ -1802,17 +1818,19 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in the
-    response. The maximum value is 100.
+  response. The maximum value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
-    retrieve the next set of results. For example, if a previous call to this
-    action returned 100 items, but you set maxResults to 10. You'll receive a
-    set of 10 results along with a token. You then use the returned token to
-    retrieve the next set of 10.
+  retrieve the next set of results. For example, if a previous call to this
+  action returned 100 items, but you set maxResults to 10. You'll receive a
+  set of 10 results along with a token. You then use the returned token to
+  retrieve the next set of 10.
   """
+
   @spec get_server_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_server_details_errors()}
+
   def get_server_details(%Client{} = client, server_id, options \\ []) do
     url_path = "/get-server-details/#{AWS.Util.encode_uri(server_id)}"
 
@@ -1869,10 +1887,12 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
+
   @spec get_server_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_server_strategies_errors()}
+
   def get_server_strategies(%Client{} = client, server_id, options \\ []) do
     url_path = "/get-server-strategies/#{AWS.Util.encode_uri(server_id)}"
 
@@ -1911,29 +1931,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec list_analyzable_servers(AWS.Client.t(), list_analyzable_servers_request(), Keyword.t()) ::
+
+  @spec list_analyzable_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_analyzable_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_analyzable_servers_errors()}
-  def list_analyzable_servers(%Client{} = client, input, options \\ []) do
+
+  def list_analyzable_servers(%Client{} = client, options \\ []) do
     url_path = "/list-analyzable-servers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1945,33 +1976,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec list_application_components(
-          AWS.Client.t(),
-          list_application_components_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_application_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_application_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_application_components_errors()}
-  def list_application_components(%Client{} = client, input, options \\ []) do
+
+  def list_application_components(%Client{} = client, options \\ []) do
     url_path = "/list-applicationcomponents"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1983,17 +2021,19 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in the
-    response. The maximum value is 100.
+  response. The maximum value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
-    retrieve the next set of results. For example, if a previous call to this
-    action returned 100 items, but you set maxResults to 10. You'll receive a
-    set of 10 results along with a token. You then use the returned token to
-    retrieve the next set of 10.
+  retrieve the next set of results. For example, if a previous call to this
+  action returned 100 items, but you set maxResults to 10. You'll receive a
+  set of 10 results along with a token. You then use the returned token to
+  retrieve the next set of 10.
   """
+
   @spec list_collectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_collectors_errors()}
+
   def list_collectors(%Client{} = client, options \\ []) do
     url_path = "/list-collectors"
 
@@ -2049,17 +2089,19 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The total number of items to return. The maximum
-    value is 100.
+  value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
-    retrieve the next set of results. For example, if a previous call to this
-    action returned 100 items, but you set maxResults to 10. You'll receive a
-    set of 10 results along with a token. You then use the returned token to
-    retrieve the next set of 10.
+  retrieve the next set of results. For example, if a previous call to this
+  action returned 100 items, but you set maxResults to 10. You'll receive a
+  set of 10 results along with a token. You then use the returned token to
+  retrieve the next set of 10.
   """
+
   @spec list_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_file_task_errors()}
+
   def list_import_file_task(%Client{} = client, options \\ []) do
     url_path = "/list-import-file-task"
 
@@ -2115,29 +2157,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec list_servers(AWS.Client.t(), list_servers_request(), Keyword.t()) ::
+
+  @spec list_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_servers_errors()}
-  def list_servers(%Client{} = client, input, options \\ []) do
+
+  def list_servers(%Client{} = client, options \\ []) do
     url_path = "/list-servers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2149,33 +2202,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec put_portfolio_preferences(
-          AWS.Client.t(),
-          put_portfolio_preferences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_portfolio_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_portfolio_preferences_errors()}
-  def put_portfolio_preferences(%Client{} = client, input, options \\ []) do
+
+  def put_portfolio_preferences(%Client{} = client, options \\ []) do
     url_path = "/put-portfolio-preferences"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2187,29 +2247,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec start_assessment(AWS.Client.t(), start_assessment_request(), Keyword.t()) ::
+
+  @spec start_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_assessment_errors()}
-  def start_assessment(%Client{} = client, input, options \\ []) do
+
+  def start_assessment(%Client{} = client, options \\ []) do
     url_path = "/start-assessment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2221,29 +2292,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec start_import_file_task(AWS.Client.t(), start_import_file_task_request(), Keyword.t()) ::
+
+  @spec start_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_import_file_task_errors()}
-  def start_import_file_task(%Client{} = client, input, options \\ []) do
+
+  def start_import_file_task(%Client{} = client, options \\ []) do
     url_path = "/start-import-file-task"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2255,33 +2337,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec start_recommendation_report_generation(
-          AWS.Client.t(),
-          start_recommendation_report_generation_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_recommendation_report_generation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_recommendation_report_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_recommendation_report_generation_errors()}
-  def start_recommendation_report_generation(%Client{} = client, input, options \\ []) do
+
+  def start_recommendation_report_generation(%Client{} = client, options \\ []) do
     url_path = "/start-recommendation-report-generation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2293,29 +2382,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec stop_assessment(AWS.Client.t(), stop_assessment_request(), Keyword.t()) ::
+
+  @spec stop_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_assessment_errors()}
-  def stop_assessment(%Client{} = client, input, options \\ []) do
+
+  def stop_assessment(%Client{} = client, options \\ []) do
     url_path = "/stop-assessment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2327,33 +2427,40 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec update_application_component_config(
-          AWS.Client.t(),
-          update_application_component_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_application_component_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_application_component_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_component_config_errors()}
-  def update_application_component_config(%Client{} = client, input, options \\ []) do
+
+  def update_application_component_config(%Client{} = client, options \\ []) do
     url_path = "/update-applicationcomponent-config/"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2365,28 +2472,39 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Optional parameters:
   """
-  @spec update_server_config(AWS.Client.t(), update_server_config_request(), Keyword.t()) ::
+
+  @spec update_server_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_server_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_server_config_errors()}
-  def update_server_config(%Client{} = client, input, options \\ []) do
+
+  def update_server_config(%Client{} = client, options \\ []) do
     url_path = "/update-server-config/"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

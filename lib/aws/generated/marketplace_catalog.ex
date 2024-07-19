@@ -14,19 +14,19 @@ defmodule AWS.MarketplaceCatalog do
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_product_name_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_product_name_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_entities_request() :: %{
         optional("EntityTypeFilters") => list(),
         optional("EntityTypeSort") => list(),
@@ -38,59 +38,59 @@ defmodule AWS.MarketplaceCatalog do
         required("Catalog") => String.t(),
         required("EntityType") => String.t()
       }
-
+      
   """
   @type list_entities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_change_set_request() :: %{
         required("Catalog") => String.t(),
         required("ChangeSetId") => String.t()
       }
-
+      
   """
   @type describe_change_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_response() :: %{}
-
+      
   """
   @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_change_set_response() :: %{
         "ChangeSetArn" => String.t(),
         "ChangeSetId" => String.t()
       }
-
+      
   """
   @type cancel_change_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       change() :: %{
         "ChangeName" => String.t(),
         "ChangeType" => String.t(),
@@ -99,26 +99,26 @@ defmodule AWS.MarketplaceCatalog do
         "Entity" => entity(),
         "EntityTags" => list(tag()())
       }
-
+      
   """
   @type change() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_created_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_created_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_change_sets_request() :: %{
         optional("FilterList") => list(filter()()),
         optional("MaxResults") => integer(),
@@ -126,28 +126,28 @@ defmodule AWS.MarketplaceCatalog do
         optional("Sort") => sort(),
         required("Catalog") => String.t()
       }
-
+      
   """
   @type list_change_sets_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_filters() :: %{
         "EntityId" => data_product_entity_id_filter(),
         "LastModifiedDate" => data_product_last_modified_date_filter(),
         "ProductTitle" => data_product_title_filter(),
         "Visibility" => data_product_visibility_filter()
       }
-
+      
   """
   @type data_product_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_detail() :: %{
         "DetailsDocument" => any(),
         "EntityArn" => String.t(),
@@ -155,93 +155,93 @@ defmodule AWS.MarketplaceCatalog do
         "EntityType" => String.t(),
         "LastModifiedDate" => String.t()
       }
-
+      
   """
   @type entity_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       entity() :: %{
         "Identifier" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type entity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type ami_product_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_in_use_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_in_use_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_manufacturer_account_id_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_manufacturer_account_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_title_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type ami_product_title_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_targeting_filter() :: %{
         "ValueList" => list(list(any())())
       }
-
+      
   """
   @type offer_targeting_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_summary() :: %{
         "AvailabilityEndDate" => String.t(),
         "CreatedDate" => String.t(),
@@ -255,73 +255,73 @@ defmodule AWS.MarketplaceCatalog do
         "ResellerLegalName" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type resale_authorization_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_entity_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type saa_s_product_entity_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_summary() :: %{
         "ProductTitle" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type data_product_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_manufacturer_legal_name_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_manufacturer_legal_name_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_title_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type saa_s_product_title_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_created_date_filter() :: %{
         "DateRange" => resale_authorization_created_date_filter_date_range(),
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type resale_authorization_created_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_summary() :: %{
         "AmiProductSummary" => ami_product_summary(),
         "ContainerProductSummary" => container_product_summary(),
@@ -336,26 +336,26 @@ defmodule AWS.MarketplaceCatalog do
         "SaaSProductSummary" => saa_s_product_summary(),
         "Visibility" => String.t()
       }
-
+      
   """
   @type entity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_availability_end_date_filter() :: %{
         "DateRange" => resale_authorization_availability_end_date_filter_date_range(),
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type resale_authorization_availability_end_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_change_set_response() :: %{
         "ChangeSet" => list(change_summary()()),
         "ChangeSetArn" => String.t(),
@@ -368,95 +368,95 @@ defmodule AWS.MarketplaceCatalog do
         "StartTime" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type describe_change_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_availability_end_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type offer_availability_end_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_summary() :: %{
         "ProductTitle" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type ami_product_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_response() :: %{
         "Policy" => String.t()
       }
-
+      
   """
   @type get_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_last_modified_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type data_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_entity_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type container_product_entity_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type container_product_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_service_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_entity_response() :: %{
         "Details" => String.t(),
         "DetailsDocument" => any(),
@@ -465,38 +465,38 @@ defmodule AWS.MarketplaceCatalog do
         "EntityType" => String.t(),
         "LastModifiedDate" => String.t()
       }
-
+      
   """
   @type describe_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_product_id_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_product_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_filters() :: %{
         "AvailabilityEndDate" => resale_authorization_availability_end_date_filter(),
         "CreatedDate" => resale_authorization_created_date_filter(),
@@ -512,186 +512,186 @@ defmodule AWS.MarketplaceCatalog do
         "ResellerLegalName" => resale_authorization_reseller_legal_name_filter(),
         "Status" => resale_authorization_status_filter()
       }
-
+      
   """
   @type resale_authorization_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_visibility_filter() :: %{
         "ValueList" => list(list(any())())
       }
-
+      
   """
   @type data_product_visibility_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_offer_extended_status_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type resale_authorization_offer_extended_status_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_visibility_filter() :: %{
         "ValueList" => list(list(any())())
       }
-
+      
   """
   @type container_product_visibility_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_last_modified_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_last_modified_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_reseller_legal_name_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_reseller_legal_name_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_filters() :: %{
         "EntityId" => container_product_entity_id_filter(),
         "LastModifiedDate" => container_product_last_modified_date_filter(),
         "ProductTitle" => container_product_title_filter(),
         "Visibility" => container_product_visibility_filter()
       }
-
+      
   """
   @type container_product_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_describe_entities_request() :: %{
         required("EntityRequestList") => list(entity_request()())
       }
-
+      
   """
   @type batch_describe_entities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_last_modified_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type saa_s_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_visibility_filter() :: %{
         "ValueList" => list(list(any())())
       }
-
+      
   """
   @type saa_s_product_visibility_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_last_modified_date_filter() :: %{
         "DateRange" => offer_last_modified_date_filter_date_range()
       }
-
+      
   """
   @type offer_last_modified_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_last_modified_date_filter() :: %{
         "DateRange" => container_product_last_modified_date_filter_date_range()
       }
-
+      
   """
   @type container_product_last_modified_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_visibility_filter() :: %{
         "ValueList" => list(list(any())())
       }
-
+      
   """
   @type ami_product_visibility_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_release_date_filter() :: %{
         "DateRange" => offer_release_date_filter_date_range()
       }
-
+      
   """
   @type offer_release_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_change_set_request() :: %{
         optional("ChangeSetName") => String.t(),
         optional("ChangeSetTags") => list(tag()()),
@@ -700,81 +700,81 @@ defmodule AWS.MarketplaceCatalog do
         required("Catalog") => String.t(),
         required("ChangeSet") => list(change()())
       }
-
+      
   """
   @type start_change_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_entity_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type ami_product_entity_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_summary() :: %{
         "ProductTitle" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type container_product_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_resale_authorization_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type offer_resale_authorization_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_entity_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type resale_authorization_entity_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_product_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type offer_product_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       change_set_summary_list_item() :: %{
         "ChangeSetArn" => String.t(),
         "ChangeSetId" => String.t(),
@@ -785,86 +785,86 @@ defmodule AWS.MarketplaceCatalog do
         "StartTime" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type change_set_summary_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "ResourceArn" => String.t(),
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_supported_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_supported_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_name_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_name_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type data_product_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_filters() :: %{
         "EntityId" => saa_s_product_entity_id_filter(),
         "LastModifiedDate" => saa_s_product_last_modified_date_filter(),
         "ProductTitle" => saa_s_product_title_filter(),
         "Visibility" => saa_s_product_visibility_filter()
       }
-
+      
   """
   @type saa_s_product_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_resource_policy_request() :: %{
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type get_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_summary() :: %{
         "AvailabilityEndDate" => String.t(),
         "BuyerAccounts" => list(String.t()()),
@@ -875,121 +875,121 @@ defmodule AWS.MarketplaceCatalog do
         "State" => list(any()),
         "Targeting" => list(list(any())())
       }
-
+      
   """
   @type offer_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       filter() :: %{
         "Name" => String.t(),
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_summary() :: %{
         "ProductTitle" => String.t(),
         "Visibility" => list(any())
       }
-
+      
   """
   @type saa_s_product_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sort() :: %{
         "SortBy" => String.t(),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_last_modified_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type ami_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_title_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type data_product_title_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_status_filter() :: %{
         "ValueList" => list(list(any())())
       }
-
+      
   """
   @type resale_authorization_status_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_entity_request() :: %{
         required("Catalog") => String.t(),
         required("EntityId") => String.t()
       }
-
+      
   """
   @type describe_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_request() :: %{
         required("Policy") => String.t(),
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       error_detail() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t()
       }
-
+      
   """
   @type error_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       change_summary() :: %{
         "ChangeName" => String.t(),
         "ChangeType" => String.t(),
@@ -998,347 +998,347 @@ defmodule AWS.MarketplaceCatalog do
         "Entity" => entity(),
         "ErrorDetailList" => list(error_detail()())
       }
-
+      
   """
   @type change_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_change_set_response() :: %{
         "ChangeSetArn" => String.t(),
         "ChangeSetId" => String.t()
       }
-
+      
   """
   @type start_change_set_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_last_modified_date_filter() :: %{
         "DateRange" => saa_s_product_last_modified_date_filter_date_range()
       }
-
+      
   """
   @type saa_s_product_last_modified_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_name_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type offer_name_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type offer_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       saa_s_product_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type saa_s_product_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_state_filter() :: %{
         "ValueList" => list(list(any())())
       }
-
+      
   """
   @type offer_state_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_entity_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type offer_entity_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_buyer_accounts_filter() :: %{
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type offer_buyer_accounts_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_resource_policy_response() :: %{}
-
+      
   """
   @type put_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_entity_id_filter() :: %{
         "ValueList" => list(String.t()())
       }
-
+      
   """
   @type data_product_entity_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_last_modified_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type offer_last_modified_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       entity_request() :: %{
         "Catalog" => String.t(),
         "EntityId" => String.t()
       }
-
+      
   """
   @type entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_title_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type container_product_title_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_resource_policy_request() :: %{
         required("ResourceArn") => String.t()
       }
-
+      
   """
   @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_filters() :: %{
         "EntityId" => ami_product_entity_id_filter(),
         "LastModifiedDate" => ami_product_last_modified_date_filter(),
         "ProductTitle" => ami_product_title_filter(),
         "Visibility" => ami_product_visibility_filter()
       }
-
+      
   """
   @type ami_product_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_availability_end_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_availability_end_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_describe_entities_response() :: %{
         "EntityDetails" => map(),
         "Errors" => map()
       }
-
+      
   """
   @type batch_describe_entities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_describe_error_detail() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t()
       }
-
+      
   """
   @type batch_describe_error_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_entities_response() :: %{
         "EntitySummaryList" => list(entity_summary()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_entities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_last_modified_date_filter() :: %{
         "DateRange" => resale_authorization_last_modified_date_filter_date_range()
       }
-
+      
   """
   @type resale_authorization_last_modified_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_reseller_account_id_filter() :: %{
         "ValueList" => list(String.t()()),
         "WildCardValue" => String.t()
       }
-
+      
   """
   @type resale_authorization_reseller_account_id_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_change_set_request() :: %{
         required("Catalog") => String.t(),
         required("ChangeSetId") => String.t()
       }
-
+      
   """
   @type cancel_change_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resale_authorization_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type resale_authorization_sort() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       container_product_last_modified_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type container_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_filters() :: %{
         "AvailabilityEndDate" => offer_availability_end_date_filter(),
         "BuyerAccounts" => offer_buyer_accounts_filter(),
@@ -1351,64 +1351,64 @@ defmodule AWS.MarketplaceCatalog do
         "State" => offer_state_filter(),
         "Targeting" => offer_targeting_filter()
       }
-
+      
   """
   @type offer_filters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ami_product_last_modified_date_filter() :: %{
         "DateRange" => ami_product_last_modified_date_filter_date_range()
       }
-
+      
   """
   @type ami_product_last_modified_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_change_sets_response() :: %{
         "ChangeSetSummaryList" => list(change_set_summary_list_item()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_change_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_product_last_modified_date_filter() :: %{
         "DateRange" => data_product_last_modified_date_filter_date_range()
       }
-
+      
   """
   @type data_product_last_modified_date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_release_date_filter_date_range() :: %{
         "AfterValue" => String.t(),
         "BeforeValue" => String.t()
       }
-
+      
   """
   @type offer_release_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       offer_availability_end_date_filter() :: %{
         "DateRange" => offer_availability_end_date_filter_date_range()
       }
-
+      
   """
   @type offer_availability_end_date_filter() :: %{String.t() => any()}
 
@@ -1532,29 +1532,40 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec batch_describe_entities(AWS.Client.t(), batch_describe_entities_request(), Keyword.t()) ::
+
+  @spec batch_describe_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_describe_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_describe_entities_errors()}
-  def batch_describe_entities(%Client{} = client, input, options \\ []) do
+
+  def batch_describe_entities(%Client{} = client, options \\ []) do
     url_path = "/BatchDescribeEntities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1567,29 +1578,45 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
-    value: AWSMarketplace.
+  value: AWSMarketplace.
   * `:change_set_id` (`t:string`) Required. The unique identifier of the
-    StartChangeSet request that you want to cancel.
+  StartChangeSet request that you want to cancel.
 
   ## Optional parameters:
   """
-  @spec cancel_change_set(AWS.Client.t(), cancel_change_set_request(), Keyword.t()) ::
+
+  @spec cancel_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_change_set_errors()}
-  def cancel_change_set(%Client{} = client, input, options \\ []) do
+
+  def cancel_change_set(%Client{} = client, catalog, change_set_id, options \\ [])
+      when is_binary(catalog) and is_binary(change_set_id) do
     url_path = "/CancelChangeSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Catalog", "catalog"},
-        {"ChangeSetId", "changeSetId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"catalog", catalog}, {"changeSetId", change_set_id}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1598,7 +1625,7 @@ defmodule AWS.MarketplaceCatalog do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1612,26 +1639,43 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
-    resource that is associated with the resource policy.
+  resource that is associated with the resource policy.
 
   ## Optional parameters:
   """
-  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+
+  @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_resource_policy_errors()}
-  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_resource_policy(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/DeleteResourcePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ResourceArn", "resourceArn"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"resourceArn", resource_arn}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1640,7 +1684,7 @@ defmodule AWS.MarketplaceCatalog do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1653,17 +1697,20 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
-    value: AWSMarketplace
+  value: AWSMarketplace
   * `:change_set_id` (`t:string`) Required. The unique identifier for the
-    StartChangeSet request that you want to describe the details for.
+  StartChangeSet request that you want to describe the details for.
 
   ## Optional parameters:
   """
+
   @spec describe_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_change_set_errors()}
-  def describe_change_set(%Client{} = client, catalog, change_set_id, options \\ []) do
+
+  def describe_change_set(%Client{} = client, catalog, change_set_id, options \\ [])
+      when is_binary(catalog) and is_binary(change_set_id) do
     url_path = "/DescribeChangeSet"
 
     # Validate optional parameters
@@ -1698,16 +1745,19 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
-    value: AWSMarketplace
+  value: AWSMarketplace
   * `:entity_id` (`t:string`) Required. The unique ID of the entity to describe.
 
   ## Optional parameters:
   """
+
   @spec describe_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_entity_errors()}
-  def describe_entity(%Client{} = client, catalog, entity_id, options \\ []) do
+
+  def describe_entity(%Client{} = client, catalog, entity_id, options \\ [])
+      when is_binary(catalog) and is_binary(entity_id) do
     url_path = "/DescribeEntity"
 
     # Validate optional parameters
@@ -1743,15 +1793,18 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
-    resource that is associated with the resource policy.
+  resource that is associated with the resource policy.
 
   ## Optional parameters:
   """
+
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_resource_policy_errors()}
-  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/GetResourcePolicy"
 
     # Validate optional parameters
@@ -1791,29 +1844,40 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec list_change_sets(AWS.Client.t(), list_change_sets_request(), Keyword.t()) ::
+
+  @spec list_change_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_change_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_change_sets_errors()}
-  def list_change_sets(%Client{} = client, input, options \\ []) do
+
+  def list_change_sets(%Client{} = client, options \\ []) do
     url_path = "/ListChangeSets"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1825,29 +1889,40 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec list_entities(AWS.Client.t(), list_entities_request(), Keyword.t()) ::
+
+  @spec list_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_entities_errors()}
-  def list_entities(%Client{} = client, input, options \\ []) do
+
+  def list_entities(%Client{} = client, options \\ []) do
     url_path = "/ListEntities"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1862,29 +1937,40 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, options \\ []) do
     url_path = "/ListTagsForResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1897,29 +1983,40 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+
+  @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_resource_policy_errors()}
-  def put_resource_policy(%Client{} = client, input, options \\ []) do
+
+  def put_resource_policy(%Client{} = client, options \\ []) do
     url_path = "/PutResourcePolicy"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1937,29 +2034,40 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec start_change_set(AWS.Client.t(), start_change_set_request(), Keyword.t()) ::
+
+  @spec start_change_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_change_set_errors()}
-  def start_change_set(%Client{} = client, input, options \\ []) do
+
+  def start_change_set(%Client{} = client, options \\ []) do
     url_path = "/StartChangeSet"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1974,29 +2082,40 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/TagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2011,28 +2130,39 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/UntagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

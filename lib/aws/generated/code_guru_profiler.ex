@@ -17,41 +17,41 @@ defmodule AWS.CodeGuruProfiler do
   @typedoc """
 
   ## Example:
-
+      
       update_profiling_group_request() :: %{
         "agentOrchestrationConfig" => agent_orchestration_config()
       }
-
+      
   """
   @type update_profiling_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_findings_reports_response() :: %{
         "findingsReportSummaries" => list(findings_report_summary()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_findings_reports_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profile_times_request() :: %{
         "endTime" => non_neg_integer(),
         "maxResults" => integer(),
@@ -60,180 +60,180 @@ defmodule AWS.CodeGuruProfiler do
         "period" => String.t(),
         "startTime" => non_neg_integer()
       }
-
+      
   """
   @type list_profile_times_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly_instance() :: %{
         "endTime" => non_neg_integer(),
         "id" => [String.t()],
         "startTime" => non_neg_integer(),
         "userFeedback" => user_feedback()
       }
-
+      
   """
   @type anomaly_instance() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       timestamp_structure() :: %{
         "value" => non_neg_integer()
       }
-
+      
   """
   @type timestamp_structure() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregated_profile_time() :: %{
         "period" => String.t(),
         "start" => non_neg_integer()
       }
-
+      
   """
   @type aggregated_profile_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric() :: %{
         "frameName" => [String.t()],
         "threadStates" => list([String.t()]()),
         "type" => String.t()
       }
-
+      
   """
   @type metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profiling_status() :: %{
         "latestAgentOrchestratedAt" => non_neg_integer(),
         "latestAgentProfileReportedAt" => non_neg_integer(),
         "latestAggregatedProfile" => aggregated_profile_time()
       }
-
+      
   """
   @type profiling_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_policy_request() :: %{}
-
+      
   """
   @type get_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_notification_configuration_request() :: %{}
-
+      
   """
   @type get_notification_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_profiling_group_response() :: %{}
-
+      
   """
   @type delete_profiling_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_orchestration_config() :: %{
         "profilingEnabled" => [boolean()]
       }
-
+      
   """
   @type agent_orchestration_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       frame_metric() :: %{
         "frameName" => [String.t()],
         "threadStates" => list([String.t()]()),
         "type" => String.t()
       }
-
+      
   """
   @type frame_metric() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_agent_profile_request() :: %{
         "agentProfile" => binary(),
         "contentType" => [String.t()],
         "profileToken" => String.t()
       }
-
+      
   """
   @type post_agent_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_notification_channel_request() :: %{}
-
+      
   """
   @type remove_notification_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profile_times_response() :: %{
         "nextToken" => String.t(),
         "profileTimes" => list(profile_time()())
       }
-
+      
   """
   @type list_profile_times_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_profiling_group_request() :: %{}
-
+      
   """
   @type describe_profiling_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommendations_response() :: %{
         "anomalies" => list(anomaly()()),
         "profileEndTime" => non_neg_integer(),
@@ -241,113 +241,113 @@ defmodule AWS.CodeGuruProfiler do
         "profilingGroupName" => String.t(),
         "recommendations" => list(recommendation()())
       }
-
+      
   """
   @type get_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("tagKeys") => list([String.t()]())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_notification_configuration_response() :: %{
         "notificationConfiguration" => notification_configuration()
       }
-
+      
   """
   @type get_notification_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_findings_report_account_summary_request() :: %{
         "dailyReportsOnly" => [boolean()],
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type get_findings_report_account_summary_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_feedback_response() :: %{}
-
+      
   """
   @type submit_feedback_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_notification_channel_response() :: %{
         "notificationConfiguration" => notification_configuration()
       }
-
+      
   """
   @type remove_notification_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profiling_groups_request() :: %{
         "includeDescription" => [boolean()],
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_profiling_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       post_agent_profile_response() :: %{}
-
+      
   """
   @type post_agent_profile_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       pattern() :: %{
         "countersToAggregate" => list([String.t()]()),
         "description" => [String.t()],
@@ -357,62 +357,62 @@ defmodule AWS.CodeGuruProfiler do
         "targetFrames" => list(list([String.t()]())()),
         "thresholdPercent" => float()
       }
-
+      
   """
   @type pattern() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_findings_report_account_summary_response() :: %{
         "nextToken" => String.t(),
         "reportSummaries" => list(findings_report_summary()())
       }
-
+      
   """
   @type get_findings_report_account_summary_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configure_agent_request() :: %{
         "fleetInstanceId" => String.t(),
         "metadata" => map()
       }
-
+      
   """
   @type configure_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_profile_response() :: %{
         "contentEncoding" => [String.t()],
         "contentType" => [String.t()],
         "profile" => binary()
       }
-
+      
   """
   @type get_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommendation() :: %{
         "allMatchesCount" => [integer()],
         "allMatchesSum" => [float()],
@@ -421,49 +421,49 @@ defmodule AWS.CodeGuruProfiler do
         "startTime" => non_neg_integer(),
         "topMatches" => list(match()())
       }
-
+      
   """
   @type recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommendations_request() :: %{
         "endTime" => non_neg_integer(),
         "locale" => String.t(),
         "startTime" => non_neg_integer()
       }
-
+      
   """
   @type get_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_permission_request() :: %{
         "revisionId" => String.t()
       }
-
+      
   """
   @type remove_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_findings_reports_request() :: %{
         "dailyReportsOnly" => [boolean()],
         "endTime" => non_neg_integer(),
@@ -471,114 +471,114 @@ defmodule AWS.CodeGuruProfiler do
         "nextToken" => String.t(),
         "startTime" => non_neg_integer()
       }
-
+      
   """
   @type list_findings_reports_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_permission_request() :: %{
         "principals" => list(String.t()()),
         "revisionId" => String.t()
       }
-
+      
   """
   @type put_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_profiling_group_response() :: %{
         "profilingGroup" => profiling_group_description()
       }
-
+      
   """
   @type describe_profiling_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_permission_response() :: %{
         "policy" => [String.t()],
         "revisionId" => String.t()
       }
-
+      
   """
   @type put_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_profiling_group_response() :: %{
         "profilingGroup" => profiling_group_description()
       }
-
+      
   """
   @type update_profiling_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_time() :: %{
         "start" => non_neg_integer()
       }
-
+      
   """
   @type profile_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       notification_configuration() :: %{
         "channels" => list(channel()())
       }
-
+      
   """
   @type notification_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_policy_response() :: %{
         "policy" => [String.t()],
         "revisionId" => String.t()
       }
-
+      
   """
   @type get_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_profiling_group_request() :: %{}
-
+      
   """
   @type delete_profiling_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profiling_group_description() :: %{
         "agentOrchestrationConfig" => agent_orchestration_config(),
         "arn" => String.t(),
@@ -589,38 +589,38 @@ defmodule AWS.CodeGuruProfiler do
         "tags" => map(),
         "updatedAt" => non_neg_integer()
       }
-
+      
   """
   @type profiling_group_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       anomaly() :: %{
         "instances" => list(anomaly_instance()()),
         "metric" => metric(),
         "reason" => [String.t()]
       }
-
+      
   """
   @type anomaly() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_profiling_group_response() :: %{
         "profilingGroup" => profiling_group_description()
       }
-
+      
   """
   @type create_profiling_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_profiling_group_request() :: %{
         "agentOrchestrationConfig" => agent_orchestration_config(),
         "clientToken" => String.t(),
@@ -628,60 +628,60 @@ defmodule AWS.CodeGuruProfiler do
         "profilingGroupName" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type create_profiling_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_configuration() :: %{
         "agentParameters" => map(),
         "periodInSeconds" => [integer()],
         "shouldProfile" => [boolean()]
       }
-
+      
   """
   @type agent_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profiling_groups_response() :: %{
         "nextToken" => String.t(),
         "profilingGroupNames" => list(String.t()()),
         "profilingGroups" => list(profiling_group_description()())
       }
-
+      
   """
   @type list_profiling_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_notification_channels_request() :: %{
         "channels" => list(channel()())
       }
-
+      
   """
   @type add_notification_channels_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_profile_request() :: %{
         "accept" => [String.t()],
         "endTime" => non_neg_integer(),
@@ -689,45 +689,45 @@ defmodule AWS.CodeGuruProfiler do
         "period" => String.t(),
         "startTime" => non_neg_integer()
       }
-
+      
   """
   @type get_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_frame_metric_data_request() :: %{
         "endTime" => non_neg_integer(),
         "frameMetrics" => list(frame_metric()()),
@@ -735,27 +735,27 @@ defmodule AWS.CodeGuruProfiler do
         "startTime" => non_neg_integer(),
         "targetResolution" => String.t()
       }
-
+      
   """
   @type batch_get_frame_metric_data_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel() :: %{
         "eventPublishers" => list(String.t()()),
         "id" => String.t(),
         "uri" => String.t()
       }
-
+      
   """
   @type channel() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_frame_metric_data_response() :: %{
         "endTime" => non_neg_integer(),
         "endTimes" => list(timestamp_structure()()),
@@ -764,73 +764,73 @@ defmodule AWS.CodeGuruProfiler do
         "startTime" => non_neg_integer(),
         "unprocessedEndTimes" => map()
       }
-
+      
   """
   @type batch_get_frame_metric_data_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       match() :: %{
         "frameAddress" => [String.t()],
         "targetFramesIndex" => [integer()],
         "thresholdBreachValue" => [float()]
       }
-
+      
   """
   @type match() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       submit_feedback_request() :: %{
         "comment" => [String.t()],
         "type" => String.t()
       }
-
+      
   """
   @type submit_feedback_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       frame_metric_datum() :: %{
         "frameMetric" => frame_metric(),
         "values" => list(float()())
       }
-
+      
   """
   @type frame_metric_datum() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       add_notification_channels_response() :: %{
         "notificationConfiguration" => notification_configuration()
       }
-
+      
   """
   @type add_notification_channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       configure_agent_response() :: %{
         "configuration" => agent_configuration()
       }
-
+      
   """
   @type configure_agent_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       findings_report_summary() :: %{
         "id" => String.t(),
         "profileEndTime" => non_neg_integer(),
@@ -838,30 +838,30 @@ defmodule AWS.CodeGuruProfiler do
         "profilingGroupName" => [String.t()],
         "totalNumberOfFindings" => [integer()]
       }
-
+      
   """
   @type findings_report_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_permission_response() :: %{
         "policy" => [String.t()],
         "revisionId" => String.t()
       }
-
+      
   """
   @type remove_permission_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       user_feedback() :: %{
         "type" => String.t()
       }
-
+      
   """
   @type user_feedback() :: %{String.t() => any()}
 
@@ -1014,40 +1014,45 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group that we
-    are setting up notifications for.
+  are setting up notifications for.
 
   ## Optional parameters:
   """
-  @spec add_notification_channels(
-          AWS.Client.t(),
-          String.t(),
-          add_notification_channels_request(),
-          Keyword.t()
-        ) ::
+
+  @spec add_notification_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_notification_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, add_notification_channels_errors()}
-  def add_notification_channels(%Client{} = client, profiling_group_name, input, options \\ []) do
+
+  def add_notification_channels(%Client{} = client, profiling_group_name, options \\ []) do
     url_path =
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1058,47 +1063,80 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group
-    associated with the the frame metrics used to return the time series values.
+  associated with the the frame metrics used to return the time series values.
 
   ## Optional parameters:
   * `:end_time` (`t:timestamp[date-time]`) The end time of the time period for the
-    returned time series values. This is specified using the ISO 8601 format.
-    For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
-    2020 1:15:02 PM UTC.
+  returned time series values. This is specified using the ISO 8601 format.
+  For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
+  2020 1:15:02 PM UTC.
   * `:period` (`t:string`) The duration of the frame metrics used to return the
-    time series values. Specify using the ISO 8601 format. The maximum period
-    duration is one day (PT24H or P1D).
+  time series values. Specify using the ISO 8601 format. The maximum period
+  duration is one day (PT24H or P1D).
   * `:start_time` (`t:timestamp[date-time]`) The start time of the time period for
-    the frame metrics used to return the time series values. This is specified
-    using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents
-    1 millisecond past June 1, 2020 1:15:02 PM UTC.
+  the frame metrics used to return the time series values. This is specified
+  using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents
+  1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:target_resolution` (`t:string`) The requested resolution of time steps for
-    the returned time series of values. If the requested target resolution is
-    not available due to data not being retained we provide a best effort result
-    by falling back to the most granular available resolution after the target
-    resolution. There are 3 valid values.
+  the returned time series of values. If the requested target resolution is
+  not available due to data not being retained we provide a best effort result
+  by falling back to the most granular available resolution after the target
+  resolution. There are 3 valid values.
   """
-  @spec batch_get_frame_metric_data(
-          AWS.Client.t(),
-          String.t(),
-          batch_get_frame_metric_data_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_frame_metric_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_frame_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_frame_metric_data_errors()}
-  def batch_get_frame_metric_data(%Client{} = client, profiling_group_name, input, options \\ []) do
+
+  def batch_get_frame_metric_data(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/frames/-/metrics"
+
+    # Validate optional parameters
+    optional_params = [end_time: nil, period: nil, start_time: nil, target_resolution: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"endTime", "endTime"},
-        {"period", "period"},
-        {"startTime", "startTime"},
-        {"targetResolution", "targetResolution"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :target_resolution) do
+        [{"targetResolution", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :start_time) do
+        [{"startTime", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :period) do
+        [{"period", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :end_time) do
+        [{"endTime", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -1108,17 +1146,9 @@ defmodule AWS.CodeGuruProfiler do
       options
       |> Keyword.drop([:end_time, :period, :start_time, :target_resolution])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1130,33 +1160,44 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group for which
-    the configured agent is collecting profiling data.
+  the configured agent is collecting profiling data.
 
   ## Optional parameters:
   """
-  @spec configure_agent(AWS.Client.t(), String.t(), configure_agent_request(), Keyword.t()) ::
+
+  @spec configure_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configure_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, configure_agent_errors()}
-  def configure_agent(%Client{} = client, profiling_group_name, input, options \\ []) do
+
+  def configure_agent(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/configureAgent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1166,39 +1207,46 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:client_token` (`t:string`) Amazon CodeGuru Profiler uses this universally
-    unique identifier (UUID) to prevent the accidental creation of duplicate
-    profiling groups if there are failures and retries.
+  unique identifier (UUID) to prevent the accidental creation of duplicate
+  profiling groups if there are failures and retries.
 
   ## Optional parameters:
   """
-  @spec create_profiling_group(AWS.Client.t(), create_profiling_group_request(), Keyword.t()) ::
+
+  @spec create_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profiling_group_errors()}
-  def create_profiling_group(%Client{} = client, input, options \\ []) do
+
+  def create_profiling_group(%Client{} = client, client_token, options \\ [])
+      when is_binary(client_token) do
     url_path = "/profilingGroups"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"clientToken", "clientToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"clientToken", client_token}]
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1208,26 +1256,42 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group to
-    delete.
+  delete.
 
   ## Optional parameters:
   """
-  @spec delete_profiling_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_profiling_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profiling_group_errors()}
-  def delete_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
+
+  def delete_profiling_group(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1236,7 +1300,7 @@ defmodule AWS.CodeGuruProfiler do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1251,14 +1315,16 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group to get
-    information about.
+  information about.
 
   ## Optional parameters:
   """
+
   @spec describe_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_profiling_group_errors()}
+
   def describe_profiling_group(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
 
@@ -1298,25 +1364,27 @@ defmodule AWS.CodeGuruProfiler do
   ## Parameters:
 
   ## Optional parameters:
-  * `:daily_reports_only` (`t:`) A Boolean value indicating whether to only return
-    reports from daily profiles. If set to True, only analysis data from daily
-    profiles is returned. If set to False, analysis data is returned from
-    smaller time windows (for example, one hour).
+  * `:daily_reports_only` (`t:string`) A Boolean value indicating whether to only
+  return reports from daily profiles. If set to True, only analysis data from
+  daily profiles is returned. If set to False, analysis data is returned from
+  smaller time windows (for example, one hour).
   * `:max_results` (`t:integer`) The maximum number of results returned by
-    GetFindingsReportAccountSummary in paginated output. When this parameter is
-    used, GetFindingsReportAccountSummary only returns maxResults results in a
-    single page along with a nextToken response element. The remaining results
-    of the initial request can be seen by sending another
-    GetFindingsReportAccountSummary request with the returned nextToken value.
+  GetFindingsReportAccountSummary in paginated output. When this parameter is
+  used, GetFindingsReportAccountSummary only returns maxResults results in a
+  single page along with a nextToken response element. The remaining results
+  of the initial request can be seen by sending another
+  GetFindingsReportAccountSummary request with the returned nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-    paginated GetFindingsReportAccountSummary request where maxResults was used
-    and the results exceeded the value of that parameter. Pagination continues
-    from the end of the previous results that returned the nextToken value.
+  paginated GetFindingsReportAccountSummary request where maxResults was used
+  and the results exceeded the value of that parameter. Pagination continues
+  from the end of the previous results that returned the nextToken value.
   """
+
   @spec get_findings_report_account_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_report_account_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_findings_report_account_summary_errors()}
+
   def get_findings_report_account_summary(%Client{} = client, options \\ []) do
     url_path = "/internal/findingsReports"
 
@@ -1377,14 +1445,16 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group we want
-    to get the notification configuration for.
+  to get the notification configuration for.
 
   ## Optional parameters:
   """
+
   @spec get_notification_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_notification_configuration_errors()}
+
   def get_notification_configuration(%Client{} = client, profiling_group_name, options \\ []) do
     url_path =
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration"
@@ -1424,10 +1494,12 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Optional parameters:
   """
+
   @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_policy_errors()}
+
   def get_policy(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy"
 
@@ -1468,27 +1540,29 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Optional parameters:
   * `:end_time` (`t:timestamp[date-time]`) The end time of the requested profile.
-    Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+  Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:max_depth` (`t:integer`) The maximum depth of the stacks in the code that is
-    represented in the aggregated profile. For example, if CodeGuru Profiler
-    finds a method A, which calls method B, which calls method C, which calls
-    method D, then the depth is 4. If the maxDepth is set to 2, then the
-    aggregated profile contains representations of methods A and B.
+  represented in the aggregated profile. For example, if CodeGuru Profiler
+  finds a method A, which calls method B, which calls method C, which calls
+  method D, then the depth is 4. If the maxDepth is set to 2, then the
+  aggregated profile contains representations of methods A and B.
   * `:period` (`t:string`) Used with startTime or endTime to specify the time
-    range for the returned aggregated profile. Specify using the ISO 8601
-    format. For example, P1DT1H1M1S.
+  range for the returned aggregated profile. Specify using the ISO 8601
+  format. For example, P1DT1H1M1S.
   * `:start_time` (`t:timestamp[date-time]`) The start time of the profile to get.
-    Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
-  * `:accept` (`t:`) The format of the returned profiling data. The format maps to
-    the Accept and Content-Type headers of the HTTP request. You can specify one
-    of the following: or the default .
+  Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+  * `:accept` (`t:string`) The format of the returned profiling data. The format
+  maps to the Accept and Content-Type headers of the HTTP request. You can
+  specify one of the following: or the default .
   """
+
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
+
   def get_profile(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/profile"
 
@@ -1575,31 +1649,34 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group to get
-    analysis data about.
+  analysis data about.
   * `:end_time` (`t:timestamp[date-time]`) The start time of the profile to get
-    analysis data about. You must specify startTime and endTime. This is
-    specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+  analysis data about. You must specify startTime and endTime. This is
+  specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:start_time` (`t:timestamp[date-time]`) The end time of the profile to get
-    analysis data about. You must specify startTime and endTime. This is
-    specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+  analysis data about. You must specify startTime and endTime. This is
+  specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
 
   ## Optional parameters:
   * `:locale` (`t:string`) The language used to provide analysis. Specify using a
-    string that is one of the following BCP 47 language codes.
+  string that is one of the following BCP 47 language codes.
   """
+
   @spec get_recommendations(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommendations_errors()}
+
   def get_recommendations(
         %Client{} = client,
         profiling_group_name,
         end_time,
         start_time,
         options \\ []
-      ) do
+      )
+      when is_binary(end_time) and is_binary(start_time) do
     url_path =
       "/internal/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/recommendations"
 
@@ -1646,43 +1723,46 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group from
-    which to search for analysis data.
+  which to search for analysis data.
   * `:end_time` (`t:timestamp[date-time]`) The end time of the profile to get
-    analysis data about. You must specify startTime and endTime. This is
-    specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+  analysis data about. You must specify startTime and endTime. This is
+  specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:start_time` (`t:timestamp[date-time]`) The start time of the profile to get
-    analysis data about. You must specify startTime and endTime. This is
-    specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+  analysis data about. You must specify startTime and endTime. This is
+  specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
 
   ## Optional parameters:
-  * `:daily_reports_only` (`t:`) A Boolean value indicating whether to only return
-    reports from daily profiles. If set to True, only analysis data from daily
-    profiles is returned. If set to False, analysis data is returned from
-    smaller time windows (for example, one hour).
+  * `:daily_reports_only` (`t:string`) A Boolean value indicating whether to only
+  return reports from daily profiles. If set to True, only analysis data from
+  daily profiles is returned. If set to False, analysis data is returned from
+  smaller time windows (for example, one hour).
   * `:max_results` (`t:integer`) The maximum number of report results returned by
-    ListFindingsReports in paginated output. When this parameter is used,
-    ListFindingsReports only returns maxResults results in a single page along
-    with a nextToken response element. The remaining results of the initial
-    request can be seen by sending another ListFindingsReports request with the
-    returned nextToken value.
+  ListFindingsReports in paginated output. When this parameter is used,
+  ListFindingsReports only returns maxResults results in a single page along
+  with a nextToken response element. The remaining results of the initial
+  request can be seen by sending another ListFindingsReports request with the
+  returned nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-    paginated ListFindingsReportsRequest request where maxResults was used and
-    the results exceeded the value of that parameter. Pagination continues from
-    the end of the previous results that returned the nextToken value.
+  paginated ListFindingsReportsRequest request where maxResults was used and
+  the results exceeded the value of that parameter. Pagination continues from
+  the end of the previous results that returned the nextToken value.
   """
+
   @spec list_findings_reports(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_findings_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_findings_reports_errors()}
+
   def list_findings_reports(
         %Client{} = client,
         profiling_group_name,
         end_time,
         start_time,
         options \\ []
-      ) do
+      )
+      when is_binary(end_time) and is_binary(start_time) do
     url_path =
       "/internal/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/findingsReports"
 
@@ -1745,27 +1825,28 @@ defmodule AWS.CodeGuruProfiler do
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group.
   * `:end_time` (`t:timestamp[date-time]`) The end time of the time range from
-    which to list the profiles.
+  which to list the profiles.
   * `:period` (`t:string`) The aggregation period. This specifies the period
-    during which an aggregation profile collects posted agent profiles for a
-    profiling group. There are 3 valid values.
+  during which an aggregation profile collects posted agent profiles for a
+  profiling group. There are 3 valid values.
   * `:start_time` (`t:timestamp[date-time]`) The start time of the time range from
-    which to list the profiles.
+  which to list the profiles.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of profile time results
-    returned by ListProfileTimes in paginated output. When this parameter is
-    used, ListProfileTimes only returns maxResults results in a single page with
-    a nextToken response element. The remaining results of the initial request
-    can be seen by sending another ListProfileTimes request with the returned
-    nextToken value.
+  returned by ListProfileTimes in paginated output. When this parameter is
+  used, ListProfileTimes only returns maxResults results in a single page with
+  a nextToken response element. The remaining results of the initial request
+  can be seen by sending another ListProfileTimes request with the returned
+  nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-    paginated ListProfileTimes request where maxResults was used and the results
-    exceeded the value of that parameter. Pagination continues from the end of
-    the previous results that returned the nextToken value.
+  paginated ListProfileTimes request where maxResults was used and the results
+  exceeded the value of that parameter. Pagination continues from the end of
+  the previous results that returned the nextToken value.
   * `:order_by` (`t:string`) The order (ascending or descending by start time of
-    the profile) to use when listing profiles. Defaults to TIMESTAMP_DESCENDING.
+  the profile) to use when listing profiles. Defaults to TIMESTAMP_DESCENDING.
   """
+
   @spec list_profile_times(
           AWS.Client.t(),
           String.t(),
@@ -1777,6 +1858,7 @@ defmodule AWS.CodeGuruProfiler do
           {:ok, list_profile_times_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profile_times_errors()}
+
   def list_profile_times(
         %Client{} = client,
         profiling_group_name,
@@ -1784,7 +1866,8 @@ defmodule AWS.CodeGuruProfiler do
         period,
         start_time,
         options \\ []
-      ) do
+      )
+      when is_binary(end_time) and is_binary(period) and is_binary(start_time) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/profileTimes"
 
     # Validate optional parameters
@@ -1848,25 +1931,27 @@ defmodule AWS.CodeGuruProfiler do
   ## Parameters:
 
   ## Optional parameters:
-  * `:include_description` (`t:`) A Boolean value indicating whether to include a
-    description. If true, then a list of ProfilingGroupDescription objects that
-    contain detailed information about profiling groups is returned. If false,
-    then a list of profiling group names is returned.
+  * `:include_description` (`t:string`) A Boolean value indicating whether to
+  include a description. If true, then a list of ProfilingGroupDescription
+  objects that contain detailed information about profiling groups is
+  returned. If false, then a list of profiling group names is returned.
   * `:max_results` (`t:integer`) The maximum number of profiling groups results
-    returned by ListProfilingGroups in paginated output. When this parameter is
-    used, ListProfilingGroups only returns maxResults results in a single page
-    along with a nextToken response element. The remaining results of the
-    initial request can be seen by sending another ListProfilingGroups request
-    with the returned nextToken value.
+  returned by ListProfilingGroups in paginated output. When this parameter is
+  used, ListProfilingGroups only returns maxResults results in a single page
+  along with a nextToken response element. The remaining results of the
+  initial request can be seen by sending another ListProfilingGroups request
+  with the returned nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-    paginated ListProfilingGroups request where maxResults was used and the
-    results exceeded the value of that parameter. Pagination continues from the
-    end of the previous results that returned the nextToken value.
+  paginated ListProfilingGroups request where maxResults was used and the
+  results exceeded the value of that parameter. Pagination continues from the
+  end of the previous results that returned the nextToken value.
   """
+
   @spec list_profiling_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiling_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiling_groups_errors()}
+
   def list_profiling_groups(%Client{} = client, options \\ []) do
     url_path = "/profilingGroups"
 
@@ -1927,14 +2012,16 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that contains the tags to return.
+  that contains the tags to return.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1973,24 +2060,36 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group with the
-    aggregated profile that receives the submitted profiling data.
-  * `:content_type` (`t:`) The format of the submitted profiling data. The format
-    maps to the Accept and Content-Type headers of the HTTP request. You can
-    specify one of the following: or the default .
+  aggregated profile that receives the submitted profiling data.
+  * `:content_type` (`t:string`) The format of the submitted profiling data. The
+  format maps to the Accept and Content-Type headers of the HTTP request. You
+  can specify one of the following: or the default .
+  * `:input` (`t:map`):
+    * `:agent_profile` (`t:blob`) The submitted profiling data.
 
   ## Optional parameters:
   * `:profile_token` (`t:string`) Amazon CodeGuru Profiler uses this universally
-    unique identifier (UUID) to prevent the accidental submission of duplicate
-    profiling data if there are failures and retries.
+  unique identifier (UUID) to prevent the accidental submission of duplicate
+  profiling data if there are failures and retries.
   """
-  @spec post_agent_profile(AWS.Client.t(), String.t(), post_agent_profile_request(), Keyword.t()) ::
+
+  @spec post_agent_profile(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, post_agent_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, post_agent_profile_errors()}
-  def post_agent_profile(%Client{} = client, profiling_group_name, input, options \\ []) do
+
+  def post_agent_profile(
+        %Client{} = client,
+        profiling_group_name,
+        content_type,
+        input,
+        options \\ []
+      )
+      when is_map(input) and is_binary(content_type) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/agentProfile"
 
-    optional_params = [profile_token: nil, content_type: nil]
+    # Validate optional parameters
+    optional_params = [profile_token: nil]
 
     options =
       Keyword.validate!(
@@ -1998,17 +2097,21 @@ defmodule AWS.CodeGuruProfiler do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"contentType", "Content-Type"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"Content-Type", content_type}]
 
-    {query_params, input} =
-      [
-        {"profileToken", "profileToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :profile_token) do
+        [{"profileToken", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2018,17 +2121,9 @@ defmodule AWS.CodeGuruProfiler do
       options
       |> Keyword.drop([:profile_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2041,36 +2136,50 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:action_group` (`t:string`) Specifies an action group that contains
-    permissions to add to a profiling group resource. One action group is
-    supported, agentPermissions, which grants permission to perform actions
-    required by the profiling agent, ConfigureAgent and PostAgentProfile
-    permissions.
+  permissions to add to a profiling group resource. One action group is
+  supported, agentPermissions, which grants permission to perform actions
+  required by the profiling agent, ConfigureAgent and PostAgentProfile
+  permissions.
   * `:profiling_group_name` (`t:string`) The name of the profiling group to grant
-    access to.
+  access to.
 
   ## Optional parameters:
   """
-  @spec put_permission(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          put_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_permission(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_permission_errors()}
-  def put_permission(%Client{} = client, action_group, profiling_group_name, input, options \\ []) do
+
+  def put_permission(%Client{} = client, action_group, profiling_group_name, options \\ []) do
     url_path =
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy/#{AWS.Util.encode_uri(action_group)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2080,37 +2189,50 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:channel_id` (`t:string`) The id of the channel that we want to stop
-    receiving notifications.
+  receiving notifications.
   * `:profiling_group_name` (`t:string`) The name of the profiling group we want
-    to change notification configuration for.
+  to change notification configuration for.
 
   ## Optional parameters:
   """
-  @spec remove_notification_channel(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_notification_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_notification_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_notification_channel_errors()}
+
   def remove_notification_channel(
         %Client{} = client,
         channel_id,
         profiling_group_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration/#{AWS.Util.encode_uri(channel_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2119,7 +2241,7 @@ defmodule AWS.CodeGuruProfiler do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2140,46 +2262,56 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:action_group` (`t:string`) Specifies an action group that contains the
-    permissions to remove from a profiling group's resource-based policy. One
-    action group is supported, agentPermissions, which grants ConfigureAgent and
-    PostAgentProfile permissions.
+  permissions to remove from a profiling group's resource-based policy. One
+  action group is supported, agentPermissions, which grants ConfigureAgent and
+  PostAgentProfile permissions.
   * `:profiling_group_name` (`t:string`) The name of the profiling group.
   * `:revision_id` (`t:string`) A universally unique identifier (UUID) for the
-    revision of the resource-based policy from which you want to remove
-    permissions.
+  revision of the resource-based policy from which you want to remove
+  permissions.
 
   ## Optional parameters:
   """
-  @spec remove_permission(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_permission_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_permission(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_permission_errors()}
+
   def remove_permission(
         %Client{} = client,
         action_group,
         profiling_group_name,
-        input,
+        revision_id,
         options \\ []
-      ) do
+      )
+      when is_binary(revision_id) do
     url_path =
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy/#{AWS.Util.encode_uri(action_group)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"revisionId", "revisionId"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"revisionId", revision_id}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2188,7 +2320,7 @@ defmodule AWS.CodeGuruProfiler do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2202,49 +2334,52 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:anomaly_instance_id` (`t:string`) The universally unique identifier (UUID)
-    of the AnomalyInstance object that is included in the analysis data.
+  of the AnomalyInstance object that is included in the analysis data.
   * `:profiling_group_name` (`t:string`) The name of the profiling group that is
-    associated with the analysis data.
+  associated with the analysis data.
 
   ## Optional parameters:
   """
-  @spec submit_feedback(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          submit_feedback_request(),
-          Keyword.t()
-        ) ::
+
+  @spec submit_feedback(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, submit_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, submit_feedback_errors()}
+
   def submit_feedback(
         %Client{} = client,
         anomaly_instance_id,
         profiling_group_name,
-        input,
         options \\ []
       ) do
     url_path =
       "/internal/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/anomalies/#{AWS.Util.encode_uri(anomaly_instance_id)}/feedback"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2254,33 +2389,44 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that the tags are added to.
+  that the tags are added to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2290,28 +2436,45 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    that contains the tags to remove.
+  that contains the tags to remove.
   * `:tag_keys` (`t:list[smithy.api#String]`) A list of tag keys. Existing tags of
-    resources with keys in this list are removed from the specified resource.
+  resources with keys in this list are removed from the specified resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2320,7 +2483,7 @@ defmodule AWS.CodeGuruProfiler do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2333,27 +2496,43 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string`) The name of the profiling group to
-    update.
+  update.
 
   ## Optional parameters:
   """
-  @spec update_profiling_group(
-          AWS.Client.t(),
-          String.t(),
-          update_profiling_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profiling_group_errors()}
-  def update_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
+
+  def update_profiling_group(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

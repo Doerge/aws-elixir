@@ -20,75 +20,75 @@ defmodule AWS.Detective do
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       administrator() :: %{
         "AccountId" => String.t(),
         "DelegationTime" => non_neg_integer(),
         "GraphArn" => String.t()
       }
-
+      
   """
   @type administrator() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_organization_configuration_request() :: %{
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type describe_organization_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_members_response() :: %{
         "MemberDetails" => list(member_detail()()),
         "UnprocessedAccounts" => list(unprocessed_account()())
       }
-
+      
   """
   @type get_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_aso_detail() :: %{
         "Aso" => String.t(),
         "IsNewForEntireAccount" => boolean()
       }
-
+      
   """
   @type new_aso_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       filter_criteria() :: %{
         "CreatedTime" => date_filter(),
         "EntityArn" => string_filter(),
@@ -96,189 +96,189 @@ defmodule AWS.Detective do
         "State" => string_filter(),
         "Status" => string_filter()
       }
-
+      
   """
   @type filter_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_datasource_packages_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type list_datasource_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_graph_request() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type create_graph_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_user_agent_detail() :: %{
         "IsNewForEntireAccount" => boolean(),
         "UserAgent" => String.t()
       }
-
+      
   """
   @type new_user_agent_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_datasource_packages_request() :: %{
         required("DatasourcePackages") => list(list(any())()),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type update_datasource_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_investigation_request() :: %{
         required("EntityArn") => String.t(),
         required("GraphArn") => String.t(),
         required("ScopeEndTime") => non_neg_integer(),
         required("ScopeStartTime") => non_neg_integer()
       }
-
+      
   """
   @type start_investigation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_investigation_response() :: %{
         "InvestigationId" => String.t()
       }
-
+      
   """
   @type start_investigation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_graphs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_graphs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_members_response() :: %{
         "AccountIds" => list(String.t()()),
         "UnprocessedAccounts" => list(unprocessed_account()())
       }
-
+      
   """
   @type delete_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_investigations_response() :: %{
         "InvestigationDetails" => list(investigation_detail()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_investigations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       related_finding_group_detail() :: %{
         "Id" => String.t()
       }
-
+      
   """
   @type related_finding_group_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_organization_configuration_response() :: %{
         "AutoEnable" => boolean()
       }
-
+      
   """
   @type describe_organization_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_investigations_request() :: %{
         optional("FilterCriteria") => filter_criteria(),
         optional("MaxResults") => integer(),
@@ -286,194 +286,194 @@ defmodule AWS.Detective do
         optional("SortCriteria") => sort_criteria(),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type list_investigations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_members_request() :: %{
         required("AccountIds") => list(String.t()()),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type get_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_members_request() :: %{
         optional("DisableEmailNotification") => boolean(),
         optional("Message") => String.t(),
         required("Accounts") => list(account()()),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type create_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       graph() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer()
       }
-
+      
   """
   @type graph() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_graph_member_datasources_response() :: %{
         "MemberDatasources" => list(membership_datasources()()),
         "UnprocessedAccounts" => list(unprocessed_account()())
       }
-
+      
   """
   @type batch_get_graph_member_datasources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => String.t(),
         "Resources" => list(String.t()())
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_members_request() :: %{
         required("AccountIds") => list(String.t()()),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type delete_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       timestamp_for_collection() :: %{
         "Timestamp" => non_neg_integer()
       }
-
+      
   """
   @type timestamp_for_collection() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       account() :: %{
         "AccountId" => String.t(),
         "EmailAddress" => String.t()
       }
-
+      
   """
   @type account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_graph() :: %{
         "GraphArn" => String.t(),
         "Reason" => String.t()
       }
-
+      
   """
   @type unprocessed_graph() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_membership_datasources_response() :: %{
         "MembershipDatasources" => list(membership_datasources()()),
         "UnprocessedGraphs" => list(unprocessed_graph()())
       }
-
+      
   """
   @type batch_get_membership_datasources_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_graph_member_datasources_request() :: %{
         required("AccountIds") => list(String.t()()),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type batch_get_graph_member_datasources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_investigation_state_request() :: %{
         required("GraphArn") => String.t(),
         required("InvestigationId") => String.t(),
         required("State") => list(any())
       }
-
+      
   """
   @type update_investigation_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       date_filter() :: %{
         "EndInclusive" => non_neg_integer(),
         "StartInclusive" => non_neg_integer()
       }
-
+      
   """
   @type date_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reject_invitation_request() :: %{
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type reject_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       investigation_detail() :: %{
         "CreatedTime" => non_neg_integer(),
         "EntityArn" => String.t(),
@@ -483,14 +483,14 @@ defmodule AWS.Detective do
         "State" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type investigation_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       impossible_travel_detail() :: %{
         "EndingIpAddress" => String.t(),
         "EndingLocation" => String.t(),
@@ -498,143 +498,143 @@ defmodule AWS.Detective do
         "StartingIpAddress" => String.t(),
         "StartingLocation" => String.t()
       }
-
+      
   """
   @type impossible_travel_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_graph_request() :: %{
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type delete_graph_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => String.t()
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_membership_datasources_request() :: %{
         required("GraphArns") => list(String.t()())
       }
-
+      
   """
   @type batch_get_membership_datasources_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_organization_configuration_request() :: %{
         optional("AutoEnable") => boolean(),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type update_organization_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       enable_organization_admin_account_request() :: %{
         required("AccountId") => String.t()
       }
-
+      
   """
   @type enable_organization_admin_account_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_graphs_response() :: %{
         "GraphList" => list(graph()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_graphs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       datasource_package_usage_info() :: %{
         "VolumeUsageInBytes" => float(),
         "VolumeUsageUpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type datasource_package_usage_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_datasource_packages_response() :: %{
         "DatasourcePackages" => map(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_datasource_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       membership_datasources() :: %{
         "AccountId" => String.t(),
         "DatasourcePackageIngestHistory" => map(),
         "GraphArn" => String.t()
       }
-
+      
   """
   @type membership_datasources() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_organization_admin_accounts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_organization_admin_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sort_criteria() :: %{
         "Field" => list(any()),
         "SortOrder" => list(any())
       }
-
+      
   """
   @type sort_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "ErrorCode" => list(any()),
         "ErrorCodeReason" => String.t(),
@@ -642,95 +642,95 @@ defmodule AWS.Detective do
         "SubErrorCode" => list(any()),
         "SubErrorCodeReason" => String.t()
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       new_geolocation_detail() :: %{
         "IpAddress" => String.t(),
         "IsNewForEntireAccount" => boolean(),
         "Location" => String.t()
       }
-
+      
   """
   @type new_geolocation_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       accept_invitation_request() :: %{
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type accept_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_graph_response() :: %{
         "GraphArn" => String.t()
       }
-
+      
   """
   @type create_graph_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_members_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type list_members_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_members_response() :: %{
         "MemberDetails" => list(member_detail()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_investigation_request() :: %{
         required("GraphArn") => String.t(),
         required("InvestigationId") => String.t()
       }
-
+      
   """
   @type get_investigation_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_investigation_response() :: %{
         "CreatedTime" => non_neg_integer(),
         "EntityArn" => String.t(),
@@ -743,48 +743,48 @@ defmodule AWS.Detective do
         "State" => list(any()),
         "Status" => list(any())
       }
-
+      
   """
   @type get_investigation_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "ErrorCode" => list(any()),
         "ErrorCodeReason" => String.t(),
         "Message" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_invitations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_invitations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       indicator_detail() :: %{
         "FlaggedIpAddressDetail" => flagged_ip_address_detail(),
         "ImpossibleTravelDetail" => impossible_travel_detail(),
@@ -795,112 +795,112 @@ defmodule AWS.Detective do
         "RelatedFindingGroupDetail" => related_finding_group_detail(),
         "TTPsObservedDetail" => t_t_ps_observed_detail()
       }
-
+      
   """
   @type indicator_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       string_filter() :: %{
         "Value" => String.t()
       }
-
+      
   """
   @type string_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       flagged_ip_address_detail() :: %{
         "IpAddress" => String.t(),
         "Reason" => list(any())
       }
-
+      
   """
   @type flagged_ip_address_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       related_finding_detail() :: %{
         "Arn" => String.t(),
         "IpAddress" => String.t(),
         "Type" => String.t()
       }
-
+      
   """
   @type related_finding_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessed_account() :: %{
         "AccountId" => String.t(),
         "Reason" => String.t()
       }
-
+      
   """
   @type unprocessed_account() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_monitoring_member_request() :: %{
         required("AccountId") => String.t(),
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type start_monitoring_member_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_indicators_response() :: %{
         "GraphArn" => String.t(),
         "Indicators" => list(indicator()()),
         "InvestigationId" => String.t(),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_indicators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       datasource_package_ingest_detail() :: %{
         "DatasourcePackageIngestState" => list(any()),
         "LastIngestStateChange" => map()
       }
-
+      
   """
   @type datasource_package_ingest_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_organization_admin_accounts_response() :: %{
         "Administrators" => list(administrator()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_organization_admin_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_indicators_request() :: %{
         optional("IndicatorType") => list(any()),
         optional("MaxResults") => integer(),
@@ -908,25 +908,25 @@ defmodule AWS.Detective do
         required("GraphArn") => String.t(),
         required("InvestigationId") => String.t()
       }
-
+      
   """
   @type list_indicators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_membership_request() :: %{
         required("GraphArn") => String.t()
       }
-
+      
   """
   @type disassociate_membership_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       t_t_ps_observed_detail() :: %{
         "APIFailureCount" => float(),
         "APIName" => String.t(),
@@ -936,26 +936,26 @@ defmodule AWS.Detective do
         "Tactic" => String.t(),
         "Technique" => String.t()
       }
-
+      
   """
   @type t_t_ps_observed_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_members_response() :: %{
         "Members" => list(member_detail()()),
         "UnprocessedAccounts" => list(unprocessed_account()())
       }
-
+      
   """
   @type create_members_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       member_detail() :: %{
         "AccountId" => String.t(),
         "AdministratorId" => String.t(),
@@ -974,31 +974,31 @@ defmodule AWS.Detective do
         "VolumeUsageInBytes" => float(),
         "VolumeUsageUpdatedTime" => non_neg_integer()
       }
-
+      
   """
   @type member_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_invitations_response() :: %{
         "Invitations" => list(member_detail()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_invitations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       indicator() :: %{
         "IndicatorDetail" => indicator_detail(),
         "IndicatorType" => list(any())
       }
-
+      
   """
   @type indicator() :: %{String.t() => any()}
 
@@ -1210,19 +1210,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec accept_invitation(AWS.Client.t(), accept_invitation_request(), Keyword.t()) ::
+
+  @spec accept_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, accept_invitation_errors()}
-  def accept_invitation(%Client{} = client, input, options \\ []) do
+
+  def accept_invitation(%Client{} = client, options \\ []) do
     url_path = "/invitation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1234,33 +1255,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec batch_get_graph_member_datasources(
-          AWS.Client.t(),
-          batch_get_graph_member_datasources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_graph_member_datasources(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_graph_member_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_graph_member_datasources_errors()}
-  def batch_get_graph_member_datasources(%Client{} = client, input, options \\ []) do
+
+  def batch_get_graph_member_datasources(%Client{} = client, options \\ []) do
     url_path = "/graph/datasources/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1272,33 +1300,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec batch_get_membership_datasources(
-          AWS.Client.t(),
-          batch_get_membership_datasources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_membership_datasources(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_membership_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_membership_datasources_errors()}
-  def batch_get_membership_datasources(%Client{} = client, input, options \\ []) do
+
+  def batch_get_membership_datasources(%Client{} = client, options \\ []) do
     url_path = "/membership/datasources/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1314,29 +1349,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec create_graph(AWS.Client.t(), create_graph_request(), Keyword.t()) ::
+
+  @spec create_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_graph_errors()}
-  def create_graph(%Client{} = client, input, options \\ []) do
+
+  def create_graph(%Client{} = client, options \\ []) do
     url_path = "/graph"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1353,29 +1399,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec create_members(AWS.Client.t(), create_members_request(), Keyword.t()) ::
+
+  @spec create_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_members_errors()}
-  def create_members(%Client{} = client, input, options \\ []) do
+
+  def create_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1389,29 +1446,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec delete_graph(AWS.Client.t(), delete_graph_request(), Keyword.t()) ::
+
+  @spec delete_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_graph_errors()}
-  def delete_graph(%Client{} = client, input, options \\ []) do
+
+  def delete_graph(%Client{} = client, options \\ []) do
     url_path = "/graph/removal"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1428,29 +1496,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec delete_members(AWS.Client.t(), delete_members_request(), Keyword.t()) ::
+
+  @spec delete_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_members_errors()}
-  def delete_members(%Client{} = client, input, options \\ []) do
+
+  def delete_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members/removal"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1464,33 +1543,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec describe_organization_configuration(
-          AWS.Client.t(),
-          describe_organization_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_organization_configuration_errors()}
-  def describe_organization_configuration(%Client{} = client, input, options \\ []) do
+
+  def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/orgs/describeOrganizationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1504,29 +1590,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec disable_organization_admin_account(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec disable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_organization_admin_account_errors()}
-  def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
+
+  def disable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/orgs/disableAdminAccount"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1539,29 +1636,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec disassociate_membership(AWS.Client.t(), disassociate_membership_request(), Keyword.t()) ::
+
+  @spec disassociate_membership(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_membership_errors()}
-  def disassociate_membership(%Client{} = client, input, options \\ []) do
+
+  def disassociate_membership(%Client{} = client, options \\ []) do
     url_path = "/membership/removal"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1575,33 +1683,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec enable_organization_admin_account(
-          AWS.Client.t(),
-          enable_organization_admin_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_organization_admin_account_errors()}
-  def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
+
+  def enable_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/orgs/enableAdminAccount"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1618,29 +1733,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec get_investigation(AWS.Client.t(), get_investigation_request(), Keyword.t()) ::
+
+  @spec get_investigation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_investigation_errors()}
-  def get_investigation(%Client{} = client, input, options \\ []) do
+
+  def get_investigation(%Client{} = client, options \\ []) do
     url_path = "/investigations/getInvestigation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1653,29 +1779,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec get_members(AWS.Client.t(), get_members_request(), Keyword.t()) ::
+
+  @spec get_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_members_errors()}
-  def get_members(%Client{} = client, input, options \\ []) do
+
+  def get_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members/get"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1687,29 +1824,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec list_datasource_packages(AWS.Client.t(), list_datasource_packages_request(), Keyword.t()) ::
+
+  @spec list_datasource_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasource_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_datasource_packages_errors()}
-  def list_datasource_packages(%Client{} = client, input, options \\ []) do
+
+  def list_datasource_packages(%Client{} = client, options \\ []) do
     url_path = "/graph/datasources/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1722,29 +1870,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec list_graphs(AWS.Client.t(), list_graphs_request(), Keyword.t()) ::
+
+  @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_graphs_errors()}
-  def list_graphs(%Client{} = client, input, options \\ []) do
+
+  def list_graphs(%Client{} = client, options \\ []) do
     url_path = "/graphs/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1758,29 +1917,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec list_indicators(AWS.Client.t(), list_indicators_request(), Keyword.t()) ::
+
+  @spec list_indicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indicators_errors()}
-  def list_indicators(%Client{} = client, input, options \\ []) do
+
+  def list_indicators(%Client{} = client, options \\ []) do
     url_path = "/investigations/listIndicators"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1796,29 +1966,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec list_investigations(AWS.Client.t(), list_investigations_request(), Keyword.t()) ::
+
+  @spec list_investigations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_investigations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_investigations_errors()}
-  def list_investigations(%Client{} = client, input, options \\ []) do
+
+  def list_investigations(%Client{} = client, options \\ []) do
     url_path = "/investigations/listInvestigations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1833,29 +2014,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec list_invitations(AWS.Client.t(), list_invitations_request(), Keyword.t()) ::
+
+  @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_invitations_errors()}
-  def list_invitations(%Client{} = client, input, options \\ []) do
+
+  def list_invitations(%Client{} = client, options \\ []) do
     url_path = "/invitations/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1869,29 +2061,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec list_members(AWS.Client.t(), list_members_request(), Keyword.t()) ::
+
+  @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_members_errors()}
-  def list_members(%Client{} = client, input, options \\ []) do
+
+  def list_members(%Client{} = client, options \\ []) do
     url_path = "/graph/members/list"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1904,33 +2107,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec list_organization_admin_accounts(
-          AWS.Client.t(),
-          list_organization_admin_accounts_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_organization_admin_accounts_errors()}
-  def list_organization_admin_accounts(%Client{} = client, input, options \\ []) do
+
+  def list_organization_admin_accounts(%Client{} = client, options \\ []) do
     url_path = "/orgs/adminAccountslist"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1940,14 +2150,16 @@ defmodule AWS.Detective do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the behavior graph for which to
-    retrieve the tag values.
+  retrieve the tag values.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1987,29 +2199,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec reject_invitation(AWS.Client.t(), reject_invitation_request(), Keyword.t()) ::
+
+  @spec reject_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reject_invitation_errors()}
-  def reject_invitation(%Client{} = client, input, options \\ []) do
+
+  def reject_invitation(%Client{} = client, options \\ []) do
     url_path = "/invitation/removal"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2026,29 +2249,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec start_investigation(AWS.Client.t(), start_investigation_request(), Keyword.t()) ::
+
+  @spec start_investigation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_investigation_errors()}
-  def start_investigation(%Client{} = client, input, options \\ []) do
+
+  def start_investigation(%Client{} = client, options \\ []) do
     url_path = "/investigations/startInvestigation"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2062,29 +2296,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec start_monitoring_member(AWS.Client.t(), start_monitoring_member_request(), Keyword.t()) ::
+
+  @spec start_monitoring_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_monitoring_member_errors()}
-  def start_monitoring_member(%Client{} = client, input, options \\ []) do
+
+  def start_monitoring_member(%Client{} = client, options \\ []) do
     url_path = "/graph/member/monitoringstate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2094,33 +2339,44 @@ defmodule AWS.Detective do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the behavior graph to assign the tags
-    to.
+  to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -2130,29 +2386,46 @@ defmodule AWS.Detective do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the behavior graph to remove the tags
-    from.
+  from.
   * `:tag_keys` (`t:list[com.amazonaws.detective#TagKey]`) The tag keys of the
-    tags to remove from the behavior graph. You can remove up to 50 tags at a
-    time.
+  tags to remove from the behavior graph. You can remove up to 50 tags at a
+  time.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2161,7 +2434,7 @@ defmodule AWS.Detective do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -2176,33 +2449,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec update_datasource_packages(
-          AWS.Client.t(),
-          update_datasource_packages_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_datasource_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_datasource_packages_errors()}
-  def update_datasource_packages(%Client{} = client, input, options \\ []) do
+
+  def update_datasource_packages(%Client{} = client, options \\ []) do
     url_path = "/graph/datasources/update"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2214,33 +2494,40 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec update_investigation_state(
-          AWS.Client.t(),
-          update_investigation_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_investigation_state(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_investigation_state_errors()}
-  def update_investigation_state(%Client{} = client, input, options \\ []) do
+
+  def update_investigation_state(%Client{} = client, options \\ []) do
     url_path = "/investigations/updateInvestigationState"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2254,32 +2541,39 @@ defmodule AWS.Detective do
 
   ## Optional parameters:
   """
-  @spec update_organization_configuration(
-          AWS.Client.t(),
-          update_organization_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_organization_configuration_errors()}
-  def update_organization_configuration(%Client{} = client, input, options \\ []) do
+
+  def update_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/orgs/updateOrganizationConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

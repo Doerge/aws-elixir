@@ -1311,12 +1311,25 @@ defmodule AWS.Budgets do
 
   @doc """
   Creates a budget and, if included, notifications and subscribers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20CreateBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_budget_request`)
+    %{
+      optional("NotificationsWithSubscribers") => list(notification_with_subscribers()()),
+      optional("ResourceTags") => list(resource_tag()()),
+      required("AccountId") => String.t(),
+      required("Budget") => budget()
+    }
   """
-  @spec create_budget(AWS.Client.t(), create_budget_request(), Keyword.t()) ::
+
+  @spec create_budget(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_budget_errors()}
-  def create_budget(%Client{} = client, input, options \\ []) do
+
+  def create_budget(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1325,12 +1338,31 @@ defmodule AWS.Budgets do
 
   @doc """
   Creates a budget action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20CreateBudgetAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_budget_action_request`)
+    %{
+      optional("ResourceTags") => list(resource_tag()()),
+      required("AccountId") => String.t(),
+      required("ActionThreshold") => action_threshold(),
+      required("ActionType") => list(any()),
+      required("ApprovalModel") => list(any()),
+      required("BudgetName") => String.t(),
+      required("Definition") => definition(),
+      required("ExecutionRoleArn") => String.t(),
+      required("NotificationType") => list(any()),
+      required("Subscribers") => list(subscriber()())
+    }
   """
-  @spec create_budget_action(AWS.Client.t(), create_budget_action_request(), Keyword.t()) ::
+
+  @spec create_budget_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_budget_action_errors()}
-  def create_budget_action(%Client{} = client, input, options \\ []) do
+
+  def create_budget_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1340,12 +1372,25 @@ defmodule AWS.Budgets do
   @doc """
   Creates a notification. You must create the budget before you create the
   associated notification.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20CreateNotification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_notification_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("Notification") => notification(),
+      required("Subscribers") => list(subscriber()())
+    }
   """
-  @spec create_notification(AWS.Client.t(), create_notification_request(), Keyword.t()) ::
+
+  @spec create_notification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_notification_errors()}
-  def create_notification(%Client{} = client, input, options \\ []) do
+
+  def create_notification(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1355,12 +1400,25 @@ defmodule AWS.Budgets do
   @doc """
   Creates a subscriber. You must create the associated budget and notification
   before you create the subscriber.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20CreateSubscriber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_subscriber_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("Notification") => notification(),
+      required("Subscriber") => subscriber()
+    }
   """
-  @spec create_subscriber(AWS.Client.t(), create_subscriber_request(), Keyword.t()) ::
+
+  @spec create_subscriber(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_subscriber_errors()}
-  def create_subscriber(%Client{} = client, input, options \\ []) do
+
+  def create_subscriber(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1369,12 +1427,23 @@ defmodule AWS.Budgets do
 
   @doc """
   Deletes a budget. You can delete your budget at any time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DeleteBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_budget_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec delete_budget(AWS.Client.t(), delete_budget_request(), Keyword.t()) ::
+
+  @spec delete_budget(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_budget_errors()}
-  def delete_budget(%Client{} = client, input, options \\ []) do
+
+  def delete_budget(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1383,12 +1452,24 @@ defmodule AWS.Budgets do
 
   @doc """
   Deletes a budget action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DeleteBudgetAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_budget_action_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("ActionId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec delete_budget_action(AWS.Client.t(), delete_budget_action_request(), Keyword.t()) ::
+
+  @spec delete_budget_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_budget_action_errors()}
-  def delete_budget_action(%Client{} = client, input, options \\ []) do
+
+  def delete_budget_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1397,12 +1478,24 @@ defmodule AWS.Budgets do
 
   @doc """
   Deletes a notification.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DeleteNotification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_notification_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("Notification") => notification()
+    }
   """
-  @spec delete_notification(AWS.Client.t(), delete_notification_request(), Keyword.t()) ::
+
+  @spec delete_notification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_notification_errors()}
-  def delete_notification(%Client{} = client, input, options \\ []) do
+
+  def delete_notification(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1411,12 +1504,25 @@ defmodule AWS.Budgets do
 
   @doc """
   Deletes a subscriber.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DeleteSubscriber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_subscriber_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("Notification") => notification(),
+      required("Subscriber") => subscriber()
+    }
   """
-  @spec delete_subscriber(AWS.Client.t(), delete_subscriber_request(), Keyword.t()) ::
+
+  @spec delete_subscriber(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_subscriber_errors()}
-  def delete_subscriber(%Client{} = client, input, options \\ []) do
+
+  def delete_subscriber(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1425,12 +1531,23 @@ defmodule AWS.Budgets do
 
   @doc """
   Describes a budget.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budget_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec describe_budget(AWS.Client.t(), describe_budget_request(), Keyword.t()) ::
+
+  @spec describe_budget(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_errors()}
-  def describe_budget(%Client{} = client, input, options \\ []) do
+
+  def describe_budget(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1439,12 +1556,24 @@ defmodule AWS.Budgets do
 
   @doc """
   Describes a budget action detail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudgetAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budget_action_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("ActionId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec describe_budget_action(AWS.Client.t(), describe_budget_action_request(), Keyword.t()) ::
+
+  @spec describe_budget_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_action_errors()}
-  def describe_budget_action(%Client{} = client, input, options \\ []) do
+
+  def describe_budget_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1453,16 +1582,28 @@ defmodule AWS.Budgets do
 
   @doc """
   Describes a budget action history detail.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudgetActionHistories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budget_action_histories_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("TimePeriod") => time_period(),
+      required("AccountId") => String.t(),
+      required("ActionId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec describe_budget_action_histories(
-          AWS.Client.t(),
-          describe_budget_action_histories_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_budget_action_histories(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budget_action_histories_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_action_histories_errors()}
-  def describe_budget_action_histories(%Client{} = client, input, options \\ []) do
+
+  def describe_budget_action_histories(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1471,16 +1612,25 @@ defmodule AWS.Budgets do
 
   @doc """
   Describes all of the budget actions for an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudgetActionsForAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budget_actions_for_account_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AccountId") => String.t()
+    }
   """
-  @spec describe_budget_actions_for_account(
-          AWS.Client.t(),
-          describe_budget_actions_for_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_budget_actions_for_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budget_actions_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_actions_for_account_errors()}
-  def describe_budget_actions_for_account(%Client{} = client, input, options \\ []) do
+
+  def describe_budget_actions_for_account(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1489,16 +1639,26 @@ defmodule AWS.Budgets do
 
   @doc """
   Describes all of the budget actions for a budget.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudgetActionsForBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budget_actions_for_budget_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec describe_budget_actions_for_budget(
-          AWS.Client.t(),
-          describe_budget_actions_for_budget_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_budget_actions_for_budget(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budget_actions_for_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_actions_for_budget_errors()}
-  def describe_budget_actions_for_budget(%Client{} = client, input, options \\ []) do
+
+  def describe_budget_actions_for_budget(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1507,16 +1667,25 @@ defmodule AWS.Budgets do
 
   @doc """
   Lists the budget names and notifications that are associated with an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudgetNotificationsForAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budget_notifications_for_account_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AccountId") => String.t()
+    }
   """
-  @spec describe_budget_notifications_for_account(
-          AWS.Client.t(),
-          describe_budget_notifications_for_account_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_budget_notifications_for_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budget_notifications_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_notifications_for_account_errors()}
-  def describe_budget_notifications_for_account(%Client{} = client, input, options \\ []) do
+
+  def describe_budget_notifications_for_account(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1526,16 +1695,27 @@ defmodule AWS.Budgets do
   @doc """
   Describes the history for `DAILY`, `MONTHLY`, and `QUARTERLY` budgets. Budget
   history isn't available for `ANNUAL` budgets.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudgetPerformanceHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budget_performance_history_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("TimePeriod") => time_period(),
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec describe_budget_performance_history(
-          AWS.Client.t(),
-          describe_budget_performance_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_budget_performance_history(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budget_performance_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budget_performance_history_errors()}
-  def describe_budget_performance_history(%Client{} = client, input, options \\ []) do
+
+  def describe_budget_performance_history(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1544,12 +1724,24 @@ defmodule AWS.Budgets do
 
   @doc """
   Lists the budgets that are associated with an account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeBudgets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_budgets_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AccountId") => String.t()
+    }
   """
-  @spec describe_budgets(AWS.Client.t(), describe_budgets_request(), Keyword.t()) ::
+
+  @spec describe_budgets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_budgets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_budgets_errors()}
-  def describe_budgets(%Client{} = client, input, options \\ []) do
+
+  def describe_budgets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1558,16 +1750,26 @@ defmodule AWS.Budgets do
 
   @doc """
   Lists the notifications that are associated with a budget.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeNotificationsForBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_notifications_for_budget_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec describe_notifications_for_budget(
-          AWS.Client.t(),
-          describe_notifications_for_budget_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_notifications_for_budget(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_notifications_for_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_notifications_for_budget_errors()}
-  def describe_notifications_for_budget(%Client{} = client, input, options \\ []) do
+
+  def describe_notifications_for_budget(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1576,16 +1778,27 @@ defmodule AWS.Budgets do
 
   @doc """
   Lists the subscribers that are associated with a notification.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20DescribeSubscribersForNotification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_subscribers_for_notification_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("Notification") => notification()
+    }
   """
-  @spec describe_subscribers_for_notification(
-          AWS.Client.t(),
-          describe_subscribers_for_notification_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_subscribers_for_notification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_subscribers_for_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_subscribers_for_notification_errors()}
-  def describe_subscribers_for_notification(%Client{} = client, input, options \\ []) do
+
+  def describe_subscribers_for_notification(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1594,12 +1807,25 @@ defmodule AWS.Budgets do
 
   @doc """
   Executes a budget action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20ExecuteBudgetAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:execute_budget_action_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("ActionId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("ExecutionType") => list(any())
+    }
   """
-  @spec execute_budget_action(AWS.Client.t(), execute_budget_action_request(), Keyword.t()) ::
+
+  @spec execute_budget_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, execute_budget_action_errors()}
-  def execute_budget_action(%Client{} = client, input, options \\ []) do
+
+  def execute_budget_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1608,12 +1834,22 @@ defmodule AWS.Budgets do
 
   @doc """
   Lists tags associated with a budget or budget action resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1622,12 +1858,23 @@ defmodule AWS.Budgets do
 
   @doc """
   Creates tags for a budget or budget action resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("ResourceTags") => list(resource_tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1636,12 +1883,23 @@ defmodule AWS.Budgets do
 
   @doc """
   Deletes tags associated with a budget or budget action resource.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("ResourceTagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1653,12 +1911,23 @@ defmodule AWS.Budgets do
   `budgetName` and the `calculatedSpend`. When you modify a budget, the
   `calculatedSpend` drops to zero until Amazon Web Services has new usage data
   to use for forecasting.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20UpdateBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_budget_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("NewBudget") => budget()
+    }
   """
-  @spec update_budget(AWS.Client.t(), update_budget_request(), Keyword.t()) ::
+
+  @spec update_budget(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_budget_errors()}
-  def update_budget(%Client{} = client, input, options \\ []) do
+
+  def update_budget(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1667,12 +1936,30 @@ defmodule AWS.Budgets do
 
   @doc """
   Updates a budget action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20UpdateBudgetAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_budget_action_request`)
+    %{
+      optional("ActionThreshold") => action_threshold(),
+      optional("ApprovalModel") => list(any()),
+      optional("Definition") => definition(),
+      optional("ExecutionRoleArn") => String.t(),
+      optional("NotificationType") => list(any()),
+      optional("Subscribers") => list(subscriber()()),
+      required("AccountId") => String.t(),
+      required("ActionId") => String.t(),
+      required("BudgetName") => String.t()
+    }
   """
-  @spec update_budget_action(AWS.Client.t(), update_budget_action_request(), Keyword.t()) ::
+
+  @spec update_budget_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_budget_action_errors()}
-  def update_budget_action(%Client{} = client, input, options \\ []) do
+
+  def update_budget_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1681,12 +1968,25 @@ defmodule AWS.Budgets do
 
   @doc """
   Updates a notification.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20UpdateNotification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_notification_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("NewNotification") => notification(),
+      required("OldNotification") => notification()
+    }
   """
-  @spec update_notification(AWS.Client.t(), update_notification_request(), Keyword.t()) ::
+
+  @spec update_notification(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_notification_errors()}
-  def update_notification(%Client{} = client, input, options \\ []) do
+
+  def update_notification(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1695,12 +1995,26 @@ defmodule AWS.Budgets do
 
   @doc """
   Updates a subscriber.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=budgets%20UpdateSubscriber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_subscriber_request`)
+    %{
+      required("AccountId") => String.t(),
+      required("BudgetName") => String.t(),
+      required("NewSubscriber") => subscriber(),
+      required("Notification") => notification(),
+      required("OldSubscriber") => subscriber()
+    }
   """
-  @spec update_subscriber(AWS.Client.t(), update_subscriber_request(), Keyword.t()) ::
+
+  @spec update_subscriber(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_subscriber_errors()}
-  def update_subscriber(%Client{} = client, input, options \\ []) do
+
+  def update_subscriber(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

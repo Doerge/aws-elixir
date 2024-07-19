@@ -18,53 +18,53 @@ defmodule AWS.CloudSearchDomain do
   @typedoc """
 
   ## Example:
-
+      
       bucket() :: %{
         "count" => float(),
         "value" => String.t()
       }
-
+      
   """
   @type bucket() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bucket_info() :: %{
         "buckets" => list(bucket()())
       }
-
+      
   """
   @type bucket_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       document_service_exception() :: %{
         "message" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type document_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       document_service_warning() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type document_service_warning() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       field_stats() :: %{
         "count" => float(),
         "max" => String.t(),
@@ -75,53 +75,53 @@ defmodule AWS.CloudSearchDomain do
         "sum" => float(),
         "sumOfSquares" => float()
       }
-
+      
   """
   @type field_stats() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hit() :: %{
         "exprs" => map(),
         "fields" => map(),
         "highlights" => map(),
         "id" => String.t()
       }
-
+      
   """
   @type hit() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       hits() :: %{
         "cursor" => String.t(),
         "found" => float(),
         "hit" => list(hit()()),
         "start" => float()
       }
-
+      
   """
   @type hits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type search_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_request() :: %{
         optional("cursor") => String.t(),
         optional("expr") => String.t(),
@@ -138,122 +138,122 @@ defmodule AWS.CloudSearchDomain do
         optional("stats") => String.t(),
         required("query") => String.t()
       }
-
+      
   """
   @type search_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_response() :: %{
         "facets" => map(),
         "hits" => hits(),
         "stats" => map(),
         "status" => search_status()
       }
-
+      
   """
   @type search_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_status() :: %{
         "rid" => String.t(),
         "timems" => float()
       }
-
+      
   """
   @type search_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suggest_model() :: %{
         "found" => float(),
         "query" => String.t(),
         "suggestions" => list(suggestion_match()())
       }
-
+      
   """
   @type suggest_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suggest_request() :: %{
         optional("size") => float(),
         required("query") => String.t(),
         required("suggester") => String.t()
       }
-
+      
   """
   @type suggest_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suggest_response() :: %{
         "status" => suggest_status(),
         "suggest" => suggest_model()
       }
-
+      
   """
   @type suggest_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suggest_status() :: %{
         "rid" => String.t(),
         "timems" => float()
       }
-
+      
   """
   @type suggest_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       suggestion_match() :: %{
         "id" => String.t(),
         "score" => float(),
         "suggestion" => String.t()
       }
-
+      
   """
   @type suggestion_match() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upload_documents_request() :: %{
         required("contentType") => list(any()),
         required("documents") => binary()
       }
-
+      
   """
   @type upload_documents_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       upload_documents_response() :: %{
         "adds" => float(),
         "deletes" => float(),
         "status" => String.t(),
         "warnings" => list(document_service_warning()())
       }
-
+      
   """
   @type upload_documents_response() :: %{String.t() => any()}
 
@@ -288,87 +288,89 @@ defmodule AWS.CloudSearchDomain do
 
   ## Parameters:
   * `:query` (`t:string`) Specifies the search criteria for the request. How you
-    specify the search criteria depends on the query parser used for the request
-    and the parser options specified in the queryOptions parameter. By default,
-    the simple query parser is used to process requests. To use the structured,
-    lucene, or dismax query parser, you must also specify the queryParser
-    parameter.
+  specify the search criteria depends on the query parser used for the request
+  and the parser options specified in the queryOptions parameter. By default,
+  the simple query parser is used to process requests. To use the structured,
+  lucene, or dismax query parser, you must also specify the queryParser
+  parameter.
 
   ## Optional parameters:
   * `:cursor` (`t:string`) Retrieves a cursor value you can use to page through
-    large result sets. Use the size parameter to control the number of hits to
-    include in each response. You can specify either the cursor or start
-    parameter in a request; they are mutually exclusive. To get the first
-    cursor, set the cursor value to initial. In subsequent requests, specify the
-    cursor value returned in the hits section of the response.
+  large result sets. Use the size parameter to control the number of hits to
+  include in each response. You can specify either the cursor or start
+  parameter in a request; they are mutually exclusive. To get the first
+  cursor, set the cursor value to initial. In subsequent requests, specify the
+  cursor value returned in the hits section of the response.
   * `:expr` (`t:string`) Defines one or more numeric expressions that can be used
-    to sort results or specify search or filter criteria. You can also specify
-    expressions as return fields.
+  to sort results or specify search or filter criteria. You can also specify
+  expressions as return fields.
   * `:facet` (`t:string`) Specifies one or more fields for which to get facet
-    information, and options that control how the facet information is returned.
-    Each specified field must be facet-enabled in the domain configuration. The
-    fields and options are specified in JSON using the form
-    {"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}.
+  information, and options that control how the facet information is returned.
+  Each specified field must be facet-enabled in the domain configuration. The
+  fields and options are specified in JSON using the form
+  {"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}.
   * `:filter_query` (`t:string`) Specifies a structured query that filters the
-    results of a search without affecting how the results are scored and sorted.
-    You use filterQuery in conjunction with the query parameter to filter the
-    documents that match the constraints specified in the query parameter.
-    Specifying a filter controls only which matching documents are included in
-    the results, it has no effect on how they are scored and sorted. The
-    filterQuery parameter supports the full structured query syntax.
+  results of a search without affecting how the results are scored and sorted.
+  You use filterQuery in conjunction with the query parameter to filter the
+  documents that match the constraints specified in the query parameter.
+  Specifying a filter controls only which matching documents are included in
+  the results, it has no effect on how they are scored and sorted. The
+  filterQuery parameter supports the full structured query syntax.
   * `:highlight` (`t:string`) Retrieves highlights for matches in the specified
-    text or text-array fields. Each specified field must be highlight enabled in
-    the domain configuration. The fields and options are specified in JSON using
-    the form
-    {"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}.
+  text or text-array fields. Each specified field must be highlight enabled in
+  the domain configuration. The fields and options are specified in JSON using
+  the form
+  {"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}.
   * `:partial` (`t:boolean`) Enables partial results to be returned if one or more
-    index partitions are unavailable. When your search index is partitioned
-    across multiple search instances, by default Amazon CloudSearch only returns
-    results if every partition can be queried. This means that the failure of a
-    single search instance can result in 5xx (internal server) errors. When you
-    enable partial results, Amazon CloudSearch returns whatever results are
-    available and includes the percentage of documents searched in the search
-    results (percent-searched). This enables you to more gracefully degrade your
-    users' search experience. For example, rather than displaying no results,
-    you could display the partial results and a message indicating that the
-    results might be incomplete due to a temporary system outage.
+  index partitions are unavailable. When your search index is partitioned
+  across multiple search instances, by default Amazon CloudSearch only returns
+  results if every partition can be queried. This means that the failure of a
+  single search instance can result in 5xx (internal server) errors. When you
+  enable partial results, Amazon CloudSearch returns whatever results are
+  available and includes the percentage of documents searched in the search
+  results (percent-searched). This enables you to more gracefully degrade your
+  users' search experience. For example, rather than displaying no results,
+  you could display the partial results and a message indicating that the
+  results might be incomplete due to a temporary system outage.
   * `:query_options` (`t:string`) Configures options for the query parser
-    specified in the queryParser parameter. You specify the options in JSON
-    using the following form
-    {"OPTION1":"VALUE1","OPTION2":VALUE2"..."OPTIONN":"VALUEN"}.
+  specified in the queryParser parameter. You specify the options in JSON
+  using the following form
+  {"OPTION1":"VALUE1","OPTION2":VALUE2"..."OPTIONN":"VALUEN"}.
   * `:query_parser` (`t:enum["dismax|lucene|simple|structured"]`) Specifies which
-    query parser to use to process the request. If queryParser is not specified,
-    Amazon CloudSearch uses the simple query parser.
+  query parser to use to process the request. If queryParser is not specified,
+  Amazon CloudSearch uses the simple query parser.
   * `:return` (`t:string`) Specifies the field and expression values to include in
-    the response. Multiple fields or expressions are specified as a
-    comma-separated list. By default, a search response includes all return
-    enabled fields (_all_fields). To return only the document IDs for the
-    matching documents, specify _no_fields. To retrieve the relevance score
-    calculated for each document, specify _score.
+  the response. Multiple fields or expressions are specified as a
+  comma-separated list. By default, a search response includes all return
+  enabled fields (_all_fields). To return only the document IDs for the
+  matching documents, specify _no_fields. To retrieve the relevance score
+  calculated for each document, specify _score.
   * `:size` (`t:long`) Specifies the maximum number of search hits to include in
-    the response.
+  the response.
   * `:sort` (`t:string`) Specifies the fields or custom expressions to use to sort
-    the search results. Multiple fields or expressions are specified as a
-    comma-separated list. You must specify the sort direction (asc or desc) for
-    each field; for example, year desc,title asc. To use a field to sort
-    results, the field must be sort-enabled in the domain configuration. Array
-    type fields cannot be used for sorting. If no sort parameter is specified,
-    results are sorted by their default relevance scores in descending order:
-    _score desc. You can also sort by document ID (_id asc) and version
-    (_version desc).
+  the search results. Multiple fields or expressions are specified as a
+  comma-separated list. You must specify the sort direction (asc or desc) for
+  each field; for example, year desc,title asc. To use a field to sort
+  results, the field must be sort-enabled in the domain configuration. Array
+  type fields cannot be used for sorting. If no sort parameter is specified,
+  results are sorted by their default relevance scores in descending order:
+  _score desc. You can also sort by document ID (_id asc) and version
+  (_version desc).
   * `:start` (`t:long`) Specifies the offset of the first search hit you want to
-    return. Note that the result set is zero-based; the first result is at index
-    0. You can specify either the start or cursor parameter in a request, they
-    are mutually exclusive.
+  return. Note that the result set is zero-based; the first result is at index
+  0. You can specify either the start or cursor parameter in a request, they
+  are mutually exclusive.
   * `:stats` (`t:string`) Specifies one or more fields for which to get statistics
-    information. Each specified field must be facet-enabled in the domain
-    configuration. The fields are specified in JSON using the form:
+  information. Each specified field must be facet-enabled in the domain
+  configuration. The fields are specified in JSON using the form:
   """
+
   @spec search(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_errors()}
-  def search(%Client{} = client, query, options \\ []) do
+
+  def search(%Client{} = client, query, options \\ []) when is_binary(query) do
     url_path = "/2013-01-01/search?format=sdk&pretty=true"
 
     # Validate optional parameters
@@ -535,18 +537,21 @@ defmodule AWS.CloudSearchDomain do
 
   ## Parameters:
   * `:query` (`t:string`) Specifies the string for which you want to get
-    suggestions.
+  suggestions.
   * `:suggester` (`t:string`) Specifies the name of the suggester to use to find
-    suggested matches.
+  suggested matches.
 
   ## Optional parameters:
   * `:size` (`t:long`) Specifies the maximum number of suggestions to return.
   """
+
   @spec suggest(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, suggest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, suggest_errors()}
-  def suggest(%Client{} = client, query, suggester, options \\ []) do
+
+  def suggest(%Client{} = client, query, suggester, options \\ [])
+      when is_binary(query) and is_binary(suggester) do
     url_path = "/2013-01-01/suggest?format=sdk&pretty=true"
 
     # Validate optional parameters
@@ -606,19 +611,25 @@ defmodule AWS.CloudSearchDomain do
 
   ## Parameters:
   * `:content_type` (`t:enum["application_json|application_xml"]`) The format of
-    the batch you are uploading. Amazon CloudSearch supports two document batch
-    formats:
+  the batch you are uploading. Amazon CloudSearch supports two document batch
+  formats:
+  * `:input` (`t:map`):
+    * `:documents` (`t:blob`) A batch of documents formatted in JSON or HTML.
 
   ## Optional parameters:
   """
-  @spec upload_documents(AWS.Client.t(), upload_documents_request(), Keyword.t()) ::
+
+  @spec upload_documents(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, upload_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_documents_errors()}
-  def upload_documents(%Client{} = client, input, options \\ []) do
+
+  def upload_documents(%Client{} = client, content_type, input, options \\ [])
+      when is_map(input) and is_binary(content_type) do
     url_path = "/2013-01-01/documents/batch?format=sdk"
 
-    optional_params = [content_type: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -626,27 +637,21 @@ defmodule AWS.CloudSearchDomain do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"contentType", "Content-Type"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"Content-Type", content_type}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

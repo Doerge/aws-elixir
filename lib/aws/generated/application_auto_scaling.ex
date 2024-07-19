@@ -802,12 +802,25 @@ defmodule AWS.ApplicationAutoScaling do
   target. Deleting a step scaling policy deletes the underlying alarm action,
   but does not delete the CloudWatch alarm associated with the scaling policy,
   even if it no longer has an associated action.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20DeleteScalingPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_scaling_policy_request`)
+    %{
+      required("PolicyName") => String.t(),
+      required("ResourceId") => String.t(),
+      required("ScalableDimension") => list(any()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec delete_scaling_policy(AWS.Client.t(), delete_scaling_policy_request(), Keyword.t()) ::
+
+  @spec delete_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_scaling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scaling_policy_errors()}
-  def delete_scaling_policy(%Client{} = client, input, options \\ []) do
+
+  def delete_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -817,12 +830,25 @@ defmodule AWS.ApplicationAutoScaling do
   @doc """
   Deletes the specified scheduled action for an Application Auto Scaling scalable
   target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20DeleteScheduledAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_scheduled_action_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("ScalableDimension") => list(any()),
+      required("ScheduledActionName") => String.t(),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec delete_scheduled_action(AWS.Client.t(), delete_scheduled_action_request(), Keyword.t()) ::
+
+  @spec delete_scheduled_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_scheduled_action_errors()}
-  def delete_scheduled_action(%Client{} = client, input, options \\ []) do
+
+  def delete_scheduled_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -833,16 +859,24 @@ defmodule AWS.ApplicationAutoScaling do
   Deregisters an Application Auto Scaling scalable target when you have finished
   using it. To see which resources have been registered, use
   [DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20DeregisterScalableTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deregister_scalable_target_request`)
+    %{
+      required("ResourceId") => String.t(),
+      required("ScalableDimension") => list(any()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec deregister_scalable_target(
-          AWS.Client.t(),
-          deregister_scalable_target_request(),
-          Keyword.t()
-        ) ::
+
+  @spec deregister_scalable_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deregister_scalable_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deregister_scalable_target_errors()}
-  def deregister_scalable_target(%Client{} = client, input, options \\ []) do
+
+  def deregister_scalable_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -851,16 +885,26 @@ defmodule AWS.ApplicationAutoScaling do
 
   @doc """
   Gets information about the scalable targets in the specified namespace.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20DescribeScalableTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_scalable_targets_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceIds") => list(String.t()()),
+      optional("ScalableDimension") => list(any()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec describe_scalable_targets(
-          AWS.Client.t(),
-          describe_scalable_targets_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_scalable_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scalable_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scalable_targets_errors()}
-  def describe_scalable_targets(%Client{} = client, input, options \\ []) do
+
+  def describe_scalable_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -871,16 +915,27 @@ defmodule AWS.ApplicationAutoScaling do
   Provides descriptive information about the scaling activities in the specified
   namespace from the previous six weeks. You can filter the results using
   `ResourceId` and `ScalableDimension`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20DescribeScalingActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_scaling_activities_request`)
+    %{
+      optional("IncludeNotScaledActivities") => boolean(),
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceId") => String.t(),
+      optional("ScalableDimension") => list(any()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec describe_scaling_activities(
-          AWS.Client.t(),
-          describe_scaling_activities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_scaling_activities(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scaling_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_activities_errors()}
-  def describe_scaling_activities(%Client{} = client, input, options \\ []) do
+
+  def describe_scaling_activities(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -891,16 +946,27 @@ defmodule AWS.ApplicationAutoScaling do
   Describes the Application Auto Scaling scaling policies for the specified
   service namespace. You can filter the results using `ResourceId`,
   `ScalableDimension`, and `PolicyNames`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20DescribeScalingPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_scaling_policies_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("PolicyNames") => list(String.t()()),
+      optional("ResourceId") => String.t(),
+      optional("ScalableDimension") => list(any()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec describe_scaling_policies(
-          AWS.Client.t(),
-          describe_scaling_policies_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_scaling_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scaling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scaling_policies_errors()}
-  def describe_scaling_policies(%Client{} = client, input, options \\ []) do
+
+  def describe_scaling_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -911,16 +977,27 @@ defmodule AWS.ApplicationAutoScaling do
   Describes the Application Auto Scaling scheduled actions for the specified
   service namespace. You can filter the results using the `ResourceId`,
   `ScalableDimension`, and `ScheduledActionNames` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20DescribeScheduledActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_scheduled_actions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ResourceId") => String.t(),
+      optional("ScalableDimension") => list(any()),
+      optional("ScheduledActionNames") => list(String.t()()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec describe_scheduled_actions(
-          AWS.Client.t(),
-          describe_scheduled_actions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_scheduled_actions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_scheduled_actions_errors()}
-  def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
+
+  def describe_scheduled_actions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -929,12 +1006,22 @@ defmodule AWS.ApplicationAutoScaling do
 
   @doc """
   Returns all the tags on the specified Application Auto Scaling scalable target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -947,12 +1034,28 @@ defmodule AWS.ApplicationAutoScaling do
   ID, and scalable dimension. A scaling policy applies to the scalable target
   identified by those three attributes. You cannot create a scaling policy until
   you have registered the resource as a scalable target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20PutScalingPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_scaling_policy_request`)
+    %{
+      optional("PolicyType") => list(any()),
+      optional("StepScalingPolicyConfiguration") => step_scaling_policy_configuration(),
+      optional("TargetTrackingScalingPolicyConfiguration") => target_tracking_scaling_policy_configuration(),
+      required("PolicyName") => String.t(),
+      required("ResourceId") => String.t(),
+      required("ScalableDimension") => list(any()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec put_scaling_policy(AWS.Client.t(), put_scaling_policy_request(), Keyword.t()) ::
+
+  @spec put_scaling_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_scaling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_scaling_policy_errors()}
-  def put_scaling_policy(%Client{} = client, input, options \\ []) do
+
+  def put_scaling_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -965,12 +1068,30 @@ defmodule AWS.ApplicationAutoScaling do
   ID, and scalable dimension. A scheduled action applies to the scalable target
   identified by those three attributes. You cannot create a scheduled action
   until you have registered the resource as a scalable target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20PutScheduledAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_scheduled_action_request`)
+    %{
+      optional("EndTime") => non_neg_integer(),
+      optional("ScalableTargetAction") => scalable_target_action(),
+      optional("Schedule") => String.t(),
+      optional("StartTime") => non_neg_integer(),
+      optional("Timezone") => String.t(),
+      required("ResourceId") => String.t(),
+      required("ScalableDimension") => list(any()),
+      required("ScheduledActionName") => String.t(),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec put_scheduled_action(AWS.Client.t(), put_scheduled_action_request(), Keyword.t()) ::
+
+  @spec put_scheduled_action(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_scheduled_action_errors()}
-  def put_scheduled_action(%Client{} = client, input, options \\ []) do
+
+  def put_scheduled_action(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -982,12 +1103,29 @@ defmodule AWS.ApplicationAutoScaling do
   scale. Scalable targets are uniquely identified by the combination of resource
   ID, scalable dimension, and namespace, which represents some capacity
   dimension of the underlying service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20RegisterScalableTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:register_scalable_target_request`)
+    %{
+      optional("MaxCapacity") => integer(),
+      optional("MinCapacity") => integer(),
+      optional("RoleARN") => String.t(),
+      optional("SuspendedState") => suspended_state(),
+      optional("Tags") => map(),
+      required("ResourceId") => String.t(),
+      required("ScalableDimension") => list(any()),
+      required("ServiceNamespace") => list(any())
+    }
   """
-  @spec register_scalable_target(AWS.Client.t(), register_scalable_target_request(), Keyword.t()) ::
+
+  @spec register_scalable_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, register_scalable_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_scalable_target_errors()}
-  def register_scalable_target(%Client{} = client, input, options \\ []) do
+
+  def register_scalable_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -999,12 +1137,23 @@ defmodule AWS.ApplicationAutoScaling do
   consists of a tag key and a tag value, which are both case-sensitive strings.
   To add a tag, specify a new tag key and a tag value. To edit a tag, specify an
   existing tag key and a new tag value.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => map()
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1014,12 +1163,23 @@ defmodule AWS.ApplicationAutoScaling do
   @doc """
   Deletes tags from an Application Auto Scaling scalable target. To delete a tag,
   specify the tag key and the Application Auto Scaling scalable target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationautoscaling%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

@@ -2683,12 +2683,29 @@ defmodule AWS.Transfer do
   but only a small fraction might need the ability to transfer files to the
   server. An administrator can use `CreateAccess` to limit the access to the
   correct set of users who need this ability.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20CreateAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_access_request`)
+    %{
+      optional("HomeDirectory") => String.t(),
+      optional("HomeDirectoryMappings") => list(home_directory_map_entry()()),
+      optional("HomeDirectoryType") => list(any()),
+      optional("Policy") => String.t(),
+      optional("PosixProfile") => posix_profile(),
+      required("ExternalId") => String.t(),
+      required("Role") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec create_access(AWS.Client.t(), create_access_request(), Keyword.t()) ::
+
+  @spec create_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_access_errors()}
-  def create_access(%Client{} = client, input, options \\ []) do
+
+  def create_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2701,12 +2718,29 @@ defmodule AWS.Transfer do
   agreement defines the file and message transfer relationship between the
   server and the AS2 process. To define an agreement, Transfer Family combines a
   server, local profile, partner profile, certificate, and other attributes.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20CreateAgreement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_agreement_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Status") => list(any()),
+      optional("Tags") => list(tag()()),
+      required("AccessRole") => String.t(),
+      required("BaseDirectory") => String.t(),
+      required("LocalProfileId") => String.t(),
+      required("PartnerProfileId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec create_agreement(AWS.Client.t(), create_agreement_request(), Keyword.t()) ::
+
+  @spec create_agreement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_agreement_errors()}
-  def create_agreement(%Client{} = client, input, options \\ []) do
+
+  def create_agreement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2722,12 +2756,28 @@ defmodule AWS.Transfer do
   connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-as2-connector.html)
   and [Create SFTP
   connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-sftp-connector.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20CreateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_connector_request`)
+    %{
+      optional("As2Config") => as2_connector_config(),
+      optional("LoggingRole") => String.t(),
+      optional("SecurityPolicyName") => String.t(),
+      optional("SftpConfig") => sftp_connector_config(),
+      optional("Tags") => list(tag()()),
+      required("AccessRole") => String.t(),
+      required("Url") => String.t()
+    }
   """
-  @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
+
+  @spec create_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connector_errors()}
-  def create_connector(%Client{} = client, input, options \\ []) do
+
+  def create_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2736,12 +2786,25 @@ defmodule AWS.Transfer do
 
   @doc """
   Creates the local or partner profile to use for AS2 transfers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20CreateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_profile_request`)
+    %{
+      optional("CertificateIds") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      required("As2Id") => String.t(),
+      required("ProfileType") => list(any())
+    }
   """
-  @spec create_profile(AWS.Client.t(), create_profile_request(), Keyword.t()) ::
+
+  @spec create_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
-  def create_profile(%Client{} = client, input, options \\ []) do
+
+  def create_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2753,12 +2816,38 @@ defmodule AWS.Transfer do
   protocol in Amazon Web Services. When you make updates to your file transfer
   protocol-enabled server or when you work with users, use the service-generated
   `ServerId` property that is assigned to the newly created server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20CreateServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_server_request`)
+    %{
+      optional("Certificate") => String.t(),
+      optional("Domain") => list(any()),
+      optional("EndpointDetails") => endpoint_details(),
+      optional("EndpointType") => list(any()),
+      optional("HostKey") => String.t(),
+      optional("IdentityProviderDetails") => identity_provider_details(),
+      optional("IdentityProviderType") => list(any()),
+      optional("LoggingRole") => String.t(),
+      optional("PostAuthenticationLoginBanner") => String.t(),
+      optional("PreAuthenticationLoginBanner") => String.t(),
+      optional("ProtocolDetails") => protocol_details(),
+      optional("Protocols") => list(list(any())()),
+      optional("S3StorageOptions") => s3_storage_options(),
+      optional("SecurityPolicyName") => String.t(),
+      optional("StructuredLogDestinations") => list(String.t()()),
+      optional("Tags") => list(tag()()),
+      optional("WorkflowDetails") => workflow_details()
+    }
   """
-  @spec create_server(AWS.Client.t(), create_server_request(), Keyword.t()) ::
+
+  @spec create_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_server_errors()}
-  def create_server(%Client{} = client, input, options \\ []) do
+
+  def create_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2773,12 +2862,31 @@ defmodule AWS.Transfer do
   directory, store the user's public key, and assign the user's Identity and
   Access Management (IAM) role. You can also optionally add a session policy,
   and assign metadata with tags that can be used to group and search for users.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_user_request`)
+    %{
+      optional("HomeDirectory") => String.t(),
+      optional("HomeDirectoryMappings") => list(home_directory_map_entry()()),
+      optional("HomeDirectoryType") => list(any()),
+      optional("Policy") => String.t(),
+      optional("PosixProfile") => posix_profile(),
+      optional("SshPublicKeyBody") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Role") => String.t(),
+      required("ServerId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
+
+  @spec create_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_user_errors()}
-  def create_user(%Client{} = client, input, options \\ []) do
+
+  def create_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2790,12 +2898,25 @@ defmodule AWS.Transfer do
   workflow invokes after file transfer completes. After creating a workflow, you
   can associate the workflow created with any transfer servers by specifying the
   `workflow-details` field in `CreateServer` and `UpdateServer` operations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_workflow_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("OnExceptionSteps") => list(workflow_step()()),
+      optional("Tags") => list(tag()()),
+      required("Steps") => list(workflow_step()())
+    }
   """
-  @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
+
+  @spec create_workflow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_workflow_errors()}
-  def create_workflow(%Client{} = client, input, options \\ []) do
+
+  def create_workflow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2805,12 +2926,23 @@ defmodule AWS.Transfer do
   @doc """
   Allows you to delete the access specified in the `ServerID` and `ExternalID`
   parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_access_request`)
+    %{
+      required("ExternalId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec delete_access(AWS.Client.t(), delete_access_request(), Keyword.t()) ::
+
+  @spec delete_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_access_errors()}
-  def delete_access(%Client{} = client, input, options \\ []) do
+
+  def delete_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2819,12 +2951,23 @@ defmodule AWS.Transfer do
 
   @doc """
   Delete the agreement that's specified in the provided `AgreementId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteAgreement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_agreement_request`)
+    %{
+      required("AgreementId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec delete_agreement(AWS.Client.t(), delete_agreement_request(), Keyword.t()) ::
+
+  @spec delete_agreement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_agreement_errors()}
-  def delete_agreement(%Client{} = client, input, options \\ []) do
+
+  def delete_agreement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2833,12 +2976,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the certificate that's specified in the `CertificateId` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_certificate_request`)
+    %{
+      required("CertificateId") => String.t()
+    }
   """
-  @spec delete_certificate(AWS.Client.t(), delete_certificate_request(), Keyword.t()) ::
+
+  @spec delete_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_certificate_errors()}
-  def delete_certificate(%Client{} = client, input, options \\ []) do
+
+  def delete_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2847,12 +3000,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the connector that's specified in the provided `ConnectorId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_connector_request`)
+    %{
+      required("ConnectorId") => String.t()
+    }
   """
-  @spec delete_connector(AWS.Client.t(), delete_connector_request(), Keyword.t()) ::
+
+  @spec delete_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connector_errors()}
-  def delete_connector(%Client{} = client, input, options \\ []) do
+
+  def delete_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2861,12 +3024,23 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the host key that's specified in the `HostKeyId` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteHostKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_host_key_request`)
+    %{
+      required("HostKeyId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec delete_host_key(AWS.Client.t(), delete_host_key_request(), Keyword.t()) ::
+
+  @spec delete_host_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_host_key_errors()}
-  def delete_host_key(%Client{} = client, input, options \\ []) do
+
+  def delete_host_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2875,12 +3049,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the profile that's specified in the `ProfileId` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_profile_request`)
+    %{
+      required("ProfileId") => String.t()
+    }
   """
-  @spec delete_profile(AWS.Client.t(), delete_profile_request(), Keyword.t()) ::
+
+  @spec delete_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
-  def delete_profile(%Client{} = client, input, options \\ []) do
+
+  def delete_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2889,12 +3073,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the file transfer protocol-enabled server that you specify.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_server_request`)
+    %{
+      required("ServerId") => String.t()
+    }
   """
-  @spec delete_server(AWS.Client.t(), delete_server_request(), Keyword.t()) ::
+
+  @spec delete_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_server_errors()}
-  def delete_server(%Client{} = client, input, options \\ []) do
+
+  def delete_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2903,12 +3097,24 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes a user's Secure Shell (SSH) public key.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteSshPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_ssh_public_key_request`)
+    %{
+      required("ServerId") => String.t(),
+      required("SshPublicKeyId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_ssh_public_key(AWS.Client.t(), delete_ssh_public_key_request(), Keyword.t()) ::
+
+  @spec delete_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ssh_public_key_errors()}
-  def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def delete_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2918,12 +3124,23 @@ defmodule AWS.Transfer do
   @doc """
   Deletes the user belonging to a file transfer protocol-enabled server you
   specify. No response returns from this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_user_request`)
+    %{
+      required("ServerId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
+
+  @spec delete_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_errors()}
-  def delete_user(%Client{} = client, input, options \\ []) do
+
+  def delete_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2932,12 +3149,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the specified workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DeleteWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_workflow_request`)
+    %{
+      required("WorkflowId") => String.t()
+    }
   """
-  @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
+
+  @spec delete_workflow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_workflow_errors()}
-  def delete_workflow(%Client{} = client, input, options \\ []) do
+
+  def delete_workflow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2948,12 +3175,23 @@ defmodule AWS.Transfer do
   Describes the access that is assigned to the specific file transfer
   protocol-enabled server, as identified by its `ServerId` property and its
   `ExternalId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_access_request`)
+    %{
+      required("ExternalId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec describe_access(AWS.Client.t(), describe_access_request(), Keyword.t()) ::
+
+  @spec describe_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_access_errors()}
-  def describe_access(%Client{} = client, input, options \\ []) do
+
+  def describe_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2962,12 +3200,23 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the agreement that's identified by the `AgreementId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeAgreement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_agreement_request`)
+    %{
+      required("AgreementId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec describe_agreement(AWS.Client.t(), describe_agreement_request(), Keyword.t()) ::
+
+  @spec describe_agreement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_agreement_errors()}
-  def describe_agreement(%Client{} = client, input, options \\ []) do
+
+  def describe_agreement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2976,12 +3225,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the certificate that's identified by the `CertificateId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_certificate_request`)
+    %{
+      required("CertificateId") => String.t()
+    }
   """
-  @spec describe_certificate(AWS.Client.t(), describe_certificate_request(), Keyword.t()) ::
+
+  @spec describe_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_certificate_errors()}
-  def describe_certificate(%Client{} = client, input, options \\ []) do
+
+  def describe_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2990,12 +3249,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the connector that's identified by the `ConnectorId.`
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_connector_request`)
+    %{
+      required("ConnectorId") => String.t()
+    }
   """
-  @spec describe_connector(AWS.Client.t(), describe_connector_request(), Keyword.t()) ::
+
+  @spec describe_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connector_errors()}
-  def describe_connector(%Client{} = client, input, options \\ []) do
+
+  def describe_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3005,12 +3274,23 @@ defmodule AWS.Transfer do
   @doc """
   You can use `DescribeExecution` to check the details of the execution of the
   specified workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_execution_request`)
+    %{
+      required("ExecutionId") => String.t(),
+      required("WorkflowId") => String.t()
+    }
   """
-  @spec describe_execution(AWS.Client.t(), describe_execution_request(), Keyword.t()) ::
+
+  @spec describe_execution(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_execution_errors()}
-  def describe_execution(%Client{} = client, input, options \\ []) do
+
+  def describe_execution(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3020,12 +3300,23 @@ defmodule AWS.Transfer do
   @doc """
   Returns the details of the host key that's specified by the `HostKeyId` and
   `ServerId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeHostKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_host_key_request`)
+    %{
+      required("HostKeyId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec describe_host_key(AWS.Client.t(), describe_host_key_request(), Keyword.t()) ::
+
+  @spec describe_host_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_host_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_host_key_errors()}
-  def describe_host_key(%Client{} = client, input, options \\ []) do
+
+  def describe_host_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3034,12 +3325,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Returns the details of the profile that's specified by the `ProfileId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_profile_request`)
+    %{
+      required("ProfileId") => String.t()
+    }
   """
-  @spec describe_profile(AWS.Client.t(), describe_profile_request(), Keyword.t()) ::
+
+  @spec describe_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_profile_errors()}
-  def describe_profile(%Client{} = client, input, options \\ []) do
+
+  def describe_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3054,12 +3355,22 @@ defmodule AWS.Transfer do
   servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html)
   or [Working with security policies for SFTP
   connectors](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeSecurityPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_security_policy_request`)
+    %{
+      required("SecurityPolicyName") => String.t()
+    }
   """
-  @spec describe_security_policy(AWS.Client.t(), describe_security_policy_request(), Keyword.t()) ::
+
+  @spec describe_security_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_security_policy_errors()}
-  def describe_security_policy(%Client{} = client, input, options \\ []) do
+
+  def describe_security_policy(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3069,12 +3380,22 @@ defmodule AWS.Transfer do
   @doc """
   Describes a file transfer protocol-enabled server that you specify by passing
   the `ServerId` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_server_request`)
+    %{
+      required("ServerId") => String.t()
+    }
   """
-  @spec describe_server(AWS.Client.t(), describe_server_request(), Keyword.t()) ::
+
+  @spec describe_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_server_errors()}
-  def describe_server(%Client{} = client, input, options \\ []) do
+
+  def describe_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3084,12 +3405,23 @@ defmodule AWS.Transfer do
   @doc """
   Describes the user assigned to the specific file transfer protocol-enabled
   server, as identified by its `ServerId` property.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_user_request`)
+    %{
+      required("ServerId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec describe_user(AWS.Client.t(), describe_user_request(), Keyword.t()) ::
+
+  @spec describe_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_user_errors()}
-  def describe_user(%Client{} = client, input, options \\ []) do
+
+  def describe_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3098,12 +3430,22 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the specified workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20DescribeWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_workflow_request`)
+    %{
+      required("WorkflowId") => String.t()
+    }
   """
-  @spec describe_workflow(AWS.Client.t(), describe_workflow_request(), Keyword.t()) ::
+
+  @spec describe_workflow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_workflow_errors()}
-  def describe_workflow(%Client{} = client, input, options \\ []) do
+
+  def describe_workflow(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3113,12 +3455,29 @@ defmodule AWS.Transfer do
   @doc """
   Imports the signing and encryption certificates that you need to create local
   (AS2) profiles and partner profiles.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ImportCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_certificate_request`)
+    %{
+      optional("ActiveDate") => non_neg_integer(),
+      optional("CertificateChain") => String.t(),
+      optional("Description") => String.t(),
+      optional("InactiveDate") => non_neg_integer(),
+      optional("PrivateKey") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Certificate") => String.t(),
+      required("Usage") => list(any())
+    }
   """
-  @spec import_certificate(AWS.Client.t(), import_certificate_request(), Keyword.t()) ::
+
+  @spec import_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_certificate_errors()}
-  def import_certificate(%Client{} = client, input, options \\ []) do
+
+  def import_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3127,12 +3486,25 @@ defmodule AWS.Transfer do
 
   @doc """
   Adds a host key to the server that's specified by the `ServerId` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ImportHostKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_host_key_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("HostKeyBody") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec import_host_key(AWS.Client.t(), import_host_key_request(), Keyword.t()) ::
+
+  @spec import_host_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_host_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_host_key_errors()}
-  def import_host_key(%Client{} = client, input, options \\ []) do
+
+  def import_host_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3143,12 +3515,24 @@ defmodule AWS.Transfer do
   Adds a Secure Shell (SSH) public key to a Transfer Family user identified by a
   `UserName` value assigned to the specific file transfer protocol-enabled
   server, identified by `ServerId`.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ImportSshPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_ssh_public_key_request`)
+    %{
+      required("ServerId") => String.t(),
+      required("SshPublicKeyBody") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec import_ssh_public_key(AWS.Client.t(), import_ssh_public_key_request(), Keyword.t()) ::
+
+  @spec import_ssh_public_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_ssh_public_key_errors()}
-  def import_ssh_public_key(%Client{} = client, input, options \\ []) do
+
+  def import_ssh_public_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3157,12 +3541,24 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists the details for all the accesses you have on your server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListAccesses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_accesses_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec list_accesses(AWS.Client.t(), list_accesses_request(), Keyword.t()) ::
+
+  @spec list_accesses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_accesses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accesses_errors()}
-  def list_accesses(%Client{} = client, input, options \\ []) do
+
+  def list_accesses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3175,12 +3571,24 @@ defmodule AWS.Transfer do
   number, supply a value for the `MaxResults` parameter. If you ran the command
   previously and received a value for `NextToken`, you can supply that value to
   continue listing agreements from where you left off.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListAgreements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_agreements_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec list_agreements(AWS.Client.t(), list_agreements_request(), Keyword.t()) ::
+
+  @spec list_agreements(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_agreements_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_agreements_errors()}
-  def list_agreements(%Client{} = client, input, options \\ []) do
+
+  def list_agreements(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3193,12 +3601,23 @@ defmodule AWS.Transfer do
   for the `MaxResults` parameter. If you ran the command previously and received
   a value for the `NextToken` parameter, you can supply that value to continue
   listing certificates from where you left off.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_certificates_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_certificates(AWS.Client.t(), list_certificates_request(), Keyword.t()) ::
+
+  @spec list_certificates(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_certificates_errors()}
-  def list_certificates(%Client{} = client, input, options \\ []) do
+
+  def list_certificates(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3207,12 +3626,23 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists the connectors for the specified Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_connectors_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_connectors(AWS.Client.t(), list_connectors_request(), Keyword.t()) ::
+
+  @spec list_connectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connectors_errors()}
-  def list_connectors(%Client{} = client, input, options \\ []) do
+
+  def list_connectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3221,12 +3651,24 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists all in-progress executions for the specified workflow.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_executions_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("WorkflowId") => String.t()
+    }
   """
-  @spec list_executions(AWS.Client.t(), list_executions_request(), Keyword.t()) ::
+
+  @spec list_executions(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_executions_errors()}
-  def list_executions(%Client{} = client, input, options \\ []) do
+
+  def list_executions(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3236,12 +3678,24 @@ defmodule AWS.Transfer do
   @doc """
   Returns a list of host keys for the server that's specified by the `ServerId`
   parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListHostKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_host_keys_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec list_host_keys(AWS.Client.t(), list_host_keys_request(), Keyword.t()) ::
+
+  @spec list_host_keys(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_host_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_host_keys_errors()}
-  def list_host_keys(%Client{} = client, input, options \\ []) do
+
+  def list_host_keys(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3253,12 +3707,24 @@ defmodule AWS.Transfer do
   to a certain number, supply a value for the `MaxResults` parameter. If you ran
   the command previously and received a value for `NextToken`, you can supply
   that value to continue listing profiles from where you left off.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_profiles_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      optional("ProfileType") => list(any())
+    }
   """
-  @spec list_profiles(AWS.Client.t(), list_profiles_request(), Keyword.t()) ::
+
+  @spec list_profiles(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
-  def list_profiles(%Client{} = client, input, options \\ []) do
+
+  def list_profiles(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3272,12 +3738,23 @@ defmodule AWS.Transfer do
   servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html)
   or [Working with security policies for SFTP
   connectors](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListSecurityPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_security_policies_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_security_policies(AWS.Client.t(), list_security_policies_request(), Keyword.t()) ::
+
+  @spec list_security_policies(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_security_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_security_policies_errors()}
-  def list_security_policies(%Client{} = client, input, options \\ []) do
+
+  def list_security_policies(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3287,12 +3764,23 @@ defmodule AWS.Transfer do
   @doc """
   Lists the file transfer protocol-enabled servers that are associated with your
   Amazon Web Services account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_servers_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_servers(AWS.Client.t(), list_servers_request(), Keyword.t()) ::
+
+  @spec list_servers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_servers_errors()}
-  def list_servers(%Client{} = client, input, options \\ []) do
+
+  def list_servers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3302,12 +3790,24 @@ defmodule AWS.Transfer do
   @doc """
   Lists all of the tags associated with the Amazon Resource Name (ARN) that you
   specify. The resource can be a user, server, or role.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("Arn") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3317,12 +3817,24 @@ defmodule AWS.Transfer do
   @doc """
   Lists the users for a file transfer protocol-enabled server that you specify by
   passing the `ServerId` parameter.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_users_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec list_users(AWS.Client.t(), list_users_request(), Keyword.t()) ::
+
+  @spec list_users(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_users_errors()}
-  def list_users(%Client{} = client, input, options \\ []) do
+
+  def list_users(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3332,12 +3844,23 @@ defmodule AWS.Transfer do
   @doc """
   Lists all workflows associated with your Amazon Web Services account for your
   current region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_workflows_request`)
+    %{
+      optional("MaxResults") => integer(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_workflows(AWS.Client.t(), list_workflows_request(), Keyword.t()) ::
+
+  @spec list_workflows(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_workflows_errors()}
-  def list_workflows(%Client{} = client, input, options \\ []) do
+
+  def list_workflows(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3346,12 +3869,25 @@ defmodule AWS.Transfer do
 
   @doc """
   Sends a callback for asynchronous custom steps.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20SendWorkflowStepState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:send_workflow_step_state_request`)
+    %{
+      required("ExecutionId") => String.t(),
+      required("Status") => list(any()),
+      required("Token") => String.t(),
+      required("WorkflowId") => String.t()
+    }
   """
-  @spec send_workflow_step_state(AWS.Client.t(), send_workflow_step_state_request(), Keyword.t()) ::
+
+  @spec send_workflow_step_state(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, send_workflow_step_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_workflow_step_state_errors()}
-  def send_workflow_step_state(%Client{} = client, input, options \\ []) do
+
+  def send_workflow_step_state(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3368,12 +3904,25 @@ defmodule AWS.Transfer do
   returns a list of files and directories one-level deep. After you receive the
   listing file, you can provide the files that you want to transfer to the
   `RetrieveFilePaths` parameter of the `StartFileTransfer` API call.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20StartDirectoryListing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_directory_listing_request`)
+    %{
+      optional("MaxItems") => integer(),
+      required("ConnectorId") => String.t(),
+      required("OutputDirectoryPath") => String.t(),
+      required("RemoteDirectoryPath") => String.t()
+    }
   """
-  @spec start_directory_listing(AWS.Client.t(), start_directory_listing_request(), Keyword.t()) ::
+
+  @spec start_directory_listing(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_directory_listing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_directory_listing_errors()}
-  def start_directory_listing(%Client{} = client, input, options \\ []) do
+
+  def start_directory_listing(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3383,12 +3932,26 @@ defmodule AWS.Transfer do
   @doc """
   Begins a file transfer between local Amazon Web Services storage and a remote
   AS2 or SFTP server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20StartFileTransfer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_file_transfer_request`)
+    %{
+      optional("LocalDirectoryPath") => String.t(),
+      optional("RemoteDirectoryPath") => String.t(),
+      optional("RetrieveFilePaths") => list(String.t()()),
+      optional("SendFilePaths") => list(String.t()()),
+      required("ConnectorId") => String.t()
+    }
   """
-  @spec start_file_transfer(AWS.Client.t(), start_file_transfer_request(), Keyword.t()) ::
+
+  @spec start_file_transfer(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_file_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_file_transfer_errors()}
-  def start_file_transfer(%Client{} = client, input, options \\ []) do
+
+  def start_file_transfer(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3402,12 +3965,22 @@ defmodule AWS.Transfer do
   indicates that the server is in an intermediate state, either not fully able
   to respond, or not fully online. The values of `START_FAILED` can indicate an
   error condition.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20StartServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_server_request`)
+    %{
+      required("ServerId") => String.t()
+    }
   """
-  @spec start_server(AWS.Client.t(), start_server_request(), Keyword.t()) ::
+
+  @spec start_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_server_errors()}
-  def start_server(%Client{} = client, input, options \\ []) do
+
+  def start_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3421,12 +3994,22 @@ defmodule AWS.Transfer do
   affected by stopping your server. Stopping the server does not reduce or
   impact your file transfer protocol endpoint billing; you must delete the
   server to stop being billed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20StopServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_server_request`)
+    %{
+      required("ServerId") => String.t()
+    }
   """
-  @spec stop_server(AWS.Client.t(), stop_server_request(), Keyword.t()) ::
+
+  @spec stop_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_server_errors()}
-  def stop_server(%Client{} = client, input, options \\ []) do
+
+  def stop_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3436,12 +4019,23 @@ defmodule AWS.Transfer do
   @doc """
   Attaches a key-value pair to a resource, as identified by its Amazon Resource
   Name (ARN). Resources are users, servers, roles, and other entities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("Arn") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3452,12 +4046,22 @@ defmodule AWS.Transfer do
   Tests whether your SFTP connector is set up successfully. We highly recommend
   that you call this operation to test your ability to transfer files between
   local Amazon Web Services storage and a trading partner's SFTP server.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20TestConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_connection_request`)
+    %{
+      required("ConnectorId") => String.t()
+    }
   """
-  @spec test_connection(AWS.Client.t(), test_connection_request(), Keyword.t()) ::
+
+  @spec test_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_connection_errors()}
-  def test_connection(%Client{} = client, input, options \\ []) do
+
+  def test_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3473,12 +4077,26 @@ defmodule AWS.Transfer do
   ensure that your users can successfully use the service. The `ServerId` and
   `UserName` parameters are required. The `ServerProtocol`, `SourceIp`, and
   `UserPassword` are all optional.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20TestIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_identity_provider_request`)
+    %{
+      optional("ServerProtocol") => list(any()),
+      optional("SourceIp") => String.t(),
+      optional("UserPassword") => String.t(),
+      required("ServerId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec test_identity_provider(AWS.Client.t(), test_identity_provider_request(), Keyword.t()) ::
+
+  @spec test_identity_provider(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_identity_provider_errors()}
-  def test_identity_provider(%Client{} = client, input, options \\ []) do
+
+  def test_identity_provider(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3488,12 +4106,23 @@ defmodule AWS.Transfer do
   @doc """
   Detaches a key-value pair from a resource, as identified by its Amazon Resource
   Name (ARN). Resources are users, servers, roles, and other entities.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("Arn") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3503,12 +4132,29 @@ defmodule AWS.Transfer do
   @doc """
   Allows you to update parameters for the access specified in the `ServerID` and
   `ExternalID` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_access_request`)
+    %{
+      optional("HomeDirectory") => String.t(),
+      optional("HomeDirectoryMappings") => list(home_directory_map_entry()()),
+      optional("HomeDirectoryType") => list(any()),
+      optional("Policy") => String.t(),
+      optional("PosixProfile") => posix_profile(),
+      optional("Role") => String.t(),
+      required("ExternalId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec update_access(AWS.Client.t(), update_access_request(), Keyword.t()) ::
+
+  @spec update_access(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_access_errors()}
-  def update_access(%Client{} = client, input, options \\ []) do
+
+  def update_access(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3519,12 +4165,29 @@ defmodule AWS.Transfer do
   Updates some of the parameters for an existing agreement. Provide the
   `AgreementId` and the `ServerId` for the agreement that you want to update,
   along with the new values for the parameters to update.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateAgreement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_agreement_request`)
+    %{
+      optional("AccessRole") => String.t(),
+      optional("BaseDirectory") => String.t(),
+      optional("Description") => String.t(),
+      optional("LocalProfileId") => String.t(),
+      optional("PartnerProfileId") => String.t(),
+      optional("Status") => list(any()),
+      required("AgreementId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec update_agreement(AWS.Client.t(), update_agreement_request(), Keyword.t()) ::
+
+  @spec update_agreement(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agreement_errors()}
-  def update_agreement(%Client{} = client, input, options \\ []) do
+
+  def update_agreement(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3533,12 +4196,25 @@ defmodule AWS.Transfer do
 
   @doc """
   Updates the active and inactive dates for a certificate.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_certificate_request`)
+    %{
+      optional("ActiveDate") => non_neg_integer(),
+      optional("Description") => String.t(),
+      optional("InactiveDate") => non_neg_integer(),
+      required("CertificateId") => String.t()
+    }
   """
-  @spec update_certificate(AWS.Client.t(), update_certificate_request(), Keyword.t()) ::
+
+  @spec update_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_certificate_errors()}
-  def update_certificate(%Client{} = client, input, options \\ []) do
+
+  def update_certificate(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3549,12 +4225,28 @@ defmodule AWS.Transfer do
   Updates some of the parameters for an existing connector. Provide the
   `ConnectorId` for the connector that you want to update, along with the new
   values for the parameters to update.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_connector_request`)
+    %{
+      optional("AccessRole") => String.t(),
+      optional("As2Config") => as2_connector_config(),
+      optional("LoggingRole") => String.t(),
+      optional("SecurityPolicyName") => String.t(),
+      optional("SftpConfig") => sftp_connector_config(),
+      optional("Url") => String.t(),
+      required("ConnectorId") => String.t()
+    }
   """
-  @spec update_connector(AWS.Client.t(), update_connector_request(), Keyword.t()) ::
+
+  @spec update_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connector_errors()}
-  def update_connector(%Client{} = client, input, options \\ []) do
+
+  def update_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3564,12 +4256,24 @@ defmodule AWS.Transfer do
   @doc """
   Updates the description for the host key that's specified by the `ServerId` and
   `HostKeyId` parameters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateHostKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_host_key_request`)
+    %{
+      required("Description") => String.t(),
+      required("HostKeyId") => String.t(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec update_host_key(AWS.Client.t(), update_host_key_request(), Keyword.t()) ::
+
+  @spec update_host_key(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_host_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_host_key_errors()}
-  def update_host_key(%Client{} = client, input, options \\ []) do
+
+  def update_host_key(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3580,12 +4284,23 @@ defmodule AWS.Transfer do
   Updates some of the parameters for an existing profile. Provide the `ProfileId`
   for the profile that you want to update, along with the new values for the
   parameters to update.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_profile_request`)
+    %{
+      optional("CertificateIds") => list(String.t()()),
+      required("ProfileId") => String.t()
+    }
   """
-  @spec update_profile(AWS.Client.t(), update_profile_request(), Keyword.t()) ::
+
+  @spec update_profile(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
-  def update_profile(%Client{} = client, input, options \\ []) do
+
+  def update_profile(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3595,12 +4310,36 @@ defmodule AWS.Transfer do
   @doc """
   Updates the file transfer protocol-enabled server's properties after that server
   has been created.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_server_request`)
+    %{
+      optional("Certificate") => String.t(),
+      optional("EndpointDetails") => endpoint_details(),
+      optional("EndpointType") => list(any()),
+      optional("HostKey") => String.t(),
+      optional("IdentityProviderDetails") => identity_provider_details(),
+      optional("LoggingRole") => String.t(),
+      optional("PostAuthenticationLoginBanner") => String.t(),
+      optional("PreAuthenticationLoginBanner") => String.t(),
+      optional("ProtocolDetails") => protocol_details(),
+      optional("Protocols") => list(list(any())()),
+      optional("S3StorageOptions") => s3_storage_options(),
+      optional("SecurityPolicyName") => String.t(),
+      optional("StructuredLogDestinations") => list(String.t()()),
+      optional("WorkflowDetails") => workflow_details(),
+      required("ServerId") => String.t()
+    }
   """
-  @spec update_server(AWS.Client.t(), update_server_request(), Keyword.t()) ::
+
+  @spec update_server(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_server_errors()}
-  def update_server(%Client{} = client, input, options \\ []) do
+
+  def update_server(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3612,12 +4351,29 @@ defmodule AWS.Transfer do
   following: the home directory, role, and policy for the `UserName` and
   `ServerId` you specify. The response returns the `ServerId` and the `UserName`
   for the updated user.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=transfer%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_user_request`)
+    %{
+      optional("HomeDirectory") => String.t(),
+      optional("HomeDirectoryMappings") => list(home_directory_map_entry()()),
+      optional("HomeDirectoryType") => list(any()),
+      optional("Policy") => String.t(),
+      optional("PosixProfile") => posix_profile(),
+      optional("Role") => String.t(),
+      required("ServerId") => String.t(),
+      required("UserName") => String.t()
+    }
   """
-  @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::
+
+  @spec update_user(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_user_errors()}
-  def update_user(%Client{} = client, input, options \\ []) do
+
+  def update_user(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

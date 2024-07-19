@@ -23,169 +23,169 @@ defmodule AWS.SSO do
   @typedoc """
 
   ## Example:
-
+      
       account_info() :: %{
         "accountId" => String.t(),
         "accountName" => String.t(),
         "emailAddress" => String.t()
       }
-
+      
   """
   @type account_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_role_credentials_request() :: %{
         required("accessToken") => String.t(),
         required("accountId") => String.t(),
         required("roleName") => String.t()
       }
-
+      
   """
   @type get_role_credentials_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_role_credentials_response() :: %{
         "roleCredentials" => role_credentials()
       }
-
+      
   """
   @type get_role_credentials_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_request_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type invalid_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_account_roles_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("accessToken") => String.t(),
         required("accountId") => String.t()
       }
-
+      
   """
   @type list_account_roles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_account_roles_response() :: %{
         "nextToken" => String.t(),
         "roleList" => list(role_info()())
       }
-
+      
   """
   @type list_account_roles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_accounts_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("accessToken") => String.t()
       }
-
+      
   """
   @type list_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_accounts_response() :: %{
         "accountList" => list(account_info()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_accounts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       logout_request() :: %{
         required("accessToken") => String.t()
       }
-
+      
   """
   @type logout_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       role_credentials() :: %{
         "accessKeyId" => String.t(),
         "expiration" => float(),
         "secretAccessKey" => String.t(),
         "sessionToken" => String.t()
       }
-
+      
   """
   @type role_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       role_info() :: %{
         "accountId" => String.t(),
         "roleName" => String.t()
       }
-
+      
   """
   @type role_info() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "message" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
@@ -234,20 +234,23 @@ defmodule AWS.SSO do
 
   ## Parameters:
   * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
-    to the user.
+  to the user.
   * `:role_name` (`t:string`) The friendly name of the role that is assigned to
-    the user.
+  the user.
   * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-    more information, see CreateToken in the IAM Identity Center OIDC API
-    Reference Guide.
+  more information, see CreateToken in the IAM Identity Center OIDC API
+  Reference Guide.
 
   ## Optional parameters:
   """
+
   @spec get_role_credentials(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_role_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_role_credentials_errors()}
-  def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ []) do
+
+  def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ [])
+      when is_binary(account_id) and is_binary(role_name) and is_binary(access_token) do
     url_path = "/federation/credentials"
 
     # Validate optional parameters
@@ -282,22 +285,25 @@ defmodule AWS.SSO do
 
   ## Parameters:
   * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
-    to the user.
+  to the user.
   * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-    more information, see CreateToken in the IAM Identity Center OIDC API
-    Reference Guide.
+  more information, see CreateToken in the IAM Identity Center OIDC API
+  Reference Guide.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The number of items that clients can request per
-    page.
+  page.
   * `:next_token` (`t:string`) The page token from the previous response output
-    when you request subsequent pages.
+  when you request subsequent pages.
   """
+
   @spec list_account_roles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_account_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_account_roles_errors()}
-  def list_account_roles(%Client{} = client, account_id, access_token, options \\ []) do
+
+  def list_account_roles(%Client{} = client, account_id, access_token, options \\ [])
+      when is_binary(account_id) and is_binary(access_token) do
     url_path = "/assignment/roles"
 
     # Validate optional parameters
@@ -354,20 +360,23 @@ defmodule AWS.SSO do
 
   ## Parameters:
   * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-    more information, see CreateToken in the IAM Identity Center OIDC API
-    Reference Guide.
+  more information, see CreateToken in the IAM Identity Center OIDC API
+  Reference Guide.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) This is the number of items clients can request
-    per page.
+  per page.
   * `:next_token` (`t:string`) (Optional) When requesting subsequent pages, this
-    is the page token from the previous response output.
+  is the page token from the previous response output.
   """
+
   @spec list_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_accounts_errors()}
-  def list_accounts(%Client{} = client, access_token, options \\ []) do
+
+  def list_accounts(%Client{} = client, access_token, options \\ [])
+      when is_binary(access_token) do
     url_path = "/assignment/accounts"
 
     # Validate optional parameters
@@ -422,19 +431,22 @@ defmodule AWS.SSO do
 
   ## Parameters:
   * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
-    more information, see CreateToken in the IAM Identity Center OIDC API
-    Reference Guide.
+  more information, see CreateToken in the IAM Identity Center OIDC API
+  Reference Guide.
 
   ## Optional parameters:
   """
-  @spec logout(AWS.Client.t(), logout_request(), Keyword.t()) ::
+
+  @spec logout(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, logout_errors()}
-  def logout(%Client{} = client, input, options \\ []) do
+
+  def logout(%Client{} = client, access_token, options \\ []) when is_binary(access_token) do
     url_path = "/logout"
 
-    optional_params = [access_token: nil]
+    # Validate optional parameters
+    optional_params = []
 
     options =
       Keyword.validate!(
@@ -442,27 +454,21 @@ defmodule AWS.SSO do
         [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
       )
 
-    {headers, input} =
-      [
-        {"accessToken", "x-amz-sso_bearer_token"}
-      ]
-      |> Request.build_params(input)
+    # Required headers
+    headers = [{"x-amz-sso_bearer_token", access_token}]
 
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

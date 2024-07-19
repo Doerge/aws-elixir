@@ -24,7 +24,7 @@ defmodule AWS.RolesAnywhere do
   @typedoc """
 
   ## Example:
-
+      
       subject_detail() :: %{
         "createdAt" => [non_neg_integer()],
         "credentials" => list(credential_summary()()),
@@ -36,14 +36,14 @@ defmodule AWS.RolesAnywhere do
         "updatedAt" => [non_neg_integer()],
         "x509Subject" => [String.t()]
       }
-
+      
   """
   @type subject_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       credential_summary() :: %{
         "enabled" => [boolean()],
         "failed" => [boolean()],
@@ -52,88 +52,88 @@ defmodule AWS.RolesAnywhere do
         "serialNumber" => [String.t()],
         "x509CertificateData" => [String.t()]
       }
-
+      
   """
   @type credential_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_detail_response() :: %{
         optional("profile") => profile_detail()
       }
-
+      
   """
   @type profile_detail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_notification_settings_request() :: %{
         required("notificationSettings") => list(notification_setting()()),
         required("trustAnchorId") => String.t()
       }
-
+      
   """
   @type put_notification_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       scalar_profile_request() :: %{}
-
+      
   """
   @type scalar_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       scalar_crl_request() :: %{}
-
+      
   """
   @type scalar_crl_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       notification_setting_key() :: %{
         "channel" => String.t(),
         "event" => String.t()
       }
-
+      
   """
   @type notification_setting_key() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subject_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "enabled" => [boolean()],
@@ -143,73 +143,73 @@ defmodule AWS.RolesAnywhere do
         "updatedAt" => [non_neg_integer()],
         "x509Subject" => [String.t()]
       }
-
+      
   """
   @type subject_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       subject_detail_response() :: %{
         optional("subject") => subject_detail()
       }
-
+      
   """
   @type subject_detail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_crl_request() :: %{
         optional("crlData") => [binary()],
         optional("name") => String.t()
       }
-
+      
   """
   @type update_crl_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_subjects_response() :: %{
         optional("nextToken") => [String.t()],
         optional("subjects") => list(subject_summary()())
       }
-
+      
   """
   @type list_subjects_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_crls_response() :: %{
         optional("crls") => list(crl_detail()()),
         optional("nextToken") => [String.t()]
       }
-
+      
   """
   @type list_crls_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       crl_detail() :: %{
         "createdAt" => [non_neg_integer()],
         "crlArn" => [String.t()],
@@ -220,37 +220,37 @@ defmodule AWS.RolesAnywhere do
         "trustAnchorArn" => [String.t()],
         "updatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type crl_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_trust_anchor_request() :: %{
         optional("name") => String.t(),
         optional("source") => source()
       }
-
+      
   """
   @type update_trust_anchor_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_attribute_mapping_response() :: %{
         "profile" => profile_detail()
       }
-
+      
   """
   @type delete_attribute_mapping_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_profile_request() :: %{
         optional("durationSeconds") => [integer()],
         optional("enabled") => [boolean()],
@@ -261,36 +261,36 @@ defmodule AWS.RolesAnywhere do
         required("name") => String.t(),
         required("roleArns") => list(String.t()())
       }
-
+      
   """
   @type create_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mapping_rule() :: %{
         "specifier" => [String.t()]
       }
-
+      
   """
   @type mapping_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trust_anchor_detail() :: %{
         "createdAt" => [non_neg_integer()],
         "enabled" => [boolean()],
@@ -301,14 +301,14 @@ defmodule AWS.RolesAnywhere do
         "trustAnchorId" => String.t(),
         "updatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type trust_anchor_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_profile_request() :: %{
         optional("durationSeconds") => [integer()],
         optional("managedPolicyArns") => list([String.t()]()),
@@ -316,49 +316,49 @@ defmodule AWS.RolesAnywhere do
         optional("roleArns") => list(String.t()()),
         optional("sessionPolicy") => [String.t()]
       }
-
+      
   """
   @type update_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "key" => String.t(),
         "value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_mapping() :: %{
         "certificateField" => String.t(),
         "mappingRules" => list(mapping_rule()())
       }
-
+      
   """
   @type attribute_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("tags") => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       profile_detail() :: %{
         "attributeMappings" => list(attribute_mapping()()),
         "createdAt" => [non_neg_integer()],
@@ -374,158 +374,158 @@ defmodule AWS.RolesAnywhere do
         "sessionPolicy" => [String.t()],
         "updatedAt" => [non_neg_integer()]
       }
-
+      
   """
   @type profile_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_attribute_mapping_request() :: %{
         optional("specifiers") => list([String.t()]()),
         required("certificateField") => String.t()
       }
-
+      
   """
   @type delete_attribute_mapping_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scalar_subject_request() :: %{}
-
+      
   """
   @type scalar_subject_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       source() :: %{
         "sourceData" => list(),
         "sourceType" => String.t()
       }
-
+      
   """
   @type source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_attribute_mapping_response() :: %{
         "profile" => profile_detail()
       }
-
+      
   """
   @type put_attribute_mapping_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       instance_property() :: %{
         "failed" => [boolean()],
         "properties" => map(),
         "seenAt" => [non_neg_integer()]
       }
-
+      
   """
   @type instance_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_profiles_response() :: %{
         optional("nextToken") => [String.t()],
         optional("profiles") => list(profile_detail()())
       }
-
+      
   """
   @type list_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_notification_settings_response() :: %{
         "trustAnchor" => trust_anchor_detail()
       }
-
+      
   """
   @type put_notification_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("resourceArn") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_notification_settings_response() :: %{
         "trustAnchor" => trust_anchor_detail()
       }
-
+      
   """
   @type reset_notification_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       trust_anchor_detail_response() :: %{
         required("trustAnchor") => trust_anchor_detail()
       }
-
+      
   """
   @type trust_anchor_detail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_crl_request() :: %{
         optional("enabled") => [boolean()],
         optional("tags") => list(tag()()),
@@ -533,73 +533,73 @@ defmodule AWS.RolesAnywhere do
         required("name") => String.t(),
         required("trustAnchorArn") => String.t()
       }
-
+      
   """
   @type import_crl_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_request() :: %{
         optional("nextToken") => [String.t()],
         optional("pageSize") => [integer()]
       }
-
+      
   """
   @type list_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       scalar_trust_anchor_request() :: %{}
-
+      
   """
   @type scalar_trust_anchor_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_trust_anchors_response() :: %{
         optional("nextToken") => [String.t()],
         optional("trustAnchors") => list(trust_anchor_detail()())
       }
-
+      
   """
   @type list_trust_anchors_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       notification_setting() :: %{
         "channel" => String.t(),
         "enabled" => [boolean()],
         "event" => String.t(),
         "threshold" => [integer()]
       }
-
+      
   """
   @type notification_setting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reset_notification_settings_request() :: %{
         required("notificationSettingKeys") => list(notification_setting_key()()),
         required("trustAnchorId") => String.t()
       }
-
+      
   """
   @type reset_notification_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_trust_anchor_request() :: %{
         optional("enabled") => [boolean()],
         optional("notificationSettings") => list(notification_setting()()),
@@ -607,36 +607,36 @@ defmodule AWS.RolesAnywhere do
         required("name") => String.t(),
         required("source") => source()
       }
-
+      
   """
   @type create_trust_anchor_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       crl_detail_response() :: %{
         required("crl") => crl_detail()
       }
-
+      
   """
   @type crl_detail_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       notification_setting_detail() :: %{
         "channel" => String.t(),
         "configuredBy" => [String.t()],
@@ -644,19 +644,19 @@ defmodule AWS.RolesAnywhere do
         "event" => String.t(),
         "threshold" => [integer()]
       }
-
+      
   """
   @type notification_setting_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_attribute_mapping_request() :: %{
         required("certificateField") => String.t(),
         required("mappingRules") => list(mapping_rule()())
       }
-
+      
   """
   @type put_attribute_mapping_request() :: %{String.t() => any()}
 
@@ -762,29 +762,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec create_profile(AWS.Client.t(), create_profile_request(), Keyword.t()) ::
+
+  @spec create_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_profile_errors()}
-  def create_profile(%Client{} = client, input, options \\ []) do
+
+  def create_profile(%Client{} = client, options \\ []) do
     url_path = "/profiles"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -801,29 +812,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec create_trust_anchor(AWS.Client.t(), create_trust_anchor_request(), Keyword.t()) ::
+
+  @spec create_trust_anchor(AWS.Client.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_trust_anchor_errors()}
-  def create_trust_anchor(%Client{} = client, input, options \\ []) do
+
+  def create_trust_anchor(%Client{} = client, options \\ []) do
     url_path = "/trustanchors"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -834,31 +856,46 @@ defmodule AWS.RolesAnywhere do
   ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
   * `:certificate_field` (`t:string`) Fields (x509Subject, x509Issuer and x509SAN)
-    within X.509 certificates.
+  within X.509 certificates.
 
   ## Optional parameters:
   * `:specifiers` (`t:list[smithy.api#String]`) A list of specifiers of a
-    certificate field; for example, CN, OU, UID from a Subject.
+  certificate field; for example, CN, OU, UID from a Subject.
   """
-  @spec delete_attribute_mapping(
-          AWS.Client.t(),
-          String.t(),
-          delete_attribute_mapping_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_attribute_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attribute_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attribute_mapping_errors()}
-  def delete_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
+
+  def delete_attribute_mapping(%Client{} = client, profile_id, certificate_field, options \\ [])
+      when is_binary(certificate_field) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
+
+    # Validate optional parameters
+    optional_params = [specifiers: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"certificateField", "certificateField"},
-        {"specifiers", "specifiers"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"certificateField", certificate_field}]
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :specifiers) do
+        [{"specifiers", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -868,6 +905,8 @@ defmodule AWS.RolesAnywhere do
       options
       |> Keyword.drop([:specifiers])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -875,7 +914,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -888,21 +927,42 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
-    list (CRL).
+  list (CRL).
 
   ## Optional parameters:
   """
-  @spec delete_crl(AWS.Client.t(), String.t(), scalar_crl_request(), Keyword.t()) ::
+
+  @spec delete_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_crl_errors()}
-  def delete_crl(%Client{} = client, crl_id, input, options \\ []) do
+
+  def delete_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -911,7 +971,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -927,17 +987,38 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec delete_profile(AWS.Client.t(), String.t(), scalar_profile_request(), Keyword.t()) ::
+
+  @spec delete_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_profile_errors()}
-  def delete_profile(%Client{} = client, profile_id, input, options \\ []) do
+
+  def delete_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -946,7 +1027,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -962,22 +1043,38 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec delete_trust_anchor(
-          AWS.Client.t(),
-          String.t(),
-          scalar_trust_anchor_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_trust_anchor_errors()}
-  def delete_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
+
+  def delete_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -986,7 +1083,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -999,33 +1096,44 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
-    list (CRL).
+  list (CRL).
 
   ## Optional parameters:
   """
-  @spec disable_crl(AWS.Client.t(), String.t(), scalar_crl_request(), Keyword.t()) ::
+
+  @spec disable_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_crl_errors()}
-  def disable_crl(%Client{} = client, crl_id, input, options \\ []) do
+
+  def disable_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/disable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1039,29 +1147,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec disable_profile(AWS.Client.t(), String.t(), scalar_profile_request(), Keyword.t()) ::
+
+  @spec disable_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_profile_errors()}
-  def disable_profile(%Client{} = client, profile_id, input, options \\ []) do
+
+  def disable_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/disable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1075,34 +1194,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec disable_trust_anchor(
-          AWS.Client.t(),
-          String.t(),
-          scalar_trust_anchor_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disable_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_trust_anchor_errors()}
-  def disable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
+
+  def disable_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/disable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1113,33 +1238,44 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
-    list (CRL).
+  list (CRL).
 
   ## Optional parameters:
   """
-  @spec enable_crl(AWS.Client.t(), String.t(), scalar_crl_request(), Keyword.t()) ::
+
+  @spec enable_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_crl_errors()}
-  def enable_crl(%Client{} = client, crl_id, input, options \\ []) do
+
+  def enable_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/enable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1152,29 +1288,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec enable_profile(AWS.Client.t(), String.t(), scalar_profile_request(), Keyword.t()) ::
+
+  @spec enable_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_profile_errors()}
-  def enable_profile(%Client{} = client, profile_id, input, options \\ []) do
+
+  def enable_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/enable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1188,34 +1335,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec enable_trust_anchor(
-          AWS.Client.t(),
-          String.t(),
-          scalar_trust_anchor_request(),
-          Keyword.t()
-        ) ::
+
+  @spec enable_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_trust_anchor_errors()}
-  def enable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
+
+  def enable_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/enable"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1225,14 +1378,16 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
-    list (CRL).
+  list (CRL).
 
   ## Optional parameters:
   """
+
   @spec get_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_crl_errors()}
+
   def get_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
 
@@ -1271,10 +1426,12 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
+
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_profile_errors()}
+
   def get_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
 
@@ -1316,10 +1473,12 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
+
   @spec get_subject(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, subject_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_subject_errors()}
+
   def get_subject(%Client{} = client, subject_id, options \\ []) do
     url_path = "/subject/#{AWS.Util.encode_uri(subject_id)}"
 
@@ -1358,10 +1517,12 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
+
   @spec get_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_trust_anchor_errors()}
+
   def get_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
 
@@ -1402,29 +1563,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec import_crl(AWS.Client.t(), import_crl_request(), Keyword.t()) ::
+
+  @spec import_crl(AWS.Client.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_crl_errors()}
-  def import_crl(%Client{} = client, input, options \\ []) do
+
+  def import_crl(%Client{} = client, options \\ []) do
     url_path = "/crls"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1436,15 +1608,17 @@ defmodule AWS.RolesAnywhere do
   ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue
-    from, if a previous request did not show all results. To get the next
-    results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list.
+  * `:next_token` (`t:string`) A token that indicates where the output should
+  continue from, if a previous request did not show all results. To get the
+  next results, make the request again with this value.
+  * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
+
   @spec list_crls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_crls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_crls_errors()}
+
   def list_crls(%Client{} = client, options \\ []) do
     url_path = "/crls"
 
@@ -1499,15 +1673,17 @@ defmodule AWS.RolesAnywhere do
   ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue
-    from, if a previous request did not show all results. To get the next
-    results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list.
+  * `:next_token` (`t:string`) A token that indicates where the output should
+  continue from, if a previous request did not show all results. To get the
+  next results, make the request again with this value.
+  * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
+
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_profiles_errors()}
+
   def list_profiles(%Client{} = client, options \\ []) do
     url_path = "/profiles"
 
@@ -1562,15 +1738,17 @@ defmodule AWS.RolesAnywhere do
   ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue
-    from, if a previous request did not show all results. To get the next
-    results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list.
+  * `:next_token` (`t:string`) A token that indicates where the output should
+  continue from, if a previous request did not show all results. To get the
+  next results, make the request again with this value.
+  * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
+
   @spec list_subjects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subjects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_subjects_errors()}
+
   def list_subjects(%Client{} = client, options \\ []) do
     url_path = "/subjects"
 
@@ -1627,11 +1805,14 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/ListTagsForResource"
 
     # Validate optional parameters
@@ -1668,15 +1849,17 @@ defmodule AWS.RolesAnywhere do
   ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue
-    from, if a previous request did not show all results. To get the next
-    results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list.
+  * `:next_token` (`t:string`) A token that indicates where the output should
+  continue from, if a previous request did not show all results. To get the
+  next results, make the request again with this value.
+  * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
+
   @spec list_trust_anchors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_anchors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trust_anchors_errors()}
+
   def list_trust_anchors(%Client{} = client, options \\ []) do
     url_path = "/trustanchors"
 
@@ -1735,24 +1918,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec put_attribute_mapping(
-          AWS.Client.t(),
-          String.t(),
-          put_attribute_mapping_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_attribute_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_attribute_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_attribute_mapping_errors()}
-  def put_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
+
+  def put_attribute_mapping(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1766,21 +1965,38 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec put_notification_settings(
-          AWS.Client.t(),
-          put_notification_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_notification_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_notification_settings_errors()}
-  def put_notification_settings(%Client{} = client, input, options \\ []) do
+
+  def put_notification_settings(%Client{} = client, options \\ []) do
     url_path = "/put-notifications-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1789,7 +2005,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1804,21 +2020,38 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec reset_notification_settings(
-          AWS.Client.t(),
-          reset_notification_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec reset_notification_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reset_notification_settings_errors()}
-  def reset_notification_settings(%Client{} = client, input, options \\ []) do
+
+  def reset_notification_settings(%Client{} = client, options \\ []) do
     url_path = "/reset-notifications-settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1827,7 +2060,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1842,29 +2075,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/TagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -1876,29 +2120,40 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/UntagResource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1910,21 +2165,42 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
-    list (CRL).
+  list (CRL).
 
   ## Optional parameters:
   """
-  @spec update_crl(AWS.Client.t(), String.t(), update_crl_request(), Keyword.t()) ::
+
+  @spec update_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_crl_errors()}
-  def update_crl(%Client{} = client, crl_id, input, options \\ []) do
+
+  def update_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1933,7 +2209,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1951,17 +2227,38 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec update_profile(AWS.Client.t(), String.t(), update_profile_request(), Keyword.t()) ::
+
+  @spec update_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_profile_errors()}
-  def update_profile(%Client{} = client, profile_id, input, options \\ []) do
+
+  def update_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1970,7 +2267,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1991,22 +2288,38 @@ defmodule AWS.RolesAnywhere do
 
   ## Optional parameters:
   """
-  @spec update_trust_anchor(
-          AWS.Client.t(),
-          String.t(),
-          update_trust_anchor_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_trust_anchor_errors()}
-  def update_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
+
+  def update_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2015,7 +2328,7 @@ defmodule AWS.RolesAnywhere do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )

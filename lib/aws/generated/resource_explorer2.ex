@@ -20,105 +20,105 @@ defmodule AWS.ResourceExplorer2 do
   @typedoc """
 
   ## Example:
-
+      
       create_index_output() :: %{
         optional("Arn") => [String.t()],
         optional("CreatedAt") => [non_neg_integer()],
         optional("State") => String.t()
       }
-
+      
   """
   @type create_index_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_property() :: %{
         "Data" => [any()],
         "LastReportedAt" => [non_neg_integer()],
         "Name" => [String.t()]
       }
-
+      
   """
   @type resource_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_view_output() :: %{
         optional("Errors") => list(batch_get_view_error()()),
         optional("Views") => list(view()())
       }
-
+      
   """
   @type batch_get_view_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_view_output() :: %{
         optional("View") => view()
       }
-
+      
   """
   @type create_view_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_indexes_for_members_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()],
         required("AccountIdList") => list(String.t()())
       }
-
+      
   """
   @type list_indexes_for_members_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       included_property() :: %{
         "Name" => [String.t()]
       }
-
+      
   """
   @type included_property() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()],
         optional("ViewArn") => [String.t()],
         required("QueryString") => String.t()
       }
-
+      
   """
   @type search_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       view() :: %{
         "Filters" => search_filter(),
         "IncludedProperties" => list(included_property()()),
@@ -127,105 +127,105 @@ defmodule AWS.ResourceExplorer2 do
         "Scope" => [String.t()],
         "ViewArn" => [String.t()]
       }
-
+      
   """
   @type view() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_default_view_input() :: %{
         required("ViewArn") => [String.t()]
       }
-
+      
   """
   @type associate_default_view_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_view_input() :: %{
         required("ViewArn") => [String.t()]
       }
-
+      
   """
   @type delete_view_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_views_output() :: %{
         optional("NextToken") => [String.t()],
         optional("Views") => list([String.t()]())
       }
-
+      
   """
   @type list_views_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_view_output() :: %{
         optional("ViewArn") => [String.t()]
       }
-
+      
   """
   @type delete_view_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_output() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_count() :: %{
         "Complete" => [boolean()],
         "TotalResources" => [float()]
       }
-
+      
   """
   @type resource_count() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_view_input() :: %{
         optional("ViewArns") => list([String.t()]())
       }
-
+      
   """
   @type batch_get_view_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_supported_resource_types_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()]
       }
-
+      
   """
   @type list_supported_resource_types_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_index_output() :: %{
         optional("Arn") => [String.t()],
         optional("CreatedAt") => [non_neg_integer()],
@@ -236,263 +236,263 @@ defmodule AWS.ResourceExplorer2 do
         optional("Tags") => map(),
         optional("Type") => String.t()
       }
-
+      
   """
   @type get_index_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_output() :: %{
         optional("Count") => resource_count(),
         optional("NextToken") => [String.t()],
         optional("Resources") => list(resource()()),
         optional("ViewArn") => [String.t()]
       }
-
+      
   """
   @type search_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_filter() :: %{
         "FilterString" => [String.t()]
       }
-
+      
   """
   @type search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       index() :: %{
         "Arn" => [String.t()],
         "Region" => [String.t()],
         "Type" => String.t()
       }
-
+      
   """
   @type index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_indexes_for_members_output() :: %{
         "Indexes" => list(member_index()()),
         "NextToken" => [String.t()]
       }
-
+      
   """
   @type list_indexes_for_members_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_view_error() :: %{
         "ErrorMessage" => [String.t()],
         "ViewArn" => [String.t()]
       }
-
+      
   """
   @type batch_get_view_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_view_input() :: %{
         optional("Filters") => search_filter(),
         optional("IncludedProperties") => list(included_property()()),
         required("ViewArn") => [String.t()]
       }
-
+      
   """
   @type update_view_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t()],
         "Name" => [String.t()],
         "Value" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_indexes_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()],
         optional("Regions") => list([String.t()]()),
         optional("Type") => String.t()
       }
-
+      
   """
   @type list_indexes_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_views_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()]
       }
-
+      
   """
   @type list_views_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "Name" => [String.t()],
         "ValidationIssue" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       org_configuration() :: %{
         "AWSServiceAccessStatus" => String.t(),
         "ServiceLinkedRole" => [String.t()]
       }
-
+      
   """
   @type org_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_input() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_default_view_output() :: %{
         optional("ViewArn") => [String.t()]
       }
-
+      
   """
   @type associate_default_view_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_output() :: %{}
-
+      
   """
   @type tag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_index_output() :: %{
         optional("Arn") => [String.t()],
         optional("LastUpdatedAt") => [non_neg_integer()],
         optional("State") => String.t()
       }
-
+      
   """
   @type delete_index_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_index_type_input() :: %{
         required("Arn") => [String.t()],
         required("Type") => String.t()
       }
-
+      
   """
   @type update_index_type_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_input() :: %{
         required("tagKeys") => list([String.t()]())
       }
-
+      
   """
   @type untag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_view_input() :: %{
         optional("ClientToken") => [String.t()],
         optional("Filters") => search_filter(),
@@ -501,198 +501,198 @@ defmodule AWS.ResourceExplorer2 do
         optional("Tags") => map(),
         required("ViewName") => String.t()
       }
-
+      
   """
   @type create_view_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_view_input() :: %{
         required("ViewArn") => [String.t()]
       }
-
+      
   """
   @type get_view_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()()),
         "Message" => [String.t()]
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_input() :: %{}
-
+      
   """
   @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_index_input() :: %{
         required("Arn") => [String.t()]
       }
-
+      
   """
   @type delete_index_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       supported_resource_type() :: %{
         "ResourceType" => [String.t()],
         "Service" => [String.t()]
       }
-
+      
   """
   @type supported_resource_type() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_output() :: %{}
-
+      
   """
   @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_view_output() :: %{
         optional("View") => view()
       }
-
+      
   """
   @type update_view_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_account_level_service_configuration_output() :: %{
         "OrgConfiguration" => org_configuration()
       }
-
+      
   """
   @type get_account_level_service_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_indexes_output() :: %{
         optional("Indexes") => list(index()()),
         optional("NextToken") => [String.t()]
       }
-
+      
   """
   @type list_indexes_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_view_output() :: %{
         optional("Tags") => map(),
         optional("View") => view()
       }
-
+      
   """
   @type get_view_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_supported_resource_types_output() :: %{
         optional("NextToken") => [String.t()],
         optional("ResourceTypes") => list(supported_resource_type()())
       }
-
+      
   """
   @type list_supported_resource_types_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_index_input() :: %{
         optional("ClientToken") => [String.t()],
         optional("Tags") => map()
       }
-
+      
   """
   @type create_index_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_index_type_output() :: %{
         optional("Arn") => [String.t()],
         optional("LastUpdatedAt") => [non_neg_integer()],
         optional("State") => String.t(),
         optional("Type") => String.t()
       }
-
+      
   """
   @type update_index_type_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       member_index() :: %{
         "AccountId" => [String.t()],
         "Arn" => [String.t()],
         "Region" => [String.t()],
         "Type" => String.t()
       }
-
+      
   """
   @type member_index() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_default_view_output() :: %{
         optional("ViewArn") => [String.t()]
       }
-
+      
   """
   @type get_default_view_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource() :: %{
         "Arn" => [String.t()],
         "LastReportedAt" => [non_neg_integer()],
@@ -702,7 +702,7 @@ defmodule AWS.ResourceExplorer2 do
         "ResourceType" => [String.t()],
         "Service" => [String.t()]
       }
-
+      
   """
   @type resource() :: %{String.t() => any()}
 
@@ -888,29 +888,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec associate_default_view(AWS.Client.t(), associate_default_view_input(), Keyword.t()) ::
+
+  @spec associate_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_default_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_default_view_errors()}
-  def associate_default_view(%Client{} = client, input, options \\ []) do
+
+  def associate_default_view(%Client{} = client, options \\ []) do
     url_path = "/AssociateDefaultView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -922,29 +933,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec batch_get_view(AWS.Client.t(), batch_get_view_input(), Keyword.t()) ::
+
+  @spec batch_get_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_view_errors()}
-  def batch_get_view(%Client{} = client, input, options \\ []) do
+
+  def batch_get_view(%Client{} = client, options \\ []) do
     url_path = "/BatchGetView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -971,29 +993,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec create_index(AWS.Client.t(), create_index_input(), Keyword.t()) ::
+
+  @spec create_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_index_errors()}
-  def create_index(%Client{} = client, input, options \\ []) do
+
+  def create_index(%Client{} = client, options \\ []) do
     url_path = "/CreateIndex"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1014,29 +1047,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec create_view(AWS.Client.t(), create_view_input(), Keyword.t()) ::
+
+  @spec create_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_view_errors()}
-  def create_view(%Client{} = client, input, options \\ []) do
+
+  def create_view(%Client{} = client, options \\ []) do
     url_path = "/CreateView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1054,29 +1098,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec delete_index(AWS.Client.t(), delete_index_input(), Keyword.t()) ::
+
+  @spec delete_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_index_errors()}
-  def delete_index(%Client{} = client, input, options \\ []) do
+
+  def delete_index(%Client{} = client, options \\ []) do
     url_path = "/DeleteIndex"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1088,29 +1143,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec delete_view(AWS.Client.t(), delete_view_input(), Keyword.t()) ::
+
+  @spec delete_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_view_errors()}
-  def delete_view(%Client{} = client, input, options \\ []) do
+
+  def delete_view(%Client{} = client, options \\ []) do
     url_path = "/DeleteView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1125,29 +1191,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec disassociate_default_view(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec disassociate_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_default_view_errors()}
-  def disassociate_default_view(%Client{} = client, input, options \\ []) do
+
+  def disassociate_default_view(%Client{} = client, options \\ []) do
     url_path = "/DisassociateDefaultView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1162,29 +1239,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec get_account_level_service_configuration(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_account_level_service_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_level_service_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_account_level_service_configuration_errors()}
-  def get_account_level_service_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_account_level_service_configuration(%Client{} = client, options \\ []) do
     url_path = "/GetAccountLevelServiceConfiguration"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1198,29 +1286,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec get_default_view(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_default_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_default_view_errors()}
-  def get_default_view(%Client{} = client, input, options \\ []) do
+
+  def get_default_view(%Client{} = client, options \\ []) do
     url_path = "/GetDefaultView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1233,29 +1332,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec get_index(AWS.Client.t(), %{}, Keyword.t()) ::
+
+  @spec get_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_index_errors()}
-  def get_index(%Client{} = client, input, options \\ []) do
+
+  def get_index(%Client{} = client, options \\ []) do
     url_path = "/GetIndex"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1267,29 +1377,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec get_view(AWS.Client.t(), get_view_input(), Keyword.t()) ::
+
+  @spec get_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_view_errors()}
-  def get_view(%Client{} = client, input, options \\ []) do
+
+  def get_view(%Client{} = client, options \\ []) do
     url_path = "/GetView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1303,29 +1424,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec list_indexes(AWS.Client.t(), list_indexes_input(), Keyword.t()) ::
+
+  @spec list_indexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indexes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indexes_errors()}
-  def list_indexes(%Client{} = client, input, options \\ []) do
+
+  def list_indexes(%Client{} = client, options \\ []) do
     url_path = "/ListIndexes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1340,29 +1472,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec list_indexes_for_members(AWS.Client.t(), list_indexes_for_members_input(), Keyword.t()) ::
+
+  @spec list_indexes_for_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indexes_for_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_indexes_for_members_errors()}
-  def list_indexes_for_members(%Client{} = client, input, options \\ []) do
+
+  def list_indexes_for_members(%Client{} = client, options \\ []) do
     url_path = "/ListIndexesForMembers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1375,33 +1518,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec list_supported_resource_types(
-          AWS.Client.t(),
-          list_supported_resource_types_input(),
-          Keyword.t()
-        ) ::
+
+  @spec list_supported_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_supported_resource_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_supported_resource_types_errors()}
-  def list_supported_resource_types(%Client{} = client, input, options \\ []) do
+
+  def list_supported_resource_types(%Client{} = client, options \\ []) do
     url_path = "/ListSupportedResourceTypes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1410,15 +1560,17 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon resource name (ARN) of the view or index
-    that you want to attach tags to.
+  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) of the view or
+  index that you want to attach tags to.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -1459,29 +1611,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec list_views(AWS.Client.t(), list_views_input(), Keyword.t()) ::
+
+  @spec list_views(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_views_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_views_errors()}
-  def list_views(%Client{} = client, input, options \\ []) do
+
+  def list_views(%Client{} = client, options \\ []) do
     url_path = "/ListViews"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1499,29 +1662,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec search(AWS.Client.t(), search_input(), Keyword.t()) ::
+
+  @spec search(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_errors()}
-  def search(%Client{} = client, input, options \\ []) do
+
+  def search(%Client{} = client, options \\ []) do
     url_path = "/Search"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1531,34 +1705,45 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the view or index
-    that you want to attach tags to.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the view or
+  index that you want to attach tags to.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1568,29 +1753,46 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the view or index
-    that you want to remove tags from.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the view or
+  index that you want to remove tags from.
   * `:tag_keys` (`t:list[smithy.api#String]`) A list of the keys for the tags that
-    you want to remove from the specified view or index.
+  you want to remove from the specified view or index.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1599,7 +1801,7 @@ defmodule AWS.ResourceExplorer2 do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1619,29 +1821,40 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec update_index_type(AWS.Client.t(), update_index_type_input(), Keyword.t()) ::
+
+  @spec update_index_type(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_index_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_index_type_errors()}
-  def update_index_type(%Client{} = client, input, options \\ []) do
+
+  def update_index_type(%Client{} = client, options \\ []) do
     url_path = "/UpdateIndexType"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1654,28 +1867,39 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Optional parameters:
   """
-  @spec update_view(AWS.Client.t(), update_view_input(), Keyword.t()) ::
+
+  @spec update_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_view_errors()}
-  def update_view(%Client{} = client, input, options \\ []) do
+
+  def update_view(%Client{} = client, options \\ []) do
     url_path = "/UpdateView"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

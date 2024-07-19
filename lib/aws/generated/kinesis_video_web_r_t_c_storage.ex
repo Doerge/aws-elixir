@@ -8,55 +8,55 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       client_limit_exceeded_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type client_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_argument_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type invalid_argument_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       join_storage_session_input() :: %{
         required("channelArn") => String.t()
       }
-
+      
   """
   @type join_storage_session_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
@@ -98,28 +98,39 @@ defmodule AWS.KinesisVideoWebRTCStorage do
 
   ## Optional parameters:
   """
-  @spec join_storage_session(AWS.Client.t(), join_storage_session_input(), Keyword.t()) ::
+
+  @spec join_storage_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, join_storage_session_errors()}
-  def join_storage_session(%Client{} = client, input, options \\ []) do
+
+  def join_storage_session(%Client{} = client, options \\ []) do
     url_path = "/joinStorageSession"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

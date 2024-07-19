@@ -2695,12 +2695,22 @@ defmodule AWS.EventBridge do
   @doc """
   Activates a partner event source that has been deactivated. Once activated, your
   matching event bus will start receiving events from the event source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ActivateEventSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:activate_event_source_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec activate_event_source(AWS.Client.t(), activate_event_source_request(), Keyword.t()) ::
+
+  @spec activate_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, activate_event_source_errors()}
-  def activate_event_source(%Client{} = client, input, options \\ []) do
+
+  def activate_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2709,12 +2719,22 @@ defmodule AWS.EventBridge do
 
   @doc """
   Cancels the specified replay.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20CancelReplay&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:cancel_replay_request`)
+    %{
+      required("ReplayName") => String.t()
+    }
   """
-  @spec cancel_replay(AWS.Client.t(), cancel_replay_request(), Keyword.t()) ::
+
+  @spec cancel_replay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, cancel_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_replay_errors()}
-  def cancel_replay(%Client{} = client, input, options \\ []) do
+
+  def cancel_replay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2725,12 +2745,27 @@ defmodule AWS.EventBridge do
   Creates an API destination, which is an HTTP invocation endpoint configured as a
   target for events. API destinations do not support private destinations, such
   as interface VPC endpoints.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20CreateApiDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_api_destination_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("InvocationRateLimitPerSecond") => integer(),
+      required("ConnectionArn") => String.t(),
+      required("HttpMethod") => list(any()),
+      required("InvocationEndpoint") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_api_destination(AWS.Client.t(), create_api_destination_request(), Keyword.t()) ::
+
+  @spec create_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_api_destination_errors()}
-  def create_api_destination(%Client{} = client, input, options \\ []) do
+
+  def create_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2744,12 +2779,26 @@ defmodule AWS.EventBridge do
   not specify a pattern to filter events sent to the archive, all events are
   sent to the archive except replayed events. Replayed events are not sent to an
   archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20CreateArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_archive_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("EventPattern") => String.t(),
+      optional("RetentionDays") => integer(),
+      required("ArchiveName") => String.t(),
+      required("EventSourceArn") => String.t()
+    }
   """
-  @spec create_archive(AWS.Client.t(), create_archive_request(), Keyword.t()) ::
+
+  @spec create_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_archive_errors()}
-  def create_archive(%Client{} = client, input, options \\ []) do
+
+  def create_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2759,12 +2808,25 @@ defmodule AWS.EventBridge do
   @doc """
   Creates a connection. A connection defines the authorization type and
   credentials to use for authorization with an API destination HTTP endpoint.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20CreateConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_connection_request`)
+    %{
+      optional("Description") => String.t(),
+      required("AuthParameters") => create_connection_auth_request_parameters(),
+      required("AuthorizationType") => list(any()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_connection(AWS.Client.t(), create_connection_request(), Keyword.t()) ::
+
+  @spec create_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_connection_errors()}
-  def create_connection(%Client{} = client, input, options \\ []) do
+
+  def create_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2779,12 +2841,27 @@ defmodule AWS.EventBridge do
   the secondary Region when an "unhealthy" state is encountered and events will
   be routed back to the primary Region when the health check reports a "healthy"
   state.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20CreateEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_endpoint_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("ReplicationConfig") => replication_config(),
+      optional("RoleArn") => String.t(),
+      required("EventBuses") => list(endpoint_event_bus()()),
+      required("Name") => String.t(),
+      required("RoutingConfig") => routing_config()
+    }
   """
-  @spec create_endpoint(AWS.Client.t(), create_endpoint_request(), Keyword.t()) ::
+
+  @spec create_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_endpoint_errors()}
-  def create_endpoint(%Client{} = client, input, options \\ []) do
+
+  def create_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2796,12 +2873,27 @@ defmodule AWS.EventBridge do
   which you can use to receive events from your custom applications and
   services, or it can be a partner event bus which can be matched to a partner
   event source.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20CreateEventBus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_event_bus_request`)
+    %{
+      optional("DeadLetterConfig") => dead_letter_config(),
+      optional("Description") => String.t(),
+      optional("EventSourceName") => String.t(),
+      optional("KmsKeyIdentifier") => String.t(),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec create_event_bus(AWS.Client.t(), create_event_bus_request(), Keyword.t()) ::
+
+  @spec create_event_bus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_event_bus_errors()}
-  def create_event_bus(%Client{} = client, input, options \\ []) do
+
+  def create_event_bus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2815,16 +2907,23 @@ defmodule AWS.EventBridge do
   in that Amazon Web Services account. A SaaS partner must create one partner
   event source for each Amazon Web Services account that wants to receive those
   event types.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20CreatePartnerEventSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_partner_event_source_request`)
+    %{
+      required("Account") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec create_partner_event_source(
-          AWS.Client.t(),
-          create_partner_event_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_partner_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_partner_event_source_errors()}
-  def create_partner_event_source(%Client{} = client, input, options \\ []) do
+
+  def create_partner_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2836,12 +2935,22 @@ defmodule AWS.EventBridge do
   specified partner event source. The matching event bus is not deleted. When
   you deactivate a partner event source, the source goes into PENDING state. If
   it remains in PENDING state for more than two weeks, it is deleted.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeactivateEventSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deactivate_event_source_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec deactivate_event_source(AWS.Client.t(), deactivate_event_source_request(), Keyword.t()) ::
+
+  @spec deactivate_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deactivate_event_source_errors()}
-  def deactivate_event_source(%Client{} = client, input, options \\ []) do
+
+  def deactivate_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2852,12 +2961,22 @@ defmodule AWS.EventBridge do
   Removes all authorization parameters from the connection. This lets you remove
   the secret from the connection so you can reuse it without having to create a
   new connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeauthorizeConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:deauthorize_connection_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec deauthorize_connection(AWS.Client.t(), deauthorize_connection_request(), Keyword.t()) ::
+
+  @spec deauthorize_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, deauthorize_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, deauthorize_connection_errors()}
-  def deauthorize_connection(%Client{} = client, input, options \\ []) do
+
+  def deauthorize_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2866,12 +2985,22 @@ defmodule AWS.EventBridge do
 
   @doc """
   Deletes the specified API destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeleteApiDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_api_destination_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_api_destination(AWS.Client.t(), delete_api_destination_request(), Keyword.t()) ::
+
+  @spec delete_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_api_destination_errors()}
-  def delete_api_destination(%Client{} = client, input, options \\ []) do
+
+  def delete_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2880,12 +3009,22 @@ defmodule AWS.EventBridge do
 
   @doc """
   Deletes the specified archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeleteArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_archive_request`)
+    %{
+      required("ArchiveName") => String.t()
+    }
   """
-  @spec delete_archive(AWS.Client.t(), delete_archive_request(), Keyword.t()) ::
+
+  @spec delete_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_archive_errors()}
-  def delete_archive(%Client{} = client, input, options \\ []) do
+
+  def delete_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2894,12 +3033,22 @@ defmodule AWS.EventBridge do
 
   @doc """
   Deletes a connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeleteConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_connection_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_connection(AWS.Client.t(), delete_connection_request(), Keyword.t()) ::
+
+  @spec delete_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_connection_errors()}
-  def delete_connection(%Client{} = client, input, options \\ []) do
+
+  def delete_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2912,12 +3061,22 @@ defmodule AWS.EventBridge do
   event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
   in the * *Amazon EventBridge User Guide* *.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeleteEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_endpoint_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_endpoint(AWS.Client.t(), delete_endpoint_request(), Keyword.t()) ::
+
+  @spec delete_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
-  def delete_endpoint(%Client{} = client, input, options \\ []) do
+
+  def delete_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2928,12 +3087,22 @@ defmodule AWS.EventBridge do
   Deletes the specified custom event bus or partner event bus. All rules
   associated with this event bus need to be deleted. You can't delete your
   account's default event bus.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeleteEventBus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_event_bus_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec delete_event_bus(AWS.Client.t(), delete_event_bus_request(), Keyword.t()) ::
+
+  @spec delete_event_bus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_bus_errors()}
-  def delete_event_bus(%Client{} = client, input, options \\ []) do
+
+  def delete_event_bus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2943,16 +3112,23 @@ defmodule AWS.EventBridge do
   @doc """
   This operation is used by SaaS partners to delete a partner event source. This
   operation is not used by Amazon Web Services customers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeletePartnerEventSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_partner_event_source_request`)
+    %{
+      required("Account") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec delete_partner_event_source(
-          AWS.Client.t(),
-          delete_partner_event_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_partner_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_partner_event_source_errors()}
-  def delete_partner_event_source(%Client{} = client, input, options \\ []) do
+
+  def delete_partner_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2963,12 +3139,24 @@ defmodule AWS.EventBridge do
   Deletes the specified rule. Before you can delete the rule, you must remove all
   targets, using
   [RemoveTargets](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DeleteRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_rule_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      optional("Force") => boolean(),
+      required("Name") => String.t()
+    }
   """
-  @spec delete_rule(AWS.Client.t(), delete_rule_request(), Keyword.t()) ::
+
+  @spec delete_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_rule_errors()}
-  def delete_rule(%Client{} = client, input, options \\ []) do
+
+  def delete_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2977,12 +3165,22 @@ defmodule AWS.EventBridge do
 
   @doc """
   Retrieves details about an API destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeApiDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_api_destination_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec describe_api_destination(AWS.Client.t(), describe_api_destination_request(), Keyword.t()) ::
+
+  @spec describe_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_api_destination_errors()}
-  def describe_api_destination(%Client{} = client, input, options \\ []) do
+
+  def describe_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2991,12 +3189,22 @@ defmodule AWS.EventBridge do
 
   @doc """
   Retrieves details about an archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_archive_request`)
+    %{
+      required("ArchiveName") => String.t()
+    }
   """
-  @spec describe_archive(AWS.Client.t(), describe_archive_request(), Keyword.t()) ::
+
+  @spec describe_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_archive_errors()}
-  def describe_archive(%Client{} = client, input, options \\ []) do
+
+  def describe_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3005,12 +3213,22 @@ defmodule AWS.EventBridge do
 
   @doc """
   Retrieves details about a connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_connection_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec describe_connection(AWS.Client.t(), describe_connection_request(), Keyword.t()) ::
+
+  @spec describe_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_connection_errors()}
-  def describe_connection(%Client{} = client, input, options \\ []) do
+
+  def describe_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3023,12 +3241,23 @@ defmodule AWS.EventBridge do
   global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
   in the * *Amazon EventBridge User Guide* *.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_endpoint_request`)
+    %{
+      optional("HomeRegion") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec describe_endpoint(AWS.Client.t(), describe_endpoint_request(), Keyword.t()) ::
+
+  @spec describe_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_endpoint_errors()}
-  def describe_endpoint(%Client{} = client, input, options \\ []) do
+
+  def describe_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3041,12 +3270,22 @@ defmodule AWS.EventBridge do
   your default event bus, and the associated policy. For custom event buses and
   partner event buses, it displays the name, ARN, policy, state, and creation
   time.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeEventBus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_bus_request`)
+    %{
+      optional("Name") => String.t()
+    }
   """
-  @spec describe_event_bus(AWS.Client.t(), describe_event_bus_request(), Keyword.t()) ::
+
+  @spec describe_event_bus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_bus_errors()}
-  def describe_event_bus(%Client{} = client, input, options \\ []) do
+
+  def describe_event_bus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3056,12 +3295,22 @@ defmodule AWS.EventBridge do
   @doc """
   This operation lists details about a partner event source that is shared with
   your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeEventSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_event_source_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec describe_event_source(AWS.Client.t(), describe_event_source_request(), Keyword.t()) ::
+
+  @spec describe_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_event_source_errors()}
-  def describe_event_source(%Client{} = client, input, options \\ []) do
+
+  def describe_event_source(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3074,16 +3323,23 @@ defmodule AWS.EventBridge do
   operation. Instead, Amazon Web Services customers can use
   [DescribeEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html)
   to see details about a partner event source that is shared with them.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribePartnerEventSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_partner_event_source_request`)
+    %{
+      required("Name") => String.t()
+    }
   """
-  @spec describe_partner_event_source(
-          AWS.Client.t(),
-          describe_partner_event_source_request(),
-          Keyword.t()
-        ) ::
+
+  @spec describe_partner_event_source(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_partner_event_source_errors()}
-  def describe_partner_event_source(%Client{} = client, input, options \\ []) do
+
+  def describe_partner_event_source(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3100,12 +3356,22 @@ defmodule AWS.EventBridge do
   `DescribeReplay` to determine the progress of a replay. The value returned for
   `EventLastReplayedTime` indicates the time within the specified time range
   associated with the last event replayed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeReplay&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_replay_request`)
+    %{
+      required("ReplayName") => String.t()
+    }
   """
-  @spec describe_replay(AWS.Client.t(), describe_replay_request(), Keyword.t()) ::
+
+  @spec describe_replay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_replay_errors()}
-  def describe_replay(%Client{} = client, input, options \\ []) do
+
+  def describe_replay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3114,12 +3380,23 @@ defmodule AWS.EventBridge do
 
   @doc """
   Describes the specified rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DescribeRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_rule_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec describe_rule(AWS.Client.t(), describe_rule_request(), Keyword.t()) ::
+
+  @spec describe_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_rule_errors()}
-  def describe_rule(%Client{} = client, input, options \\ []) do
+
+  def describe_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3129,12 +3406,23 @@ defmodule AWS.EventBridge do
   @doc """
   Disables the specified rule. A disabled rule won't match any events, and won't
   self-trigger if it has a schedule expression.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20DisableRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disable_rule_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec disable_rule(AWS.Client.t(), disable_rule_request(), Keyword.t()) ::
+
+  @spec disable_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disable_rule_errors()}
-  def disable_rule(%Client{} = client, input, options \\ []) do
+
+  def disable_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3143,12 +3431,23 @@ defmodule AWS.EventBridge do
 
   @doc """
   Enables the specified rule. If the rule does not exist, the operation fails.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20EnableRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:enable_rule_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec enable_rule(AWS.Client.t(), enable_rule_request(), Keyword.t()) ::
+
+  @spec enable_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, enable_rule_errors()}
-  def enable_rule(%Client{} = client, input, options \\ []) do
+
+  def enable_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3157,12 +3456,25 @@ defmodule AWS.EventBridge do
 
   @doc """
   Retrieves a list of API destination in the account in the current Region.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListApiDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_api_destinations_request`)
+    %{
+      optional("ConnectionArn") => String.t(),
+      optional("Limit") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_api_destinations(AWS.Client.t(), list_api_destinations_request(), Keyword.t()) ::
+
+  @spec list_api_destinations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_api_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_api_destinations_errors()}
-  def list_api_destinations(%Client{} = client, input, options \\ []) do
+
+  def list_api_destinations(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3172,12 +3484,26 @@ defmodule AWS.EventBridge do
   @doc """
   Lists your archives. You can either list all the archives or you can provide a
   prefix to match to the archive names. Filter parameters are exclusive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListArchives&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_archives_request`)
+    %{
+      optional("EventSourceArn") => String.t(),
+      optional("Limit") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("State") => list(any())
+    }
   """
-  @spec list_archives(AWS.Client.t(), list_archives_request(), Keyword.t()) ::
+
+  @spec list_archives(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_archives_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_archives_errors()}
-  def list_archives(%Client{} = client, input, options \\ []) do
+
+  def list_archives(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3186,12 +3512,25 @@ defmodule AWS.EventBridge do
 
   @doc """
   Retrieves a list of connections from the account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_connections_request`)
+    %{
+      optional("ConnectionState") => list(any()),
+      optional("Limit") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_connections(AWS.Client.t(), list_connections_request(), Keyword.t()) ::
+
+  @spec list_connections(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_connections_errors()}
-  def list_connections(%Client{} = client, input, options \\ []) do
+
+  def list_connections(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3204,12 +3543,25 @@ defmodule AWS.EventBridge do
   global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
   in the * *Amazon EventBridge User Guide* *.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_endpoints_request`)
+    %{
+      optional("HomeRegion") => String.t(),
+      optional("MaxResults") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_endpoints(AWS.Client.t(), list_endpoints_request(), Keyword.t()) ::
+
+  @spec list_endpoints(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_endpoints_errors()}
-  def list_endpoints(%Client{} = client, input, options \\ []) do
+
+  def list_endpoints(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3219,12 +3571,24 @@ defmodule AWS.EventBridge do
   @doc """
   Lists all the event buses in your account, including the default event bus,
   custom event buses, and partner event buses.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListEventBuses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_event_buses_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_event_buses(AWS.Client.t(), list_event_buses_request(), Keyword.t()) ::
+
+  @spec list_event_buses(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_buses_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_buses_errors()}
-  def list_event_buses(%Client{} = client, input, options \\ []) do
+
+  def list_event_buses(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3236,12 +3600,24 @@ defmodule AWS.EventBridge do
   your Amazon Web Services account. For more information about partner event
   sources, see
   [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListEventSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_event_sources_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_event_sources(AWS.Client.t(), list_event_sources_request(), Keyword.t()) ::
+
+  @spec list_event_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_event_sources_errors()}
-  def list_event_sources(%Client{} = client, input, options \\ []) do
+
+  def list_event_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3252,16 +3628,25 @@ defmodule AWS.EventBridge do
   An SaaS partner can use this operation to display the Amazon Web Services
   account ID that a particular partner event source name is associated with.
   This operation is not used by Amazon Web Services customers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListPartnerEventSourceAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_partner_event_source_accounts_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("EventSourceName") => String.t()
+    }
   """
-  @spec list_partner_event_source_accounts(
-          AWS.Client.t(),
-          list_partner_event_source_accounts_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_partner_event_source_accounts(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_partner_event_source_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_partner_event_source_accounts_errors()}
-  def list_partner_event_source_accounts(%Client{} = client, input, options \\ []) do
+
+  def list_partner_event_source_accounts(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -3272,16 +3657,24 @@ defmodule AWS.EventBridge do
   An SaaS partner can use this operation to list all the partner event source
   names that they have created. This operation is not used by Amazon Web
   Services customers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListPartnerEventSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_partner_event_sources_request`)
+    %{
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("NamePrefix") => String.t()
+    }
   """
-  @spec list_partner_event_sources(
-          AWS.Client.t(),
-          list_partner_event_sources_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_partner_event_sources(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_partner_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_partner_event_sources_errors()}
-  def list_partner_event_sources(%Client{} = client, input, options \\ []) do
+
+  def list_partner_event_sources(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3291,12 +3684,26 @@ defmodule AWS.EventBridge do
   @doc """
   Lists your replays. You can either list all the replays or you can provide a
   prefix to match to the replay names. Filter parameters are exclusive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListReplays&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_replays_request`)
+    %{
+      optional("EventSourceArn") => String.t(),
+      optional("Limit") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t(),
+      optional("State") => list(any())
+    }
   """
-  @spec list_replays(AWS.Client.t(), list_replays_request(), Keyword.t()) ::
+
+  @spec list_replays(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_replays_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_replays_errors()}
-  def list_replays(%Client{} = client, input, options \\ []) do
+
+  def list_replays(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3306,16 +3713,25 @@ defmodule AWS.EventBridge do
   @doc """
   Lists the rules for the specified target. You can see which of the rules in
   Amazon EventBridge can invoke a specific target in your account.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListRuleNamesByTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rule_names_by_target_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("TargetArn") => String.t()
+    }
   """
-  @spec list_rule_names_by_target(
-          AWS.Client.t(),
-          list_rule_names_by_target_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_rule_names_by_target(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rule_names_by_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rule_names_by_target_errors()}
-  def list_rule_names_by_target(%Client{} = client, input, options \\ []) do
+
+  def list_rule_names_by_target(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3326,12 +3742,25 @@ defmodule AWS.EventBridge do
   Lists your Amazon EventBridge rules. You can either list all the rules or you
   can provide a prefix to match to the rule names. The maximum number of results
   per page for requests is 100.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_rules_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      optional("Limit") => integer(),
+      optional("NamePrefix") => String.t(),
+      optional("NextToken") => String.t()
+    }
   """
-  @spec list_rules(AWS.Client.t(), list_rules_request(), Keyword.t()) ::
+
+  @spec list_rules(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_rules_errors()}
-  def list_rules(%Client{} = client, input, options \\ []) do
+
+  def list_rules(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3341,12 +3770,22 @@ defmodule AWS.EventBridge do
   @doc """
   Displays the tags associated with an EventBridge resource. In EventBridge, rules
   and event buses can be tagged.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_tags_for_resource_request`)
+    %{
+      required("ResourceARN") => String.t()
+    }
   """
-  @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
+
+  @spec list_tags_for_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3355,12 +3794,25 @@ defmodule AWS.EventBridge do
 
   @doc """
   Lists the targets assigned to the specified rule.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20ListTargetsByRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_targets_by_rule_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      optional("Limit") => integer(),
+      optional("NextToken") => String.t(),
+      required("Rule") => String.t()
+    }
   """
-  @spec list_targets_by_rule(AWS.Client.t(), list_targets_by_rule_request(), Keyword.t()) ::
+
+  @spec list_targets_by_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_targets_by_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_targets_by_rule_errors()}
-  def list_targets_by_rule(%Client{} = client, input, options \\ []) do
+
+  def list_targets_by_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3375,12 +3827,23 @@ defmodule AWS.EventBridge do
   event entry
   size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html)
   in the * *Amazon EventBridge User Guide* *
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20PutEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_events_request`)
+    %{
+      optional("EndpointId") => String.t(),
+      required("Entries") => list(put_events_request_entry()())
+    }
   """
-  @spec put_events(AWS.Client.t(), put_events_request(), Keyword.t()) ::
+
+  @spec put_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_errors()}
-  def put_events(%Client{} = client, input, options \\ []) do
+
+  def put_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3390,12 +3853,22 @@ defmodule AWS.EventBridge do
   @doc """
   This is used by SaaS partners to write events to a customer's partner event bus.
   Amazon Web Services customers do not use this operation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20PutPartnerEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_partner_events_request`)
+    %{
+      required("Entries") => list(put_partner_events_request_entry()())
+    }
   """
-  @spec put_partner_events(AWS.Client.t(), put_partner_events_request(), Keyword.t()) ::
+
+  @spec put_partner_events(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_partner_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_partner_events_errors()}
-  def put_partner_events(%Client{} = client, input, options \\ []) do
+
+  def put_partner_events(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3409,12 +3882,27 @@ defmodule AWS.EventBridge do
   these events arriving to an event bus in your account. For another account to
   send events to your account, that external account must have an EventBridge
   rule with your account's event bus as a target.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20PutPermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_permission_request`)
+    %{
+      optional("Action") => String.t(),
+      optional("Condition") => condition(),
+      optional("EventBusName") => String.t(),
+      optional("Policy") => String.t(),
+      optional("Principal") => String.t(),
+      optional("StatementId") => String.t()
+    }
   """
-  @spec put_permission(AWS.Client.t(), put_permission_request(), Keyword.t()) ::
+
+  @spec put_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_permission_errors()}
-  def put_permission(%Client{} = client, input, options \\ []) do
+
+  def put_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3436,12 +3924,29 @@ defmodule AWS.EventBridge do
   specify in this `PutRule` command. If you omit arguments in `PutRule`, the old
   values for those arguments are not kept. Instead, they are replaced with null
   values.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20PutRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_rule_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("EventBusName") => String.t(),
+      optional("EventPattern") => String.t(),
+      optional("RoleArn") => String.t(),
+      optional("ScheduleExpression") => String.t(),
+      optional("State") => list(any()),
+      optional("Tags") => list(tag()()),
+      required("Name") => String.t()
+    }
   """
-  @spec put_rule(AWS.Client.t(), put_rule_request(), Keyword.t()) ::
+
+  @spec put_rule(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_rule_errors()}
-  def put_rule(%Client{} = client, input, options \\ []) do
+
+  def put_rule(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3452,12 +3957,24 @@ defmodule AWS.EventBridge do
   Adds the specified targets to the specified rule, or updates the targets if they
   are already associated with the rule. Targets are the resources that are
   invoked when a rule is triggered.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20PutTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_targets_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      required("Rule") => String.t(),
+      required("Targets") => list(target()())
+    }
   """
-  @spec put_targets(AWS.Client.t(), put_targets_request(), Keyword.t()) ::
+
+  @spec put_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_targets_errors()}
-  def put_targets(%Client{} = client, input, options \\ []) do
+
+  def put_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3470,12 +3987,24 @@ defmodule AWS.EventBridge do
   `StatementId` value that you associated with the account when you granted it
   permission with `PutPermission`. You can find the `StatementId` by using
   [DescribeEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20RemovePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_permission_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      optional("RemoveAllPermissions") => boolean(),
+      optional("StatementId") => String.t()
+    }
   """
-  @spec remove_permission(AWS.Client.t(), remove_permission_request(), Keyword.t()) ::
+
+  @spec remove_permission(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_permission_errors()}
-  def remove_permission(%Client{} = client, input, options \\ []) do
+
+  def remove_permission(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3487,12 +4016,25 @@ defmodule AWS.EventBridge do
   triggered, those targets are no longer be invoked. A successful execution of
   `RemoveTargets` doesn't guarantee all targets are removed from the rule, it
   means that the target(s) listed in the request are removed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20RemoveTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:remove_targets_request`)
+    %{
+      optional("EventBusName") => String.t(),
+      optional("Force") => boolean(),
+      required("Ids") => list(String.t()()),
+      required("Rule") => String.t()
+    }
   """
-  @spec remove_targets(AWS.Client.t(), remove_targets_request(), Keyword.t()) ::
+
+  @spec remove_targets(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_targets_errors()}
-  def remove_targets(%Client{} = client, input, options \\ []) do
+
+  def remove_targets(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3509,12 +4051,27 @@ defmodule AWS.EventBridge do
   replayed. You can use `DescribeReplay` to determine the progress of a replay.
   The value returned for `EventLastReplayedTime` indicates the time within the
   specified time range associated with the last event replayed.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20StartReplay&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_replay_request`)
+    %{
+      optional("Description") => String.t(),
+      required("Destination") => replay_destination(),
+      required("EventEndTime") => non_neg_integer(),
+      required("EventSourceArn") => String.t(),
+      required("EventStartTime") => non_neg_integer(),
+      required("ReplayName") => String.t()
+    }
   """
-  @spec start_replay(AWS.Client.t(), start_replay_request(), Keyword.t()) ::
+
+  @spec start_replay(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_replay_errors()}
-  def start_replay(%Client{} = client, input, options \\ []) do
+
+  def start_replay(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3528,12 +4085,23 @@ defmodule AWS.EventBridge do
   access or change only resources with certain tag values. In EventBridge, rules
   and event buses can be tagged. Tags don't have any semantic meaning to Amazon
   Web Services and are interpreted strictly as strings of characters.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:tag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("Tags") => list(tag()())
+    }
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3542,12 +4110,23 @@ defmodule AWS.EventBridge do
 
   @doc """
   Tests whether the specified event pattern matches the provided event.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20TestEventPattern&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:test_event_pattern_request`)
+    %{
+      required("Event") => String.t(),
+      required("EventPattern") => String.t()
+    }
   """
-  @spec test_event_pattern(AWS.Client.t(), test_event_pattern_request(), Keyword.t()) ::
+
+  @spec test_event_pattern(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_event_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, test_event_pattern_errors()}
-  def test_event_pattern(%Client{} = client, input, options \\ []) do
+
+  def test_event_pattern(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3557,12 +4136,23 @@ defmodule AWS.EventBridge do
   @doc """
   Removes one or more tags from the specified EventBridge resource. In Amazon
   EventBridge (CloudWatch Events), rules and event buses can be tagged.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:untag_resource_request`)
+    %{
+      required("ResourceARN") => String.t(),
+      required("TagKeys") => list(String.t()())
+    }
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3571,12 +4161,27 @@ defmodule AWS.EventBridge do
 
   @doc """
   Updates an API destination.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20UpdateApiDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_api_destination_request`)
+    %{
+      optional("ConnectionArn") => String.t(),
+      optional("Description") => String.t(),
+      optional("HttpMethod") => list(any()),
+      optional("InvocationEndpoint") => String.t(),
+      optional("InvocationRateLimitPerSecond") => integer(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_api_destination(AWS.Client.t(), update_api_destination_request(), Keyword.t()) ::
+
+  @spec update_api_destination(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_api_destination_errors()}
-  def update_api_destination(%Client{} = client, input, options \\ []) do
+
+  def update_api_destination(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3585,12 +4190,25 @@ defmodule AWS.EventBridge do
 
   @doc """
   Updates the specified archive.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20UpdateArchive&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_archive_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("EventPattern") => String.t(),
+      optional("RetentionDays") => integer(),
+      required("ArchiveName") => String.t()
+    }
   """
-  @spec update_archive(AWS.Client.t(), update_archive_request(), Keyword.t()) ::
+
+  @spec update_archive(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_archive_errors()}
-  def update_archive(%Client{} = client, input, options \\ []) do
+
+  def update_archive(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3599,12 +4217,25 @@ defmodule AWS.EventBridge do
 
   @doc """
   Updates settings for a connection.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20UpdateConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_connection_request`)
+    %{
+      optional("AuthParameters") => update_connection_auth_request_parameters(),
+      optional("AuthorizationType") => list(any()),
+      optional("Description") => String.t(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_connection(AWS.Client.t(), update_connection_request(), Keyword.t()) ::
+
+  @spec update_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_connection_errors()}
-  def update_connection(%Client{} = client, input, options \\ []) do
+
+  def update_connection(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3616,12 +4247,27 @@ defmodule AWS.EventBridge do
   [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
   in the * *Amazon EventBridge User Guide* *.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20UpdateEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_endpoint_request`)
+    %{
+      optional("Description") => String.t(),
+      optional("EventBuses") => list(endpoint_event_bus()()),
+      optional("ReplicationConfig") => replication_config(),
+      optional("RoleArn") => String.t(),
+      optional("RoutingConfig") => routing_config(),
+      required("Name") => String.t()
+    }
   """
-  @spec update_endpoint(AWS.Client.t(), update_endpoint_request(), Keyword.t()) ::
+
+  @spec update_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_errors()}
-  def update_endpoint(%Client{} = client, input, options \\ []) do
+
+  def update_endpoint(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -3630,12 +4276,25 @@ defmodule AWS.EventBridge do
 
   @doc """
   Updates the specified event bus.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eventbridge%20UpdateEventBus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_event_bus_request`)
+    %{
+      optional("DeadLetterConfig") => dead_letter_config(),
+      optional("Description") => String.t(),
+      optional("KmsKeyIdentifier") => String.t(),
+      optional("Name") => String.t()
+    }
   """
-  @spec update_event_bus(AWS.Client.t(), update_event_bus_request(), Keyword.t()) ::
+
+  @spec update_event_bus(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_event_bus_errors()}
-  def update_event_bus(%Client{} = client, input, options \\ []) do
+
+  def update_event_bus(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

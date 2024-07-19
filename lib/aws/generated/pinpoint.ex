@@ -12,7 +12,7 @@ defmodule AWS.Pinpoint do
   @typedoc """
 
   ## Example:
-
+      
       campaign_response() :: %{
         "AdditionalTreatments" => list(treatment_resource()()),
         "ApplicationId" => String.t(),
@@ -40,23 +40,23 @@ defmodule AWS.Pinpoint do
         "Version" => integer(),
         "tags" => map()
       }
-
+      
   """
   @type campaign_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_journey_request() :: %{}
-
+      
   """
   @type delete_journey_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_response() :: %{
         "Activities" => map(),
         "ApplicationId" => String.t(),
@@ -81,14 +81,14 @@ defmodule AWS.Pinpoint do
         "WaitForQuietTime" => boolean(),
         "tags" => map()
       }
-
+      
   """
   @type journey_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       treatment_resource() :: %{
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
         "Id" => String.t(),
@@ -100,107 +100,107 @@ defmodule AWS.Pinpoint do
         "TreatmentDescription" => String.t(),
         "TreatmentName" => String.t()
       }
-
+      
   """
   @type treatment_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_endpoints_response() :: %{
         "EndpointsResponse" => endpoints_response()
       }
-
+      
   """
   @type delete_user_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_o_t_p_message_request() :: %{
         required("VerifyOTPMessageRequestParameters") => verify_o_t_p_message_request_parameters()
       }
-
+      
   """
   @type verify_o_t_p_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_activities_response() :: %{
         "ActivitiesResponse" => activities_response()
       }
-
+      
   """
   @type get_campaign_activities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       wait_time() :: %{
         "WaitFor" => String.t(),
         "WaitUntil" => String.t()
       }
-
+      
   """
   @type wait_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_import_job_response() :: %{
         "ImportJobResponse" => import_job_response()
       }
-
+      
   """
   @type create_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_active_version_request() :: %{
         required("TemplateActiveVersionRequest") => template_active_version_request()
       }
-
+      
   """
   @type update_template_active_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_o_t_p_message_request_parameters() :: %{
         "DestinationIdentity" => String.t(),
         "Otp" => String.t(),
         "ReferenceId" => String.t()
       }
-
+      
   """
   @type verify_o_t_p_message_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_campaign_schedule() :: %{
         "EndDate" => String.t(),
         "EventFilter" => campaign_event_filter(),
         "QuietTime" => quiet_time()
       }
-
+      
   """
   @type in_app_campaign_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_date_range_kpi_response() :: %{
         "ApplicationId" => String.t(),
         "EndTime" => non_neg_integer(),
@@ -209,37 +209,37 @@ defmodule AWS.Pinpoint do
         "NextToken" => String.t(),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type application_date_range_kpi_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_channels_request() :: %{}
-
+      
   """
   @type get_channels_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_date_range_kpi_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t(),
         optional("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_application_date_range_kpi_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_limits() :: %{
         "Daily" => integer(),
         "MaximumDuration" => integer(),
@@ -247,25 +247,25 @@ defmodule AWS.Pinpoint do
         "Session" => integer(),
         "Total" => integer()
       }
-
+      
   """
   @type campaign_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_state() :: %{
         "CampaignStatus" => list(any())
       }
-
+      
   """
   @type campaign_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_configuration() :: %{
         "ADMMessage" => message(),
         "APNSMessage" => message(),
@@ -277,69 +277,69 @@ defmodule AWS.Pinpoint do
         "InAppMessage" => campaign_in_app_message(),
         "SMSMessage" => campaign_sms_message()
       }
-
+      
   """
   @type message_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_push_template_response() :: %{
         "CreateTemplateMessageBody" => create_template_message_body()
       }
-
+      
   """
   @type create_push_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_voip_sandbox_channel_response() :: %{
         "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
       }
-
+      
   """
   @type get_apns_voip_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_campaign_response() :: %{
         "CampaignResponse" => campaign_response()
       }
-
+      
   """
   @type update_campaign_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("TagsModel") => tags_model()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoints_response() :: %{
         "Item" => list(endpoint_response()())
       }
-
+      
   """
   @type endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       push_notification_template_response() :: %{
         "ADM" => android_push_notification_template(),
         "APNS" => a_p_n_s_push_notification_template(),
@@ -357,59 +357,59 @@ defmodule AWS.Pinpoint do
         "Version" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type push_notification_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_import_job_request() :: %{
         required("ImportJobRequest") => import_job_request()
       }
-
+      
   """
   @type create_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_push_template_response() :: %{
         "PushNotificationTemplateResponse" => push_notification_template_response()
       }
-
+      
   """
   @type get_push_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_versions_response() :: %{
         "CampaignsResponse" => campaigns_response()
       }
-
+      
   """
   @type get_campaign_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apps_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_apps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       baidu_message() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -426,14 +426,14 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type baidu_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -445,77 +445,77 @@ defmodule AWS.Pinpoint do
         "LastModifiedDate" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_version_request() :: %{}
-
+      
   """
   @type get_campaign_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_request() :: %{}
-
+      
   """
   @type get_journey_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_request() :: %{}
-
+      
   """
   @type get_campaign_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       recency_dimension() :: %{
         "Duration" => list(any()),
         "RecencyType" => list(any())
       }
-
+      
   """
   @type recency_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_template_request() :: %{
         required("VoiceTemplateRequest") => voice_template_request()
       }
-
+      
   """
   @type create_voice_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simple_condition() :: %{
         "EventCondition" => event_condition(),
         "SegmentCondition" => segment_condition(),
         "SegmentDimensions" => segment_dimensions()
       }
-
+      
   """
   @type simple_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_template_request() :: %{
         "DefaultSubstitutions" => String.t(),
         "Headers" => list(message_header()()),
@@ -526,140 +526,140 @@ defmodule AWS.Pinpoint do
         "TextPart" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_condition() :: %{
         "Dimensions" => event_dimensions(),
         "MessageActivity" => String.t()
       }
-
+      
   """
   @type event_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_push_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_push_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verification_response() :: %{
         "Valid" => boolean()
       }
-
+      
   """
   @type verification_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_request() :: %{
         required("CreateApplicationRequest") => create_application_request()
       }
-
+      
   """
   @type create_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_jobs_response() :: %{
         "Item" => list(export_job_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_response() :: %{
         "ApplicationResponse" => application_response()
       }
-
+      
   """
   @type delete_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conditional_split_activity() :: %{
         "Condition" => condition(),
         "EvaluationWaitTime" => wait_time(),
         "FalseActivity" => String.t(),
         "TrueActivity" => String.t()
       }
-
+      
   """
   @type conditional_split_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_hook() :: %{
         "LambdaFunctionName" => String.t(),
         "Mode" => list(any()),
         "WebUrl" => String.t()
       }
-
+      
   """
   @type campaign_hook() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_sandbox_channel_request() :: %{}
-
+      
   """
   @type delete_apns_sandbox_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_email_channel_response() :: %{
         "EmailChannelResponse" => email_channel_response()
       }
-
+      
   """
   @type get_email_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_endpoint_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_channel_request() :: %{
         "BundleId" => String.t(),
         "Certificate" => String.t(),
@@ -670,51 +670,51 @@ defmodule AWS.Pinpoint do
         "TokenKey" => String.t(),
         "TokenKeyId" => String.t()
       }
-
+      
   """
   @type a_p_n_s_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       open_hours_rule() :: %{
         "EndTime" => String.t(),
         "StartTime" => String.t()
       }
-
+      
   """
   @type open_hours_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaigns_response() :: %{
         "Item" => list(campaign_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type campaigns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_email_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
         optional("Version") => String.t(),
         required("EmailTemplateRequest") => email_template_request()
       }
-
+      
   """
   @type update_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       push_notification_template_request() :: %{
         "ADM" => android_push_notification_template(),
         "APNS" => a_p_n_s_push_notification_template(),
@@ -726,61 +726,61 @@ defmodule AWS.Pinpoint do
         "TemplateDescription" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type push_notification_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_in_app_template_response() :: %{
         "TemplateCreateMessageBody" => template_create_message_body()
       }
-
+      
   """
   @type create_in_app_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       result_row_value() :: %{
         "Key" => String.t(),
         "Type" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type result_row_value() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_custom_message() :: %{
         "Data" => String.t()
       }
-
+      
   """
   @type journey_custom_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       number_validate_request() :: %{
         "IsoCountryCode" => String.t(),
         "PhoneNumber" => String.t()
       }
-
+      
   """
   @type number_validate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_batch_item() :: %{
         "Address" => String.t(),
         "Attributes" => map(),
@@ -795,167 +795,167 @@ defmodule AWS.Pinpoint do
         "RequestId" => String.t(),
         "User" => endpoint_user()
       }
-
+      
   """
   @type endpoint_batch_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_email_channel_response() :: %{
         "EmailChannelResponse" => email_channel_response()
       }
-
+      
   """
   @type update_email_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       base_kpi_result() :: %{
         "Rows" => list(result_row()())
       }
-
+      
   """
   @type base_kpi_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_baidu_channel_response() :: %{
         "BaiduChannelResponse" => baidu_channel_response()
       }
-
+      
   """
   @type delete_baidu_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_journey_state_request() :: %{
         required("JourneyStateRequest") => journey_state_request()
       }
-
+      
   """
   @type update_journey_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_batch_request() :: %{
         "Item" => list(endpoint_batch_item()())
       }
-
+      
   """
   @type endpoint_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       g_p_s_point_dimension() :: %{
         "Coordinates" => g_p_s_coordinates(),
         "RangeInKilometers" => float()
       }
-
+      
   """
   @type g_p_s_point_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       quiet_time() :: %{
         "End" => String.t(),
         "Start" => String.t()
       }
-
+      
   """
   @type quiet_time() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sms_channel_request() :: %{
         required("SMSChannelRequest") => sms_channel_request()
       }
-
+      
   """
   @type update_sms_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t(),
         optional("Prefix") => String.t(),
         optional("TemplateType") => String.t()
       }
-
+      
   """
   @type list_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       random_split_entry() :: %{
         "NextActivity" => String.t(),
         "Percentage" => integer()
       }
-
+      
   """
   @type random_split_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_event_filter() :: %{
         "Dimensions" => event_dimensions(),
         "FilterType" => list(any())
       }
-
+      
   """
   @type campaign_event_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_event_stream_request() :: %{
         required("WriteEventStream") => write_event_stream()
       }
-
+      
   """
   @type put_event_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       push_message_activity() :: %{
         "MessageConfig" => journey_push_message(),
         "NextActivity" => String.t(),
         "TemplateName" => String.t(),
         "TemplateVersion" => String.t()
       }
-
+      
   """
   @type push_message_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_message() :: %{
         "Body" => String.t(),
         "LanguageCode" => String.t(),
@@ -963,75 +963,75 @@ defmodule AWS.Pinpoint do
         "Substitutions" => map(),
         "VoiceId" => String.t()
       }
-
+      
   """
   @type voice_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_version_request() :: %{}
-
+      
   """
   @type get_segment_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_in_app_messages_request() :: %{}
-
+      
   """
   @type get_in_app_messages_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_request() :: %{}
-
+      
   """
   @type get_segment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_channel_response() :: %{
         "VoiceChannelResponse" => voice_channel_response()
       }
-
+      
   """
   @type get_voice_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_versions_response() :: %{
         "SegmentsResponse" => segments_response()
       }
-
+      
   """
   @type get_segment_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_users_message_request() :: %{
         "Context" => map(),
         "MessageConfiguration" => direct_message_configuration(),
@@ -1039,62 +1039,62 @@ defmodule AWS.Pinpoint do
         "TraceId" => String.t(),
         "Users" => map()
       }
-
+      
   """
   @type send_users_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_item_response() :: %{
         "Message" => String.t(),
         "StatusCode" => integer()
       }
-
+      
   """
   @type event_item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_message_header_config() :: %{
         "Alignment" => list(any()),
         "Header" => String.t(),
         "TextColor" => String.t()
       }
-
+      
   """
   @type in_app_message_header_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_start_condition() :: %{
         "EventFilter" => event_filter(),
         "SegmentId" => String.t()
       }
-
+      
   """
   @type event_start_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_email_channel_request() :: %{
         required("EmailChannelRequest") => email_channel_request()
       }
-
+      
   """
   @type update_email_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_date_range_kpi_response() :: %{
         "ApplicationId" => String.t(),
         "CampaignId" => String.t(),
@@ -1104,50 +1104,50 @@ defmodule AWS.Pinpoint do
         "NextToken" => String.t(),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type campaign_date_range_kpi_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_create_message_body() :: %{
         "Arn" => String.t(),
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type template_create_message_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       events_batch() :: %{
         "Endpoint" => public_endpoint(),
         "Events" => map()
       }
-
+      
   """
   @type events_batch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_export_job_response() :: %{
         "ExportJobResponse" => export_job_response()
       }
-
+      
   """
   @type create_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_voip_channel_request() :: %{
         "BundleId" => String.t(),
         "Certificate" => String.t(),
@@ -1158,68 +1158,68 @@ defmodule AWS.Pinpoint do
         "TokenKey" => String.t(),
         "TokenKeyId" => String.t()
       }
-
+      
   """
   @type a_p_n_s_voip_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       method_not_allowed_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type method_not_allowed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_channels_response() :: %{
         "ChannelsResponse" => channels_response()
       }
-
+      
   """
   @type get_channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gcm_channel_request() :: %{
         required("GCMChannelRequest") => g_cm_channel_request()
       }
-
+      
   """
   @type update_gcm_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sms_channel_request() :: %{}
-
+      
   """
   @type get_sms_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_export_jobs_response() :: %{
         "ExportJobsResponse" => export_jobs_response()
       }
-
+      
   """
   @type get_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_o_t_p_message_request_parameters() :: %{
         "AllowedAttempts" => integer(),
         "BrandName" => String.t(),
@@ -1233,25 +1233,25 @@ defmodule AWS.Pinpoint do
         "TemplateId" => String.t(),
         "ValidityPeriod" => integer()
       }
-
+      
   """
   @type send_o_t_p_message_request_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_sandbox_channel_response() :: %{
         "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
       }
-
+      
   """
   @type delete_apns_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_run_execution_activity_metrics_response() :: %{
         "ActivityType" => String.t(),
         "ApplicationId" => String.t(),
@@ -1261,119 +1261,119 @@ defmodule AWS.Pinpoint do
         "Metrics" => map(),
         "RunId" => String.t()
       }
-
+      
   """
   @type journey_run_execution_activity_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_sandbox_channel_request() :: %{
         required("APNSSandboxChannelRequest") => a_p_n_s_sandbox_channel_request()
       }
-
+      
   """
   @type update_apns_sandbox_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_gcm_channel_response() :: %{
         "GCMChannelResponse" => g_cm_channel_response()
       }
-
+      
   """
   @type delete_gcm_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       templates_response() :: %{
         "Item" => list(template_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sms_channel_response() :: %{
         "SMSChannelResponse" => sms_channel_response()
       }
-
+      
   """
   @type update_sms_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attributes_resource() :: %{
         "ApplicationId" => String.t(),
         "AttributeType" => String.t(),
         "Attributes" => list(String.t()())
       }
-
+      
   """
   @type attributes_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_recommender_configuration_response() :: %{
         "RecommenderConfigurationResponse" => recommender_configuration_response()
       }
-
+      
   """
   @type delete_recommender_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_channel_request() :: %{
         required("VoiceChannelRequest") => voice_channel_request()
       }
-
+      
   """
   @type update_voice_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_in_app_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
         optional("Version") => String.t(),
         required("InAppTemplateRequest") => in_app_template_request()
       }
-
+      
   """
   @type update_in_app_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_body() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type message_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       write_journey_request() :: %{
         "Activities" => map(),
         "ClosedDays" => closed_days(),
@@ -1395,36 +1395,36 @@ defmodule AWS.Pinpoint do
         "TimezoneEstimationMethods" => list(list(any())()),
         "WaitForQuietTime" => boolean()
       }
-
+      
   """
   @type write_journey_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       raw_email() :: %{
         "Data" => binary()
       }
-
+      
   """
   @type raw_email() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_voip_channel_response() :: %{
         "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
       }
-
+      
   """
   @type get_apns_voip_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activity_response() :: %{
         "ApplicationId" => String.t(),
         "CampaignId" => String.t(),
@@ -1441,36 +1441,36 @@ defmodule AWS.Pinpoint do
         "TotalEndpointCount" => integer(),
         "TreatmentId" => String.t()
       }
-
+      
   """
   @type activity_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_in_app_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type delete_in_app_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_channel_response() :: %{
         "APNSChannelResponse" => a_p_n_s_channel_response()
       }
-
+      
   """
   @type update_apns_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       open_hours() :: %{
         "CUSTOM" => map(),
         "EMAIL" => map(),
@@ -1478,32 +1478,32 @@ defmodule AWS.Pinpoint do
         "SMS" => map(),
         "VOICE" => map()
       }
-
+      
   """
   @type open_hours() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_baidu_channel_request() :: %{}
-
+      
   """
   @type get_baidu_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_campaign_request() :: %{}
-
+      
   """
   @type delete_campaign_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sms_message() :: %{
         "Body" => String.t(),
         "EntityId" => String.t(),
@@ -1515,28 +1515,28 @@ defmodule AWS.Pinpoint do
         "Substitutions" => map(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type sms_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sms_message_activity() :: %{
         "MessageConfig" => journey_sms_message(),
         "NextActivity" => String.t(),
         "TemplateName" => String.t(),
         "TemplateVersion" => String.t()
       }
-
+      
   """
   @type sms_message_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_response() :: %{
         "Arn" => String.t(),
         "CreationDate" => String.t(),
@@ -1548,25 +1548,25 @@ defmodule AWS.Pinpoint do
         "Version" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_endpoint_request() :: %{
         required("EndpointRequest") => endpoint_request()
       }
-
+      
   """
   @type update_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_send_configuration() :: %{
         "BodyOverride" => String.t(),
         "Context" => map(),
@@ -1574,48 +1574,48 @@ defmodule AWS.Pinpoint do
         "Substitutions" => map(),
         "TitleOverride" => String.t()
       }
-
+      
   """
   @type endpoint_send_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_events_response() :: %{
         "EventsResponse" => events_response()
       }
-
+      
   """
   @type put_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journeys_response() :: %{
         "Item" => list(journey_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type journeys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       events_request() :: %{
         "BatchItem" => map()
       }
-
+      
   """
   @type events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_result() :: %{
         "DeliveryStatus" => list(any()),
         "MessageId" => String.t(),
@@ -1623,70 +1623,70 @@ defmodule AWS.Pinpoint do
         "StatusMessage" => String.t(),
         "UpdatedToken" => String.t()
       }
-
+      
   """
   @type message_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_execution_metrics_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t()
       }
-
+      
   """
   @type get_journey_execution_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_import_jobs_response() :: %{
         "ImportJobsResponse" => import_jobs_response()
       }
-
+      
   """
   @type get_import_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_voice_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_voip_channel_response() :: %{
         "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
       }
-
+      
   """
   @type update_apns_voip_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_settings_resource() :: %{
         "ApplicationId" => String.t(),
         "CampaignHook" => campaign_hook(),
@@ -1695,25 +1695,25 @@ defmodule AWS.Pinpoint do
         "Limits" => campaign_limits(),
         "QuietTime" => quiet_time()
       }
-
+      
   """
   @type application_settings_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_recommender_configuration_response() :: %{
         "RecommenderConfigurationResponse" => recommender_configuration_response()
       }
-
+      
   """
   @type create_recommender_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_version_response() :: %{
         "CreationDate" => String.t(),
         "DefaultSubstitutions" => String.t(),
@@ -1723,114 +1723,114 @@ defmodule AWS.Pinpoint do
         "TemplateType" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type template_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_requests_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type too_many_requests_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_push_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type get_push_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_voip_sandbox_channel_request() :: %{
         required("APNSVoipSandboxChannelRequest") => a_p_n_s_voip_sandbox_channel_request()
       }
-
+      
   """
   @type update_apns_voip_sandbox_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_validate_response() :: %{
         "NumberValidateResponse" => number_validate_response()
       }
-
+      
   """
   @type phone_number_validate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       holdout_activity() :: %{
         "NextActivity" => String.t(),
         "Percentage" => integer()
       }
-
+      
   """
   @type holdout_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sms_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_sms_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_email_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type delete_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_reference() :: %{
         "Id" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type segment_reference() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommender_configuration_request() :: %{}
-
+      
   """
   @type get_recommender_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       ad_m_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -1843,91 +1843,91 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type ad_m_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_baidu_channel_request() :: %{
         required("BaiduChannelRequest") => baidu_channel_request()
       }
-
+      
   """
   @type update_baidu_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_email_channel_request() :: %{}
-
+      
   """
   @type delete_email_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sms_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type get_sms_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type delete_voice_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_center_activity() :: %{
         optional("NextActivity") => String.t()
       }
-
+      
   """
   @type contact_center_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_push_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type delete_push_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       baidu_channel_request() :: %{
         "ApiKey" => String.t(),
         "Enabled" => boolean(),
         "SecretKey" => String.t()
       }
-
+      
   """
   @type baidu_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_job_resource() :: %{
         "DefineSegment" => boolean(),
         "ExternalId" => String.t(),
@@ -1938,47 +1938,47 @@ defmodule AWS.Pinpoint do
         "SegmentId" => String.t(),
         "SegmentName" => String.t()
       }
-
+      
   """
   @type import_job_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_condition() :: %{
         "SegmentId" => String.t()
       }
-
+      
   """
   @type segment_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_gcm_channel_response() :: %{
         "GCMChannelResponse" => g_cm_channel_response()
       }
-
+      
   """
   @type update_gcm_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_email_template_request() :: %{
         required("EmailTemplateRequest") => email_template_request()
       }
-
+      
   """
   @type create_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_job_response() :: %{
         "ApplicationId" => String.t(),
         "CompletedPieces" => integer(),
@@ -1994,36 +1994,36 @@ defmodule AWS.Pinpoint do
         "TotalProcessed" => integer(),
         "Type" => String.t()
       }
-
+      
   """
   @type import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_segment_request() :: %{
         required("WriteSegmentRequest") => write_segment_request()
       }
-
+      
   """
   @type update_segment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_template_active_version_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_template_active_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       address_configuration() :: %{
         "BodyOverride" => String.t(),
         "ChannelType" => list(any()),
@@ -2032,14 +2032,14 @@ defmodule AWS.Pinpoint do
         "Substitutions" => map(),
         "TitleOverride" => String.t()
       }
-
+      
   """
   @type address_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_channel_response() :: %{
         "ApplicationId" => String.t(),
         "ConfigurationSet" => String.t(),
@@ -2058,71 +2058,71 @@ defmodule AWS.Pinpoint do
         "RoleArn" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type email_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       result_row() :: %{
         "GroupedBys" => list(result_row_value()()),
         "Values" => list(result_row_value()())
       }
-
+      
   """
   @type result_row() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_delivery_configuration() :: %{
         "DeliveryUri" => String.t(),
         "EndpointTypes" => list(list(any())())
       }
-
+      
   """
   @type custom_delivery_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_baidu_channel_response() :: %{
         "BaiduChannelResponse" => baidu_channel_response()
       }
-
+      
   """
   @type update_baidu_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       phone_number_validate_request() :: %{
         required("NumberValidateRequest") => number_validate_request()
       }
-
+      
   """
   @type phone_number_validate_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_segment_response() :: %{
         "SegmentResponse" => segment_response()
       }
-
+      
   """
   @type create_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       g_cm_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -2138,45 +2138,45 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type g_cm_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_settings_response() :: %{
         "ApplicationSettingsResource" => application_settings_resource()
       }
-
+      
   """
   @type get_application_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_journey_state_response() :: %{
         "JourneyResponse" => journey_response()
       }
-
+      
   """
   @type update_journey_state_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_app_request() :: %{}
-
+      
   """
   @type get_app_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       default_push_notification_template() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -2184,71 +2184,71 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type default_push_notification_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_messages_request() :: %{
         required("MessageRequest") => message_request()
       }
-
+      
   """
   @type send_messages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       closed_days_rule() :: %{
         "EndDateTime" => String.t(),
         "Name" => String.t(),
         "StartDateTime" => String.t()
       }
-
+      
   """
   @type closed_days_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommender_configuration_response() :: %{
         "RecommenderConfigurationResponse" => recommender_configuration_response()
       }
-
+      
   """
   @type get_recommender_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_journey_request() :: %{
         required("WriteJourneyRequest") => write_journey_request()
       }
-
+      
   """
   @type update_journey_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_date_range_kpi_response() :: %{
         "ApplicationDateRangeKpiResponse" => application_date_range_kpi_response()
       }
-
+      
   """
   @type get_application_date_range_kpi_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_sms_message() :: %{
         "Body" => String.t(),
         "EntityId" => String.t(),
@@ -2257,14 +2257,14 @@ defmodule AWS.Pinpoint do
         "SenderId" => String.t(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type campaign_sms_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -2279,25 +2279,25 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type a_p_n_s_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_push_template_request() :: %{
         required("PushNotificationTemplateRequest") => push_notification_template_request()
       }
-
+      
   """
   @type create_push_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_voip_sandbox_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -2312,59 +2312,59 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type a_p_n_s_voip_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_o_t_p_message_request() :: %{
         required("SendOTPMessageRequestParameters") => send_o_t_p_message_request_parameters()
       }
-
+      
   """
   @type send_o_t_p_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_execution_metrics_response() :: %{
         "ApplicationId" => String.t(),
         "JourneyId" => String.t(),
         "LastEvaluatedTime" => String.t(),
         "Metrics" => map()
       }
-
+      
   """
   @type journey_execution_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_attributes_request() :: %{
         "Blacklist" => list(String.t()())
       }
-
+      
   """
   @type update_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_channel_request() :: %{}
-
+      
   """
   @type get_voice_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_recommender_configuration_shape() :: %{
         "Attributes" => map(),
         "Description" => String.t(),
@@ -2376,38 +2376,38 @@ defmodule AWS.Pinpoint do
         "RecommendationsDisplayName" => String.t(),
         "RecommendationsPerMessage" => integer()
       }
-
+      
   """
   @type update_recommender_configuration_shape() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_settings_journey_limits() :: %{
         "DailyCap" => integer(),
         "TimeframeCap" => journey_timeframe_cap(),
         "TotalCap" => integer()
       }
-
+      
   """
   @type application_settings_journey_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type delete_voice_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       baidu_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -2421,101 +2421,101 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type baidu_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_gcm_channel_request() :: %{}
-
+      
   """
   @type delete_gcm_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       write_segment_request() :: %{
         "Dimensions" => segment_dimensions(),
         "Name" => String.t(),
         "SegmentGroups" => segment_group_list(),
         "tags" => map()
       }
-
+      
   """
   @type write_segment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_voip_sandbox_channel_request() :: %{}
-
+      
   """
   @type delete_apns_voip_sandbox_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_export_job_request() :: %{}
-
+      
   """
   @type get_export_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_in_app_template_response() :: %{
         "InAppTemplateResponse" => in_app_template_response()
       }
-
+      
   """
   @type get_in_app_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_header() :: %{
         "Name" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type message_header() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_campaign_response() :: %{
         "CampaignResponse" => campaign_response()
       }
-
+      
   """
   @type delete_campaign_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_job_request() :: %{
         "DefineSegment" => boolean(),
         "ExternalId" => String.t(),
@@ -2526,25 +2526,25 @@ defmodule AWS.Pinpoint do
         "SegmentId" => String.t(),
         "SegmentName" => String.t()
       }
-
+      
   """
   @type import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_endpoint_response() :: %{
         "EndpointResponse" => endpoint_response()
       }
-
+      
   """
   @type get_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activity() :: %{
         "CUSTOM" => custom_message_activity(),
         "ConditionalSplit" => conditional_split_activity(),
@@ -2558,14 +2558,14 @@ defmodule AWS.Pinpoint do
         "SMS" => sms_message_activity(),
         "Wait" => wait_activity()
       }
-
+      
   """
   @type activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_run_execution_metrics_response() :: %{
         "ApplicationId" => String.t(),
         "JourneyId" => String.t(),
@@ -2573,25 +2573,25 @@ defmodule AWS.Pinpoint do
         "Metrics" => map(),
         "RunId" => String.t()
       }
-
+      
   """
   @type journey_run_execution_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_channel_request() :: %{
         "Enabled" => boolean()
       }
-
+      
   """
   @type voice_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_push_notification_template() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -2601,112 +2601,112 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type a_p_n_s_push_notification_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_channel_request() :: %{}
-
+      
   """
   @type get_apns_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apps_response() :: %{
         "ApplicationsResponse" => applications_response()
       }
-
+      
   """
   @type get_apps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_o_t_p_message_response() :: %{
         "MessageResponse" => message_response()
       }
-
+      
   """
   @type send_o_t_p_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_voip_sandbox_channel_response() :: %{
         "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
       }
-
+      
   """
   @type delete_apns_voip_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_export_job_response() :: %{
         "ExportJobResponse" => export_job_response()
       }
-
+      
   """
   @type get_export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       payload_too_large_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type payload_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_endpoint_response() :: %{
         "EndpointResponse" => endpoint_response()
       }
-
+      
   """
   @type delete_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_voip_channel_request() :: %{}
-
+      
   """
   @type delete_apns_voip_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
         optional("Version") => String.t(),
         required("VoiceTemplateRequest") => voice_template_request()
       }
-
+      
   """
   @type update_voice_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_message_result() :: %{
         "Address" => String.t(),
         "DeliveryStatus" => list(any()),
@@ -2715,37 +2715,37 @@ defmodule AWS.Pinpoint do
         "StatusMessage" => String.t(),
         "UpdatedToken" => String.t()
       }
-
+      
   """
   @type endpoint_message_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       write_event_stream() :: %{
         "DestinationStreamArn" => String.t(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type write_event_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_events_request() :: %{
         required("EventsRequest") => events_request()
       }
-
+      
   """
   @type put_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_dimensions() :: %{
         "Attributes" => map(),
         "Behavior" => segment_behaviors(),
@@ -2754,23 +2754,23 @@ defmodule AWS.Pinpoint do
         "Metrics" => map(),
         "UserAttributes" => map()
       }
-
+      
   """
   @type segment_dimensions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_voip_sandbox_channel_request() :: %{}
-
+      
   """
   @type get_apns_voip_sandbox_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -2783,25 +2783,25 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type voice_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_export_jobs_response() :: %{
         "ExportJobsResponse" => export_jobs_response()
       }
-
+      
   """
   @type get_segment_export_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_message() :: %{
         "APNSPushType" => String.t(),
         "Action" => list(any()),
@@ -2822,34 +2822,34 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type a_p_n_s_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_active_version_request() :: %{
         "Version" => String.t()
       }
-
+      
   """
   @type template_active_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_import_job_request() :: %{}
-
+      
   """
   @type get_import_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_message_content() :: %{
         "BackgroundColor" => String.t(),
         "BodyConfig" => in_app_message_body_config(),
@@ -2858,84 +2858,84 @@ defmodule AWS.Pinpoint do
         "PrimaryBtn" => in_app_message_button(),
         "SecondaryBtn" => in_app_message_button()
       }
-
+      
   """
   @type in_app_message_content() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_versions_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t()
       }
-
+      
   """
   @type list_template_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_response() :: %{
         "ApplicationId" => String.t(),
         "EndpointResult" => map(),
         "RequestId" => String.t(),
         "Result" => map()
       }
-
+      
   """
   @type message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_response() :: %{
         "JourneyResponse" => journey_response()
       }
-
+      
   """
   @type get_journey_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_voip_channel_request() :: %{}
-
+      
   """
   @type get_apns_voip_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_schedule() :: %{
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
         "Timezone" => String.t()
       }
-
+      
   """
   @type journey_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_email_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type delete_email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_job_response() :: %{
         "ApplicationId" => String.t(),
         "CompletedPieces" => integer(),
@@ -2951,26 +2951,26 @@ defmodule AWS.Pinpoint do
         "TotalProcessed" => integer(),
         "Type" => String.t()
       }
-
+      
   """
   @type export_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       applications_response() :: %{
         "Item" => list(application_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type applications_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sms_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -2987,524 +2987,524 @@ defmodule AWS.Pinpoint do
         "TransactionalMessagesPerSecond" => integer(),
         "Version" => integer()
       }
-
+      
   """
   @type sms_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_journey_response() :: %{
         "JourneyResponse" => journey_response()
       }
-
+      
   """
   @type update_journey_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_message_body_config() :: %{
         "Alignment" => list(any()),
         "Body" => String.t(),
         "TextColor" => String.t()
       }
-
+      
   """
   @type in_app_message_body_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_push_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
         optional("Version") => String.t(),
         required("PushNotificationTemplateRequest") => push_notification_template_request()
       }
-
+      
   """
   @type update_push_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_user_endpoints_request() :: %{}
-
+      
   """
   @type get_user_endpoints_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_version_response() :: %{
         "CampaignResponse" => campaign_response()
       }
-
+      
   """
   @type get_campaign_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_activities_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_campaign_activities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_import_jobs_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_template_versions_response() :: %{
         "TemplateVersionsResponse" => template_versions_response()
       }
-
+      
   """
   @type list_template_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_push_message() :: %{
         "TimeToLive" => String.t()
       }
-
+      
   """
   @type journey_push_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segments_response() :: %{
         "SegmentsResponse" => segments_response()
       }
-
+      
   """
   @type get_segments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_event_stream_response() :: %{
         "EventStream" => event_stream()
       }
-
+      
   """
   @type get_event_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_event_stream_response() :: %{
         "EventStream" => event_stream()
       }
-
+      
   """
   @type put_event_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_date_range_kpi_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t(),
         optional("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_campaign_date_range_kpi_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_voip_channel_response() :: %{
         "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
       }
-
+      
   """
   @type delete_apns_voip_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_import_jobs_response() :: %{
         "ImportJobsResponse" => import_jobs_response()
       }
-
+      
   """
   @type get_segment_import_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_endpoints_batch_request() :: %{
         required("EndpointBatchRequest") => endpoint_batch_request()
       }
-
+      
   """
   @type update_endpoints_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_versions_response() :: %{
         "Item" => list(template_version_response()()),
         "Message" => String.t(),
         "NextToken" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type template_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_baidu_channel_request() :: %{}
-
+      
   """
   @type delete_baidu_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sms_channel_response() :: %{
         "SMSChannelResponse" => sms_channel_response()
       }
-
+      
   """
   @type get_sms_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_channel_response() :: %{
         "VoiceChannelResponse" => voice_channel_response()
       }
-
+      
   """
   @type delete_voice_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "TagsModel" => tags_model()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_email_channel_response() :: %{
         "EmailChannelResponse" => email_channel_response()
       }
-
+      
   """
   @type delete_email_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_application_request() :: %{
         "Name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type create_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_adm_channel_response() :: %{
         "ADMChannelResponse" => ad_m_channel_response()
       }
-
+      
   """
   @type update_adm_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_user_endpoints_response() :: %{
         "EndpointsResponse" => endpoints_response()
       }
-
+      
   """
   @type get_user_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_run_execution_metrics_response() :: %{
         "JourneyRunExecutionMetricsResponse" => journey_run_execution_metrics_response()
       }
-
+      
   """
   @type get_journey_run_execution_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_message() :: %{
         "Content" => list(in_app_message_content()()),
         "CustomConfig" => map(),
         "Layout" => list(any())
       }
-
+      
   """
   @type in_app_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_location() :: %{
         "Country" => set_dimension(),
         "GPSPoint" => g_p_s_point_dimension()
       }
-
+      
   """
   @type segment_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_attributes_request() :: %{
         required("UpdateAttributesRequest") => update_attributes_request()
       }
-
+      
   """
   @type remove_attributes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_date_range_kpi_response() :: %{
         "CampaignDateRangeKpiResponse" => campaign_date_range_kpi_response()
       }
-
+      
   """
   @type get_campaign_date_range_kpi_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_endpoints_batch_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_endpoints_batch_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_execution_metrics_response() :: %{
         "JourneyExecutionMetricsResponse" => journey_execution_metrics_response()
       }
-
+      
   """
   @type get_journey_execution_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_adm_channel_response() :: %{
         "ADMChannelResponse" => ad_m_channel_response()
       }
-
+      
   """
   @type get_adm_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simple_email_part() :: %{
         "Charset" => String.t(),
         "Data" => String.t()
       }
-
+      
   """
   @type simple_email_part() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       import_jobs_response() :: %{
         "Item" => list(import_job_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type import_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       condition() :: %{
         "Conditions" => list(simple_condition()()),
         "Operator" => list(any())
       }
-
+      
   """
   @type condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_run_response() :: %{
         "CreationTime" => String.t(),
         "LastUpdateTime" => String.t(),
         "RunId" => String.t(),
         "Status" => list(any())
       }
-
+      
   """
   @type journey_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_runs_response() :: %{
         "JourneyRunsResponse" => journey_runs_response()
       }
-
+      
   """
   @type get_journey_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_in_app_message() :: %{
         "Body" => String.t(),
         "Content" => list(in_app_message_content()()),
         "CustomConfig" => map(),
         "Layout" => list(any())
       }
-
+      
   """
   @type campaign_in_app_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_response() :: %{
         "SegmentResponse" => segment_response()
       }
-
+      
   """
   @type get_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       session() :: %{
         "Duration" => integer(),
         "Id" => String.t(),
         "StartTimestamp" => String.t(),
         "StopTimestamp" => String.t()
       }
-
+      
   """
   @type session() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_filter() :: %{
         "Dimensions" => event_dimensions(),
         "FilterType" => list(any())
       }
-
+      
   """
   @type event_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_segment_request() :: %{
         required("WriteSegmentRequest") => write_segment_request()
       }
-
+      
   """
   @type create_segment_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_location() :: %{
         "City" => String.t(),
         "Country" => String.t(),
@@ -3513,14 +3513,14 @@ defmodule AWS.Pinpoint do
         "PostalCode" => String.t(),
         "Region" => String.t()
       }
-
+      
   """
   @type endpoint_location() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_execution_activity_metrics_response() :: %{
         "ActivityType" => String.t(),
         "ApplicationId" => String.t(),
@@ -3529,14 +3529,14 @@ defmodule AWS.Pinpoint do
         "LastEvaluatedTime" => String.t(),
         "Metrics" => map()
       }
-
+      
   """
   @type journey_execution_activity_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       direct_message_configuration() :: %{
         "ADMMessage" => ad_m_message(),
         "APNSMessage" => a_p_n_s_message(),
@@ -3548,88 +3548,88 @@ defmodule AWS.Pinpoint do
         "SMSMessage" => sms_message(),
         "VoiceMessage" => voice_message()
       }
-
+      
   """
   @type direct_message_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_recommender_configurations_response() :: %{
         "Item" => list(recommender_configuration_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_recommender_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       metric_dimension() :: %{
         "ComparisonOperator" => String.t(),
         "Value" => float()
       }
-
+      
   """
   @type metric_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_channel_response() :: %{
         "APNSChannelResponse" => a_p_n_s_channel_response()
       }
-
+      
   """
   @type get_apns_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_timeframe_cap() :: %{
         "Cap" => integer(),
         "Days" => integer()
       }
-
+      
   """
   @type journey_timeframe_cap() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_dimensions() :: %{
         "Attributes" => map(),
         "EventType" => set_dimension(),
         "Metrics" => map()
       }
-
+      
   """
   @type event_dimensions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       g_cm_channel_request() :: %{
         "ApiKey" => String.t(),
         "DefaultAuthenticationMethod" => String.t(),
         "Enabled" => boolean(),
         "ServiceJson" => String.t()
       }
-
+      
   """
   @type g_cm_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_template_request() :: %{
         "Body" => String.t(),
         "DefaultSubstitutions" => String.t(),
@@ -3638,14 +3638,14 @@ defmodule AWS.Pinpoint do
         "VoiceId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type voice_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_message() :: %{
         "Body" => String.t(),
         "FeedbackForwardingAddress" => String.t(),
@@ -3655,47 +3655,47 @@ defmodule AWS.Pinpoint do
         "SimpleEmail" => simple_email(),
         "Substitutions" => map()
       }
-
+      
   """
   @type email_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_segment_response() :: %{
         "SegmentResponse" => segment_response()
       }
-
+      
   """
   @type delete_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sms_template_response() :: %{
         "CreateTemplateMessageBody" => create_template_message_body()
       }
-
+      
   """
   @type create_sms_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_export_job_request() :: %{
         required("ExportJobRequest") => export_job_request()
       }
-
+      
   """
   @type create_export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_import_resource() :: %{
         "ChannelCounts" => map(),
         "ExternalId" => String.t(),
@@ -3704,65 +3704,65 @@ defmodule AWS.Pinpoint do
         "S3Url" => String.t(),
         "Size" => integer()
       }
-
+      
   """
   @type segment_import_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_adm_channel_request() :: %{}
-
+      
   """
   @type delete_adm_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_recommender_configuration_request() :: %{}
-
+      
   """
   @type delete_recommender_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_voip_sandbox_channel_response() :: %{
         "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
       }
-
+      
   """
   @type update_apns_voip_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_email_message() :: %{
         "FromAddress" => String.t()
       }
-
+      
   """
   @type journey_email_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_channel_response() :: %{
         "APNSChannelResponse" => a_p_n_s_channel_response()
       }
-
+      
   """
   @type delete_apns_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_sandbox_channel_request() :: %{
         "BundleId" => String.t(),
         "Certificate" => String.t(),
@@ -3773,28 +3773,28 @@ defmodule AWS.Pinpoint do
         "TokenKey" => String.t(),
         "TokenKeyId" => String.t()
       }
-
+      
   """
   @type a_p_n_s_sandbox_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_group() :: %{
         "Dimensions" => list(segment_dimensions()()),
         "SourceSegments" => list(segment_reference()()),
         "SourceType" => list(any()),
         "Type" => list(any())
       }
-
+      
   """
   @type segment_group() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_sms_message() :: %{
         "EntityId" => String.t(),
         "MessageType" => list(any()),
@@ -3802,71 +3802,71 @@ defmodule AWS.Pinpoint do
         "SenderId" => String.t(),
         "TemplateId" => String.t()
       }
-
+      
   """
   @type journey_sms_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       g_p_s_coordinates() :: %{
         "Latitude" => float(),
         "Longitude" => float()
       }
-
+      
   """
   @type g_p_s_coordinates() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_app_response() :: %{
         "ApplicationResponse" => application_response()
       }
-
+      
   """
   @type get_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_message_activity() :: %{
         "MessageConfig" => journey_email_message(),
         "NextActivity" => String.t(),
         "TemplateName" => String.t(),
         "TemplateVersion" => String.t()
       }
-
+      
   """
   @type email_message_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_event_stream_request() :: %{}
-
+      
   """
   @type get_event_stream_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommender_configurations_response() :: %{
         "ListRecommenderConfigurationsResponse" => list_recommender_configurations_response()
       }
-
+      
   """
   @type get_recommender_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       schedule() :: %{
         "EndTime" => String.t(),
         "EventFilter" => campaign_event_filter(),
@@ -3876,25 +3876,25 @@ defmodule AWS.Pinpoint do
         "StartTime" => String.t(),
         "Timezone" => String.t()
       }
-
+      
   """
   @type schedule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_push_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type delete_push_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_voip_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -3909,35 +3909,35 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type a_p_n_s_voip_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_user_endpoints_request() :: %{}
-
+      
   """
   @type delete_user_endpoints_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_journeys_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type list_journeys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_template_response() :: %{
         "Arn" => String.t(),
         "CreationDate" => String.t(),
@@ -3954,39 +3954,39 @@ defmodule AWS.Pinpoint do
         "Version" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_sms_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
         optional("Version") => String.t(),
         required("SMSTemplateRequest") => sms_template_request()
       }
-
+      
   """
   @type update_sms_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_execution_activity_metrics_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t()
       }
-
+      
   """
   @type get_journey_execution_activity_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event() :: %{
         "AppPackageName" => String.t(),
         "AppTitle" => String.t(),
@@ -3999,14 +3999,14 @@ defmodule AWS.Pinpoint do
         "Session" => session(),
         "Timestamp" => String.t()
       }
-
+      
   """
   @type event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_sandbox_channel_response() :: %{
         "ApplicationId" => String.t(),
         "CreationDate" => String.t(),
@@ -4021,90 +4021,90 @@ defmodule AWS.Pinpoint do
         "Platform" => String.t(),
         "Version" => integer()
       }
-
+      
   """
   @type a_p_n_s_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       activities_response() :: %{
         "Item" => list(activity_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type activities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_app_request() :: %{}
-
+      
   """
   @type delete_app_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       send_messages_response() :: %{
         "MessageResponse" => message_response()
       }
-
+      
   """
   @type send_messages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_messages_response() :: %{
         "InAppMessageCampaigns" => list(in_app_message_campaign()())
       }
-
+      
   """
   @type in_app_messages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_endpoint_request() :: %{}
-
+      
   """
   @type delete_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_template_response() :: %{
         "VoiceTemplateResponse" => voice_template_response()
       }
-
+      
   """
   @type get_voice_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_template_message_body() :: %{
         "Arn" => String.t(),
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type create_template_message_body() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       voice_template_response() :: %{
         "Arn" => String.t(),
         "Body" => String.t(),
@@ -4119,81 +4119,81 @@ defmodule AWS.Pinpoint do
         "VoiceId" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type voice_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_adm_channel_request() :: %{}
-
+      
   """
   @type get_adm_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_sandbox_channel_response() :: %{
         "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
       }
-
+      
   """
   @type update_apns_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_import_job_response() :: %{
         "ImportJobResponse" => import_job_response()
       }
-
+      
   """
   @type get_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_run_execution_activity_metrics_response() :: %{
         "JourneyRunExecutionActivityMetricsResponse" => journey_run_execution_activity_metrics_response()
       }
-
+      
   """
   @type get_journey_run_execution_activity_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_users_messages_request() :: %{
         required("SendUsersMessageRequest") => send_users_message_request()
       }
-
+      
   """
   @type send_users_messages_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_job_request() :: %{
         "RoleArn" => String.t(),
         "S3UrlPrefix" => String.t(),
         "SegmentId" => String.t(),
         "SegmentVersion" => integer()
       }
-
+      
   """
   @type export_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       write_campaign_request() :: %{
         "AdditionalTreatments" => list(write_treatment_resource()()),
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
@@ -4213,36 +4213,36 @@ defmodule AWS.Pinpoint do
         "TreatmentName" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type write_campaign_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_baidu_channel_response() :: %{
         "BaiduChannelResponse" => baidu_channel_response()
       }
-
+      
   """
   @type get_baidu_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_custom_message() :: %{
         "Data" => String.t()
       }
-
+      
   """
   @type campaign_custom_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       email_channel_request() :: %{
         "ConfigurationSet" => String.t(),
         "Enabled" => boolean(),
@@ -4251,36 +4251,36 @@ defmodule AWS.Pinpoint do
         "OrchestrationSendingRoleArn" => String.t(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type email_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_campaign_request() :: %{
         required("WriteCampaignRequest") => write_campaign_request()
       }
-
+      
   """
   @type create_campaign_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       events_response() :: %{
         "Results" => map()
       }
-
+      
   """
   @type events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_button_configuration() :: %{
         "BackgroundColor" => String.t(),
         "BorderRadius" => integer(),
@@ -4289,26 +4289,26 @@ defmodule AWS.Pinpoint do
         "Text" => String.t(),
         "TextColor" => String.t()
       }
-
+      
   """
   @type default_button_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_runs_response() :: %{
         "Item" => list(journey_run_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type journey_runs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sms_template_response() :: %{
         "Arn" => String.t(),
         "Body" => String.t(),
@@ -4322,26 +4322,26 @@ defmodule AWS.Pinpoint do
         "Version" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type sms_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segments_response() :: %{
         "Item" => list(segment_response()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type segments_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       closed_days() :: %{
         "CUSTOM" => list(closed_days_rule()()),
         "EMAIL" => list(closed_days_rule()()),
@@ -4349,104 +4349,104 @@ defmodule AWS.Pinpoint do
         "SMS" => list(closed_days_rule()()),
         "VOICE" => list(closed_days_rule()())
       }
-
+      
   """
   @type closed_days() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_event_stream_response() :: %{
         "EventStream" => event_stream()
       }
-
+      
   """
   @type delete_event_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sms_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type delete_sms_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_versions_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_segment_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       channels_response() :: %{
         "Channels" => map()
       }
-
+      
   """
   @type channels_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_recommender_configurations_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_recommender_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_date_range_kpi_response() :: %{
         "JourneyDateRangeKpiResponse" => journey_date_range_kpi_response()
       }
-
+      
   """
   @type get_journey_date_range_kpi_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_journey_request() :: %{
         required("WriteJourneyRequest") => write_journey_request()
       }
-
+      
   """
   @type create_journey_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_sms_template_response() :: %{
         "SMSTemplateResponse" => sms_template_response()
       }
-
+      
   """
   @type get_sms_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_demographics() :: %{
         "AppVersion" => set_dimension(),
         "Channel" => set_dimension(),
@@ -4455,14 +4455,14 @@ defmodule AWS.Pinpoint do
         "Model" => set_dimension(),
         "Platform" => set_dimension()
       }
-
+      
   """
   @type segment_demographics() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       application_response() :: %{
         "Arn" => String.t(),
         "CreationDate" => String.t(),
@@ -4470,82 +4470,82 @@ defmodule AWS.Pinpoint do
         "Name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type application_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_voice_channel_response() :: %{
         "VoiceChannelResponse" => voice_channel_response()
       }
-
+      
   """
   @type update_voice_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_users_messages_response() :: %{
         "SendUsersMessageResponse" => send_users_message_response()
       }
-
+      
   """
   @type send_users_messages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_templates_response() :: %{
         "TemplatesResponse" => templates_response()
       }
-
+      
   """
   @type list_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_message() :: %{
         "Body" => String.t(),
         "Substitutions" => map()
       }
-
+      
   """
   @type default_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       remove_attributes_response() :: %{
         "AttributesResource" => attributes_resource()
       }
-
+      
   """
   @type remove_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_export_jobs_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       campaign_email_message() :: %{
         "Body" => String.t(),
         "FromAddress" => String.t(),
@@ -4553,58 +4553,58 @@ defmodule AWS.Pinpoint do
         "HtmlBody" => String.t(),
         "Title" => String.t()
       }
-
+      
   """
   @type campaign_email_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ad_m_channel_request() :: %{
         "ClientId" => String.t(),
         "ClientSecret" => String.t(),
         "Enabled" => boolean()
       }
-
+      
   """
   @type ad_m_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_voip_channel_request() :: %{
         required("APNSVoipChannelRequest") => a_p_n_s_voip_channel_request()
       }
-
+      
   """
   @type update_apns_voip_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_sms_template_request() :: %{
         required("SMSTemplateRequest") => sms_template_request()
       }
-
+      
   """
   @type create_sms_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       sms_template_request() :: %{
         "Body" => String.t(),
         "DefaultSubstitutions" => String.t(),
@@ -4612,25 +4612,25 @@ defmodule AWS.Pinpoint do
         "TemplateDescription" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type sms_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_behaviors() :: %{
         "Recency" => recency_dimension()
       }
-
+      
   """
   @type segment_behaviors() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       a_p_n_s_voip_sandbox_channel_request() :: %{
         "BundleId" => String.t(),
         "Certificate" => String.t(),
@@ -4641,25 +4641,25 @@ defmodule AWS.Pinpoint do
         "TokenKey" => String.t(),
         "TokenKeyId" => String.t()
       }
-
+      
   """
   @type a_p_n_s_voip_sandbox_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_voice_template_response() :: %{
         "CreateTemplateMessageBody" => create_template_message_body()
       }
-
+      
   """
   @type create_voice_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template_configuration() :: %{
         "EmailTemplate" => template(),
         "InAppTemplate" => template(),
@@ -4667,83 +4667,83 @@ defmodule AWS.Pinpoint do
         "SMSTemplate" => template(),
         "VoiceTemplate" => template()
       }
-
+      
   """
   @type template_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_application_settings_request() :: %{}
-
+      
   """
   @type get_application_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_recommender_configuration_request() :: %{
         required("CreateRecommenderConfiguration") => create_recommender_configuration_shape()
       }
-
+      
   """
   @type create_recommender_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       item_response() :: %{
         "EndpointItemResponse" => endpoint_item_response(),
         "EventsItemResponse" => map()
       }
-
+      
   """
   @type item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_error_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type internal_server_error_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       override_button_configuration() :: %{
         "ButtonAction" => list(any()),
         "Link" => String.t()
       }
-
+      
   """
   @type override_button_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_condition() :: %{
         "Description" => String.t(),
         "EventStartCondition" => event_start_condition(),
         "SegmentStartCondition" => segment_condition()
       }
-
+      
   """
   @type start_condition() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_demographic() :: %{
         "AppVersion" => String.t(),
         "Locale" => String.t(),
@@ -4754,26 +4754,26 @@ defmodule AWS.Pinpoint do
         "PlatformVersion" => String.t(),
         "Timezone" => String.t()
       }
-
+      
   """
   @type endpoint_demographic() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_export_jobs_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_segment_export_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message_request() :: %{
         "Addresses" => map(),
         "Context" => map(),
@@ -4782,14 +4782,14 @@ defmodule AWS.Pinpoint do
         "TemplateConfiguration" => template_configuration(),
         "TraceId" => String.t()
       }
-
+      
   """
   @type message_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_request() :: %{
         "Address" => String.t(),
         "Attributes" => map(),
@@ -4803,37 +4803,37 @@ defmodule AWS.Pinpoint do
         "RequestId" => String.t(),
         "User" => endpoint_user()
       }
-
+      
   """
   @type endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_response() :: %{
         "CampaignResponse" => campaign_response()
       }
-
+      
   """
   @type get_campaign_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attribute_dimension() :: %{
         "AttributeType" => list(any()),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type attribute_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       event_stream() :: %{
         "ApplicationId" => String.t(),
         "DestinationStreamArn" => String.t(),
@@ -4842,82 +4842,82 @@ defmodule AWS.Pinpoint do
         "LastUpdatedBy" => String.t(),
         "RoleArn" => String.t()
       }
-
+      
   """
   @type event_stream() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_apns_channel_request() :: %{}
-
+      
   """
   @type delete_apns_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       sms_channel_request() :: %{
         "Enabled" => boolean(),
         "SenderId" => String.t(),
         "ShortCode" => String.t()
       }
-
+      
   """
   @type sms_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaign_versions_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_campaign_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_recommender_configuration_response() :: %{
         "RecommenderConfigurationResponse" => recommender_configuration_response()
       }
-
+      
   """
   @type update_recommender_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       set_dimension() :: %{
         "DimensionType" => list(any()),
         "Values" => list(String.t()())
       }
-
+      
   """
   @type set_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_adm_channel_request() :: %{
         required("ADMChannelRequest") => ad_m_channel_request()
       }
-
+      
   """
   @type update_adm_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       write_treatment_resource() :: %{
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
         "MessageConfiguration" => message_configuration(),
@@ -4927,97 +4927,97 @@ defmodule AWS.Pinpoint do
         "TreatmentDescription" => String.t(),
         "TreatmentName" => String.t()
       }
-
+      
   """
   @type write_treatment_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_segment_response() :: %{
         "SegmentResponse" => segment_response()
       }
-
+      
   """
   @type update_segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_runs_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_journey_runs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       simple_email() :: %{
         "Headers" => list(message_header()()),
         "HtmlPart" => simple_email_part(),
         "Subject" => simple_email_part(),
         "TextPart" => simple_email_part()
       }
-
+      
   """
   @type simple_email() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaigns_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_campaigns_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_voice_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type get_voice_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_settings_request() :: %{
         required("WriteApplicationSettingsRequest") => write_application_settings_request()
       }
-
+      
   """
   @type update_application_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_import_jobs_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_segment_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_response() :: %{
         "Address" => String.t(),
         "ApplicationId" => String.t(),
@@ -5035,36 +5035,36 @@ defmodule AWS.Pinpoint do
         "RequestId" => String.t(),
         "User" => endpoint_user()
       }
-
+      
   """
   @type endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_conditional_split_activity() :: %{
         "Branches" => list(multi_conditional_branch()()),
         "DefaultActivity" => String.t(),
         "EvaluationWaitTime" => wait_time()
       }
-
+      
   """
   @type multi_conditional_split_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_voice_channel_request() :: %{}
-
+      
   """
   @type delete_voice_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_limits() :: %{
         "DailyCap" => integer(),
         "EndpointReentryCap" => integer(),
@@ -5073,23 +5073,23 @@ defmodule AWS.Pinpoint do
         "TimeframeCap" => journey_timeframe_cap(),
         "TotalCap" => integer()
       }
-
+      
   """
   @type journey_limits() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_segment_request() :: %{}
-
+      
   """
   @type delete_segment_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       write_application_settings_request() :: %{
         "CampaignHook" => campaign_hook(),
         "CloudWatchMetricsEnabled" => boolean(),
@@ -5098,25 +5098,25 @@ defmodule AWS.Pinpoint do
         "Limits" => campaign_limits(),
         "QuietTime" => quiet_time()
       }
-
+      
   """
   @type write_application_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_in_app_messages_response() :: %{
         "InAppMessagesResponse" => in_app_messages_response()
       }
-
+      
   """
   @type get_in_app_messages_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       default_push_notification_message() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -5126,48 +5126,48 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type default_push_notification_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segment_version_response() :: %{
         "SegmentResponse" => segment_response()
       }
-
+      
   """
   @type get_segment_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Message" => String.t(),
         "RequestID" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tags_model() :: %{
         "tags" => map()
       }
-
+      
   """
   @type tags_model() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_response() :: %{
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
@@ -5182,47 +5182,47 @@ defmodule AWS.Pinpoint do
         "Version" => integer(),
         "tags" => map()
       }
-
+      
   """
   @type segment_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_email_template_response() :: %{
         "EmailTemplateResponse" => email_template_response()
       }
-
+      
   """
   @type get_email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_campaigns_response() :: %{
         "CampaignsResponse" => campaigns_response()
       }
-
+      
   """
   @type get_campaigns_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_o_t_p_message_response() :: %{
         "VerificationResponse" => verification_response()
       }
-
+      
   """
   @type verify_o_t_p_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_message_campaign() :: %{
         "CampaignId" => String.t(),
         "DailyCap" => integer(),
@@ -5233,14 +5233,14 @@ defmodule AWS.Pinpoint do
         "TotalCap" => integer(),
         "TreatmentId" => String.t()
       }
-
+      
   """
   @type in_app_message_campaign() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_recommender_configuration_shape() :: %{
         "Attributes" => map(),
         "Description" => String.t(),
@@ -5252,58 +5252,58 @@ defmodule AWS.Pinpoint do
         "RecommendationsDisplayName" => String.t(),
         "RecommendationsPerMessage" => integer()
       }
-
+      
   """
   @type create_recommender_configuration_shape() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_email_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type get_email_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_campaign_request() :: %{
         required("WriteCampaignRequest") => write_campaign_request()
       }
-
+      
   """
   @type update_campaign_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_state_request() :: %{
         "State" => list(any())
       }
-
+      
   """
   @type journey_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_email_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       android_push_notification_template() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -5315,219 +5315,219 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type android_push_notification_template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       export_job_resource() :: %{
         "RoleArn" => String.t(),
         "S3UrlPrefix" => String.t(),
         "SegmentId" => String.t(),
         "SegmentVersion" => integer()
       }
-
+      
   """
   @type export_job_resource() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       template() :: %{
         "Name" => String.t(),
         "Version" => String.t()
       }
-
+      
   """
   @type template() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_journey_response() :: %{
         "JourneyResponse" => journey_response()
       }
-
+      
   """
   @type delete_journey_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       multi_conditional_branch() :: %{
         "Condition" => simple_condition(),
         "NextActivity" => String.t()
       }
-
+      
   """
   @type multi_conditional_branch() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_event_stream_request() :: %{}
-
+      
   """
   @type delete_event_stream_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_application_settings_response() :: %{
         "ApplicationSettingsResource" => application_settings_resource()
       }
-
+      
   """
   @type update_application_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_in_app_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type get_in_app_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_adm_channel_response() :: %{
         "ADMChannelResponse" => ad_m_channel_response()
       }
-
+      
   """
   @type delete_adm_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_in_app_template_response() :: %{
         "MessageBody" => message_body()
       }
-
+      
   """
   @type update_in_app_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_sandbox_channel_request() :: %{}
-
+      
   """
   @type get_apns_sandbox_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_journey_response() :: %{
         "JourneyResponse" => journey_response()
       }
-
+      
   """
   @type create_journey_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       send_users_message_response() :: %{
         "ApplicationId" => String.t(),
         "RequestId" => String.t(),
         "Result" => map()
       }
-
+      
   """
   @type send_users_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_date_range_kpi_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t(),
         optional("StartTime") => non_neg_integer()
       }
-
+      
   """
   @type get_journey_date_range_kpi_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_app_response() :: %{
         "ApplicationResponse" => application_response()
       }
-
+      
   """
   @type create_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_apns_sandbox_channel_response() :: %{
         "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
       }
-
+      
   """
   @type get_apns_sandbox_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       random_split_activity() :: %{
         "Branches" => list(random_split_entry()())
       }
-
+      
   """
   @type random_split_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_execution_activity_metrics_response() :: %{
         "JourneyExecutionActivityMetricsResponse" => journey_execution_activity_metrics_response()
       }
-
+      
   """
   @type get_journey_execution_activity_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       segment_group_list() :: %{
         "Groups" => list(segment_group()()),
         "Include" => list(any())
       }
-
+      
   """
   @type segment_group_list() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_template_request() :: %{
         "Content" => list(in_app_message_content()()),
         "CustomConfig" => map(),
@@ -5535,55 +5535,55 @@ defmodule AWS.Pinpoint do
         "TemplateDescription" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type in_app_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_campaign_response() :: %{
         "CampaignResponse" => campaign_response()
       }
-
+      
   """
   @type create_campaign_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_endpoint_request() :: %{}
-
+      
   """
   @type get_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_email_channel_request() :: %{}
-
+      
   """
   @type get_email_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_channel_settings() :: %{
         "ConnectCampaignArn" => String.t(),
         "ConnectCampaignExecutionRoleArn" => String.t()
       }
-
+      
   """
   @type journey_channel_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       number_validate_response() :: %{
         "Carrier" => String.t(),
         "City" => String.t(),
@@ -5600,25 +5600,25 @@ defmodule AWS.Pinpoint do
         "Timezone" => String.t(),
         "ZipCode" => String.t()
       }
-
+      
   """
   @type number_validate_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sms_channel_response() :: %{
         "SMSChannelResponse" => sms_channel_response()
       }
-
+      
   """
   @type delete_sms_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       g_cm_message() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -5639,71 +5639,71 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type g_cm_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sms_channel_request() :: %{}
-
+      
   """
   @type delete_sms_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_journeys_response() :: %{
         "JourneysResponse" => journeys_response()
       }
-
+      
   """
   @type list_journeys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_gcm_channel_response() :: %{
         "GCMChannelResponse" => g_cm_channel_response()
       }
-
+      
   """
   @type get_gcm_channel_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_message_button() :: %{
         "Android" => override_button_configuration(),
         "DefaultConfig" => default_button_configuration(),
         "IOS" => override_button_configuration(),
         "Web" => override_button_configuration()
       }
-
+      
   """
   @type in_app_message_button() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       wait_activity() :: %{
         "NextActivity" => String.t(),
         "WaitTime" => wait_time()
       }
-
+      
   """
   @type wait_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       journey_date_range_kpi_response() :: %{
         "ApplicationId" => String.t(),
         "EndTime" => non_neg_integer(),
@@ -5713,137 +5713,137 @@ defmodule AWS.Pinpoint do
         "NextToken" => String.t(),
         "StartTime" => non_neg_integer()
       }
-
+      
   """
   @type journey_date_range_kpi_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_run_execution_metrics_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t()
       }
-
+      
   """
   @type get_journey_run_execution_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_item_response() :: %{
         "Message" => String.t(),
         "StatusCode" => integer()
       }
-
+      
   """
   @type endpoint_item_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_journey_run_execution_activity_metrics_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => String.t()
       }
-
+      
   """
   @type get_journey_run_execution_activity_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_in_app_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type delete_in_app_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_apns_channel_request() :: %{
         required("APNSChannelRequest") => a_p_n_s_channel_request()
       }
-
+      
   """
   @type update_apns_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_recommender_configuration_request() :: %{
         required("UpdateRecommenderConfiguration") => update_recommender_configuration_shape()
       }
-
+      
   """
   @type update_recommender_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_email_template_response() :: %{
         "CreateTemplateMessageBody" => create_template_message_body()
       }
-
+      
   """
   @type create_email_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_in_app_template_request() :: %{
         required("InAppTemplateRequest") => in_app_template_request()
       }
-
+      
   """
   @type create_in_app_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_sms_template_request() :: %{
         optional("Version") => String.t()
       }
-
+      
   """
   @type delete_sms_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_gcm_channel_request() :: %{}
-
+      
   """
   @type get_gcm_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_user() :: %{
         "UserAttributes" => map(),
         "UserId" => String.t()
       }
-
+      
   """
   @type endpoint_user() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       custom_message_activity() :: %{
         "DeliveryUri" => String.t(),
         "EndpointTypes" => list(list(any())()),
@@ -5852,14 +5852,14 @@ defmodule AWS.Pinpoint do
         "TemplateName" => String.t(),
         "TemplateVersion" => String.t()
       }
-
+      
   """
   @type custom_message_activity() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ad_m_message() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -5878,26 +5878,26 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type ad_m_message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_segments_request() :: %{
         optional("PageSize") => String.t(),
         optional("Token") => String.t()
       }
-
+      
   """
   @type get_segments_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       in_app_template_response() :: %{
         "Arn" => String.t(),
         "Content" => list(in_app_message_content()()),
@@ -5911,14 +5911,14 @@ defmodule AWS.Pinpoint do
         "Version" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type in_app_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       message() :: %{
         "Action" => list(any()),
         "Body" => String.t(),
@@ -5933,14 +5933,14 @@ defmodule AWS.Pinpoint do
         "Title" => String.t(),
         "Url" => String.t()
       }
-
+      
   """
   @type message() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       public_endpoint() :: %{
         "Address" => String.t(),
         "Attributes" => map(),
@@ -5954,14 +5954,14 @@ defmodule AWS.Pinpoint do
         "RequestId" => String.t(),
         "User" => endpoint_user()
       }
-
+      
   """
   @type public_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       recommender_configuration_response() :: %{
         "Attributes" => map(),
         "CreationDate" => String.t(),
@@ -5976,7 +5976,7 @@ defmodule AWS.Pinpoint do
         "RecommendationsDisplayName" => String.t(),
         "RecommendationsPerMessage" => integer()
       }
-
+      
   """
   @type recommender_configuration_response() :: %{String.t() => any()}
 
@@ -7062,32 +7062,45 @@ defmodule AWS.Pinpoint do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:create_application_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
+
+  @spec create_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
-  def create_app(%Client{} = client, input, options \\ []) do
+
+  def create_app(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/apps"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7098,33 +7111,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:write_campaign_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_campaign(AWS.Client.t(), String.t(), create_campaign_request(), Keyword.t()) ::
+
+  @spec create_campaign(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_campaign_errors()}
-  def create_campaign(%Client{} = client, application_id, input, options \\ []) do
+
+  def create_campaign(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7134,40 +7161,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:email_template_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_email_template(
-          AWS.Client.t(),
-          String.t(),
-          create_email_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_email_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_email_template_errors()}
-  def create_email_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def create_email_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7177,33 +7213,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:export_job_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_export_job(AWS.Client.t(), String.t(), create_export_job_request(), Keyword.t()) ::
+
+  @spec create_export_job(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_export_job_errors()}
-  def create_export_job(%Client{} = client, application_id, input, options \\ []) do
+
+  def create_export_job(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/export"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -7213,33 +7263,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:import_job_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_import_job(AWS.Client.t(), String.t(), create_import_job_request(), Keyword.t()) ::
+
+  @spec create_import_job(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_import_job_errors()}
-  def create_import_job(%Client{} = client, application_id, input, options \\ []) do
+
+  def create_import_job(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/import"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7249,40 +7313,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:in_app_template_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_in_app_template(
-          AWS.Client.t(),
-          String.t(),
-          create_in_app_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_in_app_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_in_app_template_errors()}
-  def create_in_app_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def create_in_app_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7292,33 +7365,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:write_journey_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_journey(AWS.Client.t(), String.t(), create_journey_request(), Keyword.t()) ::
+
+  @spec create_journey(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_journey_errors()}
-  def create_journey(%Client{} = client, application_id, input, options \\ []) do
+
+  def create_journey(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7329,40 +7416,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:push_notification_template_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_push_template(
-          AWS.Client.t(),
-          String.t(),
-          create_push_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_push_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_push_template_errors()}
-  def create_push_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def create_push_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7371,36 +7467,46 @@ defmodule AWS.Pinpoint do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateRecommenderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:create_recommender_configuration` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_recommender_configuration(
-          AWS.Client.t(),
-          create_recommender_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_recommender_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_recommender_configuration_errors()}
-  def create_recommender_configuration(%Client{} = client, input, options \\ []) do
+
+  def create_recommender_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/recommenders"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7412,33 +7518,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:write_segment_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_segment(AWS.Client.t(), String.t(), create_segment_request(), Keyword.t()) ::
+
+  @spec create_segment(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_segment_errors()}
-  def create_segment(%Client{} = client, application_id, input, options \\ []) do
+
+  def create_segment(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7448,40 +7568,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:sms_template_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_sms_template(
-          AWS.Client.t(),
-          String.t(),
-          create_sms_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_sms_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_sms_template_errors()}
-  def create_sms_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def create_sms_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7491,40 +7620,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:voice_template_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec create_voice_template(
-          AWS.Client.t(),
-          String.t(),
-          create_voice_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_voice_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_voice_template_errors()}
-  def create_voice_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def create_voice_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      201
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 201)
   end
 
   @doc """
@@ -7535,21 +7673,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_adm_channel(AWS.Client.t(), String.t(), delete_adm_channel_request(), Keyword.t()) ::
+
+  @spec delete_adm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_adm_channel_errors()}
-  def delete_adm_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_adm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7558,7 +7717,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7572,26 +7731,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_apns_channel(
-          AWS.Client.t(),
-          String.t(),
-          delete_apns_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_apns_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apns_channel_errors()}
-  def delete_apns_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_apns_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7600,7 +7775,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7614,26 +7789,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_apns_sandbox_channel(
-          AWS.Client.t(),
-          String.t(),
-          delete_apns_sandbox_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_apns_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apns_sandbox_channel_errors()}
-  def delete_apns_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_apns_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7642,7 +7833,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7656,26 +7847,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_apns_voip_channel(
-          AWS.Client.t(),
-          String.t(),
-          delete_apns_voip_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_apns_voip_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apns_voip_channel_errors()}
-  def delete_apns_voip_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_apns_voip_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7684,7 +7891,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7698,26 +7905,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_apns_voip_sandbox_channel(
-          AWS.Client.t(),
-          String.t(),
-          delete_apns_voip_sandbox_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_apns_voip_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_apns_voip_sandbox_channel_errors()}
-  def delete_apns_voip_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_apns_voip_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7726,7 +7949,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7739,21 +7962,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_app(AWS.Client.t(), String.t(), delete_app_request(), Keyword.t()) ::
+
+  @spec delete_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-  def delete_app(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_app(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7762,7 +8006,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7776,26 +8020,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_baidu_channel(
-          AWS.Client.t(),
-          String.t(),
-          delete_baidu_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_baidu_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_baidu_channel_errors()}
-  def delete_baidu_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_baidu_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7804,7 +8064,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7817,30 +8077,44 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
   """
-  @spec delete_campaign(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_campaign_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_campaign(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_campaign_errors()}
-  def delete_campaign(%Client{} = client, application_id, campaign_id, input, options \\ []) do
+
+  def delete_campaign(%Client{} = client, application_id, campaign_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7849,7 +8123,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7863,26 +8137,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_email_channel(
-          AWS.Client.t(),
-          String.t(),
-          delete_email_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_email_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_channel_errors()}
-  def delete_email_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_email_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7891,7 +8181,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -7905,34 +8195,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec delete_email_template(
-          AWS.Client.t(),
-          String.t(),
-          delete_email_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_email_template_errors()}
-  def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def delete_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -7942,6 +8247,8 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -7949,7 +8256,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -7962,31 +8269,45 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
-    endpoint. The identifier can't contain $, { or }.
+  endpoint. The identifier can't contain $, { or }.
 
   ## Optional parameters:
   """
-  @spec delete_endpoint(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_endpoint_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_endpoint_errors()}
-  def delete_endpoint(%Client{} = client, application_id, endpoint_id, input, options \\ []) do
+
+  def delete_endpoint(%Client{} = client, application_id, endpoint_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -7995,7 +8316,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -8008,26 +8329,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_event_stream(
-          AWS.Client.t(),
-          String.t(),
-          delete_event_stream_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_event_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_event_stream_errors()}
-  def delete_event_stream(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_event_stream(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8036,7 +8373,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8050,21 +8387,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_gcm_channel(AWS.Client.t(), String.t(), delete_gcm_channel_request(), Keyword.t()) ::
+
+  @spec delete_gcm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_gcm_channel_errors()}
-  def delete_gcm_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_gcm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8073,7 +8431,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8086,34 +8444,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec delete_in_app_template(
-          AWS.Client.t(),
-          String.t(),
-          delete_in_app_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_in_app_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_in_app_template_errors()}
-  def delete_in_app_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def delete_in_app_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -8123,6 +8496,8 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8130,7 +8505,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -8143,30 +8518,44 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
   """
-  @spec delete_journey(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_journey_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_journey(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_journey_errors()}
-  def delete_journey(%Client{} = client, application_id, journey_id, input, options \\ []) do
+
+  def delete_journey(%Client{} = client, application_id, journey_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8175,7 +8564,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8189,34 +8578,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec delete_push_template(
-          AWS.Client.t(),
-          String.t(),
-          delete_push_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_push_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_push_template_errors()}
-  def delete_push_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def delete_push_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -8226,6 +8630,8 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8233,7 +8639,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -8246,27 +8652,43 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:recommender_id` (`t:string`) The unique identifier for the recommender model
-    configuration. This identifier is displayed as the Recommender ID on the
-    Amazon Pinpoint console.
+  configuration. This identifier is displayed as the Recommender ID on the
+  Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_recommender_configuration(
-          AWS.Client.t(),
-          String.t(),
-          delete_recommender_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_recommender_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_recommender_configuration_errors()}
-  def delete_recommender_configuration(%Client{} = client, recommender_id, input, options \\ []) do
+
+  def delete_recommender_configuration(%Client{} = client, recommender_id, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8275,7 +8697,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8288,30 +8710,44 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
   """
-  @spec delete_segment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_segment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_segment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_segment_errors()}
-  def delete_segment(%Client{} = client, application_id, segment_id, input, options \\ []) do
+
+  def delete_segment(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8320,7 +8756,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8334,21 +8770,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_sms_channel(AWS.Client.t(), String.t(), delete_sms_channel_request(), Keyword.t()) ::
+
+  @spec delete_sms_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sms_channel_errors()}
-  def delete_sms_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_sms_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8357,7 +8814,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8370,34 +8827,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec delete_sms_template(
-          AWS.Client.t(),
-          String.t(),
-          delete_sms_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_sms_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_sms_template_errors()}
-  def delete_sms_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def delete_sms_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -8407,6 +8879,8 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8414,7 +8888,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -8427,30 +8901,44 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
   """
-  @spec delete_user_endpoints(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_user_endpoints_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_user_endpoints(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_user_endpoints_errors()}
-  def delete_user_endpoints(%Client{} = client, application_id, user_id, input, options \\ []) do
+
+  def delete_user_endpoints(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8459,7 +8947,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -8473,26 +8961,42 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
-  @spec delete_voice_channel(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_channel_errors()}
-  def delete_voice_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def delete_voice_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -8501,7 +9005,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -8515,34 +9019,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec delete_voice_template(
-          AWS.Client.t(),
-          String.t(),
-          delete_voice_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_voice_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_voice_template_errors()}
-  def delete_voice_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def delete_voice_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
+
+    # Validate optional parameters
+    optional_params = [version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -8552,6 +9071,8 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:version])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -8559,7 +9080,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       202
     )
@@ -8573,14 +9094,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_adm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_adm_channel_errors()}
+
   def get_adm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
 
@@ -8617,14 +9140,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_apns_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_channel_errors()}
+
   def get_apns_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
 
@@ -8661,14 +9186,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_apns_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_sandbox_channel_errors()}
+
   def get_apns_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
 
@@ -8705,14 +9232,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_apns_voip_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_voip_channel_errors()}
+
   def get_apns_voip_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
 
@@ -8749,14 +9278,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_apns_voip_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apns_voip_sandbox_channel_errors()}
+
   def get_apns_voip_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
 
@@ -8792,14 +9323,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_errors()}
+
   def get_app(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}"
 
@@ -8836,35 +9369,37 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
-    performance indicator (KPI), to retrieve data for. This value describes the
-    associated metric and consists of two or more terms, which are comprised of
-    lowercase alphanumeric characters, separated by a hyphen. Examples are
-    email-open-rate and successful-delivery-rate. For a list of valid values,
-    see the Amazon Pinpoint Developer Guide.
+  performance indicator (KPI), to retrieve data for. This value describes the
+  associated metric and consists of two or more terms, which are comprised of
+  lowercase alphanumeric characters, separated by a hyphen. Examples are
+  email-open-rate and successful-delivery-rate. For a list of valid values,
+  see the Amazon Pinpoint Developer Guide.
 
   ## Optional parameters:
   * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
-    for, as part of an inclusive date range that filters the query results. This
-    value should be in extended ISO 8601 format and use Coordinated Universal
-    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  for, as part of an inclusive date range that filters the query results. This
+  value should be in extended ISO 8601 format and use Coordinated Universal
+  Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
-    data for, as part of an inclusive date range that filters the query results.
-    This value should be in extended ISO 8601 format and use Coordinated
-    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
-    19, 2019. This value should also be fewer than 90 days from the current day.
+  data for, as part of an inclusive date range that filters the query results.
+  This value should be in extended ISO 8601 format and use Coordinated
+  Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+  19, 2019. This value should also be fewer than 90 days from the current day.
   """
+
   @spec get_application_date_range_kpi(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_date_range_kpi_errors()}
+
   def get_application_date_range_kpi(%Client{} = client, application_id, kpi_name, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/kpis/daterange/#{AWS.Util.encode_uri(kpi_name)}"
@@ -8933,14 +9468,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_application_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_application_settings_errors()}
+
   def get_application_settings(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/settings"
 
@@ -8979,15 +9516,17 @@ defmodule AWS.Pinpoint do
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_apps_errors()}
+
   def get_apps(%Client{} = client, options \\ []) do
     url_path = "/v1/apps"
 
@@ -9042,14 +9581,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_baidu_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_baidu_channel_errors()}
+
   def get_baidu_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
 
@@ -9086,15 +9627,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
   """
+
   @spec get_campaign(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_errors()}
+
   def get_campaign(%Client{} = client, application_id, campaign_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
@@ -9131,20 +9674,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_campaign_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_activities_errors()}
+
   def get_campaign_activities(%Client{} = client, application_id, campaign_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}/activities"
@@ -9200,32 +9745,33 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
   * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
-    performance indicator (KPI), to retrieve data for. This value describes the
-    associated metric and consists of two or more terms, which are comprised of
-    lowercase alphanumeric characters, separated by a hyphen. Examples are
-    email-open-rate and successful-delivery-rate. For a list of valid values,
-    see the Amazon Pinpoint Developer Guide.
+  performance indicator (KPI), to retrieve data for. This value describes the
+  associated metric and consists of two or more terms, which are comprised of
+  lowercase alphanumeric characters, separated by a hyphen. Examples are
+  email-open-rate and successful-delivery-rate. For a list of valid values,
+  see the Amazon Pinpoint Developer Guide.
 
   ## Optional parameters:
   * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
-    for, as part of an inclusive date range that filters the query results. This
-    value should be in extended ISO 8601 format and use Coordinated Universal
-    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  for, as part of an inclusive date range that filters the query results. This
+  value should be in extended ISO 8601 format and use Coordinated Universal
+  Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
-    data for, as part of an inclusive date range that filters the query results.
-    This value should be in extended ISO 8601 format and use Coordinated
-    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
-    19, 2019. This value should also be fewer than 90 days from the current day.
+  data for, as part of an inclusive date range that filters the query results.
+  This value should be in extended ISO 8601 format and use Coordinated
+  Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+  19, 2019. This value should also be fewer than 90 days from the current day.
   """
+
   @spec get_campaign_date_range_kpi(
           AWS.Client.t(),
           String.t(),
@@ -9236,6 +9782,7 @@ defmodule AWS.Pinpoint do
           {:ok, get_campaign_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_date_range_kpi_errors()}
+
   def get_campaign_date_range_kpi(
         %Client{} = client,
         application_id,
@@ -9311,17 +9858,19 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
   * `:version` (`t:string`) The unique version number (Version property) for the
-    campaign version.
+  campaign version.
 
   ## Optional parameters:
   """
+
   @spec get_campaign_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_version_errors()}
+
   def get_campaign_version(
         %Client{} = client,
         application_id,
@@ -9365,20 +9914,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_campaign_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaign_versions_errors()}
+
   def get_campaign_versions(%Client{} = client, application_id, campaign_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}/versions"
@@ -9434,19 +9985,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_campaigns(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_campaigns_errors()}
+
   def get_campaigns(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns"
 
@@ -9501,14 +10054,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_channels_errors()}
+
   def get_channels(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels"
 
@@ -9545,14 +10100,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_email_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_channel_errors()}
+
   def get_email_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
 
@@ -9589,20 +10146,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
+
   @spec get_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_email_template_errors()}
+
   def get_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
 
@@ -9650,16 +10209,18 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
-    endpoint. The identifier can't contain $, { or }.
+  endpoint. The identifier can't contain $, { or }.
 
   ## Optional parameters:
   """
+
   @spec get_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_endpoint_errors()}
+
   def get_endpoint(%Client{} = client, application_id, endpoint_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
@@ -9696,14 +10257,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_event_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_event_stream_errors()}
+
   def get_event_stream(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
 
@@ -9740,15 +10303,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:job_id` (`t:string`) The unique identifier for the job.
 
   ## Optional parameters:
   """
+
   @spec get_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_job_errors()}
+
   def get_export_job(%Client{} = client, application_id, job_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/export/#{AWS.Util.encode_uri(job_id)}"
@@ -9786,19 +10351,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_export_jobs_errors()}
+
   def get_export_jobs(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/export"
 
@@ -9853,14 +10420,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_gcm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_gcm_channel_errors()}
+
   def get_gcm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
 
@@ -9897,15 +10466,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:job_id` (`t:string`) The unique identifier for the job.
 
   ## Optional parameters:
   """
+
   @spec get_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_job_errors()}
+
   def get_import_job(%Client{} = client, application_id, job_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/import/#{AWS.Util.encode_uri(job_id)}"
@@ -9943,19 +10514,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_import_jobs_errors()}
+
   def get_import_jobs(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/import"
 
@@ -10009,15 +10582,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:endpoint_id` (`t:string`) The unique identifier for the endpoint.
 
   ## Optional parameters:
   """
+
   @spec get_in_app_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_in_app_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_in_app_messages_errors()}
+
   def get_in_app_messages(%Client{} = client, application_id, endpoint_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}/inappmessages"
@@ -10055,20 +10630,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
+
   @spec get_in_app_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_in_app_template_errors()}
+
   def get_in_app_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
 
@@ -10116,15 +10693,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
   """
+
   @spec get_journey(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_errors()}
+
   def get_journey(%Client{} = client, application_id, journey_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}"
@@ -10162,32 +10741,33 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
   * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
-    performance indicator (KPI), to retrieve data for. This value describes the
-    associated metric and consists of two or more terms, which are comprised of
-    lowercase alphanumeric characters, separated by a hyphen. Examples are
-    email-open-rate and successful-delivery-rate. For a list of valid values,
-    see the Amazon Pinpoint Developer Guide.
+  performance indicator (KPI), to retrieve data for. This value describes the
+  associated metric and consists of two or more terms, which are comprised of
+  lowercase alphanumeric characters, separated by a hyphen. Examples are
+  email-open-rate and successful-delivery-rate. For a list of valid values,
+  see the Amazon Pinpoint Developer Guide.
 
   ## Optional parameters:
   * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
-    for, as part of an inclusive date range that filters the query results. This
-    value should be in extended ISO 8601 format and use Coordinated Universal
-    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  for, as part of an inclusive date range that filters the query results. This
+  value should be in extended ISO 8601 format and use Coordinated Universal
+  Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
-    data for, as part of an inclusive date range that filters the query results.
-    This value should be in extended ISO 8601 format and use Coordinated
-    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
-    19, 2019. This value should also be fewer than 90 days from the current day.
+  data for, as part of an inclusive date range that filters the query results.
+  This value should be in extended ISO 8601 format and use Coordinated
+  Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+  19, 2019. This value should also be fewer than 90 days from the current day.
   """
+
   @spec get_journey_date_range_kpi(
           AWS.Client.t(),
           String.t(),
@@ -10198,6 +10778,7 @@ defmodule AWS.Pinpoint do
           {:ok, get_journey_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_date_range_kpi_errors()}
+
   def get_journey_date_range_kpi(
         %Client{} = client,
         application_id,
@@ -10273,19 +10854,20 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_activity_id` (`t:string`) The unique identifier for the journey
-    activity.
+  activity.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   """
+
   @spec get_journey_execution_activity_metrics(
           AWS.Client.t(),
           String.t(),
@@ -10296,6 +10878,7 @@ defmodule AWS.Pinpoint do
           {:ok, get_journey_execution_activity_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_execution_activity_metrics_errors()}
+
   def get_journey_execution_activity_metrics(
         %Client{} = client,
         application_id,
@@ -10357,21 +10940,23 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   """
+
   @spec get_journey_execution_metrics(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_execution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_execution_metrics_errors()}
+
   def get_journey_execution_metrics(%Client{} = client, application_id, journey_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/execution-metrics"
@@ -10427,20 +11012,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_activity_id` (`t:string`) The unique identifier for the journey
-    activity.
+  activity.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
   * `:run_id` (`t:string`) The unique identifier for the journey run.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   """
+
   @spec get_journey_run_execution_activity_metrics(
           AWS.Client.t(),
           String.t(),
@@ -10452,6 +11038,7 @@ defmodule AWS.Pinpoint do
           {:ok, get_journey_run_execution_activity_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_run_execution_activity_metrics_errors()}
+
   def get_journey_run_execution_activity_metrics(
         %Client{} = client,
         application_id,
@@ -10514,18 +11101,19 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
   * `:run_id` (`t:string`) The unique identifier for the journey run.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   """
+
   @spec get_journey_run_execution_metrics(
           AWS.Client.t(),
           String.t(),
@@ -10536,6 +11124,7 @@ defmodule AWS.Pinpoint do
           {:ok, get_journey_run_execution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_run_execution_metrics_errors()}
+
   def get_journey_run_execution_metrics(
         %Client{} = client,
         application_id,
@@ -10596,20 +11185,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_journey_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_journey_runs_errors()}
+
   def get_journey_runs(%Client{} = client, application_id, journey_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/runs"
@@ -10665,20 +11256,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
+
   @spec get_push_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_push_template_errors()}
+
   def get_push_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
 
@@ -10726,15 +11319,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:recommender_id` (`t:string`) The unique identifier for the recommender model
-    configuration. This identifier is displayed as the Recommender ID on the
-    Amazon Pinpoint console.
+  configuration. This identifier is displayed as the Recommender ID on the
+  Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_recommender_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommender_configuration_errors()}
+
   def get_recommender_configuration(%Client{} = client, recommender_id, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
 
@@ -10773,15 +11368,17 @@ defmodule AWS.Pinpoint do
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_recommender_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recommender_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_recommender_configurations_errors()}
+
   def get_recommender_configurations(%Client{} = client, options \\ []) do
     url_path = "/v1/recommenders"
 
@@ -10836,15 +11433,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
   """
+
   @spec get_segment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_errors()}
+
   def get_segment(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}"
@@ -10882,20 +11481,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_segment_export_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_export_jobs_errors()}
+
   def get_segment_export_jobs(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/jobs/export"
@@ -10951,20 +11552,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_segment_import_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_import_jobs_errors()}
+
   def get_segment_import_jobs(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/jobs/import"
@@ -11020,17 +11623,19 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
   * `:version` (`t:string`) The unique version number (Version property) for the
-    campaign version.
+  campaign version.
 
   ## Optional parameters:
   """
+
   @spec get_segment_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_version_errors()}
+
   def get_segment_version(%Client{} = client, application_id, segment_id, version, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/versions/#{AWS.Util.encode_uri(version)}"
@@ -11068,20 +11673,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_segment_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segment_versions_errors()}
+
   def get_segment_versions(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}/versions"
@@ -11137,19 +11744,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec get_segments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_segments_errors()}
+
   def get_segments(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments"
 
@@ -11204,14 +11813,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_sms_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sms_channel_errors()}
+
   def get_sms_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
 
@@ -11248,20 +11859,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
+
   @spec get_sms_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_sms_template_errors()}
+
   def get_sms_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
 
@@ -11309,15 +11922,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
   """
+
   @spec get_user_endpoints(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_user_endpoints_errors()}
+
   def get_user_endpoints(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
@@ -11355,14 +11970,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
+
   @spec get_voice_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_channel_errors()}
+
   def get_voice_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
 
@@ -11399,20 +12016,22 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
+
   @spec get_voice_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_voice_template_errors()}
+
   def get_voice_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
 
@@ -11460,19 +12079,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-    results to return in a paginated response.
+  results to return in a paginated response.
   """
+
   @spec list_journeys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journeys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_journeys_errors()}
+
   def list_journeys(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys"
 
@@ -11530,9 +12151,11 @@ defmodule AWS.Pinpoint do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -11568,24 +12191,26 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
   * `:template_type` (`t:string`) The type of channel that the message template is
-    designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+  designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   """
+
   @spec list_template_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_template_versions_errors()}
+
   def list_template_versions(%Client{} = client, template_name, template_type, options \\ []) do
     url_path =
       "/v1/templates/#{AWS.Util.encode_uri(template_name)}/#{AWS.Util.encode_uri(template_type)}/versions"
@@ -11643,23 +12268,25 @@ defmodule AWS.Pinpoint do
 
   ## Optional parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-    return in a paginated response. This parameter is not supported for
-    application, campaign, and journey metrics.
+  return in a paginated response. This parameter is not supported for
+  application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-    of a paginated response. This parameter is not supported for application,
-    campaign, and journey metrics.
+  of a paginated response. This parameter is not supported for application,
+  campaign, and journey metrics.
   * `:prefix` (`t:string`) The substring to match in the names of the message
-    templates to include in the results. If you specify this value, Amazon
-    Pinpoint returns only those templates whose names begin with the value that
-    you specify.
+  templates to include in the results. If you specify this value, Amazon
+  Pinpoint returns only those templates whose names begin with the value that
+  you specify.
   * `:template_type` (`t:string`) The type of message template to include in the
-    results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types
-    of templates in the results, don't include this parameter in your request.
+  results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types
+  of templates in the results, don't include this parameter in your request.
   """
+
   @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_templates_errors()}
+
   def list_templates(%Client{} = client, options \\ []) do
     url_path = "/v1/templates"
 
@@ -11726,32 +12353,45 @@ defmodule AWS.Pinpoint do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20PhoneNumberValidate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+  * `:input` (`t:map`):
+    * `:number_validate_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec phone_number_validate(AWS.Client.t(), phone_number_validate_request(), Keyword.t()) ::
+
+  @spec phone_number_validate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, phone_number_validate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, phone_number_validate_errors()}
-  def phone_number_validate(%Client{} = client, input, options \\ []) do
+
+  def phone_number_validate(%Client{} = client, input, options \\ []) when is_map(input) do
     url_path = "/v1/phone/number/validate"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11762,33 +12402,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:write_event_stream` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec put_event_stream(AWS.Client.t(), String.t(), put_event_stream_request(), Keyword.t()) ::
+
+  @spec put_event_stream(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_event_stream_errors()}
-  def put_event_stream(%Client{} = client, application_id, input, options \\ []) do
+
+  def put_event_stream(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11799,33 +12453,46 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:events_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec put_events(AWS.Client.t(), String.t(), put_events_request(), Keyword.t()) ::
+
+  @spec put_events(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_events_errors()}
-  def put_events(%Client{} = client, application_id, input, options \\ []) do
+
+  def put_events(%Client{} = client, application_id, input, options \\ []) when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/events"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      202
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -11837,33 +12504,50 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:attribute_type` (`t:string`) The type of attribute or attributes to remove.
-    Valid values are:
+  Valid values are:
+  * `:input` (`t:map`):
+    * `:update_attributes_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec remove_attributes(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          remove_attributes_request(),
-          Keyword.t()
-        ) ::
+
+  @spec remove_attributes(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, remove_attributes_errors()}
-  def remove_attributes(%Client{} = client, application_id, attribute_type, input, options \\ []) do
+
+  def remove_attributes(%Client{} = client, application_id, attribute_type, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/attributes/#{AWS.Util.encode_uri(attribute_type)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11873,33 +12557,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:message_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec send_messages(AWS.Client.t(), String.t(), send_messages_request(), Keyword.t()) ::
+
+  @spec send_messages(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, send_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_messages_errors()}
-  def send_messages(%Client{} = client, application_id, input, options \\ []) do
+
+  def send_messages(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/messages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11909,33 +12607,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint
-    application.
+  application.
+  * `:input` (`t:map`):
+    * `:send_o_t_p_message_request_parameters` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec send_o_t_p_message(AWS.Client.t(), String.t(), send_o_t_p_message_request(), Keyword.t()) ::
+
+  @spec send_o_t_p_message(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, send_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_o_t_p_message_errors()}
-  def send_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
+
+  def send_o_t_p_message(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/otp"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11945,38 +12657,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:send_users_message_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec send_users_messages(
-          AWS.Client.t(),
-          String.t(),
-          send_users_messages_request(),
-          Keyword.t()
-        ) ::
+
+  @spec send_users_messages(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, send_users_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, send_users_messages_errors()}
-  def send_users_messages(%Client{} = client, application_id, input, options \\ []) do
+
+  def send_users_messages(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/users-messages"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -11987,31 +12708,44 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+  * `:input` (`t:map`):
+    * `:tags_model` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -12023,27 +12757,44 @@ defmodule AWS.Pinpoint do
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.pinpoint#__string]`) The key of the tag to
-    remove from the resource. To remove multiple tags, append the tagKeys
-    parameter and argument for each additional tag to remove, separated by an
-    ampersand (&).
+  remove from the resource. To remove multiple tags, append the tagKeys
+  parameter and argument for each additional tag to remove, separated by an
+  ampersand (&).
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -12052,7 +12803,7 @@ defmodule AWS.Pinpoint do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -12066,23 +12817,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:ad_m_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_adm_channel(AWS.Client.t(), String.t(), update_adm_channel_request(), Keyword.t()) ::
+
+  @spec update_adm_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_adm_channel_errors()}
-  def update_adm_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_adm_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12093,28 +12868,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:a_p_n_s_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_apns_channel(
-          AWS.Client.t(),
-          String.t(),
-          update_apns_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_apns_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_apns_channel_errors()}
-  def update_apns_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_apns_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12125,28 +12919,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:a_p_n_s_sandbox_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_apns_sandbox_channel(
-          AWS.Client.t(),
-          String.t(),
-          update_apns_sandbox_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_apns_sandbox_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_apns_sandbox_channel_errors()}
-  def update_apns_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_apns_sandbox_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12157,28 +12970,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:a_p_n_s_voip_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_apns_voip_channel(
-          AWS.Client.t(),
-          String.t(),
-          update_apns_voip_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_apns_voip_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_apns_voip_channel_errors()}
-  def update_apns_voip_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_apns_voip_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12189,28 +13021,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:a_p_n_s_voip_sandbox_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_apns_voip_sandbox_channel(
-          AWS.Client.t(),
-          String.t(),
-          update_apns_voip_sandbox_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_apns_voip_sandbox_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_apns_voip_sandbox_channel_errors()}
-  def update_apns_voip_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_apns_voip_sandbox_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12220,28 +13071,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:write_application_settings_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_application_settings(
-          AWS.Client.t(),
-          String.t(),
-          update_application_settings_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_application_settings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_application_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_application_settings_errors()}
-  def update_application_settings(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_application_settings(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/settings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12252,28 +13122,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:baidu_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_baidu_channel(
-          AWS.Client.t(),
-          String.t(),
-          update_baidu_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_baidu_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_baidu_channel_errors()}
-  def update_baidu_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_baidu_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12283,32 +13172,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
+  * `:input` (`t:map`):
+    * `:write_campaign_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_campaign(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_campaign_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_campaign(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_campaign_errors()}
-  def update_campaign(%Client{} = client, application_id, campaign_id, input, options \\ []) do
+
+  def update_campaign(%Client{} = client, application_id, campaign_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12319,28 +13225,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:email_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_email_channel(
-          AWS.Client.t(),
-          String.t(),
-          update_email_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_email_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_email_channel_errors()}
-  def update_email_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_email_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12351,39 +13276,63 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:email_template_request` (`t:structure`)
 
   ## Optional parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-    new version of the message template. Valid values are: true, save the
-    updates as a new version; and, false, save the updates to (overwrite) the
-    latest existing version of the template.
+  new version of the message template. Valid values are: true, save the
+  updates as a new version; and, false, save the updates to (overwrite) the
+  latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec update_email_template(
-          AWS.Client.t(),
-          String.t(),
-          update_email_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_email_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_email_template_errors()}
-  def update_email_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def update_email_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
+
+    # Validate optional parameters
+    optional_params = [create_new_version: nil, version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"CreateNewVersion", "create-new-version"},
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :create_new_version) do
+        [{"create-new-version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -12393,7 +13342,9 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:create_new_version, :version])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -12407,33 +13358,50 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
-    endpoint. The identifier can't contain $, { or }.
+  endpoint. The identifier can't contain $, { or }.
+  * `:input` (`t:map`):
+    * `:endpoint_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_endpoint(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_endpoint_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_endpoint(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoint_errors()}
-  def update_endpoint(%Client{} = client, application_id, endpoint_id, input, options \\ []) do
+
+  def update_endpoint(%Client{} = client, application_id, endpoint_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -12447,28 +13415,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:endpoint_batch_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_endpoints_batch(
-          AWS.Client.t(),
-          String.t(),
-          update_endpoints_batch_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_endpoints_batch(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoints_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_endpoints_batch_errors()}
-  def update_endpoints_batch(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_endpoints_batch(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -12479,23 +13466,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:g_cm_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_gcm_channel(AWS.Client.t(), String.t(), update_gcm_channel_request(), Keyword.t()) ::
+
+  @spec update_gcm_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_gcm_channel_errors()}
-  def update_gcm_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_gcm_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12506,39 +13517,63 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:in_app_template_request` (`t:structure`)
 
   ## Optional parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-    new version of the message template. Valid values are: true, save the
-    updates as a new version; and, false, save the updates to (overwrite) the
-    latest existing version of the template.
+  new version of the message template. Valid values are: true, save the
+  updates as a new version; and, false, save the updates to (overwrite) the
+  latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec update_in_app_template(
-          AWS.Client.t(),
-          String.t(),
-          update_in_app_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_in_app_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_in_app_template_errors()}
-  def update_in_app_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def update_in_app_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
+
+    # Validate optional parameters
+    optional_params = [create_new_version: nil, version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"CreateNewVersion", "create-new-version"},
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :create_new_version) do
+        [{"create-new-version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -12548,7 +13583,9 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:create_new_version, :version])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -12558,32 +13595,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
+  * `:input` (`t:map`):
+    * `:write_journey_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_journey(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_journey_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_journey(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_journey_errors()}
-  def update_journey(%Client{} = client, application_id, journey_id, input, options \\ []) do
+
+  def update_journey(%Client{} = client, application_id, journey_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12593,32 +13647,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
+  * `:input` (`t:map`):
+    * `:journey_state_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_journey_state(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_journey_state_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_journey_state(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_journey_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_journey_state_errors()}
-  def update_journey_state(%Client{} = client, application_id, journey_id, input, options \\ []) do
+
+  def update_journey_state(%Client{} = client, application_id, journey_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/state"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12629,39 +13700,63 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:push_notification_template_request` (`t:structure`)
 
   ## Optional parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-    new version of the message template. Valid values are: true, save the
-    updates as a new version; and, false, save the updates to (overwrite) the
-    latest existing version of the template.
+  new version of the message template. Valid values are: true, save the
+  updates as a new version; and, false, save the updates to (overwrite) the
+  latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec update_push_template(
-          AWS.Client.t(),
-          String.t(),
-          update_push_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_push_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_push_template_errors()}
-  def update_push_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def update_push_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
+
+    # Validate optional parameters
+    optional_params = [create_new_version: nil, version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"CreateNewVersion", "create-new-version"},
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :create_new_version) do
+        [{"create-new-version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -12671,7 +13766,9 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:create_new_version, :version])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -12681,29 +13778,48 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:recommender_id` (`t:string`) The unique identifier for the recommender model
-    configuration. This identifier is displayed as the Recommender ID on the
-    Amazon Pinpoint console.
+  configuration. This identifier is displayed as the Recommender ID on the
+  Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:update_recommender_configuration` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_recommender_configuration(
-          AWS.Client.t(),
-          String.t(),
-          update_recommender_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_recommender_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_recommender_configuration_errors()}
-  def update_recommender_configuration(%Client{} = client, recommender_id, input, options \\ []) do
+
+  def update_recommender_configuration(%Client{} = client, recommender_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12715,32 +13831,49 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
+  * `:input` (`t:map`):
+    * `:write_segment_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_segment(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_segment_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_segment(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_segment_errors()}
-  def update_segment(%Client{} = client, application_id, segment_id, input, options \\ []) do
+
+  def update_segment(%Client{} = client, application_id, segment_id, input, options \\ [])
+      when is_map(input) do
     url_path =
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12751,23 +13884,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:sms_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_sms_channel(AWS.Client.t(), String.t(), update_sms_channel_request(), Keyword.t()) ::
+
+  @spec update_sms_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sms_channel_errors()}
-  def update_sms_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_sms_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12778,39 +13935,63 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:sms_template_request` (`t:structure`)
 
   ## Optional parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-    new version of the message template. Valid values are: true, save the
-    updates as a new version; and, false, save the updates to (overwrite) the
-    latest existing version of the template.
+  new version of the message template. Valid values are: true, save the
+  updates as a new version; and, false, save the updates to (overwrite) the
+  latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec update_sms_template(
-          AWS.Client.t(),
-          String.t(),
-          update_sms_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_sms_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_sms_template_errors()}
-  def update_sms_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def update_sms_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
+
+    # Validate optional parameters
+    optional_params = [create_new_version: nil, version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"CreateNewVersion", "create-new-version"},
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :create_new_version) do
+        [{"create-new-version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -12820,7 +14001,9 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:create_new_version, :version])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -12830,41 +14013,64 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
   * `:template_type` (`t:string`) The type of channel that the message template is
-    designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+  designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+  * `:input` (`t:map`):
+    * `:template_active_version_request` (`t:structure`)
 
   ## Optional parameters:
   """
+
   @spec update_template_active_version(
           AWS.Client.t(),
           String.t(),
           String.t(),
-          update_template_active_version_request(),
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, update_template_active_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_template_active_version_errors()}
+
   def update_template_active_version(
         %Client{} = client,
         template_name,
         template_type,
         input,
         options \\ []
-      ) do
+      )
+      when is_map(input) do
     url_path =
       "/v1/templates/#{AWS.Util.encode_uri(template_name)}/#{AWS.Util.encode_uri(template_type)}/active-version"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12875,28 +14081,47 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique identifier for the application. This
-    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:input` (`t:map`):
+    * `:voice_channel_request` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec update_voice_channel(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_channel_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_channel_errors()}
-  def update_voice_channel(%Client{} = client, application_id, input, options \\ []) do
+
+  def update_voice_channel(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -12907,39 +14132,63 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string`) The name of the message template. A template
-    name must start with an alphanumeric character and can contain a maximum of
-    128 characters. The characters can be alphanumeric characters, underscores
-    (_), or hyphens (-). Template names are case sensitive.
+  name must start with an alphanumeric character and can contain a maximum of
+  128 characters. The characters can be alphanumeric characters, underscores
+  (_), or hyphens (-). Template names are case sensitive.
+  * `:input` (`t:map`):
+    * `:voice_template_request` (`t:structure`)
 
   ## Optional parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-    new version of the message template. Valid values are: true, save the
-    updates as a new version; and, false, save the updates to (overwrite) the
-    latest existing version of the template.
+  new version of the message template. Valid values are: true, save the
+  updates as a new version; and, false, save the updates to (overwrite) the
+  latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-    template to update, retrieve information about, or delete. To retrieve
-    identifiers and other information for all the versions of a template, use
-    the Template Versions resource.
+  template to update, retrieve information about, or delete. To retrieve
+  identifiers and other information for all the versions of a template, use
+  the Template Versions resource.
   """
-  @spec update_voice_template(
-          AWS.Client.t(),
-          String.t(),
-          update_voice_template_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_voice_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_voice_template_errors()}
-  def update_voice_template(%Client{} = client, template_name, input, options \\ []) do
+
+  def update_voice_template(%Client{} = client, template_name, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
+
+    # Validate optional parameters
+    optional_params = [create_new_version: nil, version: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"CreateNewVersion", "create-new-version"},
-        {"Version", "version"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :version) do
+        [{"version", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :create_new_version) do
+        [{"create-new-version", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -12949,7 +14198,9 @@ defmodule AWS.Pinpoint do
       options
       |> Keyword.drop([:create_new_version, :version])
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    body = input
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 202)
   end
 
   @doc """
@@ -12959,37 +14210,46 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint
-    application.
+  application.
+  * `:input` (`t:map`):
+    * `:verify_o_t_p_message_request_parameters` (`t:structure`)
 
   ## Optional parameters:
   """
-  @spec verify_o_t_p_message(
-          AWS.Client.t(),
-          String.t(),
-          verify_o_t_p_message_request(),
-          Keyword.t()
-        ) ::
+
+  @spec verify_o_t_p_message(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_o_t_p_message_errors()}
-  def verify_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
+
+  def verify_o_t_p_message(%Client{} = client, application_id, input, options \\ [])
+      when is_map(input) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/verify-otp"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = input
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

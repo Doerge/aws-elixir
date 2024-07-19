@@ -16,43 +16,43 @@ defmodule AWS.GroundStation do
   @typedoc """
 
   ## Example:
-
+      
       list_configs_request() :: %{
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_configs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_agent_response() :: %{
         optional("agentId") => String.t()
       }
-
+      
   """
   @type register_agent_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       antenna_downlink_demod_decode_config() :: %{
         "decodeConfig" => decode_config(),
         "demodulationConfig" => demodulation_config(),
         "spectrumConfig" => spectrum_config()
       }
-
+      
   """
   @type antenna_downlink_demod_decode_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_status_data() :: %{
         "bytesReceived" => [float()],
         "bytesSent" => [float()],
@@ -62,147 +62,147 @@ defmodule AWS.GroundStation do
         "packetsDropped" => [float()],
         "status" => String.t()
       }
-
+      
   """
   @type component_status_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_config_request() :: %{
         "configData" => list(),
         "name" => String.t(),
         "tags" => map()
       }
-
+      
   """
   @type create_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_minute_usage_request() :: %{
         "month" => integer(),
         "year" => integer()
       }
-
+      
   """
   @type get_minute_usage_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_configs_response() :: %{
         "configList" => list(config_list_item()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_configs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dependency_exception() :: %{
         "message" => [String.t()],
         "parameterName" => [String.t()]
       }
-
+      
   """
   @type dependency_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         "tags" => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataflow_endpoint_config() :: %{
         "dataflowEndpointName" => [String.t()],
         "dataflowEndpointRegion" => [String.t()]
       }
-
+      
   """
   @type dataflow_endpoint_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_satellite_request() :: %{}
-
+      
   """
   @type get_satellite_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_request() :: %{}
-
+      
   """
   @type describe_contact_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_agent_configuration_response() :: %{
         optional("agentId") => String.t(),
         optional("taskingDocument") => [String.t()]
       }
-
+      
   """
   @type get_agent_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataflow_detail() :: %{
         "destination" => destination(),
         "errorMessage" => [String.t()],
         "source" => source()
       }
-
+      
   """
   @type dataflow_detail() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_config_request() :: %{}
-
+      
   """
   @type get_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_contact_response() :: %{
         "contactId" => String.t(),
         "contactStatus" => String.t(),
@@ -221,86 +221,86 @@ defmodule AWS.GroundStation do
         "visibilityEndTime" => [non_neg_integer()],
         "visibilityStartTime" => [non_neg_integer()]
       }
-
+      
   """
   @type describe_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_config_request() :: %{
         "configData" => list(),
         "name" => String.t()
       }
-
+      
   """
   @type update_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       register_agent_request() :: %{
         required("agentDetails") => agent_details(),
         required("discoveryData") => discovery_data()
       }
-
+      
   """
   @type register_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tracking_config() :: %{
         "autotrack" => String.t()
       }
-
+      
   """
   @type tracking_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ephemeris_description() :: %{
         "ephemerisData" => String.t(),
         "sourceS3Object" => s3_object()
       }
-
+      
   """
   @type ephemeris_description() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       spectrum_config() :: %{
         "bandwidth" => frequency_bandwidth(),
         "centerFrequency" => frequency(),
         "polarization" => String.t()
       }
-
+      
   """
   @type spectrum_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       socket_address() :: %{
         "name" => [String.t()],
         "port" => [integer()]
       }
-
+      
   """
   @type socket_address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       endpoint_details() :: %{
         "awsGroundStationAgentEndpoint" => aws_ground_station_agent_endpoint(),
         "endpoint" => dataflow_endpoint(),
@@ -308,14 +308,14 @@ defmodule AWS.GroundStation do
         "healthStatus" => String.t(),
         "securityDetails" => security_details()
       }
-
+      
   """
   @type endpoint_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_config_response() :: %{
         "configArn" => String.t(),
         "configData" => list(),
@@ -324,14 +324,14 @@ defmodule AWS.GroundStation do
         "name" => [String.t()],
         "tags" => map()
       }
-
+      
   """
   @type get_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ephemeris_item() :: %{
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
@@ -341,113 +341,113 @@ defmodule AWS.GroundStation do
         "sourceS3Object" => s3_object(),
         "status" => String.t()
       }
-
+      
   """
   @type ephemeris_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ranged_socket_address() :: %{
         "name" => String.t(),
         "portRange" => integer_range()
       }
-
+      
   """
   @type ranged_socket_address() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       antenna_uplink_config() :: %{
         "spectrumConfig" => uplink_spectrum_config(),
         "targetEirp" => eirp(),
         "transmitDisabled" => [boolean()]
       }
-
+      
   """
   @type antenna_uplink_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ephemeris_meta_data() :: %{
         "ephemerisId" => String.t(),
         "epoch" => [non_neg_integer()],
         "name" => String.t(),
         "source" => String.t()
       }
-
+      
   """
   @type ephemeris_meta_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       uplink_echo_config() :: %{
         "antennaUplinkConfigArn" => String.t(),
         "enabled" => [boolean()]
       }
-
+      
   """
   @type uplink_echo_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ranged_connection_details() :: %{
         "mtu" => [integer()],
         "socketAddress" => ranged_socket_address()
       }
-
+      
   """
   @type ranged_connection_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_object() :: %{
         "bucket" => String.t(),
         "key" => String.t(),
         "version" => String.t()
       }
-
+      
   """
   @type s3_object() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       config_list_item() :: %{
         "configArn" => String.t(),
         "configId" => [String.t()],
         "configType" => String.t(),
         "name" => [String.t()]
       }
-
+      
   """
   @type config_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cancel_contact_request() :: %{}
-
+      
   """
   @type cancel_contact_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       agent_details() :: %{
         "agentCpuCores" => list([integer()]()),
         "agentVersion" => String.t(),
@@ -456,25 +456,25 @@ defmodule AWS.GroundStation do
         "instanceType" => String.t(),
         "reservedCpuCores" => list([integer()]())
       }
-
+      
   """
   @type agent_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       decode_config() :: %{
         "unvalidatedJSON" => String.t()
       }
-
+      
   """
   @type decode_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       reserve_contact_request() :: %{
         "endTime" => [non_neg_integer()],
         "groundStation" => String.t(),
@@ -483,25 +483,25 @@ defmodule AWS.GroundStation do
         "startTime" => [non_neg_integer()],
         "tags" => map()
       }
-
+      
   """
   @type reserve_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         "tagKeys" => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aws_ground_station_agent_endpoint() :: %{
         "agentStatus" => String.t(),
         "auditResults" => String.t(),
@@ -509,35 +509,35 @@ defmodule AWS.GroundStation do
         "ingressAddress" => ranged_connection_details(),
         "name" => String.t()
       }
-
+      
   """
   @type aws_ground_station_agent_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_config_request() :: %{}
-
+      
   """
   @type delete_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dataflow_endpoint_groups_response() :: %{
         "dataflowEndpointGroupList" => list(dataflow_endpoint_list_item()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_dataflow_endpoint_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       satellite_list_item() :: %{
         "currentEphemeris" => ephemeris_meta_data(),
         "groundStations" => list(String.t()()),
@@ -545,120 +545,120 @@ defmodule AWS.GroundStation do
         "satelliteArn" => String.t(),
         "satelliteId" => String.t()
       }
-
+      
   """
   @type satellite_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       config_id_response() :: %{
         "configArn" => String.t(),
         "configId" => [String.t()],
         "configType" => String.t()
       }
-
+      
   """
   @type config_id_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataflow_endpoint_list_item() :: %{
         "dataflowEndpointGroupArn" => String.t(),
         "dataflowEndpointGroupId" => String.t()
       }
-
+      
   """
   @type dataflow_endpoint_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       frequency() :: %{
         "units" => String.t(),
         "value" => [float()]
       }
-
+      
   """
   @type frequency() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       integer_range() :: %{
         "maximum" => [integer()],
         "minimum" => [integer()]
       }
-
+      
   """
   @type integer_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       mission_profile_id_response() :: %{
         "missionProfileId" => String.t()
       }
-
+      
   """
   @type mission_profile_id_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_mission_profiles_response() :: %{
         "missionProfileList" => list(mission_profile_list_item()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_mission_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_mission_profiles_request() :: %{
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_mission_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_agent_status_response() :: %{
         required("agentId") => String.t()
       }
-
+      
   """
   @type update_agent_status_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_data() :: %{
         "contactId" => String.t(),
         "contactStatus" => String.t(),
@@ -676,83 +676,83 @@ defmodule AWS.GroundStation do
         "visibilityEndTime" => [non_neg_integer()],
         "visibilityStartTime" => [non_neg_integer()]
       }
-
+      
   """
   @type contact_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ground_station_data() :: %{
         "groundStationId" => String.t(),
         "groundStationName" => String.t(),
         "region" => String.t()
       }
-
+      
   """
   @type ground_station_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_mission_profile_request() :: %{}
-
+      
   """
   @type get_mission_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_limit_exceeded_exception() :: %{
         "message" => [String.t()],
         "parameterName" => [String.t()]
       }
-
+      
   """
   @type resource_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       demodulation_config() :: %{
         "unvalidatedJSON" => String.t()
       }
-
+      
   """
   @type demodulation_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       contact_id_response() :: %{
         "contactId" => String.t()
       }
-
+      
   """
   @type contact_id_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_agent_status_request() :: %{
         required("aggregateStatus") => aggregate_status(),
         required("componentStatuses") => list(component_status_data()()),
         required("taskId") => String.t()
       }
-
+      
   """
   @type update_agent_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dataflow_endpoint_group_response() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
@@ -761,64 +761,64 @@ defmodule AWS.GroundStation do
         "endpointsDetails" => list(endpoint_details()()),
         "tags" => map()
       }
-
+      
   """
   @type get_dataflow_endpoint_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       aggregate_status() :: %{
         "signatureMap" => map(),
         "status" => String.t()
       }
-
+      
   """
   @type aggregate_status() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_ephemeris_request() :: %{
         optional("name") => String.t(),
         optional("priority") => integer(),
         required("enabled") => [boolean()]
       }
-
+      
   """
   @type update_ephemeris_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       ephemeris_id_response() :: %{
         optional("ephemerisId") => String.t()
       }
-
+      
   """
   @type ephemeris_id_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataflow_endpoint() :: %{
         "address" => socket_address(),
         "mtu" => [integer()],
         "name" => String.t(),
         "status" => String.t()
       }
-
+      
   """
   @type dataflow_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_minute_usage_response() :: %{
         "estimatedMinutesRemaining" => [integer()],
         "isReservedMinutesCustomer" => [boolean()],
@@ -826,25 +826,25 @@ defmodule AWS.GroundStation do
         "totalScheduledMinutes" => [integer()],
         "upcomingMinutesScheduled" => [integer()]
       }
-
+      
   """
   @type get_minute_usage_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "tags" => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_ephemeris_request() :: %{
         optional("enabled") => [boolean()],
         optional("ephemeris") => list(),
@@ -855,76 +855,76 @@ defmodule AWS.GroundStation do
         required("name") => String.t(),
         required("satelliteId") => String.t()
       }
-
+      
   """
   @type create_ephemeris_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       dataflow_endpoint_group_id_response() :: %{
         "dataflowEndpointGroupId" => String.t()
       }
-
+      
   """
   @type dataflow_endpoint_group_id_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       component_version() :: %{
         "componentType" => String.t(),
         "versions" => list(String.t()())
       }
-
+      
   """
   @type component_version() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ground_stations_request() :: %{
         "maxResults" => integer(),
         "nextToken" => String.t(),
         "satelliteId" => String.t()
       }
-
+      
   """
   @type list_ground_stations_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ephemerides_response() :: %{
         optional("ephemerides") => list(ephemeris_item()()),
         optional("nextToken") => String.t()
       }
-
+      
   """
   @type list_ephemerides_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       source() :: %{
         "configDetails" => list(),
         "configId" => [String.t()],
         "configType" => String.t(),
         "dataflowSourceRegion" => [String.t()]
       }
-
+      
   """
   @type source() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contacts_request() :: %{
         "endTime" => [non_neg_integer()],
         "groundStation" => String.t(),
@@ -935,115 +935,115 @@ defmodule AWS.GroundStation do
         "startTime" => [non_neg_integer()],
         "statusList" => list(String.t()())
       }
-
+      
   """
   @type list_contacts_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_ephemeris_request() :: %{}
-
+      
   """
   @type delete_ephemeris_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       mission_profile_list_item() :: %{
         "missionProfileArn" => String.t(),
         "missionProfileId" => String.t(),
         "name" => String.t(),
         "region" => String.t()
       }
-
+      
   """
   @type mission_profile_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       o_e_m_ephemeris() :: %{
         "oemData" => String.t(),
         "s3Object" => s3_object()
       }
-
+      
   """
   @type o_e_m_ephemeris() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       uplink_spectrum_config() :: %{
         "centerFrequency" => frequency(),
         "polarization" => String.t()
       }
-
+      
   """
   @type uplink_spectrum_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_mission_profile_request() :: %{}
-
+      
   """
   @type delete_mission_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_contacts_response() :: %{
         "contactList" => list(contact_data()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_contacts_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_dataflow_endpoint_group_request() :: %{}
-
+      
   """
   @type delete_dataflow_endpoint_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       time_range() :: %{
         "endTime" => [non_neg_integer()],
         "startTime" => [non_neg_integer()]
       }
-
+      
   """
   @type time_range() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       invalid_parameter_exception() :: %{
         "message" => [String.t()],
         "parameterName" => [String.t()]
       }
-
+      
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_satellite_response() :: %{
         "currentEphemeris" => ephemeris_meta_data(),
         "groundStations" => list(String.t()()),
@@ -1051,105 +1051,105 @@ defmodule AWS.GroundStation do
         "satelliteArn" => String.t(),
         "satelliteId" => String.t()
       }
-
+      
   """
   @type get_satellite_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_satellites_response() :: %{
         "nextToken" => String.t(),
         "satellites" => list(satellite_list_item()())
       }
-
+      
   """
   @type list_satellites_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_ephemeris_request() :: %{}
-
+      
   """
   @type describe_ephemeris_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       destination() :: %{
         "configDetails" => list(),
         "configId" => String.t(),
         "configType" => String.t(),
         "dataflowDestinationRegion" => [String.t()]
       }
-
+      
   """
   @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       t_l_e_ephemeris() :: %{
         "s3Object" => s3_object(),
         "tleData" => list(t_l_e_data()())
       }
-
+      
   """
   @type t_l_e_ephemeris() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       security_details() :: %{
         "roleArn" => String.t(),
         "securityGroupIds" => list([String.t()]()),
         "subnetIds" => list([String.t()]())
       }
-
+      
   """
   @type security_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_recording_config() :: %{
         "bucketArn" => String.t(),
         "prefix" => String.t(),
         "roleArn" => String.t()
       }
-
+      
   """
   @type s3_recording_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ephemerides_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1158,109 +1158,109 @@ defmodule AWS.GroundStation do
         required("satelliteId") => String.t(),
         required("startTime") => [non_neg_integer()]
       }
-
+      
   """
   @type list_ephemerides_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       s3_recording_details() :: %{
         "bucketArn" => String.t(),
         "keyTemplate" => [String.t()]
       }
-
+      
   """
   @type s3_recording_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       antenna_demod_decode_details() :: %{
         "outputNode" => [String.t()]
       }
-
+      
   """
   @type antenna_demod_decode_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       t_l_e_data() :: %{
         "tleLine1" => String.t(),
         "tleLine2" => String.t(),
         "validTimeRange" => time_range()
       }
-
+      
   """
   @type t_l_e_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       frequency_bandwidth() :: %{
         "units" => String.t(),
         "value" => [float()]
       }
-
+      
   """
   @type frequency_bandwidth() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       antenna_downlink_config() :: %{
         "spectrumConfig" => spectrum_config()
       }
-
+      
   """
   @type antenna_downlink_config() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_dataflow_endpoint_groups_request() :: %{
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_dataflow_endpoint_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       eirp() :: %{
         "units" => String.t(),
         "value" => [float()]
       }
-
+      
   """
   @type eirp() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_ground_stations_response() :: %{
         "groundStationList" => list(ground_station_data()()),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_ground_stations_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_mission_profile_response() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
@@ -1275,39 +1275,39 @@ defmodule AWS.GroundStation do
         "tags" => map(),
         "trackingConfigArn" => String.t()
       }
-
+      
   """
   @type get_mission_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       connection_details() :: %{
         "mtu" => [integer()],
         "socketAddress" => socket_address()
       }
-
+      
   """
   @type connection_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       discovery_data() :: %{
         "capabilityArns" => list(String.t()()),
         "privateIpAddresses" => list(String.t()()),
         "publicIpAddresses" => list(String.t()())
       }
-
+      
   """
   @type discovery_data() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_ephemeris_response() :: %{
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
@@ -1320,70 +1320,70 @@ defmodule AWS.GroundStation do
         "suppliedData" => list(),
         "tags" => map()
       }
-
+      
   """
   @type describe_ephemeris_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_satellites_request() :: %{
         "maxResults" => integer(),
         "nextToken" => String.t()
       }
-
+      
   """
   @type list_satellites_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_dataflow_endpoint_group_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
         "endpointDetails" => list(endpoint_details()()),
         "tags" => map()
       }
-
+      
   """
   @type create_dataflow_endpoint_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       elevation() :: %{
         "unit" => String.t(),
         "value" => [float()]
       }
-
+      
   """
   @type elevation() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_dataflow_endpoint_group_request() :: %{}
-
+      
   """
   @type get_dataflow_endpoint_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_agent_configuration_request() :: %{}
-
+      
   """
   @type get_agent_configuration_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_mission_profile_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
@@ -1395,14 +1395,14 @@ defmodule AWS.GroundStation do
         "tags" => map(),
         "trackingConfigArn" => String.t()
       }
-
+      
   """
   @type create_mission_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_mission_profile_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
@@ -1413,7 +1413,7 @@ defmodule AWS.GroundStation do
         "streamsKmsRole" => String.t(),
         "trackingConfigArn" => String.t()
       }
-
+      
   """
   @type update_mission_profile_request() :: %{String.t() => any()}
 
@@ -1545,17 +1545,38 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec cancel_contact(AWS.Client.t(), String.t(), cancel_contact_request(), Keyword.t()) ::
+
+  @spec cancel_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, contact_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, cancel_contact_errors()}
-  def cancel_contact(%Client{} = client, contact_id, input, options \\ []) do
+
+  def cancel_contact(%Client{} = client, contact_id, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1564,7 +1585,7 @@ defmodule AWS.GroundStation do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1579,29 +1600,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec create_config(AWS.Client.t(), create_config_request(), Keyword.t()) ::
+
+  @spec create_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_config_errors()}
-  def create_config(%Client{} = client, input, options \\ []) do
+
+  def create_config(%Client{} = client, options \\ []) do
     url_path = "/config"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1616,33 +1648,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec create_dataflow_endpoint_group(
-          AWS.Client.t(),
-          create_dataflow_endpoint_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_dataflow_endpoint_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_dataflow_endpoint_group_errors()}
-  def create_dataflow_endpoint_group(%Client{} = client, input, options \\ []) do
+
+  def create_dataflow_endpoint_group(%Client{} = client, options \\ []) do
     url_path = "/dataflowEndpointGroup"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1654,29 +1693,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec create_ephemeris(AWS.Client.t(), create_ephemeris_request(), Keyword.t()) ::
+
+  @spec create_ephemeris(AWS.Client.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_ephemeris_errors()}
-  def create_ephemeris(%Client{} = client, input, options \\ []) do
+
+  def create_ephemeris(%Client{} = client, options \\ []) do
     url_path = "/ephemeris"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1688,29 +1738,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec create_mission_profile(AWS.Client.t(), create_mission_profile_request(), Keyword.t()) ::
+
+  @spec create_mission_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_mission_profile_errors()}
-  def create_mission_profile(%Client{} = client, input, options \\ []) do
+
+  def create_mission_profile(%Client{} = client, options \\ []) do
     url_path = "/missionprofile"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1724,23 +1785,38 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec delete_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_config_errors()}
-  def delete_config(%Client{} = client, config_id, config_type, input, options \\ []) do
+
+  def delete_config(%Client{} = client, config_id, config_type, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1749,7 +1825,7 @@ defmodule AWS.GroundStation do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1765,27 +1841,42 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec delete_dataflow_endpoint_group(
-          AWS.Client.t(),
-          String.t(),
-          delete_dataflow_endpoint_group_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_dataflow_endpoint_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_dataflow_endpoint_group_errors()}
+
   def delete_dataflow_endpoint_group(
         %Client{} = client,
         dataflow_endpoint_group_id,
-        input,
         options \\ []
       ) do
     url_path = "/dataflowEndpointGroup/#{AWS.Util.encode_uri(dataflow_endpoint_group_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1794,7 +1885,7 @@ defmodule AWS.GroundStation do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1810,17 +1901,38 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec delete_ephemeris(AWS.Client.t(), String.t(), delete_ephemeris_request(), Keyword.t()) ::
+
+  @spec delete_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_ephemeris_errors()}
-  def delete_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
+
+  def delete_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1829,7 +1941,7 @@ defmodule AWS.GroundStation do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1845,22 +1957,38 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec delete_mission_profile(
-          AWS.Client.t(),
-          String.t(),
-          delete_mission_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_mission_profile_errors()}
-  def delete_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
+
+  def delete_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1869,7 +1997,7 @@ defmodule AWS.GroundStation do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -1885,10 +2013,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec describe_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_contact_errors()}
+
   def describe_contact(%Client{} = client, contact_id, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
 
@@ -1927,10 +2057,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec describe_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ephemeris_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_ephemeris_errors()}
+
   def describe_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
 
@@ -1969,10 +2101,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec get_agent_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_agent_configuration_errors()}
+
   def get_agent_configuration(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}/configuration"
 
@@ -2012,10 +2146,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec get_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_config_errors()}
+
   def get_config(%Client{} = client, config_id, config_type, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
 
@@ -2054,10 +2190,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec get_dataflow_endpoint_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataflow_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dataflow_endpoint_group_errors()}
+
   def get_dataflow_endpoint_group(%Client{} = client, dataflow_endpoint_group_id, options \\ []) do
     url_path = "/dataflowEndpointGroup/#{AWS.Util.encode_uri(dataflow_endpoint_group_id)}"
 
@@ -2095,29 +2233,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec get_minute_usage(AWS.Client.t(), get_minute_usage_request(), Keyword.t()) ::
+
+  @spec get_minute_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_minute_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_minute_usage_errors()}
-  def get_minute_usage(%Client{} = client, input, options \\ []) do
+
+  def get_minute_usage(%Client{} = client, options \\ []) do
     url_path = "/minute-usage"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2130,10 +2279,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec get_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_mission_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_mission_profile_errors()}
+
   def get_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
 
@@ -2172,10 +2323,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec get_satellite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_satellite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_satellite_errors()}
+
   def get_satellite(%Client{} = client, satellite_id, options \\ []) do
     url_path = "/satellite/#{AWS.Util.encode_uri(satellite_id)}"
 
@@ -2214,12 +2367,14 @@ defmodule AWS.GroundStation do
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of Configs returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
-    ListConfigs call. Used to get the next page of results.
+  ListConfigs call. Used to get the next page of results.
   """
+
   @spec list_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_configs_errors()}
+
   def list_configs(%Client{} = client, options \\ []) do
     url_path = "/config"
 
@@ -2275,29 +2430,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec list_contacts(AWS.Client.t(), list_contacts_request(), Keyword.t()) ::
+
+  @spec list_contacts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contacts_errors()}
-  def list_contacts(%Client{} = client, input, options \\ []) do
+
+  def list_contacts(%Client{} = client, options \\ []) do
     url_path = "/contacts"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2309,14 +2475,16 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of dataflow endpoint groups
-    returned.
+  returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
-    ListDataflowEndpointGroups call. Used to get the next page of results.
+  ListDataflowEndpointGroups call. Used to get the next page of results.
   """
+
   @spec list_dataflow_endpoint_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dataflow_endpoint_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_dataflow_endpoint_groups_errors()}
+
   def list_dataflow_endpoint_groups(%Client{} = client, options \\ []) do
     url_path = "/dataflowEndpointGroup"
 
@@ -2374,20 +2542,46 @@ defmodule AWS.GroundStation do
   * `:max_results` (`t:integer`) Maximum number of ephemerides to return.
   * `:next_token` (`t:string`) Pagination token.
   """
-  @spec list_ephemerides(AWS.Client.t(), list_ephemerides_request(), Keyword.t()) ::
+
+  @spec list_ephemerides(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ephemerides_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ephemerides_errors()}
-  def list_ephemerides(%Client{} = client, input, options \\ []) do
+
+  def list_ephemerides(%Client{} = client, options \\ []) do
     url_path = "/ephemerides"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"maxResults", "maxResults"},
-        {"nextToken", "nextToken"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata()
@@ -2397,17 +2591,9 @@ defmodule AWS.GroundStation do
       options
       |> Keyword.drop([:max_results, :next_token])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2420,14 +2606,16 @@ defmodule AWS.GroundStation do
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of ground stations returned.
   * `:next_token` (`t:string`) Next token that can be supplied in the next call to
-    get the next page of ground stations.
+  get the next page of ground stations.
   * `:satellite_id` (`t:string`) Satellite ID to retrieve on-boarded ground
-    stations.
+  stations.
   """
+
   @spec list_ground_stations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ground_stations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_ground_stations_errors()}
+
   def list_ground_stations(%Client{} = client, options \\ []) do
     url_path = "/groundstation"
 
@@ -2491,12 +2679,14 @@ defmodule AWS.GroundStation do
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of mission profiles returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
-    ListMissionProfiles call. Used to get the next page of results.
+  ListMissionProfiles call. Used to get the next page of results.
   """
+
   @spec list_mission_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_mission_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_mission_profiles_errors()}
+
   def list_mission_profiles(%Client{} = client, options \\ []) do
     url_path = "/missionprofile"
 
@@ -2553,12 +2743,14 @@ defmodule AWS.GroundStation do
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of satellites returned.
   * `:next_token` (`t:string`) Next token that can be supplied in the next call to
-    get the next page of satellites.
+  get the next page of satellites.
   """
+
   @spec list_satellites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_satellites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_satellites_errors()}
+
   def list_satellites(%Client{} = client, options \\ []) do
     url_path = "/satellite"
 
@@ -2615,10 +2807,12 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -2656,29 +2850,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec register_agent(AWS.Client.t(), register_agent_request(), Keyword.t()) ::
+
+  @spec register_agent(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, register_agent_errors()}
-  def register_agent(%Client{} = client, input, options \\ []) do
+
+  def register_agent(%Client{} = client, options \\ []) do
     url_path = "/agent"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2690,29 +2895,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec reserve_contact(AWS.Client.t(), reserve_contact_request(), Keyword.t()) ::
+
+  @spec reserve_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, contact_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, reserve_contact_errors()}
-  def reserve_contact(%Client{} = client, input, options \\ []) do
+
+  def reserve_contact(%Client{} = client, options \\ []) do
     url_path = "/contact"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2725,29 +2941,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2758,26 +2985,43 @@ defmodule AWS.GroundStation do
   ## Parameters:
   * `:resource_arn` (`t:string`) ARN of a resource.
   * `:tag_keys` (`t:list[com.amazonaws.groundstation#UnboundedString]`) Keys of a
-    resource tag.
+  resource tag.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"tagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -2786,7 +3030,7 @@ defmodule AWS.GroundStation do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -2802,24 +3046,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec update_agent_status(
-          AWS.Client.t(),
-          String.t(),
-          update_agent_status_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_agent_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_agent_status_errors()}
-  def update_agent_status(%Client{} = client, agent_id, input, options \\ []) do
+
+  def update_agent_status(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2833,25 +3093,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec update_config(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_config_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_config_errors()}
-  def update_config(%Client{} = client, config_id, config_type, input, options \\ []) do
+
+  def update_config(%Client{} = client, config_id, config_type, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2864,19 +3139,40 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec update_ephemeris(AWS.Client.t(), String.t(), update_ephemeris_request(), Keyword.t()) ::
+
+  @spec update_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_ephemeris_errors()}
-  def update_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
+
+  def update_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2889,23 +3185,39 @@ defmodule AWS.GroundStation do
 
   ## Optional parameters:
   """
-  @spec update_mission_profile(
-          AWS.Client.t(),
-          String.t(),
-          update_mission_profile_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_mission_profile_errors()}
-  def update_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
+
+  def update_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end

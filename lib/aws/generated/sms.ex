@@ -1633,12 +1633,27 @@ defmodule AWS.SMS do
   @doc """
   Creates an application. An application consists of one or more server groups.
   Each server group contain one or more servers.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20CreateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_app_request`)
+    %{
+      optional("clientToken") => String.t(),
+      optional("description") => String.t(),
+      optional("name") => String.t(),
+      optional("roleName") => String.t(),
+      optional("serverGroups") => list(server_group()()),
+      optional("tags") => list(tag()())
+    }
   """
-  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
+
+  @spec create_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_app_errors()}
-  def create_app(%Client{} = client, input, options \\ []) do
+
+  def create_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1649,12 +1664,31 @@ defmodule AWS.SMS do
   Creates a replication job. The replication job schedules periodic replication
   runs to replicate your server to Amazon Web Services. Each replication run
   creates an Amazon Machine Image (AMI).
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20CreateReplicationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_replication_job_request`)
+    %{
+      optional("description") => String.t(),
+      optional("encrypted") => boolean(),
+      optional("frequency") => integer(),
+      optional("kmsKeyId") => String.t(),
+      optional("licenseType") => list(any()),
+      optional("numberOfRecentAmisToKeep") => integer(),
+      optional("roleName") => String.t(),
+      optional("runOnce") => boolean(),
+      required("seedReplicationTime") => non_neg_integer(),
+      required("serverId") => String.t()
+    }
   """
-  @spec create_replication_job(AWS.Client.t(), create_replication_job_request(), Keyword.t()) ::
+
+  @spec create_replication_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_replication_job_errors()}
-  def create_replication_job(%Client{} = client, input, options \\ []) do
+
+  def create_replication_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1665,12 +1699,24 @@ defmodule AWS.SMS do
   Deletes the specified application. Optionally deletes the launched stack
   associated with the application and all Server Migration Service replication
   jobs for servers in the application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20DeleteApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_request`)
+    %{
+      optional("appId") => String.t(),
+      optional("forceStopAppReplication") => boolean(),
+      optional("forceTerminateApp") => boolean()
+    }
   """
-  @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
+
+  @spec delete_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_errors()}
-  def delete_app(%Client{} = client, input, options \\ []) do
+
+  def delete_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1679,16 +1725,23 @@ defmodule AWS.SMS do
 
   @doc """
   Deletes the launch configuration for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20DeleteAppLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_launch_configuration_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec delete_app_launch_configuration(
-          AWS.Client.t(),
-          delete_app_launch_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_launch_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_launch_configuration_errors()}
-  def delete_app_launch_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_app_launch_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1697,16 +1750,23 @@ defmodule AWS.SMS do
 
   @doc """
   Deletes the replication configuration for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20DeleteAppReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_replication_configuration_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec delete_app_replication_configuration(
-          AWS.Client.t(),
-          delete_app_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_replication_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_replication_configuration_errors()}
-  def delete_app_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_app_replication_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1715,16 +1775,23 @@ defmodule AWS.SMS do
 
   @doc """
   Deletes the validation configuration for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20DeleteAppValidationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_app_validation_configuration_request`)
+    %{
+      required("appId") => String.t()
+    }
   """
-  @spec delete_app_validation_configuration(
-          AWS.Client.t(),
-          delete_app_validation_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_app_validation_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_app_validation_configuration_errors()}
-  def delete_app_validation_configuration(%Client{} = client, input, options \\ []) do
+
+  def delete_app_validation_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1733,12 +1800,22 @@ defmodule AWS.SMS do
 
   @doc """
   Deletes the specified replication job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20DeleteReplicationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_replication_job_request`)
+    %{
+      required("replicationJobId") => String.t()
+    }
   """
-  @spec delete_replication_job(AWS.Client.t(), delete_replication_job_request(), Keyword.t()) ::
+
+  @spec delete_replication_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_replication_job_errors()}
-  def delete_replication_job(%Client{} = client, input, options \\ []) do
+
+  def delete_replication_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1747,12 +1824,22 @@ defmodule AWS.SMS do
 
   @doc """
   Deletes all servers from your server catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20DeleteServerCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_server_catalog_request`)
+    %{
+      
+    }
   """
-  @spec delete_server_catalog(AWS.Client.t(), delete_server_catalog_request(), Keyword.t()) ::
+
+  @spec delete_server_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_server_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_server_catalog_errors()}
-  def delete_server_catalog(%Client{} = client, input, options \\ []) do
+
+  def delete_server_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1761,12 +1848,22 @@ defmodule AWS.SMS do
 
   @doc """
   Disassociates the specified connector from Server Migration Service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20DisassociateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:disassociate_connector_request`)
+    %{
+      required("connectorId") => String.t()
+    }
   """
-  @spec disassociate_connector(AWS.Client.t(), disassociate_connector_request(), Keyword.t()) ::
+
+  @spec disassociate_connector(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, disassociate_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_connector_errors()}
-  def disassociate_connector(%Client{} = client, input, options \\ []) do
+
+  def disassociate_connector(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1776,12 +1873,23 @@ defmodule AWS.SMS do
   @doc """
   Generates a target change set for a currently launched stack and writes it to an
   Amazon S3 object in the customer’s Amazon S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GenerateChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_change_set_request`)
+    %{
+      optional("appId") => String.t(),
+      optional("changesetFormat") => list(any())
+    }
   """
-  @spec generate_change_set(AWS.Client.t(), generate_change_set_request(), Keyword.t()) ::
+
+  @spec generate_change_set(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_change_set_errors()}
-  def generate_change_set(%Client{} = client, input, options \\ []) do
+
+  def generate_change_set(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1791,12 +1899,23 @@ defmodule AWS.SMS do
   @doc """
   Generates an CloudFormation template based on the current launch configuration
   and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GenerateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:generate_template_request`)
+    %{
+      optional("appId") => String.t(),
+      optional("templateFormat") => list(any())
+    }
   """
-  @spec generate_template(AWS.Client.t(), generate_template_request(), Keyword.t()) ::
+
+  @spec generate_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, generate_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, generate_template_errors()}
-  def generate_template(%Client{} = client, input, options \\ []) do
+
+  def generate_template(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1805,12 +1924,22 @@ defmodule AWS.SMS do
 
   @doc """
   Retrieve information about the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_app_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec get_app(AWS.Client.t(), get_app_request(), Keyword.t()) ::
+
+  @spec get_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_errors()}
-  def get_app(%Client{} = client, input, options \\ []) do
+
+  def get_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1820,16 +1949,22 @@ defmodule AWS.SMS do
   @doc """
   Retrieves the application launch configuration associated with the specified
   application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetAppLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_app_launch_configuration_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec get_app_launch_configuration(
-          AWS.Client.t(),
-          get_app_launch_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_app_launch_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_launch_configuration_errors()}
-  def get_app_launch_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_app_launch_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1839,16 +1974,23 @@ defmodule AWS.SMS do
   @doc """
   Retrieves the application replication configuration associated with the
   specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetAppReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_app_replication_configuration_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec get_app_replication_configuration(
-          AWS.Client.t(),
-          get_app_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_app_replication_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_replication_configuration_errors()}
-  def get_app_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_app_replication_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1857,16 +1999,23 @@ defmodule AWS.SMS do
 
   @doc """
   Retrieves information about a configuration for validating an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetAppValidationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_app_validation_configuration_request`)
+    %{
+      required("appId") => String.t()
+    }
   """
-  @spec get_app_validation_configuration(
-          AWS.Client.t(),
-          get_app_validation_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_app_validation_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_validation_configuration_errors()}
-  def get_app_validation_configuration(%Client{} = client, input, options \\ []) do
+
+  def get_app_validation_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -1875,16 +2024,22 @@ defmodule AWS.SMS do
 
   @doc """
   Retrieves output from validating an application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetAppValidationOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_app_validation_output_request`)
+    %{
+      required("appId") => String.t()
+    }
   """
-  @spec get_app_validation_output(
-          AWS.Client.t(),
-          get_app_validation_output_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_app_validation_output(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_app_validation_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_app_validation_output_errors()}
-  def get_app_validation_output(%Client{} = client, input, options \\ []) do
+
+  def get_app_validation_output(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1893,12 +2048,23 @@ defmodule AWS.SMS do
 
   @doc """
   Describes the connectors registered with the Server Migration Service.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_connectors_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec get_connectors(AWS.Client.t(), get_connectors_request(), Keyword.t()) ::
+
+  @spec get_connectors(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_connectors_errors()}
-  def get_connectors(%Client{} = client, input, options \\ []) do
+
+  def get_connectors(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1907,12 +2073,24 @@ defmodule AWS.SMS do
 
   @doc """
   Describes the specified replication job or all of your replication jobs.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetReplicationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_replication_jobs_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("replicationJobId") => String.t()
+    }
   """
-  @spec get_replication_jobs(AWS.Client.t(), get_replication_jobs_request(), Keyword.t()) ::
+
+  @spec get_replication_jobs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_replication_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_jobs_errors()}
-  def get_replication_jobs(%Client{} = client, input, options \\ []) do
+
+  def get_replication_jobs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1921,12 +2099,24 @@ defmodule AWS.SMS do
 
   @doc """
   Describes the replication runs for the specified replication job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetReplicationRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_replication_runs_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      required("replicationJobId") => String.t()
+    }
   """
-  @spec get_replication_runs(AWS.Client.t(), get_replication_runs_request(), Keyword.t()) ::
+
+  @spec get_replication_runs(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_replication_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_replication_runs_errors()}
-  def get_replication_runs(%Client{} = client, input, options \\ []) do
+
+  def get_replication_runs(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1935,12 +2125,24 @@ defmodule AWS.SMS do
 
   @doc """
   Describes the servers in your server catalog.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20GetServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:get_servers_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("vmServerAddressList") => list(vm_server_address()())
+    }
   """
-  @spec get_servers(AWS.Client.t(), get_servers_request(), Keyword.t()) ::
+
+  @spec get_servers(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_servers_errors()}
-  def get_servers(%Client{} = client, input, options \\ []) do
+
+  def get_servers(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1949,12 +2151,22 @@ defmodule AWS.SMS do
 
   @doc """
   Allows application import from Migration Hub.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20ImportAppCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_app_catalog_request`)
+    %{
+      optional("roleName") => String.t()
+    }
   """
-  @spec import_app_catalog(AWS.Client.t(), import_app_catalog_request(), Keyword.t()) ::
+
+  @spec import_app_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_app_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_app_catalog_errors()}
-  def import_app_catalog(%Client{} = client, input, options \\ []) do
+
+  def import_app_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1964,12 +2176,22 @@ defmodule AWS.SMS do
   @doc """
   Gathers a complete list of on-premises servers. Connectors must be installed and
   monitoring all servers to import.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20ImportServerCatalog&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:import_server_catalog_request`)
+    %{
+      
+    }
   """
-  @spec import_server_catalog(AWS.Client.t(), import_server_catalog_request(), Keyword.t()) ::
+
+  @spec import_server_catalog(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, import_server_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, import_server_catalog_errors()}
-  def import_server_catalog(%Client{} = client, input, options \\ []) do
+
+  def import_server_catalog(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1978,12 +2200,22 @@ defmodule AWS.SMS do
 
   @doc """
   Launches the specified application as a stack in CloudFormation.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20LaunchApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:launch_app_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec launch_app(AWS.Client.t(), launch_app_request(), Keyword.t()) ::
+
+  @spec launch_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, launch_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, launch_app_errors()}
-  def launch_app(%Client{} = client, input, options \\ []) do
+
+  def launch_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -1992,12 +2224,24 @@ defmodule AWS.SMS do
 
   @doc """
   Retrieves summaries for all applications.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20ListApps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:list_apps_request`)
+    %{
+      optional("appIds") => list(String.t()()),
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t()
+    }
   """
-  @spec list_apps(AWS.Client.t(), list_apps_request(), Keyword.t()) ::
+
+  @spec list_apps(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_apps_errors()}
-  def list_apps(%Client{} = client, input, options \\ []) do
+
+  def list_apps(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2007,16 +2251,23 @@ defmodule AWS.SMS do
   @doc """
   Provides information to Server Migration Service about whether application
   validation is successful.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20NotifyAppValidationOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:notify_app_validation_output_request`)
+    %{
+      optional("notificationContext") => notification_context(),
+      required("appId") => String.t()
+    }
   """
-  @spec notify_app_validation_output(
-          AWS.Client.t(),
-          notify_app_validation_output_request(),
-          Keyword.t()
-        ) ::
+
+  @spec notify_app_validation_output(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, notify_app_validation_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, notify_app_validation_output_errors()}
-  def notify_app_validation_output(%Client{} = client, input, options \\ []) do
+
+  def notify_app_validation_output(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2025,16 +2276,25 @@ defmodule AWS.SMS do
 
   @doc """
   Creates or updates the launch configuration for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20PutAppLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_app_launch_configuration_request`)
+    %{
+      optional("appId") => String.t(),
+      optional("autoLaunch") => boolean(),
+      optional("roleName") => String.t(),
+      optional("serverGroupLaunchConfigurations") => list(server_group_launch_configuration()())
+    }
   """
-  @spec put_app_launch_configuration(
-          AWS.Client.t(),
-          put_app_launch_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_app_launch_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_launch_configuration_errors()}
-  def put_app_launch_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_app_launch_configuration(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2043,16 +2303,24 @@ defmodule AWS.SMS do
 
   @doc """
   Creates or updates the replication configuration for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20PutAppReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_app_replication_configuration_request`)
+    %{
+      optional("appId") => String.t(),
+      optional("serverGroupReplicationConfigurations") => list(server_group_replication_configuration()())
+    }
   """
-  @spec put_app_replication_configuration(
-          AWS.Client.t(),
-          put_app_replication_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_app_replication_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_replication_configuration_errors()}
-  def put_app_replication_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_app_replication_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2061,16 +2329,25 @@ defmodule AWS.SMS do
 
   @doc """
   Creates or updates a validation configuration for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20PutAppValidationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:put_app_validation_configuration_request`)
+    %{
+      optional("appValidationConfigurations") => list(app_validation_configuration()()),
+      optional("serverGroupValidationConfigurations") => list(server_group_validation_configuration()()),
+      required("appId") => String.t()
+    }
   """
-  @spec put_app_validation_configuration(
-          AWS.Client.t(),
-          put_app_validation_configuration_request(),
-          Keyword.t()
-        ) ::
+
+  @spec put_app_validation_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_app_validation_configuration_errors()}
-  def put_app_validation_configuration(%Client{} = client, input, options \\ []) do
+
+  def put_app_validation_configuration(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2080,12 +2357,22 @@ defmodule AWS.SMS do
   @doc """
   Starts replicating the specified application by creating replication jobs for
   each server in the application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20StartAppReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_app_replication_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec start_app_replication(AWS.Client.t(), start_app_replication_request(), Keyword.t()) ::
+
+  @spec start_app_replication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_app_replication_errors()}
-  def start_app_replication(%Client{} = client, input, options \\ []) do
+
+  def start_app_replication(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2094,16 +2381,24 @@ defmodule AWS.SMS do
 
   @doc """
   Starts an on-demand replication run for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20StartOnDemandAppReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_on_demand_app_replication_request`)
+    %{
+      optional("description") => String.t(),
+      required("appId") => String.t()
+    }
   """
-  @spec start_on_demand_app_replication(
-          AWS.Client.t(),
-          start_on_demand_app_replication_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_on_demand_app_replication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_on_demand_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_on_demand_app_replication_errors()}
-  def start_on_demand_app_replication(%Client{} = client, input, options \\ []) do
+
+  def start_on_demand_app_replication(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2114,16 +2409,24 @@ defmodule AWS.SMS do
   Starts an on-demand replication run for the specified replication job. This
   replication run starts immediately. This replication run is in addition to the
   ones already scheduled.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20StartOnDemandReplicationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:start_on_demand_replication_run_request`)
+    %{
+      optional("description") => String.t(),
+      required("replicationJobId") => String.t()
+    }
   """
-  @spec start_on_demand_replication_run(
-          AWS.Client.t(),
-          start_on_demand_replication_run_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_on_demand_replication_run(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_on_demand_replication_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_on_demand_replication_run_errors()}
-  def start_on_demand_replication_run(%Client{} = client, input, options \\ []) do
+
+  def start_on_demand_replication_run(%Client{} = client, input, options \\ [])
+      when is_map(input) do
     meta =
       metadata()
 
@@ -2133,12 +2436,22 @@ defmodule AWS.SMS do
   @doc """
   Stops replicating the specified application by deleting the replication job for
   each server in the application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20StopAppReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:stop_app_replication_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec stop_app_replication(AWS.Client.t(), stop_app_replication_request(), Keyword.t()) ::
+
+  @spec stop_app_replication(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, stop_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_app_replication_errors()}
-  def stop_app_replication(%Client{} = client, input, options \\ []) do
+
+  def stop_app_replication(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2147,12 +2460,22 @@ defmodule AWS.SMS do
 
   @doc """
   Terminates the stack for the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20TerminateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:terminate_app_request`)
+    %{
+      optional("appId") => String.t()
+    }
   """
-  @spec terminate_app(AWS.Client.t(), terminate_app_request(), Keyword.t()) ::
+
+  @spec terminate_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, terminate_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, terminate_app_errors()}
-  def terminate_app(%Client{} = client, input, options \\ []) do
+
+  def terminate_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2161,12 +2484,27 @@ defmodule AWS.SMS do
 
   @doc """
   Updates the specified application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20UpdateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_app_request`)
+    %{
+      optional("appId") => String.t(),
+      optional("description") => String.t(),
+      optional("name") => String.t(),
+      optional("roleName") => String.t(),
+      optional("serverGroups") => list(server_group()()),
+      optional("tags") => list(tag()())
+    }
   """
-  @spec update_app(AWS.Client.t(), update_app_request(), Keyword.t()) ::
+
+  @spec update_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_app_errors()}
-  def update_app(%Client{} = client, input, options \\ []) do
+
+  def update_app(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 
@@ -2175,12 +2513,30 @@ defmodule AWS.SMS do
 
   @doc """
   Updates the specified settings for the specified replication job.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sms%20UpdateReplicationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_replication_job_request`)
+    %{
+      optional("description") => String.t(),
+      optional("encrypted") => boolean(),
+      optional("frequency") => integer(),
+      optional("kmsKeyId") => String.t(),
+      optional("licenseType") => list(any()),
+      optional("nextReplicationRunStartTime") => non_neg_integer(),
+      optional("numberOfRecentAmisToKeep") => integer(),
+      optional("roleName") => String.t(),
+      required("replicationJobId") => String.t()
+    }
   """
-  @spec update_replication_job(AWS.Client.t(), update_replication_job_request(), Keyword.t()) ::
+
+  @spec update_replication_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_replication_job_errors()}
-  def update_replication_job(%Client{} = client, input, options \\ []) do
+
+  def update_replication_job(%Client{} = client, input, options \\ []) when is_map(input) do
     meta =
       metadata()
 

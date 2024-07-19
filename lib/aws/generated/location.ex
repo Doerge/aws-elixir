@@ -13,42 +13,42 @@ defmodule AWS.Location do
   @typedoc """
 
   ## Example:
-
+      
       get_device_position_request() :: %{}
-
+      
   """
   @type get_device_position_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_geofence_collections_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_geofence_collections_response_entry()())
       }
-
+      
   """
   @type list_geofence_collections_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       truck_dimensions() :: %{
         "Height" => [float()],
         "Length" => [float()],
         "Unit" => String.t(),
         "Width" => [float()]
       }
-
+      
   """
   @type truck_dimensions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_geofence_response() :: %{
         optional("GeofenceProperties") => map(),
         required("CreateTime") => non_neg_integer(),
@@ -57,103 +57,103 @@ defmodule AWS.Location do
         required("Status") => [String.t()],
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type get_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_geofence_collection_request() :: %{}
-
+      
   """
   @type describe_geofence_collection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_device_position_response() :: %{
         required("Errors") => list(batch_update_device_position_error()())
       }
-
+      
   """
   @type batch_update_device_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_device_positions_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_device_positions_response_entry()())
       }
-
+      
   """
   @type list_device_positions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("Tags") => map()
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_tracker_consumer_request() :: %{
         required("ConsumerArn") => String.t()
       }
-
+      
   """
   @type associate_tracker_consumer_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_geofence_request() :: %{
         required("Entries") => list(batch_put_geofence_request_entry()())
       }
-
+      
   """
   @type batch_put_geofence_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_car_mode_options() :: %{
         "AvoidFerries" => [boolean()],
         "AvoidTolls" => [boolean()]
       }
-
+      
   """
   @type calculate_route_car_mode_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_geofence_error() :: %{
         "Error" => batch_item_error(),
         "GeofenceId" => String.t()
       }
-
+      
   """
   @type batch_put_geofence_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecasted_event() :: %{
         "EventId" => String.t(),
         "EventType" => String.t(),
@@ -163,38 +163,38 @@ defmodule AWS.Location do
         "IsDeviceInGeofence" => [boolean()],
         "NearestDistance" => float()
       }
-
+      
   """
   @type forecasted_event() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_device_position_error() :: %{
         "DeviceId" => String.t(),
         "Error" => batch_item_error(),
         "SampleTime" => non_neg_integer()
       }
-
+      
   """
   @type batch_update_device_position_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_geofence_response() :: %{
         required("Errors") => list(batch_delete_geofence_error()())
       }
-
+      
   """
   @type batch_delete_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_key_request() :: %{
         optional("Description") => String.t(),
         optional("ExpireTime") => non_neg_integer(),
@@ -203,14 +203,14 @@ defmodule AWS.Location do
         required("KeyName") => String.t(),
         required("Restrictions") => api_key_restrictions()
       }
-
+      
   """
   @type create_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_place_index_request() :: %{
         optional("DataSourceConfiguration") => data_source_configuration(),
         optional("Description") => String.t(),
@@ -219,153 +219,153 @@ defmodule AWS.Location do
         required("DataSource") => [String.t()],
         required("IndexName") => String.t()
       }
-
+      
   """
   @type create_place_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       data_source_configuration() :: %{
         "IntendedUse" => String.t()
       }
-
+      
   """
   @type data_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_route_calculator_response() :: %{
         required("CalculatorArn") => String.t(),
         required("CalculatorName") => String.t(),
         required("CreateTime") => non_neg_integer()
       }
-
+      
   """
   @type create_route_calculator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_tracker_response() :: %{
         required("CreateTime") => non_neg_integer(),
         required("TrackerArn") => String.t(),
         required("TrackerName") => String.t()
       }
-
+      
   """
   @type create_tracker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_tile_response() :: %{
         optional("Blob") => [binary()],
         optional("CacheControl") => [String.t()],
         optional("ContentType") => [String.t()]
       }
-
+      
   """
   @type get_map_tile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_map_response() :: %{
         required("MapArn") => String.t(),
         required("MapName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_map_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_maps_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_maps_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_route_calculator_response() :: %{}
-
+      
   """
   @type delete_route_calculator_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_glyphs_response() :: %{
         "Blob" => [binary()],
         "CacheControl" => [String.t()],
         "ContentType" => [String.t()]
       }
-
+      
   """
   @type get_map_glyphs_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_place_index_request() :: %{}
-
+      
   """
   @type describe_place_index_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_keys_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_keys_response_entry()())
       }
-
+      
   """
   @type list_keys_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_response() :: %{
         "Legs" => list(leg()()),
         "Summary" => calculate_route_summary()
       }
-
+      
   """
   @type calculate_route_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_route_calculators_response_entry() :: %{
         "CalculatorName" => String.t(),
         "CreateTime" => non_neg_integer(),
@@ -374,39 +374,39 @@ defmodule AWS.Location do
         "PricingPlan" => String.t(),
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type list_route_calculators_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_response() :: %{
         required("KeyArn") => String.t(),
         required("KeyName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_position_response() :: %{
         required("Results") => list(search_for_position_result()()),
         required("Summary") => search_place_index_for_position_summary()
       }
-
+      
   """
   @type search_place_index_for_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_maps_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
         "DataSource" => [String.t()],
@@ -415,141 +415,141 @@ defmodule AWS.Location do
         "PricingPlan" => String.t(),
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type list_maps_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_trackers_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_trackers_response_entry()())
       }
-
+      
   """
   @type list_trackers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_route_calculator_request() :: %{}
-
+      
   """
   @type describe_route_calculator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_key_request() :: %{
         optional("ForceDelete") => [boolean()]
       }
-
+      
   """
   @type delete_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_route_calculator_request() :: %{
         optional("Description") => String.t(),
         optional("PricingPlan") => String.t()
       }
-
+      
   """
   @type update_route_calculator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_for_position_result() :: %{
         "Distance" => [float()],
         "Place" => place(),
         "PlaceId" => String.t()
       }
-
+      
   """
   @type search_for_position_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_geofence_request() :: %{
         optional("GeofenceProperties") => map(),
         required("Geometry") => geofence_geometry()
       }
-
+      
   """
   @type put_geofence_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_geofence_success() :: %{
         "CreateTime" => non_neg_integer(),
         "GeofenceId" => String.t(),
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type batch_put_geofence_success() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_key_filter() :: %{
         "KeyStatus" => String.t()
       }
-
+      
   """
   @type api_key_filter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("TagKeys") => list([String.t()]())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_for_suggestions_result() :: %{
         "Categories" => list(String.t()()),
         "PlaceId" => String.t(),
         "SupplementalCategories" => list(String.t()()),
         "Text" => [String.t()]
       }
-
+      
   """
   @type search_for_suggestions_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       associate_tracker_consumer_response() :: %{}
-
+      
   """
   @type associate_tracker_consumer_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_text_summary() :: %{
         "BiasPosition" => list([float()]()),
         "DataSource" => [String.t()],
@@ -561,136 +561,136 @@ defmodule AWS.Location do
         "ResultBBox" => list([float()]()),
         "Text" => String.t()
       }
-
+      
   """
   @type search_place_index_for_text_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_geofence_error() :: %{
         "Error" => batch_item_error(),
         "GeofenceId" => String.t()
       }
-
+      
   """
   @type batch_delete_geofence_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_evaluate_geofences_request() :: %{
         required("DevicePositionUpdates") => list(device_position_update()())
       }
-
+      
   """
   @type batch_evaluate_geofences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_geofences_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_geofence_response_entry()())
       }
-
+      
   """
   @type list_geofences_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       route_matrix_entry_error() :: %{
         "Code" => String.t(),
         "Message" => [String.t()]
       }
-
+      
   """
   @type route_matrix_entry_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_place_index_response() :: %{}
-
+      
   """
   @type delete_place_index_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_sprites_request() :: %{
         optional("Key") => String.t()
       }
-
+      
   """
   @type get_map_sprites_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_map_request() :: %{}
-
+      
   """
   @type delete_map_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_geofence_collections_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_geofence_collections_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_style_descriptor_response() :: %{
         optional("Blob") => [binary()],
         optional("CacheControl") => [String.t()],
         optional("ContentType") => [String.t()]
       }
-
+      
   """
   @type get_map_style_descriptor_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_key_response() :: %{}
-
+      
   """
   @type delete_key_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tracker_consumers_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_tracker_consumers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_device_positions_response_entry() :: %{
         "Accuracy" => positional_accuracy(),
         "DeviceId" => String.t(),
@@ -698,132 +698,132 @@ defmodule AWS.Location do
         "PositionProperties" => map(),
         "SampleTime" => non_neg_integer()
       }
-
+      
   """
   @type list_device_positions_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_keys_request() :: %{
         optional("Filter") => api_key_filter(),
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_position_summary() :: %{
         "DataSource" => [String.t()],
         "Language" => String.t(),
         "MaxResults" => integer(),
         "Position" => list([float()]())
       }
-
+      
   """
   @type search_place_index_for_position_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_place_index_response() :: %{
         required("CreateTime") => non_neg_integer(),
         required("IndexArn") => String.t(),
         required("IndexName") => String.t()
       }
-
+      
   """
   @type create_place_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_route_calculator_request() :: %{}
-
+      
   """
   @type delete_route_calculator_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_geofence_collection_response() :: %{
         required("CollectionArn") => String.t(),
         required("CollectionName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_geofence_collection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_request() :: %{}
-
+      
   """
   @type describe_key_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       put_geofence_response() :: %{
         required("CreateTime") => non_neg_integer(),
         required("GeofenceId") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type put_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lte_local_id() :: %{
         "Earfcn" => integer(),
         "Pci" => integer()
       }
-
+      
   """
   @type lte_local_id() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_geofence_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
         "GeofenceId" => String.t(),
@@ -832,46 +832,46 @@ defmodule AWS.Location do
         "Status" => [String.t()],
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type list_geofence_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_map_response() :: %{}
-
+      
   """
   @type delete_map_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_text_response() :: %{
         required("Results") => list(search_for_text_result()()),
         required("Summary") => search_place_index_for_text_summary()
       }
-
+      
   """
   @type search_place_index_for_text_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_tile_request() :: %{
         optional("Key") => String.t()
       }
-
+      
   """
   @type get_map_tile_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_key_request() :: %{
         optional("Description") => String.t(),
         optional("ExpireTime") => non_neg_integer(),
@@ -879,50 +879,50 @@ defmodule AWS.Location do
         optional("NoExpiry") => [boolean()],
         optional("Restrictions") => api_key_restrictions()
       }
-
+      
   """
   @type update_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_geofence_collection_response() :: %{
         required("CollectionArn") => String.t(),
         required("CollectionName") => String.t(),
         required("CreateTime") => non_neg_integer()
       }
-
+      
   """
   @type create_geofence_collection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       wi_fi_access_point() :: %{
         "MacAddress" => [String.t()],
         "Rss" => [integer()]
       }
-
+      
   """
   @type wi_fi_access_point() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device_state() :: %{
         "Accuracy" => positional_accuracy(),
         "CellSignals" => cell_signals(),
@@ -932,23 +932,23 @@ defmodule AWS.Location do
         "SampleTime" => non_neg_integer(),
         "WiFiAccessPoints" => list(wi_fi_access_point()())
       }
-
+      
   """
   @type device_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_tracker_request() :: %{}
-
+      
   """
   @type describe_tracker_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_route_calculator_response() :: %{
         optional("PricingPlan") => String.t(),
         optional("Tags") => map(),
@@ -959,107 +959,107 @@ defmodule AWS.Location do
         required("Description") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type describe_route_calculator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_map_request() :: %{}
-
+      
   """
   @type describe_map_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       map_configuration_update() :: %{
         "CustomLayers" => list(String.t()()),
         "PoliticalView" => String.t()
       }
-
+      
   """
   @type map_configuration_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_map_request() :: %{
         optional("ConfigurationUpdate") => map_configuration_update(),
         optional("Description") => String.t(),
         optional("PricingPlan") => String.t()
       }
-
+      
   """
   @type update_map_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_route_calculator_response() :: %{
         required("CalculatorArn") => String.t(),
         required("CalculatorName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_route_calculator_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       place_geometry() :: %{
         "Point" => list([float()]())
       }
-
+      
   """
   @type place_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_device_position_request() :: %{
         required("DeviceIds") => list(String.t()())
       }
-
+      
   """
   @type batch_get_device_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_place_indexes_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_place_indexes_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       circle() :: %{
         "Center" => list([float()]()),
         "Radius" => [float()]
       }
-
+      
   """
   @type circle() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_map_request() :: %{
         optional("Description") => String.t(),
         optional("PricingPlan") => String.t(),
@@ -1067,70 +1067,70 @@ defmodule AWS.Location do
         required("Configuration") => map_configuration(),
         required("MapName") => String.t()
       }
-
+      
   """
   @type create_map_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         optional("Tags") => map()
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecast_geofence_events_device_state() :: %{
         "Position" => list([float()]()),
         "Speed" => [float()]
       }
-
+      
   """
   @type forecast_geofence_events_device_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception_field() :: %{
         "Message" => [String.t()],
         "Name" => [String.t()]
       }
-
+      
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_device_position_request() :: %{
         optional("DistanceUnit") => String.t(),
         required("DeviceState") => device_state()
       }
-
+      
   """
   @type verify_device_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_tracker_consumer_request() :: %{}
-
+      
   """
   @type disassociate_tracker_consumer_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_text_request() :: %{
         optional("BiasPosition") => list([float()]()),
         optional("FilterBBox") => list([float()]()),
@@ -1141,72 +1141,72 @@ defmodule AWS.Location do
         optional("MaxResults") => integer(),
         required("Text") => String.t()
       }
-
+      
   """
   @type search_place_index_for_text_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_place_request() :: %{
         optional("Key") => String.t(),
         optional("Language") => String.t()
       }
-
+      
   """
   @type get_place_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       time_zone() :: %{
         "Name" => [String.t()],
         "Offset" => [integer()]
       }
-
+      
   """
   @type time_zone() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_geofence_collection_request() :: %{
         optional("Description") => String.t(),
         optional("PricingPlan") => String.t(),
         optional("PricingPlanDataSource") => [String.t()]
       }
-
+      
   """
   @type update_geofence_collection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_geofence_collection_request() :: %{}
-
+      
   """
   @type delete_geofence_collection_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_item_error() :: %{
         "Code" => String.t(),
         "Message" => [String.t()]
       }
-
+      
   """
   @type batch_item_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_map_response() :: %{
         optional("PricingPlan") => String.t(),
         optional("Tags") => map(),
@@ -1218,14 +1218,14 @@ defmodule AWS.Location do
         required("MapName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type describe_map_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_suggestions_summary() :: %{
         "BiasPosition" => list([float()]()),
         "DataSource" => [String.t()],
@@ -1236,27 +1236,27 @@ defmodule AWS.Location do
         "MaxResults" => [integer()],
         "Text" => String.t()
       }
-
+      
   """
   @type search_place_index_for_suggestions_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_place_index_response() :: %{
         required("IndexArn") => String.t(),
         required("IndexName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_place_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_route_calculator_request() :: %{
         optional("Description") => String.t(),
         optional("PricingPlan") => String.t(),
@@ -1264,14 +1264,14 @@ defmodule AWS.Location do
         required("CalculatorName") => String.t(),
         required("DataSource") => [String.t()]
       }
-
+      
   """
   @type create_route_calculator_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_place_indexes_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
         "DataSource" => [String.t()],
@@ -1280,50 +1280,50 @@ defmodule AWS.Location do
         "PricingPlan" => String.t(),
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type list_place_indexes_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_device_position_history_response() :: %{
         optional("NextToken") => String.t(),
         required("DevicePositions") => list(device_position()())
       }
-
+      
   """
   @type get_device_position_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_evaluate_geofences_response() :: %{
         required("Errors") => list(batch_evaluate_geofences_error()())
       }
-
+      
   """
   @type batch_evaluate_geofences_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_map_response() :: %{
         required("CreateTime") => non_neg_integer(),
         required("MapArn") => String.t(),
         required("MapName") => String.t()
       }
-
+      
   """
   @type create_map_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecast_geofence_events_request() :: %{
         optional("DistanceUnit") => String.t(),
         optional("MaxResults") => [integer()],
@@ -1332,133 +1332,133 @@ defmodule AWS.Location do
         optional("TimeHorizonMinutes") => [float()],
         required("DeviceState") => forecast_geofence_events_device_state()
       }
-
+      
   """
   @type forecast_geofence_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       api_key_restrictions() :: %{
         "AllowActions" => list(String.t()()),
         "AllowReferers" => list(String.t()()),
         "AllowResources" => list(String.t()())
       }
-
+      
   """
   @type api_key_restrictions() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_tracker_response() :: %{
         required("TrackerArn") => String.t(),
         required("TrackerName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type update_tracker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       internal_server_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_place_indexes_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_place_indexes_response_entry()())
       }
-
+      
   """
   @type list_place_indexes_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_route_calculators_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_route_calculators_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_maps_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_maps_response_entry()())
       }
-
+      
   """
   @type list_maps_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_geofence_request_entry() :: %{
         "GeofenceId" => String.t(),
         "GeofenceProperties" => map(),
         "Geometry" => geofence_geometry()
       }
-
+      
   """
   @type batch_put_geofence_request_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_tracker_request() :: %{}
-
+      
   """
   @type delete_tracker_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_sprites_response() :: %{
         optional("Blob") => [binary()],
         optional("CacheControl") => [String.t()],
         optional("ContentType") => [String.t()]
       }
-
+      
   """
   @type get_map_sprites_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       access_denied_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_place_index_response() :: %{
         optional("PricingPlan") => String.t(),
         optional("Tags") => map(),
@@ -1470,28 +1470,28 @@ defmodule AWS.Location do
         required("IndexName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type describe_place_index_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_truck_mode_options() :: %{
         "AvoidFerries" => [boolean()],
         "AvoidTolls" => [boolean()],
         "Dimensions" => truck_dimensions(),
         "Weight" => truck_weight()
       }
-
+      
   """
   @type calculate_route_truck_mode_options() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_tracker_response() :: %{
         optional("EventBridgeEnabled") => [boolean()],
         optional("KmsKeyEnableGeospatialQueries") => [boolean()],
@@ -1506,23 +1506,23 @@ defmodule AWS.Location do
         required("TrackerName") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type describe_tracker_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_tracker_request() :: %{
         optional("Description") => String.t(),
         optional("EventBridgeEnabled") => [boolean()],
@@ -1534,14 +1534,14 @@ defmodule AWS.Location do
         optional("Tags") => map(),
         required("TrackerName") => String.t()
       }
-
+      
   """
   @type create_tracker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_geofence_collection_response() :: %{
         optional("GeofenceCount") => [integer()],
         optional("KmsKeyId") => String.t(),
@@ -1554,40 +1554,40 @@ defmodule AWS.Location do
         required("Description") => String.t(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type describe_geofence_collection_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_matrix_response() :: %{
         "RouteMatrix" => list(list(route_matrix_entry()())()),
         "SnappedDeparturePositions" => list(list([float()]())()),
         "SnappedDestinationPositions" => list(list([float()]())()),
         "Summary" => calculate_route_matrix_summary()
       }
-
+      
   """
   @type calculate_route_matrix_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_device_position_error() :: %{
         "DeviceId" => String.t(),
         "Error" => batch_item_error()
       }
-
+      
   """
   @type batch_get_device_position_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_request() :: %{
         optional("ArrivalTime") => non_neg_integer(),
         optional("CarModeOptions") => calculate_route_car_mode_options(),
@@ -1603,115 +1603,115 @@ defmodule AWS.Location do
         required("DeparturePosition") => list([float()]()),
         required("DestinationPosition") => list([float()]())
       }
-
+      
   """
   @type calculate_route_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()()),
         "Message" => [String.t()],
         "Reason" => String.t()
       }
-
+      
   """
   @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{}
-
+      
   """
   @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_put_geofence_response() :: %{
         required("Errors") => list(batch_put_geofence_error()()),
         required("Successes") => list(batch_put_geofence_success()())
       }
-
+      
   """
   @type batch_put_geofence_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_device_position_history_error() :: %{
         "DeviceId" => String.t(),
         "Error" => batch_item_error()
       }
-
+      
   """
   @type batch_delete_device_position_history_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_place_response() :: %{
         required("Place") => place()
       }
-
+      
   """
   @type get_place_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_get_device_position_response() :: %{
         required("DevicePositions") => list(device_position()()),
         required("Errors") => list(batch_get_device_position_error()())
       }
-
+      
   """
   @type batch_get_device_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Message" => [String.t()]
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       disassociate_tracker_consumer_response() :: %{}
-
+      
   """
   @type disassociate_tracker_consumer_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       truck_weight() :: %{
         "Total" => [float()],
         "Unit" => String.t()
       }
-
+      
   """
   @type truck_weight() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       describe_key_response() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
@@ -1723,25 +1723,25 @@ defmodule AWS.Location do
         required("Restrictions") => api_key_restrictions(),
         required("UpdateTime") => non_neg_integer()
       }
-
+      
   """
   @type describe_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_device_position_request() :: %{
         required("Updates") => list(device_position_update()())
       }
-
+      
   """
   @type batch_update_device_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device_position_update() :: %{
         "Accuracy" => positional_accuracy(),
         "DeviceId" => String.t(),
@@ -1749,14 +1749,14 @@ defmodule AWS.Location do
         "PositionProperties" => map(),
         "SampleTime" => non_neg_integer()
       }
-
+      
   """
   @type device_position_update() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lte_cell_details() :: %{
         "CellId" => integer(),
         "LocalId" => lte_local_id(),
@@ -1769,50 +1769,50 @@ defmodule AWS.Location do
         "Tac" => [integer()],
         "TimingAdvance" => [integer()]
       }
-
+      
   """
   @type lte_cell_details() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       cell_signals() :: %{
         "LteCellDetails" => list(lte_cell_details()())
       }
-
+      
   """
   @type cell_signals() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_matrix_summary() :: %{
         "DataSource" => [String.t()],
         "DistanceUnit" => String.t(),
         "ErrorCount" => [integer()],
         "RouteCount" => [integer()]
       }
-
+      
   """
   @type calculate_route_matrix_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_geofence_request() :: %{
         required("GeofenceIds") => list(String.t()())
       }
-
+      
   """
   @type batch_delete_geofence_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_keys_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
         "Description" => String.t(),
@@ -1821,14 +1821,14 @@ defmodule AWS.Location do
         "Restrictions" => api_key_restrictions(),
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type list_keys_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_summary() :: %{
         "DataSource" => [String.t()],
         "Distance" => [float()],
@@ -1836,14 +1836,14 @@ defmodule AWS.Location do
         "DurationSeconds" => [float()],
         "RouteBBox" => list([float()]())
       }
-
+      
   """
   @type calculate_route_summary() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       lte_network_measurements() :: %{
         "CellId" => integer(),
         "Earfcn" => integer(),
@@ -1851,38 +1851,38 @@ defmodule AWS.Location do
         "Rsrp" => integer(),
         "Rsrq" => float()
       }
-
+      
   """
   @type lte_network_measurements() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       map_configuration() :: %{
         "CustomLayers" => list(String.t()()),
         "PoliticalView" => String.t(),
         "Style" => String.t()
       }
-
+      
   """
   @type map_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       positional_accuracy() :: %{
         "Horizontal" => [float()]
       }
-
+      
   """
   @type positional_accuracy() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       device_position() :: %{
         "Accuracy" => positional_accuracy(),
         "DeviceId" => String.t(),
@@ -1891,14 +1891,14 @@ defmodule AWS.Location do
         "ReceivedTime" => non_neg_integer(),
         "SampleTime" => non_neg_integer()
       }
-
+      
   """
   @type device_position() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_geofence_collection_request() :: %{
         optional("Description") => String.t(),
         optional("KmsKeyId") => String.t(),
@@ -1907,14 +1907,14 @@ defmodule AWS.Location do
         optional("Tags") => map(),
         required("CollectionName") => String.t()
       }
-
+      
   """
   @type create_geofence_collection_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       step() :: %{
         "Distance" => [float()],
         "DurationSeconds" => [float()],
@@ -1922,74 +1922,74 @@ defmodule AWS.Location do
         "GeometryOffset" => [integer()],
         "StartPosition" => list([float()]())
       }
-
+      
   """
   @type step() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tracker_consumers_response() :: %{
         optional("NextToken") => String.t(),
         required("ConsumerArns") => list(String.t()())
       }
-
+      
   """
   @type list_tracker_consumers_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_style_descriptor_request() :: %{
         optional("Key") => String.t()
       }
-
+      
   """
   @type get_map_style_descriptor_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tracking_filter_geometry() :: %{
         "Polygon" => list(list(list([float()]())())())
       }
-
+      
   """
   @type tracking_filter_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_for_text_result() :: %{
         "Distance" => [float()],
         "Place" => place(),
         "PlaceId" => String.t(),
         "Relevance" => [float()]
       }
-
+      
   """
   @type search_for_text_result() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_trackers_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_trackers_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       verify_device_position_response() :: %{
         "DeviceId" => String.t(),
         "DistanceUnit" => String.t(),
@@ -1997,23 +1997,23 @@ defmodule AWS.Location do
         "ReceivedTime" => non_neg_integer(),
         "SampleTime" => non_neg_integer()
       }
-
+      
   """
   @type verify_device_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_place_index_request() :: %{}
-
+      
   """
   @type delete_place_index_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       update_tracker_request() :: %{
         optional("Description") => String.t(),
         optional("EventBridgeEnabled") => [boolean()],
@@ -2022,113 +2022,113 @@ defmodule AWS.Location do
         optional("PricingPlan") => String.t(),
         optional("PricingPlanDataSource") => [String.t()]
       }
-
+      
   """
   @type update_tracker_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_device_positions_request() :: %{
         optional("FilterGeometry") => tracking_filter_geometry(),
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_device_positions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       leg_geometry() :: %{
         "LineString" => list(list([float()]())())
       }
-
+      
   """
   @type leg_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       geofence_geometry() :: %{
         "Circle" => circle(),
         "Geobuf" => binary(),
         "Polygon" => list(list(list([float()]())())())
       }
-
+      
   """
   @type geofence_geometry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_geofence_request() :: %{}
-
+      
   """
   @type get_geofence_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_route_calculators_response() :: %{
         optional("NextToken") => String.t(),
         required("Entries") => list(list_route_calculators_response_entry()())
       }
-
+      
   """
   @type list_route_calculators_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_device_position_history_request() :: %{
         optional("EndTimeExclusive") => non_neg_integer(),
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t(),
         optional("StartTimeInclusive") => non_neg_integer()
       }
-
+      
   """
   @type get_device_position_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       route_matrix_entry() :: %{
         "Distance" => [float()],
         "DurationSeconds" => [float()],
         "Error" => route_matrix_entry_error()
       }
-
+      
   """
   @type route_matrix_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       inferred_state() :: %{
         "Accuracy" => positional_accuracy(),
         "DeviationDistance" => [float()],
         "Position" => list([float()]()),
         "ProxyDetected" => [boolean()]
       }
-
+      
   """
   @type inferred_state() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_device_position_response() :: %{
         optional("Accuracy") => positional_accuracy(),
         optional("DeviceId") => String.t(),
@@ -2137,14 +2137,14 @@ defmodule AWS.Location do
         required("ReceivedTime") => non_neg_integer(),
         required("SampleTime") => non_neg_integer()
       }
-
+      
   """
   @type get_device_position_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_suggestions_request() :: %{
         optional("BiasPosition") => list([float()]()),
         optional("FilterBBox") => list([float()]()),
@@ -2155,57 +2155,57 @@ defmodule AWS.Location do
         optional("MaxResults") => [integer()],
         required("Text") => String.t()
       }
-
+      
   """
   @type search_place_index_for_suggestions_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_device_position_history_response() :: %{
         required("Errors") => list(batch_delete_device_position_history_error()())
       }
-
+      
   """
   @type batch_delete_device_position_history_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_tracker_response() :: %{}
-
+      
   """
   @type delete_tracker_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_suggestions_response() :: %{
         required("Results") => list(search_for_suggestions_result()()),
         required("Summary") => search_place_index_for_suggestions_summary()
       }
-
+      
   """
   @type search_place_index_for_suggestions_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_map_glyphs_request() :: %{
         optional("Key") => String.t()
       }
-
+      
   """
   @type get_map_glyphs_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       leg() :: %{
         "Distance" => [float()],
         "DurationSeconds" => [float()],
@@ -2214,14 +2214,14 @@ defmodule AWS.Location do
         "StartPosition" => list([float()]()),
         "Steps" => list(step()())
       }
-
+      
   """
   @type leg() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       place() :: %{
         "AddressNumber" => [String.t()],
         "Categories" => list(String.t()()),
@@ -2241,27 +2241,27 @@ defmodule AWS.Location do
         "UnitNumber" => [String.t()],
         "UnitType" => [String.t()]
       }
-
+      
   """
   @type place() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_evaluate_geofences_error() :: %{
         "DeviceId" => String.t(),
         "Error" => batch_item_error(),
         "SampleTime" => non_neg_integer()
       }
-
+      
   """
   @type batch_evaluate_geofences_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_geofence_collections_response_entry() :: %{
         "CollectionName" => String.t(),
         "CreateTime" => non_neg_integer(),
@@ -2270,55 +2270,55 @@ defmodule AWS.Location do
         "PricingPlanDataSource" => [String.t()],
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type list_geofence_collections_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_place_index_request() :: %{
         optional("DataSourceConfiguration") => data_source_configuration(),
         optional("Description") => String.t(),
         optional("PricingPlan") => String.t()
       }
-
+      
   """
   @type update_place_index_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_key_response() :: %{
         required("CreateTime") => non_neg_integer(),
         required("Key") => String.t(),
         required("KeyArn") => String.t(),
         required("KeyName") => String.t()
       }
-
+      
   """
   @type create_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       search_place_index_for_position_request() :: %{
         optional("Key") => String.t(),
         optional("Language") => String.t(),
         optional("MaxResults") => integer(),
         required("Position") => list([float()]())
       }
-
+      
   """
   @type search_place_index_for_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       calculate_route_matrix_request() :: %{
         optional("CarModeOptions") => calculate_route_car_mode_options(),
         optional("DepartNow") => [boolean()],
@@ -2330,35 +2330,35 @@ defmodule AWS.Location do
         required("DeparturePositions") => list(list([float()]())()),
         required("DestinationPositions") => list(list([float()]())())
       }
-
+      
   """
   @type calculate_route_matrix_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_geofence_collection_response() :: %{}
-
+      
   """
   @type delete_geofence_collection_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       list_geofences_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_geofences_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_trackers_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
         "Description" => String.t(),
@@ -2367,32 +2367,32 @@ defmodule AWS.Location do
         "TrackerName" => String.t(),
         "UpdateTime" => non_neg_integer()
       }
-
+      
   """
   @type list_trackers_response_entry() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forecast_geofence_events_response() :: %{
         "DistanceUnit" => String.t(),
         "ForecastedEvents" => list(forecasted_event()()),
         "NextToken" => String.t(),
         "SpeedUnit" => String.t()
       }
-
+      
   """
   @type forecast_geofence_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_delete_device_position_history_request() :: %{
         required("DeviceIds") => list(String.t()())
       }
-
+      
   """
   @type batch_delete_device_position_history_request() :: %{String.t() => any()}
 
@@ -2844,38 +2844,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string`) The name of the tracker resource to be associated
-    with a geofence collection.
+  with a geofence collection.
 
   ## Optional parameters:
   """
-  @spec associate_tracker_consumer(
-          AWS.Client.t(),
-          String.t(),
-          associate_tracker_consumer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec associate_tracker_consumer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, associate_tracker_consumer_errors()}
-  def associate_tracker_consumer(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def associate_tracker_consumer(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2885,38 +2891,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string`) The name of the tracker resource to delete the
-    device position history from.
+  device position history from.
 
   ## Optional parameters:
   """
-  @spec batch_delete_device_position_history(
-          AWS.Client.t(),
-          String.t(),
-          batch_delete_device_position_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_device_position_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_device_position_history_errors()}
-  def batch_delete_device_position_history(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def batch_delete_device_position_history(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/delete-positions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2926,40 +2938,45 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string`) The geofence collection storing the geofences
-    to be deleted.
+  to be deleted.
 
   ## Optional parameters:
   """
-  @spec batch_delete_geofence(
-          AWS.Client.t(),
-          String.t(),
-          batch_delete_geofence_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_delete_geofence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_delete_geofence_errors()}
-  def batch_delete_geofence(%Client{} = client, collection_name, input, options \\ []) do
+
+  def batch_delete_geofence(%Client{} = client, collection_name, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/delete-geofences"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -2973,38 +2990,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string`) The geofence collection used in evaluating the
-    position of devices against its geofences.
+  position of devices against its geofences.
 
   ## Optional parameters:
   """
-  @spec batch_evaluate_geofences(
-          AWS.Client.t(),
-          String.t(),
-          batch_evaluate_geofences_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_evaluate_geofences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_evaluate_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_evaluate_geofences_errors()}
-  def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
+
+  def batch_evaluate_geofences(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3014,38 +3037,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string`) The tracker resource retrieving the device
-    position.
+  position.
 
   ## Optional parameters:
   """
-  @spec batch_get_device_position(
-          AWS.Client.t(),
-          String.t(),
-          batch_get_device_position_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_get_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_get_device_position_errors()}
-  def batch_get_device_position(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def batch_get_device_position(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/get-positions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3060,29 +3089,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec batch_put_geofence(AWS.Client.t(), String.t(), batch_put_geofence_request(), Keyword.t()) ::
+
+  @spec batch_put_geofence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_put_geofence_errors()}
-  def batch_put_geofence(%Client{} = client, collection_name, input, options \\ []) do
+
+  def batch_put_geofence(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/put-geofences"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3098,34 +3138,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec batch_update_device_position(
-          AWS.Client.t(),
-          String.t(),
-          batch_update_device_position_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_device_position_errors()}
-  def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def batch_update_device_position(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3142,24 +3188,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string`) The name of the route calculator resource that
-    you want to use to calculate the route.
+  you want to use to calculate the route.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-  @spec calculate_route(AWS.Client.t(), String.t(), calculate_route_request(), Keyword.t()) ::
+
+  @spec calculate_route(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, calculate_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, calculate_route_errors()}
-  def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
+
+  def calculate_route(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
+
+    # Validate optional parameters
+    optional_params = [key: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Key", "key"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :key) do
+        [{"key", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "routes.")
@@ -3169,17 +3235,9 @@ defmodule AWS.Location do
       options
       |> Keyword.drop([:key])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3201,31 +3259,45 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string`) The name of the route calculator resource that
-    you want to use to calculate the route matrix.
+  you want to use to calculate the route matrix.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-  @spec calculate_route_matrix(
-          AWS.Client.t(),
-          String.t(),
-          calculate_route_matrix_request(),
-          Keyword.t()
-        ) ::
+
+  @spec calculate_route_matrix(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, calculate_route_matrix_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, calculate_route_matrix_errors()}
-  def calculate_route_matrix(%Client{} = client, calculator_name, input, options \\ []) do
+
+  def calculate_route_matrix(%Client{} = client, calculator_name, options \\ []) do
     url_path =
       "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route-matrix"
 
+    # Validate optional parameters
+    optional_params = [key: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Key", "key"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :key) do
+        [{"key", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "routes.")
@@ -3235,17 +3307,9 @@ defmodule AWS.Location do
       options
       |> Keyword.drop([:key])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3257,33 +3321,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec create_geofence_collection(
-          AWS.Client.t(),
-          create_geofence_collection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_geofence_collection(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_geofence_collection_errors()}
-  def create_geofence_collection(%Client{} = client, input, options \\ []) do
+
+  def create_geofence_collection(%Client{} = client, options \\ []) do
     url_path = "/geofencing/v0/collections"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3296,29 +3367,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec create_key(AWS.Client.t(), create_key_request(), Keyword.t()) ::
+
+  @spec create_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_key_errors()}
-  def create_key(%Client{} = client, input, options \\ []) do
+
+  def create_key(%Client{} = client, options \\ []) do
     url_path = "/metadata/v0/keys"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3331,29 +3413,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec create_map(AWS.Client.t(), create_map_request(), Keyword.t()) ::
+
+  @spec create_map(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_map_errors()}
-  def create_map(%Client{} = client, input, options \\ []) do
+
+  def create_map(%Client{} = client, options \\ []) do
     url_path = "/maps/v0/maps"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.maps.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3369,29 +3462,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec create_place_index(AWS.Client.t(), create_place_index_request(), Keyword.t()) ::
+
+  @spec create_place_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_place_index_errors()}
-  def create_place_index(%Client{} = client, input, options \\ []) do
+
+  def create_place_index(%Client{} = client, options \\ []) do
     url_path = "/places/v0/indexes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.places.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3406,29 +3510,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec create_route_calculator(AWS.Client.t(), create_route_calculator_request(), Keyword.t()) ::
+
+  @spec create_route_calculator(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_route_calculator_errors()}
-  def create_route_calculator(%Client{} = client, input, options \\ []) do
+
+  def create_route_calculator(%Client{} = client, options \\ []) do
     url_path = "/routes/v0/calculators"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.routes.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3441,29 +3556,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec create_tracker(AWS.Client.t(), create_tracker_request(), Keyword.t()) ::
+
+  @spec create_tracker(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_tracker_errors()}
-  def create_tracker(%Client{} = client, input, options \\ []) do
+
+  def create_tracker(%Client{} = client, options \\ []) do
     url_path = "/tracking/v0/trackers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -3473,26 +3599,42 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string`) The name of the geofence collection to be
-    deleted.
+  deleted.
 
   ## Optional parameters:
   """
-  @spec delete_geofence_collection(
-          AWS.Client.t(),
-          String.t(),
-          delete_geofence_collection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_geofence_collection_errors()}
-  def delete_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
+
+  def delete_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3501,7 +3643,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3517,23 +3659,43 @@ defmodule AWS.Location do
   * `:key_name` (`t:string`) The name of the API key to delete.
 
   ## Optional parameters:
-  * `:force_delete` (`t:`) ForceDelete bypasses an API key's expiry conditions and
-    deletes the key. Set the parameter true to delete the key or to false to not
-    preemptively delete the API key.
+  * `:force_delete` (`t:string`) ForceDelete bypasses an API key's expiry
+  conditions and deletes the key. Set the parameter true to delete the key or
+  to false to not preemptively delete the API key.
   """
-  @spec delete_key(AWS.Client.t(), String.t(), delete_key_request(), Keyword.t()) ::
+
+  @spec delete_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_key_errors()}
-  def delete_key(%Client{} = client, key_name, input, options \\ []) do
+
+  def delete_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
+
+    # Validate optional parameters
+    optional_params = [force_delete: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"ForceDelete", "forceDelete"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :force_delete) do
+        [{"forceDelete", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
@@ -3543,6 +3705,8 @@ defmodule AWS.Location do
       options
       |> Keyword.drop([:force_delete])
 
+    body = nil
+
     Request.request_rest(
       client,
       meta,
@@ -3550,7 +3714,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3566,17 +3730,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec delete_map(AWS.Client.t(), String.t(), delete_map_request(), Keyword.t()) ::
+
+  @spec delete_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_map_errors()}
-  def delete_map(%Client{} = client, map_name, input, options \\ []) do
+
+  def delete_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.maps.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3585,7 +3770,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3601,17 +3786,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec delete_place_index(AWS.Client.t(), String.t(), delete_place_index_request(), Keyword.t()) ::
+
+  @spec delete_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_place_index_errors()}
-  def delete_place_index(%Client{} = client, index_name, input, options \\ []) do
+
+  def delete_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.places.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3620,7 +3826,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3633,26 +3839,42 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string`) The name of the route calculator resource to
-    be deleted.
+  be deleted.
 
   ## Optional parameters:
   """
-  @spec delete_route_calculator(
-          AWS.Client.t(),
-          String.t(),
-          delete_route_calculator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_route_calculator_errors()}
-  def delete_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
+
+  def delete_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.routes.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3661,7 +3883,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3677,17 +3899,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec delete_tracker(AWS.Client.t(), String.t(), delete_tracker_request(), Keyword.t()) ::
+
+  @spec delete_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_tracker_errors()}
-  def delete_tracker(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def delete_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -3696,7 +3939,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -3712,10 +3955,12 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
+
   @spec describe_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_geofence_collection_errors()}
+
   def describe_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
 
@@ -3754,10 +3999,12 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
+
   @spec describe_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_key_errors()}
+
   def describe_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
 
@@ -3796,10 +4043,12 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
+
   @spec describe_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_map_errors()}
+
   def describe_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
 
@@ -3838,10 +4087,12 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
+
   @spec describe_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_place_index_errors()}
+
   def describe_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
 
@@ -3880,10 +4131,12 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
+
   @spec describe_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_route_calculator_errors()}
+
   def describe_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
 
@@ -3922,10 +4175,12 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
+
   @spec describe_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_tracker_errors()}
+
   def describe_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
 
@@ -3961,38 +4216,46 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:consumer_arn` (`t:string`) The Amazon Resource Name (ARN) for the geofence
-    collection to be disassociated from the tracker resource. Used when you need
-    to specify a resource across all Amazon Web Services.
+  collection to be disassociated from the tracker resource. Used when you need
+  to specify a resource across all Amazon Web Services.
   * `:tracker_name` (`t:string`) The name of the tracker resource to be
-    dissociated from the consumer.
+  dissociated from the consumer.
 
   ## Optional parameters:
   """
-  @spec disassociate_tracker_consumer(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          disassociate_tracker_consumer_request(),
-          Keyword.t()
-        ) ::
+
+  @spec disassociate_tracker_consumer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, disassociate_tracker_consumer_errors()}
-  def disassociate_tracker_consumer(
-        %Client{} = client,
-        consumer_arn,
-        tracker_name,
-        input,
-        options \\ []
-      ) do
+
+  def disassociate_tracker_consumer(%Client{} = client, consumer_arn, tracker_name, options \\ []) do
     url_path =
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers/#{AWS.Util.encode_uri(consumer_arn)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -4001,7 +4264,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -4021,36 +4284,41 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec forecast_geofence_events(
-          AWS.Client.t(),
-          String.t(),
-          forecast_geofence_events_request(),
-          Keyword.t()
-        ) ::
+
+  @spec forecast_geofence_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, forecast_geofence_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, forecast_geofence_events_errors()}
-  def forecast_geofence_events(%Client{} = client, collection_name, input, options \\ []) do
+
+  def forecast_geofence_events(%Client{} = client, collection_name, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/forecast-geofence-events"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4061,14 +4329,16 @@ defmodule AWS.Location do
   ## Parameters:
   * `:device_id` (`t:string`) The device whose position you want to retrieve.
   * `:tracker_name` (`t:string`) The tracker resource receiving the position
-    update.
+  update.
 
   ## Optional parameters:
   """
+
   @spec get_device_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_position_errors()}
+
   def get_device_position(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/positions/latest"
@@ -4106,49 +4376,47 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:device_id` (`t:string`) The device whose position history you want to
-    retrieve.
+  retrieve.
   * `:tracker_name` (`t:string`) The tracker resource receiving the request for
-    the device position history.
+  the device position history.
 
   ## Optional parameters:
   """
-  @spec get_device_position_history(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          get_device_position_history_request(),
-          Keyword.t()
-        ) ::
+
+  @spec get_device_position_history(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_device_position_history_errors()}
-  def get_device_position_history(
-        %Client{} = client,
-        device_id,
-        tracker_name,
-        input,
-        options \\ []
-      ) do
+
+  def get_device_position_history(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/list-positions"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4158,15 +4426,17 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string`) The geofence collection storing the target
-    geofence.
+  geofence.
   * `:geofence_id` (`t:string`) The geofence you're retrieving details for.
 
   ## Optional parameters:
   """
+
   @spec get_geofence(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_geofence_errors()}
+
   def get_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
@@ -4202,21 +4472,23 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapGlyphs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:font_stack` (`t:`) A comma-separated list of fonts to load glyphs from in
-    order of preference. For example, Noto Sans Regular, Arial Unicode.
-  * `:font_unicode_range` (`t:`) A Unicode range of characters to download glyphs
-    for. Each response will contain 256 characters. For example, 0–255 includes
-    all characters from range U+0000 to 00FF. Must be aligned to multiples of
-    256.
+  * `:font_stack` (`t:string`) A comma-separated list of fonts to load glyphs from
+  in order of preference. For example, Noto Sans Regular, Arial Unicode.
+  * `:font_unicode_range` (`t:string`) A Unicode range of characters to download
+  glyphs for. Each response will contain 256 characters. For example, 0–255
+  includes all characters from range U+0000 to 00FF. Must be aligned to
+  multiples of 256.
   * `:map_name` (`t:string`) The map resource associated with the glyph ﬁle.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
+
   @spec get_map_glyphs(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_glyphs_errors()}
+
   def get_map_glyphs(%Client{} = client, font_stack, font_unicode_range, map_name, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
@@ -4272,17 +4544,19 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapSprites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  * `:file_name` (`t:`) The name of the sprite ﬁle. Use the following ﬁle names
-    for the sprite sheet:
+  * `:file_name` (`t:string`) The name of the sprite ﬁle. Use the following ﬁle
+  names for the sprite sheet:
   * `:map_name` (`t:string`) The map resource associated with the sprite ﬁle.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
+
   @spec get_map_sprites(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_sprites_errors()}
+
   def get_map_sprites(%Client{} = client, file_name, map_name, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/sprites/#{AWS.Util.encode_uri(file_name)}"
@@ -4337,15 +4611,17 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:map_name` (`t:string`) The map resource to retrieve the style descriptor
-    from.
+  from.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
+
   @spec get_map_style_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_style_descriptor_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_style_descriptor_errors()}
+
   def get_map_style_descriptor(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/style-descriptor"
 
@@ -4401,17 +4677,19 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:map_name` (`t:string`) The map resource to retrieve the map tiles from.
-  * `:x` (`t:`) The X axis value for the map tile.
-  * `:y` (`t:`) The Y axis value for the map tile.
-  * `:z` (`t:`) The zoom value for the map tile.
+  * `:x` (`t:string`) The X axis value for the map tile.
+  * `:y` (`t:string`) The Y axis value for the map tile.
+  * `:z` (`t:string`) The zoom value for the map tile.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
+
   @spec get_map_tile(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_tile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_map_tile_errors()}
+
   def get_map_tile(%Client{} = client, map_name, x, y, z, options \\ []) do
     url_path =
       "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/tiles/#{AWS.Util.encode_uri(z)}/#{AWS.Util.encode_uri(x)}/#{AWS.Util.encode_uri(y)}"
@@ -4467,18 +4745,20 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string`) The name of the place index resource that you want
-    to use for the search.
+  to use for the search.
   * `:place_id` (`t:string`) The identifier of the place to find.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   * `:language` (`t:string`) The preferred language used to return results. The
-    value must be a valid BCP 47 language tag, for example, en for English.
+  value must be a valid BCP 47 language tag, for example, en for English.
   """
+
   @spec get_place(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_place_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_place_errors()}
+
   def get_place(%Client{} = client, index_name, place_id, options \\ []) do
     url_path =
       "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/places/#{AWS.Util.encode_uri(place_id)}"
@@ -4533,38 +4813,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string`) The tracker resource containing the requested
-    devices.
+  devices.
 
   ## Optional parameters:
   """
-  @spec list_device_positions(
-          AWS.Client.t(),
-          String.t(),
-          list_device_positions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_device_positions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_positions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_device_positions_errors()}
-  def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def list_device_positions(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-positions"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4576,33 +4862,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec list_geofence_collections(
-          AWS.Client.t(),
-          list_geofence_collections_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_geofence_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_geofence_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_geofence_collections_errors()}
-  def list_geofence_collections(%Client{} = client, input, options \\ []) do
+
+  def list_geofence_collections(%Client{} = client, options \\ []) do
     url_path = "/geofencing/v0/list-collections"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4612,33 +4905,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string`) The name of the geofence collection storing
-    the list of geofences.
+  the list of geofences.
 
   ## Optional parameters:
   """
-  @spec list_geofences(AWS.Client.t(), String.t(), list_geofences_request(), Keyword.t()) ::
+
+  @spec list_geofences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_geofences_errors()}
-  def list_geofences(%Client{} = client, collection_name, input, options \\ []) do
+
+  def list_geofences(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/list-geofences"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4650,29 +4954,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec list_keys(AWS.Client.t(), list_keys_request(), Keyword.t()) ::
+
+  @spec list_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_keys_errors()}
-  def list_keys(%Client{} = client, input, options \\ []) do
+
+  def list_keys(%Client{} = client, options \\ []) do
     url_path = "/metadata/v0/list-keys"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4684,29 +4999,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec list_maps(AWS.Client.t(), list_maps_request(), Keyword.t()) ::
+
+  @spec list_maps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_maps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_maps_errors()}
-  def list_maps(%Client{} = client, input, options \\ []) do
+
+  def list_maps(%Client{} = client, options \\ []) do
     url_path = "/maps/v0/list-maps"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.maps.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4718,29 +5044,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec list_place_indexes(AWS.Client.t(), list_place_indexes_request(), Keyword.t()) ::
+
+  @spec list_place_indexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_place_indexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_place_indexes_errors()}
-  def list_place_indexes(%Client{} = client, input, options \\ []) do
+
+  def list_place_indexes(%Client{} = client, options \\ []) do
     url_path = "/places/v0/list-indexes"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.places.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4752,29 +5089,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec list_route_calculators(AWS.Client.t(), list_route_calculators_request(), Keyword.t()) ::
+
+  @spec list_route_calculators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_route_calculators_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_route_calculators_errors()}
-  def list_route_calculators(%Client{} = client, input, options \\ []) do
+
+  def list_route_calculators(%Client{} = client, options \\ []) do
     url_path = "/routes/v0/list-calculators"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.routes.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4785,14 +5133,16 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    whose tags you want to retrieve.
+  whose tags you want to retrieve.
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
+
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
 
@@ -4828,38 +5178,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string`) The tracker resource whose associated geofence
-    collections you want to list.
+  collections you want to list.
 
   ## Optional parameters:
   """
-  @spec list_tracker_consumers(
-          AWS.Client.t(),
-          String.t(),
-          list_tracker_consumers_request(),
-          Keyword.t()
-        ) ::
+
+  @spec list_tracker_consumers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tracker_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tracker_consumers_errors()}
-  def list_tracker_consumers(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def list_tracker_consumers(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-consumers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4871,29 +5227,40 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec list_trackers(AWS.Client.t(), list_trackers_request(), Keyword.t()) ::
+
+  @spec list_trackers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trackers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_trackers_errors()}
-  def list_trackers(%Client{} = client, input, options \\ []) do
+
+  def list_trackers(%Client{} = client, options \\ []) do
     url_path = "/tracking/v0/list-trackers"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4904,27 +5271,47 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string`) The geofence collection to store the geofence
-    in.
+  in.
   * `:geofence_id` (`t:string`) An identifier for the geofence. For example,
-    ExampleGeofence-1.
+  ExampleGeofence-1.
 
   ## Optional parameters:
   """
-  @spec put_geofence(AWS.Client.t(), String.t(), String.t(), put_geofence_request(), Keyword.t()) ::
+
+  @spec put_geofence(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, put_geofence_errors()}
-  def put_geofence(%Client{} = client, collection_name, geofence_id, input, options \\ []) do
+
+  def put_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4935,29 +5322,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string`) The name of the place index resource you want to
-    use for the search.
+  use for the search.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-  @spec search_place_index_for_position(
-          AWS.Client.t(),
-          String.t(),
-          search_place_index_for_position_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_place_index_for_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_place_index_for_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_place_index_for_position_errors()}
-  def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
+
+  def search_place_index_for_position(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
+
+    # Validate optional parameters
+    optional_params = [key: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Key", "key"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :key) do
+        [{"key", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "places.")
@@ -4967,17 +5369,9 @@ defmodule AWS.Location do
       options
       |> Keyword.drop([:key])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -4991,29 +5385,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string`) The name of the place index resource you want to
-    use for the search.
+  use for the search.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-  @spec search_place_index_for_suggestions(
-          AWS.Client.t(),
-          String.t(),
-          search_place_index_for_suggestions_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_place_index_for_suggestions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_place_index_for_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_place_index_for_suggestions_errors()}
-  def search_place_index_for_suggestions(%Client{} = client, index_name, input, options \\ []) do
+
+  def search_place_index_for_suggestions(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
+
+    # Validate optional parameters
+    optional_params = [key: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Key", "key"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :key) do
+        [{"key", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "places.")
@@ -5023,17 +5432,9 @@ defmodule AWS.Location do
       options
       |> Keyword.drop([:key])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5046,29 +5447,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string`) The name of the place index resource you want to
-    use for the search.
+  use for the search.
 
   ## Optional parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
-  @spec search_place_index_for_text(
-          AWS.Client.t(),
-          String.t(),
-          search_place_index_for_text_request(),
-          Keyword.t()
-        ) ::
+
+  @spec search_place_index_for_text(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_place_index_for_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, search_place_index_for_text_errors()}
-  def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
+
+  def search_place_index_for_text(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
+
+    # Validate optional parameters
+    optional_params = [key: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"Key", "key"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :key) do
+        [{"key", opt_val} | query_params]
+      else
+        query_params
+      end
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "places.")
@@ -5078,17 +5494,9 @@ defmodule AWS.Location do
       options
       |> Keyword.drop([:key])
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5101,33 +5509,44 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    whose tags you want to update.
+  whose tags you want to update.
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -5137,28 +5556,45 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
-    from which you want to remove tags.
+  from which you want to remove tags.
   * `:tag_keys` (`t:list[smithy.api#String]`) The list of tag keys to remove from
-    the specified resource.
+  the specified resource.
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, resource_arn, tag_keys, options \\ [])
+      when is_binary(tag_keys) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
 
-    {query_params, input} =
-      [
-        {"TagKeys", "tagKeys"}
-      ]
-      |> Request.build_params(input)
+    # Optional headers
+
+    # Required query params
+    query_params = [{"tagKeys", tag_keys}]
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5167,7 +5603,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5183,22 +5619,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec update_geofence_collection(
-          AWS.Client.t(),
-          String.t(),
-          update_geofence_collection_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_geofence_collection_errors()}
-  def update_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
+
+  def update_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5207,7 +5659,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5223,17 +5675,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec update_key(AWS.Client.t(), String.t(), update_key_request(), Keyword.t()) ::
+
+  @spec update_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_key_errors()}
-  def update_key(%Client{} = client, key_name, input, options \\ []) do
+
+  def update_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5242,7 +5715,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5258,17 +5731,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec update_map(AWS.Client.t(), String.t(), update_map_request(), Keyword.t()) ::
+
+  @spec update_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_map_errors()}
-  def update_map(%Client{} = client, map_name, input, options \\ []) do
+
+  def update_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.maps.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5277,7 +5771,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5293,17 +5787,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec update_place_index(AWS.Client.t(), String.t(), update_place_index_request(), Keyword.t()) ::
+
+  @spec update_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_place_index_errors()}
-  def update_place_index(%Client{} = client, index_name, input, options \\ []) do
+
+  def update_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.places.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5312,7 +5827,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5325,26 +5840,42 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string`) The name of the route calculator resource to
-    update.
+  update.
 
   ## Optional parameters:
   """
-  @spec update_route_calculator(
-          AWS.Client.t(),
-          String.t(),
-          update_route_calculator_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_route_calculator_errors()}
-  def update_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
+
+  def update_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.routes.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5353,7 +5884,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5369,17 +5900,38 @@ defmodule AWS.Location do
 
   ## Optional parameters:
   """
-  @spec update_tracker(AWS.Client.t(), String.t(), update_tracker_request(), Keyword.t()) ::
+
+  @spec update_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_tracker_errors()}
-  def update_tracker(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def update_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -5388,7 +5940,7 @@ defmodule AWS.Location do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       200
     )
@@ -5403,37 +5955,43 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string`) The name of the tracker resource to be associated
-    with verification request.
+  with verification request.
 
   ## Optional parameters:
   """
-  @spec verify_device_position(
-          AWS.Client.t(),
-          String.t(),
-          verify_device_position_request(),
-          Keyword.t()
-        ) ::
+
+  @spec verify_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, verify_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, verify_device_position_errors()}
-  def verify_device_position(%Client{} = client, tracker_name, input, options \\ []) do
+
+  def verify_device_position(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions/verify"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata() |> Map.put_new(:host_prefix, "tracking.")
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 end

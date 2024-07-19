@@ -16,76 +16,76 @@ defmodule AWS.ChimeSDKMeetings do
   @typedoc """
 
   ## Example:
-
+      
       update_attendee_capabilities_response() :: %{
         "Attendee" => attendee()
       }
-
+      
   """
   @type update_attendee_capabilities_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       notifications_configuration() :: %{
         "LambdaFunctionArn" => String.t(),
         "SnsTopicArn" => String.t(),
         "SqsQueueArn" => String.t()
       }
-
+      
   """
   @type notifications_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("Tags") => list(tag()())
       }
-
+      
   """
   @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attendee_response() :: %{
         "Attendee" => attendee()
       }
-
+      
   """
   @type get_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unauthorized_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_response() :: %{}
-
+      
   """
   @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_with_attendees_request() :: %{
         optional("MeetingFeatures") => meeting_features_configuration(),
         optional("MeetingHostId") => String.t(),
@@ -98,40 +98,40 @@ defmodule AWS.ChimeSDKMeetings do
         required("ExternalMeetingId") => String.t(),
         required("MediaRegion") => String.t()
       }
-
+      
   """
   @type create_meeting_with_attendees_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_failure_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type service_failure_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       forbidden_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type forbidden_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       meeting() :: %{
         "ExternalMeetingId" => String.t(),
         "MediaPlacement" => media_placement(),
@@ -143,68 +143,68 @@ defmodule AWS.ChimeSDKMeetings do
         "PrimaryMeetingId" => String.t(),
         "TenantIds" => list(String.t()())
       }
-
+      
   """
   @type meeting() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_response() :: %{
         "Meeting" => meeting()
       }
-
+      
   """
   @type create_meeting_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_meeting_response() :: %{
         "Meeting" => meeting()
       }
-
+      
   """
   @type get_meeting_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
       }
-
+      
   """
   @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       stop_meeting_transcription_request() :: %{}
-
+      
   """
   @type stop_meeting_transcription_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       attendee_features() :: %{
         "MaxCount" => integer()
       }
-
+      
   """
   @type attendee_features() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       engine_transcribe_settings() :: %{
         "ContentIdentificationType" => list(any()),
         "ContentRedactionType" => list(any()),
@@ -223,110 +223,110 @@ defmodule AWS.ChimeSDKMeetings do
         "VocabularyName" => String.t(),
         "VocabularyNames" => String.t()
       }
-
+      
   """
   @type engine_transcribe_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attendees_response() :: %{
         "Attendees" => list(attendee()()),
         "NextToken" => String.t()
       }
-
+      
   """
   @type list_attendees_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_with_attendees_response() :: %{
         "Attendees" => list(attendee()()),
         "Errors" => list(create_attendee_error()()),
         "Meeting" => meeting()
       }
-
+      
   """
   @type create_meeting_with_attendees_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       transcription_configuration() :: %{
         "EngineTranscribeMedicalSettings" => engine_transcribe_medical_settings(),
         "EngineTranscribeSettings" => engine_transcribe_settings()
       }
-
+      
   """
   @type transcription_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       conflict_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_meeting_request() :: %{}
-
+      
   """
   @type delete_meeting_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       resource_not_found_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t(),
         "ResourceName" => String.t()
       }
-
+      
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
       }
-
+      
   """
   @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       audio_features() :: %{
         "EchoReduction" => list(any())
       }
-
+      
   """
   @type audio_features() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       engine_transcribe_medical_settings() :: %{
         "ContentIdentificationType" => list(any()),
         "LanguageCode" => list(any()),
@@ -335,14 +335,14 @@ defmodule AWS.ChimeSDKMeetings do
         "Type" => list(any()),
         "VocabularyName" => String.t()
       }
-
+      
   """
   @type engine_transcribe_medical_settings() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_meeting_request() :: %{
         optional("MeetingFeatures") => meeting_features_configuration(),
         optional("MeetingHostId") => String.t(),
@@ -354,333 +354,333 @@ defmodule AWS.ChimeSDKMeetings do
         required("ExternalMeetingId") => String.t(),
         required("MediaRegion") => String.t()
       }
-
+      
   """
   @type create_meeting_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       not_found_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_request_item() :: %{
         "Capabilities" => attendee_capabilities(),
         "ExternalUserId" => String.t()
       }
-
+      
   """
   @type create_attendee_request_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_response() :: %{
         "Attendee" => attendee()
       }
-
+      
   """
   @type create_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
-
+      
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attendee_capabilities() :: %{
         "Audio" => list(any()),
         "Content" => list(any()),
         "Video" => list(any())
       }
-
+      
   """
   @type attendee_capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       service_unavailable_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t(),
         "RetryAfterSeconds" => String.t()
       }
-
+      
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       get_meeting_request() :: %{}
-
+      
   """
   @type get_meeting_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_error() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "ExternalUserId" => String.t()
       }
-
+      
   """
   @type create_attendee_error() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       unprocessable_entity_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type unprocessable_entity_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       tag_resource_response() :: %{}
-
+      
   """
   @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       get_attendee_request() :: %{}
-
+      
   """
   @type get_attendee_request() :: %{}
 
   @typedoc """
 
   ## Example:
-
+      
       attendee_id_item() :: %{
         "AttendeeId" => String.t()
       }
-
+      
   """
   @type attendee_id_item() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       meeting_features_configuration() :: %{
         "Attendee" => attendee_features(),
         "Audio" => audio_features(),
         "Content" => content_features(),
         "Video" => video_features()
       }
-
+      
   """
   @type meeting_features_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_tags_for_resource_request() :: %{
         required("ResourceARN") => String.t()
       }
-
+      
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       content_features() :: %{
         "MaxResolution" => list(any())
       }
-
+      
   """
   @type content_features() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       update_attendee_capabilities_request() :: %{
         required("Capabilities") => attendee_capabilities()
       }
-
+      
   """
   @type update_attendee_capabilities_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       start_meeting_transcription_request() :: %{
         required("TranscriptionConfiguration") => transcription_configuration()
       }
-
+      
   """
   @type start_meeting_transcription_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       throttling_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_attendee_request() :: %{
         required("Attendees") => list(create_attendee_request_item()())
       }
-
+      
   """
   @type batch_create_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_create_attendee_response() :: %{
         "Attendees" => list(attendee()()),
         "Errors" => list(create_attendee_error()())
       }
-
+      
   """
   @type batch_create_attendee_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       list_attendees_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
-
+      
   """
   @type list_attendees_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       batch_update_attendee_capabilities_except_request() :: %{
         required("Capabilities") => attendee_capabilities(),
         required("ExcludedAttendeeIds") => list(attendee_id_item()())
       }
-
+      
   """
   @type batch_update_attendee_capabilities_except_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       limit_exceeded_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       video_features() :: %{
         "MaxResolution" => list(any())
       }
-
+      
   """
   @type video_features() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       attendee() :: %{
         "AttendeeId" => String.t(),
         "Capabilities" => attendee_capabilities(),
         "ExternalUserId" => String.t(),
         "JoinToken" => String.t()
       }
-
+      
   """
   @type attendee() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       bad_request_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t()
       }
-
+      
   """
   @type bad_request_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       create_attendee_request() :: %{
         optional("Capabilities") => attendee_capabilities(),
         required("ExternalUserId") => String.t()
       }
-
+      
   """
   @type create_attendee_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       media_placement() :: %{
         "AudioFallbackUrl" => String.t(),
         "AudioHostUrl" => String.t(),
@@ -691,30 +691,30 @@ defmodule AWS.ChimeSDKMeetings do
         "SignalingUrl" => String.t(),
         "TurnControlUrl" => String.t()
       }
-
+      
   """
   @type media_placement() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       too_many_tags_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
         "RequestId" => String.t(),
         "ResourceName" => String.t()
       }
-
+      
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
-
+      
       delete_attendee_request() :: %{}
-
+      
   """
   @type delete_attendee_request() :: %{}
 
@@ -903,38 +903,44 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string`) The Amazon Chime SDK ID of the meeting to which
-    you're adding attendees.
+  you're adding attendees.
 
   ## Optional parameters:
   """
-  @spec batch_create_attendee(
-          AWS.Client.t(),
-          String.t(),
-          batch_create_attendee_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_create_attendee_errors()}
-  def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def batch_create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -947,35 +953,45 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string`) The ID of the meeting associated with the update
-    request.
+  request.
 
   ## Optional parameters:
   """
-  @spec batch_update_attendee_capabilities_except(
-          AWS.Client.t(),
-          String.t(),
-          batch_update_attendee_capabilities_except_request(),
-          Keyword.t()
-        ) ::
+
+  @spec batch_update_attendee_capabilities_except(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, batch_update_attendee_capabilities_except_errors()}
-  def batch_update_attendee_capabilities_except(
-        %Client{} = client,
-        meeting_id,
-        input,
-        options \\ []
-      ) do
+
+  def batch_update_attendee_capabilities_except(%Client{} = client, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/capabilities?operation=batch-update-except"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -991,29 +1007,40 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec create_attendee(AWS.Client.t(), String.t(), create_attendee_request(), Keyword.t()) ::
+
+  @spec create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_attendee_errors()}
-  def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def create_attendee(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1032,29 +1059,40 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec create_meeting(AWS.Client.t(), create_meeting_request(), Keyword.t()) ::
+
+  @spec create_meeting(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_errors()}
-  def create_meeting(%Client{} = client, input, options \\ []) do
+
+  def create_meeting(%Client{} = client, options \\ []) do
     url_path = "/meetings"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1073,33 +1111,40 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec create_meeting_with_attendees(
-          AWS.Client.t(),
-          create_meeting_with_attendees_request(),
-          Keyword.t()
-        ) ::
+
+  @spec create_meeting_with_attendees(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, create_meeting_with_attendees_errors()}
-  def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
+
+  def create_meeting_with_attendees(%Client{} = client, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1118,25 +1163,39 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec delete_attendee(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          delete_attendee_request(),
-          Keyword.t()
-        ) ::
+
+  @spec delete_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_attendee_errors()}
-  def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
+
+  def delete_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1145,7 +1204,7 @@ defmodule AWS.ChimeSDKMeetings do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1166,17 +1225,38 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec delete_meeting(AWS.Client.t(), String.t(), delete_meeting_request(), Keyword.t()) ::
+
+  @spec delete_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, delete_meeting_errors()}
-  def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def delete_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
+
+    body = nil
 
     Request.request_rest(
       client,
@@ -1185,7 +1265,7 @@ defmodule AWS.ChimeSDKMeetings do
       url_path,
       query_params,
       headers,
-      input,
+      body,
       options,
       204
     )
@@ -1206,10 +1286,12 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
+
   @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_attendee_errors()}
+
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -1252,10 +1334,12 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
+
   @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_meeting_errors()}
+
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
 
@@ -1297,14 +1381,16 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-    single call.
+  single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-    results.
+  results.
   """
+
   @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_attendees_errors()}
+
   def list_attendees(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
 
@@ -1361,11 +1447,14 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
+
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
-  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ [])
+      when is_binary(resource_arn) do
     url_path = "/tags"
 
     # Validate optional parameters
@@ -1411,34 +1500,40 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec start_meeting_transcription(
-          AWS.Client.t(),
-          String.t(),
-          start_meeting_transcription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec start_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, start_meeting_transcription_errors()}
-  def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def start_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1463,38 +1558,44 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string`) The unique ID of the meeting for which you stop
-    transcription.
+  transcription.
 
   ## Optional parameters:
   """
-  @spec stop_meeting_transcription(
-          AWS.Client.t(),
-          String.t(),
-          stop_meeting_transcription_request(),
-          Keyword.t()
-        ) ::
+
+  @spec stop_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, stop_meeting_transcription_errors()}
-  def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
+
+  def stop_meeting_transcription(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      200
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
   end
 
   @doc """
@@ -1506,29 +1607,40 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+
+  @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
-  def tag_resource(%Client{} = client, input, options \\ []) do
+
+  def tag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=tag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1543,29 +1655,40 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Optional parameters:
   """
-  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+
+  @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, untag_resource_errors()}
-  def untag_resource(%Client{} = client, input, options \\ []) do
+
+  def untag_resource(%Client{} = client, options \\ []) do
     url_path = "/tags?operation=untag-resource"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(
-      client,
-      meta,
-      :post,
-      url_path,
-      query_params,
-      headers,
-      input,
-      options,
-      204
-    )
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 204)
   end
 
   @doc """
@@ -1577,38 +1700,46 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:attendee_id` (`t:string`) The ID of the attendee associated with the update
-    request.
+  request.
   * `:meeting_id` (`t:string`) The ID of the meeting associated with the update
-    request.
+  request.
 
   ## Optional parameters:
   """
-  @spec update_attendee_capabilities(
-          AWS.Client.t(),
-          String.t(),
-          String.t(),
-          update_attendee_capabilities_request(),
-          Keyword.t()
-        ) ::
+
+  @spec update_attendee_capabilities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_attendee_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, update_attendee_capabilities_errors()}
-  def update_attendee_capabilities(
-        %Client{} = client,
-        attendee_id,
-        meeting_id,
-        input,
-        options \\ []
-      ) do
+
+  def update_attendee_capabilities(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/capabilities"
 
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
     headers = []
+
+    # Optional headers
+
+    # Required query params
     query_params = []
+
+    # Optional query params
 
     meta =
       metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    body = nil
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, body, options, 200)
   end
 end
